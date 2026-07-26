@@ -1294,104 +1294,117 @@ Object.assign(window, {
 const {
   Stage,
   StageCopy,
-  StorySection,
   Outcome,
   StageAction,
-  ChapterNav,
-  FactsPanel,
-  CardGrid,
-  GridCard,
-  Ledger,
-  SourceMap,
-  Pipeline,
+  RegistrationMark,
   ArtifactFigure,
-  PullQuote,
-  ProvenanceNote,
-  Eyebrow,
-  RegistrationMark
+  Eyebrow
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
 
-/* Four parts after the overview, not five: Horizon mobile has one real hinge (the feed is an
-   answer, not the question) and one decision set (the five-job content model), so Problem,
-   Reframe, Decisions, Proof carries the whole argument without padding a chapter that would
-   otherwise repeat itself. Every number here is qualitative on purpose — no source for this
-   project publishes a percentage, unlike Verso or First-time VR, and the case says so rather
-   than rounding a feeling into a figure. */
-const HORIZON_CHAPTERS = [{
-  id: "overview",
-  label: "Overview"
-}, {
-  id: "problem",
-  label: "Problem"
-}, {
-  id: "reframe",
-  label: "Reframe"
-}, {
-  id: "decisions",
-  label: "Decisions"
-}, {
-  id: "proof",
-  label: "Proof"
-}];
+/* Rebuilt in the "Thomas" metronome (a Framer case-page template Caleb found: a facts strip, then
+   label / prose / one artifact, repeated, nothing else) and then folded into the "pine all the way
+   down" law screen-utility.jsx's AboutDocument landed on main the same session (598c98c, 5704a63):
+   the cover's own stage-green ground continues underneath the whole scroll — plain `<section
+   data-tone="stage">` blocks, a ~640px centered reading column, left-aligned display-m headers,
+   paragraphs, hairline separators at 25% ink — rather than the case/ component family's own
+   nav-and-numbered-chapter apparatus. Four rules this file holds to:
+
+   1. ONE GROUND. Every section below the cover is tone="stage". Nothing rotates through
+      paper/bright/dark as a chapter color. The one deliberate exception is the single quote
+      interlude in "Decisions" — an intentional ink-black card, the "punctuation" Caleb asked to
+      keep in the vocabulary, used exactly once, never as a repeating pattern.
+   2. NO SECOND COVER. Below the facts line, the reader drops straight into prose — no eyebrow or
+      deck slab restating the cover's own title and claim in smaller type.
+   3. THREE TEXT SIZES. Per CLAUDE.md's "Three text sizes" law (added this session): a header per
+      beat, body paragraphs, and a plain-sans figure caption. No mono kickers, no numbered chapter
+      stamps, no labeled fact cells — FactsPanel, CaseNav, CaseSection, StoryBeat, CaseQuote, and
+      ProvenanceNote are all sat out here because each either renders a 9-11px mono label or (in
+      CaseQuote's case) its own fixed quote-size, a fourth size this law doesn't leave room for. The
+      one quote interlude reuses the beat-header style verbatim, in its own dark card, rather than
+      inventing a size — it reads as a header-weight statement, not a fourth register. What replaces
+      the sticky jump nav: nothing. Thomas itself has no per-case anchor nav either, only its
+      persistent site rail, which this system already has in IndexRail.
+   4. ARTIFACTS FLOAT LIGHT. ArtifactFigure's frame sits on `--surface-mat`, a fixed light color
+      regardless of surrounding tone, so it already renders as a paper-light panel on the pine
+      ground with no extra work — the Usborne device, for free.
+
+   Six beats, matching the brief's mapping: the situation (the 0-to-1 redesign, one app doing two
+   jobs), decisions (the five-job content model and the quest-card IA questions — the strongest
+   existing material, drawn from Caleb's own account in reference/intake-horizon-2026-07-25.md and
+   paraphrased fresh, never quoted), experiments (the quests homepage and feed units, with the
+   rounded figures CLAUDE.md's 2026-07-25 ruling approved straight from the résumé bullet in
+   kit-data experience[0]), the boundary, and the outcome, which closes on a short reflection that
+   loops back to the cover's claim without repeating its exact sentence. Cut entirely: CardGrid/
+   GridCard, ChapterNav, StorySection's tone rotation, DataTable and Pipeline (no table-shaped
+   evidence here), and one of the two existing artifacts wherever a beat only earned one. Both
+   artifacts that survive are the two already wired in kit-data — no new image reference. */
+
+const SECTION_PAD_FIRST = "clamp(40px,6vh,64px) var(--gutter) 0";
+const SECTION_PAD = "0 var(--gutter) clamp(56px,8vh,96px)";
+const HAIRLINE = "1px solid color-mix(in srgb, var(--story-ink) 25%, transparent)";
+const header = {
+  margin: 0,
+  textAlign: "left",
+  fontFamily: "var(--font-sans)",
+  fontSize: "var(--display-m-size)",
+  fontWeight: "var(--display-m-weight)",
+  lineHeight: "var(--display-m-leading)",
+  letterSpacing: "var(--display-m-tracking)"
+};
+const proseCol = {
+  marginTop: 22,
+  display: "flex",
+  flexDirection: "column",
+  gap: "1.15em",
+  fontFamily: "var(--font-sans)",
+  fontSize: "var(--prose-size)",
+  lineHeight: "var(--prose-leading)",
+  letterSpacing: "var(--prose-tracking)"
+};
+function Beat({
+  id,
+  first,
+  title,
+  children
+}) {
+  return /*#__PURE__*/React.createElement("section", {
+    "data-tone": "stage",
+    style: {
+      background: "var(--story-bg)",
+      color: "var(--story-ink)",
+      padding: first ? SECTION_PAD_FIRST : SECTION_PAD
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    id: id,
+    style: {
+      maxWidth: 640,
+      margin: "0 auto",
+      scrollMarginTop: 56,
+      ...(first ? null : {
+        borderTop: HAIRLINE,
+        paddingTop: "clamp(40px,6vh,64px)"
+      })
+    }
+  }, title && /*#__PURE__*/React.createElement("h2", {
+    style: header
+  }, title), /*#__PURE__*/React.createElement("div", {
+    style: proseCol
+  }, children)));
+}
 function HorizonDocument({
   project,
   onNext,
   nextProject,
   scrollRef
 }) {
-  const [chapter, setChapter] = React.useState("overview");
-  React.useEffect(() => {
-    const node = scrollRef.current;
-    if (!node) return;
-    const onScroll = () => {
-      const marks = node.querySelectorAll("[data-chapter]");
-      let current = "overview";
-      marks.forEach(m => {
-        if (m.getBoundingClientRect().top < 220) current = m.dataset.chapter;
-      });
-      setChapter(current);
-    };
-    node.addEventListener("scroll", onScroll, {
-      passive: true
+  const openStory = () => {
+    const target = document.getElementById("situation");
+    if (!target) return;
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({
+      behavior: reduce ? "auto" : "smooth",
+      block: "start"
     });
-    return () => node.removeEventListener("scroll", onScroll);
-  }, [scrollRef]);
-  const glide = React.useRef(null);
-  /* The glide writes scrollTop every frame; without this it keeps writing to a detached
-     scroller when the reader switches documents mid-animation. */
-  React.useEffect(() => () => {
-    if (glide.current) cancelAnimationFrame(glide.current);
-  }, []);
-  const jump = id => {
-    const node = scrollRef.current;
-    const target = node && node.querySelector('[data-chapter="' + id + '"]');
-    if (!node || !target) return;
-    const to = Math.max(0, node.scrollTop + target.getBoundingClientRect().top - node.getBoundingClientRect().top - 64);
-    if (glide.current) cancelAnimationFrame(glide.current);
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      node.scrollTop = to;
-      return;
-    }
-    const from = node.scrollTop,
-      start = performance.now(),
-      dur = 430;
-    const ease = x => {
-      const b = (t, p, q) => 3 * (1 - t) * (1 - t) * t * p + 3 * (1 - t) * t * t * q + t * t * t;
-      let lo = 0,
-        hi = 1,
-        t = x;
-      for (let i = 0; i < 12; i++) {
-        t = (lo + hi) / 2;
-        if (b(t, 0.16, 0.3) < x) lo = t;else hi = t;
-      }
-      return b(t, 1, 1);
-    };
-    const step = now => {
-      const p = Math.min(1, (now - start) / dur);
-      node.scrollTop = from + (to - from) * ease(p);
-      if (p < 1) glide.current = requestAnimationFrame(step);
-    };
-    glide.current = requestAnimationFrame(step);
   };
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
     style: {
@@ -1411,191 +1424,117 @@ function HorizonDocument({
     style: {
       marginTop: 23
     },
-    onClick: () => jump("problem")
+    onClick: openStory
   }, "Open case story")), /*#__PURE__*/React.createElement(SceneCharacter, {
     src: project.character,
     alt: project.characterAlt
-  })), /*#__PURE__*/React.createElement(ChapterNav, {
-    chapters: HORIZON_CHAPTERS,
-    active: chapter,
-    onSelect: jump
-  }), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "overview"
-  }, /*#__PURE__*/React.createElement(FactsPanel, {
-    facts: [{
-      label: "Role",
-      value: project.role
-    }, {
-      label: "Team and surface",
-      value: project.teamSurface
-    }]
-  })), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "problem"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "paper",
-    index: "01",
-    chapterLabel: "Problem",
-    kicker: "The operating condition",
-    title: "The app only made sense next to a headset. Mobile needed a reason of its own.",
-    intro: "The Meta Quest companion app had grown up entirely in service of the headset: casting, controller status, a social layer for people already inside VR, device settings. Redesigning it into Meta Horizon raised a harder question than the visual refresh let on: did mobile have a reason to exist that wasn't borrowed from the thing strapped to someone's face, or was it always going to be a utility that only mattered when a headset happened to be nearby."
-  }, /*#__PURE__*/React.createElement(SourceMap, {
-    label: "Surfaces in scope",
-    items: project.sources
-  }), /*#__PURE__*/React.createElement(Ledger, {
-    label: "Going in",
-    items: project.ledger,
+  })), /*#__PURE__*/React.createElement(Beat, {
+    id: "overview",
+    first: true
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-8)"
+      margin: 0,
+      color: "var(--story-muted)"
     }
-  }), /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 2,
-    label: "What the app already did",
+  }, "Lead content designer, mobile retention · with product and design partners · iOS and Android, 2024.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "situation",
+    title: "The redesign had to do two jobs from one app."
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-8)"
+      margin: 0
     }
-  }, /*#__PURE__*/React.createElement(GridCard, {
-    label: "A",
-    title: "Social only in relation to VR",
-    body: "You could see friends and what they'd been up to, but every path into that information still started from owning a headset. Nothing about the app assumed a reason to open it that didn't run through the device first."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "B",
-    title: "Useful only in service of the headset",
-    body: "Casting a game to a TV, checking controller battery, launching the headset from the phone: real utility, but all of it existed to support a session that happened somewhere else. The phone's whole job was to be a remote control."
-  })))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "reframe"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "stage",
-    index: "02",
-    chapterLabel: "Reframe",
-    kicker: "The hinge",
-    title: "The feed was an answer. It was not the question.",
-    intro: "Any version of this redesign could ship a feed: discovery content, notifications, a reason to open the app more often. That is the easy read of a mobile relaunch, and it would have made Horizon into one more app competing for the same five minutes as everything else on the phone. The real constraint was narrower than a feed: whatever mobile did well, it had to keep pointing back at the headset."
-  }, /*#__PURE__*/React.createElement(PullQuote, {
-    attribution: "The product principle"
-  }, "The phone can start the loop. Play stays the destination."), /*#__PURE__*/React.createElement("p", {
+  }, "When I joined, the team had already decided to rebuild the Meta Quest companion app into Meta Horizon: a 0-to-1 redesign that would let people join Horizon Worlds from a phone, with no headset anywhere nearby. The app it was replacing had grown up entirely in service of the headset: casting a game to a TV, checking a controller's battery, a social layer for people already inside VR, device settings. Nothing about it assumed a reason to open the app that didn't run through owning a headset first."), /*#__PURE__*/React.createElement("p", {
     style: {
-      maxWidth: 640,
-      margin: "var(--space-8) 0 0",
+      margin: 0
+    }
+  }, "The redesign had to keep all of that working for the people who did own a headset, while building an entirely new front door for the people who didn't. Two jobs, from one app, and no existing research that described what using Horizon looked like with no headset in the room.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "decisions",
+    title: "The content model came before the interface did."
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "Before any of this had a screen, I helped write the strategy one-pager that went to Mark Zuckerberg's desk. That's the document that got the redesign an actual decision from leadership, not just permission to keep exploring. Once that decision existed, the easy path would have been to ship a feed: discovery content, notifications, a reason to open the app more often. That's the obvious read of a mobile relaunch, and it would have made Horizon into one more app competing for the same five minutes as everything else on a phone."), /*#__PURE__*/React.createElement("div", {
+    "data-tone": "dark",
+    style: {
+      background: "var(--story-bg)",
       color: "var(--story-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--prose-size)",
-      lineHeight: 1.5,
-      letterSpacing: "-0.025em"
+      margin: "clamp(8px,1vw,14px) 0",
+      padding: "clamp(30px,4vw,40px) clamp(22px,3vw,32px)",
+      textAlign: "center"
     }
-  }, "Going in, nobody could say what mobile would reliably promise someone who opened it twice. There was no prior pattern of repeat mobile use to build on and no content model mature enough to extend. The team was defining the loop from nothing. A feed was one candidate answer to that gap, not the gap itself. Treat a feed as the whole answer and a team ends up optimizing for how often the app gets opened instead of for whatever made opening it worthwhile."))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "decisions"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "dark",
-    index: "03",
-    chapterLabel: "Decisions",
-    kicker: "How it works",
-    title: "A five-job content model",
-    intro: "I decided it before there was an interface to put it in. Every surface in the loop had one job. The language had to make progress visible without turning Horizon into a checklist app on the way there."
-  }, /*#__PURE__*/React.createElement(Pipeline, {
-    steps: project.pipeline.map(label => ({
-      label
-    }))
-  }), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-8)"
+      ...header,
+      textAlign: "center"
     }
-  }, /*#__PURE__*/React.createElement(Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "Before the interface existed"), /*#__PURE__*/React.createElement("p", {
+  }, "The phone can start the loop. Play stays the destination.")), /*#__PURE__*/React.createElement("p", {
     style: {
-      maxWidth: 620,
-      margin: "10px 0 var(--space-6)",
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-size)",
-      lineHeight: 1.45
+      margin: 0
     }
-  }, "My contribution started before there was anything to write copy for. I framed the product, then structured the surface that carried it, then designed the content itself as something that could be tested rather than approved on read."), /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 3,
-    label: "What came before the screens"
-  }, /*#__PURE__*/React.createElement(GridCard, {
-    label: "Frame",
-    title: "Mobile-specific journeys",
-    body: "I reworked the early personas and user journeys around a gap the existing research had missed: nobody had mapped what using Horizon looked like with no headset anywhere nearby. That work fed a one-page product vision I helped write, which is what actually got the roadmap a decision from leadership."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "Structure",
-    title: "The first quests homepage",
-    body: "I owned the content model and information hierarchy for a brand-new mobile destination, built so that glancing at it told you where you stood and what to try next, with no walkthrough required to explain the page to itself."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "Learn",
-    title: "Content as a testable hypothesis",
-    body: "Feed units and reward framing went out as hypotheses, not finished decisions: each one built to answer a specific question about whether the loop could actually bring people back. When the data disagreed with a first draft, the draft was what changed."
-  }))), /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 2,
-    label: "Ownership",
+  }, "So I decided on a content model first: five reusable jobs that any surface in the loop could plug into — discover, choose, progress, reward, return. Then I had to make that real at the level of one card. A quest on mobile needed a header, and there was no default answer for what it should say. Is it the object you're trying to win, or the name of the quest? Are those even the same thing? Where does the world it belongs to show up? If a friend is already there, does the card say so, and where? Every one of those answers had to still hold once it went through localization."), /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-8)"
+      margin: 0
     }
-  }, /*#__PURE__*/React.createElement(GridCard, {
-    label: "What I led",
-    title: "Content design",
-    body: project.role
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "What I did not own",
-    title: "Boundaries",
-    body: "Visual and interaction design, engineering, and the experiment analysis belonged to the product and design partners named in the facts above."
-  })))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "proof"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "bright",
-    index: "04",
-    chapterLabel: "Proof",
-    kicker: "Evidence",
-    title: "The loop moved the numbers that were measurable.",
-    intro: "The quests homepage and the feed experiments were two separate tests of the same content model. Both moved in the direction the model predicted."
-  }, /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 2,
-    label: "What the experiments showed"
-  }, /*#__PURE__*/React.createElement(GridCard, {
-    label: "01",
-    title: "Repeat use",
-    body: "The quests homepage was the first surface built mobile-first rather than mirrored from the headset app, and it was the one that moved repeat use: early proof the destination itself, not just the novelty, was what held people's attention."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "02",
-    title: "Return behavior",
-    body: "The feed tests moved a slower number (how likely someone was to come back weeks later), which mattered more, because it spoke to the five-job model holding up as a whole, not just to one well-designed screen inside it."
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: "var(--space-8)"
-    }
-  }, /*#__PURE__*/React.createElement(ArtifactFigure, {
+  }, "None of that has a template answer. It's information architecture, and the IA for mobile was mine to work through, card by card, until the hierarchy could carry all of it without turning into a paragraph of instructions, then test it with research before a single pixel of visual design got attached to it."), /*#__PURE__*/React.createElement(ArtifactFigure, {
     contain: true,
-    src: project.artifacts[0].src,
-    alt: project.artifacts[0].alt,
-    label: project.artifacts[0].label,
-    caption: "Profile, feed, and device management as they later shipped on mobile. Shown as product context, not as the exact 2024 experiment surface."
-  })), /*#__PURE__*/React.createElement("div", {
     style: {
-      marginTop: "var(--space-6)"
-    }
-  }, /*#__PURE__*/React.createElement(ArtifactFigure, {
-    contain: true,
+      marginTop: 8
+    },
     src: project.artifacts[1].src,
     alt: project.artifacts[1].alt,
-    label: project.artifacts[1].label,
-    caption: "The identity surface the progress and reward work connected back to."
-  })), /*#__PURE__*/React.createElement(ProvenanceNote, {
-    label: "On these numbers"
-  }, "Exact lifts are not public. What I can say without a number attached: both experiments moved in the direction the model predicted, on two different timeframes, and the results were read internally as a reason to keep investing in the mobile loop rather than as a finished case."), /*#__PURE__*/React.createElement("p", {
+    caption: "The profile and identity surface the progress and reward jobs eventually connected back to."
+  })), /*#__PURE__*/React.createElement(Beat, {
+    id: "experiments",
+    title: "Two experiments tested that model against real people."
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      maxWidth: 640,
-      margin: "var(--space-8) 0 0",
-      color: "var(--story-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--prose-size)",
-      lineHeight: 1.5,
-      letterSpacing: "-0.025em"
+      margin: 0
     }
-  }, "This is the shape of work I keep angling toward: show up while a product is still just a question, help find the actual promise underneath it, then don't leave after launch. Stay close enough to find out whether that promise turned out to be true."))), /*#__PURE__*/React.createElement("div", {
+  }, "The quests homepage and feed units were two separate tests of the same five-job model, run as experiments rather than approved on read. The quests homepage was the first mobile surface built for its own screen instead of mirrored from the headset app. It showed you where you stood and what to try next, without a walkthrough explaining the page to itself. In its first test, it grew daily actives by nearly 5%."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "Feed units tested a slower number: whether the same model still brought someone back weeks later, not just the day after. It lifted 28-day retention by about 15%. That mattered more than the first result, because it argued for the model holding up as a system rather than for one well-designed screen inside it. Both are the rounded figures I'm able to publish; the dashboards behind them carry more decimal precision than is mine to share."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "Feed units and the reward framing around them went out as hypotheses, not finished decisions: each one built to answer a specific question about whether the loop could bring people back, and rewritten whenever the data disagreed with the first draft."), /*#__PURE__*/React.createElement(ArtifactFigure, {
+    contain: true,
+    style: {
+      marginTop: 8
+    },
+    src: project.artifacts[0].src,
+    alt: project.artifacts[0].alt,
+    caption: "Profile, feed, and device management as they later shipped on mobile, shown as product context, not the exact 2024 experiment surface."
+  })), /*#__PURE__*/React.createElement(Beat, {
+    id: "boundary",
+    title: "The information architecture was mine to own."
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "Content design and the IA behind it were mine: the five-job model, the quest card hierarchy, and the hypotheses behind both experiments above. Visual and interaction design, engineering, and the analysis that turned raw results into a read on the roadmap belonged to the product and design partners on the team."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "I stayed close enough to that analysis to know what the numbers were arguing, without owning the call on what to do next with them.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "outcome",
+    title: "Both experiments moved in the direction the model predicted."
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "Read together, the quests homepage's next-day movement and feed units' multi-week hold argue for something bigger than one good screen: a reason to keep investing in the loop itself."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "This is the shape of work I keep angling toward: show up while a product is still a question, help find what it can actually promise someone, then stay close enough to learn whether that promise held. For Horizon, the promise turned out to be simple: a reason to open the app that had nothing to do with a headset already being in the room.")), /*#__PURE__*/React.createElement("div", {
+    id: "next",
     "data-ds": "case-next",
     style: {
       minHeight: 190,
+      scrollMarginTop: 56,
       display: "flex",
       justifyContent: "space-between",
       gap: 24,
