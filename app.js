@@ -958,116 +958,102 @@ Object.assign(window, {
 const {
   Stage,
   StageCopy,
-  StorySection,
   Outcome,
   StageAction,
-  ChapterNav,
-  FactsPanel,
-  CardGrid,
-  GridCard,
-  Ledger,
-  Pipeline,
-  PullQuote,
-  ProvenanceNote,
-  Eyebrow,
   RegistrationMark,
-  GateRun,
-  CaptureFigure
+  ArtifactFigure,
+  CaptureFigure,
+  Eyebrow,
+  CaseMeta
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
 
-/* What a new person had to cross before they reached anyone. The costs are the ones the team
-   measured going in — they are the reason the work got funded. */
-const GATES = [{
-  label: "Choose a world",
-  cost: "before meeting anyone"
-}, {
-  label: "Consent to recording",
-  cost: "a legal gate, up front"
-}, {
-  label: "Learn fourteen-plus skills",
-  cost: "a syllabus"
-}, {
-  label: "Wait through loading",
-  cost: "90 seconds"
-}, {
-  label: "Enter the world",
-  cost: "finally"
-}];
-const VR_CHAPTERS = [{
-  id: "overview",
-  label: "Overview"
-}, {
-  id: "problem",
-  label: "Problem"
-}, {
-  id: "reframe",
-  label: "Reframe"
-}, {
-  id: "decisions",
-  label: "Decisions"
-}, {
-  id: "proof",
-  label: "Proof"
-}];
+/* Converted to the Horizon grammar (screen-horizon.jsx, "THE model"): one ink ground straight
+   through the scroll, story-sized beats with reading-size headers, article-set evidence floating
+   as light panels, one pine punctuation moment, a reflective close. Cut entirely: ChapterNav and
+   its jump()/glide scroll machinery (dead now that there is no chapter nav to jump to), FactsPanel
+   (replaced by CaseMeta), GateRun, Ledger, Pipeline, PullQuote, and ProvenanceNote — all either
+   render a mono micro-label or a fixed size the "Three text sizes" law (CLAUDE.md, 2026-07-26)
+   doesn't leave room for inside a case scroll. The three measured results move from a labelled
+   Ledger into a single prose sentence instead, which is truer to how the résumé bullet states them
+   anyway.
+
+   Six beats: the before (the fourteen-plus-lesson syllabus that stood between a new person and
+   anyone else), the reframe (a curriculum was never going to be the right shape — education had to
+   become a property of the product), the decisions (teaching on the control that needs it,
+   reinforcing on a state change), the results (the three real lifts, in prose), adoption (the Meta
+   Quest onboarding team picked up the strategy afterward), and a reflective close that folds in the
+   ownership boundary. Two artifacts survive, one per beat: a legacy vr-before-training.webp screen
+   standing in for the syllabus in "the before," and the shipped controller-nudge.mp4 capture in
+   "decisions" — both already in assets/work. The one pine interlude reuses Horizon's own
+   quote-plate markup verbatim for the line that already carried the whole strategy: "Stop teaching
+   everything once. Teach one action, in the moment it matters." */
+
+const SECTION_PAD_FIRST = "clamp(40px,6vh,64px) var(--gutter) 0";
+const SECTION_PAD = "0 var(--gutter) clamp(56px,8vh,96px)";
+const HAIRLINE = "1px solid color-mix(in srgb, var(--story-ink) 25%, transparent)";
+const header = {
+  margin: 0,
+  textAlign: "left",
+  fontFamily: "var(--font-sans)",
+  fontSize: "var(--display-m-size)",
+  fontWeight: "var(--display-m-weight)",
+  lineHeight: "var(--display-m-leading)",
+  letterSpacing: "var(--display-m-tracking)"
+};
+const proseCol = {
+  marginTop: 22,
+  display: "flex",
+  flexDirection: "column",
+  gap: "1.15em",
+  fontFamily: "var(--font-sans)",
+  fontSize: "var(--prose-size)",
+  lineHeight: "var(--prose-leading)",
+  letterSpacing: "var(--prose-tracking)"
+};
+function Beat({
+  id,
+  first,
+  title,
+  children
+}) {
+  return /*#__PURE__*/React.createElement("section", {
+    "data-tone": "dark",
+    style: {
+      background: "var(--story-bg)",
+      color: "var(--story-ink)",
+      padding: first ? SECTION_PAD_FIRST : SECTION_PAD
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    id: id,
+    style: {
+      maxWidth: 640,
+      margin: "0 auto",
+      scrollMarginTop: 56,
+      ...(first ? null : {
+        borderTop: HAIRLINE,
+        paddingTop: "clamp(40px,6vh,64px)"
+      })
+    }
+  }, title && /*#__PURE__*/React.createElement("h2", {
+    style: header
+  }, title), /*#__PURE__*/React.createElement("div", {
+    style: proseCol
+  }, children)));
+}
 function VrDocument({
   project,
   onNext,
   nextProject,
   scrollRef
 }) {
-  const [chapter, setChapter] = React.useState("overview");
-  React.useEffect(() => {
-    const node = scrollRef.current;
-    if (!node) return;
-    const onScroll = () => {
-      const marks = node.querySelectorAll("[data-chapter]");
-      let current = "overview";
-      marks.forEach(m => {
-        if (m.getBoundingClientRect().top < 220) current = m.dataset.chapter;
-      });
-      setChapter(current);
-    };
-    node.addEventListener("scroll", onScroll, {
-      passive: true
+  const openStory = () => {
+    const target = document.getElementById("before");
+    if (!target) return;
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({
+      behavior: reduce ? "auto" : "smooth",
+      block: "start"
     });
-    return () => node.removeEventListener("scroll", onScroll);
-  }, [scrollRef]);
-  const glide = React.useRef(null);
-  /* The glide writes scrollTop every frame; without this it keeps writing to a detached
-     scroller when the reader switches documents mid-animation. */
-  React.useEffect(() => () => {
-    if (glide.current) cancelAnimationFrame(glide.current);
-  }, []);
-  const jump = id => {
-    const node = scrollRef.current;
-    const target = node && node.querySelector('[data-chapter="' + id + '"]');
-    if (!node || !target) return;
-    const to = Math.max(0, node.scrollTop + target.getBoundingClientRect().top - node.getBoundingClientRect().top - 64);
-    if (glide.current) cancelAnimationFrame(glide.current);
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      node.scrollTop = to;
-      return;
-    }
-    const from = node.scrollTop,
-      start = performance.now(),
-      dur = 430;
-    const ease = x => {
-      const b = (t, p, q) => 3 * (1 - t) * (1 - t) * t * p + 3 * (1 - t) * t * t * q + t * t * t;
-      let lo = 0,
-        hi = 1,
-        t = x;
-      for (let i = 0; i < 12; i++) {
-        t = (lo + hi) / 2;
-        if (b(t, 0.16, 0.3) < x) lo = t;else hi = t;
-      }
-      return b(t, 1, 1);
-    };
-    const step = now => {
-      const p = Math.min(1, (now - start) / dur);
-      node.scrollTop = from + (to - from) * ease(p);
-      if (p < 1) glide.current = requestAnimationFrame(step);
-    };
-    glide.current = requestAnimationFrame(step);
   };
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
     style: {
@@ -1105,191 +1091,98 @@ function VrDocument({
   }, /*#__PURE__*/React.createElement(Outcome, {
     label: project.outcomeLabel,
     items: project.results
-  }))), /*#__PURE__*/React.createElement(ChapterNav, {
-    chapters: VR_CHAPTERS,
-    active: chapter,
-    onSelect: jump
-  }), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "overview"
-  }, /*#__PURE__*/React.createElement(FactsPanel, {
-    facts: [{
-      label: "Role",
-      value: project.role
-    }, {
-      label: "Team and surface",
-      value: project.teamSurface
-    }]
-  })), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "problem"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "paper",
-    index: "01",
-    chapterLabel: "Problem",
-    kicker: "The operating condition",
-    title: "People came to be with people. The onboarding made them earn it first.",
-    intro: "Horizon Worlds is a social product: the thing new users arrive for is other humans. Before they reached any, we asked them to cross five separate things. Most of them never got to the other side."
-  }, /*#__PURE__*/React.createElement(GateRun, {
-    label: "What a new person crossed before meeting anyone",
-    total: "15 minutes · 72% never finished",
-    figure: "assets/work/caleb-vr-cutout.png",
-    figureAlt: "Clay Caleb in a VR headset, controllers raised",
-    gates: GATES,
-    destination: "Other people",
-    destinationNote: "The reason they downloaded it."
-  }), /*#__PURE__*/React.createElement(Ledger, {
-    label: "Going in",
-    items: project.ledger,
+  }))), /*#__PURE__*/React.createElement(Beat, {
+    id: "overview",
+    first: true
+  }, /*#__PURE__*/React.createElement(CaseMeta, {
+    role: project.role,
+    team: project.team,
+    timeline: project.timeline,
+    surface: project.surface
+  })), /*#__PURE__*/React.createElement(Beat, {
+    id: "before",
+    title: "People came to be with people. The onboarding made them earn it first."
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-8)"
+      margin: 0
     }
-  }), /*#__PURE__*/React.createElement(ProvenanceNote, {
-    label: "On these figures"
-  }, "The drop-off, the duration, the loading time, and the lesson count are the numbers the team was working from when the project started. They describe the experience we replaced, not a result."))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "reframe"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "stage",
-    index: "02",
-    chapterLabel: "Reframe",
-    kicker: "The hinge",
-    title: "The syllabus was the problem. Not what was in it.",
-    intro: "Every proposal on the table made the curriculum better: shorter, clearer, better sequenced. None of them questioned whether a curriculum was the right shape. You cannot teach somebody to be social before they have met anyone. A person holding a controller for the first time is only looking around, not ready to learn yet."
-  }, /*#__PURE__*/React.createElement(PullQuote, {
-    attribution: "The principle everything else followed from"
-  }, "Stop teaching everything once. Teach one action, in the moment it matters."), /*#__PURE__*/React.createElement("p", {
+  }, "Horizon Worlds is a social product: the reason someone downloads it is other people. Before a new person reached any, they had to choose a world, consent to recording, complete a syllabus of fourteen-plus lessons, and wait out ninety seconds of loading. Seventy-two percent of people never made it through to the other side. Those are the numbers the team was working from when the project started. They describe the experience being replaced, not a result."), /*#__PURE__*/React.createElement(ArtifactFigure, {
+    contain: true,
     style: {
-      maxWidth: 640,
-      margin: "var(--space-8) 0 0",
-      color: "var(--stage-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--prose-size)",
-      lineHeight: 1.5,
-      letterSpacing: "-0.025em"
-    }
-  }, "Which meant the education could not be a place in the flow. It had to be a property of the product: attached to the input that needs it, triggered by what somebody is actually doing, silent the rest of the time. The fastest onboarding is the one a person never notices they are in."))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "decisions"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "dark",
-    index: "03",
-    chapterLabel: "Decisions",
-    kicker: "How it works",
-    title: "Four rules and the strings they produced.",
-    intro: "Each one is a decision I would make again on any first-run experience where the product is the teacher."
-  }, /*#__PURE__*/React.createElement(Pipeline, {
-    steps: project.pipeline.map(label => ({
-      label
-    }))
-  }), /*#__PURE__*/React.createElement("div", {
+      marginTop: 8
+    },
+    src: "assets/work/vr-before-training.webp",
+    alt: "A legacy Meta Horizon Worlds onboarding tutorial panel, one stop on the original lesson syllabus",
+    caption: "The onboarding tutorial panel a new person had to get through before reaching anyone: one stop on the fourteen-plus-lesson syllabus this case replaces. Shown as product context, not the exact original experiment screen."
+  })), /*#__PURE__*/React.createElement(Beat, {
+    id: "reframe",
+    title: "The syllabus was the problem. Not what was in it."
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-8)"
+      margin: 0
     }
-  }, /*#__PURE__*/React.createElement(Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "Teach at the input"), /*#__PURE__*/React.createElement("p", {
+  }, "Every proposal on the table made the curriculum better: shorter, clearer, better sequenced. None of them questioned whether a curriculum was the right shape. You cannot teach somebody to be social before they have met anyone, and a person holding a controller for the first time is only looking around, not ready to learn yet."), /*#__PURE__*/React.createElement("p", {
     style: {
-      maxWidth: 620,
-      margin: "10px 0 var(--space-6)",
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-size)",
-      lineHeight: 1.45
+      margin: 0
     }
-  }, "The lesson lives on the control that performs it. When somebody tries to talk while muted, the answer arrives on the thing in their hand, rather than in a panel that takes the world away to explain the world."), /*#__PURE__*/React.createElement(CaptureFigure, {
+  }, "Which meant the education could not be a place in the flow. It had to be a property of the product: attached to the input that needs it, triggered by what somebody is actually doing, silent the rest of the time. The fastest onboarding is the one a person never notices they are in."), /*#__PURE__*/React.createElement("div", {
+    "data-tone": "stage",
+    style: {
+      background: "var(--story-bg)",
+      color: "var(--story-ink)",
+      margin: "clamp(8px,1vw,14px) 0",
+      padding: "clamp(30px,4vw,40px) clamp(22px,3vw,32px)",
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      ...header,
+      textAlign: "center"
+    }
+  }, "Stop teaching everything once. Teach one action, in the moment it matters."))), /*#__PURE__*/React.createElement(Beat, {
+    id: "decisions",
+    title: "The lesson lives on the control that performs it."
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "When somebody tried to talk while muted, the answer arrived on the thing already in their hand rather than in a panel that took the world away to explain the world. Repetition was earned by something happening, never by a timer: when somebody's state changed, that was the one moment the explanation was worth their attention, so the second touch on a skill triggered off that change rather than a schedule."), /*#__PURE__*/React.createElement(CaptureFigure, {
+    style: {
+      marginTop: 8
+    },
     src: "assets/work/vr/controller-nudge.mp4",
-    label: "Shipped · controller nudge",
-    quote: "Your mic is on. You can always change it by double tapping the menu button.",
     caption: "In-headset capture of the shipped nudge. I wrote the string; the interaction was built with the product designer and engineering."
-  })), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-8)"
+      margin: 0
     }
-  }, /*#__PURE__*/React.createElement(Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "Reinforce on a state change"), /*#__PURE__*/React.createElement("p", {
+  }, "Interaction and visual design, engineering, and the experiment analysis belonged to the product designer, the engineers, and the partner teams on this. The education strategy and every string in it were mine.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "results",
+    title: "It moved the three numbers that mattered."
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      maxWidth: 620,
-      margin: "10px 0 var(--space-6)",
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-size)",
-      lineHeight: 1.45
+      margin: 0
     }
-  }, "Repetition is earned by something happening, never by a timer. When state changes under somebody, that is the one moment the explanation is worth their attention."), /*#__PURE__*/React.createElement(CaptureFigure, {
-    src: "assets/work/vr/reinforcement.mp4",
-    label: "Shipped · reinforcement",
-    caption: "The second touch on the same skill, triggered by a change in state rather than a schedule."
-  })), /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 2,
-    label: "Ownership",
+  }, "Measured against the curriculum it replaced: onboarding completion rose 29%, weekly active use rose 20%, and new-user retention rose 7%. All three moved in the direction the just-in-time model predicted: a first run people could actually finish and want to come back to.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "adoption",
+    title: "The Meta Quest onboarding team picked up the strategy afterward."
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-8)"
+      margin: 0
     }
-  }, /*#__PURE__*/React.createElement(GridCard, {
-    label: "What I led",
-    title: "Education strategy and every string",
-    body: "The just-in-time model, where each lesson attaches, what triggers it, and the words in all of it."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "What I did not own",
-    title: "Boundaries",
-    body: "Interaction and visual design, engineering, and the experiment analysis belonged to the partners named in the facts above."
-  })))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "proof"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "bright",
-    index: "04",
-    chapterLabel: "Proof",
-    kicker: "Evidence",
-    title: "It moved the three numbers that mattered.",
-    intro: "Completion, return, and retention, measured against the curriculum it replaced."
-  }, /*#__PURE__*/React.createElement(Ledger, {
-    label: "Measured",
-    items: [{
-      value: "+29%",
-      label: "Onboarding completion"
-    }, {
-      value: "+20%",
-      label: "Weekly active use"
-    }, {
-      value: "+7%",
-      label: "New-user retention"
-    }]
-  }), /*#__PURE__*/React.createElement("div", {
+  }, "The just-in-time model didn't stay scoped to this one first run. It was adopted by the team that owns onboarding across Meta Quest more broadly. That's the kind of proof a strategy actually worked: the next team building a first run reached for the same principle instead of a syllabus.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "close",
+    title: "None of it taught someone to have fun. It got out of the way long enough for them to find it."
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-8)"
+      margin: 0
     }
-  }, /*#__PURE__*/React.createElement(Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "Explorations that did not ship"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      maxWidth: 620,
-      margin: "10px 0 var(--space-6)",
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-size)",
-      lineHeight: 1.45
-    }
-  }, "Both approaches taught the same skill and were legible, but neither survived contact with someone who was new to a VR controller."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))",
-      gap: "var(--space-6)"
-    }
-  }, /*#__PURE__*/React.createElement(CaptureFigure, {
-    src: "assets/work/vr/exploration-1.mp4",
-    label: "Explored",
-    caption: "Considered, not shipped."
-  }), /*#__PURE__*/React.createElement(CaptureFigure, {
-    src: "assets/work/vr/exploration-2.mp4",
-    label: "Explored",
-    caption: "Considered, not shipped."
-  }))), /*#__PURE__*/React.createElement(ProvenanceNote, {
-    label: "What is shown"
-  }, "The captures are of the shipped experience. The copy in them is mine. The lifts are the ones the shipping team reported; I have no access to the underlying dashboards now and have not restated them more precisely than that."))), /*#__PURE__*/React.createElement("div", {
+  }, "Explanations that only show up when something in someone's hand changes are easy to miss. That was the goal, on purpose. A person who finishes onboarding without remembering being taught anything is the version of this that worked.")), /*#__PURE__*/React.createElement("div", {
+    id: "next",
     "data-ds": "case-next",
     style: {
       minHeight: 190,
+      scrollMarginTop: 56,
       display: "flex",
       justifyContent: "space-between",
       gap: 24,
@@ -1603,105 +1496,104 @@ Object.assign(window, {
 const {
   Stage,
   StageCopy,
-  StorySection,
   Outcome,
   StageAction,
-  ChapterNav,
-  FactsPanel,
-  CardGrid,
-  GridCard,
-  Ledger,
-  Pipeline,
-  DataTable,
+  RegistrationMark,
   ArtifactFigure,
-  PullQuote,
-  ProvenanceNote,
   Eyebrow,
-  RegistrationMark
+  CaseMeta
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
 
-/* Portals is a metric story before it is a UI story: the reframe is not a redesign of the
-   portal, it is a redefinition of what counts as success. So Problem carries the raw
-   experience (decision after commitment), Reframe carries the metric itself (entries vs.
-   state of intent), and Decisions carries the distance model and metadata framework that the
-   new metric made legible. Distances and the signal table come straight from source; the five
-   shipped objections are cut to three so the fight over "View Details" — the one Caleb calls
-   out as the one he is most proud of — gets room to land instead of competing with four others. */
-const PORTALS_CHAPTERS = [{
-  id: "overview",
-  label: "Overview"
-}, {
-  id: "problem",
-  label: "Problem"
-}, {
-  id: "reframe",
-  label: "Reframe"
-}, {
-  id: "decisions",
-  label: "Decisions"
-}, {
-  id: "proof",
-  label: "Proof"
-}];
+/* Converted to the Horizon grammar (screen-horizon.jsx, "THE model"): one ink ground straight
+   through the scroll, story-sized beats with reading-size headers, article-set evidence floating
+   as light panels, one pine punctuation moment, a reflective close that loops back to the cover's
+   claim without repeating it verbatim. Cut entirely: ChapterNav and its jump()/glide scroll
+   machinery, FactsPanel (replaced by CaseMeta), CardGrid/GridCard, DataTable, Pipeline, Ledger,
+   PullQuote, and ProvenanceNote — all either render a mono micro-label or a fixed size the "Three
+   text sizes" law (CLAUDE.md, 2026-07-26) doesn't leave room for inside a case scroll. The distance
+   model (far / mid / close, what shows at each) is told in prose rather than as a DataTable for the
+   same reason; it was the one place a table felt tempting, and prose does the job without a fourth
+   register. The one pine interlude reuses Horizon's own quote-plate markup verbatim (a data-tone
+   "stage" card sized to the beat header) for the line Caleb named as the fight he's proudest of.
+
+   Six beats: the operating condition (people stepped through before they had the information to
+   choose), the reframe (counting decisions instead of entries), the decisions (proximity as the
+   information architecture, the metadata framework, the pushback), the keynote (Meta Connect 2024 —
+   per the refined name rule, naming Zuckerberg is now allowed since the name carries the claim),
+   the boundary (the physical/spatial layer belonged to a different discipline, role-credited), and
+   a reflective close. Artifacts: the two already wired in kit-data (card-portals.jpg for the
+   shipped surface, card-portals-keynote.jpg for the public broadcast frame), one per beat, nothing
+   new added. Several open questions from reference/intake-portals-2026-07-25.md (the reframe's
+   originating moment, an earlier rejected fix, who argued against the distance model and what
+   changed their mind, a sayable engagement number, the precise name of the boundary discipline)
+   are marked inline as INTAKE GAP comments rather than guessed at. */
+
+const SECTION_PAD_FIRST = "clamp(40px,6vh,64px) var(--gutter) 0";
+const SECTION_PAD = "0 var(--gutter) clamp(56px,8vh,96px)";
+const HAIRLINE = "1px solid color-mix(in srgb, var(--story-ink) 25%, transparent)";
+const header = {
+  margin: 0,
+  textAlign: "left",
+  fontFamily: "var(--font-sans)",
+  fontSize: "var(--display-m-size)",
+  fontWeight: "var(--display-m-weight)",
+  lineHeight: "var(--display-m-leading)",
+  letterSpacing: "var(--display-m-tracking)"
+};
+const proseCol = {
+  marginTop: 22,
+  display: "flex",
+  flexDirection: "column",
+  gap: "1.15em",
+  fontFamily: "var(--font-sans)",
+  fontSize: "var(--prose-size)",
+  lineHeight: "var(--prose-leading)",
+  letterSpacing: "var(--prose-tracking)"
+};
+function Beat({
+  id,
+  first,
+  title,
+  children
+}) {
+  return /*#__PURE__*/React.createElement("section", {
+    "data-tone": "dark",
+    style: {
+      background: "var(--story-bg)",
+      color: "var(--story-ink)",
+      padding: first ? SECTION_PAD_FIRST : SECTION_PAD
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    id: id,
+    style: {
+      maxWidth: 640,
+      margin: "0 auto",
+      scrollMarginTop: 56,
+      ...(first ? null : {
+        borderTop: HAIRLINE,
+        paddingTop: "clamp(40px,6vh,64px)"
+      })
+    }
+  }, title && /*#__PURE__*/React.createElement("h2", {
+    style: header
+  }, title), /*#__PURE__*/React.createElement("div", {
+    style: proseCol
+  }, children)));
+}
 function PortalsDocument({
   project,
   onNext,
   nextProject,
   scrollRef
 }) {
-  const [chapter, setChapter] = React.useState("overview");
-  React.useEffect(() => {
-    const node = scrollRef.current;
-    if (!node) return;
-    const onScroll = () => {
-      const marks = node.querySelectorAll("[data-chapter]");
-      let current = "overview";
-      marks.forEach(m => {
-        if (m.getBoundingClientRect().top < 220) current = m.dataset.chapter;
-      });
-      setChapter(current);
-    };
-    node.addEventListener("scroll", onScroll, {
-      passive: true
+  const openStory = () => {
+    const target = document.getElementById("condition");
+    if (!target) return;
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({
+      behavior: reduce ? "auto" : "smooth",
+      block: "start"
     });
-    return () => node.removeEventListener("scroll", onScroll);
-  }, [scrollRef]);
-  const glide = React.useRef(null);
-  /* The glide writes scrollTop every frame; without this it keeps writing to a detached
-     scroller when the reader switches documents mid-animation. */
-  React.useEffect(() => () => {
-    if (glide.current) cancelAnimationFrame(glide.current);
-  }, []);
-  const jump = id => {
-    const node = scrollRef.current;
-    const target = node && node.querySelector('[data-chapter="' + id + '"]');
-    if (!node || !target) return;
-    const to = Math.max(0, node.scrollTop + target.getBoundingClientRect().top - node.getBoundingClientRect().top - 64);
-    if (glide.current) cancelAnimationFrame(glide.current);
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      node.scrollTop = to;
-      return;
-    }
-    const from = node.scrollTop,
-      start = performance.now(),
-      dur = 430;
-    const ease = x => {
-      const b = (t, p, q) => 3 * (1 - t) * (1 - t) * t * p + 3 * (1 - t) * t * t * q + t * t * t;
-      let lo = 0,
-        hi = 1,
-        t = x;
-      for (let i = 0; i < 12; i++) {
-        t = (lo + hi) / 2;
-        if (b(t, 0.16, 0.3) < x) lo = t;else hi = t;
-      }
-      return b(t, 1, 1);
-    };
-    const step = now => {
-      const p = Math.min(1, (now - start) / dur);
-      node.scrollTop = from + (to - from) * ease(p);
-      if (p < 1) glide.current = requestAnimationFrame(step);
-    };
-    glide.current = requestAnimationFrame(step);
   };
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
     style: {
@@ -1721,209 +1613,116 @@ function PortalsDocument({
   }, project.outcomeProse)), /*#__PURE__*/React.createElement(SceneCharacter, {
     src: project.character,
     alt: project.characterAlt
-  })), /*#__PURE__*/React.createElement(ChapterNav, {
-    chapters: PORTALS_CHAPTERS,
-    active: chapter,
-    onSelect: jump
-  }), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "overview"
-  }, /*#__PURE__*/React.createElement(FactsPanel, {
-    facts: [{
-      label: "Role",
-      value: project.role
-    }, {
-      label: "Team and surface",
-      value: project.teamSurface
-    }]
-  })), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "problem"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "paper",
-    index: "01",
-    chapterLabel: "Problem",
-    kicker: "The operating condition",
-    title: "People stepped through before they had enough information to choose.",
-    intro: "In Horizon, a portal is how you cross from one world into another. It looked like a floating oval, and it worked like a doorway: step through, and you're somewhere else. What waited on the other side stayed a mystery until you were already standing in it. The name was clipped to a few characters. No genre, no read on who else was around, nothing to weigh a decision against. The only way to find out what a world held was to already be inside it."
-  }, /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 2,
-    label: "Where the decision happened"
-  }, /*#__PURE__*/React.createElement(GridCard, {
-    label: "Before",
-    title: "The decision came after",
-    body: "Enter, then arrive, then evaluate. A person was already standing inside a world before they had any information about whether they wanted to be."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "Shipped",
-    title: "The decision comes first",
-    body: "See, then evaluate, then go or pass. The information needed to decide arrives before the step through the portal, not after it."
-  })), /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/React.createElement(Beat, {
+    id: "overview",
+    first: true
+  }, /*#__PURE__*/React.createElement(CaseMeta, {
+    role: project.role,
+    team: project.team,
+    timeline: project.timeline,
+    surface: project.surface
+  })), /*#__PURE__*/React.createElement(Beat, {
+    id: "condition",
+    title: "People stepped through a portal before they had enough information to choose."
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-8)"
+      margin: 0
     }
-  }, /*#__PURE__*/React.createElement(Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "Why this was a content problem, not a UI one"), /*#__PURE__*/React.createElement("p", {
+  }, "In Horizon, a portal is how you cross from one world into another: a floating oval that works like a doorway. Step through, and you're somewhere else. What waited on the other side stayed a mystery until you were already standing in it. The name was clipped to a few characters, with no genre and no way to tell who else was around."), /*#__PURE__*/React.createElement("p", {
     style: {
-      maxWidth: 620,
-      margin: "10px 0 var(--space-6)",
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-size)",
-      lineHeight: 1.45
+      margin: 0
     }
-  }, "The obvious fix assumes a 2D content pattern in a space that isn't 2D: bolt on a description field, a star rating, a screenshot carousel. There's no scroll, no page, and no fixed reading distance: a paragraph that reads fine up close is noise from across the room, and people approach on foot or by pointing, not by tapping a menu. Three questions actually scoped the work."), /*#__PURE__*/React.createElement(Pipeline, {
-    steps: [{
-      step: "01",
-      label: "How little information is enough for someone to commit to a world, or rule it out, with confidence?"
-    }, {
-      step: "02",
-      label: "At what point in someone's approach does each piece of that information actually earn its place?"
-    }, {
-      step: "03",
-      label: "What does copy even look like on a surface with no scroll, no page, and nothing built before it to borrow from?"
-    }]
-  })))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "reframe"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "stage",
-    index: "02",
-    chapterLabel: "Reframe",
-    kicker: "The hinge",
-    title: "The team was counting entries. I proposed counting decisions.",
-    intro: "Portal entries were the tracked success metric, which rewarded exactly the pattern causing the problem: an uninformed arrival counted as a win even when the person looked around and left immediately. I proposed measuring state of intent instead: whether someone could reach a confident yes or a confident no before they ever stepped through."
-  }, /*#__PURE__*/React.createElement(DataTable, {
-    variant: "result",
-    columns: ["", "Old metric", "New frame"],
-    rows: [["Success", "Portal entries", {
-      value: "Informed decisions",
-      highlight: true
-    }], ["Failure", "User doesn't enter", "User enters, evaluates, leaves"], ["Ideal outcome", "Maximum throughput", {
-      value: "Confident go or confident pass",
-      highlight: true
-    }], ["A pass means", "We failed", {
-      value: "The system worked",
-      highlight: true
-    }]]
-  }), /*#__PURE__*/React.createElement("p", {
+  }, "The obvious fix assumes a 2D content pattern in a space that isn't 2D: bolt on a description field or a screenshot carousel. There's no scroll and no fixed reading distance in a room. A paragraph that reads fine up close is noise from across it, and people approach on foot or by pointing, not by tapping a menu.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "reframe",
+    title: "The team was counting entries. I proposed counting decisions."
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      maxWidth: 640,
-      margin: "var(--space-8) 0 0",
-      color: "var(--story-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--prose-size)",
-      lineHeight: 1.5,
-      letterSpacing: "-0.025em"
+      margin: 0
     }
-  }, "Under the old frame, a confident pass read exactly like a failure: either way, the person never went in. Under the new one, a pass is proof the system is doing its job: the visitor didn't waste a trip, the world didn't inherit someone who didn't want to be there, and nobody had to gamble on a world they knew nothing about."))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "decisions"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "dark",
-    index: "03",
-    chapterLabel: "Decisions",
-    kicker: "How it works",
-    title: "Proximity became the interaction. The content had to earn its place at each distance.",
-    intro: "On a phone, depth is free: tuck anything behind a tap or a drawer, and the reader decides when to go looking for it. A body standing in a room doesn't have that option. There's no menu to defer to; the only variable that decides what someone sees is how close they've chosen to walk, so the information architecture had to live in the distance itself."
-  }, /*#__PURE__*/React.createElement(DataTable, {
-    variant: "result",
-    columns: ["Distance", "What shows", "How it reads", "Why"],
-    rows: [["Far · 6m+", "Title only", "Aware, not committed", "At that range a paragraph is wallpaper. The environment is still the loudest thing in the room. One word is enough to register that something is here."], ["Mid · raycast", "Title + actions", "Sizing it up", "Pointing at a portal is a small commitment of attention: enough to earn an action alongside the name, not yet enough to earn everything."], ["Close · hover", "Full metadata", "Ready to commit", "This is the moment the decision actually gets made, so it's the only distance that earns the complete picture: genre, who's already there, and what to do about it."]]
-  }), /*#__PURE__*/React.createElement("div", {
+  }, "Portal entries were the tracked success metric, which rewarded exactly the pattern causing the problem: an uninformed arrival counted as a win even when the person looked around and left immediately. I proposed measuring state of intent instead: whether someone could reach a confident yes or a confident no before they ever stepped through."), /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-8)"
+      margin: 0
     }
-  }, /*#__PURE__*/React.createElement(Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "The metadata framework"), /*#__PURE__*/React.createElement("p", {
+  }, "Under the old frame, a confident pass read exactly like a failure: either way, the person never went in. Under the new one, a pass is proof the system is doing its job. Nobody wasted a trip, and nobody had to gamble on a world they knew nothing about.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "decisions",
+    title: "Proximity became the information architecture."
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      maxWidth: 620,
-      margin: "10px 0 var(--space-6)",
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-size)",
-      lineHeight: 1.45
+      margin: 0
     }
-  }, "The distance model set the stage; UXR testing decided what actually filled it. Testing with UXR surfaced three signals that moved someone toward a confident decision: who the world is, who's already in it, and what you can do about it. None of them are stored as one fixed sentence. Each is structured data, so a translated label can run longer, shorter, or in a different word order without touching the object it describes."), /*#__PURE__*/React.createElement(DataTable, {
-    columns: ["Signal", "What it answers", "Example", "Why it matters"],
-    rows: [["Genre tags", "What is this?", "Arcade · Shooting", "Genre answers the question fastest: someone reads it and already knows whether to keep looking."], ["Social context", "Who's here?", "A friend, named, already inside", "A name someone recognized moved the decision more than a raw number of strangers ever did."], ["Actions", "What can I do?", "Go · View Details", "“Go” commits you. “View Details” exists for the person one beat away from committing who wants a last look first."]]
-  })), /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 2,
-    label: "Objections I had to answer",
+  }, "On a phone, depth is free: tuck anything behind a tap or a drawer, and the reader decides when to go looking for it. A body standing in a room doesn't have that option. There's no menu to defer to, so the only variable that decides what someone sees is how close they've chosen to walk. From six meters or more, a portal showed a title and nothing else: enough to register that something was there, not enough to weigh it. Pointing at it from mid-range added the one available action, because aiming at something is already a small commitment of attention. Only once someone closed the distance did the full picture arrive. That's the moment the decision actually gets made, so it's the only one that earns the complete picture."), /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-8)"
+      margin: 0
     }
-  }, /*#__PURE__*/React.createElement(GridCard, {
-    label: "A",
-    title: "“This will decrease portal entries.”",
-    body: "Fewer blind entries and better ones aren't the same number. The whole point of the new frame is that a pass which saves someone's time counts as a win, not a loss on the entry count."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "B",
-    title: "“Portals should feel mysterious.”",
-    body: "The mystery wasn't pulling people in. It was the reason they left the second they arrived somewhere they hadn't chosen. Once entering costs something real, knowing what you're walking into is the inviting part, not the unknown."
-  })), /*#__PURE__*/React.createElement(PullQuote, {
-    attribution: "The fight I'm most proud of: keeping “View Details”"
-  }, "It isn't friction. It's the only thing standing between a guess and an actual yes."), /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 2,
-    label: "Ownership",
-    style: {
-      marginTop: "var(--space-8)"
-    }
-  }, /*#__PURE__*/React.createElement(GridCard, {
-    label: "What I led",
-    title: "Content design",
-    body: "The distance model, the metadata framework, and the case for keeping every piece of it against real pushback from partners who saw added information as added friction."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "What I did not own",
-    title: "Boundaries",
-    body: "A different discipline handled the physical layer this sits on top of: sizing the portal against how tall an average person actually is, and tuning how forgiving the pointing has to feel so aiming at it doesn't fight your hand. What I decided was which piece of information each distance had earned the right to show."
-  })))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "proof"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "bright",
-    index: "04",
-    chapterLabel: "Proof",
-    kicker: "Evidence",
-    title: "It shipped, it was tested, and it went onstage.",
-    intro: "Getting to yes took a deck, two separate A/B tests, and a state-of-intent argument that gave leadership a reason to read a falling entry count as a good sign. One test covered genre tags; the other covered social context."
-  }, /*#__PURE__*/React.createElement(Ledger, {
-    label: "What happened",
-    items: project.ledger
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: "var(--space-8)"
-    }
-  }, /*#__PURE__*/React.createElement(ArtifactFigure, {
+  }, "UXR testing decided what filled each distance. Three signals moved someone toward a confident decision: who the world is, who's already in it, and what you can do about it. None of them are stored as one fixed sentence. Each is structured data, so a translated label can run to a different length without touching the object it describes. The metadata framework that came out of this became the reference other travel surfaces across the company drew from as they built the same kind of decision into their own designs."), /*#__PURE__*/React.createElement(ArtifactFigure, {
     contain: true,
+    style: {
+      marginTop: 8
+    },
     src: project.artifacts[0].src,
     alt: project.artifacts[0].alt,
-    label: project.artifacts[0].label,
-    caption: "A portal at approach distance: identity, who is already inside, and the one action the moment calls for."
-  })), /*#__PURE__*/React.createElement("div", {
+    caption: project.artifacts[0].caption
+  }), /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-6)"
+      margin: 0
     }
-  }, /*#__PURE__*/React.createElement(ArtifactFigure, {
+  }, "Not everyone agreed. The two objections I heard most: that surfacing all of this would decrease portal entries, and that portals should stay mysterious. Fewer blind entries and better ones aren't the same number. A pass that saves someone's time is a win under the new frame, not a loss on the entry count. And the mystery was never what pulled people in; it was the reason they left the moment they arrived somewhere they hadn't chosen. The piece I fought hardest to keep was “View Details,” the second action for the person one beat away from committing who wanted a last look first."), /*#__PURE__*/React.createElement("div", {
+    "data-tone": "stage",
+    style: {
+      background: "var(--story-bg)",
+      color: "var(--story-ink)",
+      margin: "clamp(8px,1vw,14px) 0",
+      padding: "clamp(30px,4vw,40px) clamp(22px,3vw,32px)",
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      ...header,
+      textAlign: "center"
+    }
+  }, "It isn't friction. It's the only thing standing between a guess and an actual yes."))), /*#__PURE__*/React.createElement(Beat, {
+    id: "keynote",
+    title: "It went on stage at Meta Connect 2024."
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "The portal this case describes was unveiled by Mark Zuckerberg at the Meta Connect 2024 keynote, live in front of the audience watching the future of Horizon get introduced. It shipped, portal engagement and retention both moved in the direction the reframe predicted, and the work earned VP alignment on that basis."), /*#__PURE__*/React.createElement(ArtifactFigure, {
     contain: true,
+    style: {
+      marginTop: 8
+    },
     src: project.artifacts[1].src,
     alt: project.artifacts[1].alt,
-    label: project.artifacts[1].label,
-    caption: "The Meta Connect 2024 keynote, where the spatial navigation work this case describes was shown publicly. Frame from the public broadcast."
-  })), /*#__PURE__*/React.createElement(ProvenanceNote, {
-    label: "On these numbers"
-  }, "Portal engagement and retention both moved in the direction the reframe predicted, and the work earned VP alignment on that basis. Exact figures are not public. What is stated here is the direction of the result, not a number I do not have."), /*#__PURE__*/React.createElement("p", {
+    caption: project.artifacts[1].caption
+  })), /*#__PURE__*/React.createElement(Beat, {
+    id: "boundary",
+    title: "The physical layer belonged to a different discipline."
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      maxWidth: 640,
-      margin: "var(--space-8) 0 0",
-      color: "var(--story-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--prose-size)",
-      lineHeight: 1.5,
-      letterSpacing: "-0.025em"
+      margin: 0
     }
-  }, "Most content design questions start from what got tapped. This one started from where a body was standing, and that single swap rewrote the hierarchy: how much could appear on screen at once, and exactly when each piece was allowed to show. Raw entry counts never told the difference between a curious visitor and an informed one. That distinction is the whole reason the metric had to change before the content could."))), /*#__PURE__*/React.createElement("div", {
+  }, "The distance model, the metadata framework, and the case for keeping every piece of it against real pushback were content design's to own. A different discipline handled the physical layer this sits on top of: sizing a portal against how tall an average person actually is, and tuning how forgiving the pointing had to feel so aiming at it didn't fight your hand. What I decided was which piece of information each distance had earned the right to show."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "The framework outlived the keynote. The team that owns new-user onboarding picked up the portal-education work afterward, prototyping what teaching someone to read a portal well could look like before they ever step through one.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "close",
+    title: "Raw entry counts never told the difference between a curious visitor and an informed one."
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "Most content design questions start from what got tapped. This one started from where a body was standing, and that single swap rewrote the hierarchy: how much appeared on screen at once, and exactly when each piece was allowed to show."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "Designing navigation for a space with no page and no scroll. Proximity turned out to be the only interface that actually fit the room, because nothing had been built before it to borrow from.")), /*#__PURE__*/React.createElement("div", {
+    id: "next",
     "data-ds": "case-next",
     style: {
       minHeight: 190,
+      scrollMarginTop: 56,
       display: "flex",
       justifyContent: "space-between",
       gap: 24,
