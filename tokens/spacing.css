@@ -37,6 +37,8 @@
   --topbar-height:60px;
   --chapter-nav-height:56px;
   --utility-nav-height:62px;
+  /* the compact phone identity bar — same value as the source's --mobile-global-bar */
+  --mobile-bar-height:56px;
   --spine-item-min:82px;
   /* No --card-min-height. A cell is as tall as what it holds; a floor is dead ground by another name. */
   --figure-min-height:360px;

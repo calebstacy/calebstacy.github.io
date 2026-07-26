@@ -10,6 +10,7 @@ function SceneCharacter({
   alt
 }) {
   return /*#__PURE__*/React.createElement("div", {
+    "data-ds": "scene-character",
     style: {
       position: "absolute",
       zIndex: 5,
@@ -252,6 +253,7 @@ function ProjectDocument({
     label: a.label,
     caption: a.caption
   })), /*#__PURE__*/React.createElement(ProvenanceNote, null, project.evidenceNote || "Internal material is never exposed. Reconstructions are labelled as reconstructions."))), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "case-next",
     style: {
       minHeight: 190,
       display: "flex",
@@ -1255,6 +1257,7 @@ function VrDocument({
   }))), /*#__PURE__*/React.createElement(ProvenanceNote, {
     label: "What is shown"
   }, "The captures are of the shipped experience. The copy in them is mine. The lifts are the ones the shipping team reported; I have no access to the underlying dashboards now and have not restated them more precisely than that."))), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "case-next",
     style: {
       minHeight: 190,
       display: "flex",
@@ -1590,6 +1593,7 @@ function HorizonDocument({
       letterSpacing: "-0.025em"
     }
   }, "This is the shape of work I keep angling toward: show up while a product is still just a question, help find the actual promise underneath it, then don't leave after launch. Stay close enough to find out whether that promise turned out to be true."))), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "case-next",
     style: {
       minHeight: 190,
       display: "flex",
@@ -1950,6 +1954,7 @@ function PortalsDocument({
       letterSpacing: "-0.025em"
     }
   }, "Most content design questions start from what got tapped. This one started from where a body was standing, and that single swap rewrote the hierarchy: how much could appear on screen at once, and exactly when each piece was allowed to show. Raw entry counts never told the difference between a curious visitor and an informed one. That distinction is the whole reason the metric had to change before the content could."))), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "case-next",
     style: {
       minHeight: 190,
       display: "flex",
@@ -1986,103 +1991,67 @@ Object.assign(window, {
 const {
   Stage,
   StageCopy,
-  StorySection,
   Outcome,
   StageAction,
-  ChapterNav,
   FactsPanel,
-  CardGrid,
-  GridCard,
-  Pipeline,
   DataTable,
-  PullQuote,
   ProvenanceNote,
-  Eyebrow,
-  RegistrationMark
+  RegistrationMark,
+  CaseNav,
+  CaseSection,
+  StoryBeat,
+  Eyebrow
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
 
-/* Word Math is a research case, not a product case: there is no shipped surface, so Problem and
-   Reframe carry the argument (voice guidance reaches a model in the wrong grammar; a "well
-   written" guide is assumed to work, and that assumption is testable) and Decisions/Proof carry
-   the method and the real numbers. The twelve dimensions are disclosed four at a time, same
-   restraint as Verso's eleven — naming everything measured is less honest than naming what the
-   case actually uses. Every number below is the real Sonnet 4.6 result set from the published
-   write-up; no dimension name or figure is invented for this document. */
-const WORDMATH_CHAPTERS = [{
+/* Rebuilt narrative-first (CLAUDE.md, "Narrative first," 2026-07-25): a clear header per section,
+   then paragraphs, components only where a reader genuinely needs to see rather than be told
+   something. One rendering survives from the old component-dense page: the results table, because
+   a three-way comparison across twelve dimensions is the one thing here that actually has to be
+   seen. Everything else the old page carried as CardGrid, GridCard, Pipeline, PullQuote, and
+   Eyebrow labels is folded back into prose. Every number and claim below already existed in the
+   prior version of this file or in project/kit-data.js's word-math entry; the one addition is the
+   guide's name, Mailchimp, confirmed by the word-math repo's own experiment protocol
+   (experiments/PROTOCOL.md) and by the brief this rebuild was commissioned under. Renamed the
+   results table's "Published guide" column to "Mailchimp" to match; the six scored values inside
+   it are unchanged. Shares the CaseNav / CaseSection / StoryBeat shape screen-verso.jsx introduced,
+   at a fraction of the density — six short chapters, one table, one scope note. */
+const WORDMATH_STOPS = [{
   id: "overview",
   label: "Overview"
 }, {
-  id: "problem",
-  label: "Problem"
+  id: "idea",
+  label: "Idea"
 }, {
-  id: "reframe",
-  label: "Reframe"
+  id: "guide",
+  label: "Guide"
 }, {
-  id: "decisions",
-  label: "Decisions"
+  id: "translation",
+  label: "Translation"
 }, {
-  id: "proof",
-  label: "Proof"
+  id: "measurement",
+  label: "Measurement"
+}, {
+  id: "shipped",
+  label: "Shipped"
+}, {
+  id: "limits",
+  label: "Limits"
 }];
+const NAV_OFFSET = 56;
 function WordMathDocument({
   project,
   onNext,
   nextProject,
   scrollRef
 }) {
-  const [chapter, setChapter] = React.useState("overview");
-  React.useEffect(() => {
-    const node = scrollRef.current;
-    if (!node) return;
-    const onScroll = () => {
-      const marks = node.querySelectorAll("[data-chapter]");
-      let current = "overview";
-      marks.forEach(m => {
-        if (m.getBoundingClientRect().top < 220) current = m.dataset.chapter;
-      });
-      setChapter(current);
-    };
-    node.addEventListener("scroll", onScroll, {
-      passive: true
+  const openStory = () => {
+    const target = document.getElementById("idea");
+    if (!target) return;
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({
+      behavior: reduce ? "auto" : "smooth",
+      block: "start"
     });
-    return () => node.removeEventListener("scroll", onScroll);
-  }, [scrollRef]);
-  const glide = React.useRef(null);
-  /* The glide writes scrollTop every frame; without this it keeps writing to a detached
-     scroller when the reader switches documents mid-animation. */
-  React.useEffect(() => () => {
-    if (glide.current) cancelAnimationFrame(glide.current);
-  }, []);
-  const jump = id => {
-    const node = scrollRef.current;
-    const target = node && node.querySelector('[data-chapter="' + id + '"]');
-    if (!node || !target) return;
-    const to = Math.max(0, node.scrollTop + target.getBoundingClientRect().top - node.getBoundingClientRect().top - 64);
-    if (glide.current) cancelAnimationFrame(glide.current);
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      node.scrollTop = to;
-      return;
-    }
-    const from = node.scrollTop,
-      start = performance.now(),
-      dur = 430;
-    const ease = x => {
-      const b = (t, p, q) => 3 * (1 - t) * (1 - t) * t * p + 3 * (1 - t) * t * t * q + t * t * t;
-      let lo = 0,
-        hi = 1,
-        t = x;
-      for (let i = 0; i < 12; i++) {
-        t = (lo + hi) / 2;
-        if (b(t, 0.16, 0.3) < x) lo = t;else hi = t;
-      }
-      return b(t, 1, 1);
-    };
-    const step = now => {
-      const p = Math.min(1, (now - start) / dur);
-      node.scrollTop = from + (to - from) * ease(p);
-      if (p < 1) glide.current = requestAnimationFrame(step);
-    };
-    glide.current = requestAnimationFrame(step);
   };
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
     style: {
@@ -2102,16 +2071,17 @@ function WordMathDocument({
     style: {
       marginTop: 23
     },
-    onClick: () => jump("problem")
+    onClick: openStory
   }, "Open case story")), /*#__PURE__*/React.createElement(SceneCharacter, {
     src: project.character,
     alt: project.characterAlt
-  })), /*#__PURE__*/React.createElement(ChapterNav, {
-    chapters: WORDMATH_CHAPTERS,
-    active: chapter,
-    onSelect: jump
-  }), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "overview"
+  })), /*#__PURE__*/React.createElement(CaseNav, {
+    scrollRoot: scrollRef,
+    stops: WORDMATH_STOPS
+  }), /*#__PURE__*/React.createElement(CaseSection, {
+    id: "overview",
+    tone: "paper",
+    scrollMarginTop: NAV_OFFSET
   }, /*#__PURE__*/React.createElement(FactsPanel, {
     facts: [{
       label: "Role",
@@ -2120,118 +2090,82 @@ function WordMathDocument({
       label: "Team and surface",
       value: project.teamSurface
     }]
-  })), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "problem"
-  }, /*#__PURE__*/React.createElement(StorySection, {
+  })), /*#__PURE__*/React.createElement(CaseSection, {
+    id: "idea",
     tone: "paper",
     index: "01",
-    chapterLabel: "Problem",
-    kicker: "The operating condition",
-    title: "Voice guidance is written for readers. A model needs the writer's version.",
-    intro: "“Friendly,” “warm,” and “clear” are reader-side words. They name an effect, not a cause. Nothing about the word itself tells a writer, or a model, which sentence features actually produce that effect for a given audience and context. A person closes that gap by instinct, differently every time they sit down to write. A model closes it by guessing, differently every time it generates."
-  }, /*#__PURE__*/React.createElement("div", {
+    title: "The idea",
+    scrollMarginTop: NAV_OFFSET
+  }, /*#__PURE__*/React.createElement(StoryBeat, {
+    kicker: "Where this started",
+    title: "A voice guide names an effect. It never names how to produce it.",
+    intro: "Every guide I've read is built out of adjectives: warm, friendly, direct, clear. Those words name what a reader is supposed to feel. They don't name what a writer, a person or a model, actually has to do on the page to make them feel it. A person closes that gap by instinct, differently every time they sit down to write. A model closes it by guessing, differently every time it generates."
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-2, 12px)"
-    }
-  }, /*#__PURE__*/React.createElement(Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "The decomposition"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      maxWidth: 640,
-      margin: "10px 0 0",
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-size)",
-      lineHeight: 1.45
-    }
-  }, "Take \"friendly\" apart and it resolves into checkable form: involvement above seven, directness above six, lexical sophistication on the low side, readability above six. Four measurable properties, each one a model can be told to hit and a script can confirm afterward, rather than a single adjective it has to interpret on its own.")), /*#__PURE__*/React.createElement(ProvenanceNote, {
-    label: "On scope",
-    style: {
-      marginTop: "var(--space-8)"
-    }
-  }, "Word Math and Verso, the Meta-owned system covered elsewhere in this portfolio, do not share a line of code, a prompt, or a standard. I built this engine from zero on dependencies anyone can license, and every method and result in this case can be reproduced outside Meta, from public research alone."))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "reframe"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "stage",
-    index: "02",
-    chapterLabel: "Reframe",
-    kicker: "The hinge",
-    title: "A well-written voice guide is assumed to work. I tested whether it does.",
-    intro: "The standard advice is to write a good voice guide and drop it into the prompt. I didn't take that on faith. I ran the identical task three ways: a naive one-line instruction, a real published brand guide copied into the system prompt exactly as written, and that same brand's voice translated into Word Math's own form-side constraints. Then I measured what each condition actually produced."
-  }, /*#__PURE__*/React.createElement(PullQuote, {
-    attribution: "Selected finding"
-  }, "Numbers controlled surface features. English still mattered for composition."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      maxWidth: 640,
-      margin: "var(--space-8) 0 0",
+      maxWidth: 660,
+      margin: "var(--space-6) 0 0",
       color: "var(--story-ink)",
       fontFamily: "var(--font-sans)",
       fontSize: "var(--prose-size)",
-      lineHeight: 1.5,
-      letterSpacing: "-0.025em"
+      lineHeight: "var(--prose-leading)",
+      letterSpacing: "var(--prose-tracking)"
     }
-  }, "Neither the naive prompt nor the published guide is a straw man here. Both are close to what I've seen teams actually do. The question was never whether guidance helps: it was which grammar of guidance a model can actually act on."))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "decisions"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "dark",
+  }, "I built an engine, Word Math, that scores a piece of writing on twelve dimensions instead of adjectives: how personal it sounds, how readable it is, how direct, how emotionally warm, and eight more, each one a number a script can check rather than an impression a person has to interpret. Then I ran the test nobody selling a voice guide usually runs. I took a real one, translated its adjectives into numbers, and measured what a language model actually did with each version."))), /*#__PURE__*/React.createElement(CaseSection, {
+    id: "guide",
+    tone: "stage",
+    index: "02",
+    title: "The guide",
+    scrollMarginTop: NAV_OFFSET
+  }, /*#__PURE__*/React.createElement(StoryBeat, {
+    kicker: "Why this one",
+    title: "Mailchimp's guide is the one nobody could call a straw man.",
+    intro: "Mailchimp's content style guide is public, well known, and genuinely well written. Ask around for a company known for its voice and there's a good chance someone says Mailchimp. If a guide this good still leaves a model guessing, a guide written internally in an afternoon doesn't stand a chance."
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: 660,
+      margin: "var(--space-6) 0 0",
+      color: "var(--stage-muted)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--prose-size)",
+      lineHeight: "var(--prose-leading)",
+      letterSpacing: "var(--prose-tracking)"
+    }
+  }, "So I ran the same short writing task three ways: a bare one-line instruction with no guidance at all, Mailchimp's own voice section copied into the prompt exactly as written, and that same voice translated into Word Math's numeric targets. Neither the bare instruction nor Mailchimp's guide was a straw man standing in for a bad example. Both are close to what I've actually seen teams do. The question was never whether guidance helps. It was which grammar of guidance a model can actually act on."))), /*#__PURE__*/React.createElement(CaseSection, {
+    id: "translation",
+    tone: "paper",
     index: "03",
-    chapterLabel: "Decisions",
-    kicker: "How it works",
-    title: "Twelve dimensions measured three prompting conditions against one held-constant task.",
-    intro: "Each dimension is a checkable property of the text, not an impression of it. The engine itself never generates a word. It only measures text a model already produced."
-  }, /*#__PURE__*/React.createElement(DataTable, {
-    columns: ["Dimension", "What it measures", "Basis"],
-    rows: [["Involvement", "Personal vs. detached address", "Biber, Dimension 1"], ["Readability", "Flesch Reading Ease, offline syllables", "Flesch"], ["Emotional tone", "Valence lexicon", "Sentiment valence lexicon"], ["Syntactic complexity", "Dependency depth, subordinate clauses", "Dependency parsing"]]
-  }), /*#__PURE__*/React.createElement(ProvenanceNote, {
-    label: "On the list"
-  }, "Four of the twelve. The rest cover information density, lexical sophistication, lexical diversity, concreteness, directness, cadence, epistemic stance, and specificity. Each is measured the same way, as a property of the text rather than a reader's impression of it."), /*#__PURE__*/React.createElement("div", {
+    title: "The translation",
+    scrollMarginTop: NAV_OFFSET
+  }, /*#__PURE__*/React.createElement(StoryBeat, {
+    kicker: "How the words became numbers",
+    title: "Take “friendly” apart and it resolves into four numbers.",
+    intro: "Mailchimp's guide asks for a voice that's friendly, and friendly isn't one thing. It decomposes into four checkable properties: involvement above seven, how personally the writing addresses someone; directness above six; readability above six; and lexical sophistication on the low side, plain words rather than showy ones. Four numbers standing in for one adjective, each one a model can be told to hit and a script can confirm afterward, rather than a single word it has to interpret on its own."
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-8)"
+      maxWidth: 660,
+      margin: "var(--space-6) 0 0",
+      color: "var(--story-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--prose-size)",
+      lineHeight: "var(--prose-leading)",
+      letterSpacing: "var(--prose-tracking)"
     }
-  }, /*#__PURE__*/React.createElement(Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "The experiment"), /*#__PURE__*/React.createElement(Pipeline, {
-    steps: [{
-      step: "01",
-      label: "One welcome-message task, held constant across three prompting conditions: naive, a published voice guide, and Word Math's numeric-plus-English translation of that same voice."
-    }, {
-      step: "02",
-      label: "Fifty generations per condition, run twice: once on Claude Sonnet 4.6, once on Claude Haiku 4.5. Three hundred generations in total."
-    }, {
-      step: "03",
-      label: "A follow-up hundred-generation run kept only the numeric constraints and dropped every English description, to isolate what the words on top of the numbers were actually contributing."
-    }, {
-      step: "04",
-      label: "Word Math measured its own output, so every generation was scored on the same twelve dimensions it was built to check, and the conditions were compared mean against mean, dimension against dimension."
-    }]
-  })), /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 2,
-    label: "What's original here",
-    style: {
-      marginTop: "var(--space-8)"
-    }
-  }, /*#__PURE__*/React.createElement(GridCard, {
-    label: "Built",
-    title: "The engine, the experiment, the analysis",
-    body: "The decomposition method, the twelve-dimension implementation, the three-condition experiment design, and reading the results are mine."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "Stood on",
-    title: "Published research with open dependencies",
-    body: "Each dimension traces to prior linguistic research, including Biber's involvement features and Flesch reading ease. The engine itself runs on six MIT- or Apache-licensed Python libraries, not a proprietary stack."
-  })))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "proof"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "bright",
+  }, "That's the translation, repeated across everything the guide asked for. Read what Mailchimp wanted. Decide which of the twelve dimensions it was actually describing. Set a target for it. What came out the other side was a system prompt built entirely from numbers and short instructions tied to those numbers, standing in for the same voice the original guide describes in prose."))), /*#__PURE__*/React.createElement(CaseSection, {
+    id: "measurement",
+    tone: "dark",
     index: "04",
-    chapterLabel: "Proof",
-    kicker: "Evidence",
-    title: "Numbers moved the model. A famous voice guide barely did.",
-    intro: "Selected dimensions, Claude Sonnet 4.6, fifty generations per condition. Highlighted cells moved at least a full point from the naive baseline in the requested direction."
-  }, /*#__PURE__*/React.createElement(DataTable, {
+    title: "The measurement",
+    scrollMarginTop: NAV_OFFSET
+  }, /*#__PURE__*/React.createElement(StoryBeat, {
+    kicker: "What actually happened",
+    title: "The numbers moved the model. Mailchimp's own words barely did.",
+    intro: "I ran fifty generations per condition on Claude Sonnet 4.6, then again on Claude Haiku 4.5: three hundred generations across the setup I just described. A follow-up hundred-generation run kept only the numbers and dropped every sentence of English, to see what the words on top of the numbers were actually contributing. Four hundred generations in total, scored on the same twelve dimensions every time."
+  }), /*#__PURE__*/React.createElement(DataTable, {
+    style: {
+      marginTop: "var(--space-8)"
+    },
     variant: "result",
-    columns: ["Dimension", "Naive", "Published guide", "Word Math"],
+    columns: ["Dimension", "Naive", "Mailchimp", "Word Math"],
     rows: [["Involvement", "6.26", "5.95", {
       value: "7.29",
       highlight: true
@@ -2248,48 +2182,93 @@ function WordMathDocument({
       value: "1.65",
       highlight: true
     }], ["Concreteness", "7.84", "8.69", "6.99"]]
-  }), /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 3,
-    label: "What the data said",
+  }), /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: "var(--space-8)"
-    }
-  }, /*#__PURE__*/React.createElement(GridCard, {
-    label: "01",
-    title: "Form-side prompts move the model",
-    body: "Involvement climbed from a naive 6.26 to 7.29 once the prompt specified it; readability moved from 8.35 to 9.53 the same way. Haiku 4.5 moved in the same direction on every dimension but by smaller margins, and lost ground exactly where Sonnet held it: the dimensions that require composing a sentence, not just picking words."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "02",
-    title: "A famous voice guide barely moves it",
-    body: "A well-known, already-public brand voice guide, copied into the prompt exactly as written, held six of the twelve dimensions within half a point of the naive baseline. My read: a voice this thoroughly documented online is probably already close to what the model produces without being asked."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "03",
-    title: "Numbers and English do different jobs",
-    body: "Stripped to numbers only, the constraints still moved involvement, readability, and lexical sophistication, but syntactic complexity and emotional tone barely budged. Only once the English descriptions came back did those two dimensions move as well."
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: "var(--space-8)"
-    }
-  }, /*#__PURE__*/React.createElement(Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "The hierarchy the data implied"), /*#__PURE__*/React.createElement(Pipeline, {
-    steps: project.pipeline.map(label => ({
-      label
-    }))
-  })), /*#__PURE__*/React.createElement(ProvenanceNote, {
-    label: "On this experiment"
-  }, "The full run, three hundred generations plus the hundred-generation ablation, cost under five dollars in API calls. Every output shown here was measured by Word Math itself, against its own twelve dimensions, on a task no different from what any team could run today."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      maxWidth: 640,
+      maxWidth: 660,
       margin: "var(--space-8) 0 0",
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--prose-size)",
+      lineHeight: "var(--prose-leading)",
+      letterSpacing: "var(--prose-tracking)"
+    }
+  }, "Involvement climbed from a naive 6.26 to 7.29 once the prompt specified it. Readability moved from 8.35 to 9.53 the same way, emotional tone from 3.27 to 5.38, and two more dimensions moved just as cleanly. Mailchimp's own guide, copied in verbatim, held six of the twelve dimensions within half a point of the no-guidance baseline. My read: a voice this thoroughly documented online is probably already close to what the model writes without being asked, which makes the guide reassuring to read and not very useful to prompt with."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: 660,
+      margin: "var(--space-6) 0 0",
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--prose-size)",
+      lineHeight: "var(--prose-leading)",
+      letterSpacing: "var(--prose-tracking)"
+    }
+  }, "The hundred-generation, numbers-only run showed where the words still mattered. Stripped down to just the numbers, the constraints still moved involvement and readability. Lexical sophistication moved too. Syntactic complexity and emotional tone barely budged, and only once the English descriptions came back did those two move as well. Numbers controlled the surface features outright; English still did work numbers alone couldn't, shaping how a sentence gets built rather than which words it reaches for. Haiku 4.5 moved the same direction on every dimension, by smaller margins, and lost the most ground exactly where Sonnet held it: composing a sentence, not just picking words."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: 660,
+      margin: "var(--space-6) 0 0",
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--prose-size)",
+      lineHeight: "var(--prose-leading)",
+      letterSpacing: "var(--prose-tracking)"
+    }
+  }, "None of this needed a platform built first. Anyone can put numeric targets straight into a prompt template, check what comes back against them, and tighten the target when a generation misses. The full four hundred generations, ablation included, cost under five dollars in API calls.")), /*#__PURE__*/React.createElement(CaseSection, {
+    id: "shipped",
+    tone: "paper",
+    index: "05",
+    title: "What shipped",
+    scrollMarginTop: NAV_OFFSET
+  }, /*#__PURE__*/React.createElement(StoryBeat, {
+    kicker: "What's public",
+    title: "The engine measures. It doesn't write a word of its own.",
+    intro: "Word Math is a small, installable Python library, not a platform. It fingerprints a piece of writing into the same twelve numbers every time, and turns a target profile into a system prompt any model can follow. It never writes a word itself. That's still someone else's model; Word Math measures the draft that comes back, tells you which dimensions missed and by how much, and lets you tighten the target and try again."
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: 660,
+      margin: "var(--space-6) 0 0",
       color: "var(--story-ink)",
       fontFamily: "var(--font-sans)",
       fontSize: "var(--prose-size)",
-      lineHeight: 1.5,
-      letterSpacing: "-0.025em"
+      lineHeight: "var(--prose-leading)",
+      letterSpacing: "var(--prose-tracking)"
     }
-  }, "None of this needs a platform built first. A team can put numeric targets straight into a prompt template today, check what comes back against them, and revise the target when a generation misses it. The only real inputs are a measurement engine and a body of existing text to set the targets from."))), /*#__PURE__*/React.createElement("div", {
+  }, "That loop is also a skill file, so a coding agent can run it on its own writing without a person in between: measure the draft against a target voice, see which dimensions missed, revise, and check again, usually landing inside range within a pass or two. github.com/calebstacy/word-math has all of it, the engine and the skill both, for anyone to install and point at their own writing."), /*#__PURE__*/React.createElement(ProvenanceNote, {
+    label: "On scope",
+    style: {
+      marginTop: "var(--space-8)"
+    }
+  }, "Word Math and Verso, the system I built inside Meta and cover elsewhere in this portfolio, don't share a line of code, a prompt, or a standard. I built this one from zero, on dependencies anyone can license, and every method and result here can be reproduced outside Meta from public research alone."))), /*#__PURE__*/React.createElement(CaseSection, {
+    id: "limits",
+    tone: "bright",
+    index: "06",
+    title: "What it can't do yet",
+    scrollMarginTop: NAV_OFFSET
+  }, /*#__PURE__*/React.createElement(StoryBeat, {
+    kicker: "Where I'd push next",
+    title: "It's honest about what it still can't tell you.",
+    intro: "The engine only measures. It has no opinion about which model generated the text or why, and it won't write a replacement sentence for you: constrain() hands back a system prompt, and what happens with it is someone else's call."
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: 660,
+      margin: "var(--space-6) 0 0",
+      color: "var(--story-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--prose-size)",
+      lineHeight: "var(--prose-leading)",
+      letterSpacing: "var(--prose-tracking)"
+    }
+  }, "The results have real limits too. Concreteness is the one dimension in the table above that missed: the numeric constraint pushed it further from the naive baseline, away from where I'd aimed it. And I can't fully separate “the guide is vague” from “a large model has already read enough Mailchimp-adjacent writing to sound like it without being told to.” A voice this public may already be baked into the model, which would make the guide look ineffective for a reason that has nothing to do with the guide itself."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: 660,
+      margin: "var(--space-6) 0 0",
+      color: "var(--story-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--prose-size)",
+      lineHeight: "var(--prose-leading)",
+      letterSpacing: "var(--prose-tracking)"
+    }
+  }, "The scope is narrow, too: four hundred generations, a single welcome-message prompt, Mailchimp's voice specifically, tested on Sonnet 4.6 and Haiku 4.5. That's real evidence for this one case. I'd want to see it hold on a longer piece of writing and a third vendor's model before calling it a general result."))), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "case-next",
     style: {
       minHeight: 190,
       display: "flex",
@@ -2606,11 +2585,16 @@ Object.assign(window, {
 const {
   PaperFrame,
   IndexRail,
-  StageCurtain
+  StageCurtain,
+  MobileIdentityBar,
+  MobileMenu
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
 
-/* Tolerates a bundle that has not recompiled with StageCurtain yet. */
+/* Tolerates a bundle that has not recompiled with StageCurtain / the phone nav yet. */
 const Curtain = StageCurtain || (() => null);
+const IdentityBar = MobileIdentityBar || (() => null);
+const Menu = MobileMenu || (() => null);
+const MOBILE_MENU_ID = "mobile-menu";
 const COVER_MS = 380;
 const REVEAL_MS = 560;
 
@@ -2633,7 +2617,9 @@ function PortfolioApp() {
     direction: "forward",
     label: ""
   });
+  const [menuOpen, setMenuOpen] = React.useState(false);
   const scrollRef = React.useRef(null);
+  const menuToggleRef = React.useRef(null);
   const timers = React.useRef([]);
   const mounted = React.useRef(false);
   const labelFor = id => {
@@ -2643,6 +2629,16 @@ function PortfolioApp() {
   };
   React.useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = 0;
+    /* Below the shell breakpoint the reader is no longer an internally-scrolled pane — the page
+       itself scrolls (tokens/shell.css) — so resetting is a real navigation, not a no-op the
+       way it is on desktop, where the page never scrolls in the first place. */
+    if (window.scrollTo) window.scrollTo(0, 0);
+  }, [active]);
+
+  /* A destination change closes the phone menu, covering selection, back/forward, and a fresh
+     deep link alike — the menu should never still be open over a document it did not open. */
+  React.useEffect(() => {
+    setMenuOpen(false);
   }, [active]);
 
   /* "Switching projects remounts at the top and moves focus to the new heading" (DESIGN_SPEC).
@@ -2718,29 +2714,51 @@ function PortfolioApp() {
   };
   const project = data.projects.find(p => p.id === active);
   const nextProject = project ? data.projects[(data.projects.findIndex(p => p.id === active) + 1) % data.projects.length] : null;
+  const railProjects = data.projects.map(p => ({
+    id: p.id,
+    number: p.number,
+    title: p.title,
+    statement: p.statement
+  }));
+  const utilities = [{
+    id: "about",
+    label: "About"
+  }, {
+    id: "resume",
+    label: "Résumé"
+  }];
   return /*#__PURE__*/React.createElement(PaperFrame, null, /*#__PURE__*/React.createElement(IndexRail, {
     name: data.identity.name,
     title: data.identity.title,
     differentiator: data.identity.differentiator,
     thesis: data.identity.thesis,
-    projects: data.projects.map(p => ({
-      id: p.id,
-      number: p.number,
-      title: p.title,
-      statement: p.statement
-    })),
+    projects: railProjects,
     active: active,
     onSelect: go,
-    utilities: [{
-      id: "about",
-      label: "About"
-    }, {
-      id: "resume",
-      label: "Résumé"
-    }],
+    utilities: utilities,
     location: data.identity.location,
     contactHref: "mailto:calebstacy@gmail.com"
+  }), /*#__PURE__*/React.createElement(IdentityBar, {
+    name: data.identity.name,
+    title: data.identity.title,
+    isOpen: menuOpen,
+    onToggle: () => setMenuOpen(v => !v),
+    toggleRef: menuToggleRef,
+    menuId: MOBILE_MENU_ID
+  }), /*#__PURE__*/React.createElement(Menu, {
+    isOpen: menuOpen,
+    onClose: () => setMenuOpen(false),
+    projects: railProjects,
+    utilities: utilities,
+    activeId: active,
+    onSelect: go,
+    location: data.identity.location,
+    contactHref: "mailto:calebstacy@gmail.com",
+    contactLabel: "Contact",
+    menuId: MOBILE_MENU_ID,
+    returnFocusRef: menuToggleRef
   }), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "reader",
     style: {
       position: "relative",
       minWidth: 0,
@@ -2749,6 +2767,7 @@ function PortfolioApp() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     ref: scrollRef,
+    "data-ds": "reader-scroll",
     style: {
       position: "absolute",
       inset: 0,

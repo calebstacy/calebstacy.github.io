@@ -11,7 +11,10 @@
 [data-ds="case-nav"] { -ms-overflow-style: none; }
 [data-ds="case-nav"]::-webkit-scrollbar { display: none; }
 
-@media (max-width: 700px) {
+/* 768px, not 700 — matched to tokens/shell.css's app-shell breakpoint (moved there from its
+   original 700px) so the whole document reflows at one boundary: the shell collapses to the
+   phone chrome and this content-level fold happens at the same width, never a few pixels apart. */
+@media (max-width: 768px) {
   /* The metric strip collapses 4 → 2×2, borders re-balanced so the second column still reads a
      rule to its left and the third gives it back up — entry A's own reflow, in this system's
      tokens. Three or fewer cells stay on one row; they were never cramped to begin with. */

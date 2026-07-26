@@ -9,6 +9,7 @@
 @import "./tokens/surfaces.css";
 @import "./tokens/document.css";
 @import "./tokens/case.css";
+@import "./tokens/shell.css";
 
 /* Every element sizes by its border box. Without this, a component that sets both a width and
    padding is oversized by its padding — which is what made stage copy overlap the character art

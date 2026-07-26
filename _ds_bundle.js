@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"CalebStacyPortfolioDesignSystem_4a3883","components":[{"name":"ScrollCue","sourcePath":"components/actions/ScrollCue.jsx"},{"name":"StageAction","sourcePath":"components/actions/StageAction.jsx"},{"name":"CaseNav","sourcePath":"components/case/CaseNav.jsx"},{"name":"CaseQuote","sourcePath":"components/case/CaseQuote.jsx"},{"name":"CaseSection","sourcePath":"components/case/CaseSection.jsx"},{"name":"MetricStrip","sourcePath":"components/case/MetricStrip.jsx"},{"name":"StoryBeat","sourcePath":"components/case/StoryBeat.jsx"},{"name":"DocFigure","sourcePath":"components/document/DocFigure.jsx"},{"name":"Endnotes","sourcePath":"components/document/Endnotes.jsx"},{"name":"NoteRef","sourcePath":"components/document/Endnotes.jsx"},{"name":"References","sourcePath":"components/document/Endnotes.jsx"},{"name":"Finding","sourcePath":"components/document/Finding.jsx"},{"name":"PaperTable","sourcePath":"components/document/PaperTable.jsx"},{"name":"Report","sourcePath":"components/document/Report.jsx"},{"name":"ReportSection","sourcePath":"components/document/ReportSection.jsx"},{"name":"ArtifactFigure","sourcePath":"components/evidence/ArtifactFigure.jsx"},{"name":"BeforeAfter","sourcePath":"components/evidence/BeforeAfter.jsx"},{"name":"CaptureFigure","sourcePath":"components/evidence/CaptureFigure.jsx"},{"name":"CardGrid","sourcePath":"components/evidence/CardGrid.jsx"},{"name":"DataTable","sourcePath":"components/evidence/DataTable.jsx"},{"name":"DisciplineVenn","sourcePath":"components/evidence/DisciplineVenn.jsx"},{"name":"EvidenceTrace","sourcePath":"components/evidence/EvidenceTrace.jsx"},{"name":"FactsPanel","sourcePath":"components/evidence/FactsPanel.jsx"},{"name":"FingerprintBars","sourcePath":"components/evidence/FingerprintBars.jsx"},{"name":"GateRun","sourcePath":"components/evidence/GateRun.jsx"},{"name":"GridCard","sourcePath":"components/evidence/GridCard.jsx"},{"name":"IndexRows","sourcePath":"components/evidence/IndexRows.jsx"},{"name":"Ledger","sourcePath":"components/evidence/Ledger.jsx"},{"name":"Outcome","sourcePath":"components/evidence/Outcome.jsx"},{"name":"Pipeline","sourcePath":"components/evidence/Pipeline.jsx"},{"name":"PullQuote","sourcePath":"components/evidence/PullQuote.jsx"},{"name":"ResearchGrid","sourcePath":"components/evidence/ResearchGrid.jsx"},{"name":"ResumeEntry","sourcePath":"components/evidence/ResumeEntry.jsx"},{"name":"RuleSplit","sourcePath":"components/evidence/RuleSplit.jsx"},{"name":"SourceMap","sourcePath":"components/evidence/SourceMap.jsx"},{"name":"TenGrid","sourcePath":"components/evidence/TenGrid.jsx"},{"name":"Toolchain","sourcePath":"components/evidence/Toolchain.jsx"},{"name":"VoiceProfile","sourcePath":"components/evidence/VoiceProfile.jsx"},{"name":"VoiceScoreRing","sourcePath":"components/evidence/VoiceScoreRing.jsx"},{"name":"Eyebrow","sourcePath":"components/foundation/Eyebrow.jsx"},{"name":"LineArrow","sourcePath":"components/foundation/LineArrow.jsx"},{"name":"ProvenanceNote","sourcePath":"components/foundation/ProvenanceNote.jsx"},{"name":"RegistrationMark","sourcePath":"components/foundation/RegistrationMark.jsx"},{"name":"Tag","sourcePath":"components/foundation/Tag.jsx"},{"name":"Panel","sourcePath":"components/layout/Panel.jsx"},{"name":"PanelRow","sourcePath":"components/layout/Panel.jsx"},{"name":"PaperFrame","sourcePath":"components/layout/PaperFrame.jsx"},{"name":"Stage","sourcePath":"components/layout/Stage.jsx"},{"name":"StageCopy","sourcePath":"components/layout/StageCopy.jsx"},{"name":"StageCurtain","sourcePath":"components/layout/StageCurtain.jsx"},{"name":"StorySection","sourcePath":"components/layout/StorySection.jsx"},{"name":"ChapterNav","sourcePath":"components/navigation/ChapterNav.jsx"},{"name":"IndexRail","sourcePath":"components/navigation/IndexRail.jsx"},{"name":"ProjectSpineItem","sourcePath":"components/navigation/ProjectSpineItem.jsx"},{"name":"UtilityNav","sourcePath":"components/navigation/UtilityNav.jsx"}],"sourceHashes":{"components/actions/ScrollCue.jsx":"8bb658147fda","components/actions/StageAction.jsx":"5a98543af3b5","components/evidence/ArtifactFigure.jsx":"127fb9077aa2","components/evidence/CardGrid.jsx":"794c50eb554d","components/evidence/DataTable.jsx":"e463933290ef","components/evidence/FactsPanel.jsx":"207d91605478","components/evidence/GridCard.jsx":"fc995a72a9ed","components/evidence/Ledger.jsx":"0a5053426aae","components/evidence/Outcome.jsx":"87e9bb425f06","components/evidence/Pipeline.jsx":"0a78361dc86f","components/evidence/PullQuote.jsx":"b00277528fb2","components/evidence/ResumeEntry.jsx":"022a5e5c0dec","components/evidence/SourceMap.jsx":"223f6d8e812b","components/evidence/TenGrid.jsx":"189c24069a2b","components/foundation/Eyebrow.jsx":"339d08d17838","components/foundation/LineArrow.jsx":"d1caad2e912f","components/foundation/ProvenanceNote.jsx":"b8816411ea6e","components/foundation/RegistrationMark.jsx":"75a36243789a","components/foundation/Tag.jsx":"5778ff0b56c7","components/layout/PaperFrame.jsx":"6fa21eb5a2f9","components/layout/Stage.jsx":"0d959cf8e350","components/layout/StageCopy.jsx":"a02beb8d463f","components/layout/StageCurtain.jsx":"8d60ace971b4","components/layout/StorySection.jsx":"e97b2c28af96","components/navigation/ChapterNav.jsx":"11ca22e8bac2","components/navigation/IndexRail.jsx":"63c759f894a1","components/navigation/ProjectSpineItem.jsx":"5262c227933f","components/navigation/UtilityNav.jsx":"49225082ad7f","ui_kits/portfolio/app.jsx":"38938eb8d687","ui_kits/portfolio/doc-page.js":"ef8ab2118053","ui_kits/portfolio/kit-data.js":"c4e4a093b428","ui_kits/portfolio/scene-visual.jsx":"6cff7cdfe351","ui_kits/portfolio/screen-project.jsx":"acc56b681e3b","ui_kits/portfolio/screen-utility.jsx":"1bdbe5e1668c","components/evidence/RuleSplit.jsx":"51a933a0d49e","components/evidence/ResearchGrid.jsx":"af910347ac02","components/evidence/FingerprintBars.jsx":"662c407f2939","components/evidence/EvidenceTrace.jsx":"1c52a31cba97","components/evidence/IndexRows.jsx":"d1cf16db6e0d","components/evidence/DisciplineVenn.jsx":"e1565f7822a0","components/evidence/VoiceScoreRing.jsx":"f1d9d92fe57c","components/evidence/BeforeAfter.jsx":"898153b5c378","components/evidence/VoiceProfile.jsx":"3760a08b0d90","components/layout/Panel.jsx":"5013c544891a","components/evidence/GateRun.jsx":"fc67aaf9e806","components/evidence/CaptureFigure.jsx":"d015bc84a966","components/document/Report.jsx":"d526bb6cda51","components/document/ReportSection.jsx":"1131f245e776","components/document/DocFigure.jsx":"ad268702d487","components/document/Endnotes.jsx":"70804d8c8006","components/evidence/Toolchain.jsx":"a5d456cdf63d","components/document/Finding.jsx":"72c749fc75c2","components/document/PaperTable.jsx":"f6bb51014d4e","components/case/CaseSection.jsx":"09e3d510dfaa","components/case/StoryBeat.jsx":"3b7ad214cf82","components/case/CaseQuote.jsx":"851b5a124fe4","components/case/MetricStrip.jsx":"5f86becb4df6","components/case/CaseNav.jsx":"d10a122fb4d6"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":4,"namespace":"CalebStacyPortfolioDesignSystem_4a3883","components":[{"name":"ScrollCue","sourcePath":"components/actions/ScrollCue.jsx"},{"name":"StageAction","sourcePath":"components/actions/StageAction.jsx"},{"name":"CaseNav","sourcePath":"components/case/CaseNav.jsx"},{"name":"CaseQuote","sourcePath":"components/case/CaseQuote.jsx"},{"name":"CaseSection","sourcePath":"components/case/CaseSection.jsx"},{"name":"MetricStrip","sourcePath":"components/case/MetricStrip.jsx"},{"name":"StoryBeat","sourcePath":"components/case/StoryBeat.jsx"},{"name":"DocFigure","sourcePath":"components/document/DocFigure.jsx"},{"name":"Endnotes","sourcePath":"components/document/Endnotes.jsx"},{"name":"NoteRef","sourcePath":"components/document/Endnotes.jsx"},{"name":"References","sourcePath":"components/document/Endnotes.jsx"},{"name":"Finding","sourcePath":"components/document/Finding.jsx"},{"name":"PaperTable","sourcePath":"components/document/PaperTable.jsx"},{"name":"Report","sourcePath":"components/document/Report.jsx"},{"name":"ReportSection","sourcePath":"components/document/ReportSection.jsx"},{"name":"ArtifactFigure","sourcePath":"components/evidence/ArtifactFigure.jsx"},{"name":"BeforeAfter","sourcePath":"components/evidence/BeforeAfter.jsx"},{"name":"CaptureFigure","sourcePath":"components/evidence/CaptureFigure.jsx"},{"name":"CardGrid","sourcePath":"components/evidence/CardGrid.jsx"},{"name":"DataTable","sourcePath":"components/evidence/DataTable.jsx"},{"name":"DisciplineVenn","sourcePath":"components/evidence/DisciplineVenn.jsx"},{"name":"EvidenceTrace","sourcePath":"components/evidence/EvidenceTrace.jsx"},{"name":"FactsPanel","sourcePath":"components/evidence/FactsPanel.jsx"},{"name":"FingerprintBars","sourcePath":"components/evidence/FingerprintBars.jsx"},{"name":"GateRun","sourcePath":"components/evidence/GateRun.jsx"},{"name":"GridCard","sourcePath":"components/evidence/GridCard.jsx"},{"name":"IndexRows","sourcePath":"components/evidence/IndexRows.jsx"},{"name":"Ledger","sourcePath":"components/evidence/Ledger.jsx"},{"name":"Outcome","sourcePath":"components/evidence/Outcome.jsx"},{"name":"Pipeline","sourcePath":"components/evidence/Pipeline.jsx"},{"name":"PullQuote","sourcePath":"components/evidence/PullQuote.jsx"},{"name":"ResearchGrid","sourcePath":"components/evidence/ResearchGrid.jsx"},{"name":"ResumeEntry","sourcePath":"components/evidence/ResumeEntry.jsx"},{"name":"RuleSplit","sourcePath":"components/evidence/RuleSplit.jsx"},{"name":"SourceMap","sourcePath":"components/evidence/SourceMap.jsx"},{"name":"TenGrid","sourcePath":"components/evidence/TenGrid.jsx"},{"name":"Toolchain","sourcePath":"components/evidence/Toolchain.jsx"},{"name":"VoiceProfile","sourcePath":"components/evidence/VoiceProfile.jsx"},{"name":"VoiceScoreRing","sourcePath":"components/evidence/VoiceScoreRing.jsx"},{"name":"Eyebrow","sourcePath":"components/foundation/Eyebrow.jsx"},{"name":"LineArrow","sourcePath":"components/foundation/LineArrow.jsx"},{"name":"ProvenanceNote","sourcePath":"components/foundation/ProvenanceNote.jsx"},{"name":"RegistrationMark","sourcePath":"components/foundation/RegistrationMark.jsx"},{"name":"Tag","sourcePath":"components/foundation/Tag.jsx"},{"name":"Panel","sourcePath":"components/layout/Panel.jsx"},{"name":"PanelRow","sourcePath":"components/layout/Panel.jsx"},{"name":"PaperFrame","sourcePath":"components/layout/PaperFrame.jsx"},{"name":"Stage","sourcePath":"components/layout/Stage.jsx"},{"name":"StageCopy","sourcePath":"components/layout/StageCopy.jsx"},{"name":"StageCurtain","sourcePath":"components/layout/StageCurtain.jsx"},{"name":"StorySection","sourcePath":"components/layout/StorySection.jsx"},{"name":"ChapterNav","sourcePath":"components/navigation/ChapterNav.jsx"},{"name":"IndexRail","sourcePath":"components/navigation/IndexRail.jsx"},{"name":"MobileIdentityBar","sourcePath":"components/navigation/MobileIdentityBar.jsx"},{"name":"MobileMenu","sourcePath":"components/navigation/MobileMenu.jsx"},{"name":"ProjectSpineItem","sourcePath":"components/navigation/ProjectSpineItem.jsx"},{"name":"UtilityNav","sourcePath":"components/navigation/UtilityNav.jsx"}],"sourceHashes":{"components/actions/ScrollCue.jsx":"8bb658147fda","components/actions/StageAction.jsx":"5a98543af3b5","components/evidence/ArtifactFigure.jsx":"127fb9077aa2","components/evidence/CardGrid.jsx":"794c50eb554d","components/evidence/DataTable.jsx":"e463933290ef","components/evidence/FactsPanel.jsx":"d1281305f605","components/evidence/GridCard.jsx":"fc995a72a9ed","components/evidence/Ledger.jsx":"0a5053426aae","components/evidence/Outcome.jsx":"87e9bb425f06","components/evidence/Pipeline.jsx":"0a78361dc86f","components/evidence/PullQuote.jsx":"b00277528fb2","components/evidence/ResumeEntry.jsx":"022a5e5c0dec","components/evidence/SourceMap.jsx":"223f6d8e812b","components/evidence/TenGrid.jsx":"189c24069a2b","components/foundation/Eyebrow.jsx":"339d08d17838","components/foundation/LineArrow.jsx":"d1caad2e912f","components/foundation/ProvenanceNote.jsx":"b8816411ea6e","components/foundation/RegistrationMark.jsx":"75a36243789a","components/foundation/Tag.jsx":"5778ff0b56c7","components/layout/PaperFrame.jsx":"0d2965baa9ba","components/layout/Stage.jsx":"1e5269281805","components/layout/StageCopy.jsx":"007e4ad0a85a","components/layout/StageCurtain.jsx":"2fe263912177","components/layout/StorySection.jsx":"e97b2c28af96","components/navigation/ChapterNav.jsx":"c1cb8c701f50","components/navigation/IndexRail.jsx":"cfcf7a6820b9","components/navigation/ProjectSpineItem.jsx":"5262c227933f","components/navigation/UtilityNav.jsx":"49225082ad7f","ui_kits/portfolio/app.jsx":"38938eb8d687","ui_kits/portfolio/doc-page.js":"ef8ab2118053","ui_kits/portfolio/kit-data.js":"c4e4a093b428","ui_kits/portfolio/scene-visual.jsx":"6cff7cdfe351","ui_kits/portfolio/screen-project.jsx":"acc56b681e3b","ui_kits/portfolio/screen-utility.jsx":"1bdbe5e1668c","components/evidence/RuleSplit.jsx":"51a933a0d49e","components/evidence/ResearchGrid.jsx":"af910347ac02","components/evidence/FingerprintBars.jsx":"662c407f2939","components/evidence/EvidenceTrace.jsx":"1c52a31cba97","components/evidence/IndexRows.jsx":"d1cf16db6e0d","components/evidence/DisciplineVenn.jsx":"e1565f7822a0","components/evidence/VoiceScoreRing.jsx":"f1d9d92fe57c","components/evidence/BeforeAfter.jsx":"898153b5c378","components/evidence/VoiceProfile.jsx":"3760a08b0d90","components/layout/Panel.jsx":"5013c544891a","components/evidence/GateRun.jsx":"fc67aaf9e806","components/evidence/CaptureFigure.jsx":"d015bc84a966","components/document/Report.jsx":"d526bb6cda51","components/document/ReportSection.jsx":"1131f245e776","components/document/DocFigure.jsx":"ad268702d487","components/document/Endnotes.jsx":"70804d8c8006","components/evidence/Toolchain.jsx":"a5d456cdf63d","components/document/Finding.jsx":"72c749fc75c2","components/document/PaperTable.jsx":"f6bb51014d4e","components/case/CaseSection.jsx":"09e3d510dfaa","components/case/StoryBeat.jsx":"3b7ad214cf82","components/case/CaseQuote.jsx":"851b5a124fe4","components/case/MetricStrip.jsx":"5f86becb4df6","components/case/CaseNav.jsx":"e12f0f5468cf","components/navigation/MobileIdentityBar.jsx":"c91c97cc209d","components/navigation/MobileMenu.jsx":"5d64385eec4b"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -16892,6 +16892,1410 @@ function CaseNav({
 Object.assign(__ds_scope, { CaseNav });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/case/CaseNav.jsx", error: String((e && e.message) || e) }); }
 
+// components/navigation/IndexRail.jsx
+try { (() => {
+/** The fixed left rail: identity, thesis, project spine, utilities, contact. The only navigation. */
+function IndexRail({
+  name = "Caleb Stacy",
+  title = "Senior content designer",
+  differentiator = "Product systems · content engineering",
+  thesis,
+  projects = [],
+  active,
+  onSelect,
+  utilities = [],
+  location,
+  contactLabel = "Contact",
+  contactHref,
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("aside", {
+    "aria-label": "Identity and portfolio navigation",
+    style: {
+      position: "relative",
+      zIndex: 20,
+      minWidth: 0,
+      minHeight: 0,
+      display: "flex",
+      flexDirection: "column",
+      borderRight: "1px solid var(--ink)",
+      background: "var(--paper)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: () => onSelect && onSelect(utilities[0] ? utilities[0].id : "about"),
+    style: {
+      width: "100%",
+      display: "block",
+      padding: "clamp(30px,4.7vh,52px) var(--rail-pad-x) 21px",
+      border: 0,
+      background: "transparent",
+      color: "var(--ink)",
+      textAlign: "left",
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--wordmark-size)",
+      fontWeight: "var(--wordmark-weight)",
+      lineHeight: "var(--wordmark-leading)",
+      letterSpacing: "var(--wordmark-tracking)"
+    }
+  }, name), /*#__PURE__*/React.createElement("small", {
+    style: {
+      display: "block",
+      marginTop: "var(--space-3)",
+      fontFamily: "var(--font-mono)",
+      fontSize: "var(--eyebrow-size)",
+      fontWeight: 560,
+      lineHeight: 1.4,
+      letterSpacing: "-0.02em"
+    }
+  }, title, /*#__PURE__*/React.createElement("i", {
+    style: {
+      display: "block",
+      color: "var(--muted-ink)",
+      fontStyle: "normal"
+    }
+  }, differentiator))), thesis && /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: 360,
+      margin: 0,
+      padding: "0 var(--rail-pad-x) clamp(22px,3.5vh,34px)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--body-s-size)",
+      lineHeight: 1.45,
+      letterSpacing: "-0.035em"
+    }
+  }, thesis), /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Selected work",
+    style: {
+      minHeight: 0,
+      display: "flex",
+      flex: "1 1 auto",
+      flexDirection: "column",
+      borderTop: "1px solid var(--ink)"
+    }
+  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
+    key: p.id,
+    number: p.number,
+    title: p.title,
+    statement: p.statement,
+    active: active === p.id,
+    onSelect: () => onSelect && onSelect(p.id)
+  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
+    items: utilities,
+    active: active,
+    onSelect: onSelect
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      minHeight: 47,
+      display: "flex",
+      justifyContent: "space-between",
+      gap: "var(--space-5)",
+      alignItems: "center",
+      padding: "0 clamp(24px,2.6vw,38px)",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      lineHeight: 1.3
+    }
+  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
+    href: contactHref,
+    style: {
+      flex: "0 0 auto",
+      paddingBottom: 2,
+      borderBottom: "1px solid var(--signal)",
+      color: "var(--ink)",
+      fontSize: 10,
+      fontWeight: 700,
+      textDecoration: "none"
+    }
+  }, contactLabel)));
+}
+Object.assign(__ds_scope, { IndexRail });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/IndexRail.jsx", error: String((e && e.message) || e) }); }
+
+// components/layout/PaperFrame.jsx
+try { (() => {
+/** The bounded document: a paper card on a darker desk, hairline border, hard offset shadow, grain overlay. */
+function PaperFrame({
+  children,
+  grain = true,
+  columns = "var(--rail-width) minmax(0,1fr)",
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      minHeight: "100%",
+      background: "var(--surface-desk)",
+      fontFamily: "var(--font-body)",
+      color: "var(--ink)"
+    }
+  }, grain && /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      position: "fixed",
+      zIndex: 5000,
+      inset: 0,
+      pointerEvents: "none",
+      opacity: "var(--texture-grain-opacity)",
+      mixBlendMode: "multiply",
+      backgroundImage: "var(--texture-grain)"
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "frame",
+    style: {
+      width: "min(calc(100% - 24px)," + "var(--frame-max))",
+      height: "calc(100svh - 24px)",
+      minHeight: 700,
+      display: "grid",
+      gridTemplateColumns: columns,
+      margin: "var(--frame-inset) auto",
+      overflow: "hidden",
+      border: "1px solid var(--ink)",
+      background: "var(--paper)",
+      boxShadow: "var(--shadow-4)",
+      ...style
+    },
+    ...rest
+  }, children));
+}
+Object.assign(__ds_scope, { PaperFrame });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/layout/PaperFrame.jsx", error: String((e && e.message) || e) }); }
+
+// components/layout/Stage.jsx
+try { (() => {
+/** The pine authored stage: gradient field, clipped, with an optional registration mark. */
+function Stage({
+  children,
+  variant = "field",
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("section", {
+    "data-ds": "stage",
+    style: {
+      position: "relative",
+      zIndex: 1,
+      minWidth: 0,
+      minHeight: 0,
+      overflow: "hidden",
+      isolation: "isolate",
+      background: variant === "section" ? "var(--stage-field-section)" : "var(--stage-field)",
+      color: "var(--stage-ink)",
+      ...style
+    },
+    ...rest
+  }, children);
+}
+Object.assign(__ds_scope, { Stage });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/layout/Stage.jsx", error: String((e && e.message) || e) }); }
+
+// components/layout/StageCopy.jsx
+try { (() => {
+/** The left column of an authored scene: eyebrow, display title, statement, deck, and children. */
+function StageCopy({
+  eyebrow,
+  title,
+  accent,
+  statement,
+  deck,
+  detail,
+  children,
+  width = "min(47%,560px)",
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    "data-ds": "stage-copy",
+    style: {
+      position: "relative",
+      zIndex: 12,
+      width,
+      height: "100%",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      padding: "clamp(52px,7vh,82px) clamp(18px,2.6vw,44px) clamp(38px,5vh,62px) var(--stage-pad-x)",
+      ...style
+    },
+    ...rest
+  }, eyebrow && /*#__PURE__*/React.createElement(__ds_scope.Eyebrow, {
+    tone: "stage",
+    style: {
+      marginBottom: 17
+    }
+  }, eyebrow), title &&
+  /*#__PURE__*/
+  /* data-doc-heading + tabIndex={-1}: the one place per document the app moves focus to
+     after a destination change (see app.jsx). Focusable without joining the tab order;
+     the ring itself is drawn by :focus-visible in tokens/interaction.css, so a mouse
+     click never shows one and a keyboard move always does. */
+  React.createElement("h1", {
+    "data-doc-heading": true,
+    tabIndex: -1,
+    style: {
+      margin: 0,
+      color: "var(--stage-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--display-xl-size)",
+      fontWeight: "var(--display-xl-weight)",
+      lineHeight: "var(--display-xl-leading)",
+      letterSpacing: "var(--display-xl-tracking)",
+      textWrap: "balance"
+    }
+  }, title, accent && " ", accent && /*#__PURE__*/React.createElement("em", {
+    style: {
+      display: "block",
+      color: "var(--action)",
+      fontStyle: "normal"
+    }
+  }, accent)), statement && /*#__PURE__*/React.createElement("h2", {
+    style: {
+      maxWidth: 450,
+      margin: "20px 0 0",
+      color: "var(--stage-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--headline-size)",
+      fontWeight: "var(--headline-weight)",
+      lineHeight: "var(--headline-leading)",
+      letterSpacing: "var(--headline-tracking)",
+      textWrap: "balance"
+    }
+  }, statement), deck && /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: 430,
+      margin: "22px 0 0",
+      color: "var(--stage-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--body-s-size)",
+      lineHeight: 1.5,
+      letterSpacing: "-0.025em"
+    }
+  }, deck), detail && /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: 430,
+      margin: "11px 0 0",
+      color: "var(--stage-muted)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--body-s-size)",
+      lineHeight: 1.5,
+      letterSpacing: "-0.025em"
+    }
+  }, detail), children);
+}
+Object.assign(__ds_scope, { StageCopy });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/layout/StageCopy.jsx", error: String((e && e.message) || e) }); }
+
+// components/layout/StageCurtain.jsx
+try { (() => {
+const COVER = {
+  forward: "stage-curtain-cover-forward",
+  backward: "stage-curtain-cover-backward"
+};
+const REVEAL = {
+  forward: "stage-curtain-reveal-forward",
+  backward: "stage-curtain-reveal-backward"
+};
+
+/** The stage transition: a pine plate crosses the stage carrying the destination's name,
+ *  the document swaps behind it, then it leaves the way it came. */
+function StageCurtain({
+  state = "idle",
+  direction = "forward",
+  label,
+  style,
+  ...rest
+}) {
+  const covering = state === "covering";
+  const revealing = state === "revealing";
+  const active = covering || revealing;
+  const plate = covering ? COVER[direction] + " var(--dur-curtain-cover) var(--ease-curtain-cover) both" : revealing ? REVEAL[direction] + " var(--dur-curtain-reveal) var(--ease-authored) both" : "none";
+  const text = covering ? "stage-curtain-label-in var(--dur-curtain-label-in) var(--delay-curtain-label) var(--ease-authored) both" : revealing ? "stage-curtain-label-out var(--dur-curtain-label-out) var(--ease-curtain-out) both" : "none";
+  return /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    "data-ds": "stage-curtain",
+    style: {
+      position: "absolute",
+      zIndex: 90,
+      inset: 0,
+      display: "grid",
+      placeItems: "center",
+      overflow: "hidden",
+      visibility: active ? "visible" : "hidden",
+      pointerEvents: "none",
+      color: "var(--stage-ink)",
+      background: "var(--stage-field)",
+      transform: direction === "forward" ? "translate3d(104%,0,0)" : "translate3d(-104%,0,0)",
+      willChange: "transform",
+      animation: plate,
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "absolute",
+      inset: 0,
+      opacity: 0.22,
+      background: "var(--texture-graph)",
+      backgroundSize: "25% 25%"
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "absolute",
+      top: 0,
+      bottom: 0,
+      width: 13,
+      left: direction === "forward" ? -13 : "auto",
+      right: direction === "forward" ? "auto" : -13,
+      background: "linear-gradient(90deg,var(--signal) 0 54%,var(--signal-stage) 54% 100%)",
+      boxShadow: (direction === "forward" ? "-12px" : "12px") + " 0 28px rgba(4,26,22,0.42)"
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "relative",
+      zIndex: 2,
+      opacity: 0,
+      transform: "translateY(20px)",
+      animation: text,
+      fontFamily: "var(--font-sans)",
+      fontSize: "clamp(52px,8vw,128px)",
+      fontWeight: 760,
+      lineHeight: 0.9,
+      letterSpacing: "-0.075em"
+    }
+  }, label));
+}
+Object.assign(__ds_scope, { StageCurtain });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/layout/StageCurtain.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/IndexRail.jsx
+try { (() => {
+/** The fixed left rail: identity, thesis, project spine, utilities, contact. The only navigation. */
+function IndexRail({
+  name = "Caleb Stacy",
+  title = "Senior content designer",
+  differentiator = "Product systems · content engineering",
+  thesis,
+  projects = [],
+  active,
+  onSelect,
+  utilities = [],
+  location,
+  contactLabel = "Contact",
+  contactHref,
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("aside", {
+    "aria-label": "Identity and portfolio navigation",
+    "data-ds": "rail",
+    style: {
+      position: "relative",
+      zIndex: 20,
+      minWidth: 0,
+      minHeight: 0,
+      display: "flex",
+      flexDirection: "column",
+      borderRight: "1px solid var(--ink)",
+      background: "var(--paper)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: () => onSelect && onSelect(utilities[0] ? utilities[0].id : "about"),
+    style: {
+      width: "100%",
+      display: "block",
+      padding: "clamp(30px,4.7vh,52px) var(--rail-pad-x) 21px",
+      border: 0,
+      background: "transparent",
+      color: "var(--ink)",
+      textAlign: "left",
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--wordmark-size)",
+      fontWeight: "var(--wordmark-weight)",
+      lineHeight: "var(--wordmark-leading)",
+      letterSpacing: "var(--wordmark-tracking)"
+    }
+  }, name), /*#__PURE__*/React.createElement("small", {
+    style: {
+      display: "block",
+      marginTop: "var(--space-3)",
+      fontFamily: "var(--font-mono)",
+      fontSize: "var(--eyebrow-size)",
+      fontWeight: 560,
+      lineHeight: 1.4,
+      letterSpacing: "-0.02em"
+    }
+  }, title, /*#__PURE__*/React.createElement("i", {
+    style: {
+      display: "block",
+      color: "var(--muted-ink)",
+      fontStyle: "normal"
+    }
+  }, differentiator))), thesis && /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: 360,
+      margin: 0,
+      padding: "0 var(--rail-pad-x) clamp(22px,3.5vh,34px)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--body-s-size)",
+      lineHeight: 1.45,
+      letterSpacing: "-0.035em"
+    }
+  }, thesis), /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Selected work",
+    style: {
+      minHeight: 0,
+      display: "flex",
+      flex: "1 1 auto",
+      flexDirection: "column",
+      borderTop: "1px solid var(--ink)"
+    }
+  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
+    key: p.id,
+    number: p.number,
+    title: p.title,
+    statement: p.statement,
+    active: active === p.id,
+    onSelect: () => onSelect && onSelect(p.id)
+  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
+    items: utilities,
+    active: active,
+    onSelect: onSelect
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      minHeight: 47,
+      display: "flex",
+      justifyContent: "space-between",
+      gap: "var(--space-5)",
+      alignItems: "center",
+      padding: "0 clamp(24px,2.6vw,38px)",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      lineHeight: 1.3
+    }
+  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
+    href: contactHref,
+    style: {
+      flex: "0 0 auto",
+      paddingBottom: 2,
+      borderBottom: "1px solid var(--signal)",
+      color: "var(--ink)",
+      fontSize: 10,
+      fontWeight: 700,
+      textDecoration: "none"
+    }
+  }, contactLabel)));
+}
+Object.assign(__ds_scope, { IndexRail });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/IndexRail.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/ChapterNav.jsx
+try { (() => {
+/** Sticky chapter map. The chapter in view inverts to an ink chip. */
+function ChapterNav({
+  label = "Case map",
+  chapters = [],
+  active,
+  onSelect,
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("nav", {
+    "aria-label": label,
+    "data-ds": "chapter-nav",
+    style: {
+      position: "sticky",
+      zIndex: 45,
+      top: 0,
+      minHeight: "var(--chapter-nav-height)",
+      display: "grid",
+      gridTemplateColumns: "auto minmax(0,1fr)",
+      gap: "clamp(22px,3vw,48px)",
+      alignItems: "center",
+      padding: "var(--space-2) var(--gutter-tight)",
+      borderTop: "1px solid var(--ink)",
+      borderBottom: "1px solid var(--ink)",
+      background: "rgba(248,243,232,0.96)",
+      color: "var(--ink)",
+      boxShadow: "var(--shadow-sticky)",
+      backdropFilter: "blur(14px)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      fontWeight: 760,
+      whiteSpace: "nowrap"
+    }
+  }, label), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "chapter-nav-track",
+    style: {
+      minWidth: 0,
+      display: "grid",
+      gridTemplateColumns: "repeat(" + Math.max(chapters.length, 1) + ",minmax(74px,1fr))",
+      gap: 4
+    }
+  }, chapters.map(c => {
+    const on = c.id === active;
+    return /*#__PURE__*/React.createElement("button", {
+      key: c.id,
+      type: "button",
+      className: "ds-tab ds-tab-chapter",
+      onClick: () => onSelect && onSelect(c.id),
+      "aria-current": on ? "true" : undefined,
+      style: {
+        position: "relative",
+        minHeight: 34,
+        padding: "0 8px",
+        border: 0,
+        background: on ? "var(--ink)" : "transparent",
+        color: on ? "var(--paper-bright)" : "var(--muted-ink)",
+        fontFamily: "var(--font-sans)",
+        fontSize: 11,
+        fontWeight: 600,
+        letterSpacing: "-0.02em",
+        cursor: "pointer",
+        transition: "background var(--dur-fast) var(--ease-authored), color var(--dur-fast) var(--ease-authored)"
+      }
+    }, c.label);
+  })));
+}
+Object.assign(__ds_scope, { ChapterNav });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ChapterNav.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/MobileIdentityBar.jsx
+try { (() => {
+/** The entire persistent phone chrome: identity plus the one control that opens the full menu.
+ *  Below the shell breakpoint this replaces `IndexRail` outright rather than reflowing it — the
+ *  desktop rail is a column of navigation; the phone gets a header. Safe-area-aware so it clears
+ *  a notch, and the name button carries an explicit ink color for the same reason the desktop
+ *  rail's identity button does: an unstyled `<button>` renders its text in iOS Safari's system
+ *  blue otherwise. */
+function MobileIdentityBar({
+  name = "Caleb Stacy",
+  title = "Senior content designer",
+  isOpen = false,
+  onToggle,
+  onHome,
+  toggleRef,
+  menuId,
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("header", {
+    "data-ds": "mobile-bar",
+    style: {
+      position: "sticky",
+      zIndex: 300,
+      top: 0,
+      paddingTop: "env(safe-area-inset-top, 0px)",
+      borderBottom: "1px solid var(--ink)",
+      background: "var(--paper-bright)",
+      color: "var(--ink)",
+      boxShadow: "var(--shadow-sticky)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: "var(--mobile-bar-height)",
+      display: "flex",
+      alignItems: "stretch"
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: onHome,
+    style: {
+      minWidth: 0,
+      display: "flex",
+      flex: "1 1 auto",
+      flexDirection: "column",
+      justifyContent: "center",
+      gap: 2,
+      padding: "0 18px",
+      border: 0,
+      background: "transparent",
+      color: "var(--ink)",
+      textAlign: "left",
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/React.createElement("strong", {
+    style: {
+      display: "block",
+      fontFamily: "var(--font-sans)",
+      fontSize: 17,
+      fontWeight: 760,
+      lineHeight: 1,
+      letterSpacing: "-0.045em"
+    }
+  }, name), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      fontWeight: 660,
+      letterSpacing: "-0.01em"
+    }
+  }, title)), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    ref: toggleRef,
+    onClick: onToggle,
+    "aria-expanded": isOpen,
+    "aria-controls": menuId,
+    "aria-label": isOpen ? "Close menu" : "Open menu",
+    style: {
+      width: 84,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 9,
+      border: 0,
+      borderLeft: "1px solid var(--ink)",
+      background: "transparent",
+      color: "var(--ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 760,
+      cursor: "pointer"
+    }
+  }, isOpen ? "Close" : "Menu", /*#__PURE__*/React.createElement("i", {
+    className: "ds-mobile-toggle-icon",
+    "data-state": isOpen ? "open" : "closed",
+    "aria-hidden": "true"
+  }))));
+}
+Object.assign(__ds_scope, { MobileIdentityBar });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileIdentityBar.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/MobileMenu.jsx
+try { (() => {
+/** The phone destination list: work and profile as separate groups, in a full-surface overlay
+ *  under the identity bar. Never a second, quieter navigation living beside the reader — this
+ *  IS the rail's content, shown only after an explicit tap, exactly as the rail's spine is always
+ *  showing on desktop.
+ *
+ *  The panel stays mounted at rest and draws itself with `clip-path` — open reveals top-down,
+ *  close retracts the same way, over `--dur-fast` — never an opacity fade. `visibility` follows
+ *  the same clip, flipped instantly on open and held until the retraction finishes on close, so
+ *  a clipped-away panel can never be tabbed into. `prefers-reduced-motion` is handled globally
+ *  (tokens/animation.css collapses every transition to 0.01ms), so the state still changes here,
+ *  it just arrives at once. */
+function MobileMenu({
+  isOpen = false,
+  onClose,
+  projects = [],
+  utilities = [],
+  activeId,
+  onSelect,
+  location,
+  contactLabel = "Contact",
+  contactHref,
+  menuId,
+  returnFocusRef,
+  style,
+  ...rest
+}) {
+  const panelRef = React.useRef(null);
+  const wasOpen = React.useRef(false);
+  React.useEffect(() => {
+    if (isOpen) {
+      const first = panelRef.current && panelRef.current.querySelector("a, button");
+      if (first) first.focus();
+    } else if (wasOpen.current && returnFocusRef && returnFocusRef.current) {
+      returnFocusRef.current.focus();
+    }
+    wasOpen.current = isOpen;
+  }, [isOpen, returnFocusRef]);
+  React.useEffect(() => {
+    if (!isOpen) return undefined;
+    const onKeyDown = event => {
+      if (event.key === "Escape") {
+        onClose && onClose();
+        return;
+      }
+      if (event.key !== "Tab" || !panelRef.current) return;
+      const focusable = panelRef.current.querySelectorAll("a, button");
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen, onClose]);
+  const select = id => {
+    onSelect && onSelect(id);
+    onClose && onClose();
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    ref: panelRef,
+    id: menuId,
+    role: "dialog",
+    "aria-modal": "true",
+    "aria-label": "Site navigation",
+    "data-ds": "mobile-menu",
+    style: {
+      position: "fixed",
+      zIndex: 290,
+      left: 0,
+      right: 0,
+      top: "calc(env(safe-area-inset-top, 0px) + var(--mobile-bar-height))",
+      bottom: 0,
+      display: "grid",
+      gridTemplateRows: "minmax(0,1fr) auto auto",
+      overflowY: "auto",
+      background: "var(--paper)",
+      color: "var(--ink)",
+      boxShadow: "0 18px 40px rgba(17,17,15,0.2)",
+      clipPath: isOpen ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)",
+      visibility: isOpen ? "visible" : "hidden",
+      transition: isOpen ? "clip-path var(--dur-fast) var(--ease-authored)" : "clip-path var(--dur-fast) var(--ease-authored), visibility 0s var(--dur-fast)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Work",
+    style: {
+      padding: "24px 18px"
+    }
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 14px",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      fontWeight: 760
+    }
+  }, "Work"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(2,minmax(0,1fr))",
+      gap: 8
+    }
+  }, projects.map(p => {
+    const on = p.id === activeId;
+    return /*#__PURE__*/React.createElement("button", {
+      key: p.id,
+      type: "button",
+      tabIndex: isOpen ? 0 : -1,
+      onClick: () => select(p.id),
+      "aria-current": on ? "page" : undefined,
+      style: {
+        minHeight: 112,
+        display: "grid",
+        gridTemplateColumns: "30px minmax(0,1fr)",
+        gridTemplateRows: "auto 1fr",
+        gap: "8px 10px",
+        padding: 16,
+        overflow: "hidden",
+        textAlign: "left",
+        border: 0,
+        background: on ? "var(--ink)" : "var(--paper-bright)",
+        color: on ? "var(--paper-bright)" : "var(--ink)",
+        boxShadow: "3px 4px 0 rgba(17,17,15,0.14)",
+        cursor: "pointer",
+        transition: "background var(--dur-fast) var(--ease-authored), color var(--dur-fast) var(--ease-authored)"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: on ? "var(--paper-dim)" : "var(--signal)",
+        fontFamily: "var(--font-mono)",
+        fontSize: 9,
+        fontWeight: 760
+      }
+    }, p.number), /*#__PURE__*/React.createElement("strong", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "clamp(19px,4.4vw,25px)",
+        fontWeight: 720,
+        lineHeight: 1,
+        letterSpacing: "-0.05em"
+      }
+    }, p.title), /*#__PURE__*/React.createElement("small", {
+      style: {
+        gridColumn: 2,
+        alignSelf: "end",
+        color: on ? "var(--paper-dim)" : "var(--muted-ink)",
+        fontFamily: "var(--font-sans)",
+        fontSize: 10,
+        lineHeight: 1.3
+      }
+    }, p.statement));
+  }))), utilities.length > 0 && /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Profile",
+    style: {
+      borderTop: "1px solid var(--ink)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(" + utilities.length + ",1fr)"
+    }
+  }, utilities.map((u, i) => {
+    const on = u.id === activeId;
+    return /*#__PURE__*/React.createElement("button", {
+      key: u.id,
+      type: "button",
+      tabIndex: isOpen ? 0 : -1,
+      onClick: () => select(u.id),
+      "aria-current": on ? "page" : undefined,
+      style: {
+        minHeight: 54,
+        border: 0,
+        borderRight: i === utilities.length - 1 ? 0 : "1px solid var(--ink)",
+        background: on ? "var(--ink)" : "var(--paper-bright)",
+        color: on ? "var(--paper-bright)" : "var(--ink)",
+        fontFamily: "var(--font-sans)",
+        fontSize: 16,
+        fontWeight: 650,
+        cursor: "pointer",
+        transition: "background var(--dur-fast) var(--ease-authored), color var(--dur-fast) var(--ease-authored)"
+      }
+    }, u.label);
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: 18,
+      alignItems: "center",
+      padding: "16px 18px calc(16px + env(safe-area-inset-bottom, 0px))",
+      borderTop: "1px solid var(--ink)",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8
+    }
+  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
+    href: contactHref,
+    tabIndex: isOpen ? 0 : -1,
+    style: {
+      paddingBottom: 2,
+      borderBottom: "1px solid var(--signal)",
+      color: "var(--ink)",
+      fontSize: 10,
+      fontWeight: 700,
+      textDecoration: "none"
+    }
+  }, contactLabel)));
+}
+Object.assign(__ds_scope, { MobileMenu });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileMenu.jsx", error: String((e && e.message) || e) }); }
+
+// components/evidence/FactsPanel.jsx
+try { (() => {
+/** Contribution facts, as the document's masthead strip: mono label in the gutter, the claim at fact
+ *  size beside it. Padding is the instrument's — the strip is as tall as the longest claim, not a band
+ *  of reserved air across the top of the page. */
+function FactsPanel({
+  facts = [],
+  columns = "0.9fr 1.1fr",
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    "data-ds": "facts-panel",
+    style: {
+      display: "grid",
+      gridTemplateColumns: columns,
+      borderBottom: "1px solid var(--ink)",
+      background: "var(--paper-bright)",
+      ...style
+    },
+    ...rest
+  }, facts.map((fact, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "grid",
+      gridTemplateColumns: "var(--label-gutter) minmax(0,1fr)",
+      padding: "var(--panel-pad) 0",
+      borderRight: i === facts.length - 1 ? 0 : "1px solid var(--ink)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      padding: "0 12px 0 clamp(20px,2.4vw,34px)",
+      color: "var(--signal)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700,
+      lineHeight: 1.35
+    }
+  }, fact.label), /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: 620,
+      margin: 0,
+      paddingRight: "clamp(20px,2.4vw,34px)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--fact-size)",
+      fontWeight: 560,
+      lineHeight: 1.18,
+      letterSpacing: "-0.045em"
+    }
+  }, fact.value))));
+}
+Object.assign(__ds_scope, { FactsPanel });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/evidence/FactsPanel.jsx", error: String((e && e.message) || e) }); }
+
+// components/case/CaseNav.jsx
+try { (() => {
+/** The sticky, scroll-spied jump nav from the bakeoff's entry A, translated: a horizontally
+ *  scrollable row of anchors (so a long stop list degrades to a swipe on a phone rather than
+ *  crushing every label), an `IntersectionObserver` keeping the in-view stop honest as the reader
+ *  scrolls, and a plain `href="#id"` under every stop so navigation still works with the observer
+ *  entirely absent. The observer's `root` is `scrollRoot.current` rather than the viewport, because
+ *  this product's document scrolls inside a nested pane, not the window. The active stop inverts to
+ *  an ink chip — this system's one selection language — rather than entry A's vermillion underline;
+ *  the underline survives as the hover mark, reusing the same `.ds-tab` rule every other tab in the
+ *  system already draws with. */
+function CaseNav({
+  label = "Case map",
+  stops = [],
+  scrollRoot,
+  style,
+  ...rest
+}) {
+  const [active, setActive] = React.useState(stops[0] ? stops[0].id : null);
+  React.useEffect(() => {
+    const node = scrollRoot && scrollRoot.current;
+    if (!node || typeof IntersectionObserver === "undefined" || !stops.length) return undefined;
+    /* Below the shell breakpoint this node stops being a scroll container at all — the page
+       scrolls instead (tokens/shell.css). A `root` that cannot scroll its own content makes
+       IntersectionObserver's geometry meaningless, so fall back to the viewport (`root: null`)
+       whenever the node's content no longer overflows it, rather than branching on width. */
+    const root = node.scrollHeight > node.clientHeight + 1 ? node : null;
+    const targets = stops.map(s => document.getElementById(s.id)).filter(Boolean);
+    if (!targets.length) return undefined;
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    }, {
+      root,
+      rootMargin: "-45% 0px -50% 0px",
+      threshold: 0
+    });
+    targets.forEach(t => io.observe(t));
+    return () => io.disconnect();
+  }, [scrollRoot, stops]);
+  const jump = id => event => {
+    const target = document.getElementById(id);
+    const root = scrollRoot && scrollRoot.current;
+    if (!target || !root) return; // no JS home for the jump — the href="#id" still does the job
+    event.preventDefault();
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({
+      behavior: reduce ? "auto" : "smooth",
+      block: "start"
+    });
+  };
+  return /*#__PURE__*/React.createElement("nav", {
+    "aria-label": label,
+    "data-ds": "case-nav",
+    style: {
+      position: "sticky",
+      top: 0,
+      zIndex: 40,
+      display: "flex",
+      alignItems: "stretch",
+      overflowX: "auto",
+      scrollbarWidth: "none",
+      WebkitOverflowScrolling: "touch",
+      borderTop: "1px solid var(--ink)",
+      borderBottom: "1px solid var(--ink)",
+      background: "rgba(248,243,232,0.96)",
+      backdropFilter: "blur(14px)",
+      boxShadow: "var(--shadow-sticky)",
+      ...style
+    },
+    ...rest
+  }, stops.map(s => {
+    const on = s.id === active;
+    return /*#__PURE__*/React.createElement("a", {
+      key: s.id,
+      href: "#" + s.id,
+      onClick: jump(s.id),
+      "aria-current": on ? "true" : undefined,
+      className: "ds-tab ds-tab-chapter",
+      style: {
+        flex: "0 0 auto",
+        display: "flex",
+        alignItems: "center",
+        minHeight: 44,
+        padding: "0 clamp(13px,1.7vw,20px)",
+        color: on ? "var(--paper-bright)" : "var(--muted-ink)",
+        background: on ? "var(--ink)" : "transparent",
+        fontFamily: "var(--font-sans)",
+        fontSize: 12,
+        fontWeight: 600,
+        letterSpacing: "-0.02em",
+        textDecoration: "none",
+        whiteSpace: "nowrap",
+        transition: "background var(--dur-fast) var(--ease-authored), color var(--dur-fast) var(--ease-authored)"
+      }
+    }, s.label);
+  }));
+}
+Object.assign(__ds_scope, { CaseNav });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/case/CaseNav.jsx", error: String((e && e.message) || e) }); }
+
+// components/layout/StageCurtain.jsx
+try { (() => {
+const COVER = {
+  forward: "stage-curtain-cover-forward",
+  backward: "stage-curtain-cover-backward"
+};
+const REVEAL = {
+  forward: "stage-curtain-reveal-forward",
+  backward: "stage-curtain-reveal-backward"
+};
+
+/** The stage transition: a pine plate crosses the stage carrying the destination's name,
+ *  the document swaps behind it, then it leaves the way it came. */
+function StageCurtain({
+  state = "idle",
+  direction = "forward",
+  label,
+  style,
+  ...rest
+}) {
+  const covering = state === "covering";
+  const revealing = state === "revealing";
+  const active = covering || revealing;
+  const plate = covering ? COVER[direction] + " var(--dur-curtain-cover) var(--ease-curtain-cover) both" : revealing ? REVEAL[direction] + " var(--dur-curtain-reveal) var(--ease-authored) both" : "none";
+  const text = covering ? "stage-curtain-label-in var(--dur-curtain-label-in) var(--delay-curtain-label) var(--ease-authored) both" : revealing ? "stage-curtain-label-out var(--dur-curtain-label-out) var(--ease-curtain-out) both" : "none";
+  return /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    "data-ds": "stage-curtain",
+    style: {
+      position: "absolute",
+      zIndex: 90,
+      inset: 0,
+      display: "grid",
+      placeItems: "center",
+      overflow: "hidden",
+      visibility: active ? "visible" : "hidden",
+      pointerEvents: "none",
+      color: "var(--stage-ink)",
+      background: "var(--stage-field)",
+      /* The off-screen resting transform only matters while a transition is actually playing —
+         `visibility: hidden` already fully hides the plate at idle, so idle can rest at
+         `none` instead of parking a real, positioned box outside the viewport. That box used to
+         be silently clipped by the desktop reader's `overflow: hidden`; once the phone reader
+         gives that up (tokens/shell.css, needed to keep `position: sticky` tracking the real
+         page scroll), the same idle box was inflating the document's own horizontal scroll
+         width by exactly its own overhang. The cover/reveal keyframes define their own `from`
+         transform the instant they start, so dropping the idle-only offset changes nothing
+         about how a transition actually looks. */
+      transform: active ? direction === "forward" ? "translate3d(104%,0,0)" : "translate3d(-104%,0,0)" : "none",
+      willChange: "transform",
+      animation: plate,
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "absolute",
+      inset: 0,
+      opacity: 0.22,
+      background: "var(--texture-graph)",
+      backgroundSize: "25% 25%"
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "absolute",
+      top: 0,
+      bottom: 0,
+      width: 13,
+      left: direction === "forward" ? -13 : "auto",
+      right: direction === "forward" ? "auto" : -13,
+      background: "linear-gradient(90deg,var(--signal) 0 54%,var(--signal-stage) 54% 100%)",
+      boxShadow: (direction === "forward" ? "-12px" : "12px") + " 0 28px rgba(4,26,22,0.42)"
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "relative",
+      zIndex: 2,
+      opacity: 0,
+      transform: "translateY(20px)",
+      animation: text,
+      fontFamily: "var(--font-sans)",
+      fontSize: "clamp(52px,8vw,128px)",
+      fontWeight: 760,
+      lineHeight: 0.9,
+      letterSpacing: "-0.075em"
+    }
+  }, label));
+}
+Object.assign(__ds_scope, { StageCurtain });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/layout/StageCurtain.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/MobileIdentityBar.jsx
+try { (() => {
+/** The entire persistent phone chrome, and the entire bar IS the control — identity and the menu
+ *  trigger are one tappable unit, not identity plus a bolted-on hamburger. Below the shell
+ *  breakpoint this replaces `IndexRail` outright rather than reflowing it: the desktop rail is a
+ *  column of navigation; the phone gets a header that opens the same navigation as an overlay.
+ *  Safe-area-aware so it clears a notch, and it carries an explicit ink color for the same reason
+ *  the desktop rail's identity button does — an unstyled `<button>` renders its text in iOS
+ *  Safari's system blue otherwise. */
+function MobileIdentityBar({
+  name = "Caleb Stacy",
+  title = "Senior content designer",
+  isOpen = false,
+  onToggle,
+  toggleRef,
+  menuId,
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("header", {
+    "data-ds": "mobile-bar",
+    style: {
+      position: "sticky",
+      zIndex: 300,
+      top: 0,
+      paddingTop: "env(safe-area-inset-top, 0px)",
+      borderBottom: "1px solid var(--ink)",
+      background: "var(--paper-bright)",
+      color: "var(--ink)",
+      boxShadow: "var(--shadow-sticky)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    ref: toggleRef,
+    onClick: onToggle,
+    "aria-expanded": isOpen,
+    "aria-controls": menuId,
+    style: {
+      width: "100%",
+      height: "var(--mobile-bar-height)",
+      display: "flex",
+      alignItems: "stretch",
+      border: 0,
+      background: "transparent",
+      color: "var(--ink)",
+      textAlign: "left",
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      minWidth: 0,
+      display: "flex",
+      flex: "1 1 auto",
+      flexDirection: "column",
+      justifyContent: "center",
+      gap: 2,
+      padding: "0 18px"
+    }
+  }, /*#__PURE__*/React.createElement("strong", {
+    style: {
+      display: "block",
+      fontFamily: "var(--font-sans)",
+      fontSize: 17,
+      fontWeight: 760,
+      lineHeight: 1,
+      letterSpacing: "-0.045em"
+    }
+  }, name), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      fontWeight: 660,
+      letterSpacing: "-0.01em"
+    }
+  }, title)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: "0 0 auto",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 9,
+      width: 84,
+      borderLeft: "1px solid var(--ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 760
+    }
+  }, isOpen ? "Close" : "Menu", /*#__PURE__*/React.createElement("i", {
+    className: "ds-mobile-toggle-icon",
+    "data-state": isOpen ? "open" : "closed",
+    "aria-hidden": "true"
+  }))));
+}
+Object.assign(__ds_scope, { MobileIdentityBar });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileIdentityBar.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/MobileMenu.jsx
+try { (() => {
+/** The phone destination list — the desktop rail's own navigation, shown as a full-surface
+ *  overlay instead of a fixed column. It composes the rail's real parts (`ProjectSpineItem`,
+ *  `UtilityNav`) rather than a smaller, invented "mobile menu" shape: every project row inverts
+ *  to ink and unfurls its one-line statement exactly when it's the open document, the same
+ *  active-state language the desktop spine uses, and About/Résumé are the same tab row. Shown
+ *  only after an explicit tap on `MobileIdentityBar`; the default phone page never opens on the
+ *  complete sitemap. */
+function MobileMenu({
+  isOpen = false,
+  onClose,
+  projects = [],
+  utilities = [],
+  activeId,
+  onSelect,
+  location,
+  contactLabel = "Contact",
+  contactHref,
+  menuId,
+  returnFocusRef,
+  style,
+  ...rest
+}) {
+  const panelRef = React.useRef(null);
+  const wasOpen = React.useRef(false);
+  React.useEffect(() => {
+    if (isOpen) {
+      const first = panelRef.current && panelRef.current.querySelector("a, button");
+      if (first) first.focus();
+    } else if (wasOpen.current && returnFocusRef && returnFocusRef.current) {
+      returnFocusRef.current.focus();
+    }
+    wasOpen.current = isOpen;
+  }, [isOpen, returnFocusRef]);
+  React.useEffect(() => {
+    if (!isOpen) return undefined;
+    const onKeyDown = event => {
+      if (event.key === "Escape") {
+        onClose && onClose();
+        return;
+      }
+      if (event.key !== "Tab" || !panelRef.current) return;
+      const focusable = panelRef.current.querySelectorAll("a, button");
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen, onClose]);
+  const select = id => {
+    onSelect && onSelect(id);
+    onClose && onClose();
+  };
+  const tab = isOpen ? undefined : -1;
+  return /*#__PURE__*/React.createElement("div", {
+    ref: panelRef,
+    id: menuId,
+    role: "dialog",
+    "aria-modal": "true",
+    "aria-label": "Site navigation",
+    "data-ds": "mobile-menu",
+    style: {
+      position: "fixed",
+      zIndex: 290,
+      left: 0,
+      right: 0,
+      top: "calc(env(safe-area-inset-top, 0px) + var(--mobile-bar-height))",
+      bottom: 0,
+      display: "flex",
+      flexDirection: "column",
+      overflowY: "auto",
+      background: "var(--paper)",
+      color: "var(--ink)",
+      boxShadow: "0 18px 40px rgba(17,17,15,0.2)",
+      clipPath: isOpen ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)",
+      visibility: isOpen ? "visible" : "hidden",
+      transition: isOpen ? "clip-path var(--dur-fast) var(--ease-authored)" : "clip-path var(--dur-fast) var(--ease-authored), visibility 0s var(--dur-fast)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Work",
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      borderTop: "1px solid var(--ink)"
+    }
+  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
+    key: p.id,
+    number: p.number,
+    title: p.title,
+    statement: p.statement,
+    active: p.id === activeId,
+    onSelect: () => select(p.id),
+    tabIndex: tab
+  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
+    items: utilities,
+    active: activeId,
+    onSelect: select,
+    style: {
+      flex: "0 0 auto"
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      minHeight: 47,
+      flex: "0 0 auto",
+      display: "flex",
+      justifyContent: "space-between",
+      gap: "var(--space-5)",
+      alignItems: "center",
+      padding: "0 clamp(24px,2.6vw,38px)",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      lineHeight: 1.3
+    }
+  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
+    href: contactHref,
+    tabIndex: tab,
+    style: {
+      flex: "0 0 auto",
+      paddingBottom: 2,
+      borderBottom: "1px solid var(--signal)",
+      color: "var(--ink)",
+      fontSize: 10,
+      fontWeight: 700,
+      textDecoration: "none"
+    }
+  }, contactLabel)));
+}
+Object.assign(__ds_scope, { MobileMenu });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileMenu.jsx", error: String((e && e.message) || e) }); }
+
 __ds_ns.ScrollCue = __ds_scope.ScrollCue;
 
 __ds_ns.StageAction = __ds_scope.StageAction;
@@ -17001,5 +18405,9 @@ __ds_ns.CaseQuote = __ds_scope.CaseQuote;
 __ds_ns.MetricStrip = __ds_scope.MetricStrip;
 
 __ds_ns.CaseNav = __ds_scope.CaseNav;
+
+__ds_ns.MobileIdentityBar = __ds_scope.MobileIdentityBar;
+
+__ds_ns.MobileMenu = __ds_scope.MobileMenu;
 
 })();

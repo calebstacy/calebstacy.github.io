@@ -1,0 +1,130 @@
+/* The app shell's phone reflow — the piece `tokens/case.css` explicitly left undone (its own
+   header comment scopes it to case-document *content*, assuming a shell that already gives that
+   content room). Below the breakpoint the two-pane frame — `var(--rail-width) minmax(0,1fr)`,
+   a 360px-minimum rail beside the reader — never softens, so the reader column was left with
+   whatever the frame had leftover: a few pixels at phone width. This file is the fix: the rail
+   is replaced outright by a compact identity bar and an explicit full-surface menu
+   (`MobileIdentityBar` / `MobileMenu`), the frame gives up its fixed height and internal scroller
+   for a normal scrolling page, and the case-document chrome (`ChapterNav`, `CaseNav`, the old
+   template's opening stage) gets the same "usable at 360px" pass `tokens/case.css` already gave
+   the new one. `768px` is `tokens/case.css`'s breakpoint too (moved from its original 700px to
+   match), so the whole document reflows at one boundary, not two — the value itself matches where
+   phone-class breakpoints actually cluster (768/800/1024), not a number specific to this product.
+
+   `data-ds` hooks name structure, never skin, same law as `interaction.css` and `case.css`.
+   `!important` overrides inline layout and is confined to this file and this breakpoint. */
+
+/* The two new phone-only components render unconditionally (so app.jsx never branches on
+   viewport width in JS) and are hidden by default; the media query below is what turns them on.
+   `!important` is required here specifically because both set their own `display` inline. */
+[data-ds="mobile-bar"],
+[data-ds="mobile-menu"] {
+  display: none !important;
+}
+
+/* Hairline-drawn hamburger-to-close transform on the identity bar's toggle — a transform, never
+   an opacity fade, ported and re-timed onto this system's own duration token from the source's
+   fixed 180ms (see readme's "Gaps and substitutions": that number was never carried over until
+   now). */
+.ds-mobile-toggle-icon,
+.ds-mobile-toggle-icon::before,
+.ds-mobile-toggle-icon::after {
+  width: 15px;
+  height: 1px;
+  display: block;
+  background: currentColor;
+  content: "";
+  transition: transform var(--dur-fast) var(--ease-authored), top var(--dur-fast) var(--ease-authored);
+}
+.ds-mobile-toggle-icon { position: relative; }
+.ds-mobile-toggle-icon::before { position: absolute; top: -5px; left: 0; }
+.ds-mobile-toggle-icon::after { position: absolute; top: 5px; left: 0; }
+.ds-mobile-toggle-icon[data-state="open"] { background: transparent; }
+.ds-mobile-toggle-icon[data-state="open"]::before { top: 0; transform: rotate(45deg); }
+.ds-mobile-toggle-icon[data-state="open"]::after { top: 0; transform: rotate(-45deg); }
+
+@media (max-width: 768px) {
+  /* ---- the frame: full-bleed, page-scrolled, no internal pane ---- */
+  [data-ds="frame"] {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100svh !important;
+    margin: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    /* Desktop's `overflow: hidden` still counts as a scroll container even though nothing ever
+       scrolls it, which pins every `position: sticky` descendant (the identity bar, the case
+       maps) to ITS scroll offset — permanently 0 — instead of the page's. Sticky only tracks the
+       real, window-level scroll once the frame stops being a scroll container of its own. */
+    overflow: visible !important;
+  }
+  [data-ds="rail"] { display: none !important; }
+  [data-ds="mobile-bar"] { display: block !important; }
+  [data-ds="mobile-menu"] { display: flex !important; }
+
+  /* The reader stops being an internally-scrolled pane; the page itself scrolls, the way the
+     mobile bar and menu already assume (both are `position: sticky` / `fixed` against the page,
+     not against a nested scroller). `[data-ds="reader"]` keeps `position: relative` on purpose —
+     it stays `StageCurtain`'s positioning parent (`position: absolute; inset: 0`); dropping it to
+     `static` here would push the curtain up to the document's initial containing block instead. */
+  [data-ds="reader"] { overflow: visible !important; }
+  [data-ds="reader-scroll"] { position: static !important; inset: auto !important; overflow: visible !important; background: none !important; }
+
+  /* StageCurtain is `position: absolute; inset: 0` against `[data-ds="reader"]`. With the reader
+     now auto-height (as tall as the whole document, not the viewport), that inset would stretch
+     the plate — and the label centered inside it — across the full scroll length instead of the
+     screen. Pin it to the viewport instead, below the identity bar, so it still covers exactly
+     what's on screen and leaves the bar visible through a transition, the same way the desktop
+     curtain leaves the rail showing. */
+  [data-ds="stage-curtain"] {
+    position: fixed !important;
+    top: calc(env(safe-area-inset-top, 0px) + var(--mobile-bar-height)) !important;
+    right: 0 !important; bottom: 0 !important; left: 0 !important;
+  }
+
+  /* ---- case-document chrome shared by both templates ---- */
+
+  /* Both sticky nav bars park directly under the identity bar instead of `top: 0`, where they'd
+     sit exactly behind it (same stuck position, identity bar's higher z-index winning the paint). */
+  [data-ds="case-nav"],
+  [data-ds="chapter-nav"] {
+    top: calc(env(safe-area-inset-top, 0px) + var(--mobile-bar-height)) !important;
+  }
+
+  /* ChapterNav's chapter row was a fixed `repeat(N, minmax(74px,1fr))` grid, sized for a reader
+     column that no longer exists at this width. `CaseNav` already ships as a horizontally
+     scrollable row (`overflow-x: auto`, hidden scrollbar) for the same reason; this gives the
+     older template's map the identical treatment rather than two different mobile behaviors for
+     what is, to a reader, the same control. */
+  [data-ds="chapter-nav-track"] {
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 4px !important;
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+  [data-ds="chapter-nav-track"]::-webkit-scrollbar { display: none; }
+  [data-ds="chapter-nav-track"] > button {
+    flex: 0 0 auto !important;
+    min-height: 44px !important;
+    padding: 0 14px !important;
+  }
+
+  /* The old template's opening stage: copy took a fixed 47-49% so the character scene could sit
+     beside it without ever touching (see scene-visual.jsx's own comment on the 49/51 split).
+     Below the breakpoint there is no beside — copy takes the full measure and the character becomes a
+     normal block underneath it rather than an absolutely-positioned overlay, so the two can
+     never overlap and neither forces the other into a fixed height that no longer fits its
+     content. */
+  [data-ds="stage"] { flex-wrap: wrap !important; height: auto !important; min-height: 0 !important; }
+  [data-ds="stage-copy"] { position: relative !important; width: 100% !important; height: auto !important; padding: clamp(30px,7vw,42px) var(--stage-pad-x) 20px !important; }
+  [data-ds="scene-character"] { position: relative !important; inset: auto !important; width: 100% !important; height: min(46vh, 340px) !important; }
+
+  /* The old template's contribution-facts masthead: two fixed columns crowd a long value
+     ("Team and surface") into half the phone's width. One fact per row instead, the same fold
+     `tokens/case.css` already gives the new template's `case-facts`. */
+  [data-ds="facts-panel"] { grid-template-columns: 1fr !important; }
+  [data-ds="facts-panel"] > div { border-right: 0 !important; }
+  [data-ds="facts-panel"] > div + div { border-top: 1px solid var(--ink) !important; }
+}
