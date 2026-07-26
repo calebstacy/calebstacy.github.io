@@ -2311,9 +2311,32 @@ function WordMathDocument({
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
     style: {
       minHeight: "min(660px, calc(100svh - 84px))",
-      display: "flex"
+      display: "flex",
+      position: "relative"
     }
-  }, /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      inset: 0,
+      zIndex: 0
+    }
+  }, /*#__PURE__*/React.createElement("img", {
+    src: project.character,
+    alt: project.characterAlt,
+    style: {
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      objectPosition: "68% 30%"
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      position: "absolute",
+      inset: 0,
+      background: "linear-gradient(90deg, rgba(20,12,5,.88) 0%, rgba(20,12,5,.6) 34%, rgba(20,12,5,.12) 62%, rgba(20,12,5,0) 78%)"
+    }
+  })), /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
     eyebrow: "Project " + project.number + " · " + project.context,
     title: project.title,
     statement: project.statement,
@@ -2321,10 +2344,7 @@ function WordMathDocument({
   }, /*#__PURE__*/React.createElement(Outcome, {
     label: project.outcomeLabel,
     items: project.results
-  })), /*#__PURE__*/React.createElement(SceneCharacter, {
-    src: project.character,
-    alt: project.characterAlt
-  })), /*#__PURE__*/React.createElement(Beat, {
+  }))), /*#__PURE__*/React.createElement(Beat, {
     id: "overview",
     first: true
   }, /*#__PURE__*/React.createElement(CaseMeta, {
@@ -2474,26 +2494,35 @@ const DESIGN_WORDS = ["systems.", "language standards.", "taxonomies.", "onboard
 const DESIGN_REST = DESIGN_WORDS[DESIGN_WORDS.length - 1];
 function DesignRotator() {
   const reduced = React.useMemo(() => !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches), []);
-  const [text, setText] = React.useState(reduced ? DESIGN_REST : "");
+  /* The film-credits trick: every character of the current word is in the layout from the word's
+     first frame (untyped ones visibility:hidden), so the line geometry is final before the first
+     letter shows and nothing can hop lines mid-word. Multi-word phrases wrap only at their
+     spaces, exactly where the finished line wraps; letters inside a chunk are nowrap-bound. The
+     caret is absolutely positioned after the last visible letter, outside the flow entirely. */
+  const [i, setI] = React.useState(reduced ? DESIGN_WORDS.length - 1 : 0);
+  const [n, setN] = React.useState(reduced ? DESIGN_REST.length : 0);
+  const hostRef = React.useRef(null);
+  const caretRef = React.useRef(null);
   React.useEffect(() => {
     if (reduced) return undefined;
     let alive = true,
       t = 0,
-      i = 0;
+      wi = 0;
     const later = (fn, ms) => {
       t = setTimeout(() => {
         if (alive) fn();
       }, ms);
     };
     const type = ci => {
-      const word = DESIGN_WORDS[i];
-      setText(word.slice(0, ci));
-      if (ci < word.length) later(() => type(ci + 1), 40);else later(() => erase(word.length - 1), word === DESIGN_REST ? 2400 : 950);
+      const w = DESIGN_WORDS[wi];
+      setI(wi);
+      setN(ci);
+      if (ci < w.length) later(() => type(ci + 1), 40);else later(() => erase(w.length - 1), w === DESIGN_REST ? 2400 : 950);
     };
     const erase = len => {
-      setText(DESIGN_WORDS[i].slice(0, len));
+      setN(len);
       if (len > 0) later(() => erase(len - 1), 13);else {
-        i = (i + 1) % DESIGN_WORDS.length;
+        wi = (wi + 1) % DESIGN_WORDS.length;
         later(() => type(1), 170);
       }
     };
@@ -2503,18 +2532,75 @@ function DesignRotator() {
       clearTimeout(t);
     };
   }, [reduced]);
+  const word = DESIGN_WORDS[i];
+  React.useLayoutEffect(() => {
+    const host = hostRef.current,
+      caret = caretRef.current;
+    if (!host || !caret) return undefined;
+    const place = () => {
+      let ref = null;
+      for (let k = n - 1; k >= 0 && !ref; k--) ref = host.querySelector('[data-ch="' + k + '"]');
+      if (!ref) ref = host.querySelector("[data-ch-anchor]");
+      if (!ref) return;
+      const a = ref.getBoundingClientRect(),
+        h = host.getBoundingClientRect();
+      caret.style.left = a.right - h.left + "px";
+      caret.style.top = a.top - h.top + a.height * 0.14 + "px";
+      caret.style.height = a.height * 0.72 + "px";
+    };
+    place();
+    window.addEventListener("resize", place);
+    return () => window.removeEventListener("resize", place);
+  }, [n, word]);
+  const chunks = [];
+  {
+    let letters = [],
+      start = 0;
+    word.split("").forEach((c, idx) => {
+      if (c === " ") {
+        chunks.push(/*#__PURE__*/React.createElement("span", {
+          key: "k" + start,
+          style: {
+            whiteSpace: "nowrap"
+          }
+        }, letters), " ");
+        letters = [];
+        start = idx + 1;
+      } else {
+        letters.push(/*#__PURE__*/React.createElement("span", {
+          key: idx,
+          "data-ch": idx,
+          style: {
+            visibility: idx < n ? "visible" : "hidden"
+          }
+        }, c));
+      }
+    });
+    chunks.push(/*#__PURE__*/React.createElement("span", {
+      key: "k" + start,
+      style: {
+        whiteSpace: "nowrap"
+      }
+    }, letters));
+  }
   return /*#__PURE__*/React.createElement("span", {
     "data-ds": "design-rotator",
+    ref: hostRef,
     role: "text",
-    "aria-label": "I design " + DESIGN_REST
+    "aria-label": "I design " + DESIGN_REST,
+    style: {
+      position: "relative"
+    }
   }, /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "true"
-  }, "I design " + text, !reduced && /*#__PURE__*/React.createElement("span", {
+  }, "I design", /*#__PURE__*/React.createElement("span", {
+    "data-ch-anchor": true
+  }, " "), chunks, !reduced && /*#__PURE__*/React.createElement("span", {
+    ref: caretRef,
     "data-ds": "design-rotator-caret",
     style: {
-      display: "inline-block",
+      position: "absolute",
       width: "0.045em",
-      height: "0.74em",
       marginLeft: "0.05em",
       background: "var(--signal-stage)",
       animation: "rotator-caret-blink 1.05s steps(1) infinite"
