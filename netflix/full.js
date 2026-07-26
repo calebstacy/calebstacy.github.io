@@ -185,7 +185,7 @@ function App() {
     meta: ["kind: extension (demonstration)", "status: adopted-shaped", "owner: surface voice lead", "evidence: floor.json · culture/body_prose/readability"]
   }, {
     id: "vocabulary.content_unit.series_film_vs_tv_show_movie.v0",
-    asserts: "Help and marketing pair “TV show” with “movie”; Tudum and culture pair “series” with “film,” for what reads like the same content-type concept — " + contentUnit.total_occurrences + " occurrences across all four surfaces. Nothing rules yet on whether that split is a deliberate register or unmanaged drift.",
+    asserts: "Help and marketing pair “TV show” with “movie”; Tudum and culture pair “series” with “film,” for what reads like the same content-type concept — " + contentUnit.total_occurrences + " occurrences across all four surfaces. No public record says whether that split is a deliberate register or unmanaged drift.",
     meta: ["kind: vocabulary (proposed shape, undefined in the schema)", "status: proposed — no owner assigned", "evidence: terms.json · content-unit-pairing", "blocked on: a ruling, not more data"]
   }];
   return /*#__PURE__*/React.createElement(Report, {
@@ -198,7 +198,7 @@ function App() {
       style: {
         margin: 0
       }
-    }, "Netflix's Help Center, Tudum, its marketing pages, and its careers pages are all publicly Netflix, and none of them read quite like the others. I ran all four surfaces through the same twelve-dimension reading on public pages fetched and scored on ", fmtDate(floor.run.date), ", and found ", S.n_extends, " adequately powered places where a surface genuinely departs from what the other three share. The method itself ships publicly as Word Math. Divergence like that is normal; every one of these surfaces is written for a different reader. What's missing is the part that would say so on the record: a document stating which differences are decided and which are just drift nobody wrote down."),
+    }, "Netflix's Help Center, Tudum, its marketing pages, and its careers pages are all publicly Netflix, and none of them read quite like the others. I ran all four surfaces through the same twelve-dimension reading on public pages fetched and scored on ", fmtDate(floor.run.date), ", and found ", S.n_extends, " adequately powered places where a surface genuinely departs from what the other three share. The method itself ships publicly as Word Math. Divergence like that is normal; every one of these surfaces is written for a different reader, and Netflix may well have ruled on every difference internally. Whether it has is the one thing this method can't see. What the public numbers do support is deriving the record such a ruling would live in — and the last section of this page does exactly that."),
     subtitle: "A shared voice floor and eleven measured departures from it, twenty-three places where the surfaces name the same thing differently, and the record shape that would settle which of it is intended.",
     abstract: /*#__PURE__*/React.createElement("p", {
       style: {
@@ -211,7 +211,7 @@ function App() {
   }, /*#__PURE__*/React.createElement(Finding, {
     measured: S.n_cells + " cells measured · " + S.n_extends + " extend the floor · " + S.n_within_floor + " within it · " + S.n_underpowered + " underpowered · " + S.n_insufficient_data + " insufficient data",
     verdict: "read plainly"
-  }, "Four Netflix surfaces, the same twelve-dimension reading applied to each, a shared floor computed wherever two or more surfaces had enough text to support one, and every surface's own departure from it tested rather than assumed. Separately: twenty-three places where the same concept gets a different name depending which surface is writing it. Nowhere below does a record exist yet that rules on whether any of it is intended. That absence is the actual subject of this page."), /*#__PURE__*/React.createElement(DocFigure, {
+  }, "Four Netflix surfaces, the same twelve-dimension reading applied to each, a shared floor computed wherever two or more surfaces had enough text to support one, and every surface's own departure from it tested rather than assumed. Separately: twenty-three places where the same concept gets a different name depending which surface is writing it. Whether any of it is intended can't be read from the outside — if a ruling exists, it isn't public. So the last section derives, from this page's own numbers, the records such a ruling would live in."), /*#__PURE__*/React.createElement(DocFigure, {
     caption: "Every reading this run attempted, and how each one resolved.",
     source: "floor.json · summary"
   }, /*#__PURE__*/React.createElement(Ledger, {
@@ -229,8 +229,8 @@ function App() {
       value: "23",
       label: "ranked terminology-variation sets"
     }, {
-      value: "0",
-      label: "adopted records ruling on any of it"
+      value: "3",
+      label: "records derived from the run"
     }]
   }))), /*#__PURE__*/React.createElement(ReportSection, {
     id: "artifacts",
@@ -415,7 +415,7 @@ function App() {
     style: {
       margin: "0 0 1em"
     }
-  }, "Help and marketing consistently pair \"TV show\" with \"movie.\" Tudum and culture instead reach for \"series\" and \"film,\" at far higher volume. Both pairs describe the same thing, scripted long-form video Netflix carries, but the two surface groups barely share a word for it: ", contentUnit.total_occurrences, " occurrences across all four surfaces, and no adopted record anywhere that says whether the split is a deliberate register or drift nobody decided."), /*#__PURE__*/React.createElement(DocFigure, {
+  }, "Help and marketing consistently pair \"TV show\" with \"movie.\" Tudum and culture instead reach for \"series\" and \"film,\" at far higher volume. Both pairs describe the same thing, scripted long-form video Netflix carries, but the two surface groups barely share a word for it: ", contentUnit.total_occurrences, " occurrences across all four surfaces, and no public record that says whether the split is a deliberate register or unmanaged drift."), /*#__PURE__*/React.createElement(DocFigure, {
     kind: "table",
     wide: true,
     caption: "The content-unit family, every variant and where it's actually used.",

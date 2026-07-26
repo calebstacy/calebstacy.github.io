@@ -14,7 +14,8 @@ const {
   StageAction,
   ProvenanceNote,
   Panel,
-  PanelRow
+  PanelRow,
+  IndexRows
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
 
 /* ---------- formatting only — every number below is read from floor.json / terms.json at
@@ -52,7 +53,7 @@ const STOPS = [{
   label: "Names"
 }, {
   id: "move-3",
-  label: "Question"
+  label: "Record"
 }, {
   id: "move-4",
   label: "Proof"
@@ -194,8 +195,8 @@ function App() {
       value: "4",
       label: "surfaces"
     }, {
-      value: "0",
-      label: "adopted records"
+      value: "10",
+      label: "records derived"
     }]
   })), /*#__PURE__*/React.createElement(CaseSection, {
     id: "move-1",
@@ -260,7 +261,7 @@ function App() {
       fontSize: "var(--body-size)",
       lineHeight: 1.55
     }
-  }, "“My List” is the counter-example: Netflix's actual feature name, spelled the same everywhere it appears, ", myListEntry.total, " times between Help and Tudum, next to the ", contentUnit.total_occurrences, " occurrences above, split between two names nobody has ruled on."), /*#__PURE__*/React.createElement("p", {
+  }, "“My List” is the counter-example: Netflix's actual feature name, spelled the same everywhere it appears, ", myListEntry.total, " times between Help and Tudum, next to the ", contentUnit.total_occurrences, " occurrences above, split between two names with no public ruling either way."), /*#__PURE__*/React.createElement("p", {
     style: {
       maxWidth: 620,
       margin: "16px 0 0",
@@ -277,15 +278,41 @@ function App() {
     id: "move-3",
     tone: "dark",
     index: "03",
-    title: "Question",
+    title: "Record",
     scrollMarginTop: NAV_OFFSET
   }, /*#__PURE__*/React.createElement(StoryBeat, {
     kicker: "The pivot",
-    title: "Nothing on any of these pages says the difference was decided.",
-    intro: "Every surface above has a real reason to sound different. A support page and a careers page aren't writing to the same reader. What's missing is a record saying anyone chose that on purpose, rather than it happening four separate times."
+    title: "Whether any of this was decided can't be read from out here.",
+    intro: "Every surface above has a real reason to sound different — a support page and a careers page aren't writing to the same reader — and Netflix may well have ruled on every one of these differences internally. The public record can't show the ruling. It can show enough to derive one. Here are three of the records this run's own numbers support, written in the shape a governed system would keep them."
   }), /*#__PURE__*/React.createElement(CaseQuote, {
     attribution: "What measurement alone can't settle"
-  }, "A measured floor can say a surface moved. It takes a record to say whether it was allowed to.")), /*#__PURE__*/React.createElement(CaseSection, {
+  }, "A measured floor can say a surface moved. It takes a record to say whether it was allowed to."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      margin: "clamp(22px,2.8vw,30px) 0 0"
+    }
+  }, /*#__PURE__*/React.createElement(IndexRows, {
+    label: "Derived records",
+    rows: [{
+      id: "term.save-for-later.v1",
+      asserts: "“My List” is spelled exactly the same in " + myListEntry.total + " public occurrences across Help and Tudum — behavior indistinguishable from a record already adopted. This record writes down what the surfaces already do, so a draft that reaches for “watchlist” fails before anyone reads it.",
+      meta: ["kind: floor", "status: adopted-shaped (observed in the wild)", "owner: terminology owner", "evidence: terms.json · save-for-later"]
+    }, {
+      id: "extension.body_prose.directness.tudum.v1",
+      asserts: "Tudum's body prose reads measurably less direct than the shared floor the other three surfaces set (deviation " + tudum.deviation.toFixed(2) + ", n=" + tudum.n + " against " + tudum.rest_n + "). Editorial has room the floor doesn't grant support writing — an extension is how that room goes on the record instead of staying an accident.",
+      meta: ["kind: extension", "status: proposed", "owner: surface voice lead", "evidence: floor.json · tudum/body_prose/directness"]
+    }, {
+      id: "vocabulary.content_unit.v0",
+      asserts: "Help and marketing pair “TV show” with “movie”; Tudum and culture pair “series” with “film” — " + contentUnit.total_occurrences + " occurrences naming what reads like the same thing. This record doesn't pick a winner. It exists so the ruling, whichever way it goes, has somewhere to live.",
+      meta: ["kind: vocabulary (proposed shape)", "status: proposed — no owner assigned", "evidence: terms.json · content-unit-pairing", "blocked on: a ruling, not more data"]
+    }]
+  })), /*#__PURE__*/React.createElement(ProvenanceNote, {
+    label: "What these are",
+    style: {
+      marginTop: "clamp(20px,2.6vw,28px)"
+    }
+  }, "Not Netflix's records — nobody at Netflix asked for them, and if an internal ruling exists, reconciling a derived record against it is a diff, not a rewrite. Every number is from this run's public data; a schema shown on invented numbers would be a mockup, not a demonstration."), /*#__PURE__*/React.createElement(Door, {
+    href: "./full.html#record"
+  }, "The record shape, in full, on this run's numbers")), /*#__PURE__*/React.createElement(CaseSection, {
     id: "move-4",
     tone: "bright",
     index: "04",
@@ -294,7 +321,7 @@ function App() {
   }, /*#__PURE__*/React.createElement(StoryBeat, {
     kicker: "The check",
     title: "A record here is something a draft can be checked against.",
-    intro: "This page found one clear case above: the same content type carries two names, and nothing on record says which belongs where. A record for that would be short. One claim, the evidence behind it, and a status that can change."
+    intro: "The records above are more than documentation. Each one is a target: one claim, the evidence behind it, a status that can change — and the moment one is adopted, a draft either lands inside it or doesn't."
   }), /*#__PURE__*/React.createElement("p", {
     style: {
       maxWidth: 660,
@@ -304,7 +331,7 @@ function App() {
       fontSize: "var(--body-size)",
       lineHeight: 1.55
     }
-  }, "That's not paperwork. It's a target a draft either lands inside or doesn't, before anyone reads a word. I ran the check once, for real, against the record this project keeps for how directly ordinary prose should read. A first draft missed the target on five of twelve measured dimensions. It read too warm, and it kept dressing up one idea in different words instead of naming it plainly. It stayed vague about what it was actually describing. I rewrote it once. I named the thing the same way throughout, dropped the warm language, and stated two real certainty markers instead of hedging. The second draft landed inside the target on all twelve. Nobody signed off in between; the check ran the moment the second draft existed."), /*#__PURE__*/React.createElement("div", {
+  }, "I ran that check once, for real, against the record this project keeps for how directly ordinary prose should read. A first draft missed the target on five of twelve measured dimensions. It read too warm, and it kept dressing up one idea in different words instead of naming it plainly. It stayed vague about what it was actually describing. I rewrote it once. I named the thing the same way throughout, dropped the warm language, and stated two real certainty markers instead of hedging. The second draft landed inside the target on all twelve. Nobody signed off in between; the check ran the moment the second draft existed."), /*#__PURE__*/React.createElement("div", {
     style: {
       overflowX: "auto",
       margin: "clamp(20px,2.6vw,28px) 0 0"
