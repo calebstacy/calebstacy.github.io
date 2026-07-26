@@ -159,7 +159,7 @@ function ProjectDocument({
       marginTop: 23
     },
     onClick: () => jump("problem")
-  }, "Open case story")), /*#__PURE__*/React.createElement(SceneCharacter, {
+  }, "Read the story")), /*#__PURE__*/React.createElement(SceneCharacter, {
     src: project.character,
     alt: project.characterAlt
   })), /*#__PURE__*/React.createElement(ChapterNav, {
@@ -596,7 +596,7 @@ function VersoDocument({
       marginTop: 23
     },
     onClick: openStory
-  }, "Open case story")), /*#__PURE__*/React.createElement(SceneCharacter, {
+  }, "Read the story")), /*#__PURE__*/React.createElement(SceneCharacter, {
     src: project.character,
     alt: project.characterAlt
   })), /*#__PURE__*/React.createElement(CaseNav, {
@@ -1095,7 +1095,7 @@ function VrDocument({
       marginTop: 23
     },
     onClick: () => jump("problem")
-  }, "Open case story"))), /*#__PURE__*/React.createElement(ChapterNav, {
+  }, "Read the story"))), /*#__PURE__*/React.createElement(ChapterNav, {
     chapters: VR_CHAPTERS,
     active: chapter,
     onSelect: jump
@@ -1445,7 +1445,7 @@ function HorizonDocument({
       marginTop: 23
     },
     onClick: openStory
-  }, "Open case story")), /*#__PURE__*/React.createElement(SceneCharacter, {
+  }, "Read the story")), /*#__PURE__*/React.createElement(SceneCharacter, {
     src: project.character,
     alt: project.characterAlt
   })), /*#__PURE__*/React.createElement(Beat, {
@@ -1710,7 +1710,7 @@ function PortalsDocument({
       marginTop: 23
     },
     onClick: () => jump("problem")
-  }, "Open case story")), /*#__PURE__*/React.createElement(SceneCharacter, {
+  }, "Read the story")), /*#__PURE__*/React.createElement(SceneCharacter, {
     src: project.character,
     alt: project.characterAlt
   })), /*#__PURE__*/React.createElement(ChapterNav, {
@@ -2031,7 +2031,7 @@ function WordMathDocument({
       marginTop: 23
     },
     onClick: openStory
-  }, "Open case story")), /*#__PURE__*/React.createElement(SceneCharacter, {
+  }, "Read the story")), /*#__PURE__*/React.createElement(SceneCharacter, {
     src: project.character,
     alt: project.characterAlt
   })), /*#__PURE__*/React.createElement(CaseNav, {
