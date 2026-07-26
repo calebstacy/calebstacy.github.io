@@ -1056,9 +1056,32 @@ function VrDocument({
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
     style: {
       minHeight: "min(660px, calc(100svh - 84px))",
-      display: "flex"
+      display: "flex",
+      position: "relative"
     }
-  }, /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      inset: 0,
+      zIndex: 0
+    },
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("img", {
+    src: "assets/work/vr-onboarding-obstacle-course.png",
+    alt: "",
+    style: {
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      objectPosition: "center right"
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      inset: 0,
+      background: "linear-gradient(90deg, rgba(10,14,20,.88) 0%, rgba(10,14,20,.62) 34%, rgba(10,14,20,.12) 62%, rgba(10,14,20,0) 78%)"
+    }
+  })), /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
     eyebrow: "Project " + project.number + " · " + project.context,
     title: project.title,
     statement: project.statement,
@@ -1072,10 +1095,7 @@ function VrDocument({
       marginTop: 23
     },
     onClick: () => jump("problem")
-  }, "Open case story")), /*#__PURE__*/React.createElement(SceneCharacter, {
-    src: project.character,
-    alt: project.characterAlt
-  })), /*#__PURE__*/React.createElement(ChapterNav, {
+  }, "Open case story"))), /*#__PURE__*/React.createElement(ChapterNav, {
     chapters: VR_CHAPTERS,
     active: chapter,
     onSelect: jump
@@ -1305,11 +1325,11 @@ const {
    label / prose / one artifact, repeated, nothing else) and then folded into the "pine all the way
    down" law screen-utility.jsx's AboutDocument landed on main the same session (598c98c, 5704a63):
    the cover's own stage-green ground continues underneath the whole scroll — plain `<section
-   data-tone="stage">` blocks, a ~640px centered reading column, left-aligned display-m headers,
+   data-tone="dark">` blocks, a ~640px centered reading column, left-aligned display-m headers,
    paragraphs, hairline separators at 25% ink — rather than the case/ component family's own
    nav-and-numbered-chapter apparatus. Four rules this file holds to:
 
-   1. ONE GROUND. Every section below the cover is tone="stage". Nothing rotates through
+   1. ONE GROUND. Every section below the cover is tone="dark" (the rail-highlight ink; Caleb 2026-07-26). Nothing rotates through
       paper/bright/dark as a chapter color. The one deliberate exception is the single quote
       interlude in "Decisions" — an intentional ink-black card, the "punctuation" Caleb asked to
       keep in the vocabulary, used exactly once, never as a repeating pattern.
@@ -1368,7 +1388,7 @@ function Beat({
   children
 }) {
   return /*#__PURE__*/React.createElement("section", {
-    "data-tone": "stage",
+    "data-tone": "dark",
     style: {
       background: "var(--story-bg)",
       color: "var(--story-ink)",
@@ -1455,7 +1475,7 @@ function HorizonDocument({
       margin: 0
     }
   }, "Before any of this had a screen, I helped write the strategy one-pager that went to Mark Zuckerberg's desk. That's the document that got the redesign an actual decision from leadership, not just permission to keep exploring. Once that decision existed, the easy path would have been to ship a feed: discovery content, notifications, a reason to open the app more often. That's the obvious read of a mobile relaunch, and it would have made Horizon into one more app competing for the same five minutes as everything else on a phone."), /*#__PURE__*/React.createElement("div", {
-    "data-tone": "dark",
+    "data-tone": "stage",
     style: {
       background: "var(--story-bg)",
       color: "var(--story-ink)",
@@ -2281,7 +2301,7 @@ function AboutDocument({
     src: "assets/work/caleb-friendly-wave.png",
     alt: "Clay Caleb waving"
   })), /*#__PURE__*/React.createElement("section", {
-    "data-tone": "stage",
+    "data-tone": "dark",
     style: {
       background: "var(--story-bg)",
       color: "var(--story-ink)",
@@ -2322,7 +2342,7 @@ function AboutDocument({
       margin: 0
     }
   }, "A colleague once put it in a way I keep: \"He turns arguments about wording into decisions a team can reuse.\"")))), /*#__PURE__*/React.createElement("section", {
-    "data-tone": "stage",
+    "data-tone": "dark",
     style: {
       background: "var(--story-bg)",
       color: "var(--story-ink)",
