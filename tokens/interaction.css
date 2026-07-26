@@ -54,7 +54,26 @@
    A row that is not the active one lifts to translucent bright paper under the cursor.
    Never a darken. Ported from `.project-spine > button:hover`. */
 .ds-spine-item:not([aria-current]):hover,
-.ds-spine-item:not([aria-current]):focus-visible { background: rgba(248, 243, 232, 0.72) !important; }
+.ds-spine-item:not([aria-current]) > button:focus-visible { background: rgba(248, 243, 232, 0.72) !important; }
+
+/* Sub-pages inside an active spine row (Verso's Agent / Engine / Index). Quiet reversed rows;
+   hover and the current room draw an underline left to right — drawn ink, never a fade. */
+.ds-spine-sub { color: var(--paper-dim); transition: color var(--dur-tap) var(--ease-authored); }
+.ds-spine-sub:hover, .ds-spine-sub:focus-visible, .ds-spine-sub[aria-current="page"] { color: var(--paper-bright); }
+.ds-spine-sub-label {
+  padding-bottom: 2px;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: left calc(100% - 1px);
+  background-size: 0% 1px;
+  transition: background-size 200ms var(--ease-authored);
+}
+.ds-spine-sub:hover .ds-spine-sub-label,
+.ds-spine-sub:focus-visible .ds-spine-sub-label,
+.ds-spine-sub[aria-current="page"] .ds-spine-sub-label { background-size: 100% 1px; }
+@media (prefers-reduced-motion: reduce) {
+  .ds-spine-sub-label { transition: none; }
+}
 
 /* ── Artifact figures ───────────────────────────────────────────────────────────────────
    Opt-in, for comparison grids where the artifact is the subject and the reader is

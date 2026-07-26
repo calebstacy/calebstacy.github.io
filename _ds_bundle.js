@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"CalebStacyPortfolioDesignSystem_4a3883","components":[{"name":"ScrollCue","sourcePath":"components/actions/ScrollCue.jsx"},{"name":"StageAction","sourcePath":"components/actions/StageAction.jsx"},{"name":"CaseMeta","sourcePath":"components/case/CaseMeta.jsx"},{"name":"CaseNav","sourcePath":"components/case/CaseNav.jsx"},{"name":"CaseQuote","sourcePath":"components/case/CaseQuote.jsx"},{"name":"CaseSection","sourcePath":"components/case/CaseSection.jsx"},{"name":"MetricStrip","sourcePath":"components/case/MetricStrip.jsx"},{"name":"StoryBeat","sourcePath":"components/case/StoryBeat.jsx"},{"name":"VersoHero","sourcePath":"components/case/VersoHero.jsx"},{"name":"DocFigure","sourcePath":"components/document/DocFigure.jsx"},{"name":"Endnotes","sourcePath":"components/document/Endnotes.jsx"},{"name":"NoteRef","sourcePath":"components/document/Endnotes.jsx"},{"name":"References","sourcePath":"components/document/Endnotes.jsx"},{"name":"Finding","sourcePath":"components/document/Finding.jsx"},{"name":"PaperTable","sourcePath":"components/document/PaperTable.jsx"},{"name":"Report","sourcePath":"components/document/Report.jsx"},{"name":"ReportSection","sourcePath":"components/document/ReportSection.jsx"},{"name":"ArtifactFigure","sourcePath":"components/evidence/ArtifactFigure.jsx"},{"name":"BeforeAfter","sourcePath":"components/evidence/BeforeAfter.jsx"},{"name":"CaptureFigure","sourcePath":"components/evidence/CaptureFigure.jsx"},{"name":"CardGrid","sourcePath":"components/evidence/CardGrid.jsx"},{"name":"DataTable","sourcePath":"components/evidence/DataTable.jsx"},{"name":"DisciplineVenn","sourcePath":"components/evidence/DisciplineVenn.jsx"},{"name":"EvidenceTrace","sourcePath":"components/evidence/EvidenceTrace.jsx"},{"name":"FactsPanel","sourcePath":"components/evidence/FactsPanel.jsx"},{"name":"FingerprintBars","sourcePath":"components/evidence/FingerprintBars.jsx"},{"name":"GateRun","sourcePath":"components/evidence/GateRun.jsx"},{"name":"GridCard","sourcePath":"components/evidence/GridCard.jsx"},{"name":"IndexRows","sourcePath":"components/evidence/IndexRows.jsx"},{"name":"Ledger","sourcePath":"components/evidence/Ledger.jsx"},{"name":"Outcome","sourcePath":"components/evidence/Outcome.jsx"},{"name":"Pipeline","sourcePath":"components/evidence/Pipeline.jsx"},{"name":"PullQuote","sourcePath":"components/evidence/PullQuote.jsx"},{"name":"ResearchGrid","sourcePath":"components/evidence/ResearchGrid.jsx"},{"name":"ResumeEntry","sourcePath":"components/evidence/ResumeEntry.jsx"},{"name":"RuleSplit","sourcePath":"components/evidence/RuleSplit.jsx"},{"name":"SourceMap","sourcePath":"components/evidence/SourceMap.jsx"},{"name":"TenGrid","sourcePath":"components/evidence/TenGrid.jsx"},{"name":"Toolchain","sourcePath":"components/evidence/Toolchain.jsx"},{"name":"VoiceProfile","sourcePath":"components/evidence/VoiceProfile.jsx"},{"name":"VoiceScoreRing","sourcePath":"components/evidence/VoiceScoreRing.jsx"},{"name":"Eyebrow","sourcePath":"components/foundation/Eyebrow.jsx"},{"name":"LineArrow","sourcePath":"components/foundation/LineArrow.jsx"},{"name":"ProvenanceNote","sourcePath":"components/foundation/ProvenanceNote.jsx"},{"name":"RegistrationMark","sourcePath":"components/foundation/RegistrationMark.jsx"},{"name":"Tag","sourcePath":"components/foundation/Tag.jsx"},{"name":"Panel","sourcePath":"components/layout/Panel.jsx"},{"name":"PanelRow","sourcePath":"components/layout/Panel.jsx"},{"name":"PaperFrame","sourcePath":"components/layout/PaperFrame.jsx"},{"name":"Stage","sourcePath":"components/layout/Stage.jsx"},{"name":"StageCopy","sourcePath":"components/layout/StageCopy.jsx"},{"name":"StageCurtain","sourcePath":"components/layout/StageCurtain.jsx"},{"name":"StorySection","sourcePath":"components/layout/StorySection.jsx"},{"name":"ChapterNav","sourcePath":"components/navigation/ChapterNav.jsx"},{"name":"IndexRail","sourcePath":"components/navigation/IndexRail.jsx"},{"name":"MobileIdentityBar","sourcePath":"components/navigation/MobileIdentityBar.jsx"},{"name":"MobileMenu","sourcePath":"components/navigation/MobileMenu.jsx"},{"name":"ProjectSpineItem","sourcePath":"components/navigation/ProjectSpineItem.jsx"},{"name":"UtilityNav","sourcePath":"components/navigation/UtilityNav.jsx"}],"sourceHashes":{"components/actions/ScrollCue.jsx":"8bb658147fda","components/actions/StageAction.jsx":"5a98543af3b5","components/evidence/ArtifactFigure.jsx":"127fb9077aa2","components/evidence/CardGrid.jsx":"803ac13ab7bd","components/evidence/DataTable.jsx":"e463933290ef","components/evidence/FactsPanel.jsx":"d1281305f605","components/evidence/GridCard.jsx":"fc995a72a9ed","components/evidence/Ledger.jsx":"30ffa1dd140d","components/evidence/Outcome.jsx":"87e9bb425f06","components/evidence/Pipeline.jsx":"0a78361dc86f","components/evidence/PullQuote.jsx":"b00277528fb2","components/evidence/ResumeEntry.jsx":"022a5e5c0dec","components/evidence/SourceMap.jsx":"223f6d8e812b","components/evidence/TenGrid.jsx":"189c24069a2b","components/foundation/Eyebrow.jsx":"339d08d17838","components/foundation/LineArrow.jsx":"d1caad2e912f","components/foundation/ProvenanceNote.jsx":"b8816411ea6e","components/foundation/RegistrationMark.jsx":"75a36243789a","components/foundation/Tag.jsx":"5778ff0b56c7","components/layout/PaperFrame.jsx":"0d2965baa9ba","components/layout/Stage.jsx":"1e5269281805","components/layout/StageCopy.jsx":"007e4ad0a85a","components/layout/StageCurtain.jsx":"2fe263912177","components/layout/StorySection.jsx":"e97b2c28af96","components/navigation/ChapterNav.jsx":"c1cb8c701f50","components/navigation/IndexRail.jsx":"cfcf7a6820b9","components/navigation/ProjectSpineItem.jsx":"7f1826cd628d","components/navigation/UtilityNav.jsx":"49225082ad7f","ui_kits/portfolio/app.jsx":"38938eb8d687","ui_kits/portfolio/doc-page.js":"ef8ab2118053","ui_kits/portfolio/kit-data.js":"c4e4a093b428","ui_kits/portfolio/scene-visual.jsx":"6cff7cdfe351","ui_kits/portfolio/screen-project.jsx":"acc56b681e3b","ui_kits/portfolio/screen-utility.jsx":"1bdbe5e1668c","components/evidence/RuleSplit.jsx":"df64f7a3e979","components/evidence/ResearchGrid.jsx":"7ac09d17bc27","components/evidence/FingerprintBars.jsx":"662c407f2939","components/evidence/EvidenceTrace.jsx":"1c52a31cba97","components/evidence/IndexRows.jsx":"d1cf16db6e0d","components/evidence/DisciplineVenn.jsx":"e1565f7822a0","components/evidence/VoiceScoreRing.jsx":"f1d9d92fe57c","components/evidence/BeforeAfter.jsx":"acae0740ee64","components/evidence/VoiceProfile.jsx":"3760a08b0d90","components/layout/Panel.jsx":"5013c544891a","components/evidence/GateRun.jsx":"fc67aaf9e806","components/evidence/CaptureFigure.jsx":"d015bc84a966","components/document/Report.jsx":"d526bb6cda51","components/document/ReportSection.jsx":"1131f245e776","components/document/DocFigure.jsx":"ad268702d487","components/document/Endnotes.jsx":"70804d8c8006","components/evidence/Toolchain.jsx":"5e1d68775f89","components/document/Finding.jsx":"72c749fc75c2","components/document/PaperTable.jsx":"f6bb51014d4e","components/case/CaseSection.jsx":"09e3d510dfaa","components/case/StoryBeat.jsx":"3b7ad214cf82","components/case/CaseQuote.jsx":"851b5a124fe4","components/case/MetricStrip.jsx":"5f86becb4df6","components/case/CaseNav.jsx":"e12f0f5468cf","components/navigation/MobileIdentityBar.jsx":"c91c97cc209d","components/navigation/MobileMenu.jsx":"5d64385eec4b","components/case/CaseMeta.jsx":"af757cdf13ec","components/case/VersoHero.jsx":"3f5cee78fd49"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":4,"namespace":"CalebStacyPortfolioDesignSystem_4a3883","components":[{"name":"ScrollCue","sourcePath":"components/actions/ScrollCue.jsx"},{"name":"StageAction","sourcePath":"components/actions/StageAction.jsx"},{"name":"CaseMeta","sourcePath":"components/case/CaseMeta.jsx"},{"name":"CaseNav","sourcePath":"components/case/CaseNav.jsx"},{"name":"CaseQuote","sourcePath":"components/case/CaseQuote.jsx"},{"name":"CaseSection","sourcePath":"components/case/CaseSection.jsx"},{"name":"MetricStrip","sourcePath":"components/case/MetricStrip.jsx"},{"name":"StoryBeat","sourcePath":"components/case/StoryBeat.jsx"},{"name":"VersoHero","sourcePath":"components/case/VersoHero.jsx"},{"name":"DocFigure","sourcePath":"components/document/DocFigure.jsx"},{"name":"Endnotes","sourcePath":"components/document/Endnotes.jsx"},{"name":"NoteRef","sourcePath":"components/document/Endnotes.jsx"},{"name":"References","sourcePath":"components/document/Endnotes.jsx"},{"name":"Finding","sourcePath":"components/document/Finding.jsx"},{"name":"PaperTable","sourcePath":"components/document/PaperTable.jsx"},{"name":"Report","sourcePath":"components/document/Report.jsx"},{"name":"ReportSection","sourcePath":"components/document/ReportSection.jsx"},{"name":"ArtifactFigure","sourcePath":"components/evidence/ArtifactFigure.jsx"},{"name":"BeforeAfter","sourcePath":"components/evidence/BeforeAfter.jsx"},{"name":"CaptureFigure","sourcePath":"components/evidence/CaptureFigure.jsx"},{"name":"CardGrid","sourcePath":"components/evidence/CardGrid.jsx"},{"name":"DataTable","sourcePath":"components/evidence/DataTable.jsx"},{"name":"DisciplineVenn","sourcePath":"components/evidence/DisciplineVenn.jsx"},{"name":"EvidenceTrace","sourcePath":"components/evidence/EvidenceTrace.jsx"},{"name":"FactsPanel","sourcePath":"components/evidence/FactsPanel.jsx"},{"name":"FingerprintBars","sourcePath":"components/evidence/FingerprintBars.jsx"},{"name":"GateRun","sourcePath":"components/evidence/GateRun.jsx"},{"name":"GridCard","sourcePath":"components/evidence/GridCard.jsx"},{"name":"IndexRows","sourcePath":"components/evidence/IndexRows.jsx"},{"name":"Ledger","sourcePath":"components/evidence/Ledger.jsx"},{"name":"Outcome","sourcePath":"components/evidence/Outcome.jsx"},{"name":"Pipeline","sourcePath":"components/evidence/Pipeline.jsx"},{"name":"PullQuote","sourcePath":"components/evidence/PullQuote.jsx"},{"name":"ResearchGrid","sourcePath":"components/evidence/ResearchGrid.jsx"},{"name":"ResumeEntry","sourcePath":"components/evidence/ResumeEntry.jsx"},{"name":"RuleSplit","sourcePath":"components/evidence/RuleSplit.jsx"},{"name":"SourceMap","sourcePath":"components/evidence/SourceMap.jsx"},{"name":"TenGrid","sourcePath":"components/evidence/TenGrid.jsx"},{"name":"Toolchain","sourcePath":"components/evidence/Toolchain.jsx"},{"name":"VoiceProfile","sourcePath":"components/evidence/VoiceProfile.jsx"},{"name":"VoiceScoreRing","sourcePath":"components/evidence/VoiceScoreRing.jsx"},{"name":"Eyebrow","sourcePath":"components/foundation/Eyebrow.jsx"},{"name":"LineArrow","sourcePath":"components/foundation/LineArrow.jsx"},{"name":"ProvenanceNote","sourcePath":"components/foundation/ProvenanceNote.jsx"},{"name":"RegistrationMark","sourcePath":"components/foundation/RegistrationMark.jsx"},{"name":"Tag","sourcePath":"components/foundation/Tag.jsx"},{"name":"Panel","sourcePath":"components/layout/Panel.jsx"},{"name":"PanelRow","sourcePath":"components/layout/Panel.jsx"},{"name":"PaperFrame","sourcePath":"components/layout/PaperFrame.jsx"},{"name":"Stage","sourcePath":"components/layout/Stage.jsx"},{"name":"StageCopy","sourcePath":"components/layout/StageCopy.jsx"},{"name":"StageCurtain","sourcePath":"components/layout/StageCurtain.jsx"},{"name":"StorySection","sourcePath":"components/layout/StorySection.jsx"},{"name":"ChapterNav","sourcePath":"components/navigation/ChapterNav.jsx"},{"name":"IndexRail","sourcePath":"components/navigation/IndexRail.jsx"},{"name":"MobileIdentityBar","sourcePath":"components/navigation/MobileIdentityBar.jsx"},{"name":"MobileMenu","sourcePath":"components/navigation/MobileMenu.jsx"},{"name":"ProjectSpineItem","sourcePath":"components/navigation/ProjectSpineItem.jsx"},{"name":"UtilityNav","sourcePath":"components/navigation/UtilityNav.jsx"}],"sourceHashes":{"components/actions/ScrollCue.jsx":"8bb658147fda","components/actions/StageAction.jsx":"5a98543af3b5","components/evidence/ArtifactFigure.jsx":"127fb9077aa2","components/evidence/CardGrid.jsx":"803ac13ab7bd","components/evidence/DataTable.jsx":"e463933290ef","components/evidence/FactsPanel.jsx":"d1281305f605","components/evidence/GridCard.jsx":"fc995a72a9ed","components/evidence/Ledger.jsx":"30ffa1dd140d","components/evidence/Outcome.jsx":"87e9bb425f06","components/evidence/Pipeline.jsx":"0a78361dc86f","components/evidence/PullQuote.jsx":"b00277528fb2","components/evidence/ResumeEntry.jsx":"022a5e5c0dec","components/evidence/SourceMap.jsx":"223f6d8e812b","components/evidence/TenGrid.jsx":"189c24069a2b","components/foundation/Eyebrow.jsx":"339d08d17838","components/foundation/LineArrow.jsx":"d1caad2e912f","components/foundation/ProvenanceNote.jsx":"b8816411ea6e","components/foundation/RegistrationMark.jsx":"75a36243789a","components/foundation/Tag.jsx":"5778ff0b56c7","components/layout/PaperFrame.jsx":"0d2965baa9ba","components/layout/Stage.jsx":"1e5269281805","components/layout/StageCopy.jsx":"007e4ad0a85a","components/layout/StageCurtain.jsx":"2fe263912177","components/layout/StorySection.jsx":"e97b2c28af96","components/navigation/ChapterNav.jsx":"c1cb8c701f50","components/navigation/IndexRail.jsx":"84d0c61ad494","components/navigation/ProjectSpineItem.jsx":"2faf505c2297","components/navigation/UtilityNav.jsx":"49225082ad7f","ui_kits/portfolio/app.jsx":"38938eb8d687","ui_kits/portfolio/doc-page.js":"ef8ab2118053","ui_kits/portfolio/kit-data.js":"c4e4a093b428","ui_kits/portfolio/scene-visual.jsx":"6cff7cdfe351","ui_kits/portfolio/screen-project.jsx":"acc56b681e3b","ui_kits/portfolio/screen-utility.jsx":"1bdbe5e1668c","components/evidence/RuleSplit.jsx":"df64f7a3e979","components/evidence/ResearchGrid.jsx":"7ac09d17bc27","components/evidence/FingerprintBars.jsx":"662c407f2939","components/evidence/EvidenceTrace.jsx":"1c52a31cba97","components/evidence/IndexRows.jsx":"d1cf16db6e0d","components/evidence/DisciplineVenn.jsx":"e1565f7822a0","components/evidence/VoiceScoreRing.jsx":"f1d9d92fe57c","components/evidence/BeforeAfter.jsx":"acae0740ee64","components/evidence/VoiceProfile.jsx":"3760a08b0d90","components/layout/Panel.jsx":"5013c544891a","components/evidence/GateRun.jsx":"fc67aaf9e806","components/evidence/CaptureFigure.jsx":"d015bc84a966","components/document/Report.jsx":"d526bb6cda51","components/document/ReportSection.jsx":"1131f245e776","components/document/DocFigure.jsx":"ad268702d487","components/document/Endnotes.jsx":"70804d8c8006","components/evidence/Toolchain.jsx":"5e1d68775f89","components/document/Finding.jsx":"72c749fc75c2","components/document/PaperTable.jsx":"f6bb51014d4e","components/case/CaseSection.jsx":"09e3d510dfaa","components/case/StoryBeat.jsx":"3b7ad214cf82","components/case/CaseQuote.jsx":"851b5a124fe4","components/case/MetricStrip.jsx":"5f86becb4df6","components/case/CaseNav.jsx":"e12f0f5468cf","components/navigation/MobileIdentityBar.jsx":"c91c97cc209d","components/navigation/MobileMenu.jsx":"7d46e46155d4","components/case/CaseMeta.jsx":"af757cdf13ec","components/case/VersoHero.jsx":"3f5cee78fd49"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -29066,6 +29066,436 @@ function Ledger({
 }
 Object.assign(__ds_scope, { Ledger });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/evidence/Ledger.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/ProjectSpineItem.jsx
+try { (() => {
+/** One row of the project spine. Active state is inversion: the row becomes an ink block, reversed out.
+ *  A project with sub-pages reveals them inside its ink block while active — quiet rows aligned under
+ *  the title, each a real destination (Verso's Agent / Engine / Index). */
+function ProjectSpineItem({
+  number,
+  title,
+  statement,
+  active = false,
+  onSelect,
+  subItems,
+  activeSub,
+  onSelectSub,
+  style,
+  ...rest
+}) {
+  const hasSubs = Array.isArray(subItems) && subItems.length > 0;
+  const showSubs = active && hasSubs;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "ds-spine-item",
+    "aria-current": active ? "page" : undefined,
+    style: {
+      position: "relative",
+      display: "flex",
+      flexDirection: "column",
+      width: "100%",
+      minHeight: "var(--spine-item-min)",
+      overflow: "hidden",
+      /* The active row bases on its own content, not on zero. With `1 1 0` it grew by ratio only,
+         so on a short rail it stayed shorter than the statement and `overflow: hidden` sliced the
+         last line off. Inactive rows keep the zero base so they still share the leftover evenly. */
+      flex: active ? "1 1 auto" : "1 1 0",
+      flexGrow: 1,
+      borderBottom: "1px solid var(--ink)",
+      background: active ? "var(--ink)" : "transparent",
+      color: active ? "var(--paper-bright)" : "var(--ink)",
+      transition: "flex-grow var(--dur-stage) var(--ease-authored), background var(--dur-base) var(--ease-authored), color var(--dur-base) var(--ease-authored)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: onSelect,
+    style: {
+      display: "flex",
+      flex: "1 1 auto",
+      width: "100%",
+      border: 0,
+      background: "transparent",
+      color: "inherit",
+      textAlign: "left",
+      cursor: "pointer"
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "46px minmax(0,1fr)",
+      gap: "var(--space-3)",
+      alignItems: "start",
+      flex: "1 1 auto",
+      padding: "var(--space-5) clamp(20px,2.6vw,32px)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      paddingTop: 4,
+      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: 15,
+      fontWeight: 700,
+      lineHeight: 0.9,
+      letterSpacing: "-0.05em",
+      transition: "color var(--dur-base) var(--ease-authored)"
+    }
+  }, number), /*#__PURE__*/React.createElement("span", {
+    style: {
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("strong", {
+    style: {
+      display: "block",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--display-s-size)",
+      fontWeight: "var(--display-s-weight)",
+      lineHeight: "var(--display-s-leading)",
+      letterSpacing: "var(--display-s-tracking)"
+    }
+  }, title), /*#__PURE__*/React.createElement("small", {
+    "aria-hidden": !active,
+    style: {
+      display: "block",
+      maxWidth: 265,
+      overflow: "hidden",
+      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: 12,
+      fontWeight: 480,
+      lineHeight: 1.35,
+      letterSpacing: "-0.025em",
+      maxHeight: active ? 96 : 0,
+      marginTop: active ? 9 : 0,
+      opacity: active ? 1 : 0,
+      transition: "max-height var(--dur-slow) var(--ease-authored), margin var(--dur-slow) var(--ease-authored), opacity var(--dur-tap) var(--ease-authored)"
+    }
+  }, statement)))), hasSubs && /*#__PURE__*/React.createElement("div", {
+    role: "group",
+    "aria-label": title + " pages",
+    "aria-hidden": !showSubs,
+    style: {
+      overflow: "hidden",
+      maxHeight: showSubs ? 150 : 0,
+      opacity: showSubs ? 1 : 0,
+      paddingBottom: showSubs ? "var(--space-4)" : 0,
+      transition: "max-height var(--dur-slow) var(--ease-authored), padding var(--dur-slow) var(--ease-authored), opacity var(--dur-tap) var(--ease-authored)"
+    }
+  }, subItems.map(s => /*#__PURE__*/React.createElement("button", {
+    key: s.id,
+    type: "button",
+    className: "ds-spine-sub",
+    "aria-current": activeSub === s.id ? "page" : undefined,
+    onClick: () => onSelectSub && onSelectSub(s.id),
+    tabIndex: showSubs ? undefined : -1,
+    style: {
+      display: "grid",
+      gridTemplateColumns: "46px minmax(0,1fr)",
+      gap: "var(--space-3)",
+      width: "100%",
+      padding: "6px clamp(20px,2.6vw,32px)",
+      border: 0,
+      background: "transparent",
+      textAlign: "left",
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "ds-spine-sub-label",
+    style: {
+      justifySelf: "start",
+      fontFamily: "var(--font-sans)",
+      fontSize: 14,
+      fontWeight: 560,
+      lineHeight: 1.4,
+      letterSpacing: "-0.03em"
+    }
+  }, s.label)))));
+}
+Object.assign(__ds_scope, { ProjectSpineItem });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ProjectSpineItem.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/IndexRail.jsx
+try { (() => {
+/** The fixed left rail: identity, thesis, project spine, utilities, contact. The only navigation. */
+function IndexRail({
+  name = "Caleb Stacy",
+  title = "Senior content designer",
+  differentiator = "Product systems · content engineering",
+  thesis,
+  projects = [],
+  active,
+  activeSub,
+  onSelect,
+  utilities = [],
+  location,
+  contactLabel = "Contact",
+  contactHref,
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("aside", {
+    "aria-label": "Identity and portfolio navigation",
+    "data-ds": "rail",
+    style: {
+      position: "relative",
+      zIndex: 20,
+      minWidth: 0,
+      minHeight: 0,
+      display: "flex",
+      flexDirection: "column",
+      borderRight: "1px solid var(--ink)",
+      background: "var(--paper)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: () => onSelect && onSelect(utilities[0] ? utilities[0].id : "about"),
+    style: {
+      width: "100%",
+      display: "block",
+      padding: "clamp(30px,4.7vh,52px) var(--rail-pad-x) 21px",
+      border: 0,
+      background: "transparent",
+      color: "var(--ink)",
+      textAlign: "left",
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--wordmark-size)",
+      fontWeight: "var(--wordmark-weight)",
+      lineHeight: "var(--wordmark-leading)",
+      letterSpacing: "var(--wordmark-tracking)"
+    }
+  }, name), /*#__PURE__*/React.createElement("small", {
+    style: {
+      display: "block",
+      marginTop: "var(--space-3)",
+      fontFamily: "var(--font-mono)",
+      fontSize: "var(--eyebrow-size)",
+      fontWeight: 560,
+      lineHeight: 1.4,
+      letterSpacing: "-0.02em"
+    }
+  }, title, /*#__PURE__*/React.createElement("i", {
+    style: {
+      display: "block",
+      color: "var(--muted-ink)",
+      fontStyle: "normal"
+    }
+  }, differentiator))), thesis && /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: 360,
+      margin: 0,
+      padding: "0 var(--rail-pad-x) clamp(22px,3.5vh,34px)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--body-s-size)",
+      lineHeight: 1.45,
+      letterSpacing: "-0.035em"
+    }
+  }, thesis), /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Selected work",
+    style: {
+      minHeight: 0,
+      display: "flex",
+      flex: "1 1 auto",
+      flexDirection: "column",
+      borderTop: "1px solid var(--ink)"
+    }
+  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
+    key: p.id,
+    number: p.number,
+    title: p.title,
+    statement: p.statement,
+    active: active === p.id,
+    onSelect: () => onSelect && onSelect(p.id),
+    subItems: p.subPages,
+    activeSub: activeSub,
+    onSelectSub: sid => onSelect && onSelect(sid)
+  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
+    items: utilities,
+    active: active,
+    onSelect: onSelect
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      minHeight: 47,
+      display: "flex",
+      justifyContent: "space-between",
+      gap: "var(--space-5)",
+      alignItems: "center",
+      padding: "0 clamp(24px,2.6vw,38px)",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      lineHeight: 1.3
+    }
+  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
+    href: contactHref,
+    style: {
+      flex: "0 0 auto",
+      paddingBottom: 2,
+      borderBottom: "1px solid var(--signal)",
+      color: "var(--ink)",
+      fontSize: 10,
+      fontWeight: 700,
+      textDecoration: "none"
+    }
+  }, contactLabel)));
+}
+Object.assign(__ds_scope, { IndexRail });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/IndexRail.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/MobileMenu.jsx
+try { (() => {
+/** The phone destination list — the desktop rail's own navigation, shown as a full-surface
+ *  overlay instead of a fixed column. It composes the rail's real parts (`ProjectSpineItem`,
+ *  `UtilityNav`) rather than a smaller, invented "mobile menu" shape: every project row inverts
+ *  to ink and unfurls its one-line statement exactly when it's the open document, the same
+ *  active-state language the desktop spine uses, and About/Résumé are the same tab row. Shown
+ *  only after an explicit tap on `MobileIdentityBar`; the default phone page never opens on the
+ *  complete sitemap. */
+function MobileMenu({
+  isOpen = false,
+  onClose,
+  projects = [],
+  utilities = [],
+  activeId,
+  activeSubId,
+  onSelect,
+  location,
+  contactLabel = "Contact",
+  contactHref,
+  menuId,
+  returnFocusRef,
+  style,
+  ...rest
+}) {
+  const panelRef = React.useRef(null);
+  const wasOpen = React.useRef(false);
+  React.useEffect(() => {
+    if (isOpen) {
+      const first = panelRef.current && panelRef.current.querySelector("a, button");
+      if (first) first.focus();
+    } else if (wasOpen.current && returnFocusRef && returnFocusRef.current) {
+      returnFocusRef.current.focus();
+    }
+    wasOpen.current = isOpen;
+  }, [isOpen, returnFocusRef]);
+  React.useEffect(() => {
+    if (!isOpen) return undefined;
+    const onKeyDown = event => {
+      if (event.key === "Escape") {
+        onClose && onClose();
+        return;
+      }
+      if (event.key !== "Tab" || !panelRef.current) return;
+      const focusable = panelRef.current.querySelectorAll("a, button");
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen, onClose]);
+  const select = id => {
+    onSelect && onSelect(id);
+    onClose && onClose();
+  };
+  const tab = isOpen ? undefined : -1;
+  return /*#__PURE__*/React.createElement("div", {
+    ref: panelRef,
+    id: menuId,
+    role: "dialog",
+    "aria-modal": "true",
+    "aria-label": "Site navigation",
+    "data-ds": "mobile-menu",
+    style: {
+      position: "fixed",
+      zIndex: 290,
+      left: 0,
+      right: 0,
+      top: "calc(env(safe-area-inset-top, 0px) + var(--mobile-bar-height))",
+      bottom: 0,
+      display: "flex",
+      flexDirection: "column",
+      overflowY: "auto",
+      background: "var(--paper)",
+      color: "var(--ink)",
+      boxShadow: "0 18px 40px rgba(17,17,15,0.2)",
+      clipPath: isOpen ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)",
+      visibility: isOpen ? "visible" : "hidden",
+      transition: isOpen ? "clip-path var(--dur-fast) var(--ease-authored)" : "clip-path var(--dur-fast) var(--ease-authored), visibility 0s var(--dur-fast)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Work",
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      borderTop: "1px solid var(--ink)"
+    }
+  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
+    key: p.id,
+    number: p.number,
+    title: p.title,
+    statement: p.statement,
+    active: p.id === activeId,
+    onSelect: () => select(p.id),
+    subItems: p.subPages,
+    activeSub: activeSubId,
+    onSelectSub: sid => select(sid),
+    tabIndex: tab
+  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
+    items: utilities,
+    active: activeId,
+    onSelect: select,
+    style: {
+      flex: "0 0 auto"
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      minHeight: 47,
+      flex: "0 0 auto",
+      display: "flex",
+      justifyContent: "space-between",
+      gap: "var(--space-5)",
+      alignItems: "center",
+      padding: "0 clamp(24px,2.6vw,38px)",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      lineHeight: 1.3
+    }
+  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
+    href: contactHref,
+    tabIndex: tab,
+    style: {
+      flex: "0 0 auto",
+      paddingBottom: 2,
+      borderBottom: "1px solid var(--signal)",
+      color: "var(--ink)",
+      fontSize: 10,
+      fontWeight: 700,
+      textDecoration: "none"
+    }
+  }, contactLabel)));
+}
+Object.assign(__ds_scope, { MobileMenu });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileMenu.jsx", error: String((e && e.message) || e) }); }
 
 __ds_ns.ScrollCue = __ds_scope.ScrollCue;
 

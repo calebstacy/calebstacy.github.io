@@ -3084,7 +3084,8 @@ function PortfolioApp() {
     id: p.id,
     number: p.number,
     title: p.title,
-    statement: p.statement
+    statement: p.statement,
+    subPages: p.subPages
   }));
   const utilities = [{
     id: "about",
@@ -3100,6 +3101,7 @@ function PortfolioApp() {
     thesis: data.identity.thesis,
     projects: railProjects,
     active: railActive,
+    activeSub: active,
     onSelect: go,
     utilities: utilities,
     location: data.identity.location,
@@ -3117,6 +3119,7 @@ function PortfolioApp() {
     projects: railProjects,
     utilities: utilities,
     activeId: railActive,
+    activeSubId: active,
     onSelect: go,
     location: data.identity.location,
     contactHref: "mailto:calebstacy@gmail.com",

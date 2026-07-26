@@ -11,6 +11,11 @@ window.PORTFOLIO = {
     {
       id: "verso", number: "01", title: "Verso",
       context: "AI content governance · Meta · 2025–2026",
+      subPages: [
+        { id: "verso/agent", label: "Agent" },
+        { id: "verso/engine", label: "Engine" },
+        { id: "verso/index", label: "Index" },
+      ],
       statement: "Voice was written in adjectives. I turned it into a target an agent could be held to.",
       summary: "Meta's content design org was being asked to move from in the loop to on the loop: to govern what agents wrote instead of writing it. I built Verso: a content agent that measures its own draft against a product's real voice and corrects itself before a human sees it.",
       outcomeLabel: "Results",
