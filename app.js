@@ -716,7 +716,7 @@ const VERSO_SCORE_DIMS = [{
 }];
 const VERSO_SELF_LINT = {
   line: "Re-measuring the revision",
-  verdict: "Every dimension landed inside the band on the second pass."
+  verdict: "Re-measured: all eleven dimensions in band."
 };
 const VERSO_TRACE = [{
   step: "Scope loaded",
