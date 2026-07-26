@@ -2341,52 +2341,84 @@ function AboutDocument({
   }, "Start with Verso")), /*#__PURE__*/React.createElement(SceneCharacter, {
     src: "assets/work/caleb-friendly-wave.png",
     alt: "Clay Caleb waving"
-  })), /*#__PURE__*/React.createElement(StorySection, {
-    tone: "paper",
-    index: "01",
-    chapterLabel: "Practice",
-    kicker: "What I do",
-    title: "Everything ends in a system.",
-    intro: "Product direction, interaction language, experimentation. Each one ends in a system that keeps the decision from being re-litigated."
-  }, /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 2,
-    label: "The practice"
-  }, /*#__PURE__*/React.createElement(GridCard, {
-    label: "01",
-    title: "Product direction",
-    body: "Framing the problem and defining the content model before the first screen exists."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "02",
-    title: "Interaction language",
-    body: "The words a product uses to move someone from intent to outcome."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "03",
-    title: "Experimentation",
-    body: "Hypotheses that survive contact with shipped behavior, run with research and data partners."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "04",
-    title: "Systems that scale",
-    body: "The machinery that turns a voice standard into something a build or an agent can fail against."
-  })), /*#__PURE__*/React.createElement(PullQuote, {
-    attribution: "Anonymous colleague feedback"
-  }, "He turns arguments about wording into decisions a team can reuse.")), /*#__PURE__*/React.createElement(StorySection, {
-    tone: "bright",
-    index: "02",
-    chapterLabel: "Range",
-    kicker: "Career through-line",
-    title: "Teaching and poetry came first.",
-    intro: "Seven years of communication instruction and an MFA in poetry are why the systems work reads as language work."
+  })), /*#__PURE__*/React.createElement("section", {
+    "data-tone": "stage",
+    style: {
+      background: "var(--story-bg)",
+      color: "var(--story-ink)",
+      padding: "clamp(48px,7vh,84px) var(--gutter)"
+    }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      display: "flex",
-      flexWrap: "wrap",
-      gap: "var(--space-2)",
-      marginTop: "var(--space-6)"
+      maxWidth: 640,
+      margin: "0 auto"
     }
-  }, data.tools.map(tool => /*#__PURE__*/React.createElement(Tag, {
-    key: tool,
-    on: "paper"
-  }, tool)))));
+  }, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      margin: 0,
+      textAlign: "left",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--display-m-size)",
+      fontWeight: "var(--display-m-weight)",
+      lineHeight: "var(--display-m-leading)",
+      letterSpacing: "var(--display-m-tracking)"
+    }
+  }, "Everything ends in a system."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 22,
+      display: "flex",
+      flexDirection: "column",
+      gap: "1.15em",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--prose-size)",
+      lineHeight: "var(--prose-leading)",
+      letterSpacing: "var(--prose-tracking)"
+    }
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "Product direction is framing the problem and defining the content model before the first screen exists. Interaction language is the words a product uses to move someone from intent to outcome. Experimentation means hypotheses that survive contact with shipped behavior, run with research and data partners. And the systems work is the machinery that turns a voice standard into something a build or an agent can fail against. Whatever the project starts as, it ends as a system that keeps the decision from being re-litigated."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "A colleague once put it in a way I keep: \"He turns arguments about wording into decisions a team can reuse.\"")))), /*#__PURE__*/React.createElement("section", {
+    "data-tone": "stage",
+    style: {
+      background: "var(--story-bg)",
+      color: "var(--story-ink)",
+      padding: "0 var(--gutter) clamp(56px,8vh,96px)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: 640,
+      margin: "0 auto",
+      borderTop: "1px solid color-mix(in srgb, var(--story-ink) 25%, transparent)",
+      paddingTop: "clamp(40px,6vh,64px)"
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      margin: 0,
+      textAlign: "left",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--display-m-size)",
+      fontWeight: "var(--display-m-weight)",
+      lineHeight: "var(--display-m-leading)",
+      letterSpacing: "var(--display-m-tracking)"
+    }
+  }, "Teaching and poetry came first."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 22,
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--prose-size)",
+      lineHeight: "var(--prose-leading)",
+      letterSpacing: "var(--prose-tracking)"
+    }
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "Seven years of communication instruction and an MFA in poetry are why the systems work reads as language work. I taught composition and poetry workshops, then trained Army officers to turn complex, high-stakes information into clear, direct language. Watching what makes writing land, over and over, is where the rest of this comes from.")))));
 }
 
 /* Falls back to the same anatomy until the compiled bundle carries ResumeEntry. */
