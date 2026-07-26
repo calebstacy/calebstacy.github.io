@@ -119,7 +119,7 @@
      content. */
   [data-ds="stage"] { flex-wrap: wrap !important; height: auto !important; min-height: 0 !important; }
   [data-ds="stage-copy"] { position: relative !important; width: 100% !important; height: auto !important; padding: clamp(30px,7vw,42px) var(--stage-pad-x) 20px !important; }
-  [data-ds="scene-character"] { position: relative !important; inset: auto !important; width: 100% !important; height: min(46vh, 340px) !important; }
+  [data-ds="scene-character"] { position: relative !important; inset: auto !important; width: 100% !important; height: min(42vh, 320px) !important; margin: -6px 0 56px !important; }
 
   /* The old template's contribution-facts masthead: two fixed columns crowd a long value
      ("Team and surface") into half the phone's width. One fact per row instead, the same fold
