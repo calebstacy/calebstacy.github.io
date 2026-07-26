@@ -1,0 +1,1966 @@
+{
+  "method": {
+    "note": "Curated candidate variation sets built on top of terms_raw.json. Family groupings and homonym exclusions are hand-curated from the mined data during development (see method-notes.md); every count and quote below is read live from the same mining pass that produced terms_raw.json, not re-typed or paraphrased.",
+    "kinds": {
+      "synonym_competition": "different lemmas plausibly naming one concept",
+      "form_variation": "same lemma, different casing/hyphenation/pluralization",
+      "surface_exclusive": "vocabulary one surface uses heavily that others don't use for the same concept family"
+    },
+    "ranking": "sorted by (surfaces touched, total occurrences), tail-flagged weak sets sorted last"
+  },
+  "top_candidates": [
+    {
+      "id": "content-unit-pairing",
+      "kind": "synonym_competition",
+      "title": "Content units: \"TV show + movie\" (help/marketing house style) vs. \"series + film\" (tudum/culture house style)",
+      "note": "Help and marketing consistently pair 'TV show' with 'movie' ('Unlimited movies, TV shows, and more'). Tudum and culture instead reach for 'series' and 'film' at far higher volume ('series' 341 uses on tudum vs. 9 on help; 'film' 206 on tudum vs. near-zero on help). Both pairs cover the same content-type concept space -- scripted long-form video Netflix carries -- but the two surface groups have essentially disjoint working vocabularies for it.",
+      "surfaces_touched": [
+        "culture",
+        "help",
+        "marketing",
+        "tudum"
+      ],
+      "n_surfaces_touched": 4,
+      "total_occurrences": 1104,
+      "entries": [
+        {
+          "variant": "tv show",
+          "concept_key": "tv show",
+          "counts_by_surface": {
+            "help": 125,
+            "tudum": 5,
+            "marketing": 1,
+            "culture": 4
+          },
+          "total": 135,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "If you watch a TV show or movie that was produced in another region, you may not be able to turn off subtitles.",
+              "url": "https://help.netflix.com/en/node/100163"
+            },
+            {
+              "surface": "help",
+              "quote": "On Netflix you may see future release dates for a TV show or movie with an option to Remind Me .",
+              "url": "https://help.netflix.com/en/node/101522"
+            },
+            {
+              "surface": "help",
+              "quote": "You can see TV shows and movies where you’ve selected Remind Me in the Reminders",
+              "url": "https://help.netflix.com/en/node/101522"
+            },
+            {
+              "surface": "tudum",
+              "quote": "“I was on a TV show for 10 years — revisiting characters feels very second nature to me and is always exciting.",
+              "url": "https://www.netflix.com/tudum/articles/enola-holmes-3-cast-guide"
+            },
+            {
+              "surface": "tudum",
+              "quote": "“I’m very proud that I was able to go on this TV show and just be real about how hard it is,” he says.",
+              "url": "https://www.netflix.com/tudum/articles/love-is-blind-who-is-still-together-every-season"
+            },
+            {
+              "surface": "tudum",
+              "quote": "Like, ‘Oh my gosh, I’m still pinching myself that I found him on a TV show.’ ”",
+              "url": "https://www.netflix.com/tudum/articles/love-is-blind-who-is-still-together-every-season"
+            },
+            {
+              "surface": "marketing",
+              "quote": "Unlimited movies, TV shows, and more",
+              "url": "https://www.netflix.com"
+            },
+            {
+              "surface": "culture",
+              "quote": "Behind the storytellers of our TV shows, films, games and live experiences are the storytellers of Netflix the company - our Communications team!",
+              "url": "https://jobs.netflix.com/careers/communications"
+            },
+            {
+              "surface": "culture",
+              "quote": "Launching a game, TV show or film, running a marketing campaign, managing compensation and closing a quarter all take process.",
+              "url": "https://jobs.netflix.com/culture"
+            },
+            {
+              "surface": "culture",
+              "quote": "This is true whether we’re designing a new product feature, working to improve our recommendations, developing a marketing campaign or creating a TV show or game.",
+              "url": "https://jobs.netflix.com/culture"
+            }
+          ]
+        },
+        {
+          "variant": "movie",
+          "concept_key": "movie",
+          "counts_by_surface": {
+            "help": 178,
+            "tudum": 132,
+            "culture": 5
+          },
+          "total": 315,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "If you watch a TV show or movie that was produced in another region, you may not be able to turn off subtitles.",
+              "url": "https://help.netflix.com/en/node/100163"
+            },
+            {
+              "surface": "help",
+              "quote": "…of your Viewing activity and information regarding your interactions with content titles on Netflix, such as movies and TV shows you have rated (available by profile under Viewing activity ).",
+              "url": "https://help.netflix.com/en/node/100624"
+            },
+            {
+              "surface": "help",
+              "quote": "Our business is a subscription service model that offers personalized recommendations, to help you find shows, movies, and games we think you might enjoy.",
+              "url": "https://help.netflix.com/en/node/100639"
+            },
+            {
+              "surface": "tudum",
+              "quote": "Yes, check out the trailer, which offers our first glimpse at Elba’s role in the movie, below.",
+              "url": "https://www.netflix.com/tudum/articles/a-house-of-dynamite-kathryn-bigelow-release-date-cast-news"
+            },
+            {
+              "surface": "tudum",
+              "quote": "They’ll share what it was like to film a death-defying scene , explain the twisty ending to the movie you just finished, or just practice unbuttoning Georgian-era clothing .",
+              "url": "https://www.netflix.com/tudum/articles/about-tudum"
+            },
+            {
+              "surface": "culture",
+              "quote": "Several key levers for commerce growth include driving anticipation for content (shows, movies, games and Live), winning back members, and providing a seamless signup experience that effectively communica…",
+              "url": "https://jobs.netflix.com/careers/engineering"
+            },
+            {
+              "surface": "culture",
+              "quote": "The team’s work is critical to supporting the creation of movies and TV series that will thrill the world!",
+              "url": "https://jobs.netflix.com/careers/engineering"
+            },
+            {
+              "surface": "culture",
+              "quote": "Next Games, founded in 2013 and based in Helsinki, Finland, crafts cutting-edge, approachable games for a global audience inspired by popular Netflix shows and movies and our own fresh ideas.",
+              "url": "https://jobs.netflix.com/careers/games"
+            }
+          ]
+        },
+        {
+          "variant": "series",
+          "concept_key": "series",
+          "counts_by_surface": {
+            "help": 9,
+            "tudum": 341,
+            "marketing": 1
+          },
+          "total": 351,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "To automatically download the next episode of a series, use Download Next Episode .",
+              "url": "https://help.netflix.com/en/node/101262"
+            },
+            {
+              "surface": "help",
+              "quote": "When you finish watching a downloaded episode, we'll delete it from your device and automatically download the next episode in the series.",
+              "url": "https://help.netflix.com/en/node/101262"
+            },
+            {
+              "surface": "help",
+              "quote": "The very last episode of a series isn't automatically deleted after you watch it.",
+              "url": "https://help.netflix.com/en/node/101262"
+            },
+            {
+              "surface": "tudum",
+              "quote": "Using never-before-seen VCR footage from within the FLDS community, this series provides the well-known story with a deeply human and relatable face — told through current interviews with his wives and congregation.",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "tudum",
+              "quote": "The series shares the firsthand accounts of multiple families who were deceived by Meijer, who claimed he intended to donate sperm to just a handful of families.",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "tudum",
+              "quote": "A tight-knit South Carolina community is ripped apart by a series of deadly crimes that all seem to involve one family: the Murdaughs.",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "marketing",
+              "quote": "When our series and films become cultural moments, you can feel it across music, books, fashion, travel and more.",
+              "url": "https://about.netflix.com/en"
+            }
+          ]
+        },
+        {
+          "variant": "film",
+          "concept_key": "film",
+          "counts_by_surface": {
+            "tudum": 206,
+            "marketing": 2,
+            "culture": 9
+          },
+          "total": 217,
+          "quotes": [
+            {
+              "surface": "tudum",
+              "quote": "The film, which honors Ajike Owens and her family , was given the Directing Award: US Documentary when it made its world premiere at the 2025 Sundance Film Festival.",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "tudum",
+              "quote": "While the cast is quick to poke fun at Hart , Gooding says the film ultimately comes back to “that cultural exchange that takes place when interacting with different generations.”",
+              "url": "https://www.netflix.com/tudum/articles/72-hours-cast-guide-kevin-hart"
+            },
+            {
+              "surface": "tudum",
+              "quote": "Cherry jumped at the chance to work with Story, whose films he’s long admired.",
+              "url": "https://www.netflix.com/tudum/articles/72-hours-cast-guide-kevin-hart"
+            },
+            {
+              "surface": "marketing",
+              "quote": "Whatever you’re into, whatever your mood, Netflix delivers the next series, films and games you’ll obsess over.",
+              "url": "https://about.netflix.com/en"
+            },
+            {
+              "surface": "marketing",
+              "quote": "When our series and films become cultural moments, you can feel it across music, books, fashion, travel and more.",
+              "url": "https://about.netflix.com/en"
+            },
+            {
+              "surface": "culture",
+              "quote": "Our rapidly expanding global Ads team is building an innovative advertising offering where our clients can reach engaged audiences and our members can find must-watch series and films at a lower price.",
+              "url": "https://jobs.netflix.com/careers/advertising"
+            },
+            {
+              "surface": "culture",
+              "quote": "Behind the storytellers of our TV shows, films, games and live experiences are the storytellers of Netflix the company - our Communications team!",
+              "url": "https://jobs.netflix.com/careers/communications"
+            },
+            {
+              "surface": "culture",
+              "quote": "To ensure our content is all-engrossing, we work to ensure its formats are all-encompassing, from TV series, films, and documentaries, to kids programming, talk shows, reality series, and other experimental formats.",
+              "url": "https://jobs.netflix.com/careers/content"
+            }
+          ]
+        },
+        {
+          "variant": "documentary",
+          "concept_key": "documentary",
+          "counts_by_surface": {
+            "help": 2,
+            "tudum": 83,
+            "culture": 1
+          },
+          "total": 86,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Join the millions of subscribers around the world who enjoy unlimited award-winning TV shows, movies, documentaries, and more.",
+              "url": "https://help.netflix.com/en/node/112419"
+            },
+            {
+              "surface": "help",
+              "quote": "You can watch a variety of award-winning Netflix originals, TV shows, movies, documentaries, and more .",
+              "url": "https://help.netflix.com/en/node/412"
+            },
+            {
+              "surface": "tudum",
+              "quote": "The documentary recounts Rader’s crimes through the eyes of his daughter, as she confronts the possibility of additional vict…",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "tudum",
+              "quote": "This documentary from Emmy Award–winning director Geeta Gandbhir interrogates the realities of the controversial yet widely common Stand Your Ground laws through the literal lens of police bodycam footage.",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "tudum",
+              "quote": "This documentary digs into the real-life cyberbullying case that rocked the small community of Beal City, Michigan.",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "culture",
+              "quote": "To ensure our content is all-engrossing, we work to ensure its formats are all-encompassing, from TV series, films, and documentaries, to kids programming, talk shows, reality series, and other experimental formats.",
+              "url": "https://jobs.netflix.com/careers/content"
+            }
+          ]
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "id": "cta-register-by-surface",
+      "kind": "form_variation",
+      "title": "Call-to-action casing register differs by surface: culture SHOUTS, help/marketing use Title Case",
+      "note": "Not a single term but a systemic pattern worth flagging: culture's nav/CTA chrome is disproportionately ALL-CAPS ('DISCOVER MORE' x197-201, 'EXPLORE JOBS' x49-50, 'BACK TO WORLD VIEW'), while help and marketing's CTAs are Title Case ('Contact Us', 'Sign In', 'Join Netflix', 'Get Started') and tudum's utility chrome is Title Case too ('Back To Top', 'My List'). If culture ever borrows help/marketing CTA vocabulary, it will likely also inherit a shoutier casing convention.",
+      "surfaces_touched": [
+        "culture",
+        "help",
+        "tudum"
+      ],
+      "n_surfaces_touched": 3,
+      "total_occurrences": 727,
+      "entries": [
+        {
+          "variant": "DISCOVER MORE (culture)",
+          "concept_key": "discover more",
+          "counts_by_surface": {
+            "culture": 197
+          },
+          "total": 197,
+          "quotes": [
+            {
+              "surface": "culture",
+              "quote": "DISCOVER MORE",
+              "url": "https://jobs.netflix.com/candidate-privacy"
+            }
+          ]
+        },
+        {
+          "variant": "EXPLORE JOBS (culture)",
+          "concept_key": "explore job",
+          "counts_by_surface": {
+            "culture": 49
+          },
+          "total": 49,
+          "quotes": [
+            {
+              "surface": "culture",
+              "quote": "EXPLORE JOBS",
+              "url": "https://jobs.netflix.com/candidate-privacy"
+            }
+          ]
+        },
+        {
+          "variant": "Contact Us (help)",
+          "concept_key": "contact",
+          "counts_by_surface": {
+            "help": 241
+          },
+          "total": 241,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Contact Us",
+              "url": "https://help.netflix.com/en/node/100131"
+            }
+          ]
+        },
+        {
+          "variant": "Back To Top (tudum)",
+          "concept_key": "back to top",
+          "counts_by_surface": {
+            "tudum": 240
+          },
+          "total": 240,
+          "quotes": [
+            {
+              "surface": "tudum",
+              "quote": "Back To Top",
+              "url": "https://www.netflix.com/tudum/articles/13-going-on-30-reboot-release-date-plot-news"
+            }
+          ]
+        }
+      ],
+      "rank": 2
+    },
+    {
+      "id": "role-naming",
+      "kind": "synonym_competition",
+      "title": "Who is watching / paying: member vs. viewer vs. audience/fan vs. subscriber vs. customer vs. user",
+      "note": "'Member' is the term that survives across three surfaces (help, culture, tudum) for the person with a Netflix account/relationship. Tudum's own editorial voice, though, names the person on the other end of the screen 'viewer' almost every time -- 86 occurrences, zero of which are 'member'. Culture and tudum both also reach for the collective marketing-register words 'audience' (106 combined) and 'fan' (84 combined) for the same role -- terms help and marketing never use. Subscriber, customer, and user all exist but are rare on every surface, suggesting they're not real competitors to member/viewer so much as occasional stand-ins.",
+      "surfaces_touched": [
+        "culture",
+        "help",
+        "tudum"
+      ],
+      "n_surfaces_touched": 3,
+      "total_occurrences": 364,
+      "entries": [
+        {
+          "variant": "member",
+          "concept_key": "member",
+          "counts_by_surface": {
+            "help": 14,
+            "tudum": 34,
+            "culture": 25
+          },
+          "total": 73,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Much of the data that we store about our members is easily accessible by logging into your account in a browser and clicking on the Account option.",
+              "url": "https://help.netflix.com/en/node/100627"
+            },
+            {
+              "surface": "help",
+              "quote": "In nearly all cases, the information our members are looking for can be found on this page.",
+              "url": "https://help.netflix.com/en/node/100627"
+            },
+            {
+              "surface": "help",
+              "quote": "Much of the information that we store about our members is easily accessible by logging into your account in a browser and clicking on the Account option.",
+              "url": "https://help.netflix.com/en/node/100629"
+            },
+            {
+              "surface": "tudum",
+              "quote": "In reality, he created a system of abuse and coercion, forcing members of his congregation — often underage — into marriage, blind obedience, and isolation.",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "tudum",
+              "quote": "A member of the “Oxford Five,” a group of young Oxford scientists.",
+              "url": "https://www.netflix.com/tudum/articles/3-body-problem-teaser-release-date"
+            },
+            {
+              "surface": "tudum",
+              "quote": "A member of the “Oxford Five.”",
+              "url": "https://www.netflix.com/tudum/articles/3-body-problem-teaser-release-date"
+            },
+            {
+              "surface": "culture",
+              "quote": "Our rapidly expanding global Ads team is building an innovative advertising offering where our clients can reach engaged audiences and our members can find must-watch series and films at a lower price.",
+              "url": "https://jobs.netflix.com/careers/advertising"
+            },
+            {
+              "surface": "culture",
+              "quote": "Also making the seemingly unproducible possible are members of Virtual Production, who bring digital worlds to life through pre-visualization of scenes, virtual set design, real-time rendering of scenes, and more.",
+              "url": "https://jobs.netflix.com/careers/content"
+            },
+            {
+              "surface": "culture",
+              "quote": "From account management, billing inquiries, and tech support to content questions, subscription changes, and any issue that comes up, our teammates around the globe get our members back to where they want to be.",
+              "url": "https://jobs.netflix.com/careers/customer-service"
+            }
+          ]
+        },
+        {
+          "variant": "viewer",
+          "concept_key": "viewer",
+          "counts_by_surface": {
+            "tudum": 86
+          },
+          "total": 86,
+          "quotes": [
+            {
+              "surface": "tudum",
+              "quote": "…irl ,” the three-part series from The Tinder Swindler filmmakers Felicity Morris and Bernadette Higgins takes viewers on a journey through one couple’s harrowing experience with a home invader.",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "tudum",
+              "quote": "…rie keys paired with Robert Stack’s smoky voice and tightly cinched trench coat have been sending chills down viewers’ spines for years, and the series’ spooky legacy has been maintained in the rebooted version , which applies…",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "tudum",
+              "quote": "As ever, viewers are encouraged to take in each episode with a sharp eye — relevant tips and information from the public are encouraged and often leads to mysteries finally being solved.",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            }
+          ]
+        },
+        {
+          "variant": "audience",
+          "concept_key": "audience",
+          "counts_by_surface": {
+            "tudum": 81,
+            "culture": 25
+          },
+          "total": 106,
+          "quotes": [
+            {
+              "surface": "tudum",
+              "quote": "Over the course of eight episodes, 3 Body Problem immerses audiences in mysteries and earth-shattering discoveries, before potentially catastrophic consequences come to life as we know it.",
+              "url": "https://www.netflix.com/tudum/articles/3-body-problem-teaser-release-date"
+            },
+            {
+              "surface": "tudum",
+              "quote": "These are themes that will resonate across audiences.",
+              "url": "https://www.netflix.com/tudum/articles/3-body-problem-teaser-release-date"
+            },
+            {
+              "surface": "tudum",
+              "quote": "“We structured the film so the audience experiences the story the way it actually unfolded — not as a retrospective, but in real time,\" Lacey says.",
+              "url": "https://www.netflix.com/tudum/articles/a-toxic-love-story-release-date-news"
+            },
+            {
+              "surface": "culture",
+              "quote": "…ross locations and departments to create animated feature films for Netflix that make a lasting impression on audiences and expand the expectations of what is feasible in storytelling.",
+              "url": "https://jobs.netflix.com/careers/animation"
+            },
+            {
+              "surface": "culture",
+              "quote": "Netflix Series Animation (NSA) creates and curates best-in-class animation series for audiences of all ages - from kids to adults - and across all genres.",
+              "url": "https://jobs.netflix.com/careers/animation"
+            },
+            {
+              "surface": "culture",
+              "quote": "In the spirit of our mission to entertain the world, the team works with creators and studios from around the world to continue pushing the boundaries of what’s possible, and to keep audiences on the edge of their seats!",
+              "url": "https://jobs.netflix.com/careers/animation"
+            }
+          ]
+        },
+        {
+          "variant": "fan",
+          "concept_key": "fan",
+          "counts_by_surface": {
+            "tudum": 83,
+            "culture": 1
+          },
+          "total": 84,
+          "quotes": [
+            {
+              "surface": "tudum",
+              "quote": "Welcome to Tudum , Netflix’s official site made for and dedicated to fans.",
+              "url": "https://www.netflix.com/tudum/articles/about-tudum"
+            },
+            {
+              "surface": "tudum",
+              "quote": "All the Light We Cannot See is coming to Netflix on Nov. 2, but fans of Anthony Doerr’s Pulitzer Prize–winning novel got an exclusive virtual screening of the limited series’ fir…",
+              "url": "https://www.netflix.com/tudum/articles/all-the-light-we-cannot-see-book-fan-reactions"
+            },
+            {
+              "surface": "tudum",
+              "quote": "Among the reactions, fans also couldn’t stop talking about newcomer Aria Mia Loberti’s casting as Marie-Laure in the series, some calling her a “revelation.”",
+              "url": "https://www.netflix.com/tudum/articles/all-the-light-we-cannot-see-book-fan-reactions"
+            },
+            {
+              "surface": "culture",
+              "quote": "In addition to elevating the experience of fans, members of this team also help design products to help Netflix Studio support our content creators.",
+              "url": "https://jobs.netflix.com/careers/product"
+            }
+          ]
+        },
+        {
+          "variant": "subscriber",
+          "concept_key": "subscriber",
+          "counts_by_surface": {
+            "help": 1,
+            "culture": 1
+          },
+          "total": 2,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Join the millions of subscribers around the world who enjoy unlimited award-winning TV shows, movies, documentaries, and more.",
+              "url": "https://help.netflix.com/en/node/112419"
+            },
+            {
+              "surface": "culture",
+              "quote": "The team is focused on enabling the next wave of subscribers, expanding our multidimensional entertainment offerings, and ensuring seamless distribution across global markets.",
+              "url": "https://jobs.netflix.com/careers/partnerships"
+            }
+          ]
+        },
+        {
+          "variant": "customer",
+          "concept_key": "customer",
+          "counts_by_surface": {
+            "help": 8,
+            "tudum": 1
+          },
+          "total": 9,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Customers in the United States can sign up for an eligible Xfinity package that includes a Netflix subscription, or add Netflix to an eligible Xfinity package.",
+              "url": "https://help.netflix.com/en/node/100377"
+            },
+            {
+              "surface": "help",
+              "quote": "Customers with Dish can sign up for an eligible Dish package that includes a Netflix subscription.",
+              "url": "https://help.netflix.com/en/node/122223"
+            },
+            {
+              "surface": "help",
+              "quote": "Note: Customers in the US or Canada should update their billing information to receive the correct tax rate.",
+              "url": "https://help.netflix.com/en/node/129273"
+            },
+            {
+              "surface": "tudum",
+              "quote": "Each night, a midnight diner serves up just four dishes, but customers aren’t really there for the food: They’ve come for advice and a sympathetic ear.",
+              "url": "https://www.netflix.com/tudum/articles/whats-leaving-netflix"
+            }
+          ]
+        },
+        {
+          "variant": "user",
+          "concept_key": "user",
+          "counts_by_surface": {
+            "help": 2,
+            "tudum": 2
+          },
+          "total": 4,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Some third party services allow us to use their service to reach our users with online marketing about Netflix content or Netflix services by sending privacy protective contact information to the third party.",
+              "url": "https://help.netflix.com/en/node/100637"
+            },
+            {
+              "surface": "help",
+              "quote": "Account owners or profile users can add or update a profile email at any time from the Account page.",
+              "url": "https://help.netflix.com/en/node/649525598362212"
+            },
+            {
+              "surface": "tudum",
+              "quote": "Users can sign up for email updates to get notified when the game is playable in their region.",
+              "url": "https://www.netflix.com/tudum/articles/fifa-mens-world-cup-2026-game-on-netflix"
+            },
+            {
+              "surface": "tudum",
+              "quote": "Their company, Centra Tech, claimed to be working on a debit card that would easily allow users to spend virtual currencies.",
+              "url": "https://www.netflix.com/tudum/articles/shows-like-apple-cider-vinegar"
+            }
+          ]
+        }
+      ],
+      "rank": 3
+    },
+    {
+      "id": "paid-relationship",
+      "kind": "synonym_competition",
+      "title": "The paid relationship: membership vs. subscription vs. account vs. plan",
+      "note": "Help alone uses three different nouns for closely related parts of 'you paying Netflix': 'membership' (the ongoing relationship, 23 uses), 'subscription' (the billing arrangement, 4 uses), and 'account' (the login/profile container, 213 uses -- by far the dominant term). 'Plan' (the pricing tier) is also in the mix on help and marketing. Tudum's 28 raw 'plan' hits were sampled and are entirely the generic 'a plan/scheme' sense (a character's plan) -- excluded here as a verified homonym, not a pricing reference.",
+      "surfaces_touched": [
+        "help",
+        "marketing",
+        "tudum"
+      ],
+      "n_surfaces_touched": 3,
+      "total_occurrences": 278,
+      "entries": [
+        {
+          "variant": "account",
+          "concept_key": "account",
+          "counts_by_surface": {
+            "help": 213,
+            "tudum": 3,
+            "marketing": 1
+          },
+          "total": 217,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Sign in to your account to view your Netflix payment history and current service period.",
+              "url": "https://help.netflix.com/en/node/100569"
+            },
+            {
+              "surface": "help",
+              "quote": "If you see the message “ Sorry, we can't find an account with this email address ,” follow the steps below.",
+              "url": "https://help.netflix.com/en/node/100569"
+            },
+            {
+              "surface": "help",
+              "quote": "Go to your Account .",
+              "url": "https://help.netflix.com/en/node/100569"
+            },
+            {
+              "surface": "tudum",
+              "quote": "“Suede not taking that into account — it hurt.”",
+              "url": "https://www.netflix.com/tudum/articles/calabasas-confidential-season-1-cast-where-are-they-now"
+            },
+            {
+              "surface": "tudum",
+              "quote": "And by her account, it was far from a reconciliation.",
+              "url": "https://www.netflix.com/tudum/articles/the-ultimatum-marry-or-move-on-season-4-whos-still-together"
+            },
+            {
+              "surface": "tudum",
+              "quote": "When dozens of babies in Corby are born with disabilities, their mothers embark on a battle to hold those responsible to account.",
+              "url": "https://www.netflix.com/tudum/articles/toxic-town-release-date-cast-news"
+            },
+            {
+              "surface": "marketing",
+              "quote": "Cards are applied to your account as a gift balance.",
+              "url": "https://www.netflix.com/gift-cards"
+            }
+          ]
+        },
+        {
+          "variant": "membership",
+          "concept_key": "membership",
+          "counts_by_surface": {
+            "help": 23,
+            "marketing": 2
+          },
+          "total": 25,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "You can change your Netflix plan at any time during your membership.",
+              "url": "https://help.netflix.com/en/node/100569"
+            },
+            {
+              "surface": "help",
+              "quote": "Account information - account owner information you have provided to Netflix, such as email and phone number (available under ​ Security ), as well as plan selection information (available under ​ Membership ).",
+              "url": "https://help.netflix.com/en/node/100624"
+            },
+            {
+              "surface": "help",
+              "quote": "…t the charges we have made or attempted to make to your payment method for your subscription (available under ​ Membership ).",
+              "url": "https://help.netflix.com/en/node/100624"
+            },
+            {
+              "surface": "marketing",
+              "quote": "Pay for membership or gift one to someone special.",
+              "url": "https://www.netflix.com/gift-cards"
+            },
+            {
+              "surface": "marketing",
+              "quote": "Send kids on adventures with their favorite characters in a space made just for them — free with your membership.",
+              "url": "https://www.netflix.com"
+            }
+          ]
+        },
+        {
+          "variant": "subscription",
+          "concept_key": "subscription",
+          "counts_by_surface": {
+            "help": 4
+          },
+          "total": 4,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "…o Netflix and information about the charges we have made or attempted to make to your payment method for your subscription (available under ​ Membership ).",
+              "url": "https://help.netflix.com/en/node/100624"
+            },
+            {
+              "surface": "help",
+              "quote": "…o Netflix and information about the charges we have made or attempted to make to your payment method for your subscription (available under Membership ).",
+              "url": "https://help.netflix.com/en/node/100627"
+            },
+            {
+              "surface": "help",
+              "quote": "Your billing history, along with the price and applicable taxes for your subscription, can be found in the payment history on your account page.",
+              "url": "https://help.netflix.com/en/node/41049"
+            }
+          ]
+        },
+        {
+          "variant": "plan (pricing tier)",
+          "concept_key": "plan",
+          "counts_by_surface": {
+            "help": 31,
+            "marketing": 1
+          },
+          "total": 32,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "To check or change your plan, visit your account settings.",
+              "url": "https://help.netflix.com/en/node/100131"
+            },
+            {
+              "surface": "help",
+              "quote": "You have the freedom to change your plan or cancel online at any time if you decide Netflix isn’t for you.",
+              "url": "https://help.netflix.com/en/node/112419"
+            },
+            {
+              "surface": "help",
+              "quote": "Choose a plan that meets your needs and your budget.",
+              "url": "https://help.netflix.com/en/node/116380"
+            },
+            {
+              "surface": "marketing",
+              "quote": "Choose your plan",
+              "url": "https://www.netflix.com/signup"
+            }
+          ],
+          "excluded_homonym_surfaces": {
+            "tudum": "sampled 100% as generic 'a plan/scheme', not a Netflix pricing plan"
+          }
+        }
+      ],
+      "rank": 4
+    },
+    {
+      "id": "content-org-vs-generic",
+      "kind": "form_variation",
+      "title": "\"Content\" -- culture's capitalized department name vs. everyone else's lowercase generic noun",
+      "note": "Culture's careers pages capitalize 'Content' as a proper department/team name 26 of 37 times ('Content Acquisition', 'Content Creative', 'Supporting Production Of Our Content') -- an org-chart usage. Help and tudum only ever use lowercase 'content' as an ordinary mass noun (licensing, restrictions, what's on screen).",
+      "surfaces_touched": [
+        "culture",
+        "help",
+        "tudum"
+      ],
+      "n_surfaces_touched": 3,
+      "total_occurrences": 46,
+      "entries": [
+        {
+          "variant": "content (all forms)",
+          "concept_key": "content",
+          "counts_by_surface": {
+            "help": 5,
+            "tudum": 4,
+            "culture": 37
+          },
+          "total": 46,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Subtitles or audio may not be available in a desired language for specific titles because of content licensing and show agreements.",
+              "url": "https://help.netflix.com/en/node/101798"
+            },
+            {
+              "surface": "help",
+              "quote": "Since this is a default Netflix Kids profile, content above a certain maturity level is restricted.",
+              "url": "https://help.netflix.com/en/node/108211"
+            },
+            {
+              "surface": "help",
+              "quote": "In addition to the rating, you’ll also find details about the content of the title that determined the rating (for example: sex, language, violence, nudity).",
+              "url": "https://help.netflix.com/en/node/2064"
+            },
+            {
+              "surface": "tudum",
+              "quote": "While their content appeared silly and fun from the outside, the former Squad members and their parents reveal a darker story of alleged exploitation and manipulation.",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "tudum",
+              "quote": "When a group of young social media influencers and foodies travels to a Texas ghost town, they arrive bright-eyed and ready to capture content.",
+              "url": "https://www.netflix.com/tudum/articles/best-scary-movies-tv-shows-on-netflix"
+            },
+            {
+              "surface": "tudum",
+              "quote": "“The showrunners chose the episode for me, and I like to think it wasn’t just logistics, but also the content.",
+              "url": "https://www.netflix.com/tudum/features/the-four-seasons-is-a-fresh-look-at-a-cult-classic"
+            },
+            {
+              "surface": "culture",
+              "quote": "To ensure our content is all-engrossing, we work to ensure its formats are all-encompassing, from TV series, films, and documentaries, to kids programming, talk shows, reality series, and other experimental formats.",
+              "url": "https://jobs.netflix.com/careers/content"
+            },
+            {
+              "surface": "culture",
+              "quote": "Supporting Production Of Our Content",
+              "url": "https://jobs.netflix.com/careers/content"
+            },
+            {
+              "surface": "culture",
+              "quote": "Supporting production of our content is our Content Operations & Innovation group.",
+              "url": "https://jobs.netflix.com/careers/content"
+            }
+          ]
+        }
+      ],
+      "rank": 5
+    },
+    {
+      "id": "discovery-naming",
+      "kind": "synonym_competition",
+      "title": "Content discovery/organization: genre (tudum editorial) vs. category (help UI) vs. collection (weak, contaminated)",
+      "note": "Weaker signal, flagged rather than confident. Tudum's editorial voice reaches for 'genre' when talking about a type of content (14 uses); help's one clean hit for browsing UI uses 'category' ('each row represents a category such as comedies, dramas...'). But most of the raw 'category' hits on tudum and culture turned out to be awards-show categories (Emmy/BAFTA) or CCPA legal language ('categories of personal information'), not content-discovery vocabulary -- so this family has real contamination and should be spot-checked further before trusting it.",
+      "surfaces_touched": [
+        "culture",
+        "help",
+        "tudum"
+      ],
+      "n_surfaces_touched": 3,
+      "total_occurrences": 16,
+      "entries": [
+        {
+          "variant": "genre (tudum)",
+          "concept_key": "genre",
+          "counts_by_surface": {
+            "tudum": 14,
+            "culture": 1
+          },
+          "total": 15,
+          "quotes": [
+            {
+              "surface": "tudum",
+              "quote": "It’s why many true crime viewers are so drawn to the genre: It helps us better understand the world around us — as well as the parts that have been hidden in our blind spots.",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "tudum",
+              "quote": "As the genre grows, so does the selection of cases to choose from .",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "tudum",
+              "quote": "But a few years after the genre went viral, it seemed that creators would “just take any crime-ridden, tragic event, and story-ize it to make it palatable and make it an easy- and fun-to-digest drama,” says Metcalf.",
+              "url": "https://www.netflix.com/tudum/articles/bodkin-release-date-news-cast-photos-trailer"
+            },
+            {
+              "surface": "culture",
+              "quote": "Netflix Series Animation (NSA) creates and curates best-in-class animation series for audiences of all ages - from kids to adults - and across all genres.",
+              "url": "https://jobs.netflix.com/careers/animation"
+            }
+          ]
+        },
+        {
+          "variant": "category (help, browse UI)",
+          "concept_key": "category",
+          "counts_by_surface": {
+            "help": 1
+          },
+          "total": 1,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Each row represents a category such as comedies, dramas, or TV shows that we show you based on what you’ve watched.",
+              "url": "https://help.netflix.com/en/node/66144"
+            }
+          ]
+        }
+      ],
+      "rank": 6
+    },
+    {
+      "id": "save-for-later",
+      "kind": "synonym_competition",
+      "title": "Save-for-later feature: \"My List\" (branded, consistent) vs. \"watchlist\" (tudum's generic synonym)",
+      "note": "This is a control as much as a candidate: 'My List' is the actual Netflix feature name and it's used identically -- same capitalization, same two words -- in help's instructional prose and in tudum's own on-page widget chrome ('Link copied to clipboard / My List' appears on nearly every tudum article). But tudum's editorial writers, in running prose recommending titles, sometimes reach for the generic word 'watchlist' instead of the branded feature name. Small n, but a real, clean instance of the branded term leaking into a generic synonym on exactly one surface.",
+      "surfaces_touched": [
+        "help",
+        "tudum"
+      ],
+      "n_surfaces_touched": 2,
+      "total_occurrences": 1135,
+      "entries": [
+        {
+          "variant": "My List (branded)",
+          "concept_key": "list",
+          "counts_by_surface": {
+            "help": 18,
+            "tudum": 1112
+          },
+          "total": 1130,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Once the title is available, you may see a notification on Netflix, get an email, and it will also appear in My List .",
+              "url": "https://help.netflix.com/en/node/101522"
+            },
+            {
+              "surface": "help",
+              "quote": "If you've previously selected to be reminded of the release date, the title will display in My List once it's released.",
+              "url": "https://help.netflix.com/en/node/101522"
+            },
+            {
+              "surface": "help",
+              "quote": "To download a list into a spreadsheet, select Download all at the bottom of the page.",
+              "url": "https://help.netflix.com/en/node/101917"
+            },
+            {
+              "surface": "tudum",
+              "quote": "My List",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            }
+          ]
+        },
+        {
+          "variant": "watchlist (generic)",
+          "concept_key": "watchlist",
+          "counts_by_surface": {
+            "tudum": 5
+          },
+          "total": 5,
+          "quotes": [
+            {
+              "surface": "tudum",
+              "quote": "If you haven’t streamed these films yet, catch up with the rest of the world and add them to your watchlist.",
+              "url": "https://www.netflix.com/tudum/articles/most-watched-movies-h1-2026"
+            },
+            {
+              "surface": "tudum",
+              "quote": "If you haven’t streamed these shows yet, catch up with the rest of the world and add them to your watchlist.",
+              "url": "https://www.netflix.com/tudum/articles/most-watched-shows-h1-2026"
+            },
+            {
+              "surface": "tudum",
+              "quote": "And don’t forget to add the true crime series Worst Neighbor Ever and documentary Shipwrecked: Nightmare at Sea to your watchlist.",
+              "url": "https://www.netflix.com/tudum/articles/new-on-netflix"
+            }
+          ]
+        }
+      ],
+      "rank": 7
+    },
+    {
+      "id": "season-numbering-casing",
+      "kind": "form_variation",
+      "title": "\"Season\" -- tudum capitalizes it as a numbered label (\"Season 2\"); help stays lowercase",
+      "note": "Tudum capitalizes 'Season' 398 of 505 times, almost always immediately before a number ('Season 2 of Wednesday') -- a proper-noun-style numbering convention. Help's much smaller usage (8 total) is uniformly lowercase, treating 'season' as an ordinary common noun.",
+      "surfaces_touched": [
+        "help",
+        "tudum"
+      ],
+      "n_surfaces_touched": 2,
+      "total_occurrences": 513,
+      "entries": [
+        {
+          "variant": "season (all forms)",
+          "concept_key": "season",
+          "counts_by_surface": {
+            "help": 8,
+            "tudum": 505
+          },
+          "total": 513,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Include the title of the TV show or movie, the season and episode the issue occurs in (if applicable), a brief description of the issue, and an approximate time within the title that the issue occurs.",
+              "url": "https://help.netflix.com/en/node/12411"
+            },
+            {
+              "surface": "help",
+              "quote": "A TV show is missing episodes or seasons",
+              "url": "https://help.netflix.com/en/node/125347"
+            },
+            {
+              "surface": "help",
+              "quote": "A season has been split into two parts, with some episodes released in part one and the rest in part two later.",
+              "url": "https://help.netflix.com/en/node/125347"
+            },
+            {
+              "surface": "tudum",
+              "quote": "Are you looking for news about Season 2 of Wednesday ?",
+              "url": "https://www.netflix.com/tudum/articles/about-tudum"
+            },
+            {
+              "surface": "tudum",
+              "quote": "Reece: It was slow at first, but during the off-season, I was really able to say yes to a lot of opportunities that I usually have to say no to because we're in season.",
+              "url": "https://www.netflix.com/tudum/articles/americas-sweethearts-dallas-cowboys-cheerleaders-reece-retiring"
+            },
+            {
+              "surface": "tudum",
+              "quote": "I got injured at a time when it was the busiest, thickest part of our season, and it was an extreme bummer.",
+              "url": "https://www.netflix.com/tudum/articles/americas-sweethearts-dallas-cowboys-cheerleaders-reece-retiring"
+            }
+          ]
+        }
+      ],
+      "rank": 8
+    },
+    {
+      "id": "acquisition-cta",
+      "kind": "synonym_competition",
+      "title": "Acquisition call-to-action: \"Join Netflix\" (help nav) vs. \"Get Started\" (marketing homepage)",
+      "note": "Help's persistent site-chrome CTA for a signed-out visitor is 'Join Netflix' (240/240 help pages). Marketing's homepage CTA for the identical action -- start becoming a member -- is 'Get Started'. Marketing's corpus here is thin (4 pages total), so this is directional, not conclusive, but the two surfaces do not share a CTA verb for the same action anywhere in this corpus.",
+      "surfaces_touched": [
+        "help",
+        "marketing"
+      ],
+      "n_surfaces_touched": 2,
+      "total_occurrences": 242,
+      "entries": [
+        {
+          "variant": "Join Netflix (help)",
+          "concept_key": "join netflix",
+          "counts_by_surface": {
+            "help": 240
+          },
+          "total": 240,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Join Netflix",
+              "url": "https://help.netflix.com/en/node/100131"
+            }
+          ]
+        },
+        {
+          "variant": "Get Started (marketing)",
+          "concept_key": "get start",
+          "counts_by_surface": {
+            "marketing": 2
+          },
+          "total": 2,
+          "quotes": [
+            {
+              "surface": "marketing",
+              "quote": "Get Started",
+              "url": "https://www.netflix.com"
+            }
+          ]
+        }
+      ],
+      "rank": 9
+    },
+    {
+      "id": "episode-numbering-casing",
+      "kind": "form_variation",
+      "title": "\"Episode\" -- the same numbered-label capitalization pattern as \"Season,\" on tudum only",
+      "note": "Same story as Season: tudum capitalizes 'Episode' more often than not (103 of 167 uses, mostly 'Episode 5'-style recap headers); help's smaller usage (28 total) stays lowercase.",
+      "surfaces_touched": [
+        "help",
+        "tudum"
+      ],
+      "n_surfaces_touched": 2,
+      "total_occurrences": 195,
+      "entries": [
+        {
+          "variant": "episode (all forms)",
+          "concept_key": "episode",
+          "counts_by_surface": {
+            "help": 28,
+            "tudum": 167
+          },
+          "total": 195,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "For TV shows, select a show, then tap Play next to the episode you want to watch.",
+              "url": "https://help.netflix.com/en/node/113287"
+            },
+            {
+              "surface": "help",
+              "quote": "When watching a TV show with multiple episodes, you can select the option to Watch Credits at the end of an episode.",
+              "url": "https://help.netflix.com/en/node/114058"
+            },
+            {
+              "surface": "help",
+              "quote": "Next to an episode or movie, tap the download status icon .",
+              "url": "https://help.netflix.com/en/node/116084"
+            },
+            {
+              "surface": "tudum",
+              "quote": "As ever, viewers are encouraged to take in each episode with a sharp eye — relevant tips and information from the public are encouraged and often leads to mysteries finally being solved.",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "tudum",
+              "quote": "From creators Cynthia Childs and Blumhouse Television, each episode of the documentary series tells the true story of a terrifying roommate with a sinister secret.",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "tudum",
+              "quote": "In Episode 3 , when Jin and Jack appear before Mongol emperor Kublai Khan, two other players are waiting: pioneering computer scientist Alan Turing and Sir Isaac Newton.",
+              "url": "https://www.netflix.com/tudum/articles/3-body-problem-teaser-release-date"
+            }
+          ]
+        }
+      ],
+      "rank": 10
+    },
+    {
+      "id": "help-parental-controls-register",
+      "kind": "surface_exclusive",
+      "title": "Help's parental-controls feature cluster (maturity rating, parental control, kids profile) is help-exclusive",
+      "note": "A tight family of feature names -- 'maturity rating' (21), 'parental control(s)' (6-7), 'kids profile'/'Kids profiles' (5) -- that essentially only exists on help. Culture has one glancing mention ('parental controls in multiple languages'); tudum and marketing have none.",
+      "surfaces_touched": [
+        "culture",
+        "help"
+      ],
+      "n_surfaces_touched": 2,
+      "total_occurrences": 33,
+      "entries": [
+        {
+          "variant": "maturity rating",
+          "concept_key": "maturity rating",
+          "counts_by_surface": {
+            "help": 21
+          },
+          "total": 21,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Maturity Rating",
+              "url": "https://help.netflix.com/en/node/114275"
+            },
+            {
+              "surface": "help",
+              "quote": "If you choose a maturity rating that's higher than the level allowed for the Netflix Kids experience, then the Kids experience won't be applied to that profile.",
+              "url": "https://help.netflix.com/en/node/114275"
+            }
+          ]
+        },
+        {
+          "variant": "parental control(s)",
+          "concept_key": "parental control",
+          "counts_by_surface": {
+            "help": 6,
+            "culture": 1
+          },
+          "total": 7,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Select Adjust parental controls ​ , then choose a profile.",
+              "url": "https://help.netflix.com/en/node/2064"
+            },
+            {
+              "surface": "help",
+              "quote": "If you have parental controls set that use a different rating system than the country you’re visiting, titles may be available (or unavailable) due to the differences in the maturity ratings.",
+              "url": "https://help.netflix.com/en/node/24853"
+            },
+            {
+              "surface": "culture",
+              "quote": "…program for a wide variety of audiences, cultures and tastes; and we provide ratings, content advisories and parental controls in multiple languages to help members choose what to watch or play.",
+              "url": "https://jobs.netflix.com/culture"
+            }
+          ]
+        },
+        {
+          "variant": "kids profile",
+          "concept_key": "kid profile",
+          "counts_by_surface": {
+            "help": 5
+          },
+          "total": 5,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Kids profiles have a logo on the profile icon so they are easy to identify.",
+              "url": "https://help.netflix.com/en/node/114275"
+            },
+            {
+              "surface": "help",
+              "quote": "Kids Profile",
+              "url": "https://help.netflix.com/en/node/114275"
+            }
+          ]
+        }
+      ],
+      "rank": 11
+    },
+    {
+      "id": "advertising-vocab",
+      "kind": "synonym_competition",
+      "title": "Advertising vocabulary: help's lowercase generic \"ads\" vs. culture's capitalized \"Ads\" as a named business line",
+      "note": "Help talks about 'ads' as a lowercase, generic feature of certain plans (ad-supported plans, behavioral-advertising preferences). Culture's careers pages instead capitalize 'Ads' as a proper business-unit name alongside 'Streaming', 'Games', and 'Live' ('the Ad Platform', 'across Commerce, Ads, and Games'). Tudum's 11 raw 'AD' hits were sampled and are a reality-show contestant's nickname -- excluded as a verified homonym.",
+      "surfaces_touched": [
+        "culture",
+        "help"
+      ],
+      "n_surfaces_touched": 2,
+      "total_occurrences": 21,
+      "entries": [
+        {
+          "variant": "ads (help, generic feature)",
+          "concept_key": "ad",
+          "counts_by_surface": {
+            "help": 16,
+            "culture": 5
+          },
+          "total": 21,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Behavioral Advertising - your indicated preferences with respect to whether you would like ads selected based on behavioral advertising information (available by profile under Privacy and data settings ,…",
+              "url": "https://help.netflix.com/en/node/100627"
+            },
+            {
+              "surface": "help",
+              "quote": "If you are eligible for Behavioral Advertisements (e.g., you subscribe to an ad supported subscription plan, watch live or special events that cont…",
+              "url": "https://help.netflix.com/en/node/100637"
+            },
+            {
+              "surface": "help",
+              "quote": "…isements (e.g., you subscribe to an ad supported subscription plan, watch live or special events that contain ads), Netflix will provide each non-Kids profile the option to opt out of behavioral advertising on Netflix.",
+              "url": "https://help.netflix.com/en/node/100637"
+            },
+            {
+              "surface": "culture",
+              "quote": "Among the team members’ many roles, they build and maintain the Ad Platform that delivers ads, integrate ads into our member experience, develop systems that enable targeted and personalized ads, optimiz…",
+              "url": "https://jobs.netflix.com/careers/engineering"
+            },
+            {
+              "surface": "culture",
+              "quote": "In my current role leading measurement for our ads business, I help advertisers understand what works on Netflix and how they cannot only amplify their message…",
+              "url": "https://jobs.netflix.com/locations/mexico-city"
+            },
+            {
+              "surface": "culture",
+              "quote": "If you want to make a tangible impact on the future of entertainment and ads, while growing alongside some of the brightest minds in the industry, there’s no better place to be.”",
+              "url": "https://jobs.netflix.com/locations/seoul"
+            }
+          ],
+          "excluded_homonym_surfaces": {
+            "tudum": "sampled as a character nickname ('AD and Clay'), not advertising"
+          }
+        }
+      ],
+      "rank": 12
+    },
+    {
+      "id": "gift-card-casing",
+      "kind": "form_variation",
+      "title": "\"Gift card\" -- help mixes cases; marketing capitalizes both words as a product name",
+      "note": "Help's 'gift card' mentions are mostly lowercase with one Title-Case plural ('Gift cards'). Marketing's signup/gift-cards pages capitalize both words ('Gift Card', 'Redeem Your Gift Card'), treating it as a named product/page rather than a generic noun phrase. Thin n (4 help, 2 marketing) -- directional.",
+      "surfaces_touched": [
+        "help",
+        "marketing"
+      ],
+      "n_surfaces_touched": 2,
+      "total_occurrences": 6,
+      "entries": [
+        {
+          "variant": "gift card (all forms)",
+          "concept_key": "gift card",
+          "counts_by_surface": {
+            "help": 4,
+            "marketing": 2
+          },
+          "total": 6,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "However, we can remove all payment methods as long as you are not paying through a partner or with a gift card.",
+              "url": "https://help.netflix.com/en/node/113408"
+            },
+            {
+              "surface": "help",
+              "quote": "Note: Gift cards and other cash payment methods vary by country and may not be available or eligible for use in your travel location.",
+              "url": "https://help.netflix.com/en/node/24853"
+            },
+            {
+              "surface": "help",
+              "quote": "Gift cards do not expire, which is printed on the back of each card.",
+              "url": "https://help.netflix.com/en/node/32950"
+            },
+            {
+              "surface": "marketing",
+              "quote": "Having trouble using your gift card?",
+              "url": "https://www.netflix.com/gift-cards"
+            },
+            {
+              "surface": "marketing",
+              "quote": "Redeem Your Gift Card",
+              "url": "https://www.netflix.com/gift-cards"
+            }
+          ]
+        }
+      ],
+      "rank": 13
+    },
+    {
+      "id": "help-device-troubleshooting-register",
+      "kind": "surface_exclusive",
+      "title": "Help's device/troubleshooting vocabulary (device, iPad, Netflix app) is essentially help-only",
+      "note": "'device'/'devices' (277 of 281 total on help), 'iPad' (81 of 83), and 'Netflix app' (99, 100% help) form a technical-support register unique to help.netflix.com's troubleshooting articles. None of the other three surfaces have a reason to talk about specific hardware/app naming, and the data bears that out.",
+      "surfaces_touched": [
+        "help"
+      ],
+      "n_surfaces_touched": 1,
+      "total_occurrences": 457,
+      "entries": [
+        {
+          "variant": "device(s)",
+          "concept_key": "device",
+          "counts_by_surface": {
+            "help": 277
+          },
+          "total": 277,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "If you tap the Cast button and don't see any devices, or the Cast button isn't there at all, it means that either your device can’t be found due to a network or s…",
+              "url": "https://help.netflix.com/en/node/100131"
+            },
+            {
+              "surface": "help",
+              "quote": "Netflix freezes, stops responding, or gets stuck loading, but device isn't frozen",
+              "url": "https://help.netflix.com/en/node/100242"
+            }
+          ]
+        },
+        {
+          "variant": "Netflix app",
+          "concept_key": "netflix app",
+          "counts_by_surface": {
+            "help": 99
+          },
+          "total": 99,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Cast device or cast icon isn't showing in the Netflix app",
+              "url": "https://help.netflix.com/en/node/100131"
+            },
+            {
+              "surface": "help",
+              "quote": "Launch the Netflix app.",
+              "url": "https://help.netflix.com/en/node/100569"
+            }
+          ]
+        },
+        {
+          "variant": "iPad",
+          "concept_key": "ipad",
+          "counts_by_surface": {
+            "help": 81
+          },
+          "total": 81,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Is available on Android phones and tablets, iPhone, and iPad devices with the latest version of the Netflix app installed.",
+              "url": "https://help.netflix.com/en/node/101262"
+            },
+            {
+              "surface": "help",
+              "quote": "How to use Netflix on your iPhone or iPad",
+              "url": "https://help.netflix.com/en/node/113160"
+            }
+          ]
+        }
+      ],
+      "rank": 14
+    },
+    {
+      "id": "account-casing",
+      "kind": "form_variation",
+      "title": "\"Account\" -- lowercase generic noun vs. capitalized UI section name, within help",
+      "note": "Help uses lowercase 'account' as an ordinary noun the large majority of the time (187 uses) but capitalizes 'Account' 21 times when naming the actual settings page/section ('the Account page', 'the Account option').",
+      "surfaces_touched": [
+        "help"
+      ],
+      "n_surfaces_touched": 1,
+      "total_occurrences": 213,
+      "entries": [
+        {
+          "variant": "account (all forms)",
+          "concept_key": "account",
+          "counts_by_surface": {
+            "help": 213
+          },
+          "total": 213,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Sign in to your account to view your Netflix payment history and current service period.",
+              "url": "https://help.netflix.com/en/node/100569"
+            },
+            {
+              "surface": "help",
+              "quote": "If you see the message “ Sorry, we can't find an account with this email address ,” follow the steps below.",
+              "url": "https://help.netflix.com/en/node/100569"
+            },
+            {
+              "surface": "help",
+              "quote": "Go to your Account .",
+              "url": "https://help.netflix.com/en/node/100569"
+            }
+          ]
+        }
+      ],
+      "rank": 15
+    },
+    {
+      "id": "profile-casing",
+      "kind": "form_variation",
+      "title": "\"Profile(s)\" -- lowercase generic noun vs. capitalized feature name, within help",
+      "note": "Help uses lowercase 'profile'/'profiles' as an ordinary noun most of the time (98 + 13 = 111 uses) but capitalizes 'Profiles' as a distinct feature/section name 25 times (e.g. 'Manage Profiles'), plus 'Profile' capitalized 4 times. The capitalized form reads as a UI proper noun; the lowercase form reads as prose.",
+      "surfaces_touched": [
+        "help"
+      ],
+      "n_surfaces_touched": 1,
+      "total_occurrences": 140,
+      "entries": [
+        {
+          "variant": "profile (all forms)",
+          "concept_key": "profile",
+          "counts_by_surface": {
+            "help": 140
+          },
+          "total": 140,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Notification settings - your indicated preferences with respect to Netflix communications you wish to receive (available by profile under Notification settings ).",
+              "url": "https://help.netflix.com/en/node/100624"
+            },
+            {
+              "surface": "help",
+              "quote": "Matched Identifier Communications - your indicated preferences with respect to Netflix marketing activities on third party services (available by profile under Privacy and data settings ).",
+              "url": "https://help.netflix.com/en/node/100624"
+            },
+            {
+              "surface": "help",
+              "quote": "…t to whether you would like advertisements selected based on behavioral advertising information (available by profile under Privacy and data settings , except for Kids profiles, for which we do not engage in Behavioral Advertis…",
+              "url": "https://help.netflix.com/en/node/100624"
+            }
+          ]
+        }
+      ],
+      "rank": 16
+    },
+    {
+      "id": "download-casing",
+      "kind": "form_variation",
+      "title": "\"Download\" -- four casing forms on help (imperative CTA vs. feature name vs. generic verb)",
+      "note": "Help renders 'Download' as a Title-Case imperative CTA (14x, e.g. button copy), 'Downloads' as a capitalized plural feature/section name (29x), and 'download'/'downloads' as an ordinary lowercase verb or generic plural noun (13x/25x). Four distinct registers of the same lemma inside one surface's own documentation.",
+      "surfaces_touched": [
+        "help"
+      ],
+      "n_surfaces_touched": 1,
+      "total_occurrences": 81,
+      "entries": [
+        {
+          "variant": "download (all forms)",
+          "concept_key": "download",
+          "counts_by_surface": {
+            "help": 81
+          },
+          "total": 81,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "To automatically download the next episode of a series, use Download Next Episode .",
+              "url": "https://help.netflix.com/en/node/101262"
+            },
+            {
+              "surface": "help",
+              "quote": "The Download Next Episode feature isn't available on ad-supported Netflix plans.",
+              "url": "https://help.netflix.com/en/node/101262"
+            },
+            {
+              "surface": "help",
+              "quote": "Turn Download Next Episode on or off",
+              "url": "https://help.netflix.com/en/node/101262"
+            }
+          ]
+        }
+      ],
+      "rank": 17
+    },
+    {
+      "id": "netflix-household",
+      "kind": "surface_exclusive",
+      "title": "\"Netflix Household\" -- a formal, capitalized, help-only term with no equivalent elsewhere",
+      "note": "Help uses the exact branded phrase 'Netflix Household' 29 times, always capitalized, always with this precise definition-like framing ('A Netflix Household is a collection of devices...'). No other surface uses this phrase, or even the generic word 'household' in this account-sharing sense (tudum/culture's few 'household' hits are about historical/period households in show synopses and CCPA text, unrelated).",
+      "surfaces_touched": [
+        "help"
+      ],
+      "n_surfaces_touched": 1,
+      "total_occurrences": 29,
+      "entries": [
+        {
+          "variant": "Netflix Household",
+          "concept_key": "netflix household",
+          "counts_by_surface": {
+            "help": 29
+          },
+          "total": 29,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "…sses, device IDs, and account activity to determine whether a device signed into your account is part of your Netflix Household (to confirm if the device is permitted to use the account consistent with our Terms of Use).",
+              "url": "https://help.netflix.com/en/node/100637"
+            },
+            {
+              "surface": "help",
+              "quote": "A Netflix Household is a collection of devices connected to the internet at the main place where you watch Netflix.",
+              "url": "https://help.netflix.com/en/node/123277"
+            },
+            {
+              "surface": "help",
+              "quote": "What is a Netflix Household?",
+              "url": "https://help.netflix.com/en/node/124925"
+            }
+          ]
+        }
+      ],
+      "rank": 18
+    },
+    {
+      "id": "help-payments-register",
+      "kind": "surface_exclusive",
+      "title": "Help's payments/billing vocabulary cluster is almost entirely absent from the other three surfaces",
+      "note": "'payment method' (17), 'billing' (5), and 'cancellation' (4) are essentially help-exclusive -- the self-service account-servicing register that has no reason to exist on tudum (editorial), marketing (acquisition), or culture (recruiting), and indeed doesn't.",
+      "surfaces_touched": [
+        "help"
+      ],
+      "n_surfaces_touched": 1,
+      "total_occurrences": 26,
+      "entries": [
+        {
+          "variant": "payment method",
+          "concept_key": "payment method",
+          "counts_by_surface": {
+            "help": 17
+          },
+          "total": 17,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "…ails you have provided to Netflix and information about the charges we have made or attempted to make to your payment method for your subscription (available under ​ Membership ).",
+              "url": "https://help.netflix.com/en/node/100624"
+            },
+            {
+              "surface": "help",
+              "quote": "…ails you have provided to Netflix and information about the charges we have made or attempted to make to your payment method for your subscription (available under Membership ).",
+              "url": "https://help.netflix.com/en/node/100627"
+            }
+          ]
+        },
+        {
+          "variant": "billing",
+          "concept_key": "billing",
+          "counts_by_surface": {
+            "help": 5
+          },
+          "total": 5,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "…rmation as required or permitted by applicable laws and regulations, including to honor your choices, for our billing or records purposes, and as otherwise necessary to fulfill the purposes described in the Netflix Privacy Stat…",
+              "url": "https://help.netflix.com/en/node/100625"
+            },
+            {
+              "surface": "help",
+              "quote": "Membership & billing",
+              "url": "https://help.netflix.com/en/node/102377"
+            }
+          ]
+        },
+        {
+          "variant": "cancellation",
+          "concept_key": "cancellation",
+          "counts_by_surface": {
+            "help": 4
+          },
+          "total": 4,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "If you believe that you were charged in error, and you’ve confirmed that no one in your household created an account on your behalf, please contact your provider to request cancellation.",
+              "url": "https://help.netflix.com/en/node/100569"
+            },
+            {
+              "surface": "help",
+              "quote": "If your Netflix account was canceled without your consent, confirm that no one else with access to your account requested the cancellation.",
+              "url": "https://help.netflix.com/en/node/100569"
+            }
+          ]
+        }
+      ],
+      "rank": 19
+    },
+    {
+      "id": "maturity-rating-casing",
+      "kind": "form_variation",
+      "title": "\"Maturity rating\" -- four casing/pluralization forms, all on help alone",
+      "note": "Not even a cross-surface story: help itself renders this one feature name four different ways in its own help-center prose -- 'Maturity Rating' (Title Case, 3x), 'maturity rating' (lowercase, 4x), 'Maturity ratings' (mixed, 9x), 'maturity ratings' (lowercase plural, 5x). The single highest-count pure form-inconsistency signal found in the corpus.",
+      "surfaces_touched": [
+        "help"
+      ],
+      "n_surfaces_touched": 1,
+      "total_occurrences": 21,
+      "entries": [
+        {
+          "variant": "maturity rating (all forms)",
+          "concept_key": "maturity rating",
+          "counts_by_surface": {
+            "help": 21
+          },
+          "total": 21,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Maturity Rating",
+              "url": "https://help.netflix.com/en/node/114275"
+            },
+            {
+              "surface": "help",
+              "quote": "If you choose a maturity rating that's higher than the level allowed for the Netflix Kids experience, then the Kids experience won't be applied to that profile.",
+              "url": "https://help.netflix.com/en/node/114275"
+            },
+            {
+              "surface": "help",
+              "quote": "When you set a maturity rating for a profile, that profile will only see shows, movies, and games with a rating at or below that level.",
+              "url": "https://help.netflix.com/en/node/114276"
+            }
+          ]
+        }
+      ],
+      "rank": 20
+    },
+    {
+      "id": "netflix-kids-branding",
+      "kind": "surface_exclusive",
+      "title": "\"Netflix Kids\" -- a formal, capitalized, help-only branded term (parallel to Netflix Household)",
+      "note": "Help uses the branded phrase 'Netflix Kids' (as in 'the Netflix Kids experience') 10 times, always capitalized as a proper product name. No other surface uses this phrase.",
+      "surfaces_touched": [
+        "help"
+      ],
+      "n_surfaces_touched": 1,
+      "total_occurrences": 10,
+      "entries": [
+        {
+          "variant": "Netflix Kids",
+          "concept_key": "netflix kids",
+          "counts_by_surface": {
+            "help": 10
+          },
+          "total": 10,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "For these profiles, you won't be able to change the maturity rating level above the allowed level for Netflix Kids.",
+              "url": "https://help.netflix.com/en/node/108211"
+            },
+            {
+              "surface": "help",
+              "quote": "Since this is a default Netflix Kids profile, content above a certain maturity level is restricted.",
+              "url": "https://help.netflix.com/en/node/108211"
+            },
+            {
+              "surface": "help",
+              "quote": "If you want to customize a profile with a new maturity rating level, delete the Netflix Kids profile with the issue and create a new profile.",
+              "url": "https://help.netflix.com/en/node/108211"
+            }
+          ]
+        }
+      ],
+      "rank": 21
+    },
+    {
+      "id": "actions-coverage-gap",
+      "kind": "synonym_competition",
+      "title": "Actions (watch / stream / play) -- flagged as a method gap, not strong evidence",
+      "note": "The seed brief asks for action vocabulary (stream, watch, play), but noun-chunk + NER extraction structurally under-captures verb-headed action language -- 'watch' and 'play' only surface here when they happen to get used as nouns ('hitting play', 'an addicting watch'), which is often idiomatic on tudum rather than product-literal. 'Stream' barely appears at all (2 raw hits). This family needs a verb-phrase-aware pass (dependency matching on VERB heads) to mine properly; what's here is too thin and too idiom-contaminated to argue from.",
+      "surfaces_touched": [
+        "help",
+        "tudum"
+      ],
+      "n_surfaces_touched": 2,
+      "total_occurrences": 32,
+      "entries": [
+        {
+          "variant": "watch (mixed/idiomatic)",
+          "concept_key": "watch",
+          "counts_by_surface": {
+            "help": 2,
+            "tudum": 7
+          },
+          "total": 9,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Watch downloaded TV shows and movies",
+              "url": "https://help.netflix.com/en/node/113287"
+            },
+            {
+              "surface": "tudum",
+              "quote": "Missing You has everything needed for an addicting, enthralling watch: a man with a mysterious past, a woman on a mission, and so many secrets.",
+              "url": "https://www.netflix.com/tudum/articles/harlan-coben-shows"
+            },
+            {
+              "surface": "tudum",
+              "quote": "This couple had an “opposites attract” thing going right from the start — the kind of dynamic you can set your watch by.",
+              "url": "https://www.netflix.com/tudum/articles/love-is-blind-who-is-still-together-every-season"
+            },
+            {
+              "surface": "tudum",
+              "quote": "Running Point Season 2 Tips Off: Watch Kate Hudson Lead Another All-Star Cast",
+              "url": "https://www.netflix.com/tudum/articles/running-point-season-2-news-release-date-photos"
+            }
+          ]
+        },
+        {
+          "variant": "play (mixed/idiomatic)",
+          "concept_key": "play",
+          "counts_by_surface": {
+            "help": 2,
+            "tudum": 19
+          },
+          "total": 21,
+          "quotes": [
+            {
+              "surface": "help",
+              "quote": "Find the download you want to watch, then select Play .",
+              "url": "https://help.netflix.com/en/node/54816"
+            },
+            {
+              "surface": "help",
+              "quote": "When you press play, Netflix sends the video to your internet provider using the fastest way possible.",
+              "url": "https://help.netflix.com/en/node/85"
+            },
+            {
+              "surface": "tudum",
+              "quote": "While true crime documentaries can send chills down your spine, they also reveal the unjust systems at play, spotlight the psychological extremes that humans are capable of, and, when done respectfully, give the victi…",
+              "url": "https://www.netflix.com/tudum/articles/15-killer-true-crime-documentaries-to-stream"
+            },
+            {
+              "surface": "tudum",
+              "quote": "There’s nothing like a group trip with old friends to activate your most carefree sense of play and relaxation — as well as your long-held resentments.",
+              "url": "https://www.netflix.com/tudum/articles/four-seasons-season-2-filming-locations"
+            },
+            {
+              "surface": "tudum",
+              "quote": "Hitting play is the winning move for this series.",
+              "url": "https://www.netflix.com/tudum/articles/historical-fiction-book-adaptations"
+            }
+          ]
+        },
+        {
+          "variant": "stream (rare)",
+          "concept_key": "stream",
+          "counts_by_surface": {
+            "tudum": 2
+          },
+          "total": 2,
+          "quotes": [
+            {
+              "surface": "tudum",
+              "quote": "We go behind the streams to provide you with the latest news on Stranger Things , Wednesday , Bridgerton , and more — as well as in-de…",
+              "url": "https://www.netflix.com/tudum/articles/about-tudum"
+            },
+            {
+              "surface": "tudum",
+              "quote": "13 Harlan Coben Shows to Stream",
+              "url": "https://www.netflix.com/tudum/articles/harlan-coben-shows"
+            }
+          ]
+        }
+      ],
+      "rank": 22
+    },
+    {
+      "id": "netflix-original-casing",
+      "kind": "form_variation",
+      "title": "\"Netflix Original(s)\" -- capitalized on culture, lowercase \"o\" on tudum",
+      "note": "Very thin (1 use each) but a clean minimal pair: culture's careers page writes 'Netflix Originals' (both words capitalized, as a proper product line); tudum's editorial prose writes 'Netflix originals' (lowercase 'o', treated as a generic descriptor). Tail-tier evidence -- included for completeness, not as a headline claim.",
+      "surfaces_touched": [
+        "culture",
+        "tudum"
+      ],
+      "n_surfaces_touched": 2,
+      "total_occurrences": 2,
+      "entries": [
+        {
+          "variant": "Netflix Original(s)",
+          "concept_key": "netflix original",
+          "counts_by_surface": {
+            "tudum": 1,
+            "culture": 1
+          },
+          "total": 2,
+          "quotes": [
+            {
+              "surface": "tudum",
+              "quote": "With so many options available to you, we’ve put together a list of movies — all Netflix originals — that are worth your time.",
+              "url": "https://www.netflix.com/tudum/articles/comedies-on-netflix"
+            },
+            {
+              "surface": "culture",
+              "quote": "Production Management oversees and coordinates logistics and operations of Netflix Originals, ensuring projects are completed on time, on budget, and to the highest creative, legal, technological, and safety standards.",
+              "url": "https://jobs.netflix.com/careers/content"
+            }
+          ]
+        }
+      ],
+      "rank": 23
+    }
+  ],
+  "tail_candidates": [],
+  "flagged_homonym_collisions": [
+    {
+      "concept_key": "cast",
+      "collision": "help = the AirPlay/screen-mirroring 'Cast' feature; tudum = the cast of actors in a show",
+      "help_examples": [
+        {
+          "quote": "If you tap the Cast button and don't see any devices, or the Cast button isn't there at all, it means that either your device can…",
+          "url": "https://help.netflix.com/en/node/100131"
+        },
+        {
+          "quote": "If you tap the Cast button and don't see any devices, or the Cast button isn't there at all, it means that either your device can…",
+          "url": "https://help.netflix.com/en/node/100131"
+        }
+      ],
+      "tudum_examples": [
+        {
+          "quote": "Who is in the cast of the 13 Going on 30 reboot?",
+          "url": "https://www.netflix.com/tudum/articles/13-going-on-30-reboot-release-date-plot-news"
+        },
+        {
+          "quote": "While the cast is quick to poke fun at Hart , Gooding says the film ultimately comes back to “that cultural exchange that takes place when interacting with different generations.”",
+          "url": "https://www.netflix.com/tudum/articles/72-hours-cast-guide-kevin-hart"
+        }
+      ]
+    },
+    {
+      "concept_key": "ad / AD",
+      "collision": "help/culture = advertising; tudum's capitalized 'AD' hits are a reality-show contestant's nickname",
+      "help_examples": [
+        {
+          "quote": "Behavioral Advertising - your indicated preferences with respect to whether you would like ads selected based on behavioral advertising information (available by profile under Privacy and data settings ,…",
+          "url": "https://help.netflix.com/en/node/100627"
+        },
+        {
+          "quote": "If you are eligible for Behavioral Advertisements (e.g., you subscribe to an ad supported subscription plan, watch live or special events that cont…",
+          "url": "https://help.netflix.com/en/node/100637"
+        }
+      ],
+      "tudum_examples": [
+        {
+          "quote": "On multiple occasions, different men reportedly showed up at the condo Michelle still co-owned with Ian, expecting to take part in the assault fantasy described in the ad.",
+          "url": "https://www.netflix.com/tudum/articles/a-toxic-love-story-release-date-news"
+        },
+        {
+          "quote": "AD and Clay",
+          "url": "https://www.netflix.com/tudum/articles/love-is-blind-who-is-still-together-every-season"
+        }
+      ]
+    },
+    {
+      "concept_key": "plan",
+      "collision": "help/marketing = a Netflix pricing plan; tudum = the generic 'a plan/scheme' sense",
+      "help_examples": [
+        {
+          "quote": "To check or change your plan, visit your account settings.",
+          "url": "https://help.netflix.com/en/node/100131"
+        },
+        {
+          "quote": "You have the freedom to change your plan or cancel online at any time if you decide Netflix isn’t for you.",
+          "url": "https://help.netflix.com/en/node/112419"
+        }
+      ],
+      "tudum_examples": [
+        {
+          "quote": "And he has a plan to make his family crime gang, the Peaky Blinders — named for the razor blades hidden in their characteristic flat caps — the most fearsome in town.",
+          "url": "https://www.netflix.com/tudum/articles/cillian-murphy-movies-series"
+        },
+        {
+          "quote": "Determined to bow out gracefully, she schemes to get eliminated, but her plans are thrown off when she starts developing unexpected feelings for a cowboy bachelor.",
+          "url": "https://www.netflix.com/tudum/articles/comedies-on-netflix"
+        }
+      ]
+    },
+    {
+      "concept_key": "role",
+      "collision": "culture = a job role/position; tudum = a character's dramatic role",
+      "culture_examples": [
+        {
+          "quote": "This Privacy Statement applies to our recruitment practices and associated tools and services that link to this privacy statement and to those individuals considered for roles as an employee or contractor at Netflix.",
+          "url": "https://jobs.netflix.com/candidate-privacy"
+        },
+        {
+          "quote": "…review applications; process your application, including evaluating your skills for your suitability for the role you may have applied for or for other roles available at the time you apply or in the future; communicate wit…",
+          "url": "https://jobs.netflix.com/candidate-privacy"
+        }
+      ],
+      "tudum_examples": [
+        {
+          "quote": "That dependable nature is exactly what drew Gooding to the role.",
+          "url": "https://www.netflix.com/tudum/articles/72-hours-cast-guide-kevin-hart"
+        },
+        {
+          "quote": "“People’s romance stories, people’s perception of each other, the roles we play in society, and all of it taking place right within a mile of Disneyland.”",
+          "url": "https://www.netflix.com/tudum/articles/a-toxic-love-story-where-are-they-now"
+        }
+      ]
+    },
+    {
+      "concept_key": "category / collection",
+      "collision": "help = content-browse UI; tudum = awards-show category (Emmy/BAFTA); culture/help legal sections = CCPA 'categories of personal information' -- three unrelated senses sharing one word",
+      "help_examples": [
+        {
+          "quote": "Each row represents a category such as comedies, dramas, or TV shows that we show you based on what you’ve watched.",
+          "url": "https://help.netflix.com/en/node/66144"
+        }
+      ],
+      "tudum_examples": [
+        {
+          "quote": "At the 2026 Golden Globes, Adolescence led all series with four wins, winning in every category in which it was nominated.",
+          "url": "https://www.netflix.com/tudum/articles/adolescence-cast-release-date-photos-news"
+        },
+        {
+          "quote": "Cooper made history as the youngest-ever male winner of an acting Emmy in any category.",
+          "url": "https://www.netflix.com/tudum/articles/adolescence-cast-release-date-photos-news"
+        }
+      ]
+    }
+  ]
+}

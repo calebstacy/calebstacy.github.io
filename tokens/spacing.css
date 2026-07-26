@@ -1,0 +1,44 @@
+:root{
+  /* the product's real step values — not a snapped 4/8 grid */
+  --space-1:4px;
+  --space-2:9px;
+  --space-3:12px;
+  --space-4:14px;
+  --space-5:18px;
+  --space-6:22px;
+  --space-7:28px;
+  --space-8:34px;
+  --space-9:42px;
+  --space-10:50px;
+  --space-11:68px;
+
+  /* fluid rhythm */
+  --gutter:clamp(32px,4.8vw,76px); /* @kind spacing */
+  --gutter-tight:clamp(24px,4.8vw,76px); /* @kind spacing */
+  /* Sections breathe; the objects inside them do not pad themselves out. */
+  --section-pad:clamp(44px,5.6vw,78px);
+  --section-pad-tight:clamp(40px,5vw,68px);
+  --panel-pad:clamp(20px,2.2vw,30px);
+  --card-pad:clamp(13px,1.3vw,17px);
+  --card-pad-wide:clamp(15px,1.5vw,20px);
+  --rail-pad-x:clamp(28px,3vw,42px);
+  --stage-pad-x:clamp(42px,4.4vw,72px);
+
+  /* the label gutter shared by every evidence component */
+  --label-gutter:clamp(76px,7vw,104px); /* @kind spacing */
+  /* the same gutter for components nested inside a multi-column grid, where the full width
+     would be mostly empty ground beside a two-character label */
+  --label-gutter-tight:clamp(38px,3.2vw,52px); /* @kind spacing */
+
+  /* fixed chrome */
+  --rail-width:clamp(360px,29vw,440px); /* @kind spacing */
+  --frame-inset:12px;
+  --frame-max:1680px;
+  --topbar-height:60px;
+  --chapter-nav-height:56px;
+  --utility-nav-height:62px;
+  --spine-item-min:82px;
+  /* No --card-min-height. A cell is as tall as what it holds; a floor is dead ground by another name. */
+  --figure-min-height:360px;
+  --hairline:1px;
+}

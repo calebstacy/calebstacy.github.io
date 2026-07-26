@@ -1,0 +1,584 @@
+{
+  "generated": "2026-07-25",
+  "engine": {
+    "name": "voice_runtime",
+    "spacy_model": "en_core_web_trf",
+    "python": "3.12.10, C:/Users/caleb/Desktop/Verso/.venv",
+    "load_time_s": 1.17,
+    "known_limits": [
+      "emotional_tone runs on an in-house valence lexicon, not the Warriner (2013) VAD norms -- flagged 'partial' by the engine's own README.",
+      "concreteness is a morphological suffix proxy (counts abstract-suffix nouns), not the Brysbaert (2014) 40k-word concreteness norms -- flagged 'proxy'.",
+      "calibration ranges (raw-to-0-10 scaling per dimension) are tuned to a small hand-picked corpus the engine's author used during development, not to either brand's language -- scores are comparative within this run, not an absolute external scale.",
+      "text under ~50 words has several dimensions suppressed by design; short string types (heading, procedural, ui_string) are batched specifically to clear those floors -- see method.md. A suppressed dimension is never averaged in as a low score."
+    ],
+    "suppression_floors": {
+      "involvement": "15 words",
+      "directness": "15 words",
+      "cadence": "15 words and 3 sentences",
+      "lexical_diversity": "20 words",
+      "specificity": "20 words",
+      "emotional_tone": "25 words",
+      "epistemic_stance": "25 words"
+    }
+  },
+  "reference_profile": {
+    "cell": "discord.support.body_prose",
+    "label": "Discord Support, body prose",
+    "power": {
+      "n_items_scored": 400,
+      "n_min_across_dims": 52,
+      "n_max_across_dims": 400,
+      "target": 40,
+      "target_met": true
+    },
+    "band_method": "mean +/- 1 stdev of the reference cell's own measured items, clipped to the engine's 0-10 scale. One documented choice among possible tolerance definitions -- not a Discord-published target.",
+    "bands": {
+      "involvement": {
+        "lo": 1.505,
+        "hi": 5.513,
+        "mean": 3.509,
+        "stdev": 2.004,
+        "n": 344
+      },
+      "information_density": {
+        "lo": 1.31,
+        "hi": 4.94,
+        "mean": 3.125,
+        "stdev": 1.815,
+        "n": 400
+      },
+      "readability": {
+        "lo": 5.221,
+        "hi": 9.131,
+        "mean": 7.176,
+        "stdev": 1.955,
+        "n": 400
+      },
+      "emotional_tone": {
+        "lo": 0.0,
+        "hi": 1.259,
+        "mean": 0.272,
+        "stdev": 0.987,
+        "n": 207
+      },
+      "lexical_sophistication": {
+        "lo": 4.41,
+        "hi": 7.284,
+        "mean": 5.847,
+        "stdev": 1.437,
+        "n": 400
+      },
+      "lexical_diversity": {
+        "lo": 0.308,
+        "hi": 6.34,
+        "mean": 3.324,
+        "stdev": 3.016,
+        "n": 274
+      },
+      "concreteness": {
+        "lo": 6.159,
+        "hi": 10.0,
+        "mean": 8.455,
+        "stdev": 2.296,
+        "n": 400
+      },
+      "syntactic_complexity": {
+        "lo": 4.765,
+        "hi": 9.339,
+        "mean": 7.052,
+        "stdev": 2.287,
+        "n": 400
+      },
+      "directness": {
+        "lo": 4.755,
+        "hi": 8.875,
+        "mean": 6.815,
+        "stdev": 2.06,
+        "n": 344
+      },
+      "cadence": {
+        "lo": 1.431,
+        "hi": 6.317,
+        "mean": 3.874,
+        "stdev": 2.443,
+        "n": 52
+      },
+      "epistemic_stance": {
+        "lo": 2.848,
+        "hi": 6.626,
+        "mean": 4.737,
+        "stdev": 1.889,
+        "n": 207
+      },
+      "specificity": {
+        "lo": 0.489,
+        "hi": 7.757,
+        "mean": 4.123,
+        "stdev": 3.634,
+        "n": 274
+      }
+    },
+    "note": "This is the same evidence cell floor.body_prose.directness.v1 in schema.json cites -- the band below is what a writing agent consuming that record would actually be handed."
+  },
+  "draft_never_shipped_copy": "Both draft strings below were written for this trace. Neither is real Netflix or Discord copy, shipped or otherwise -- see the working agreement's 'never port copy' rule and the task brief's instruction not to be shown rewriting either company's shipped text.",
+  "passes": [
+    {
+      "label": "draft_v1",
+      "text": "We totally get how frustrating it can be when your invite link decides not to cooperate! The good news is that this usually isn't a big deal at all, and in most cases it sorts itself out pretty quickly once you give it another shot. If the little hiccup is still hanging around after a few tries, don't stress — just reach out and our friendly team will jump in and get things sorted for you in no time.",
+      "n_words": 79,
+      "changes_from_prior": null,
+      "dimensions": {
+        "involvement": {
+          "score": 4.69,
+          "raw": -12.1795,
+          "evidence": {
+            "words": 78,
+            "pronouns_1_2_per_100w": 6.41,
+            "questions": 0,
+            "nouns_per_100w": 14.1,
+            "long_words_per_100w": 3.85
+          },
+          "band_lo": 1.505,
+          "band_hi": 5.513,
+          "in_band": true
+        },
+        "information_density": {
+          "score": 2.6,
+          "raw": 61.7179,
+          "evidence": {
+            "words": 78,
+            "content_words": 38,
+            "content_ratio": 0.487,
+            "mean_sentence_length": 26.0
+          },
+          "band_lo": 1.31,
+          "band_hi": 4.94,
+          "in_band": true
+        },
+        "readability": {
+          "score": 7.88,
+          "raw": 70.8988,
+          "evidence": {
+            "words": 78,
+            "sentences": 3,
+            "syllables": 101,
+            "avg_sentence_length": 26.0,
+            "avg_syllables_per_word": 1.29,
+            "flesch_reading_ease": 70.9,
+            "flesch_kincaid_grade": 9.83
+          },
+          "band_lo": 5.221,
+          "band_hi": 9.131,
+          "in_band": true
+        },
+        "emotional_tone": {
+          "score": 4.92,
+          "raw": 0.0789,
+          "evidence": {
+            "method": "in-house valence lexicon (demonstration)",
+            "content_words": 38,
+            "positive_hits": [
+              "good",
+              "friendly"
+            ],
+            "negative_hits": [
+              "frustrating"
+            ],
+            "affect_ratio": 0.079,
+            "net_valence": "positive"
+          },
+          "band_lo": 0.0,
+          "band_hi": 1.259,
+          "in_band": false
+        },
+        "lexical_sophistication": {
+          "score": 3.32,
+          "raw": 2.6639,
+          "evidence": {
+            "content_words": 38,
+            "mean_zipf": 5.34,
+            "rarest_words": [
+              [
+                "hiccup",
+                2.91
+              ],
+              [
+                "cooperate",
+                3.79
+              ],
+              [
+                "frustrating",
+                3.97
+              ]
+            ]
+          },
+          "band_lo": 4.41,
+          "band_hi": 7.284,
+          "in_band": false
+        },
+        "lexical_diversity": {
+          "score": 10.0,
+          "raw": 131.04,
+          "evidence": {
+            "tokens": 78,
+            "types": 65,
+            "ttr": 0.833,
+            "metric": "MTLD"
+          },
+          "band_lo": 0.308,
+          "band_hi": 6.34,
+          "in_band": false
+        },
+        "concreteness": {
+          "score": 10.0,
+          "raw": 1.0,
+          "evidence": {
+            "method": "suffix_proxy (Brysbaert CSV not loaded)",
+            "nouns": 11,
+            "abstract_nouns": 0,
+            "abstract_examples": [],
+            "concrete_examples": [
+              "invite",
+              "link",
+              "news",
+              "deal",
+              "case"
+            ]
+          },
+          "band_lo": 6.159,
+          "band_hi": 10.0,
+          "in_band": true
+        },
+        "syntactic_complexity": {
+          "score": 7.27,
+          "raw": 9.5424,
+          "evidence": {
+            "sentences": 3,
+            "mean_dependency_depth": 5.33,
+            "max_dependency_depth": 6,
+            "mean_sentence_length": 26.0,
+            "subordinate_clauses": 8
+          },
+          "band_lo": 4.765,
+          "band_hi": 9.339,
+          "in_band": true
+        },
+        "directness": {
+          "score": 7.43,
+          "raw": 10.9936,
+          "evidence": {
+            "words": 78,
+            "imperatives": 1,
+            "passive_clauses": 0,
+            "hedges_total": 1
+          },
+          "band_lo": 4.755,
+          "band_hi": 8.875,
+          "in_band": true
+        },
+        "cadence": {
+          "score": 2.56,
+          "raw": 0.2791,
+          "evidence": {
+            "sentences": 3,
+            "sentence_lengths": [
+              16,
+              29,
+              33
+            ],
+            "mean_length": 26.0,
+            "min_length": 16,
+            "max_length": 33,
+            "coefficient_of_variation": 0.279
+          },
+          "band_lo": 1.431,
+          "band_hi": 6.317,
+          "in_band": true
+        },
+        "epistemic_stance": {
+          "score": 2.44,
+          "raw": -2.5641,
+          "evidence": {
+            "words": 78,
+            "booster_count": 0,
+            "hedge_count": 2,
+            "boosters": [],
+            "hedges": [
+              "usually",
+              "around"
+            ]
+          },
+          "band_lo": 2.848,
+          "band_hi": 6.626,
+          "in_band": false
+        },
+        "specificity": {
+          "score": 0.0,
+          "raw": -0.641,
+          "evidence": {
+            "words": 78,
+            "named_entities": [],
+            "filtered_out_as_generic": [],
+            "proper_nouns_extra": [],
+            "generic_references": [
+              "things"
+            ]
+          },
+          "band_lo": 0.489,
+          "band_hi": 7.757,
+          "in_band": false
+        }
+      },
+      "out_of_band": [
+        "emotional_tone",
+        "lexical_sophistication",
+        "lexical_diversity",
+        "epistemic_stance",
+        "specificity"
+      ],
+      "converged": false
+    },
+    {
+      "label": "draft_v2",
+      "text": "An invite link stops working for one of two reasons: the link expired, or the server owner disabled it. Open Server Settings, then Invite People, and check the link's expiration date. If the link is still active, generate a new invite link and share that one instead. This should resolve the issue on the first try. If the new link still does not work, the server's invite permissions may be restricted, and only someone with the Manage Server permission can grant access.",
+      "n_words": 82,
+      "changes_from_prior": {
+        "target_dimensions": [
+          "emotional_tone",
+          "lexical_sophistication",
+          "lexical_diversity",
+          "epistemic_stance",
+          "specificity"
+        ],
+        "reasoning": "Pass 1 read as warm customer-support copy: affect words drove emotional_tone above the band (“good news”, “friendly”, “frustrating”), synonym-heavy phrasing (“cooperate”, “hiccup”, “hanging around”, “jump in”, “sorted” for what is really one repeated idea) pushed lexical_diversity to the ceiling and lexical_sophistication too low on common words, vague referents (“it”, “things”, “the little hiccup”) left specificity at zero with no named entities, and too few real stance markers left epistemic_stance under band. Pass 2 names the object precisely and repeats that name (“invite link”) instead of varying it, names real UI elements (Server Settings, Invite People, Manage Server) as concrete/specific referents, drops the affect language entirely, and states two genuine certainty markers (“should resolve”, “may be restricted”)."
+      },
+      "dimensions": {
+        "involvement": {
+          "score": 3.29,
+          "raw": -21.9512,
+          "evidence": {
+            "words": 82,
+            "pronouns_1_2_per_100w": 0.0,
+            "questions": 0,
+            "nouns_per_100w": 25.61,
+            "long_words_per_100w": 8.54
+          },
+          "band_lo": 1.505,
+          "band_hi": 5.513,
+          "in_band": true
+        },
+        "information_density": {
+          "score": 3.45,
+          "raw": 65.5171,
+          "evidence": {
+            "words": 82,
+            "content_words": 47,
+            "content_ratio": 0.573,
+            "mean_sentence_length": 16.4
+          },
+          "band_lo": 1.31,
+          "band_hi": 4.94,
+          "in_band": true
+        },
+        "readability": {
+          "score": 7.83,
+          "raw": 70.511,
+          "evidence": {
+            "words": 82,
+            "sentences": 5,
+            "syllables": 116,
+            "avg_sentence_length": 16.4,
+            "avg_syllables_per_word": 1.41,
+            "flesch_reading_ease": 70.51,
+            "flesch_kincaid_grade": 7.5
+          },
+          "band_lo": 5.221,
+          "band_hi": 9.131,
+          "in_band": true
+        },
+        "emotional_tone": {
+          "score": 0.0,
+          "raw": 0.0,
+          "evidence": {
+            "method": "in-house valence lexicon (demonstration)",
+            "content_words": 47,
+            "positive_hits": [],
+            "negative_hits": [],
+            "affect_ratio": 0.0,
+            "net_valence": "neutral"
+          },
+          "band_lo": 0.0,
+          "band_hi": 1.259,
+          "in_band": true
+        },
+        "lexical_sophistication": {
+          "score": 5.13,
+          "raw": 3.0257,
+          "evidence": {
+            "content_words": 47,
+            "mean_zipf": 4.97,
+            "rarest_words": [
+              [
+                "expiration",
+                3.48
+              ],
+              [
+                "disable",
+                3.52
+              ],
+              [
+                "expire",
+                3.54
+              ]
+            ]
+          },
+          "band_lo": 4.41,
+          "band_hi": 7.284,
+          "in_band": true
+        },
+        "lexical_diversity": {
+          "score": 3.04,
+          "raw": 57.3753,
+          "evidence": {
+            "tokens": 82,
+            "types": 57,
+            "ttr": 0.695,
+            "metric": "MTLD"
+          },
+          "band_lo": 0.308,
+          "band_hi": 6.34,
+          "in_band": true
+        },
+        "concreteness": {
+          "score": 9.29,
+          "raw": 0.8571,
+          "evidence": {
+            "method": "suffix_proxy (Brysbaert CSV not loaded)",
+            "nouns": 21,
+            "abstract_nouns": 11,
+            "abstract_examples": [
+              "expiration",
+              "permission"
+            ],
+            "concrete_examples": [
+              "invite",
+              "link",
+              "reason",
+              "server",
+              "owner"
+            ]
+          },
+          "band_lo": 6.159,
+          "band_hi": 10.0,
+          "in_band": true
+        },
+        "syntactic_complexity": {
+          "score": 5.39,
+          "raw": 7.8508,
+          "evidence": {
+            "sentences": 5,
+            "mean_dependency_depth": 5.8,
+            "max_dependency_depth": 9,
+            "mean_sentence_length": 16.4,
+            "subordinate_clauses": 4
+          },
+          "band_lo": 4.765,
+          "band_hi": 9.339,
+          "in_band": true
+        },
+        "directness": {
+          "score": 6.92,
+          "raw": 9.2114,
+          "evidence": {
+            "words": 82,
+            "imperatives": 2,
+            "passive_clauses": 1,
+            "hedges_total": 2
+          },
+          "band_lo": 4.755,
+          "band_hi": 8.875,
+          "in_band": true
+        },
+        "cadence": {
+          "score": 3.7,
+          "raw": 0.3589,
+          "evidence": {
+            "sentences": 5,
+            "sentence_lengths": [
+              19,
+              12,
+              16,
+              9,
+              26
+            ],
+            "mean_length": 16.4,
+            "min_length": 9,
+            "max_length": 26,
+            "coefficient_of_variation": 0.359
+          },
+          "band_lo": 1.431,
+          "band_hi": 6.317,
+          "in_band": true
+        },
+        "epistemic_stance": {
+          "score": 3.78,
+          "raw": -1.2195,
+          "evidence": {
+            "words": 82,
+            "booster_count": 0,
+            "hedge_count": 1,
+            "boosters": [],
+            "hedges": [
+              "may"
+            ]
+          },
+          "band_lo": 2.848,
+          "band_hi": 6.626,
+          "in_band": true
+        },
+        "specificity": {
+          "score": 1.9,
+          "raw": 3.6585,
+          "evidence": {
+            "words": 82,
+            "named_entities": [
+              [
+                "Manage Server",
+                "ORG"
+              ]
+            ],
+            "filtered_out_as_generic": [
+              [
+                "one",
+                "CARDINAL"
+              ],
+              [
+                "two",
+                "CARDINAL"
+              ],
+              [
+                "first",
+                "ORDINAL"
+              ]
+            ],
+            "proper_nouns_extra": [
+              "Server",
+              "Settings"
+            ],
+            "generic_references": [
+              "People",
+              "someone"
+            ]
+          },
+          "band_lo": 0.489,
+          "band_hi": 7.757,
+          "in_band": true
+        }
+      },
+      "out_of_band": [],
+      "converged": true
+    }
+  ],
+  "passes_to_converge": 2,
+  "converged": true
+}

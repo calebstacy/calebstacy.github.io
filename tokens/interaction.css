@@ -1,0 +1,87 @@
+/* The hover layer, ported from app/globals.css in the source project.
+
+   Pseudo-classes and pseudo-elements are the other thing a component cannot carry inline
+   — the same reason keyframes live in `animation.css`. Components opt in by class name
+   and the marks are drawn here.
+
+   The law: a hover mark is DRAWN. It extends from somewhere to somewhere over a real
+   duration and retracts the same way. Nothing in this file fades a mark into view.
+   `prefers-reduced-motion` is handled globally in `animation.css`, which collapses every
+   transition here to 0.01ms — the end state still applies, it simply arrives at once.
+
+   Two rules below carry `!important`. Components style themselves with inline React style
+   objects, which win over any stylesheet, so a hover that changes a property the component
+   already sets inline has no other way to land. It is confined to `:hover` / `:focus-visible`
+   and to properties the component sets at rest. */
+
+/* ── Tabs: utility nav and the chapter map ──────────────────────────────────────────────
+   A vermillion rule grows out of the centre of the label to 18% of its width on either
+   side, over 240ms. Ported from `.utility-nav button::after`.
+
+   In the source this rule did double duty — it was the hover mark AND the active mark. In
+   this system the active tab inverts to an ink chip instead, matching the spine, so the
+   drawn rule is freed up to mean one thing only: you are pointing at this. It is suppressed
+   under an active chip, where it would sit on ink and signal nothing. */
+.ds-tab { position: relative; }
+
+.ds-tab::after {
+  position: absolute;
+  right: 50%;
+  bottom: -1px;
+  left: 50%;
+  height: 3px;
+  content: "";
+  background: var(--signal);
+  transition:
+    right var(--dur-base) var(--ease-authored),
+    left var(--dur-base) var(--ease-authored);
+}
+
+.ds-tab:hover::after,
+.ds-tab:focus-visible::after {
+  right: 18%;
+  left: 18%;
+}
+
+.ds-tab[aria-current]::after { content: none; }
+
+/* The chapter map's labels sit at muted ink at rest and come up to full ink under the
+   cursor — the source's `.case-chapter-nav button:hover`. */
+.ds-tab-chapter:not([aria-current]):hover,
+.ds-tab-chapter:not([aria-current]):focus-visible { color: var(--ink) !important; }
+
+/* ── The project spine ──────────────────────────────────────────────────────────────────
+   A row that is not the active one lifts to translucent bright paper under the cursor.
+   Never a darken. Ported from `.project-spine > button:hover`. */
+.ds-spine-item:not([aria-current]):hover,
+.ds-spine-item:not([aria-current]):focus-visible { background: rgba(248, 243, 232, 0.72) !important; }
+
+/* ── Artifact figures ───────────────────────────────────────────────────────────────────
+   Opt-in, for comparison grids where the artifact is the subject and the reader is
+   scanning across several. 2.5% over 600ms — slow enough to read as the image settling
+   rather than reacting. Ported from `.vr-before-grid figure:hover img`. The frame clips,
+   so nothing moves outside its border. */
+.ds-figure-zoom img {
+  transition: transform var(--dur-figure-zoom) var(--ease-authored);
+}
+
+.ds-figure-zoom:hover img,
+.ds-figure-zoom:focus-within img {
+  transform: scale(1.025);
+}
+
+/* ── The document heading, after a navigation ───────────────────────────────────────────
+   Every document's opening scene has one <h1>, focused programmatically after a destination
+   change (app.jsx) so the accessibility spec's "programmatic focus after document changes"
+   holds. It is never a tab stop (tabIndex={-1}), so :focus only ever happens on that one
+   programmatic move — but the ring itself still keys off :focus-visible, the same hard
+   3px solid var(--signal) every interactive element in this system uses, so a keyboard
+   move always shows it and a mouse-driven navigation never does. The offset goes outward
+   rather than the usual inset: the heading carries no padding to draw an inset ring inside
+   of, and an inset ring here would cut through the type. */
+[data-doc-heading] { outline: none; }
+
+[data-doc-heading]:focus-visible {
+  outline: 3px solid var(--signal);
+  outline-offset: 6px;
+}

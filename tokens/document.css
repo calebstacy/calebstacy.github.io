@@ -1,0 +1,50 @@
+/* Document mode — the second register.
+
+   The rest of this system is an EXHIBITION: staged covers, display type, chapter chips, evidence
+   panels punctuating prose. That is built to make somebody feel something about a project.
+
+   A report is a different genre and needs different things: one column at a real reading measure,
+   sections a reader can cite, tables and figures as first-class numbered objects, footnotes, and a
+   print stylesheet, because a report should make a clean PDF and a PDF attaches to an email.
+
+   Same ink, same hairlines, same type. Set as a paper rather than a stage. */
+
+:root{
+  --doc-measure:68ch;              /* the reading column — long enough to argue, short enough to read */
+  --doc-gutter:clamp(38px,4.4vw,68px);  /* where section numbers and figure labels hang */
+  --doc-rule:1px;
+  --doc-lead:1.62;                 /* looser than exhibition prose: this is read continuously */
+}
+
+/* Counters give every section and figure a citable number without anyone typing one. */
+.ds-doc{ counter-reset: ds-sec ds-fig ds-tab ds-note; }
+.ds-doc-section{ counter-increment: ds-sec; counter-reset: ds-sub; }
+.ds-doc-subsection{ counter-increment: ds-sub; }
+.ds-doc-section .ds-doc-num::before{ content: counter(ds-sec); }
+.ds-doc-subsection .ds-doc-num::before{ content: counter(ds-sec) "." counter(ds-sub); }
+.ds-doc-figure{ counter-increment: ds-fig; }
+.ds-doc-figure .ds-doc-figlabel::before{ content: "Figure " counter(ds-fig); }
+.ds-doc-table{ counter-increment: ds-tab; }
+.ds-doc-table .ds-doc-tablabel::before{ content: "Table " counter(ds-tab); }
+
+/* A footnote reference and its endnote share a number. */
+.ds-doc-noteref{ counter-increment: ds-note; }
+.ds-doc-noteref::after{ content: counter(ds-note); vertical-align: super; font-size: 0.68em; line-height: 0;
+  padding-left: 1px; color: var(--story-accent); font-family: var(--font-mono); font-weight: 700; }
+
+/* Print: the report becomes a document. Chrome goes, links resolve, nothing splits badly. */
+@media print{
+  @page{ margin: 18mm 16mm 20mm; }
+  html,body{ background: #fff !important; }
+  .ds-doc-noprint{ display: none !important; }
+  .ds-doc{ max-width: none; }
+  .ds-doc-body{ max-width: none; }
+  /* A reader holding paper cannot click, so say where a link went. */
+  .ds-doc-body a[href^="http"]::after{ content: " (" attr(href) ")"; font-family: var(--font-mono);
+    font-size: 0.72em; word-break: break-all; color: #555; }
+  h1,h2,h3{ break-after: avoid-page; }
+  figure,table,.ds-doc-figure,.ds-doc-table{ break-inside: avoid-page; }
+  .ds-doc-refs li{ break-inside: avoid-page; }
+  /* Hairlines survive printing; the offset shadows do not and should not try. */
+  *{ box-shadow: none !important; }
+}

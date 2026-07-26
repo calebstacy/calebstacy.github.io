@@ -1,0 +1,4567 @@
+{
+  "run": {
+    "source_file": "results.json",
+    "source_engine": "voice_runtime",
+    "source_spacy_model": "en_core_web_trf",
+    "brand": "netflix",
+    "surfaces": [
+      "help",
+      "tudum",
+      "marketing",
+      "culture"
+    ],
+    "string_types": [
+      "heading",
+      "procedural",
+      "body_prose",
+      "ui_string"
+    ],
+    "dimensions": [
+      "involvement",
+      "information_density",
+      "readability",
+      "emotional_tone",
+      "lexical_sophistication",
+      "lexical_diversity",
+      "concreteness",
+      "syntactic_complexity",
+      "directness",
+      "cadence",
+      "epistemic_stance",
+      "specificity"
+    ],
+    "date": "2026-07-25",
+    "script": "derive_floor.py",
+    "method": {
+      "floor_definition": "unweighted mean of qualifying surfaces' own per-dimension means, within a (string_type, dimension) cell -- never averaged across types or dimensions. Matches reference/netflix-index-v1-method.md's floor concept.",
+      "qualification_bar": "n >= 5 non-suppressed items for that specific (surface, string_type, dimension) cell (per-dimension n, since suppression differs by dimension -- not the cell's raw item count).",
+      "comparison": "Welch's t-test (scipy.stats.ttest_ind, equal_var=False) of the qualifying surface's own per-item scores vs. the pooled per-item scores of the OTHER qualifying surfaces in the same cell, plus Cohen's d with the pooled SD.",
+      "correction": "Benjamini-Hochberg FDR (scipy.stats.false_discovery_control, method='bh'), applied once across every surface-vs-rest comparison with status=='tested' in the whole run.",
+      "mde": "Normal-approximation minimum detectable effect per comparison, alpha=0.05 two-sided, power=0.80: d_min = (z_a/2 + z_power) * sqrt(1/n_self + 1/n_rest).",
+      "verdicts": {
+        "extends": "BH-adjusted p < 0.05 AND |Cohen's d| >= 0.5 AND this comparison's own MDE <= 0.5 (adequately powered). A surface must clear significance, effect size, AND power discipline together -- none alone is sufficient.",
+        "within_floor": "adequately powered (MDE <= 0.5) but not significant/not a medium effect -- a real, informative null.",
+        "underpowered": "this comparison's own MDE > 0.5 -- the achieved n could not have reliably found a medium effect even if one existed, regardless of what the raw p-value says.",
+        "insufficient_data": "n < 5 for this surface in this cell (reason: own_n_below_5), OR this surface qualifies but every other Netflix surface in this cell does not, leaving no rest-group to compare against (reason: no_rest_group_available)."
+      },
+      "reused_from": "plays/papers/two-brands/scripts/score.py (cohens_d_pooled, minimum_detectable_effect formulas) and stats.md (test choice, FDR discipline, MDE formula, alpha/power). This is a new analysis (Netflix surface vs. pooled other Netflix surfaces), not a rerun of the two-brands Netflix-vs-Discord comparisons -- its FDR family is separate and corrected on its own."
+    }
+  },
+  "summary": {
+    "n_cells": 48,
+    "n_cells_with_floor": 36,
+    "n_cells_no_floor": 12,
+    "n_surface_cells_total": 192,
+    "n_surface_cells_own_n_qualified": 79,
+    "n_comparisons_attempted": 67,
+    "n_tested_with_pvalue": 67,
+    "n_degenerate_no_variance": 0,
+    "n_insufficient_data": 125,
+    "n_insufficient_data_own_n_below_5": 113,
+    "n_insufficient_data_no_rest_group": 12,
+    "n_extends": 11,
+    "n_within_floor": 25,
+    "n_underpowered": 31,
+    "by_string_type": {
+      "heading": {
+        "n_cells_with_floor": 12,
+        "n_extends": 0,
+        "n_within_floor": 0,
+        "n_underpowered": 24,
+        "n_insufficient_data": 24
+      },
+      "procedural": {
+        "n_cells_with_floor": 12,
+        "n_extends": 0,
+        "n_within_floor": 0,
+        "n_underpowered": 0,
+        "n_insufficient_data": 48
+      },
+      "body_prose": {
+        "n_cells_with_floor": 12,
+        "n_extends": 11,
+        "n_within_floor": 25,
+        "n_underpowered": 7,
+        "n_insufficient_data": 5
+      },
+      "ui_string": {
+        "n_cells_with_floor": 0,
+        "n_extends": 0,
+        "n_within_floor": 0,
+        "n_underpowered": 0,
+        "n_insufficient_data": 48
+      }
+    }
+  },
+  "floors": [
+    {
+      "string_type": "heading",
+      "dimension": "involvement",
+      "qualifying_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "n_qualifying_surfaces": 2,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 2,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 3,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 4.13
+    },
+    {
+      "string_type": "heading",
+      "dimension": "information_density",
+      "qualifying_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "n_qualifying_surfaces": 2,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 2,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 3,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 3.846
+    },
+    {
+      "string_type": "heading",
+      "dimension": "readability",
+      "qualifying_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "n_qualifying_surfaces": 2,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 2,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 3,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 8.812
+    },
+    {
+      "string_type": "heading",
+      "dimension": "emotional_tone",
+      "qualifying_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "n_qualifying_surfaces": 2,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 2,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 3,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 0.252
+    },
+    {
+      "string_type": "heading",
+      "dimension": "lexical_sophistication",
+      "qualifying_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "n_qualifying_surfaces": 2,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 2,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 3,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 6.702
+    },
+    {
+      "string_type": "heading",
+      "dimension": "lexical_diversity",
+      "qualifying_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "n_qualifying_surfaces": 2,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 2,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 3,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 2.398
+    },
+    {
+      "string_type": "heading",
+      "dimension": "concreteness",
+      "qualifying_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "n_qualifying_surfaces": 2,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 2,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 3,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 9.282
+    },
+    {
+      "string_type": "heading",
+      "dimension": "syntactic_complexity",
+      "qualifying_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "n_qualifying_surfaces": 2,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 2,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 3,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 1.836
+    },
+    {
+      "string_type": "heading",
+      "dimension": "directness",
+      "qualifying_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "n_qualifying_surfaces": 2,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 2,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 3,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 7.7
+    },
+    {
+      "string_type": "heading",
+      "dimension": "cadence",
+      "qualifying_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "n_qualifying_surfaces": 2,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 2,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 3,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 5.167
+    },
+    {
+      "string_type": "heading",
+      "dimension": "epistemic_stance",
+      "qualifying_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "n_qualifying_surfaces": 2,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 2,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 3,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 5.332
+    },
+    {
+      "string_type": "heading",
+      "dimension": "specificity",
+      "qualifying_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "n_qualifying_surfaces": 2,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 2,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 3,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 8.653
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "involvement",
+      "qualifying_surfaces": [
+        "help"
+      ],
+      "n_qualifying_surfaces": 1,
+      "disqualified_surfaces": [
+        {
+          "surface": "tudum",
+          "n": 3,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 3.567
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "information_density",
+      "qualifying_surfaces": [
+        "help"
+      ],
+      "n_qualifying_surfaces": 1,
+      "disqualified_surfaces": [
+        {
+          "surface": "tudum",
+          "n": 3,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 3.622
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "readability",
+      "qualifying_surfaces": [
+        "help"
+      ],
+      "n_qualifying_surfaces": 1,
+      "disqualified_surfaces": [
+        {
+          "surface": "tudum",
+          "n": 3,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 8.765
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "emotional_tone",
+      "qualifying_surfaces": [
+        "help"
+      ],
+      "n_qualifying_surfaces": 1,
+      "disqualified_surfaces": [
+        {
+          "surface": "tudum",
+          "n": 3,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 0,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 0.013
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "lexical_sophistication",
+      "qualifying_surfaces": [
+        "help"
+      ],
+      "n_qualifying_surfaces": 1,
+      "disqualified_surfaces": [
+        {
+          "surface": "tudum",
+          "n": 3,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 5.441
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "lexical_diversity",
+      "qualifying_surfaces": [
+        "help"
+      ],
+      "n_qualifying_surfaces": 1,
+      "disqualified_surfaces": [
+        {
+          "surface": "tudum",
+          "n": 3,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 1.413
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "concreteness",
+      "qualifying_surfaces": [
+        "help"
+      ],
+      "n_qualifying_surfaces": 1,
+      "disqualified_surfaces": [
+        {
+          "surface": "tudum",
+          "n": 3,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 9.253
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "syntactic_complexity",
+      "qualifying_surfaces": [
+        "help"
+      ],
+      "n_qualifying_surfaces": 1,
+      "disqualified_surfaces": [
+        {
+          "surface": "tudum",
+          "n": 3,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 4.423
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "directness",
+      "qualifying_surfaces": [
+        "help"
+      ],
+      "n_qualifying_surfaces": 1,
+      "disqualified_surfaces": [
+        {
+          "surface": "tudum",
+          "n": 3,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 9.887
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "cadence",
+      "qualifying_surfaces": [
+        "help"
+      ],
+      "n_qualifying_surfaces": 1,
+      "disqualified_surfaces": [
+        {
+          "surface": "tudum",
+          "n": 3,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 0,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 5.906
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "epistemic_stance",
+      "qualifying_surfaces": [
+        "help"
+      ],
+      "n_qualifying_surfaces": 1,
+      "disqualified_surfaces": [
+        {
+          "surface": "tudum",
+          "n": 3,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 0,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 5.119
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "specificity",
+      "qualifying_surfaces": [
+        "help"
+      ],
+      "n_qualifying_surfaces": 1,
+      "disqualified_surfaces": [
+        {
+          "surface": "tudum",
+          "n": 3,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 4.698
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "involvement",
+      "qualifying_surfaces": [
+        "help",
+        "tudum",
+        "marketing",
+        "culture"
+      ],
+      "n_qualifying_surfaces": 4,
+      "disqualified_surfaces": [],
+      "floor_mean": 3.038
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "information_density",
+      "qualifying_surfaces": [
+        "help",
+        "tudum",
+        "marketing",
+        "culture"
+      ],
+      "n_qualifying_surfaces": 4,
+      "disqualified_surfaces": [],
+      "floor_mean": 3.576
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "readability",
+      "qualifying_surfaces": [
+        "help",
+        "tudum",
+        "marketing",
+        "culture"
+      ],
+      "n_qualifying_surfaces": 4,
+      "disqualified_surfaces": [],
+      "floor_mean": 6.9
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "emotional_tone",
+      "qualifying_surfaces": [
+        "help",
+        "tudum",
+        "culture"
+      ],
+      "n_qualifying_surfaces": 3,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 0.677
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "lexical_sophistication",
+      "qualifying_surfaces": [
+        "help",
+        "tudum",
+        "marketing",
+        "culture"
+      ],
+      "n_qualifying_surfaces": 4,
+      "disqualified_surfaces": [],
+      "floor_mean": 5.088
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "lexical_diversity",
+      "qualifying_surfaces": [
+        "help",
+        "tudum",
+        "culture"
+      ],
+      "n_qualifying_surfaces": 3,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 3,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 5.317
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "concreteness",
+      "qualifying_surfaces": [
+        "help",
+        "tudum",
+        "marketing",
+        "culture"
+      ],
+      "n_qualifying_surfaces": 4,
+      "disqualified_surfaces": [],
+      "floor_mean": 8.119
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "syntactic_complexity",
+      "qualifying_surfaces": [
+        "help",
+        "tudum",
+        "marketing",
+        "culture"
+      ],
+      "n_qualifying_surfaces": 4,
+      "disqualified_surfaces": [],
+      "floor_mean": 7.111
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "directness",
+      "qualifying_surfaces": [
+        "help",
+        "tudum",
+        "marketing",
+        "culture"
+      ],
+      "n_qualifying_surfaces": 4,
+      "disqualified_surfaces": [],
+      "floor_mean": 6.057
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "cadence",
+      "qualifying_surfaces": [
+        "help",
+        "tudum",
+        "culture"
+      ],
+      "n_qualifying_surfaces": 3,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 4.042
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "epistemic_stance",
+      "qualifying_surfaces": [
+        "help",
+        "tudum",
+        "culture"
+      ],
+      "n_qualifying_surfaces": 3,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 4.484
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "specificity",
+      "qualifying_surfaces": [
+        "help",
+        "tudum",
+        "culture"
+      ],
+      "n_qualifying_surfaces": 3,
+      "disqualified_surfaces": [
+        {
+          "surface": "marketing",
+          "n": 3,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": 4.803
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "involvement",
+      "qualifying_surfaces": [],
+      "n_qualifying_surfaces": 0,
+      "disqualified_surfaces": [
+        {
+          "surface": "help",
+          "n": 4,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "tudum",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": null
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "information_density",
+      "qualifying_surfaces": [],
+      "n_qualifying_surfaces": 0,
+      "disqualified_surfaces": [
+        {
+          "surface": "help",
+          "n": 4,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "tudum",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": null
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "readability",
+      "qualifying_surfaces": [],
+      "n_qualifying_surfaces": 0,
+      "disqualified_surfaces": [
+        {
+          "surface": "help",
+          "n": 4,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "tudum",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": null
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "emotional_tone",
+      "qualifying_surfaces": [],
+      "n_qualifying_surfaces": 0,
+      "disqualified_surfaces": [
+        {
+          "surface": "help",
+          "n": 3,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "tudum",
+          "n": 0,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": null
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "lexical_sophistication",
+      "qualifying_surfaces": [],
+      "n_qualifying_surfaces": 0,
+      "disqualified_surfaces": [
+        {
+          "surface": "help",
+          "n": 4,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "tudum",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": null
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "lexical_diversity",
+      "qualifying_surfaces": [],
+      "n_qualifying_surfaces": 0,
+      "disqualified_surfaces": [
+        {
+          "surface": "help",
+          "n": 4,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "tudum",
+          "n": 0,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": null
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "concreteness",
+      "qualifying_surfaces": [],
+      "n_qualifying_surfaces": 0,
+      "disqualified_surfaces": [
+        {
+          "surface": "help",
+          "n": 4,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "tudum",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": null
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "syntactic_complexity",
+      "qualifying_surfaces": [],
+      "n_qualifying_surfaces": 0,
+      "disqualified_surfaces": [
+        {
+          "surface": "help",
+          "n": 4,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "tudum",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": null
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "directness",
+      "qualifying_surfaces": [],
+      "n_qualifying_surfaces": 0,
+      "disqualified_surfaces": [
+        {
+          "surface": "help",
+          "n": 4,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "tudum",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": null
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "cadence",
+      "qualifying_surfaces": [],
+      "n_qualifying_surfaces": 0,
+      "disqualified_surfaces": [
+        {
+          "surface": "help",
+          "n": 4,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "tudum",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": null
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "epistemic_stance",
+      "qualifying_surfaces": [],
+      "n_qualifying_surfaces": 0,
+      "disqualified_surfaces": [
+        {
+          "surface": "help",
+          "n": 3,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "tudum",
+          "n": 0,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": null
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "specificity",
+      "qualifying_surfaces": [],
+      "n_qualifying_surfaces": 0,
+      "disqualified_surfaces": [
+        {
+          "surface": "help",
+          "n": 4,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "tudum",
+          "n": 0,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "marketing",
+          "n": 1,
+          "reason": "n < 5"
+        },
+        {
+          "surface": "culture",
+          "n": 1,
+          "reason": "n < 5"
+        }
+      ],
+      "floor_mean": null
+    }
+  ],
+  "deviations": [
+    {
+      "string_type": "heading",
+      "dimension": "involvement",
+      "surface": "help",
+      "n": 38,
+      "mean": 3.361,
+      "stdev": 1.48,
+      "floor_mean": 4.13,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum"
+      ],
+      "rest_n": 165,
+      "t": -5.427,
+      "df": 69.31,
+      "p_raw": 7.94299571075251e-07,
+      "cohens_d": -0.828,
+      "pooled_sd": 1.857,
+      "mde_d": 0.504,
+      "deviation": -0.769,
+      "p_adj_bh": 0.0,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "involvement",
+      "surface": "tudum",
+      "n": 165,
+      "mean": 4.899,
+      "stdev": 1.932,
+      "floor_mean": 4.13,
+      "status": "tested",
+      "rest_surfaces": [
+        "help"
+      ],
+      "rest_n": 38,
+      "t": 5.427,
+      "df": 69.31,
+      "p_raw": 7.94299571075251e-07,
+      "cohens_d": 0.828,
+      "pooled_sd": 1.857,
+      "mde_d": 0.504,
+      "deviation": 0.769,
+      "p_adj_bh": 0.0,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "involvement",
+      "surface": "marketing",
+      "n": 2,
+      "mean": 7.57,
+      "stdev": 2.645,
+      "floor_mean": 4.13,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "involvement",
+      "surface": "culture",
+      "n": 3,
+      "mean": 1.09,
+      "stdev": 1.853,
+      "floor_mean": 4.13,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "information_density",
+      "surface": "help",
+      "n": 38,
+      "mean": 3.549,
+      "stdev": 1.306,
+      "floor_mean": 3.846,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum"
+      ],
+      "rest_n": 166,
+      "t": -2.141,
+      "df": 97.68,
+      "p_raw": 0.03475342177440554,
+      "cohens_d": -0.275,
+      "pooled_sd": 2.161,
+      "mde_d": 0.504,
+      "deviation": -0.297,
+      "p_adj_bh": 0.0457,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "information_density",
+      "surface": "tudum",
+      "n": 166,
+      "mean": 4.143,
+      "stdev": 2.309,
+      "floor_mean": 3.846,
+      "status": "tested",
+      "rest_surfaces": [
+        "help"
+      ],
+      "rest_n": 38,
+      "t": 2.141,
+      "df": 97.68,
+      "p_raw": 0.03475342177440554,
+      "cohens_d": 0.275,
+      "pooled_sd": 2.161,
+      "mde_d": 0.504,
+      "deviation": 0.297,
+      "p_adj_bh": 0.0457,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "information_density",
+      "surface": "marketing",
+      "n": 2,
+      "mean": 2.455,
+      "stdev": 2.044,
+      "floor_mean": 3.846,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "information_density",
+      "surface": "culture",
+      "n": 3,
+      "mean": 8.037,
+      "stdev": 2.753,
+      "floor_mean": 3.846,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "readability",
+      "surface": "help",
+      "n": 38,
+      "mean": 8.583,
+      "stdev": 1.254,
+      "floor_mean": 8.812,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum"
+      ],
+      "rest_n": 166,
+      "t": -2.112,
+      "df": 47.81,
+      "p_raw": 0.039894843543549594,
+      "cohens_d": -0.444,
+      "pooled_sd": 1.034,
+      "mde_d": 0.504,
+      "deviation": -0.229,
+      "p_adj_bh": 0.0504,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "readability",
+      "surface": "tudum",
+      "n": 166,
+      "mean": 9.042,
+      "stdev": 0.978,
+      "floor_mean": 8.812,
+      "status": "tested",
+      "rest_surfaces": [
+        "help"
+      ],
+      "rest_n": 38,
+      "t": 2.112,
+      "df": 47.81,
+      "p_raw": 0.039894843543549594,
+      "cohens_d": 0.444,
+      "pooled_sd": 1.034,
+      "mde_d": 0.504,
+      "deviation": 0.23,
+      "p_adj_bh": 0.0504,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "readability",
+      "surface": "marketing",
+      "n": 2,
+      "mean": 9.815,
+      "stdev": 0.262,
+      "floor_mean": 8.812,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "readability",
+      "surface": "culture",
+      "n": 3,
+      "mean": 4.553,
+      "stdev": 2.554,
+      "floor_mean": 8.812,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "emotional_tone",
+      "surface": "help",
+      "n": 38,
+      "mean": 0.046,
+      "stdev": 0.208,
+      "floor_mean": 0.252,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum"
+      ],
+      "rest_n": 160,
+      "t": -4.299,
+      "df": 190.88,
+      "p_raw": 2.7363754809723424e-05,
+      "cohens_d": -0.402,
+      "pooled_sd": 1.023,
+      "mde_d": 0.506,
+      "deviation": -0.206,
+      "p_adj_bh": 0.0001,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "emotional_tone",
+      "surface": "tudum",
+      "n": 160,
+      "mean": 0.457,
+      "stdev": 1.132,
+      "floor_mean": 0.252,
+      "status": "tested",
+      "rest_surfaces": [
+        "help"
+      ],
+      "rest_n": 38,
+      "t": 4.299,
+      "df": 190.88,
+      "p_raw": 2.7363754809723424e-05,
+      "cohens_d": 0.402,
+      "pooled_sd": 1.023,
+      "mde_d": 0.506,
+      "deviation": 0.205,
+      "p_adj_bh": 0.0001,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "emotional_tone",
+      "surface": "marketing",
+      "n": 2,
+      "mean": 2.99,
+      "stdev": 4.228,
+      "floor_mean": 0.252,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "emotional_tone",
+      "surface": "culture",
+      "n": 3,
+      "mean": 1.313,
+      "stdev": 2.275,
+      "floor_mean": 0.252,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "lexical_sophistication",
+      "surface": "help",
+      "n": 38,
+      "mean": 5.881,
+      "stdev": 0.841,
+      "floor_mean": 6.702,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum"
+      ],
+      "rest_n": 166,
+      "t": -8.587,
+      "df": 118.08,
+      "p_raw": 4.221140382848666e-14,
+      "cohens_d": -1.026,
+      "pooled_sd": 1.601,
+      "mde_d": 0.504,
+      "deviation": -0.821,
+      "p_adj_bh": 0.0,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "lexical_sophistication",
+      "surface": "tudum",
+      "n": 166,
+      "mean": 7.523,
+      "stdev": 1.726,
+      "floor_mean": 6.702,
+      "status": "tested",
+      "rest_surfaces": [
+        "help"
+      ],
+      "rest_n": 38,
+      "t": 8.587,
+      "df": 118.08,
+      "p_raw": 4.221140382848666e-14,
+      "cohens_d": 1.026,
+      "pooled_sd": 1.601,
+      "mde_d": 0.504,
+      "deviation": 0.821,
+      "p_adj_bh": 0.0,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "lexical_sophistication",
+      "surface": "marketing",
+      "n": 2,
+      "mean": 4.51,
+      "stdev": 0.269,
+      "floor_mean": 6.702,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "lexical_sophistication",
+      "surface": "culture",
+      "n": 3,
+      "mean": 5.953,
+      "stdev": 1.506,
+      "floor_mean": 6.702,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "lexical_diversity",
+      "surface": "help",
+      "n": 38,
+      "mean": 1.779,
+      "stdev": 2.096,
+      "floor_mean": 2.398,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum"
+      ],
+      "rest_n": 165,
+      "t": -2.831,
+      "df": 92.75,
+      "p_raw": 0.005690686048941755,
+      "cohens_d": -0.373,
+      "pooled_sd": 3.326,
+      "mde_d": 0.504,
+      "deviation": -0.619,
+      "p_adj_bh": 0.0098,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "lexical_diversity",
+      "surface": "tudum",
+      "n": 165,
+      "mean": 3.018,
+      "stdev": 3.545,
+      "floor_mean": 2.398,
+      "status": "tested",
+      "rest_surfaces": [
+        "help"
+      ],
+      "rest_n": 38,
+      "t": 2.831,
+      "df": 92.75,
+      "p_raw": 0.005690686048941755,
+      "cohens_d": 0.373,
+      "pooled_sd": 3.326,
+      "mde_d": 0.504,
+      "deviation": 0.62,
+      "p_adj_bh": 0.0098,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "lexical_diversity",
+      "surface": "marketing",
+      "n": 2,
+      "mean": 1.775,
+      "stdev": 1.577,
+      "floor_mean": 2.398,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "lexical_diversity",
+      "surface": "culture",
+      "n": 3,
+      "mean": 5.117,
+      "stdev": 4.248,
+      "floor_mean": 2.398,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "concreteness",
+      "surface": "help",
+      "n": 38,
+      "mean": 9.4,
+      "stdev": 1.423,
+      "floor_mean": 9.282,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum"
+      ],
+      "rest_n": 166,
+      "t": 0.876,
+      "df": 66.41,
+      "p_raw": 0.3842483918267338,
+      "cohens_d": 0.137,
+      "pooled_sd": 1.721,
+      "mde_d": 0.504,
+      "deviation": 0.118,
+      "p_adj_bh": 0.4291,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "concreteness",
+      "surface": "tudum",
+      "n": 166,
+      "mean": 9.164,
+      "stdev": 1.782,
+      "floor_mean": 9.282,
+      "status": "tested",
+      "rest_surfaces": [
+        "help"
+      ],
+      "rest_n": 38,
+      "t": -0.876,
+      "df": 66.41,
+      "p_raw": 0.3842483918267338,
+      "cohens_d": -0.137,
+      "pooled_sd": 1.721,
+      "mde_d": 0.504,
+      "deviation": -0.118,
+      "p_adj_bh": 0.4291,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "concreteness",
+      "surface": "marketing",
+      "n": 2,
+      "mean": 10.0,
+      "stdev": 0.0,
+      "floor_mean": 9.282,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "concreteness",
+      "surface": "culture",
+      "n": 3,
+      "mean": 8.443,
+      "stdev": 2.454,
+      "floor_mean": 9.282,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "syntactic_complexity",
+      "surface": "help",
+      "n": 38,
+      "mean": 1.571,
+      "stdev": 1.062,
+      "floor_mean": 1.836,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum"
+      ],
+      "rest_n": 166,
+      "t": -2.493,
+      "df": 80.77,
+      "p_raw": 0.014698673104709053,
+      "cohens_d": -0.349,
+      "pooled_sd": 1.519,
+      "mde_d": 0.504,
+      "deviation": -0.265,
+      "p_adj_bh": 0.0224,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "syntactic_complexity",
+      "surface": "tudum",
+      "n": 166,
+      "mean": 2.101,
+      "stdev": 1.603,
+      "floor_mean": 1.836,
+      "status": "tested",
+      "rest_surfaces": [
+        "help"
+      ],
+      "rest_n": 38,
+      "t": 2.493,
+      "df": 80.77,
+      "p_raw": 0.014698673104709053,
+      "cohens_d": 0.349,
+      "pooled_sd": 1.519,
+      "mde_d": 0.504,
+      "deviation": 0.265,
+      "p_adj_bh": 0.0224,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "syntactic_complexity",
+      "surface": "marketing",
+      "n": 2,
+      "mean": 0.89,
+      "stdev": 1.259,
+      "floor_mean": 1.836,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "syntactic_complexity",
+      "surface": "culture",
+      "n": 3,
+      "mean": 1.343,
+      "stdev": 2.147,
+      "floor_mean": 1.836,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "directness",
+      "surface": "help",
+      "n": 38,
+      "mean": 9.396,
+      "stdev": 1.139,
+      "floor_mean": 7.7,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum"
+      ],
+      "rest_n": 165,
+      "t": 15.146,
+      "df": 76.23,
+      "p_raw": 1.0798259883440348e-24,
+      "cohens_d": 2.19,
+      "pooled_sd": 1.55,
+      "mde_d": 0.504,
+      "deviation": 1.696,
+      "p_adj_bh": 0.0,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "directness",
+      "surface": "tudum",
+      "n": 165,
+      "mean": 6.003,
+      "stdev": 1.628,
+      "floor_mean": 7.7,
+      "status": "tested",
+      "rest_surfaces": [
+        "help"
+      ],
+      "rest_n": 38,
+      "t": -15.146,
+      "df": 76.23,
+      "p_raw": 1.0798259883440348e-24,
+      "cohens_d": -2.19,
+      "pooled_sd": 1.55,
+      "mde_d": 0.504,
+      "deviation": -1.697,
+      "p_adj_bh": 0.0,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "directness",
+      "surface": "marketing",
+      "n": 2,
+      "mean": 10.0,
+      "stdev": 0.0,
+      "floor_mean": 7.7,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "directness",
+      "surface": "culture",
+      "n": 3,
+      "mean": 6.713,
+      "stdev": 2.118,
+      "floor_mean": 7.7,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "cadence",
+      "surface": "help",
+      "n": 38,
+      "mean": 4.686,
+      "stdev": 1.813,
+      "floor_mean": 5.167,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum"
+      ],
+      "rest_n": 165,
+      "t": -2.659,
+      "df": 79.58,
+      "p_raw": 0.00946755712071276,
+      "cohens_d": -0.376,
+      "pooled_sd": 2.555,
+      "mde_d": 0.504,
+      "deviation": -0.481,
+      "p_adj_bh": 0.0155,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "cadence",
+      "surface": "tudum",
+      "n": 165,
+      "mean": 5.647,
+      "stdev": 2.694,
+      "floor_mean": 5.167,
+      "status": "tested",
+      "rest_surfaces": [
+        "help"
+      ],
+      "rest_n": 38,
+      "t": 2.659,
+      "df": 79.58,
+      "p_raw": 0.00946755712071276,
+      "cohens_d": 0.376,
+      "pooled_sd": 2.555,
+      "mde_d": 0.504,
+      "deviation": 0.48,
+      "p_adj_bh": 0.0155,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "cadence",
+      "surface": "marketing",
+      "n": 2,
+      "mean": 2.9,
+      "stdev": 0.523,
+      "floor_mean": 5.167,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "cadence",
+      "surface": "culture",
+      "n": 3,
+      "mean": 4.1,
+      "stdev": 2.332,
+      "floor_mean": 5.167,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "epistemic_stance",
+      "surface": "help",
+      "n": 38,
+      "mean": 5.95,
+      "stdev": 1.634,
+      "floor_mean": 5.332,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum"
+      ],
+      "rest_n": 160,
+      "t": 4.341,
+      "df": 48.98,
+      "p_raw": 7.091621099083778e-05,
+      "cohens_d": 0.895,
+      "pooled_sd": 1.38,
+      "mde_d": 0.506,
+      "deviation": 0.618,
+      "p_adj_bh": 0.0001,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "epistemic_stance",
+      "surface": "tudum",
+      "n": 160,
+      "mean": 4.714,
+      "stdev": 1.314,
+      "floor_mean": 5.332,
+      "status": "tested",
+      "rest_surfaces": [
+        "help"
+      ],
+      "rest_n": 38,
+      "t": -4.341,
+      "df": 48.98,
+      "p_raw": 7.091621099083778e-05,
+      "cohens_d": -0.895,
+      "pooled_sd": 1.38,
+      "mde_d": 0.506,
+      "deviation": -0.618,
+      "p_adj_bh": 0.0001,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "epistemic_stance",
+      "surface": "marketing",
+      "n": 2,
+      "mean": 7.04,
+      "stdev": 2.885,
+      "floor_mean": 5.332,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "epistemic_stance",
+      "surface": "culture",
+      "n": 3,
+      "mean": 4.503,
+      "stdev": 0.86,
+      "floor_mean": 5.332,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "specificity",
+      "surface": "help",
+      "n": 38,
+      "mean": 7.392,
+      "stdev": 2.968,
+      "floor_mean": 8.653,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum"
+      ],
+      "rest_n": 165,
+      "t": -5.218,
+      "df": 37.56,
+      "p_raw": 6.910108705337698e-06,
+      "cohens_d": -1.851,
+      "pooled_sd": 1.363,
+      "mde_d": 0.504,
+      "deviation": -1.261,
+      "p_adj_bh": 0.0,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "specificity",
+      "surface": "tudum",
+      "n": 165,
+      "mean": 9.914,
+      "stdev": 0.537,
+      "floor_mean": 8.653,
+      "status": "tested",
+      "rest_surfaces": [
+        "help"
+      ],
+      "rest_n": 38,
+      "t": 5.218,
+      "df": 37.56,
+      "p_raw": 6.910108705337698e-06,
+      "cohens_d": 1.851,
+      "pooled_sd": 1.363,
+      "mde_d": 0.504,
+      "deviation": 1.261,
+      "p_adj_bh": 0.0,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "specificity",
+      "surface": "marketing",
+      "n": 2,
+      "mean": 6.9,
+      "stdev": 2.517,
+      "floor_mean": 8.653,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "heading",
+      "dimension": "specificity",
+      "surface": "culture",
+      "n": 3,
+      "mean": 8.017,
+      "stdev": 3.435,
+      "floor_mean": 8.653,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "involvement",
+      "surface": "help",
+      "n": 54,
+      "mean": 3.567,
+      "stdev": 1.187,
+      "floor_mean": 3.567,
+      "status": "insufficient_data",
+      "reason": "no_rest_group_available",
+      "deviation": 0.0,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "involvement",
+      "surface": "tudum",
+      "n": 3,
+      "mean": 1.557,
+      "stdev": 0.245,
+      "floor_mean": 3.567,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "involvement",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 3.32,
+      "stdev": null,
+      "floor_mean": 3.567,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "involvement",
+      "surface": "culture",
+      "n": 1,
+      "mean": 3.18,
+      "stdev": null,
+      "floor_mean": 3.567,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "information_density",
+      "surface": "help",
+      "n": 54,
+      "mean": 3.622,
+      "stdev": 1.466,
+      "floor_mean": 3.622,
+      "status": "insufficient_data",
+      "reason": "no_rest_group_available",
+      "deviation": 0.0,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "information_density",
+      "surface": "tudum",
+      "n": 3,
+      "mean": 3.49,
+      "stdev": 0.817,
+      "floor_mean": 3.622,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "information_density",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 0.0,
+      "stdev": null,
+      "floor_mean": 3.622,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "information_density",
+      "surface": "culture",
+      "n": 1,
+      "mean": 4.18,
+      "stdev": null,
+      "floor_mean": 3.622,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "readability",
+      "surface": "help",
+      "n": 54,
+      "mean": 8.765,
+      "stdev": 0.932,
+      "floor_mean": 8.765,
+      "status": "insufficient_data",
+      "reason": "no_rest_group_available",
+      "deviation": 0.0,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "readability",
+      "surface": "tudum",
+      "n": 3,
+      "mean": 7.97,
+      "stdev": 0.118,
+      "floor_mean": 8.765,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "readability",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 9.83,
+      "stdev": null,
+      "floor_mean": 8.765,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "readability",
+      "surface": "culture",
+      "n": 1,
+      "mean": 3.49,
+      "stdev": null,
+      "floor_mean": 8.765,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "emotional_tone",
+      "surface": "help",
+      "n": 54,
+      "mean": 0.013,
+      "stdev": 0.068,
+      "floor_mean": 0.013,
+      "status": "insufficient_data",
+      "reason": "no_rest_group_available",
+      "deviation": 0.0,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "emotional_tone",
+      "surface": "tudum",
+      "n": 3,
+      "mean": 0.313,
+      "stdev": 0.543,
+      "floor_mean": 0.013,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "emotional_tone",
+      "surface": "marketing",
+      "n": 0,
+      "mean": null,
+      "stdev": null,
+      "floor_mean": 0.013,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "emotional_tone",
+      "surface": "culture",
+      "n": 1,
+      "mean": 0.0,
+      "stdev": null,
+      "floor_mean": 0.013,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "lexical_sophistication",
+      "surface": "help",
+      "n": 54,
+      "mean": 5.441,
+      "stdev": 0.671,
+      "floor_mean": 5.441,
+      "status": "insufficient_data",
+      "reason": "no_rest_group_available",
+      "deviation": 0.0,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "lexical_sophistication",
+      "surface": "tudum",
+      "n": 3,
+      "mean": 5.863,
+      "stdev": 0.422,
+      "floor_mean": 5.441,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "lexical_sophistication",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 2.01,
+      "stdev": null,
+      "floor_mean": 5.441,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "lexical_sophistication",
+      "surface": "culture",
+      "n": 1,
+      "mean": 5.76,
+      "stdev": null,
+      "floor_mean": 5.441,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "lexical_diversity",
+      "surface": "help",
+      "n": 54,
+      "mean": 1.413,
+      "stdev": 1.777,
+      "floor_mean": 1.413,
+      "status": "insufficient_data",
+      "reason": "no_rest_group_available",
+      "deviation": 0.0,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "lexical_diversity",
+      "surface": "tudum",
+      "n": 3,
+      "mean": 4.56,
+      "stdev": 3.251,
+      "floor_mean": 1.413,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "lexical_diversity",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 0.78,
+      "stdev": null,
+      "floor_mean": 1.413,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "lexical_diversity",
+      "surface": "culture",
+      "n": 1,
+      "mean": 1.62,
+      "stdev": null,
+      "floor_mean": 1.413,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "concreteness",
+      "surface": "help",
+      "n": 54,
+      "mean": 9.253,
+      "stdev": 1.235,
+      "floor_mean": 9.253,
+      "status": "insufficient_data",
+      "reason": "no_rest_group_available",
+      "deviation": 0.0,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "concreteness",
+      "surface": "tudum",
+      "n": 3,
+      "mean": 9.68,
+      "stdev": 0.554,
+      "floor_mean": 9.253,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "concreteness",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 10.0,
+      "stdev": null,
+      "floor_mean": 9.253,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "concreteness",
+      "surface": "culture",
+      "n": 1,
+      "mean": 6.11,
+      "stdev": null,
+      "floor_mean": 9.253,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "syntactic_complexity",
+      "surface": "help",
+      "n": 54,
+      "mean": 4.423,
+      "stdev": 1.512,
+      "floor_mean": 4.423,
+      "status": "insufficient_data",
+      "reason": "no_rest_group_available",
+      "deviation": 0.0,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "syntactic_complexity",
+      "surface": "tudum",
+      "n": 3,
+      "mean": 7.373,
+      "stdev": 1.556,
+      "floor_mean": 4.423,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "syntactic_complexity",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 4.31,
+      "stdev": null,
+      "floor_mean": 4.423,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "syntactic_complexity",
+      "surface": "culture",
+      "n": 1,
+      "mean": 4.02,
+      "stdev": null,
+      "floor_mean": 4.423,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "directness",
+      "surface": "help",
+      "n": 54,
+      "mean": 9.887,
+      "stdev": 0.338,
+      "floor_mean": 9.887,
+      "status": "insufficient_data",
+      "reason": "no_rest_group_available",
+      "deviation": 0.0,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "directness",
+      "surface": "tudum",
+      "n": 3,
+      "mean": 8.08,
+      "stdev": 0.926,
+      "floor_mean": 9.887,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "directness",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 10.0,
+      "stdev": null,
+      "floor_mean": 9.887,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "directness",
+      "surface": "culture",
+      "n": 1,
+      "mean": 5.63,
+      "stdev": null,
+      "floor_mean": 9.887,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "cadence",
+      "surface": "help",
+      "n": 54,
+      "mean": 5.906,
+      "stdev": 2.433,
+      "floor_mean": 5.906,
+      "status": "insufficient_data",
+      "reason": "no_rest_group_available",
+      "deviation": 0.0,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "cadence",
+      "surface": "tudum",
+      "n": 3,
+      "mean": 6.517,
+      "stdev": 1.593,
+      "floor_mean": 5.906,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "cadence",
+      "surface": "marketing",
+      "n": 0,
+      "mean": null,
+      "stdev": null,
+      "floor_mean": 5.906,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "cadence",
+      "surface": "culture",
+      "n": 1,
+      "mean": 10.0,
+      "stdev": null,
+      "floor_mean": 5.906,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "epistemic_stance",
+      "surface": "help",
+      "n": 54,
+      "mean": 5.119,
+      "stdev": 1.158,
+      "floor_mean": 5.119,
+      "status": "insufficient_data",
+      "reason": "no_rest_group_available",
+      "deviation": 0.0,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "epistemic_stance",
+      "surface": "tudum",
+      "n": 3,
+      "mean": 4.737,
+      "stdev": 0.229,
+      "floor_mean": 5.119,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "epistemic_stance",
+      "surface": "marketing",
+      "n": 0,
+      "mean": null,
+      "stdev": null,
+      "floor_mean": 5.119,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "epistemic_stance",
+      "surface": "culture",
+      "n": 1,
+      "mean": 1.04,
+      "stdev": null,
+      "floor_mean": 5.119,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "specificity",
+      "surface": "help",
+      "n": 54,
+      "mean": 4.698,
+      "stdev": 2.786,
+      "floor_mean": 4.698,
+      "status": "insufficient_data",
+      "reason": "no_rest_group_available",
+      "deviation": 0.0,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "specificity",
+      "surface": "tudum",
+      "n": 3,
+      "mean": 9.92,
+      "stdev": 0.139,
+      "floor_mean": 4.698,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "specificity",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 0.0,
+      "stdev": null,
+      "floor_mean": 4.698,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "procedural",
+      "dimension": "specificity",
+      "surface": "culture",
+      "n": 1,
+      "mean": 10.0,
+      "stdev": null,
+      "floor_mean": 4.698,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "involvement",
+      "surface": "help",
+      "n": 326,
+      "mean": 3.55,
+      "stdev": 2.086,
+      "floor_mean": 3.038,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum",
+        "marketing",
+        "culture"
+      ],
+      "rest_n": 581,
+      "t": 6.493,
+      "df": 572.35,
+      "p_raw": 1.8216401889800669e-10,
+      "cohens_d": 0.474,
+      "pooled_sd": 1.857,
+      "mde_d": 0.194,
+      "deviation": 0.512,
+      "p_adj_bh": 0.0,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "involvement",
+      "surface": "tudum",
+      "n": 393,
+      "mean": 2.836,
+      "stdev": 1.691,
+      "floor_mean": 3.038,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "marketing",
+        "culture"
+      ],
+      "rest_n": 514,
+      "t": -2.129,
+      "df": 899.54,
+      "p_raw": 0.033536633210245755,
+      "cohens_d": -0.139,
+      "pooled_sd": 1.9,
+      "mde_d": 0.188,
+      "deviation": -0.202,
+      "p_adj_bh": 0.0457,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "involvement",
+      "surface": "marketing",
+      "n": 6,
+      "mean": 3.482,
+      "stdev": 2.332,
+      "floor_mean": 3.038,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum",
+        "culture"
+      ],
+      "rest_n": 901,
+      "t": 0.524,
+      "df": 5.04,
+      "p_raw": 0.6227454609167796,
+      "cohens_d": 0.262,
+      "pooled_sd": 1.904,
+      "mde_d": 1.148,
+      "deviation": 0.444,
+      "p_adj_bh": 0.6623,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "involvement",
+      "surface": "culture",
+      "n": 182,
+      "mean": 2.282,
+      "stdev": 1.691,
+      "floor_mean": 3.038,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum",
+        "marketing"
+      ],
+      "rest_n": 725,
+      "t": -6.112,
+      "df": 308.28,
+      "p_raw": 2.971923592574467e-09,
+      "cohens_d": -0.47,
+      "pooled_sd": 1.872,
+      "mde_d": 0.232,
+      "deviation": -0.756,
+      "p_adj_bh": 0.0,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "information_density",
+      "surface": "help",
+      "n": 400,
+      "mean": 2.949,
+      "stdev": 1.872,
+      "floor_mean": 3.576,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum",
+        "marketing",
+        "culture"
+      ],
+      "rest_n": 599,
+      "t": -7.021,
+      "df": 896.89,
+      "p_raw": 4.342990865819002e-12,
+      "cohens_d": -0.447,
+      "pooled_sd": 1.959,
+      "mde_d": 0.181,
+      "deviation": -0.627,
+      "p_adj_bh": 0.0,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "information_density",
+      "surface": "tudum",
+      "n": 400,
+      "mean": 3.649,
+      "stdev": 2.017,
+      "floor_mean": 3.576,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "marketing",
+        "culture"
+      ],
+      "rest_n": 599,
+      "t": 2.259,
+      "df": 846.87,
+      "p_raw": 0.024127818892694816,
+      "cohens_d": 0.146,
+      "pooled_sd": 2.0,
+      "mde_d": 0.181,
+      "deviation": 0.073,
+      "p_adj_bh": 0.0351,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "information_density",
+      "surface": "marketing",
+      "n": 13,
+      "mean": 3.48,
+      "stdev": 3.144,
+      "floor_mean": 3.576,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum",
+        "culture"
+      ],
+      "rest_n": 986,
+      "t": 0.007,
+      "df": 12.13,
+      "p_raw": 0.9944872948843743,
+      "cohens_d": 0.003,
+      "pooled_sd": 2.005,
+      "mde_d": 0.782,
+      "deviation": -0.096,
+      "p_adj_bh": 0.9945,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "information_density",
+      "surface": "culture",
+      "n": 186,
+      "mean": 4.225,
+      "stdev": 1.861,
+      "floor_mean": 3.576,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum",
+        "marketing"
+      ],
+      "rest_n": 813,
+      "t": 6.013,
+      "df": 290.69,
+      "p_raw": 5.447098887170847e-09,
+      "cohens_d": 0.468,
+      "pooled_sd": 1.973,
+      "mde_d": 0.228,
+      "deviation": 0.649,
+      "p_adj_bh": 0.0,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "readability",
+      "surface": "help",
+      "n": 400,
+      "mean": 7.425,
+      "stdev": 1.848,
+      "floor_mean": 6.9,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum",
+        "marketing",
+        "culture"
+      ],
+      "rest_n": 599,
+      "t": 6.982,
+      "df": 907.71,
+      "p_raw": 5.628816948376166e-12,
+      "cohens_d": 0.442,
+      "pooled_sd": 1.959,
+      "mde_d": 0.181,
+      "deviation": 0.525,
+      "p_adj_bh": 0.0,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "readability",
+      "surface": "tudum",
+      "n": 400,
+      "mean": 7.278,
+      "stdev": 1.533,
+      "floor_mean": 6.9,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "marketing",
+        "culture"
+      ],
+      "rest_n": 599,
+      "t": 5.229,
+      "df": 996.19,
+      "p_raw": 2.0803332174663121e-07,
+      "cohens_d": 0.314,
+      "pooled_sd": 1.981,
+      "mde_d": 0.181,
+      "deviation": 0.378,
+      "p_adj_bh": 0.0,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "readability",
+      "surface": "marketing",
+      "n": 13,
+      "mean": 7.987,
+      "stdev": 1.481,
+      "floor_mean": 6.9,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum",
+        "culture"
+      ],
+      "rest_n": 986,
+      "t": 2.638,
+      "df": 12.59,
+      "p_raw": 0.020938263925069953,
+      "cohens_d": 0.548,
+      "pooled_sd": 2.001,
+      "mde_d": 0.782,
+      "deviation": 1.087,
+      "p_adj_bh": 0.0312,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "readability",
+      "surface": "culture",
+      "n": 186,
+      "mean": 4.909,
+      "stdev": 2.026,
+      "floor_mean": 6.9,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum",
+        "marketing"
+      ],
+      "rest_n": 813,
+      "t": -15.326,
+      "df": 247.59,
+      "p_raw": 9.805559856804814e-38,
+      "cohens_d": -1.392,
+      "pooled_sd": 1.762,
+      "mde_d": 0.228,
+      "deviation": -1.991,
+      "p_adj_bh": 0.0,
+      "verdict": "extends"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "emotional_tone",
+      "surface": "help",
+      "n": 162,
+      "mean": 0.381,
+      "stdev": 1.153,
+      "floor_mean": 0.677,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum",
+        "culture"
+      ],
+      "rest_n": 516,
+      "t": -3.538,
+      "df": 370.76,
+      "p_raw": 0.0004545853236338746,
+      "cohens_d": -0.27,
+      "pooled_sd": 1.502,
+      "mde_d": 0.252,
+      "deviation": -0.296,
+      "p_adj_bh": 0.0009,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "emotional_tone",
+      "surface": "tudum",
+      "n": 352,
+      "mean": 0.719,
+      "stdev": 1.582,
+      "floor_mean": 0.677,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "culture"
+      ],
+      "rest_n": 326,
+      "t": 0.533,
+      "df": 675.62,
+      "p_raw": 0.594109959401171,
+      "cohens_d": 0.041,
+      "pooled_sd": 1.511,
+      "mde_d": 0.215,
+      "deviation": 0.042,
+      "p_adj_bh": 0.642,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "emotional_tone",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 0.0,
+      "stdev": null,
+      "floor_mean": 0.677,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "emotional_tone",
+      "surface": "culture",
+      "n": 164,
+      "mean": 0.931,
+      "stdev": 1.618,
+      "floor_mean": 0.677,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "rest_n": 514,
+      "t": 2.241,
+      "df": 254.29,
+      "p_raw": 0.025894723774075576,
+      "cohens_d": 0.211,
+      "pooled_sd": 1.505,
+      "mde_d": 0.251,
+      "deviation": 0.254,
+      "p_adj_bh": 0.0369,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "lexical_sophistication",
+      "surface": "help",
+      "n": 400,
+      "mean": 5.065,
+      "stdev": 1.249,
+      "floor_mean": 5.088,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum",
+        "marketing",
+        "culture"
+      ],
+      "rest_n": 599,
+      "t": -7.658,
+      "df": 942.62,
+      "p_raw": 4.6801972043335283e-14,
+      "cohens_d": -0.479,
+      "pooled_sd": 1.389,
+      "mde_d": 0.181,
+      "deviation": -0.023,
+      "p_adj_bh": 0.0,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "lexical_sophistication",
+      "surface": "tudum",
+      "n": 400,
+      "mean": 5.905,
+      "stdev": 1.567,
+      "floor_mean": 5.088,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "marketing",
+        "culture"
+      ],
+      "rest_n": 599,
+      "t": 7.891,
+      "df": 718.76,
+      "p_raw": 1.1220382439211253e-14,
+      "cohens_d": 0.533,
+      "pooled_sd": 1.381,
+      "mde_d": 0.181,
+      "deviation": 0.817,
+      "p_adj_bh": 0.0,
+      "verdict": "extends"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "lexical_sophistication",
+      "surface": "marketing",
+      "n": 13,
+      "mean": 3.902,
+      "stdev": 1.377,
+      "floor_mean": 5.088,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum",
+        "culture"
+      ],
+      "rest_n": 986,
+      "t": -4.113,
+      "df": 12.34,
+      "p_raw": 0.0013585391212531579,
+      "cohens_d": -1.118,
+      "pooled_sd": 1.416,
+      "mde_d": 0.782,
+      "deviation": -1.186,
+      "p_adj_bh": 0.0025,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "lexical_sophistication",
+      "surface": "culture",
+      "n": 186,
+      "mean": 5.48,
+      "stdev": 1.118,
+      "floor_mean": 5.088,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum",
+        "marketing"
+      ],
+      "rest_n": 813,
+      "t": 0.213,
+      "df": 352.16,
+      "p_raw": 0.8317586012953618,
+      "cohens_d": 0.014,
+      "pooled_sd": 1.427,
+      "mde_d": 0.228,
+      "deviation": 0.392,
+      "p_adj_bh": 0.8574,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "lexical_diversity",
+      "surface": "help",
+      "n": 234,
+      "mean": 3.612,
+      "stdev": 3.137,
+      "floor_mean": 5.317,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum",
+        "culture"
+      ],
+      "rest_n": 552,
+      "t": -10.988,
+      "df": 411.66,
+      "p_raw": 8.40190278260147e-25,
+      "cohens_d": -0.883,
+      "pooled_sd": 2.984,
+      "mde_d": 0.219,
+      "deviation": -1.705,
+      "p_adj_bh": 0.0,
+      "verdict": "extends"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "lexical_diversity",
+      "surface": "tudum",
+      "n": 379,
+      "mean": 6.375,
+      "stdev": 2.927,
+      "floor_mean": 5.317,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "culture"
+      ],
+      "rest_n": 407,
+      "t": 8.01,
+      "df": 783.22,
+      "p_raw": 4.157701144929348e-15,
+      "cohens_d": 0.57,
+      "pooled_sd": 3.095,
+      "mde_d": 0.2,
+      "deviation": 1.058,
+      "p_adj_bh": 0.0,
+      "verdict": "extends"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "lexical_diversity",
+      "surface": "marketing",
+      "n": 3,
+      "mean": 5.52,
+      "stdev": 3.899,
+      "floor_mean": 5.317,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "lexical_diversity",
+      "surface": "culture",
+      "n": 173,
+      "mean": 5.964,
+      "stdev": 2.883,
+      "floor_mean": 5.317,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "rest_n": 613,
+      "t": 2.511,
+      "df": 310.17,
+      "p_raw": 0.012560149580072448,
+      "cohens_d": 0.201,
+      "pooled_sd": 3.207,
+      "mde_d": 0.241,
+      "deviation": 0.647,
+      "p_adj_bh": 0.02,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "concreteness",
+      "surface": "help",
+      "n": 400,
+      "mean": 8.579,
+      "stdev": 2.254,
+      "floor_mean": 8.119,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum",
+        "marketing",
+        "culture"
+      ],
+      "rest_n": 599,
+      "t": 1.877,
+      "df": 796.97,
+      "p_raw": 0.06093684773216989,
+      "cohens_d": 0.124,
+      "pooled_sd": 2.13,
+      "mde_d": 0.181,
+      "deviation": 0.46,
+      "p_adj_bh": 0.0742,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "concreteness",
+      "surface": "tudum",
+      "n": 400,
+      "mean": 8.888,
+      "stdev": 1.625,
+      "floor_mean": 8.119,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "marketing",
+        "culture"
+      ],
+      "rest_n": 599,
+      "t": 6.167,
+      "df": 996.15,
+      "p_raw": 1.0081126794982975e-09,
+      "cohens_d": 0.371,
+      "pooled_sd": 2.1,
+      "mde_d": 0.181,
+      "deviation": 0.769,
+      "p_adj_bh": 0.0,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "concreteness",
+      "surface": "marketing",
+      "n": 13,
+      "mean": 7.894,
+      "stdev": 3.055,
+      "floor_mean": 8.119,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum",
+        "culture"
+      ],
+      "rest_n": 986,
+      "t": -0.629,
+      "df": 12.15,
+      "p_raw": 0.5411488181694418,
+      "cohens_d": -0.251,
+      "pooled_sd": 2.133,
+      "mde_d": 0.782,
+      "deviation": -0.225,
+      "p_adj_bh": 0.5944,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "concreteness",
+      "surface": "culture",
+      "n": 186,
+      "mean": 7.115,
+      "stdev": 2.241,
+      "floor_mean": 8.119,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum",
+        "marketing"
+      ],
+      "rest_n": 813,
+      "t": -8.988,
+      "df": 255.96,
+      "p_raw": 5.697210476656235e-17,
+      "cohens_d": -0.787,
+      "pooled_sd": 2.04,
+      "mde_d": 0.228,
+      "deviation": -1.004,
+      "p_adj_bh": 0.0,
+      "verdict": "extends"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "syntactic_complexity",
+      "surface": "help",
+      "n": 400,
+      "mean": 6.618,
+      "stdev": 2.229,
+      "floor_mean": 7.111,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum",
+        "marketing",
+        "culture"
+      ],
+      "rest_n": 599,
+      "t": -8.607,
+      "df": 798.57,
+      "p_raw": 3.970588478135919e-17,
+      "cohens_d": -0.566,
+      "pooled_sd": 2.109,
+      "mde_d": 0.181,
+      "deviation": -0.493,
+      "p_adj_bh": 0.0,
+      "verdict": "extends"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "syntactic_complexity",
+      "surface": "tudum",
+      "n": 400,
+      "mean": 7.662,
+      "stdev": 2.005,
+      "floor_mean": 7.111,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "marketing",
+        "culture"
+      ],
+      "rest_n": 599,
+      "t": 3.995,
+      "df": 924.75,
+      "p_raw": 6.975415613368742e-05,
+      "cohens_d": 0.252,
+      "pooled_sd": 2.173,
+      "mde_d": 0.181,
+      "deviation": 0.551,
+      "p_adj_bh": 0.0001,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "syntactic_complexity",
+      "surface": "marketing",
+      "n": 13,
+      "mean": 5.892,
+      "stdev": 2.854,
+      "floor_mean": 7.111,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum",
+        "culture"
+      ],
+      "rest_n": 986,
+      "t": -1.839,
+      "df": 12.18,
+      "p_raw": 0.09039610596541532,
+      "cohens_d": -0.669,
+      "pooled_sd": 2.183,
+      "mde_d": 0.782,
+      "deviation": -1.219,
+      "p_adj_bh": 0.1082,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "syntactic_complexity",
+      "surface": "culture",
+      "n": 186,
+      "mean": 8.271,
+      "stdev": 1.883,
+      "floor_mean": 7.111,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum",
+        "marketing"
+      ],
+      "rest_n": 813,
+      "t": 7.277,
+      "df": 311.33,
+      "p_raw": 2.7968956531021145e-12,
+      "cohens_d": 0.537,
+      "pooled_sd": 2.143,
+      "mde_d": 0.228,
+      "deviation": 1.16,
+      "p_adj_bh": 0.0,
+      "verdict": "extends"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "directness",
+      "surface": "help",
+      "n": 326,
+      "mean": 7.041,
+      "stdev": 2.166,
+      "floor_mean": 6.057,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum",
+        "marketing",
+        "culture"
+      ],
+      "rest_n": 581,
+      "t": 12.988,
+      "df": 433.73,
+      "p_raw": 8.211182628570135e-33,
+      "cohens_d": 1.05,
+      "pooled_sd": 1.601,
+      "mde_d": 0.194,
+      "deviation": 0.984,
+      "p_adj_bh": 0.0,
+      "verdict": "extends"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "directness",
+      "surface": "tudum",
+      "n": 393,
+      "mean": 5.333,
+      "stdev": 1.134,
+      "floor_mean": 6.057,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "marketing",
+        "culture"
+      ],
+      "rest_n": 514,
+      "t": -10.448,
+      "df": 833.91,
+      "p_raw": 4.2649267386112734e-24,
+      "cohens_d": -0.652,
+      "pooled_sd": 1.706,
+      "mde_d": 0.188,
+      "deviation": -0.724,
+      "p_adj_bh": 0.0,
+      "verdict": "extends"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "directness",
+      "surface": "marketing",
+      "n": 6,
+      "mean": 6.473,
+      "stdev": 3.022,
+      "floor_mean": 6.057,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum",
+        "culture"
+      ],
+      "rest_n": 901,
+      "t": 0.415,
+      "df": 5.02,
+      "p_raw": 0.6952816088736039,
+      "cohens_d": 0.286,
+      "pooled_sd": 1.793,
+      "mde_d": 1.148,
+      "deviation": 0.416,
+      "p_adj_bh": 0.7279,
+      "verdict": "underpowered"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "directness",
+      "surface": "culture",
+      "n": 182,
+      "mean": 5.381,
+      "stdev": 1.144,
+      "floor_mean": 6.057,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum",
+        "marketing"
+      ],
+      "rest_n": 725,
+      "t": -6.625,
+      "df": 460.87,
+      "p_raw": 9.684733214907077e-11,
+      "cohens_d": -0.413,
+      "pooled_sd": 1.769,
+      "mde_d": 0.232,
+      "deviation": -0.676,
+      "p_adj_bh": 0.0,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "cadence",
+      "surface": "help",
+      "n": 38,
+      "mean": 4.623,
+      "stdev": 2.601,
+      "floor_mean": 4.042,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum",
+        "culture"
+      ],
+      "rest_n": 321,
+      "t": 1.618,
+      "df": 45.38,
+      "p_raw": 0.11251537945155352,
+      "cohens_d": 0.288,
+      "pooled_sd": 2.499,
+      "mde_d": 0.481,
+      "deviation": 0.581,
+      "p_adj_bh": 0.13,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "cadence",
+      "surface": "tudum",
+      "n": 213,
+      "mean": 4.219,
+      "stdev": 2.533,
+      "floor_mean": 4.042,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "culture"
+      ],
+      "rest_n": 146,
+      "t": 2.208,
+      "df": 319.83,
+      "p_raw": 0.027953111896152728,
+      "cohens_d": 0.235,
+      "pooled_sd": 2.492,
+      "mde_d": 0.301,
+      "deviation": 0.177,
+      "p_adj_bh": 0.039,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "cadence",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 7.2,
+      "stdev": null,
+      "floor_mean": 4.042,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "cadence",
+      "surface": "culture",
+      "n": 108,
+      "mean": 3.283,
+      "stdev": 2.281,
+      "floor_mean": 4.042,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "rest_n": 251,
+      "t": -3.665,
+      "df": 224.44,
+      "p_raw": 0.000308485798592019,
+      "cohens_d": -0.404,
+      "pooled_sd": 2.467,
+      "mde_d": 0.322,
+      "deviation": -0.759,
+      "p_adj_bh": 0.0006,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "epistemic_stance",
+      "surface": "help",
+      "n": 162,
+      "mean": 4.513,
+      "stdev": 2.127,
+      "floor_mean": 4.484,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum",
+        "culture"
+      ],
+      "rest_n": 516,
+      "t": -0.091,
+      "df": 229.01,
+      "p_raw": 0.9277819768899744,
+      "cohens_d": -0.009,
+      "pooled_sd": 1.809,
+      "mde_d": 0.252,
+      "deviation": 0.029,
+      "p_adj_bh": 0.9418,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "epistemic_stance",
+      "surface": "tudum",
+      "n": 352,
+      "mean": 4.636,
+      "stdev": 1.74,
+      "floor_mean": 4.484,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "culture"
+      ],
+      "rest_n": 326,
+      "t": 1.645,
+      "df": 660.88,
+      "p_raw": 0.10035930638448332,
+      "cohens_d": 0.127,
+      "pooled_sd": 1.806,
+      "mde_d": 0.215,
+      "deviation": 0.152,
+      "p_adj_bh": 0.118,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "epistemic_stance",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 5.0,
+      "stdev": null,
+      "floor_mean": 4.484,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "epistemic_stance",
+      "surface": "culture",
+      "n": 164,
+      "mean": 4.302,
+      "stdev": 1.586,
+      "floor_mean": 4.484,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "rest_n": 514,
+      "t": -1.985,
+      "df": 319.44,
+      "p_raw": 0.0480362217617309,
+      "cohens_d": -0.164,
+      "pooled_sd": 1.805,
+      "mde_d": 0.251,
+      "deviation": -0.182,
+      "p_adj_bh": 0.0596,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "specificity",
+      "surface": "help",
+      "n": 234,
+      "mean": 3.345,
+      "stdev": 3.395,
+      "floor_mean": 4.803,
+      "status": "tested",
+      "rest_surfaces": [
+        "tudum",
+        "culture"
+      ],
+      "rest_n": 552,
+      "t": -9.54,
+      "df": 469.67,
+      "p_raw": 7.762618074182888e-20,
+      "cohens_d": -0.723,
+      "pooled_sd": 3.576,
+      "mde_d": 0.219,
+      "deviation": -1.458,
+      "p_adj_bh": 0.0,
+      "verdict": "extends"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "specificity",
+      "surface": "tudum",
+      "n": 379,
+      "mean": 6.599,
+      "stdev": 3.433,
+      "floor_mean": 4.803,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "culture"
+      ],
+      "rest_n": 407,
+      "t": 11.129,
+      "df": 783.08,
+      "p_raw": 8.223251396061045e-27,
+      "cohens_d": 0.793,
+      "pooled_sd": 3.501,
+      "mde_d": 0.2,
+      "deviation": 1.796,
+      "p_adj_bh": 0.0,
+      "verdict": "extends"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "specificity",
+      "surface": "marketing",
+      "n": 3,
+      "mean": 3.89,
+      "stdev": 5.357,
+      "floor_mean": 4.803,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "body_prose",
+      "dimension": "specificity",
+      "surface": "culture",
+      "n": 173,
+      "mean": 4.464,
+      "stdev": 3.693,
+      "floor_mean": 4.803,
+      "status": "tested",
+      "rest_surfaces": [
+        "help",
+        "tudum"
+      ],
+      "rest_n": 613,
+      "t": -2.795,
+      "df": 280.9,
+      "p_raw": 0.00554484270579015,
+      "cohens_d": -0.238,
+      "pooled_sd": 3.749,
+      "mde_d": 0.241,
+      "deviation": -0.339,
+      "p_adj_bh": 0.0098,
+      "verdict": "within_floor"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "involvement",
+      "surface": "help",
+      "n": 4,
+      "mean": 1.333,
+      "stdev": 1.775,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "involvement",
+      "surface": "tudum",
+      "n": 1,
+      "mean": 4.2,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "involvement",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 4.44,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "involvement",
+      "surface": "culture",
+      "n": 1,
+      "mean": 0.92,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "information_density",
+      "surface": "help",
+      "n": 4,
+      "mean": 9.012,
+      "stdev": 1.35,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "information_density",
+      "surface": "tudum",
+      "n": 1,
+      "mean": 4.39,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "information_density",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 5.77,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "information_density",
+      "surface": "culture",
+      "n": 1,
+      "mean": 8.17,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "readability",
+      "surface": "help",
+      "n": 4,
+      "mean": 6.31,
+      "stdev": 1.561,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "readability",
+      "surface": "tudum",
+      "n": 1,
+      "mean": 10.0,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "readability",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 9.74,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "readability",
+      "surface": "culture",
+      "n": 1,
+      "mean": 5.02,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "emotional_tone",
+      "surface": "help",
+      "n": 3,
+      "mean": 0.0,
+      "stdev": 0.0,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "emotional_tone",
+      "surface": "tudum",
+      "n": 0,
+      "mean": null,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "emotional_tone",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 0.0,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "emotional_tone",
+      "surface": "culture",
+      "n": 1,
+      "mean": 0.0,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "lexical_sophistication",
+      "surface": "help",
+      "n": 4,
+      "mean": 6.23,
+      "stdev": 0.777,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "lexical_sophistication",
+      "surface": "tudum",
+      "n": 1,
+      "mean": 5.52,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "lexical_sophistication",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 5.45,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "lexical_sophistication",
+      "surface": "culture",
+      "n": 1,
+      "mean": 5.18,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "lexical_diversity",
+      "surface": "help",
+      "n": 4,
+      "mean": 6.86,
+      "stdev": 3.731,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "lexical_diversity",
+      "surface": "tudum",
+      "n": 0,
+      "mean": null,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "lexical_diversity",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 6.25,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "lexical_diversity",
+      "surface": "culture",
+      "n": 1,
+      "mean": 0.0,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "concreteness",
+      "surface": "help",
+      "n": 4,
+      "mean": 8.668,
+      "stdev": 1.227,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "concreteness",
+      "surface": "tudum",
+      "n": 1,
+      "mean": 10.0,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "concreteness",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 10.0,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "concreteness",
+      "surface": "culture",
+      "n": 1,
+      "mean": 4.09,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "syntactic_complexity",
+      "surface": "help",
+      "n": 4,
+      "mean": 0.0,
+      "stdev": 0.0,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "syntactic_complexity",
+      "surface": "tudum",
+      "n": 1,
+      "mean": 1.04,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "syntactic_complexity",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 0.0,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "syntactic_complexity",
+      "surface": "culture",
+      "n": 1,
+      "mean": 0.0,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "directness",
+      "surface": "help",
+      "n": 4,
+      "mean": 10.0,
+      "stdev": 0.0,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "directness",
+      "surface": "tudum",
+      "n": 1,
+      "mean": 10.0,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "directness",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 10.0,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "directness",
+      "surface": "culture",
+      "n": 1,
+      "mean": 10.0,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "cadence",
+      "surface": "help",
+      "n": 4,
+      "mean": 5.31,
+      "stdev": 1.289,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "cadence",
+      "surface": "tudum",
+      "n": 1,
+      "mean": 8.02,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "cadence",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 8.89,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "cadence",
+      "surface": "culture",
+      "n": 1,
+      "mean": 5.9,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "epistemic_stance",
+      "surface": "help",
+      "n": 3,
+      "mean": 5.0,
+      "stdev": 0.0,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "epistemic_stance",
+      "surface": "tudum",
+      "n": 0,
+      "mean": null,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "epistemic_stance",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 5.0,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "epistemic_stance",
+      "surface": "culture",
+      "n": 1,
+      "mean": 5.0,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "specificity",
+      "surface": "help",
+      "n": 4,
+      "mean": 4.923,
+      "stdev": 3.918,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "specificity",
+      "surface": "tudum",
+      "n": 0,
+      "mean": null,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "specificity",
+      "surface": "marketing",
+      "n": 1,
+      "mean": 10.0,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    },
+    {
+      "string_type": "ui_string",
+      "dimension": "specificity",
+      "surface": "culture",
+      "n": 1,
+      "mean": 10.0,
+      "stdev": null,
+      "floor_mean": null,
+      "status": "insufficient_data",
+      "reason": "own_n_below_5",
+      "deviation": null,
+      "p_adj_bh": null,
+      "verdict": "insufficient_data"
+    }
+  ]
+}

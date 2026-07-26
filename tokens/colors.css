@@ -1,0 +1,68 @@
+:root{
+  /* base — paper side */
+  --paper:#ede8dd;
+  --paper-bright:#f8f3e8;
+  --paper-shade:#ddd8ce;
+  --desk:#d9d5cc;
+  --mat:#d8d4cc;
+
+  /* base — ink side */
+  --ink:#11110f;
+  --ink-raised:#1b1b18;
+  --muted-ink:#625e57;
+  --ink-dim:#bbb6ad;
+  --paper-dim:#c5c0b7;
+
+  /* base — the stage. Deep petrol pine: the warm complement of vermillion. */
+  --stage:#0f3b34;
+  --stage-deep:#0a2c27;
+  --stage-raised:#0c322c;
+  --stage-lift:#1a5e52;
+  --stage-ink:#f2ece0;
+  --stage-muted:#9db8ae;
+
+  /* base — one accent, one hue family */
+  --signal:#f15a3a;        /* the accent, on paper */
+  --signal-lift:#ff7d55;   /* the accent on ink, lifted for contrast */
+  --signal-stage:#e9c46a;  /* the accent on pine — vermillion will not hold against the stage */
+  --signal-deep:#c9431f;   /* press and hover on paper */
+  --signal-tint:#f6dccf;   /* accent fill behind a highlighted value */
+
+  /* hairlines */
+  --line:rgba(17,17,15,0.42);
+  --soft-line:rgba(17,17,15,0.2);
+  --stage-line:rgba(242,236,224,0.24);
+  --dark-line:rgba(248,243,232,0.22);
+
+  /* semantic — text */
+  --text-primary:var(--ink);
+  --text-secondary:var(--muted-ink);
+  --text-accent:var(--signal);
+  --text-on-stage:var(--stage-ink);
+  --text-on-stage-muted:var(--stage-muted);
+  --text-on-ink:var(--paper-bright);
+  --text-on-ink-muted:var(--paper-dim);
+
+  /* semantic — surface */
+  --surface-desk:var(--desk);
+  --surface-frame:var(--paper);
+  --surface-raised:var(--paper-bright);
+  --surface-recessed:var(--paper-shade);
+  --surface-stage:var(--stage);
+  --surface-inverse:var(--ink);
+  --surface-mat:var(--mat);
+
+  /* semantic — border + state */
+  --border-hard:var(--ink);
+  --border-soft:var(--soft-line);
+  --border-on-stage:var(--stage-line);
+  --border-on-ink:var(--dark-line);
+  --state-hover-paper:rgba(248,243,232,0.72);
+  --focus-ring:var(--signal);
+  --selection-bg:var(--signal);
+  --selection-fg:var(--paper-bright);
+
+  /* stage gradients */
+  --stage-field:radial-gradient(circle at 82% 10%,rgba(26,94,82,0.62),transparent 30rem),linear-gradient(145deg,var(--stage),var(--stage-deep));
+  --stage-field-section:radial-gradient(circle at 82% 8%,rgba(26,94,82,0.55),transparent 27rem),var(--stage);
+}

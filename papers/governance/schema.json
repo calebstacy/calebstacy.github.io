@@ -1,0 +1,475 @@
+{
+  "generated": "2026-07-25",
+  "schema_id": "voice-governance-extension-model",
+  "schema_version": "1",
+  "framing": "These records are not a proposal for Netflix's or Discord's governance -- neither company asked for this schema, and nothing here says either one should change anything. They are the extension-model mechanism, instantiated on real measured numbers from a public, adequately powered run, because a schema shown on invented numbers is a mockup, not a system. `owner` and `severity` carry the role a real system would assign the record, not a claim about who actually owns either company's voice today.",
+  "power_rule": "A cell only backs a record in this file if its own minimum detectable effect (mde_d) is at or below Cohen's d = 0.5 -- the run's own bar (fingerprint-v2/stats.md) for 'this sample size could reliably find a medium effect.' The raw statistics table's 'separates' label is checked before 'underpowered' in that run's own classification order, so a handful of rows carry a 'separates' verdict on too small a sample to trust: netflix.tudum.procedural (n=3 vs n=26, mde_d=1.708, two dimensions), netflix/discord heading cells for the help-centre register (mde_d=0.544-0.545 across all twelve dimensions, n=38 vs 87-88), and the marketing/marketing lexical_sophistication cell (mde_d=0.894, n=13 vs 40). None of the three back a record here.",
+  "engine": {
+    "name": "voice_runtime",
+    "location": "not published in this repo (see ProvenanceNote)",
+    "dimensions": [
+      "involvement",
+      "information_density",
+      "readability",
+      "emotional_tone",
+      "lexical_sophistication",
+      "lexical_diversity",
+      "concreteness",
+      "syntactic_complexity",
+      "directness",
+      "cadence",
+      "epistemic_stance",
+      "specificity"
+    ],
+    "spacy_model": "en_core_web_trf",
+    "model_change_from_v1": "v1 used en_core_web_sm (the engine README's fallback). This run uses en_core_web_trf (the README's documented default), installed with torch. trf is markedly stronger at the dependency parsing and NER that syntactic_complexity, involvement, and specificity read from.",
+    "python": "3.12.10, C:/Users/caleb/Desktop/Verso/.venv",
+    "suppression_floors": {
+      "involvement": "15 words",
+      "directness": "15 words",
+      "cadence": "15 words and 3 sentences",
+      "lexical_diversity": "20 words",
+      "specificity": "20 words",
+      "emotional_tone": "25 words",
+      "epistemic_stance": "25 words"
+    },
+    "known_limits": [
+      "emotional_tone runs on an in-house valence lexicon, not the Warriner (2013) VAD norms -- flagged 'partial' by the engine's own README.",
+      "concreteness is a morphological suffix proxy (counts abstract-suffix nouns), not the Brysbaert (2014) 40k-word concreteness norms -- flagged 'proxy'.",
+      "calibration ranges (raw-to-0-10 scaling per dimension) are tuned to a small hand-picked corpus the engine's author used during development, not to either brand's language -- scores are comparative within this run, not an absolute external scale.",
+      "text under ~50 words has several dimensions suppressed by design; short string types (heading, procedural, ui_string) are batched specifically to clear those floors -- see method.md. A suppressed dimension is never averaged in as a low score."
+    ]
+  },
+  "source": {
+    "measurement_run": "fingerprint-v2",
+    "results_file": "fingerprint-v2/results.json (companion measurement run; not duplicated verbatim here -- every evidence block below cites the specific row it was read from)",
+    "statistics_method": "Welch's t-test (unequal variance) on the two groups' per-item dimension scores, Cohen's d with the pooled SD, Benjamini-Hochberg FDR correction across the full family of comparable tests, minimum detectable effect (Cohen's d, normal approximation, alpha=0.05 two-sided, power=0.80) per cell from its achieved n."
+  },
+  "record_shape": {
+    "id": "string -- '<kind>.<string_type>.<dimension>[.<register>].v<n>'",
+    "version": "integer, bumped when the assertion or scope changes -- not on a status change alone",
+    "kind": "'floor' | 'extension'",
+    "string_type": "one of the run's four classified string types: heading | procedural | body_prose | ui_string",
+    "dimension": "one of the engine's twelve measured dimensions",
+    "register": "null for an unscoped floor, or the register/surface an extension is scoped to",
+    "owner": "role, never a name -- 'voice systems owner' for a floor, 'surface voice lead' for an extension",
+    "severity": "'blocker' | 'advisory' | 'informational' -- every record in this file is 'advisory' because every one is a banded, continuous reading; 'blocker' is reserved for deterministic, rule-shaped records (terminology, banned claims) that this measurement run does not produce -- see the licence-audit page section for why a checkable rule and a measured band are different instruments",
+    "status": "'proposed' | 'adopted' | 'deprecated'",
+    "assertion": "one sentence, what the record claims",
+    "evidence": "the exact statistics row the assertion was instantiated from -- cell, means, n, Cohen's d, BH-adjusted p, MDE, verdict",
+    "precedence": "{ supersedes, superseded_by, overrides_within_scope } -- version and scope lineage",
+    "created": "date proposed",
+    "deprecated_on": "date deprecated, when applicable",
+    "machine_route": "the automated check this record resolves to -- a band-check against the evidence cell's tolerance, executed the same way EvidenceTrace/trace.json below executes one for real"
+  },
+  "lifecycle": {
+    "proposed": "A candidate record is drafted from one specific, adequately powered cell (mde_d <= 0.5). It cites its evidence inline so a reviewer does not have to trust it on prose alone. Not yet authoritative.",
+    "adopted": "The owning role reviews the assertion and its scope and accepts it. Status flips; the id and version do not change on adoption alone.",
+    "versioned": "New evidence can change what a record can honestly claim -- most often, a register gets measured that the record's current scope did not anticipate. When that happens the assertion or scope changes, the version increments, and the record is republished under the same id-prefix at a new .v<n>.",
+    "deprecated": "The record is never deleted. Its status flips to deprecated, superseded_by names the record that replaces it, and anything that cited the old id by version resolves forward through that pointer rather than 404ing.",
+    "precedence_rule": "Within an intersection of scopes, the more specific active record wins. An extension whose register is a strict subset of an active floor's reach is authoritative for that register; the floor continues to apply everywhere the extension does not reach. A deprecated record never wins a precedence check, regardless of scope.",
+    "consumption_by_agents": "A writing agent drafting a string for a given surface queries the index for the floor covering that (string_type, dimension) plus any adopted extension whose register covers the surface. It applies the more specific one, measures its own draft against the returned evidence cell's band, and revises until the reading lands inside it -- the exact loop the self-lint trace on this page runs, once, on a real string."
+  },
+  "records": [
+    {
+      "id": "floor.body_prose.readability.v1",
+      "version": 1,
+      "kind": "floor",
+      "status": "adopted",
+      "string_type": "body_prose",
+      "dimension": "readability",
+      "register": null,
+      "owner": "voice systems owner",
+      "severity": "advisory",
+      "assertion": "Readability of body prose carries no reliable brand-level requirement by default. The measured baseline (mean 7.4 on a 0-10 scale, band mean +/- 1 stdev) applies to any register unless a scoped extension is active for it.",
+      "evidence": {
+        "measurement_run": "fingerprint-v2",
+        "cell": "netflix.help.body_prose vs discord.support.body_prose",
+        "register": "help-centre",
+        "dimension": "readability",
+        "netflix_mean": 7.425,
+        "netflix_n": 400,
+        "discord_mean": 7.176,
+        "discord_n": 400,
+        "cohens_d": 0.131,
+        "p_adj_bh": 0.1999,
+        "mde_d": 0.198,
+        "verdict": "no_meaningful_difference",
+        "power_check": "mde_d <= 0.5"
+      },
+      "corroborating_registers": [
+        {
+          "register": "editorial",
+          "cohens_d": 0.238,
+          "p_adj_bh": 0.0041,
+          "mde_d": 0.198,
+          "verdict": "no_meaningful_difference"
+        },
+        {
+          "register": "culture-company",
+          "cohens_d": -0.27,
+          "p_adj_bh": 0.0746,
+          "mde_d": 0.326,
+          "verdict": "no_meaningful_difference"
+        }
+      ],
+      "precedence": {
+        "supersedes": null,
+        "superseded_by": null
+      },
+      "created": "2026-07-25",
+      "machine_route": "band-check: score a draft's readability against [mean-1stdev, mean+1stdev] from the record's evidence cell; flag if outside."
+    },
+    {
+      "id": "floor.body_prose.involvement.v1",
+      "version": 1,
+      "kind": "floor",
+      "status": "adopted",
+      "string_type": "body_prose",
+      "dimension": "involvement",
+      "register": null,
+      "owner": "voice systems owner",
+      "severity": "advisory",
+      "assertion": "Reader-involvement markers (first/second-person pronouns, questions, noun density) in body prose carry no reliable brand-level requirement by default.",
+      "evidence": {
+        "measurement_run": "fingerprint-v2",
+        "cell": "netflix.help.body_prose vs discord.support.body_prose",
+        "register": "help-centre",
+        "dimension": "involvement",
+        "netflix_mean": 3.55,
+        "netflix_n": 326,
+        "discord_mean": 3.509,
+        "discord_n": 344,
+        "cohens_d": 0.02,
+        "p_adj_bh": 0.8893,
+        "mde_d": 0.217,
+        "verdict": "no_meaningful_difference",
+        "power_check": "mde_d <= 0.5"
+      },
+      "corroborating_registers": [
+        {
+          "register": "editorial",
+          "cohens_d": -0.2,
+          "p_adj_bh": 0.0225,
+          "mde_d": 0.201,
+          "verdict": "no_meaningful_difference"
+        },
+        {
+          "register": "culture-company",
+          "cohens_d": 0.059,
+          "p_adj_bh": 0.8249,
+          "mde_d": 0.338,
+          "verdict": "no_meaningful_difference"
+        }
+      ],
+      "precedence": {
+        "supersedes": null,
+        "superseded_by": null
+      },
+      "created": "2026-07-25",
+      "machine_route": "band-check: score a draft's involvement against the evidence cell's band; flag if outside."
+    },
+    {
+      "id": "floor.body_prose.epistemic_stance.v1",
+      "version": 1,
+      "kind": "floor",
+      "status": "adopted",
+      "string_type": "body_prose",
+      "dimension": "epistemic_stance",
+      "register": null,
+      "owner": "voice systems owner",
+      "severity": "advisory",
+      "assertion": "Hedge/booster density (epistemic stance) in body prose carries no reliable brand-level requirement by default -- the flattest null in this run: Cohen's d = -0.001 in the editorial register.",
+      "evidence": {
+        "measurement_run": "fingerprint-v2",
+        "cell": "netflix.tudum.body_prose vs discord.blog.body_prose",
+        "register": "editorial",
+        "dimension": "epistemic_stance",
+        "netflix_mean": 4.636,
+        "netflix_n": 352,
+        "discord_mean": 4.638,
+        "discord_n": 341,
+        "cohens_d": -0.001,
+        "p_adj_bh": 0.9915,
+        "mde_d": 0.213,
+        "verdict": "no_meaningful_difference",
+        "power_check": "mde_d <= 0.5"
+      },
+      "corroborating_registers": [
+        {
+          "register": "help-centre",
+          "cohens_d": -0.112,
+          "p_adj_bh": 0.548,
+          "mde_d": 0.294,
+          "verdict": "no_meaningful_difference"
+        },
+        {
+          "register": "culture-company",
+          "cohens_d": -0.039,
+          "p_adj_bh": 0.8761,
+          "mde_d": 0.38,
+          "verdict": "no_meaningful_difference"
+        }
+      ],
+      "precedence": {
+        "supersedes": null,
+        "superseded_by": null
+      },
+      "created": "2026-07-25",
+      "machine_route": "band-check: score a draft's epistemic_stance against the evidence cell's band; flag if outside."
+    },
+    {
+      "id": "floor.body_prose.emotional_tone.v1",
+      "version": 1,
+      "kind": "floor",
+      "status": "adopted",
+      "string_type": "body_prose",
+      "dimension": "emotional_tone",
+      "register": null,
+      "owner": "voice systems owner",
+      "severity": "advisory",
+      "assertion": "Affect-word density in body prose carries no reliable brand-level requirement by default. Known limit: this dimension runs on an in-house valence lexicon, not the Warriner VAD norms -- see engine.known_limits.",
+      "evidence": {
+        "measurement_run": "fingerprint-v2",
+        "cell": "netflix.help.body_prose vs discord.support.body_prose",
+        "register": "help-centre",
+        "dimension": "emotional_tone",
+        "netflix_mean": 0.381,
+        "netflix_n": 162,
+        "discord_mean": 0.272,
+        "discord_n": 207,
+        "cohens_d": 0.103,
+        "p_adj_bh": 0.5945,
+        "mde_d": 0.294,
+        "verdict": "no_meaningful_difference",
+        "power_check": "mde_d <= 0.5"
+      },
+      "corroborating_registers": [
+        {
+          "register": "editorial",
+          "cohens_d": 0.059,
+          "p_adj_bh": 0.6791,
+          "mde_d": 0.213,
+          "verdict": "no_meaningful_difference"
+        },
+        {
+          "register": "culture-company",
+          "cohens_d": 0.378,
+          "p_adj_bh": 0.0095,
+          "mde_d": 0.38,
+          "verdict": "no_meaningful_difference"
+        }
+      ],
+      "precedence": {
+        "supersedes": null,
+        "superseded_by": null
+      },
+      "created": "2026-07-25",
+      "machine_route": "band-check: score a draft's emotional_tone against the evidence cell's band; flag if outside."
+    },
+    {
+      "id": "floor.body_prose.directness.v1",
+      "version": 1,
+      "kind": "floor",
+      "status": "deprecated",
+      "string_type": "body_prose",
+      "dimension": "directness",
+      "register": null,
+      "owner": "voice systems owner",
+      "severity": "advisory",
+      "assertion": "Directness of body prose carries no required brand-level delta. Proposed and adopted from the help-centre register alone, before the editorial and culture-company registers had been measured.",
+      "evidence": {
+        "measurement_run": "fingerprint-v2",
+        "cell": "netflix.help.body_prose vs discord.support.body_prose",
+        "register": "help-centre",
+        "dimension": "directness",
+        "netflix_mean": 7.041,
+        "netflix_n": 326,
+        "discord_mean": 6.815,
+        "discord_n": 344,
+        "cohens_d": 0.107,
+        "p_adj_bh": 0.3979,
+        "mde_d": 0.217,
+        "verdict": "no_meaningful_difference",
+        "power_check": "mde_d <= 0.5"
+      },
+      "precedence": {
+        "supersedes": null,
+        "superseded_by": "floor.body_prose.directness.v2"
+      },
+      "created": "2026-07-24",
+      "deprecated_on": "2026-07-25",
+      "deprecation_reason": "Two register-scoped extensions were adopted the following day on adequately powered evidence that directly contradicts this record's unscoped claim (see extension.body_prose.directness.editorial.v1 and .culture-company.v1). The claim was not false where it was measured; it was never true everywhere it said it was.",
+      "machine_route": "band-check: score a draft's directness against the evidence cell's band; flag if outside."
+    },
+    {
+      "id": "floor.body_prose.directness.v2",
+      "version": 2,
+      "kind": "floor",
+      "status": "adopted",
+      "string_type": "body_prose",
+      "dimension": "directness",
+      "register": "any register without an active extension for this dimension",
+      "owner": "voice systems owner",
+      "severity": "advisory",
+      "assertion": "Directness of body prose carries no required brand-level delta, scoped to registers that have not earned their own extension. In this run that is the help-centre register only; editorial and culture-company are governed by their own extensions below.",
+      "evidence": {
+        "measurement_run": "fingerprint-v2",
+        "cell": "netflix.help.body_prose vs discord.support.body_prose",
+        "register": "help-centre",
+        "dimension": "directness",
+        "netflix_mean": 7.041,
+        "netflix_n": 326,
+        "discord_mean": 6.815,
+        "discord_n": 344,
+        "cohens_d": 0.107,
+        "p_adj_bh": 0.3979,
+        "mde_d": 0.217,
+        "verdict": "no_meaningful_difference",
+        "power_check": "mde_d <= 0.5"
+      },
+      "precedence": {
+        "supersedes": "floor.body_prose.directness.v1",
+        "superseded_by": null
+      },
+      "created": "2026-07-25",
+      "machine_route": "band-check: score a draft's directness against the evidence cell's band, only when no more specific extension record's scope covers the surface being checked."
+    },
+    {
+      "id": "extension.body_prose.directness.editorial.v1",
+      "version": 1,
+      "kind": "extension",
+      "status": "adopted",
+      "string_type": "body_prose",
+      "dimension": "directness",
+      "register": "editorial",
+      "owner": "surface voice lead",
+      "severity": "advisory",
+      "assertion": "The editorial register's body prose measurably differs from the help-centre baseline on directness (Cohen's d = -0.578, BH-adjusted p < .0001, n = 393/385). A draft for this register is checked against this register's own band, not the shared floor.",
+      "evidence": {
+        "measurement_run": "fingerprint-v2",
+        "cell": "netflix.tudum.body_prose vs discord.blog.body_prose",
+        "register": "editorial",
+        "dimension": "directness",
+        "netflix_mean": 5.333,
+        "netflix_n": 393,
+        "discord_mean": 6.102,
+        "discord_n": 385,
+        "cohens_d": -0.578,
+        "p_adj_bh": 0.0,
+        "mde_d": 0.201,
+        "verdict": "separates",
+        "power_check": "mde_d <= 0.5"
+      },
+      "precedence": {
+        "supersedes": null,
+        "superseded_by": null,
+        "overrides_within_scope": "floor.body_prose.directness.v2"
+      },
+      "created": "2026-07-25",
+      "machine_route": "band-check: score a draft's directness against this record's own evidence cell's band; takes precedence over floor.body_prose.directness.v2 for any surface in the editorial register."
+    },
+    {
+      "id": "extension.body_prose.directness.culture-company.v1",
+      "version": 1,
+      "kind": "extension",
+      "status": "adopted",
+      "string_type": "body_prose",
+      "dimension": "directness",
+      "register": "culture-company",
+      "owner": "surface voice lead",
+      "severity": "advisory",
+      "assertion": "The culture-company register's body prose measurably differs from the help-centre baseline on directness (Cohen's d = -0.860, BH-adjusted p < .0001, n = 182/110) -- the largest gap of the three tested registers on this dimension.",
+      "evidence": {
+        "measurement_run": "fingerprint-v2",
+        "cell": "netflix.culture.body_prose vs discord.company.body_prose",
+        "register": "culture-company",
+        "dimension": "directness",
+        "netflix_mean": 5.381,
+        "netflix_n": 182,
+        "discord_mean": 6.705,
+        "discord_n": 110,
+        "cohens_d": -0.86,
+        "p_adj_bh": 0.0,
+        "mde_d": 0.338,
+        "verdict": "separates",
+        "power_check": "mde_d <= 0.5"
+      },
+      "precedence": {
+        "supersedes": null,
+        "superseded_by": null,
+        "overrides_within_scope": "floor.body_prose.directness.v2"
+      },
+      "created": "2026-07-25",
+      "machine_route": "band-check: score a draft's directness against this record's own evidence cell's band; takes precedence over floor.body_prose.directness.v2 for any surface in the culture-company register."
+    },
+    {
+      "id": "extension.body_prose.lexical_sophistication.help-centre.v1",
+      "version": 1,
+      "kind": "extension",
+      "status": "proposed",
+      "string_type": "body_prose",
+      "dimension": "lexical_sophistication",
+      "register": "help-centre",
+      "owner": "surface voice lead",
+      "severity": "advisory",
+      "assertion": "The help-centre register's body prose measures a lower lexical sophistication than the shared baseline the editorial register holds for the same dimension (Cohen's d = -0.581, BH-adjusted p < .0001, n = 400/400). Evidence clears the power bar; not yet reviewed by the owning role.",
+      "evidence": {
+        "measurement_run": "fingerprint-v2",
+        "cell": "netflix.help.body_prose vs discord.support.body_prose",
+        "register": "help-centre",
+        "dimension": "lexical_sophistication",
+        "netflix_mean": 5.065,
+        "netflix_n": 400,
+        "discord_mean": 5.847,
+        "discord_n": 400,
+        "cohens_d": -0.581,
+        "p_adj_bh": 0.0,
+        "mde_d": 0.198,
+        "verdict": "separates",
+        "power_check": "mde_d <= 0.5"
+      },
+      "precedence": {
+        "supersedes": null,
+        "superseded_by": null
+      },
+      "created": "2026-07-25",
+      "machine_route": "band-check, pending adoption: not yet authoritative over floor.body_prose.lexical_sophistication for the help-centre register.",
+      "note": "The corresponding floor for this dimension has only been measured as a null in the editorial register (tudum vs blog, Cohen's d = 0.264, does not clear |d| >= 0.5) -- its own scope is provisional in the same way floor.body_prose.directness.v1 was, and this extension is queued rather than auto-adopted specifically to avoid repeating that sequencing mistake."
+    },
+    {
+      "id": "extension.heading.directness.editorial.v1",
+      "version": 1,
+      "kind": "extension",
+      "status": "adopted",
+      "string_type": "heading",
+      "dimension": "directness",
+      "register": "editorial",
+      "owner": "surface voice lead",
+      "severity": "advisory",
+      "assertion": "The editorial register's headings measurably differ on directness (Cohen's d = -1.259, BH-adjusted p < .0001, n = 165/81) -- the largest heading-type effect in this run. No floor record exists for heading.directness: only this register pair ever reached this run's own power bar for headings; help-centre headings (n=38 vs 88) sit at mde_d=0.544, just above it.",
+      "evidence": {
+        "measurement_run": "fingerprint-v2",
+        "cell": "netflix.tudum.heading vs discord.blog.heading",
+        "register": "editorial",
+        "dimension": "directness",
+        "netflix_mean": 6.003,
+        "netflix_n": 165,
+        "discord_mean": 8.132,
+        "discord_n": 81,
+        "cohens_d": -1.259,
+        "p_adj_bh": 0.0,
+        "mde_d": 0.38,
+        "verdict": "separates",
+        "power_check": "mde_d <= 0.5"
+      },
+      "precedence": {
+        "supersedes": null,
+        "superseded_by": null
+      },
+      "created": "2026-07-25",
+      "machine_route": "band-check: score a draft heading's directness against this record's evidence cell's band. No default applies outside this scope for heading.directness in this schema -- absence of a floor is disclosed, not silently assumed as 'no requirement'."
+    }
+  ],
+  "coverage_note": "This file instantiates 10 of the (string_type, dimension) pairs the underlying run could support a record for: fingerprint-v2's own statistics table has 15 pairs that are a pure floor on every adequately powered register pair, 5 that are partial (a floor in some registers, an extension in others, the shape the directness example demonstrates), and 4 that separate on every register pair that reached power (all four are heading-type and share the orphan-extension situation described above). The ten here were chosen to show every lifecycle stage and the conflict-and-precedence mechanism once each on real numbers, not to exhaust the dataset."
+}

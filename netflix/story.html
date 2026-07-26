@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<title>Netflix's four public voices</title>
+<meta name="description" content="I measured Netflix's public writing across four surfaces on twelve dimensions, and found four voices with no visible record of choosing them.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../assets/mark-favicon.svg">
+<link rel="stylesheet" href="../styles.css">
+<style>
+html,body{margin:0;background:var(--paper);color:var(--ink)}
+
+.essay{max-width:640px;margin:0 auto;padding:clamp(40px,9vw,88px) 22px clamp(72px,10vw,120px);animation:essayIn 560ms cubic-bezier(.2,.7,.2,1) both}
+@media (prefers-reduced-motion: reduce){.essay{animation:none}}
+@keyframes essayIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.kicker{display:block;margin:0 0 var(--space-6);font-family:var(--font-sans);font-size:13px;font-weight:600;letter-spacing:-0.01em;color:var(--muted-ink)}
+.kicker .sep{margin:0 8px;color:var(--paper-dim)}
+
+h1{margin:0 0 var(--space-8);font-family:var(--font-sans);font-weight:700;font-size:clamp(28px,4.6vw,42px);line-height:1.1;letter-spacing:-0.035em;color:var(--ink)}
+
+h2{margin:var(--space-11) 0 var(--space-5);font-family:var(--font-sans);font-weight:660;font-size:clamp(20px,2.6vw,25px);line-height:1.22;letter-spacing:-0.03em;color:var(--ink)}
+h2:first-of-type{margin-top:var(--space-9)}
+
+p{margin:0 0 1.15em;font-family:var(--font-sans);font-size:var(--prose-size);line-height:var(--prose-leading);letter-spacing:var(--prose-tracking);color:var(--ink)}
+p:last-child{margin-bottom:0}
+
+.doors{margin-top:var(--space-11);padding-top:var(--space-8);border-top:1px solid var(--soft-line)}
+.doors .lead{margin:0 0 var(--space-6);font-family:var(--font-sans);font-size:14px;line-height:1.5;color:var(--muted-ink)}
+.doors ul{list-style:none;margin:0;padding:0}
+.doors li{margin:0 0 var(--space-5);font-family:var(--font-sans);font-size:14px;line-height:1.5;color:var(--muted-ink)}
+.doors li:last-child{margin-bottom:0}
+.doors a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;font-weight:600}
+.doors a:hover{color:var(--signal)}
+.doors a:focus-visible{outline:3px solid var(--signal);outline-offset:4px}
+
+@media (max-width:460px){
+  .essay{padding-left:18px;padding-right:18px}
+}
+</style>
+</head><body>
+<article class="essay">
+
+<span class="kicker">An essay<span class="sep">·</span>Caleb Stacy<span class="sep">·</span>25 July 2026</span>
+
+<h1>Netflix speaks in four public voices. I went looking for the decision behind them.</h1>
+
+<p>I ran four of Netflix's public surfaces through a measurement engine I built: the help center, Tudum, the marketing pages, and the careers site. That's 534 pages scored on twelve dimensions of language instead of a gut read on tone. I wanted to know whether a sentence written to get someone unstuck sounds like a sentence written to get someone to press play, and whether anyone decided it should.</p>
+
+<h2>The same thing named two different ways</h2>
+
+<p>Netflix doesn't have one name for the thing it sells you an evening of. Help and marketing pair “TV show” with “movie”: “If you watch a TV show or movie that was produced in another region, you may not be able to turn off subtitles.” Tudum and the culture site reach for “series” and “film” instead: members can “find must-watch series and films at a lower price.” More than eleven hundred occurrences, splitting almost cleanly by surface. Both pairs name the same thing, and no record connects them.</p>
+
+<p>“My List” is the counter-example. Tudum alone uses it more than a thousand times, always the same two capitalized words, and it slips into a generic “watchlist” just five times in the whole corpus. That is what a governed term looks like. Nobody has to remind Tudum's writers what the save button is called. Somebody decided that, and it stuck.</p>
+
+<h2>The voice underneath splits the same way</h2>
+
+<p>The engine also measures the sentences carrying the words, against a shared floor built from whichever surfaces have enough text to set one. Tudum's prose is the voice that steps outside it: measurably less direct than the other three combined, and more specific, with named people and things where everyone else defaults to generic nouns. Marketing never separates from the floor at all; its sample is honestly too small to say either way. Headlines and buttons are too short to score, and the engine says so rather than guessing.</p>
+
+<h2>Nothing says whether any of it was decided</h2>
+
+<p>None of this means a surface is wrong. A help article and a recap have different jobs, and some of this deviation is probably exactly right. But nothing public says which differences Netflix chose. Whether “series” against “TV show” is a deliberate register line between editorial and support, or a word choice nobody ever reconciled, reads identically from outside. The variation is real and measured. The decision, if there was one, is unrecorded.</p>
+
+<p>A record that answered it would be small: one claim, for one kind of writing on one surface, stating the level the voice is meant to sit at; the measurement behind that claim; a status of proposed, adopted, or retired; and a rule for which record wins where two overlap. Nothing exotic. It has just never been pointed at Netflix's own public writing before.</p>
+
+<h2>What a record is for</h2>
+
+<p>A record like that isn't documentation. It's executable. I've run the loop for real: a first draft, measured against a target band, missed on five of twelve dimensions. The revision landed inside on all twelve. No human judgment happened in between, and none was needed until the draft already sounded right. That is what a measured floor buys: the next draft, whether a writer's or an agent's, gets checked against what the voice is supposed to be before anyone spends attention on it.</p>
+
+<p>The engine is public. It's called Word Math, it's on GitHub, and its methods are published research. At Meta I ran this same discipline inside an agent I built called Verso, across product surfaces including Facebook, Messenger, and WhatsApp. The limits here matter too: four public surfaces, nothing behind a login, subtitles deliberately out of scope as licensed creative work, and where the sample was too thin to trust, the numbers above say so instead of pretending.</p>
+
+<div class="doors">
+<p class="lead">The rest of this is one click away, not folded into the essay.</p>
+<ul>
+<li><a href="full.html">The full index</a>: every surface, every dimension, every quote, unrounded.</li>
+<li><a href="../papers/index.html">The papers</a>: the governance record as a real schema, and the measurement study underneath it.</li>
+<li><a href="../index.html#verso">The Verso case</a>: the same discipline, built first, inside Meta.</li>
+<li><a href="https://github.com/calebstacy/word-math">github.com/calebstacy/word-math</a>: the engine itself.</li>
+</ul>
+</div>
+
+</article>
+</body></html>

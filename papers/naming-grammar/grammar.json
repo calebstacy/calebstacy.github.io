@@ -1,0 +1,1322 @@
+{
+  "title": "A naming grammar for Netflix Tudum headlines, with Discord's blog as a control",
+  "corpus_counts": {
+    "tudum": {
+      "pages": 240,
+      "excluded": 0,
+      "analyzed": 240
+    },
+    "discord_blog": {
+      "pages": 200,
+      "excluded": 3,
+      "analyzed": 197
+    }
+  },
+  "coverage": {
+    "tudum": {
+      "total": 240,
+      "classified": 165,
+      "pct": 68.8,
+      "residue": 75,
+      "residue_pct": 31.2
+    },
+    "discord_blog": {
+      "total": 197,
+      "classified": 145,
+      "pct": 73.6,
+      "residue": 52,
+      "residue_pct": 26.4
+    }
+  },
+  "slots": [
+    {
+      "id": "TITLE",
+      "kind": "open",
+      "name": "Title",
+      "description": "The franchise, film, or documentary's proper name. Sometimes stylized in small caps for effect (A HOUSE OF DYNAMITE), sometimes single-quoted ('Adolescence', 'Steve'), most often bare Title Case.",
+      "example_fills": [
+        "Adolescence",
+        "The Rip",
+        "Enola Holmes 3",
+        "A HOUSE OF DYNAMITE",
+        "'Steve'"
+      ]
+    },
+    {
+      "id": "SEASON_EP",
+      "kind": "structural",
+      "name": "Season / episode marker",
+      "description": "\"Season N\" or \"Episode N\", appended directly to TITLE. Optional; present on returning-series pages, absent on films, documentaries, and season-1 pages.",
+      "example_fills": [
+        "Season 2",
+        "Season 4",
+        "Episode 3",
+        "Episode 4"
+      ]
+    },
+    {
+      "id": "CONTENT_TYPE_TAG",
+      "kind": "closed",
+      "name": "Companion-content tag",
+      "description": "A fixed noun naming what KIND of companion page this is. Always sits immediately after TITLE (+ optional SEASON_EP) and immediately before a colon -- it is the hinge the whole headline turns on.",
+      "example_fills": [
+        "Cast",
+        "Cast Guide",
+        "Cast and Characters",
+        "Trailer",
+        "Teaser Trailer",
+        "Ending Explained",
+        "Ending, Explained",
+        "Recap"
+      ]
+    },
+    {
+      "id": "COUNT",
+      "kind": "open",
+      "name": "Count",
+      "description": "A cardinal number, numeral or spelled out, observed from 3 to 41 in this corpus. Headline-initial in the dominant ordering; medial after a fronted CTA_VERB in the minority ordering (see count_listicle below).",
+      "example_fills": [
+        "28",
+        "8",
+        "13",
+        "41",
+        "11",
+        "9",
+        "7",
+        "23",
+        "15",
+        "12"
+      ]
+    },
+    {
+      "id": "SUPERLATIVE",
+      "kind": "open",
+      "name": "Superlative / attribute adjective",
+      "description": "Evaluative adjective modifying UNIT. Optional even inside count_listicle -- roughly half the listicle headlines skip it and go straight from COUNT to UNIT.",
+      "example_fills": [
+        "Gripping",
+        "Essential",
+        "Twisted",
+        "Adventurous",
+        "Scariest",
+        "Most-Watched",
+        "Revelatory",
+        "Neo-Western"
+      ]
+    },
+    {
+      "id": "UNIT",
+      "kind": "closed",
+      "name": "Content-type unit noun",
+      "description": "The plural noun a COUNT counts. A small, closed, reused set.",
+      "example_fills": [
+        "Movies",
+        "Shows",
+        "Series",
+        "Documentaries",
+        "Comedies",
+        "Titles",
+        "Adaptations",
+        "Episodes",
+        "Moments",
+        "Things"
+      ]
+    },
+    {
+      "id": "CONNECTOR_VP",
+      "kind": "open",
+      "name": "Connector verb phrase",
+      "description": "Infinitive or relative clause linking UNIT to a payoff for the reader.",
+      "example_fills": [
+        "to Stream",
+        "to Watch",
+        "You Can Watch in a Weekend",
+        "for the Aspiring Cowboy",
+        "to Take You on an Epic Journey",
+        "That Will Transport You Back to High School"
+      ]
+    },
+    {
+      "id": "TEMPORAL_URGENCY",
+      "kind": "semi-closed",
+      "name": "Temporal urgency tag",
+      "description": "Optional closer that manufactures a reason to click now.",
+      "example_fills": [
+        "Right Now",
+        "This Fall",
+        "of Your Next Stream",
+        "Whenever You Need a Laugh",
+        "Before Your Next Flight"
+      ]
+    },
+    {
+      "id": "COLON_CLAUSE",
+      "kind": "open",
+      "name": "Colon clause",
+      "description": "Free clause after a colon that elaborates, promises, or asks. The one slot that carries no closed fill set anywhere in the corpus -- it is where the grammar hands control back to a human writer.",
+      "example_fills": [
+        "Inside the Fiery Finale",
+        "Who's Who in the Twisty Thriller?",
+        "Get to Know the Family, Their Foes, and More"
+      ]
+    },
+    {
+      "id": "QUESTION_FRAME",
+      "kind": "structural",
+      "name": "Question frame",
+      "description": "Casts a clause (or the whole headline) as a WH- or yes/no question. Can BE the headline (question family) or fill just the COLON_CLAUSE half of another family (cast_guide, ending_explained).",
+      "example_fills": [
+        "Where Is X Filmed?",
+        "Does X Return in Season 2?",
+        "Which Couples Are Still Together...?",
+        "Who's Who in...?"
+      ]
+    },
+    {
+      "id": "TRUE_STORY_MARKER",
+      "kind": "closed",
+      "name": "True-story marker",
+      "description": "A small closed set of frames for fact-checking a documentary or based-on-a-true-story claim -- exists only because Tudum publishes documentaries.",
+      "example_fills": [
+        "Is [Title] a True Story?",
+        "Is [Title] Based on a True Story?",
+        "The True Story of [Title]...",
+        "[Title] Is Based on a True Story of..."
+      ]
+    },
+    {
+      "id": "CTA_VERB",
+      "kind": "closed",
+      "name": "Imperative CTA verb",
+      "description": "The imperative verb opening a headline. A closed, reused inventory -- most fills recur across many headlines rather than being coined fresh each time.",
+      "example_fills": [
+        "Watch",
+        "Meet",
+        "Check Out",
+        "Go Inside",
+        "Enter",
+        "Dive Deep",
+        "Behold",
+        "Celebrate",
+        "Travel Back",
+        "Buckle Up",
+        "Listen Closely",
+        "Go Undercover",
+        "Download",
+        "Prepare to",
+        "Don't Miss",
+        "Pick Up"
+      ]
+    },
+    {
+      "id": "GENRE_PUN_VERB",
+      "kind": "open, content-aware",
+      "name": "Genre-pun verb",
+      "description": "A verb or verb phrase chosen because its literal sense puns on the specific title's own premise. Not a lookup from a fill list -- every instance is coined fresh from that one title's logline. See \"the single most interesting rule\" below.",
+      "example_fills": [
+        "Cracks the Case (Enola Holmes)",
+        "Confiscates the No. 1 Spot (The Rip)",
+        "Chases Down No. 1 (I Will Find You)",
+        "Journeys to No. 1 (Little House on the Prairie)",
+        "Enamors Viewers (Office Romance)"
+      ]
+    },
+    {
+      "id": "RANK_STATUS",
+      "kind": "closed",
+      "name": "Weekly-rank status",
+      "description": "Fixed collocation closing a top10_ranking headline. Exactly two forms observed.",
+      "example_fills": [
+        "No. 1 in This Week's Top 10",
+        "at No. 1 for a Second Week"
+      ]
+    },
+    {
+      "id": "PLATFORM_CTA",
+      "kind": "semi-closed",
+      "name": "Platform streaming-status tag",
+      "description": "Announces availability.",
+      "example_fills": [
+        "Is Now Streaming",
+        "Is Streaming",
+        "New on Netflix in [Month Year]"
+      ]
+    },
+    {
+      "id": "AWARD_EVENT",
+      "kind": "closed",
+      "name": "Award event name",
+      "description": "Proper noun of an awards ceremony.",
+      "example_fills": [
+        "the BAFTAs",
+        "the Emmys",
+        "the Oscars",
+        "the Grammys",
+        "SAG-AFTRA / the Actor Awards",
+        "a Fellowship gala"
+      ]
+    },
+    {
+      "id": "FROM_TO_PAIR",
+      "kind": "structural",
+      "name": "From/to franchise pair",
+      "description": "Two TITLE slots joined by \"From ... to ...\", always closing on the fixed tag \"What to Watch on Netflix\". The most rigid creative-content family in the corpus -- only the two title fills vary, week to week.",
+      "example_fills": [
+        "From The Hawk to Shipwrecked: Nightmare at Sea",
+        "From 72 Hours to Hannibal",
+        "From Mexico 86 to Office Romance"
+      ]
+    }
+  ],
+  "families": {
+    "tudum": [
+      {
+        "id": "count_listicle",
+        "name": "Count listicle",
+        "count": 18,
+        "pct": 7.5,
+        "template": [
+          {
+            "slot": "COUNT",
+            "optional": false
+          },
+          {
+            "slot": "SUPERLATIVE",
+            "optional": true
+          },
+          {
+            "slot": "UNIT",
+            "optional": false
+          },
+          {
+            "slot": "CONNECTOR_VP",
+            "optional": false
+          },
+          {
+            "slot": "TEMPORAL_URGENCY",
+            "optional": true
+          }
+        ],
+        "example_headlines": [
+          "28 Gripping True Crime Documentaries to Stream",
+          "6 Movies Starring Best Buds and The Rip Stars Ben Affleck and Matt Damon",
+          "The 22 Scariest Things to Watch Right Now",
+          "41 Comedies to Watch Whenever You Need a Laugh",
+          "12 Documentaries to Stream About Cults and Cult-Like Figures",
+          "11 Gripping Detective Shows to Solve the Mystery of Your Next Stream"
+        ],
+        "constraints": [
+          "COUNT is headline-initial in the dominant ordering (15 of 18) -- \"28 Gripping True Crime Documentaries to Stream\".",
+          "In the minority ordering (3 of 18) COUNT is fronted instead by a CTA_VERB + \"These\": \"Download These 12 Movies and Series Before Your Next Flight\" -- COUNT never appears mid-headline without either the sentence-initial position or a \"These\" pivot in front of it.",
+          "SUPERLATIVE is skipped in slightly under half of instances -- the frame tolerates a bare COUNT + UNIT (\"41 Comedies to Watch...\").",
+          "UNIT never co-occurs with CONTENT_TYPE_TAG -- no listicle headline in the corpus also carries a \"Cast:\" or \"Trailer:\" tag."
+        ],
+        "generated_novel": [
+          {
+            "text": "16 Underrated Neo-Noir Thrillers to Watch This Winter",
+            "verdict": "plausible",
+            "why": "Every slot fill is drawn from an attested class (COUNT in range, SUPERLATIVE adjective, UNIT noun, seasonal TEMPORAL_URGENCY) and the ordering matches the dominant pattern."
+          },
+          {
+            "text": "Amber Hollow and 9 Other Slow-Burn Mysteries for a Rainy Weekend",
+            "verdict": "plausible",
+            "why": "Opens with a TITLE ahead of the count, which the real corpus never does for this family -- but it reads fine because it borrows the ordering from count_listicle_inline (COUNT is still fronted by a pivot phrase, just \"and N Other\" instead of \"These N\"). Flagged as an extrapolation beyond the attested pivot set, not a violation of it."
+          },
+          {
+            "text": "Comedies",
+            "verdict": "wrong",
+            "why": "COUNT and CONNECTOR_VP are both obligatory in every attested instance; dropping them doesn't produce a degenerate but still-plausible headline, it produces a category label. The grammar has no optional path that reduces this far."
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "id": "colon_subtitle",
+        "name": "Title-clause apposition",
+        "count": 30,
+        "pct": 12.5,
+        "template": [
+          {
+            "slot": "TITLE",
+            "optional": false
+          },
+          {
+            "slot": "SEASON_EP",
+            "optional": true
+          },
+          {
+            "slot": "COLON",
+            "optional": false,
+            "fixed": ":"
+          },
+          {
+            "slot": "COLON_CLAUSE",
+            "optional": false
+          }
+        ],
+        "example_headlines": [
+          "13 Going on 30 : Emily Bader and Logan Lerman Star in the Rom-Com Reboot",
+          "A Toxic Love Story Documentary: Who Is Lilithistruth? Where Is Michelle Hadley Now? Angela and Ian Jail Update",
+          "Adolescence Episode 3: Inside the ‘Chess Match’ Between Jamie and Briony",
+          "Adolescence : Stephen Graham Explains the ‘Poetry’ of That Final Scene",
+          "How the Avatar: The Last Airbender Season 2 Finale Sets Up Season 3",
+          "From Coney Island to Water Street: Black Rabbit 's NYC Filming Tour"
+        ],
+        "constraints": [
+          "The most generic and most productive family -- COLON_CLAUSE is unconstrained free text, so this is the fallback pattern for any headline that wants to name a subject and then say something about it without picking a more specific CONTENT_TYPE_TAG.",
+          "Overlaps in SURFACE FORM with cast_guide / trailer / ending_explained / everything_to_know / true_story / from_x_to_y_watch, which is why it is checked last among the colon-bearing rules -- it only claims headlines none of the more specific tags claimed first."
+        ],
+        "generated_novel": [
+          {
+            "text": "The Undertow Season 2: A Heist Crew Splinters Under New Leadership",
+            "verdict": "plausible",
+            "why": "TITLE + SEASON_EP + free COLON_CLAUSE is exactly the attested shape."
+          },
+          {
+            "text": "Paper Wasps: What the Season 1 Finale Sets Up for Season 2",
+            "verdict": "plausible",
+            "why": ""
+          }
+        ],
+        "notes": "Because COLON_CLAUSE is an open slot, this family is a poor test of the grammar's precision on its own -- its coverage number mostly reflects how often Tudum uses a colon at all, not a specific creative choice."
+      },
+      {
+        "id": "imperative_opener",
+        "name": "Imperative CTA opener",
+        "count": 20,
+        "pct": 8.3,
+        "template": [
+          {
+            "slot": "CTA_VERB",
+            "optional": false
+          },
+          {
+            "slot": "TITLE",
+            "optional": false
+          },
+          {
+            "slot": "COLON_CLAUSE",
+            "optional": true
+          }
+        ],
+        "example_headlines": [
+          "Enter A HOUSE OF DYNAMITE, Kathryn Bigelow’s New Thriller",
+          "Watch Aria Mia Loberti and Nell Sutton’s ‘All the Light We Cannot See’ Auditions",
+          "Go Inside the Uplifting Ending of All the Light We Cannot See",
+          "Prepare to Be Swept Away By ‘All the Light We Cannot See’",
+          "Watch These Cillian Murphy Movies and Series — By Order of the Peaky Blinders",
+          "Say Ciao from Emily in Paris Season 4’s French and Italian Filming Locations"
+        ],
+        "constraints": [
+          "CTA_VERB is drawn from a closed, reused list (~16 attested forms); it is not coined fresh per headline the way GENRE_PUN_VERB is.",
+          "This slot's opener position is mutually exclusive with CONTENT_TYPE_TAG -- zero headlines in the corpus both open with a CTA_VERB and also carry a Cast:/Trailer:/Ending Explained: tag. A headline picks one organizing device, not both.",
+          "\"Meet\" is common enough (4 of 20) and specifically tied to introducing a cast that it is worth naming as its own sub-rule: Meet + [the] + TITLE (+ possessive) + Cast + COLON_CLAUSE, effectively an imperative-fronted variant of cast_guide."
+        ],
+        "generated_novel": [
+          {
+            "text": "Go Undercover with the Half Moon Bay Investigators",
+            "verdict": "plausible",
+            "why": ""
+          },
+          {
+            "text": "Meet the Redshift Cast Charting a Course Out of the Blackout",
+            "verdict": "plausible",
+            "why": ""
+          },
+          {
+            "text": "Enter the Cobalt County Sheriff's Department",
+            "verdict": "borderline",
+            "why": "Grammatically fine, but \"Enter\" is attested exactly once in the corpus (\"Enter A HOUSE OF DYNAMITE\"), paired with a stylized all-caps title for a specific prestige-thriller launch. Reusing it on an ordinary Title Case procedural show borrows a CTA_VERB fill without the register it was attested with -- a reminder that a closed fill list is not the same as a fill list with no register constraints."
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "id": "ending_explained",
+        "name": "Ending explained",
+        "count": 16,
+        "pct": 6.7,
+        "template": [
+          {
+            "slot": "TITLE",
+            "optional": false
+          },
+          {
+            "slot": "SEASON_EP",
+            "optional": true
+          },
+          {
+            "slot": "CONTENT_TYPE_TAG",
+            "optional": false,
+            "fixed": "Ending Explained / Ending, Explained / Recap"
+          },
+          {
+            "slot": "COLON",
+            "optional": false
+          },
+          {
+            "slot": "QUESTION_FRAME",
+            "optional": true
+          },
+          {
+            "slot": "COLON_CLAUSE",
+            "optional": true
+          }
+        ],
+        "example_headlines": [
+          "'Adolescence' Episode 4 Recap: Creators and Star Explain Ending and Why Jamie Killed Katie",
+          "Avatar: The Last Airbender Ending Explained: Inside the Fiery Finale",
+          "Enola Holmes 3 Ending Explained: What Happens to Enola and Tewkesbury?",
+          "I Will Find You Ending Explained: What Happened to Matthew?",
+          "Little House on the Prairie Ending Explained: What’s Next for the Ingalls Family",
+          "The Man on Fire Ending, Explained: Yahya Abdul-Mateen II Breaks It Down"
+        ],
+        "constraints": [
+          "COLON_CLAUSE after the tag is a question in the majority of instances (\"What Happens to Enola and Tewkesbury?\", \"Did Valeria Find Her Children?\") but not always (\"Inside the Fiery Finale\").",
+          "This family and true_story are the two places QUESTION_FRAME most often lives INSIDE another family's COLON_CLAUSE rather than governing the whole headline."
+        ],
+        "generated_novel": [
+          {
+            "text": "The Undertow Ending Explained: Did the Money Ever Actually Exist?",
+            "verdict": "plausible",
+            "why": ""
+          },
+          {
+            "text": "Amber Hollow Season 2 Ending, Explained: What Happens to the Sheriff?",
+            "verdict": "plausible",
+            "why": ""
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "id": "awards_coverage",
+        "name": "Awards coverage",
+        "count": 12,
+        "pct": 5.0,
+        "template": [
+          {
+            "slot": "TITLE",
+            "optional": false
+          },
+          {
+            "slot": "GENRE_PUN_VERB",
+            "optional": true
+          },
+          {
+            "slot": "AWARD_EVENT",
+            "optional": false
+          },
+          {
+            "slot": "COLON_CLAUSE",
+            "optional": true
+          }
+        ],
+        "example_headlines": [
+          "The 2026 Actor Awards Presented by SAG-AFTRA: See the Full List of Winners",
+          "Frankenstein Leads Netflix Films in 2026 BAFTA Nominations",
+          "KPop Demon Hunters and Frankenstein Shine at the 2026 BAFTA Film Awards",
+          "Inside the 2026 BAFTA TV Awards Celebration",
+          "From Adolescence to Nobody Wants This: A Toast to Netflix’s 2025 Emmy Nominees",
+          "Adolescence Grows Into an Emmy Winner, Nabbing 8 Trophies at the 2025 Emmy Awards"
+        ],
+        "constraints": [
+          "The verb here is often celebratory rather than genre-punning (\"Leads\", \"Shine\", \"Reunite\", \"Honors\") -- a softer, less content-aware cousin of the GENRE_PUN_VERB device seen in top10_ranking.",
+          "AWARD_EVENT is a genuinely closed set in this corpus: every instance names one of BAFTA, the Emmys, the Oscars, the Grammys, SAG-AFTRA/the Actor Awards, or a Fellowship gala -- no other award body appears."
+        ],
+        "generated_novel": [
+          {
+            "text": "Amber Hollow Leads the Field in 2027 Emmy Nominations",
+            "verdict": "plausible",
+            "why": ""
+          },
+          {
+            "text": "The Undertow Cast Reunites at the Golden Globes",
+            "verdict": "wrong",
+            "why": "The Golden Globes never appears in the attested AWARD_EVENT set. This is exactly the failure mode a closed-set slot is supposed to catch: the sentence is fluent English but reaches outside the fill set this specific brand's coverage actually uses (worth checking against a longer corpus before trusting the exclusion, but it is a real gap at this sample size)."
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "id": "question",
+        "name": "Rhetorical question",
+        "count": 12,
+        "pct": 5.0,
+        "template": [
+          {
+            "slot": "QUESTION_FRAME",
+            "optional": false,
+            "note": "governs the whole headline, WH- or yes/no"
+          }
+        ],
+        "example_headlines": [
+          "America’s Sweethearts Dallas Cowboys Cheerleaders: Why Did Reece Retire?",
+          "Where Was Season 2 of The Four Seasons Filmed?",
+          "Little House on the Prairie Surprise Cameo: Did You Spot Alison Arngrim?",
+          "Which Couples Are Still Together from Every Season of Love Is Blind ?",
+          "Have You Watched All of Netflix’s Top 10 Most Popular Movies?",
+          "Who Wins Perfect Match Season 4 And Which Couples Are Still Together?"
+        ],
+        "constraints": [
+          "Distinct from true_story's QUESTION_FRAME use in that these questions are about plot/status/cast (\"Where Was It Filmed?\", \"Does X Return?\"), never about factual veracity -- that specific question shape is reserved for true_story."
+        ],
+        "generated_novel": [
+          {
+            "text": "Is the Redshift Crew Getting a Season 3?",
+            "verdict": "plausible",
+            "why": ""
+          },
+          {
+            "text": "Where Was Amber Hollow Filmed?",
+            "verdict": "plausible",
+            "why": ""
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "id": "trailer",
+        "name": "Trailer drop",
+        "count": 12,
+        "pct": 5.0,
+        "template": [
+          {
+            "slot": "TITLE",
+            "optional": false
+          },
+          {
+            "slot": "SEASON_EP",
+            "optional": true
+          },
+          {
+            "slot": "CONTENT_TYPE_TAG",
+            "optional": false,
+            "fixed": "Trailer / Teaser Trailer"
+          },
+          {
+            "slot": "COLON",
+            "optional": true
+          },
+          {
+            "slot": "COLON_CLAUSE",
+            "optional": true
+          },
+          {
+            "slot": "CTA_VERB",
+            "optional": true,
+            "note": "an alternative realization fronts a CTA_VERB instead of the tag: \"Watch the Trailer for...\""
+          }
+        ],
+        "example_headlines": [
+          "Enola Holmes 3 Trailer: Millie Bobby Brown Chases After a Kidnapped Sherlock",
+          "I Will Find You Trailer: Sam Worthington Hunts for the Truth",
+          "The Little House on the Prairie Trailer Expands Laura Ingalls’s World",
+          "Watch the Trailer for My Life with the Walter Boys Season 3",
+          "Office Romance Trailer: Love Takes Flight in This New Jennifer Lopez Movie",
+          "The Ransom Canyon Season 2 Trailer Welcomes Minka Kelly and Josh Duhamel Home"
+        ],
+        "constraints": [
+          "Two competing realizations of the same content-type event: TITLE-first with a trailing \"Trailer:\" tag (majority), or CTA_VERB-first (\"Watch/Buckle Up and Watch the Trailer for...\") -- the only family where the CTA_VERB-opener and CONTENT_TYPE_TAG strategies are NOT mutually exclusive, because the tag \"Trailer\" is doing double duty as both the content-type marker and the object of the CTA verb."
+        ],
+        "generated_novel": [
+          {
+            "text": "The Undertow Trailer: A Crew Splits Over One Bag of Money",
+            "verdict": "plausible",
+            "why": ""
+          },
+          {
+            "text": "Buckle Up and Watch the Trailer for Amber Hollow",
+            "verdict": "plausible",
+            "why": ""
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "id": "true_story",
+        "name": "True-story fact-check",
+        "count": 9,
+        "pct": 3.8,
+        "template": [
+          {
+            "slot": "TRUE_STORY_MARKER",
+            "optional": false
+          },
+          {
+            "slot": "TITLE",
+            "optional": false
+          },
+          {
+            "slot": "COLON_CLAUSE",
+            "optional": true
+          }
+        ],
+        "example_headlines": [
+          "Is Apple Cider Vinegar a True Story? Creator Explains Belle Gibson Inspiration, Ending",
+          "Enola Holmes 3: Learn the True Story Behind the Film",
+          "Is l Will Find You Based on a True Story? All About the Harlan Coben Novel and Series Adaptation",
+          "The True Story of Maternal Instinct Documentary’s Terrifying Pregnancy Secret",
+          "Shipwrecked Nightmare at Sea Documentary: Costa Concordia True Story, Francesco Schettino, Status Update",
+          "Should I Marry a Murderer? : The True Story of Caroline Muirhead"
+        ],
+        "constraints": [
+          "Exists only because Tudum covers documentaries and based-on-a-true-story dramas -- a content-domain constraint, not a purely formal one.",
+          "TRUE_STORY_MARKER has exactly four attested surface realizations in this corpus (see the slot inventory); a fifth invented shape (e.g. \"Fact or Fiction: X\") would be a plausible-sounding EXTRAPOLATION, not an attested fill."
+        ],
+        "generated_novel": [
+          {
+            "text": "Is The Quiet Part Based on a True Story?",
+            "verdict": "plausible",
+            "why": ""
+          },
+          {
+            "text": "The True Story Behind Amber Hollow's Vanishing Sheriff",
+            "verdict": "plausible",
+            "why": ""
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "id": "cast_guide",
+        "name": "Cast guide",
+        "count": 8,
+        "pct": 3.3,
+        "template": [
+          {
+            "slot": "TITLE",
+            "optional": false
+          },
+          {
+            "slot": "SEASON_EP",
+            "optional": true
+          },
+          {
+            "slot": "CONTENT_TYPE_TAG",
+            "optional": false,
+            "fixed": "Cast / Cast Guide / Cast and Characters"
+          },
+          {
+            "slot": "COLON",
+            "optional": false
+          },
+          {
+            "slot": "COLON_CLAUSE",
+            "optional": false
+          }
+        ],
+        "example_headlines": [
+          "Enola Holmes 3 Cast and Characters: Get Reacquainted with Your Favorite Sleuths",
+          "House of Guinness Cast: Get to Know the Family, Their Foes, and More",
+          "I Will Find You Cast : Who’s Who in the Twisty Thriller?",
+          "ONE PIECE Season 2 Cast: Meet the Live-Action New and Returning Characters",
+          "Ransom Canyon Season 2 Cast: Who’s Back in Texas — and Who’s New in Town?",
+          "Meet the Running Point Cast: Kate Hudson Leads the Starting Lineup"
+        ],
+        "constraints": [
+          "COLON_CLAUSE after \"Cast:\" is almost always an imperative (\"Get to Know...\", \"Meet the...\") or a question (\"Who's Who...?\") -- a free clause in principle, but in practice drawing from the same small set of moves as imperative_opener and question."
+        ],
+        "generated_novel": [
+          {
+            "text": "The Undertow Cast Guide: Meet the Crew Behind the Job",
+            "verdict": "plausible",
+            "why": ""
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "id": "top10_ranking",
+        "name": "Weekly Top 10 ranking",
+        "count": 8,
+        "pct": 3.3,
+        "template": [
+          {
+            "slot": "COLON_CLAUSE",
+            "optional": true,
+            "note": "an optional punny lead-in before the title, e.g. \"Adventure Is Afoot:\""
+          },
+          {
+            "slot": "TITLE",
+            "optional": false
+          },
+          {
+            "slot": "GENRE_PUN_VERB",
+            "optional": false
+          },
+          {
+            "slot": "RANK_STATUS",
+            "optional": false
+          }
+        ],
+        "example_headlines": [
+          "The Rip Confiscates the No. 1 Spot in This Week’s Top 10",
+          "The Rip Is Right on the Money at No. 1 in This Week’s Top 10",
+          "Little House on the Prairie Journeys to No. 1 in This Week’s Top 10",
+          "Enola Holmes Cracks the Case, Holding No. 1 in This Week’s Top 10",
+          "I Will Find You Chases Down No. 1 in This Week’s Top 10",
+          "Adventure Is Afoot: Enola Holmes 3 Takes No. 1 in This Week’s Top 10"
+        ],
+        "constraints": [
+          "GENRE_PUN_VERB is obligatory and is never reused across two different titles in this corpus -- every single instance is bespoke to that week's show. This is the family \"the single most interesting rule\" below is drawn from.",
+          "RANK_STATUS has exactly two forms: \"in This Week's Top 10\" for a title's first appearance at No. 1, \"for a Second Week\" (etc.) once it repeats -- an ordering/state constraint (you cannot get the second-week form without a first-week instance existing in the same series of posts, though that history is outside any single headline)."
+        ],
+        "generated_novel": [
+          {
+            "text": "The Undertow Makes Off With No. 1 in This Week's Top 10",
+            "verdict": "plausible",
+            "why": "\"Makes off with\" puns on the show's heist premise, matching the attested device exactly."
+          },
+          {
+            "text": "Amber Hollow Takes No. 1 in This Week's Top 10",
+            "verdict": "wrong",
+            "why": "Grammatical and frame-correct, but \"Takes\" is a generic verb with no relationship to what Amber Hollow is about -- exactly the kind of fill this family's real examples never use. It shows the grammar's most content-aware rule is easy to satisfy FORMALLY while missing it substantively; a generator that only checks the frame, not the pun, will produce headlines that are wrong in the way this family is never wrong in the real corpus."
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "id": "from_x_to_y_watch",
+        "name": "From/to recirculation digest",
+        "count": 8,
+        "pct": 3.3,
+        "template": [
+          {
+            "slot": "FROM_TO_PAIR",
+            "optional": false
+          },
+          {
+            "slot": "TAG",
+            "optional": false,
+            "fixed": "What to Watch on Netflix"
+          }
+        ],
+        "example_headlines": [
+          "From The Hawk to Shipwrecked: Nightmare at Sea : What to Watch on Netflix",
+          "From WWE: Unreal to Heartstopper Forever : What to Watch on Netflix",
+          "From 72 Hours to Hannibal : What to Watch on Netflix",
+          "From Little House on the Prairie to Dark Winds : What to Watch on Netflix",
+          "From I Will Find You to Maternal Instinct : What to Watch on Netflix",
+          "From Color Book to The American Experiment : What to Watch on Netflix"
+        ],
+        "constraints": [
+          "The most rigid family in the corpus: 8 of 8 instances share the identical frame with only the two TITLE fills changing. A weekly digest post, not a one-off editorial choice."
+        ],
+        "generated_novel": [
+          {
+            "text": "From The Undertow to Amber Hollow: What to Watch on Netflix",
+            "verdict": "plausible",
+            "why": ""
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "id": "now_streaming",
+        "name": "Now-streaming announcement",
+        "count": 7,
+        "pct": 2.9,
+        "template": [
+          {
+            "slot": "TITLE",
+            "optional": false
+          },
+          {
+            "slot": "SEASON_EP",
+            "optional": true
+          },
+          {
+            "slot": "PLATFORM_CTA",
+            "optional": false
+          },
+          {
+            "slot": "COLON_CLAUSE",
+            "optional": true
+          }
+        ],
+        "example_headlines": [
+          "Bridgerton Season 4 Is Now Streaming: See Benedict and Sophie’s Romance Heat Up",
+          "Kevin Hart’s Wild 72 Hours Is Now Streaming",
+          "Little Brother Is Streaming: John Cena and Eric André Are Family in New Movie",
+          "New on Netflix in July 2026",
+          "Saddle Up: Season 2 of Ransom Canyon Is Now Streaming",
+          "Season 2 of The Four Seasons Is Now Streaming: Take Another Trip Around the Sun"
+        ],
+        "constraints": [
+          "\"New on Netflix in [Month Year]\" is a distinct, calendar-anchored realization of the same PLATFORM_CTA idea rather than a TITLE-anchored one -- the only instance in this family where TITLE is absent entirely."
+        ],
+        "generated_novel": [
+          {
+            "text": "The Undertow Is Now Streaming: A Crew Splits Over One Bag of Money",
+            "verdict": "plausible",
+            "why": ""
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "id": "everything_to_know",
+        "name": "Everything-to-know explainer",
+        "count": 5,
+        "pct": 2.1,
+        "template": [
+          {
+            "slot": "TITLE",
+            "optional": false
+          },
+          {
+            "slot": "SEASON_EP",
+            "optional": true
+          },
+          {
+            "slot": "COLON",
+            "optional": false
+          },
+          {
+            "slot": "TAG",
+            "optional": false,
+            "fixed": "Everything You Need to Know / Everything to Know About..."
+          }
+        ],
+        "example_headlines": [
+          "3 Body Problem: Everything You Need to Know About the Series",
+          "Adolescence : Everything to Know About the Emmy-Winning One-Shot Crime Drama",
+          "Love on the Spectrum Season 5: Everything You Need to Know",
+          "Everything to Know about the Mexican Thriller No One Saw Us Leave",
+          "The Ultimatum: Marry or Move On Season 4: Everything You Need to Know"
+        ],
+        "constraints": [
+          "Functions as a catch-all promise of comprehensiveness -- used on news-hub pages that don't fit a more specific tag (Cast/Trailer/Ending)."
+        ],
+        "generated_novel": [
+          {
+            "text": "Amber Hollow Season 2: Everything You Need to Know",
+            "verdict": "plausible",
+            "why": ""
+          }
+        ],
+        "notes": ""
+      }
+    ],
+    "discord_blog": [
+      {
+        "id": "patch_notes_changelog",
+        "name": "Patch notes / changelog",
+        "count": 51,
+        "pct": 25.9,
+        "template": [
+          {
+            "slot": "TAG",
+            "fixed": "Discord Patch Notes / Discord Update"
+          },
+          {
+            "slot": "COLON",
+            "fixed": ":"
+          },
+          {
+            "slot": "DATE",
+            "optional": false
+          },
+          {
+            "slot": "TAG2",
+            "fixed": "Changelog",
+            "optional": true
+          }
+        ],
+        "example_headlines": [
+          "Discord Patch Notes: April 2024",
+          "Discord Patch Notes: April 3, 2025",
+          "Discord Patch Notes: April 6, 2026",
+          "Discord Patch Notes: August 1, 2024",
+          "Discord Patch Notes: August 30, 2024",
+          "Discord Patch Notes: August 4, 2025"
+        ],
+        "notes": "Zero editorial content -- the only variable is a date. The single most rigid family in EITHER corpus, and it has no Tudum equivalent because Tudum has no engineering/release surface to log. This is closer to a database record with a naming convention than a headline in the entertainment-editorial sense."
+      },
+      {
+        "id": "colon_subtitle",
+        "name": "Title-clause apposition",
+        "count": 36,
+        "pct": 18.3,
+        "template": [
+          {
+            "slot": "TITLE_OR_TOPIC",
+            "optional": false
+          },
+          {
+            "slot": "COLON",
+            "fixed": ":"
+          },
+          {
+            "slot": "COLON_CLAUSE",
+            "optional": false
+          }
+        ],
+        "example_headlines": [
+          "Access: A New Portal for Managing Internal Authorization",
+          "Attention Server Owners: The App Directory is Here!",
+          "Authenticity Matters: Discord's Pride Month 2025",
+          "Avatar Decorations & Profile Effects: Collect and Keep the Newest Styles",
+          "You’ve Got (Too Much) Mail: Behind the Scenes of the 3/25/26 Voice Outage",
+          "Building on the Social Layer of Games: What’s New from GDC 2026"
+        ],
+        "notes": "Same shape as Tudum's colon_subtitle and proportionally even more common here (18.3% vs 12.5%) -- this looks like a genuinely brand-independent editorial default rather than something either brand invented."
+      },
+      {
+        "id": "imperative_opener",
+        "name": "Imperative CTA opener",
+        "count": 19,
+        "pct": 9.6,
+        "template": [
+          {
+            "slot": "CTA_VERB",
+            "optional": false
+          },
+          {
+            "slot": "OBJECT_CLAUSE",
+            "optional": false
+          }
+        ],
+        "example_headlines": [
+          "Queue Up Your Playlists on Discord with the Amazon Music Listening Party Activity!",
+          "Celebrate Arcane’s Second Season with a new Shop Collection",
+          "Come Build Where the World Plays",
+          "Celebrate Discord’s 8th Birthday with Free Activities and More",
+          "Celebrate Discord’s 11th Birthday with an Exclusive Set of Emoji and Wallpapers",
+          "Protecting Against Scams on Discord"
+        ],
+        "notes": "The CTA_VERB fill set overlaps with Tudum's (Watch, Check Out, Celebrate, Buckle Up-adjacent forms) but Discord adds its own: Queue Up, Ready Your, Save and, Set Out, Welcome, Come Build, Introducing. Shared DEVICE, brand-specific vocabulary."
+      },
+      {
+        "id": "how_to",
+        "name": "How-to instructional",
+        "count": 17,
+        "pct": 8.6,
+        "template": [
+          {
+            "slot": "TAG",
+            "fixed": "How to"
+          },
+          {
+            "slot": "VERB_PHRASE",
+            "optional": false
+          },
+          {
+            "slot": "PLATFORM_TAG",
+            "fixed": "on Discord",
+            "optional": true
+          }
+        ],
+        "example_headlines": [
+          "How to Make and Use Custom Emoji on Discord",
+          "How to Use Nitro: A Beginner’s Guide to Discord’s Premium Subscription",
+          "How to Change Your Theme to Bring Your Vibe to Discord",
+          "How to Create & Upload Your Own Stickers on Discord",
+          "How to Customize Your Discord Profile",
+          "How to Link Discord to Battlefield 6, Marvel Rivals & More"
+        ],
+        "notes": "No equivalent family exists anywhere in the Tudum sample -- Tudum has nothing to instruct a reader how to DO, only things to watch. A content-domain difference surfacing directly as a naming-grammar difference."
+      },
+      {
+        "id": "how_engineering",
+        "name": "Engineering deep-dive",
+        "count": 11,
+        "pct": 5.6,
+        "template": [
+          {
+            "slot": "TAG",
+            "fixed": "How Discord / How We"
+          },
+          {
+            "slot": "VERB_PHRASE",
+            "optional": false
+          }
+        ],
+        "example_headlines": [
+          "How We’re Building the Future of Discord",
+          "How Discord Automates ScyllaDB Clusters at Scale",
+          "How Discord Handles Two and Half Million Concurrent Voice Users using WebRTC",
+          "How Discord Indexes Billions of Messages",
+          "How Discord Indexes Trillions of Messages",
+          "How Discord Reduced Websocket Traffic by 40%"
+        ],
+        "notes": "A technical-audience register (ScyllaDB, WebRTC, Websocket traffic) with no Tudum counterpart at all."
+      },
+      {
+        "id": "staff_picks",
+        "name": "Staff picks roundup",
+        "count": 6,
+        "pct": 3.0,
+        "template": [
+          {
+            "slot": "TAG",
+            "fixed": "Staff Picks"
+          },
+          {
+            "slot": "MONTH_YEAR",
+            "optional": false
+          },
+          {
+            "slot": "COLON_CLAUSE",
+            "optional": true
+          }
+        ],
+        "example_headlines": [
+          "December Staff Picks: It’s Giving Games",
+          "June's Staff Picks: Summertime Game Time",
+          "Staff Picks, April 2025: All The Adaptations",
+          "Staff Picks, June 2025: Summer of Showcases",
+          "Staff Picks, May 2025: The Games That Brought Us to Discord",
+          "Staff Picks, September 2025: Welcome to Our Video Game Museum"
+        ],
+        "notes": "Discord's rough structural cousin of Tudum's from_x_to_y_watch digest family -- a recurring curated-roundup slot -- but keyed to a MONTH rather than to two franchise names, because Discord's roundup curates external games, not its own catalog."
+      },
+      {
+        "id": "all_caps_shout",
+        "name": "All-caps shout",
+        "count": 4,
+        "pct": 2.0,
+        "template": [
+          {
+            "slot": "FULL_CAPS_CLAUSE",
+            "optional": false
+          }
+        ],
+        "example_headlines": [
+          "MULTIPLAYER SEQUEL TO ACCLAIMED AAAA GAME “THE LAST MEADOW” ANNOUNCED: PLAYABLE NOW",
+          "WHO LIVES ON YOUR PROFILE FOR ALL TO SEE? 🎶 SPONGEBOB, IN THE SHOP!",
+          "*FLAILS AROUND* SUMMER SPECIAL! JOIN NITRO, GET AN EXTRA MONTH OF NITRO ON US!",
+          "MAJOR NEWS: DISCORD ANNOUNCES ITS FIRST IN-HOUSE AAAA VIDEO GAME, “THE LAST MEADOW”"
+        ],
+        "notes": "Zero instances anywhere in the 240-headline Tudum sample. A real, clean, register-level brand difference: Discord's shop/promo copy permits shouting, emoji, and stage-direction asterisks (*FLAILS AROUND*); Tudum's voice holds sentence case even in its most hype-driven weekly content (Top 10 rankings, awards coverage)."
+      },
+      {
+        "id": "meet_imperative",
+        "name": "Meet-imperative",
+        "count": 1,
+        "pct": 0.5,
+        "template": [
+          {
+            "slot": "TAG",
+            "fixed": "Meet"
+          },
+          {
+            "slot": "OBJECT",
+            "optional": false
+          }
+        ],
+        "example_headlines": [
+          "Meet DAVE: Discord’s New End-to-End Encryption for Audio & Video"
+        ],
+        "notes": "Present in both corpora (Tudum 4, Discord 1) at low volume -- a generic editorial device, not brand-specific, just used far more on Tudum because it has far more casts to introduce."
+      }
+    ]
+  },
+  "residue": {
+    "tudum": {
+      "count": 75,
+      "pct": 31.2,
+      "sample": [
+        "A Toxic Love Story Unravels a Twisted Revenge Scheme",
+        "Welcome to Tudum",
+        "How Shawn Levy Crafted the Epic, Emotional ‘All the Light We Cannot See’ Series",
+        "‘All the Light We Cannot See’ Book Fans Are Loving the Netflix Adaptation",
+        "Mark Ruffalo And Hugh Laurie Join The ‘All the Light We Cannot See’ Cast",
+        "‘All the Light We Cannot See’ Fans Got a Sneak Peek at the Stunning Adaptation",
+        "Apple Cider Vinegar Explores the Sour Side of a Wellness Empire",
+        "Tyler Perry’s Beauty in Black Scores an Early Season 4 Renewal",
+        "Everything We Know About Jude Law and Jason Bateman’s New Series Black Rabbit",
+        "Bridgerton Season 5 Cast Adds 3 New Members to the Ton",
+        "Francesca and Michaela Will Lead Bridgerton Season 5 in 2027",
+        "Calabasas Confidential Who's Still Together, Suede, Dylan, Jemma, Where Is The Cast Now, Preston, Alexie",
+        "What to Know About the Crime Thriller Colors of Evil: Red",
+        "Himesh Patel Joins Enola Holmes 2 as Watson in Post-Credits Scene"
+      ],
+      "commentary": "The residue is not random -- it clusters almost entirely around one-off news and feature journalism: a set visit, an interview, an award-season reaction piece, a renewal announcement, a single magazine cover story. Those are ordinary declarative English sentences (Subject + vivid verb + Object) with an effectively unbounded verb vocabulary (\"Cracks Open\", \"Carried His Baggage into\", \"Embraces Truthfulness in\", \"Grace the Covers of\") -- there is no small fill set behind them the way there is behind Cast:/Trailer:/Ending Explained:. The grammar's coverage tracks a real editorial-production distinction: TEMPLATED hub content (list pages, cast pages, ending-explained pages, trailer pages, weekly Top 10 posts, the from/to digest) is close to fully formulaic; one-off NEWS content about a specific event is hand-written and resists slotting, on purpose -- a news headline that read like a template would undersell the news. That distinction is recoverable purely from surface headline form, without ever seeing Tudum's own internal content taxonomy."
+    },
+    "discord_blog": {
+      "count": 52,
+      "pct": 26.4,
+      "sample": [
+        "A Cornucopia of Updates Make Discord on Desktop Fresher Than a Crisp Fall Breeze",
+        "Discord is Your Place for AI with Friends",
+        "An Update on our Mental Health & Belonging Work",
+        "Announcing Discord’s Social SDK, Helping Power Your Game’s Social Experiences",
+        "Announcing Discord’s Social SDK, Helping Power Your Game’s Social Experiences",
+        "Discord Announces First Mobile Ad Format, Broadening Advertising Opportunities",
+        "Congrats to the Discord App Pitches 2023 Finalists!",
+        "Apps on Discord to Uplevel Your Competitive Gaming Skills",
+        "April Showers Bring Super-Cool Nitro Powers",
+        "Bringing DAVE to All Discord Platforms",
+        "Bringing In-Game Commerce to Discord Communities",
+        "Building Sustainable Creator Communities on Discord",
+        "Your Discord Checkpoint is Rolling Out! Celebrate What You Did in 2025",
+        "Cost Attribution in Discord’s API"
+      ],
+      "commentary": "Discord's residue is more heterogeneous than Tudum's because Discord's blog spans more genres to begin with -- product announcements, community-partnership stories, executive-hire news, one-off promo copy, and reflective essays (\"Passing the Torch\", \"Thank You for Ten Years\") that read as personal rather than templated. Some of it IS a family that exists at too low a volume in this 200-page sample to justify a named row on its own (a handful of \"Introducing X\" openers were folded into imperative_opener; a handful of birthday/anniversary posts share a shape but number three). The honest read is that Discord's blog has a wider genre mix and a flatter distribution across it than Tudum's, which concentrates most of its volume into a smaller number of very-high-frequency evergreen hub types."
+    }
+  },
+  "cooccurrence_rules": [
+    "A headline picks exactly ONE organizing strategy from {CTA_VERB opener, CONTENT_TYPE_TAG colon frame, COUNT listicle opener, QUESTION_FRAME} and does not mix them -- the sole attested exception is the trailer family, where the tag \"Trailer\" itself can double as the CTA_VERB's object (\"Watch the Trailer for...\").",
+    "CONTENT_TYPE_TAG is always immediately preceded by TITLE (+ optional SEASON_EP) and never by COUNT, CTA_VERB, or a question word.",
+    "COUNT and CONTENT_TYPE_TAG never co-occur -- no listicle headline in the corpus also carries a Cast:/Trailer:/Ending Explained: tag.",
+    "GENRE_PUN_VERB is attested only paired with RANK_STATUS (the Top 10 family) -- it is the mechanism that keeps a near-fully-fixed weekly frame from reading as repetitive across dozens of instances.",
+    "SEASON_EP co-occurs with CONTENT_TYPE_TAG far more often than it appears alone -- most season/episode mentions exist specifically to scope a Cast/Trailer/Ending-Explained page to one season, not to open a headline on their own.",
+    "QUESTION_FRAME is mutually exclusive with a CONTENT_TYPE_TAG-initial reading of the WHOLE headline, but freely fills the COLON_CLAUSE half of a CONTENT_TYPE_TAG headline -- e.g. \"I Will Find You Cast: Who's Who in the Twisty Thriller?\" is CONTENT_TYPE_TAG-governed with a QUESTION_FRAME riding inside its COLON_CLAUSE.",
+    "TRUE_STORY_MARKER only appears on documentary or based-on-a-true-story titles -- a content-domain gate on a formal slot, not a purely syntactic one."
+  ],
+  "seo_title_layer": {
+    "tudum_h1_bearing_pages": 224,
+    "tudum_diverge_count": 218,
+    "tudum_diverge_pct": 97.3,
+    "discord_h1_bearing_pages": 187,
+    "discord_diverge_count": 0,
+    "discord_diverge_pct": 0.0,
+    "facet_vocabulary": [
+      {
+        "facet": "Cast",
+        "count": 50
+      },
+      {
+        "facet": "Trailer",
+        "count": 30
+      },
+      {
+        "facet": "Release Date",
+        "count": 28
+      },
+      {
+        "facet": "Plot",
+        "count": 27
+      },
+      {
+        "facet": "Photos",
+        "count": 21
+      },
+      {
+        "facet": "Ending",
+        "count": 17
+      },
+      {
+        "facet": "Interview",
+        "count": 13
+      },
+      {
+        "facet": "News",
+        "count": 11
+      },
+      {
+        "facet": "Recap",
+        "count": 10
+      },
+      {
+        "facet": "Teaser",
+        "count": 7
+      },
+      {
+        "facet": "Winners",
+        "count": 3
+      },
+      {
+        "facet": "Where to Stream",
+        "count": 2
+      }
+    ],
+    "example_pairs": [
+      {
+        "h1": "13 Going on 30 : Emily Bader and Logan Lerman Star in the Rom-Com Reboot",
+        "title": "13 Going on 30 Reboot: Cast, Release Date, Plot, Jennifer Garner Involvement"
+      },
+      {
+        "h1": "28 Gripping True Crime Documentaries to Stream",
+        "title": "28 Best True Crime Documentaries To Watch On Netflix"
+      },
+      {
+        "h1": "3 Body Problem: Everything You Need to Know About the Series",
+        "title": "3 Body Problem Series on Netflix: Everything You Need To Know"
+      },
+      {
+        "h1": "Meet the 72 Hours Cast Crashing Kevin Hart’s Bachelor Party Comedy",
+        "title": "72 Hours Cast: Kevin Hart, SNL's Marcello Hernández, Ben Marshall, Kam Patterson, Mason Gooding, and More"
+      },
+      {
+        "h1": "Enter A HOUSE OF DYNAMITE, Kathryn Bigelow’s New Thriller",
+        "title": "A House of Dynamite: Release Date, Photos, Plot of New Kathryn Bigelow Movie"
+      },
+      {
+        "h1": "A Toxic Love Story Unravels a Twisted Revenge Scheme",
+        "title": "A Toxic Love Story Documentary: Anaheim Craigslist 'Rape Fantasy' Plot Netflix Release Date, Trailer, News"
+      }
+    ],
+    "commentary": "Every page carries two separately authored headline strings: the on-page <h1> (the corpus this whole schema is built from) and the <title> tag (what shows up in a search result or a browser tab). On Tudum these diverge in wording on 97.3% of pages -- not just different casing, genuinely different SENTENCES for the same article, drawn from a visibly different grammar: the <title> tag runs on a closed facet vocabulary (Cast, Trailer, Release Date, Plot, Photos, Ending, News...) strung together with commas after a colon, closer to a metadata record than a written sentence, while the <h1> is the narrative-sentence grammar documented above. On Discord's blog the two strings match on 100.0% of pages (187 of 187 valid h1-bearing pages, after excluding the 3 collection-artifact pages above) -- Discord authors one headline and reuses it verbatim in both places, almost without exception. That gap is itself a naming-grammar finding: Tudum runs two independently generated title systems for the same content (a machine-facing search-facet schema and a human-facing editorial sentence), Discord runs one."
+  },
+  "most_interesting_rule": {
+    "id": "genre_pun_verb",
+    "title": "The weekly Top 10 headline's verb is picked to pun on what the show is ABOUT, not drawn from a list",
+    "body": "Every other slot in this grammar reduces to a fill set you could hand an agent as a closed vocabulary -- CONTENT_TYPE_TAG is 8 words, UNIT is 10 words, CTA_VERB is a list of 16 recurring imperatives. GENRE_PUN_VERB is the one slot that does not: in all 8 top10_ranking headlines, the verb phrase is coined fresh, and every single one is a pun on that specific show's own premise. A detective story \"Cracks the Case.\" A heist thriller about stolen money \"Confiscates the No. 1 Spot\" and \"Is Right on the Money.\" A missing-persons search thriller \"Chases Down No. 1\" and \"Holds at No. 1.\" A frontier-travel family drama \"Journeys to No. 1.\" A workplace romance \"Enamors Viewers.\" A movie about shapeshifting critters has \"The Critters of Swapped Soar to No. 1.\" The same device, at lower intensity, shows up in the awards_coverage and residue \"talent spotlight\" headlines (Louis Partridge \"Cracks Open\" House of Guinness). This is a rule about a PROCESS a human writer runs, not a lookup: to fill this slot correctly you have to know the show's logline, not just have a list of Top-10-appropriate verbs. It is also the clearest place the grammar breaks as a pure generation instrument -- see the top10_ranking family's \"wrong\" generated example above, where a grammatically perfect fill (\"Takes No. 1\") is exactly the kind of generic verb this family's real examples never use. A productive schema for this slot would need to take a one-line synopsis as an input, not just emit from a word list -- which is a genuinely different (and harder) kind of rule than every other slot in this corpus."
+  },
+  "control_comparison": {
+    "shared_rules": [
+      {
+        "rule": "Title-clause colon apposition (colon_subtitle)",
+        "tudum": "30 / 240 (12.5%)",
+        "discord": "36 / 197 (18.3%)",
+        "reading": "Present at real volume on both, proportionally MORE common on Discord. Reads as a brand-independent default of editorial headline writing, not something either brand invented."
+      },
+      {
+        "rule": "Imperative CTA opener, incl. Meet- (imperative_opener + meet_imperative)",
+        "tudum": "20 / 240 (8.3%)",
+        "discord": "20 / 197 (10.2%)",
+        "reading": "Same device on both at close to the same volume, overlapping CTA_VERB fills (Watch, Check Out, Celebrate, Buckle-Up-adjacent forms), each brand adding its own extensions. \"Meet\" specifically (introducing a cast) is generic, not brand-specific -- Tudum simply has far more casts to introduce (4 of its 20 vs. 1 of Discord's 20)."
+      },
+      {
+        "rule": "Sentence-case discipline (absence of ALL CAPS)",
+        "tudum": "0 / 240 all-caps headlines",
+        "discord": "4 / 197 (2.0%) all-caps headlines",
+        "reading": "The one shared rule proven by ABSENCE rather than presence: Tudum's voice holds sentence case everywhere in this sample, including its most hype-driven weekly content; Discord explicitly permits shouting registers in shop/promo copy. Both are real, brand-held choices, not accidents -- one just happens to be a floor, not a ceiling."
+      }
+    ],
+    "netflix_specific_rules": [
+      "count_listicle (7.5% of Tudum, ~0% of Discord) -- true numbered listicles are a content-hub convention with no Discord-blog equivalent.",
+      "CONTENT_TYPE_TAG closed vocabulary (Cast/Trailer/Ending Explained/Recap) -- Discord's colon_subtitle clauses are freely composed, never drawn from a fixed content-type tag set.",
+      "true_story fact-checking frame -- exists only because Tudum covers documentaries.",
+      "top10_ranking + GENRE_PUN_VERB -- a weekly chart mechanism that only makes sense for a streaming catalog with its own real-time popularity ranking.",
+      "from_x_to_y_watch recirculation digest -- a fixed weekly template, absent from Discord.",
+      "now_streaming / awards_coverage -- content-calendar and awards-season coverage, both intrinsic to being a studio/publisher.",
+      "The <title>-vs-<h1> divergence itself (97.3% vs 0.0%) -- Netflix appears to run two independently generated headline systems per page; Discord runs one."
+    ],
+    "discord_specific_rules": [
+      "patch_notes_changelog (25.9% of Discord, 0% of Tudum) -- a release-log naming convention with zero editorial slot variation, the most rigid family in either corpus, existing only because Discord has an engineering/release surface to log.",
+      "how_to + how_engineering (14.2% combined) -- instructional and technical-deep-dive registers, absent from Tudum's entertainment-only remit.",
+      "staff_picks -- a recurring curated-roundup naming convention keyed to a month, Discord's structural cousin of Tudum's from_x_to_y_watch but serving a different content domain (external games, not Discord's own catalog).",
+      "all_caps_shout -- a shouting register (full caps, emoji, exclamation, stage-direction asterisks) permitted in shop/promo copy, never observed on Tudum."
+    ],
+    "verdict": "The control comparison does what it's supposed to: it separates the rules that are just how editorial headline writing works (colon apposition, imperative openers, a generic Meet-the-cast device) from the rules that are specifically Netflix's, because they only make sense for a company that runs a streaming catalog with weekly popularity charts, a documentary slate, and a content calendar -- and from the rules that are specifically Discord's, because they only make sense for a company that ships software and logs its own changes. Neither corpus's grammar transfers wholesale to the other; about a third of the fixed vocabulary each does have (CONTENT_TYPE_TAG, patch-notes date-stamping, the true-story marker) is legibly a function of what the two companies actually publish, not of house style in the abstract."
+  },
+  "excluded_pages": {
+    "tudum": [],
+    "discord_blog": [
+      {
+        "id": "discord__blog__blog-behind-the-curtain-how-three-discord-communities-found-success-in-stage-events",
+        "headline": "DISCORD BLOG",
+        "reason": "extraction artifact: only <h1> captured was the site nav/logo text, not an article headline"
+      },
+      {
+        "id": "discord__blog__blog-server-subscriptions-updates-media-channels-tier-templates-and-",
+        "headline": "DISCORD BLOG",
+        "reason": "extraction artifact: only <h1> captured was the site nav/logo text, not an article headline"
+      },
+      {
+        "id": "discord__blog__blog",
+        "headline": "DISCORD BLOG",
+        "reason": "extraction artifact: only <h1> captured was the site nav/logo text, not an article headline"
+      }
+    ]
+  },
+  "method": {
+    "classification": "Each headline was matched against an ordered list of regular-expression rules, first match wins, derived by close reading of the full raw headline dump for each corpus (see scripts/classify.py). A headline with no match is residue.",
+    "reproducibility": "python3 scripts/extract_corpus.py && python3 scripts/classify.py && python3 scripts/build_grammar.py regenerates corpus.json, scripts/classified.json, and this file from the source page snapshots.",
+    "shelf_title_exclusion": "Netflix's actual in-product shelf titles (row titles like \"Trending Now\" or a personalized row name) are personalized and sit behind authentication. They were not accessed, scraped, or otherwise obtained for this analysis -- this schema is derived entirely from public Tudum editorial headlines, which do the same classify/entice/set-expectation job a shelf title does but are publicly readable without a login."
+  }
+}

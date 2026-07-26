@@ -1,0 +1,8 @@
+/* Tone scopes. Every evidence component reads --story-* so one attribute reskins a whole section.
+   --story-raised is the ground a grid block sits on; --story-band is its label band; --story-shadow
+   is the hard offset that makes the block read as one object instead of loose rules. */
+[data-tone="paper"]{--story-bg:var(--paper);--story-ink:var(--ink);--story-muted:var(--muted-ink);--story-line:var(--soft-line);--story-accent:var(--signal);--story-raised:var(--paper-bright);--story-band:var(--paper-shade);--story-shadow:var(--shadow-2);--story-rule:var(--ink)}
+[data-tone="bright"]{--story-bg:var(--paper-bright);--story-ink:var(--ink);--story-muted:var(--muted-ink);--story-line:var(--soft-line);--story-accent:var(--signal);--story-raised:var(--paper);--story-band:var(--paper-shade);--story-shadow:var(--shadow-2);--story-rule:var(--ink)}
+[data-tone="stage"],[data-tone="blue"]{--story-bg:var(--stage);--story-ink:var(--stage-ink);--story-muted:var(--stage-muted);--story-line:var(--stage-line);--story-accent:var(--signal-stage);--story-raised:var(--stage-raised);--story-band:rgba(242,236,224,0.07);--story-shadow:var(--shadow-on-stage-1);--story-rule:var(--stage-ink)}
+[data-tone="dark"]{--story-bg:var(--ink);--story-ink:var(--paper-bright);--story-muted:var(--paper-dim);--story-line:var(--dark-line);--story-accent:var(--signal-lift);--story-raised:var(--ink-raised);--story-band:rgba(248,243,232,0.06);--story-shadow:7px 8px 0 rgba(0,0,0,0.5);--story-rule:var(--paper-bright)}
+:root{--story-bg:var(--paper);--story-ink:var(--ink);--story-muted:var(--muted-ink);--story-line:var(--soft-line);--story-accent:var(--signal);--story-raised:var(--paper-bright);--story-band:var(--paper-shade);--story-shadow:var(--shadow-2);--story-rule:var(--ink)}

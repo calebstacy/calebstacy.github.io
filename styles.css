@@ -1,0 +1,17 @@
+@import "./tokens/fonts.css";
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/elevation.css";
+@import "./tokens/motion.css";
+@import "./tokens/animation.css";
+@import "./tokens/interaction.css";
+@import "./tokens/surfaces.css";
+@import "./tokens/document.css";
+@import "./tokens/case.css";
+
+/* Every element sizes by its border box. Without this, a component that sets both a width and
+   padding is oversized by its padding — which is what made stage copy overlap the character art
+   at every width. Must sit AFTER the @imports: the CSS spec discards any @import that follows a
+   style rule, and putting this first silently disabled every token file above. */
+*, *::before, *::after { box-sizing: border-box; }

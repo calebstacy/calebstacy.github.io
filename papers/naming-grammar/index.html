@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<title>A naming grammar for Tudum headlines — a working paper</title>
+<meta name="description" content="Tudum's entertainment headlines reverse-engineered into a slot-and-fill grammar, with Discord's blog as a control, re-set as a report readable by someone who hasn't seen the raw tables.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../../assets/mark-favicon.svg">
+<link rel="stylesheet" href="../../styles.css">
+<style>html,body{margin:0;background:var(--paper)}
+.errbox{padding:var(--space-9,48px);font-family:var(--font-sans);max-width:640px;color:var(--muted-ink)}
+.ng-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,32px)}
+@media (max-width:640px){.ng-cols{grid-template-columns:1fr}}
+.ng-plain-list{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.ng-plain-list li{font-family:var(--font-sans);font-size:13px;line-height:1.5;color:var(--story-ink);padding-left:14px;position:relative}
+.ng-plain-list li::before{content:"—";position:absolute;left:0;color:var(--story-muted)}
+@media print{
+  .ds-doc-figure div,.ds-doc-table div{overflow:visible!important}
+  .ds-doc-table table{min-width:0!important;width:100%!important}
+}
+</style>
+</head><body><div id="root">
+<noscript>This page renders a computed naming grammar with React and needs JavaScript. The underlying data lives in <a href="./grammar.json">grammar.json</a> and <a href="./corpus.json">corpus.json</a>.</noscript>
+</div>
+
+<script src="../../vendor/react.production.min.js"></script>
+<script src="../../vendor/react-dom.production.min.js"></script>
+
+
+<script src="../../_ds_bundle.js"></script>
+
+<script src="page.js"></script>
+</body></html>

@@ -1,0 +1,52 @@
+{
+  "generated": "2026-07-25",
+  "source_document": "voice_runtime/_deferred/REMOVED_DEPS.md",
+  "framing": "This is a dependency licence audit for the measurement engine behind this page, generalised into what it implies for anyone assembling a language-measurement stack from research code. It is not legal advice, and it is not a claim that any of the packages below are unsafe in research use -- every removal below was about commercial shipping, not correctness.",
+  "shipped": [
+    { "name": "spaCy", "href": "https://spacy.io", "provides": "Tokenising, POS tagging, dependency parsing, named entities -- the parse every syntactic dimension reads from.", "meta": "MIT" },
+    { "name": "en_core_web_sm", "href": "https://spacy.io/models/en", "provides": "The engine's documented fallback English pipeline.", "meta": "MIT" },
+    { "name": "textstat", "href": "https://github.com/textstat/textstat", "provides": "Readability formulas (Flesch reading ease, Flesch-Kincaid grade).", "meta": "MIT" },
+    { "name": "wordfreq", "href": "https://github.com/rspeer/wordfreq", "provides": "Zipf word-frequency lookups -- what lexical_sophistication reads rarity from.", "meta": "Apache 2.0 (code) / CC-BY-SA 4.0 (data)" },
+    { "name": "lexicalrichness", "href": "https://github.com/LSYS/lexicalrichness", "provides": "MTLD and other diversity indices for lexical_diversity.", "meta": "MIT" },
+    { "name": "pyphen", "href": "https://github.com/Kozea/Pyphen", "provides": "Offline syllable counting for the readability formulas.", "meta": "MPL 1.1 (dual-licensed; MPL chosen)" }
+  ],
+  "in_house": {
+    "name": "hand-curated valence lexicon",
+    "provides": "Positive/negative affect words for emotional_tone -- roughly 120 words, written in-house, no external data dependency.",
+    "note": "Narrower than an 8-way emotion lexicon would be -- positive/negative valence only -- but it is fully owned and free to ship. On the three-way sanity check the engine's own README describes, the in-house lexicon scored a warm sample 6.4 while a legal-register and a plain-prose sample both scored 0.0; the NRC-based version it replaced had been misreading legal terms like \"claim\" and \"damage\" as emotional content."
+  },
+  "removed": [
+    {
+      "name": "LFTK",
+      "licence_issue": "CC BY-NC 4.0 -- explicitly non-commercial",
+      "what_it_did": "A toolkit bundling 200+ pre-computed linguistic features (readability scores, diversity indices, clause counts) in one call.",
+      "status_at_removal": "Imported as a lazy optional path but never actively called by any dimension -- zero functional loss from removing it.",
+      "replacement": "textstat, lexicalrichness, and the engine's own spaCy-based clause/depth calculations already cover most of the same ground; the remaining specialised features would need hand-implementation from the literature or a commercial LFTK licence."
+    },
+    {
+      "name": "ideadensity",
+      "licence_issue": "GPLv2 -- copyleft, would obligate the product carrying it to ship under GPL too",
+      "what_it_did": "Proposition density via the DEPID algorithm (Brown & Snowdon), originally used for information_density.",
+      "status_at_removal": "Already replaced by a content-word-ratio metric before licensing came up -- ideadensity's scores had been nearly flat across register types and didn't discriminate well, so the swap was a quality decision the licence issue then confirmed.",
+      "replacement": "information_density now blends content-word ratio with mean sentence length -- simpler than DEPID, and it discriminates better on real text."
+    },
+    {
+      "name": "NRCLex / NRC Emotion Lexicon",
+      "licence_issue": "The wrapper code is MIT, but the ~14,000-word lexicon data requires a paid commercial licence from NRC Canada for any shipped product.",
+      "what_it_did": "Gold-standard emotion lexicon -- 8 discrete emotions plus positive/negative valence.",
+      "status_at_removal": "Replaced before shipping, not after -- the commercial-licence requirement was caught during the audit, not discovered live.",
+      "replacement": "The in-house valence lexicon above. A richer 8-way categorisation would need either a paid NRC licence, the Warriner VAD norms (continuous valence/arousal/dominance scales, generally granted for commercial use on author notification), or a larger hand-built lexicon."
+    }
+  ],
+  "blocked_pending_permission": [
+    { "name": "Brysbaert concreteness norms", "size": "40,000 words", "status": "Free for research; commercial use requires contacting the authors at Ghent University. Typically granted, sometimes with a small fee. Not requested yet -- concreteness ships today on a morphological suffix proxy instead (see engine.known_limits)." },
+    { "name": "Kuperman age-of-acquisition norms", "size": "30,000 words", "status": "Same author set, same situation, same advice. Not currently used by any shipped dimension." },
+    { "name": "Warriner VAD norms", "size": "14,000 words", "status": "Same situation -- and the strongest candidate to replace the in-house valence lexicon with something richer, since it is continuous (1-9 scales) rather than the NRC lexicon's discrete categories." },
+    { "name": "Brysbaert word prevalence norms", "size": "62,000 words", "status": "Same situation as the concreteness norms. Not currently used." }
+  ],
+  "unaudited_addition": {
+    "name": "en_core_web_trf + torch",
+    "note": "Installed for the fingerprint-v2 measurement run (see method.md) to replace en_core_web_sm as the parsing model -- markedly stronger dependency parsing and NER, which syntactic_complexity, involvement, and specificity read from. This addition postdates the audit above and has not itself been re-run through it. That gap is the point this section exists to make: a licence audit is a snapshot of a stack at one moment, not a standing guarantee, and the next dependency swap -- made for an accuracy reason that has nothing to do with licensing -- can silently walk back out of the audited state."
+  },
+  "general_rule": "A measurement stack assembled from research code accumulates three different kinds of risk that look identical in a requirements.txt: permissively licensed code with a separately restricted data file bundled inside it (NRCLex), a licence that is fine for research but forbids commercial use outright (LFTK), and a licence that is fine for use but copyleft, meaning the obligation is not 'you cannot use this' but 'using this changes what licence you must ship under' (ideadensity). None of the three is visible from the package name, the import statement, or a glance at GitHub stars. The only way to catch them is to read every dependency's actual licence file and, separately, the licence of any data it bundles or downloads -- and to re-run that check whenever a dependency changes, not just at first install."
+}

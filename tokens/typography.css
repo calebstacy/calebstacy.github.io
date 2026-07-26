@@ -1,0 +1,89 @@
+:root{
+  --font-sans:"Geist",Arial,sans-serif;
+  --font-mono:"Geist Mono","Courier New",monospace;
+
+  /* mono is the document default; sans is opted into for display + prose */
+  --font-body:var(--font-mono);
+
+  /* display ladder — sans, tight tracking, sub-1 line-height */
+  --display-xl-size:clamp(40px,3.6vw,58px);
+  --display-xl-weight:760;
+  --display-xl-leading:0.92;
+  --display-xl-tracking:-0.075em;
+
+  --display-l-size:clamp(29px,2.6vw,42px);
+  --display-l-weight:650;
+  --display-l-leading:0.98;
+  --display-l-tracking:-0.065em;
+
+  --display-m-size:clamp(26px,2.2vw,35px);
+  --display-m-weight:710;
+  --display-m-leading:1.01;
+  --display-m-tracking:-0.055em;
+
+  --display-s-size:clamp(19px,1.6vw,25px);
+  --display-s-weight:720;
+  --display-s-leading:1;
+  --display-s-tracking:-0.06em;
+
+  --wordmark-size:clamp(32px,2.7vw,42px);
+  --wordmark-weight:780;
+  --wordmark-leading:0.94;
+  --wordmark-tracking:-0.065em;
+
+  /* statements + card titles */
+  --headline-size:clamp(18px,1.5vw,23px);
+  --headline-weight:520;
+  --headline-leading:1.08;
+  --headline-tracking:-0.05em;
+
+  --subhead-size:clamp(18px,1.45vw,22px);
+  --subhead-weight:400;
+  --subhead-leading:1;
+  --subhead-tracking:-0.05em;
+
+  --quote-size:clamp(20px,1.8vw,27px);
+  --quote-weight:620;
+  --quote-leading:1.08;
+  --quote-tracking:-0.055em;
+
+  /* reading */
+  --lede-size:clamp(16px,1.15vw,18px);
+  --lede-leading:1.45;
+  --lede-tracking:-0.03em;
+
+  --prose-size:clamp(16px,1.15vw,18px);
+  --prose-leading:1.52;
+  --prose-tracking:-0.025em;
+  --prose-measure:74ch;
+
+  --body-size:clamp(14px,1.05vw,16px);
+  --body-leading:1.45;
+  --body-tracking:-0.02em;
+
+  --body-s-size:clamp(13px,1.05vw,15px);
+  --body-s-leading:1.5;
+  --body-s-tracking:-0.025em;
+
+  /* interface + metadata */
+  --ui-size:13px;
+  --ui-weight:580;
+  --ui-tracking:-0.025em;
+
+  --eyebrow-size:clamp(10px,0.8vw,12px);
+  --eyebrow-weight:650;
+  --eyebrow-leading:1.35;
+  --eyebrow-tracking:-0.01em;
+
+  --meta-size:10px;
+  --meta-weight:700;
+  --micro-size:8px;
+  --micro-weight:700;
+
+  --fact-size:clamp(18px,1.5vw,25px);
+
+  /* numbers */
+  --metric-size:29px;
+  --metric-xl-size:clamp(30px,2.6vw,42px);
+  --metric-xl-tracking:-0.07em;
+}

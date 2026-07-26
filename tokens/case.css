@@ -1,0 +1,39 @@
+/* The case-document reflow — what inline styles cannot express, in the same spirit as
+   interaction.css (pseudo-state) and animation.css (keyframes): media queries are the third
+   thing a component cannot carry inline. Scoped to the `data-ds` hooks the new case/ components
+   (and their call sites in a VersoDocument-shaped screen) carry; every rule here changes layout
+   only, never skin. Mobile is first-class for this template, not an afterthought, so this file
+   exists specifically to make the reused "measurement set" components — authored before a phone
+   was a target — hold their own hairline grammar down to 360px. */
+
+/* Hide the scrollbar on the sticky jump nav; the row still scrolls by touch or drag, it just
+   doesn't need a visible track doing it. */
+[data-ds="case-nav"] { -ms-overflow-style: none; }
+[data-ds="case-nav"]::-webkit-scrollbar { display: none; }
+
+@media (max-width: 700px) {
+  /* The metric strip collapses 4 → 2×2, borders re-balanced so the second column still reads a
+     rule to its left and the third gives it back up — entry A's own reflow, in this system's
+     tokens. Three or fewer cells stay on one row; they were never cramped to begin with. */
+  [data-ds="metric-strip"][data-count="4"] { grid-template-columns: 1fr 1fr !important; row-gap: var(--space-6); }
+  [data-ds="metric-strip"][data-count="4"] > div:nth-child(2) { border-left: 1px solid var(--story-line) !important; }
+  [data-ds="metric-strip"][data-count="4"] > div:nth-child(3) { padding-left: 0 !important; border-left: none !important; }
+
+  /* The facts row stacks: one fact per row instead of squeezing "Role" and "Team and surface"
+     into two narrow columns. */
+  [data-ds="case-facts"] { grid-template-columns: 1fr !important; }
+  [data-ds="case-facts"] > div { border-right: 0 !important; }
+  [data-ds="case-facts"] > div + div { border-top: 1px solid var(--ink); }
+
+  /* Grids authored for a desktop measure fold to one column rather than squeezing two illegibly
+     narrow cells side by side. */
+  [data-ds="card-grid"] > div:last-child { grid-template-columns: 1fr !important; }
+  [data-ds="research-grid"] { grid-template-columns: 1fr !important; }
+  [data-ds="rule-split"] > div:first-child { grid-template-columns: 1fr !important; }
+  [data-ds="rule-split"] > div:first-child > div:first-child { border-right: 0 !important; border-bottom: 1px solid var(--story-line); }
+  [data-ds="toolchain"] > div > div { grid-template-columns: 1fr !important; row-gap: 6px; }
+
+  /* The next-project handoff wraps instead of crushing a statement-length action label. */
+  [data-ds="case-next"] { flex-wrap: wrap; row-gap: var(--space-6); }
+  [data-ds="case-next"] a, [data-ds="case-next"] button { white-space: normal !important; text-align: left; }
+}

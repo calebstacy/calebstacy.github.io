@@ -1,0 +1,31 @@
+/* The motion engine, lifted from app/globals.css in the source project.
+   Keyframes are the one thing a component cannot carry inline, so they live here and
+   components apply them with an inline `animation` shorthand. Every animation in the
+   system is one of the nine below — there are no others, and nothing decorative. */
+
+/* The copy column arriving on a stage. Defined in the source; applied where a stage's
+   copy should enter rather than simply appear. */
+@keyframes stage-enter{from{opacity:0;transform:translateX(58px)}to{opacity:1;transform:translateX(0)}}
+
+/* The curtain: a full pine plate crosses the stage, carrying the destination's name,
+   swaps the document behind itself, then leaves the way it came. */
+@keyframes stage-curtain-cover-forward{from{transform:translate3d(104%,0,0)}to{transform:translate3d(0,0,0)}}
+@keyframes stage-curtain-reveal-forward{from{transform:translate3d(0,0,0)}to{transform:translate3d(-104%,0,0)}}
+@keyframes stage-curtain-cover-backward{from{transform:translate3d(-104%,0,0)}to{transform:translate3d(0,0,0)}}
+@keyframes stage-curtain-reveal-backward{from{transform:translate3d(0,0,0)}to{transform:translate3d(104%,0,0)}}
+@keyframes stage-curtain-label-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes stage-curtain-label-out{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-14px)}}
+
+/* The character walks in from the right and settles. Opacity never changes — the clay
+   figure is present from the first frame, it simply has not arrived yet. */
+@keyframes character-enter{from{opacity:1;transform:translateX(110px) rotate(1deg)}to{opacity:1;transform:translateX(0) rotate(0)}}
+
+/* The case document rises over the pinned opening scene. */
+@keyframes case-enter{from{clip-path:inset(100% 0 0)}to{clip-path:inset(0 0 0)}}
+
+/* The only looping animation in the system: 4px, on the scroll cue. */
+@keyframes scroll-nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto !important;animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important}
+}
