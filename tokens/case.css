@@ -36,6 +36,24 @@
   [data-ds="rule-split"] > div:first-child > div:first-child { border-right: 0 !important; border-bottom: 1px solid var(--story-line); }
   [data-ds="toolchain"] > div > div { grid-template-columns: 1fr !important; row-gap: 6px; }
 
+  /* BeforeAfter's paired pane row and its delta-readout row are the same "desktop measure squeezed
+     to illegible columns" failure as the grids above; only the first two direct children (the pane
+     grid, then the optional deltas grid) ever carry a multi-column layout, so :nth-child(-n+2) never
+     touches a trailing `actions` row. */
+  [data-ds="before-after"] > div:nth-child(-n+2) { grid-template-columns: 1fr !important; }
+  [data-ds="before-after"] > div:nth-child(-n+2) > div { border-right: 0 !important; border-bottom: 1px solid var(--story-line); }
+  [data-ds="before-after"] > div:nth-child(-n+2) > div:last-child { border-bottom: 0 !important; }
+
+  /* An ad hoc two-column figure (paired FingerprintBars readouts, paired PullQuotes) authored
+     inline rather than through a named grid component — same fold, same reason. */
+  [data-ds="two-col"] { grid-template-columns: 1fr !important; }
+
+  /* Ledger sizes each cell to its own nowrap label ("a cell is only as wide as the wider of the
+     two"), which is exactly right at a desktop measure and overflows a phone-width cell the moment
+     a label runs longer than a couple of words. Letting it wrap at this width is the fix; the value
+     underneath stays nowrap since it's always short. */
+  [data-ds="ledger"] span { white-space: normal !important; }
+
   /* The next-project handoff wraps instead of crushing a statement-length action label. */
   [data-ds="case-next"] { flex-wrap: wrap; row-gap: var(--space-6); }
   [data-ds="case-next"] a, [data-ds="case-next"] button { white-space: normal !important; text-align: left; }

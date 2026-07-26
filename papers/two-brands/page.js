@@ -243,6 +243,7 @@ function App() {
     caption: "Headline writing on " + SURFACE_LABEL[topRow.netflix_surface] + " and " + SURFACE_LABEL[topRow.discord_surface] + ", all twelve measured qualities.",
     source: "results.json · cells." + "netflix." + topRow.netflix_surface + ".heading, discord." + topRow.discord_surface + ".heading"
   }, /*#__PURE__*/React.createElement("div", {
+    "data-ds": "two-col",
     style: {
       display: "grid",
       gridTemplateColumns: "1fr 1fr",

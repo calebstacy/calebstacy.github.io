@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"CalebStacyPortfolioDesignSystem_4a3883","components":[{"name":"ScrollCue","sourcePath":"components/actions/ScrollCue.jsx"},{"name":"StageAction","sourcePath":"components/actions/StageAction.jsx"},{"name":"CaseMeta","sourcePath":"components/case/CaseMeta.jsx"},{"name":"CaseNav","sourcePath":"components/case/CaseNav.jsx"},{"name":"CaseQuote","sourcePath":"components/case/CaseQuote.jsx"},{"name":"CaseSection","sourcePath":"components/case/CaseSection.jsx"},{"name":"MetricStrip","sourcePath":"components/case/MetricStrip.jsx"},{"name":"StoryBeat","sourcePath":"components/case/StoryBeat.jsx"},{"name":"VersoHero","sourcePath":"components/case/VersoHero.jsx"},{"name":"DocFigure","sourcePath":"components/document/DocFigure.jsx"},{"name":"Endnotes","sourcePath":"components/document/Endnotes.jsx"},{"name":"NoteRef","sourcePath":"components/document/Endnotes.jsx"},{"name":"References","sourcePath":"components/document/Endnotes.jsx"},{"name":"Finding","sourcePath":"components/document/Finding.jsx"},{"name":"PaperTable","sourcePath":"components/document/PaperTable.jsx"},{"name":"Report","sourcePath":"components/document/Report.jsx"},{"name":"ReportSection","sourcePath":"components/document/ReportSection.jsx"},{"name":"ArtifactFigure","sourcePath":"components/evidence/ArtifactFigure.jsx"},{"name":"BeforeAfter","sourcePath":"components/evidence/BeforeAfter.jsx"},{"name":"CaptureFigure","sourcePath":"components/evidence/CaptureFigure.jsx"},{"name":"CardGrid","sourcePath":"components/evidence/CardGrid.jsx"},{"name":"DataTable","sourcePath":"components/evidence/DataTable.jsx"},{"name":"DisciplineVenn","sourcePath":"components/evidence/DisciplineVenn.jsx"},{"name":"EvidenceTrace","sourcePath":"components/evidence/EvidenceTrace.jsx"},{"name":"FactsPanel","sourcePath":"components/evidence/FactsPanel.jsx"},{"name":"FingerprintBars","sourcePath":"components/evidence/FingerprintBars.jsx"},{"name":"GateRun","sourcePath":"components/evidence/GateRun.jsx"},{"name":"GridCard","sourcePath":"components/evidence/GridCard.jsx"},{"name":"IndexRows","sourcePath":"components/evidence/IndexRows.jsx"},{"name":"Ledger","sourcePath":"components/evidence/Ledger.jsx"},{"name":"Outcome","sourcePath":"components/evidence/Outcome.jsx"},{"name":"Pipeline","sourcePath":"components/evidence/Pipeline.jsx"},{"name":"PullQuote","sourcePath":"components/evidence/PullQuote.jsx"},{"name":"ResearchGrid","sourcePath":"components/evidence/ResearchGrid.jsx"},{"name":"ResumeEntry","sourcePath":"components/evidence/ResumeEntry.jsx"},{"name":"RuleSplit","sourcePath":"components/evidence/RuleSplit.jsx"},{"name":"SourceMap","sourcePath":"components/evidence/SourceMap.jsx"},{"name":"TenGrid","sourcePath":"components/evidence/TenGrid.jsx"},{"name":"Toolchain","sourcePath":"components/evidence/Toolchain.jsx"},{"name":"VoiceProfile","sourcePath":"components/evidence/VoiceProfile.jsx"},{"name":"VoiceScoreRing","sourcePath":"components/evidence/VoiceScoreRing.jsx"},{"name":"Eyebrow","sourcePath":"components/foundation/Eyebrow.jsx"},{"name":"LineArrow","sourcePath":"components/foundation/LineArrow.jsx"},{"name":"ProvenanceNote","sourcePath":"components/foundation/ProvenanceNote.jsx"},{"name":"RegistrationMark","sourcePath":"components/foundation/RegistrationMark.jsx"},{"name":"Tag","sourcePath":"components/foundation/Tag.jsx"},{"name":"Panel","sourcePath":"components/layout/Panel.jsx"},{"name":"PanelRow","sourcePath":"components/layout/Panel.jsx"},{"name":"PaperFrame","sourcePath":"components/layout/PaperFrame.jsx"},{"name":"Stage","sourcePath":"components/layout/Stage.jsx"},{"name":"StageCopy","sourcePath":"components/layout/StageCopy.jsx"},{"name":"StageCurtain","sourcePath":"components/layout/StageCurtain.jsx"},{"name":"StorySection","sourcePath":"components/layout/StorySection.jsx"},{"name":"ChapterNav","sourcePath":"components/navigation/ChapterNav.jsx"},{"name":"IndexRail","sourcePath":"components/navigation/IndexRail.jsx"},{"name":"MobileIdentityBar","sourcePath":"components/navigation/MobileIdentityBar.jsx"},{"name":"MobileMenu","sourcePath":"components/navigation/MobileMenu.jsx"},{"name":"ProjectSpineItem","sourcePath":"components/navigation/ProjectSpineItem.jsx"},{"name":"UtilityNav","sourcePath":"components/navigation/UtilityNav.jsx"}],"sourceHashes":{"components/actions/ScrollCue.jsx":"8bb658147fda","components/actions/StageAction.jsx":"5a98543af3b5","components/evidence/ArtifactFigure.jsx":"127fb9077aa2","components/evidence/CardGrid.jsx":"794c50eb554d","components/evidence/DataTable.jsx":"e463933290ef","components/evidence/FactsPanel.jsx":"d1281305f605","components/evidence/GridCard.jsx":"fc995a72a9ed","components/evidence/Ledger.jsx":"0a5053426aae","components/evidence/Outcome.jsx":"87e9bb425f06","components/evidence/Pipeline.jsx":"0a78361dc86f","components/evidence/PullQuote.jsx":"b00277528fb2","components/evidence/ResumeEntry.jsx":"022a5e5c0dec","components/evidence/SourceMap.jsx":"223f6d8e812b","components/evidence/TenGrid.jsx":"189c24069a2b","components/foundation/Eyebrow.jsx":"339d08d17838","components/foundation/LineArrow.jsx":"d1caad2e912f","components/foundation/ProvenanceNote.jsx":"b8816411ea6e","components/foundation/RegistrationMark.jsx":"75a36243789a","components/foundation/Tag.jsx":"5778ff0b56c7","components/layout/PaperFrame.jsx":"0d2965baa9ba","components/layout/Stage.jsx":"1e5269281805","components/layout/StageCopy.jsx":"007e4ad0a85a","components/layout/StageCurtain.jsx":"2fe263912177","components/layout/StorySection.jsx":"e97b2c28af96","components/navigation/ChapterNav.jsx":"c1cb8c701f50","components/navigation/IndexRail.jsx":"cfcf7a6820b9","components/navigation/ProjectSpineItem.jsx":"7f1826cd628d","components/navigation/UtilityNav.jsx":"49225082ad7f","ui_kits/portfolio/app.jsx":"38938eb8d687","ui_kits/portfolio/doc-page.js":"ef8ab2118053","ui_kits/portfolio/kit-data.js":"c4e4a093b428","ui_kits/portfolio/scene-visual.jsx":"6cff7cdfe351","ui_kits/portfolio/screen-project.jsx":"acc56b681e3b","ui_kits/portfolio/screen-utility.jsx":"1bdbe5e1668c","components/evidence/RuleSplit.jsx":"51a933a0d49e","components/evidence/ResearchGrid.jsx":"af910347ac02","components/evidence/FingerprintBars.jsx":"662c407f2939","components/evidence/EvidenceTrace.jsx":"1c52a31cba97","components/evidence/IndexRows.jsx":"d1cf16db6e0d","components/evidence/DisciplineVenn.jsx":"e1565f7822a0","components/evidence/VoiceScoreRing.jsx":"f1d9d92fe57c","components/evidence/BeforeAfter.jsx":"898153b5c378","components/evidence/VoiceProfile.jsx":"3760a08b0d90","components/layout/Panel.jsx":"5013c544891a","components/evidence/GateRun.jsx":"fc67aaf9e806","components/evidence/CaptureFigure.jsx":"d015bc84a966","components/document/Report.jsx":"d526bb6cda51","components/document/ReportSection.jsx":"1131f245e776","components/document/DocFigure.jsx":"ad268702d487","components/document/Endnotes.jsx":"70804d8c8006","components/evidence/Toolchain.jsx":"a5d456cdf63d","components/document/Finding.jsx":"72c749fc75c2","components/document/PaperTable.jsx":"f6bb51014d4e","components/case/CaseSection.jsx":"09e3d510dfaa","components/case/StoryBeat.jsx":"3b7ad214cf82","components/case/CaseQuote.jsx":"851b5a124fe4","components/case/MetricStrip.jsx":"5f86becb4df6","components/case/CaseNav.jsx":"e12f0f5468cf","components/navigation/MobileIdentityBar.jsx":"c91c97cc209d","components/navigation/MobileMenu.jsx":"5d64385eec4b","components/case/CaseMeta.jsx":"af757cdf13ec","components/case/VersoHero.jsx":"3f5cee78fd49"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":4,"namespace":"CalebStacyPortfolioDesignSystem_4a3883","components":[{"name":"ScrollCue","sourcePath":"components/actions/ScrollCue.jsx"},{"name":"StageAction","sourcePath":"components/actions/StageAction.jsx"},{"name":"CaseMeta","sourcePath":"components/case/CaseMeta.jsx"},{"name":"CaseNav","sourcePath":"components/case/CaseNav.jsx"},{"name":"CaseQuote","sourcePath":"components/case/CaseQuote.jsx"},{"name":"CaseSection","sourcePath":"components/case/CaseSection.jsx"},{"name":"MetricStrip","sourcePath":"components/case/MetricStrip.jsx"},{"name":"StoryBeat","sourcePath":"components/case/StoryBeat.jsx"},{"name":"VersoHero","sourcePath":"components/case/VersoHero.jsx"},{"name":"DocFigure","sourcePath":"components/document/DocFigure.jsx"},{"name":"Endnotes","sourcePath":"components/document/Endnotes.jsx"},{"name":"NoteRef","sourcePath":"components/document/Endnotes.jsx"},{"name":"References","sourcePath":"components/document/Endnotes.jsx"},{"name":"Finding","sourcePath":"components/document/Finding.jsx"},{"name":"PaperTable","sourcePath":"components/document/PaperTable.jsx"},{"name":"Report","sourcePath":"components/document/Report.jsx"},{"name":"ReportSection","sourcePath":"components/document/ReportSection.jsx"},{"name":"ArtifactFigure","sourcePath":"components/evidence/ArtifactFigure.jsx"},{"name":"BeforeAfter","sourcePath":"components/evidence/BeforeAfter.jsx"},{"name":"CaptureFigure","sourcePath":"components/evidence/CaptureFigure.jsx"},{"name":"CardGrid","sourcePath":"components/evidence/CardGrid.jsx"},{"name":"DataTable","sourcePath":"components/evidence/DataTable.jsx"},{"name":"DisciplineVenn","sourcePath":"components/evidence/DisciplineVenn.jsx"},{"name":"EvidenceTrace","sourcePath":"components/evidence/EvidenceTrace.jsx"},{"name":"FactsPanel","sourcePath":"components/evidence/FactsPanel.jsx"},{"name":"FingerprintBars","sourcePath":"components/evidence/FingerprintBars.jsx"},{"name":"GateRun","sourcePath":"components/evidence/GateRun.jsx"},{"name":"GridCard","sourcePath":"components/evidence/GridCard.jsx"},{"name":"IndexRows","sourcePath":"components/evidence/IndexRows.jsx"},{"name":"Ledger","sourcePath":"components/evidence/Ledger.jsx"},{"name":"Outcome","sourcePath":"components/evidence/Outcome.jsx"},{"name":"Pipeline","sourcePath":"components/evidence/Pipeline.jsx"},{"name":"PullQuote","sourcePath":"components/evidence/PullQuote.jsx"},{"name":"ResearchGrid","sourcePath":"components/evidence/ResearchGrid.jsx"},{"name":"ResumeEntry","sourcePath":"components/evidence/ResumeEntry.jsx"},{"name":"RuleSplit","sourcePath":"components/evidence/RuleSplit.jsx"},{"name":"SourceMap","sourcePath":"components/evidence/SourceMap.jsx"},{"name":"TenGrid","sourcePath":"components/evidence/TenGrid.jsx"},{"name":"Toolchain","sourcePath":"components/evidence/Toolchain.jsx"},{"name":"VoiceProfile","sourcePath":"components/evidence/VoiceProfile.jsx"},{"name":"VoiceScoreRing","sourcePath":"components/evidence/VoiceScoreRing.jsx"},{"name":"Eyebrow","sourcePath":"components/foundation/Eyebrow.jsx"},{"name":"LineArrow","sourcePath":"components/foundation/LineArrow.jsx"},{"name":"ProvenanceNote","sourcePath":"components/foundation/ProvenanceNote.jsx"},{"name":"RegistrationMark","sourcePath":"components/foundation/RegistrationMark.jsx"},{"name":"Tag","sourcePath":"components/foundation/Tag.jsx"},{"name":"Panel","sourcePath":"components/layout/Panel.jsx"},{"name":"PanelRow","sourcePath":"components/layout/Panel.jsx"},{"name":"PaperFrame","sourcePath":"components/layout/PaperFrame.jsx"},{"name":"Stage","sourcePath":"components/layout/Stage.jsx"},{"name":"StageCopy","sourcePath":"components/layout/StageCopy.jsx"},{"name":"StageCurtain","sourcePath":"components/layout/StageCurtain.jsx"},{"name":"StorySection","sourcePath":"components/layout/StorySection.jsx"},{"name":"ChapterNav","sourcePath":"components/navigation/ChapterNav.jsx"},{"name":"IndexRail","sourcePath":"components/navigation/IndexRail.jsx"},{"name":"MobileIdentityBar","sourcePath":"components/navigation/MobileIdentityBar.jsx"},{"name":"MobileMenu","sourcePath":"components/navigation/MobileMenu.jsx"},{"name":"ProjectSpineItem","sourcePath":"components/navigation/ProjectSpineItem.jsx"},{"name":"UtilityNav","sourcePath":"components/navigation/UtilityNav.jsx"}],"sourceHashes":{"components/actions/ScrollCue.jsx":"8bb658147fda","components/actions/StageAction.jsx":"5a98543af3b5","components/evidence/ArtifactFigure.jsx":"127fb9077aa2","components/evidence/CardGrid.jsx":"803ac13ab7bd","components/evidence/DataTable.jsx":"e463933290ef","components/evidence/FactsPanel.jsx":"d1281305f605","components/evidence/GridCard.jsx":"fc995a72a9ed","components/evidence/Ledger.jsx":"30ffa1dd140d","components/evidence/Outcome.jsx":"87e9bb425f06","components/evidence/Pipeline.jsx":"0a78361dc86f","components/evidence/PullQuote.jsx":"b00277528fb2","components/evidence/ResumeEntry.jsx":"022a5e5c0dec","components/evidence/SourceMap.jsx":"223f6d8e812b","components/evidence/TenGrid.jsx":"189c24069a2b","components/foundation/Eyebrow.jsx":"339d08d17838","components/foundation/LineArrow.jsx":"d1caad2e912f","components/foundation/ProvenanceNote.jsx":"b8816411ea6e","components/foundation/RegistrationMark.jsx":"75a36243789a","components/foundation/Tag.jsx":"5778ff0b56c7","components/layout/PaperFrame.jsx":"0d2965baa9ba","components/layout/Stage.jsx":"1e5269281805","components/layout/StageCopy.jsx":"007e4ad0a85a","components/layout/StageCurtain.jsx":"2fe263912177","components/layout/StorySection.jsx":"e97b2c28af96","components/navigation/ChapterNav.jsx":"c1cb8c701f50","components/navigation/IndexRail.jsx":"cfcf7a6820b9","components/navigation/ProjectSpineItem.jsx":"7f1826cd628d","components/navigation/UtilityNav.jsx":"49225082ad7f","ui_kits/portfolio/app.jsx":"38938eb8d687","ui_kits/portfolio/doc-page.js":"ef8ab2118053","ui_kits/portfolio/kit-data.js":"c4e4a093b428","ui_kits/portfolio/scene-visual.jsx":"6cff7cdfe351","ui_kits/portfolio/screen-project.jsx":"acc56b681e3b","ui_kits/portfolio/screen-utility.jsx":"1bdbe5e1668c","components/evidence/RuleSplit.jsx":"df64f7a3e979","components/evidence/ResearchGrid.jsx":"7ac09d17bc27","components/evidence/FingerprintBars.jsx":"662c407f2939","components/evidence/EvidenceTrace.jsx":"1c52a31cba97","components/evidence/IndexRows.jsx":"d1cf16db6e0d","components/evidence/DisciplineVenn.jsx":"e1565f7822a0","components/evidence/VoiceScoreRing.jsx":"f1d9d92fe57c","components/evidence/BeforeAfter.jsx":"acae0740ee64","components/evidence/VoiceProfile.jsx":"3760a08b0d90","components/layout/Panel.jsx":"5013c544891a","components/evidence/GateRun.jsx":"fc67aaf9e806","components/evidence/CaptureFigure.jsx":"d015bc84a966","components/document/Report.jsx":"d526bb6cda51","components/document/ReportSection.jsx":"1131f245e776","components/document/DocFigure.jsx":"ad268702d487","components/document/Endnotes.jsx":"70804d8c8006","components/evidence/Toolchain.jsx":"5e1d68775f89","components/document/Finding.jsx":"72c749fc75c2","components/document/PaperTable.jsx":"f6bb51014d4e","components/case/CaseSection.jsx":"09e3d510dfaa","components/case/StoryBeat.jsx":"3b7ad214cf82","components/case/CaseQuote.jsx":"851b5a124fe4","components/case/MetricStrip.jsx":"5f86becb4df6","components/case/CaseNav.jsx":"e12f0f5468cf","components/navigation/MobileIdentityBar.jsx":"c91c97cc209d","components/navigation/MobileMenu.jsx":"5d64385eec4b","components/case/CaseMeta.jsx":"af757cdf13ec","components/case/VersoHero.jsx":"3f5cee78fd49"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -28525,6 +28525,547 @@ function UtilityNav({
 }
 Object.assign(__ds_scope, { UtilityNav });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/UtilityNav.jsx", error: String((e && e.message) || e) }); }
+
+// components/evidence/CardGrid.jsx
+try { (() => {
+/** Hairline grid block, on the instrument grammar: an optional silkscreen header naming what the set is
+ *  and how many are in it, then cells sized by their contents. Without a label it stays a bare grid —
+ *  but if you cannot name the set, ask whether it needed a frame at all. */
+function CardGrid({
+  columns = 2,
+  raised = true,
+  label,
+  scope,
+  children,
+  style,
+  ...rest
+}) {
+  const count = React.Children.count(children);
+  return /*#__PURE__*/React.createElement("div", {
+    "data-ds": "card-grid",
+    style: {
+      borderTop: "1px solid var(--story-line)",
+      borderLeft: "1px solid var(--story-line)",
+      background: raised ? "var(--story-raised)" : "transparent",
+      boxShadow: raised ? "var(--story-shadow)" : "none",
+      ...style
+    },
+    ...rest
+  }, (label || scope) && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: 12,
+      alignItems: "baseline",
+      padding: "11px 16px",
+      borderRight: "1px solid var(--story-line)",
+      borderBottom: "1px solid var(--story-line)",
+      background: "var(--story-band)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700
+    }
+  }, label), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700,
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, scope || String(count).padStart(2, "0"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(" + columns + ",minmax(0,1fr))"
+    }
+  }, children));
+}
+Object.assign(__ds_scope, { CardGrid });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/evidence/CardGrid.jsx", error: String((e && e.message) || e) }); }
+
+// components/evidence/ResearchGrid.jsx
+try { (() => {
+/** Published sources behind a measurement, one row each: who, when, and the thing it makes computable.
+ *  A citation row is the difference between an instrument and an opinion, so the source is never
+ *  paraphrased away — it stays attributable. */
+function ResearchGrid({
+  items = [],
+  columns = 2,
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    "data-ds": "research-grid",
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(" + columns + ",minmax(0,1fr))",
+      borderTop: "1px solid var(--story-line)",
+      borderLeft: "1px solid var(--story-line)",
+      background: "var(--story-raised)",
+      boxShadow: "var(--story-shadow)",
+      ...style
+    },
+    ...rest
+  }, items.map((item, i) => /*#__PURE__*/React.createElement("article", {
+    key: i,
+    style: {
+      padding: "15px 18px",
+      borderRight: "1px solid var(--story-line)",
+      borderBottom: "1px solid var(--story-line)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: 12,
+      alignItems: "baseline"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--story-accent)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700
+    }
+  }, item.source), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700,
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, item.year)), /*#__PURE__*/React.createElement("h3", {
+    style: {
+      margin: "9px 0 0",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--subhead-size)",
+      fontWeight: 620,
+      lineHeight: 1.12,
+      letterSpacing: "var(--subhead-tracking)"
+    }
+  }, item.gives), item.note && /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "7px 0 0",
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--body-size)",
+      lineHeight: 1.4,
+      letterSpacing: "var(--body-tracking)"
+    }
+  }, item.note))));
+}
+Object.assign(__ds_scope, { ResearchGrid });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/evidence/ResearchGrid.jsx", error: String((e && e.message) || e) }); }
+
+// components/evidence/RuleSplit.jsx
+try { (() => {
+/** Two-column sort of a guidance set: what a model has to judge, and what code can check.
+ *  The whole argument for a measurement layer fits in one of these — a reader can see the
+ *  proportion before reading a single row. */
+function RuleSplit({
+  modelLabel = "Model judgment",
+  codeLabel = "Checkable in code",
+  rules = [],
+  note,
+  style,
+  ...rest
+}) {
+  const model = rules.filter(r => r.kind === "model");
+  const code = rules.filter(r => r.kind === "code");
+  const column = (label, items, accent) => /*#__PURE__*/React.createElement("div", {
+    style: {
+      minWidth: 0,
+      borderRight: "1px solid var(--story-line)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: 12,
+      alignItems: "baseline",
+      padding: "11px 16px",
+      borderBottom: "1px solid var(--story-line)",
+      background: "var(--story-band)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: accent,
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700
+    }
+  }, label), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700,
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, String(items.length).padStart(2, "0"))), /*#__PURE__*/React.createElement("ul", {
+    style: {
+      margin: 0,
+      padding: 0,
+      listStyle: "none"
+    }
+  }, items.map((r, i) => /*#__PURE__*/React.createElement("li", {
+    key: i,
+    style: {
+      padding: "10px 16px",
+      borderBottom: i === items.length - 1 ? 0 : "1px solid var(--story-line)",
+      color: "var(--story-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--body-size)",
+      fontWeight: 520,
+      lineHeight: 1.35,
+      letterSpacing: "var(--body-tracking)"
+    }
+  }, r.rule))));
+  return /*#__PURE__*/React.createElement("div", {
+    "data-ds": "rule-split",
+    style: style,
+    ...rest
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(2,minmax(0,1fr))",
+      border: "1px solid var(--story-line)",
+      borderRight: 0,
+      background: "var(--story-raised)",
+      boxShadow: "var(--story-shadow)"
+    }
+  }, column(modelLabel, model, "var(--story-muted)"), column(codeLabel, code, "var(--story-accent)")), note && /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "13px 0 0",
+      color: "var(--story-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--subhead-size)",
+      fontWeight: 620,
+      lineHeight: 1.2,
+      letterSpacing: "var(--subhead-tracking)"
+    }
+  }, note));
+}
+Object.assign(__ds_scope, { RuleSplit });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/evidence/RuleSplit.jsx", error: String((e && e.message) || e) }); }
+
+// components/evidence/Toolchain.jsx
+try { (() => {
+/** What a system was actually built out of, named and linked so a reader can go and check.
+ *
+ *  The engineering counterpart to `ResearchGrid`: same anatomy, same register. Deliberately no logos —
+ *  a row of third-party brand marks would be the one place this system's ink-and-hairline language
+ *  breaks, and it is the oldest tell in portfolio design. A name, a licence, and what it actually
+ *  provides is more credible than a badge, because it can be verified. */
+function Toolchain({
+  items = [],
+  label = "Built with",
+  note,
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    "data-ds": "toolchain",
+    style: style,
+    ...rest
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      border: "1px solid var(--story-line)",
+      background: "var(--story-raised)",
+      boxShadow: "var(--story-shadow)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: 12,
+      alignItems: "baseline",
+      padding: "11px 16px",
+      borderBottom: "1px solid var(--story-line)",
+      background: "var(--story-band)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700
+    }
+  }, label), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700,
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, String(items.length).padStart(2, "0"))), items.map((item, i) => /*#__PURE__*/React.createElement("div", {
+    key: item.name,
+    style: {
+      display: "grid",
+      gridTemplateColumns: "minmax(140px,0.9fr) minmax(0,2fr) auto",
+      gap: "clamp(12px,2vw,26px)",
+      alignItems: "baseline",
+      padding: "12px 16px",
+      borderBottom: i === items.length - 1 ? 0 : "1px solid var(--story-line)"
+    }
+  }, item.href ? /*#__PURE__*/React.createElement("a", {
+    href: item.href,
+    target: "_blank",
+    rel: "noreferrer noopener",
+    style: {
+      color: "var(--story-accent)",
+      fontFamily: "var(--font-sans)",
+      fontSize: 14,
+      fontWeight: 650,
+      letterSpacing: "-0.03em",
+      textDecoration: "none",
+      borderBottom: "1px solid currentColor",
+      width: "fit-content",
+      paddingBottom: 1
+    }
+  }, item.name) : /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--story-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: 14,
+      fontWeight: 650,
+      letterSpacing: "-0.03em"
+    }
+  }, item.name), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--body-size)",
+      lineHeight: 1.4,
+      letterSpacing: "var(--body-tracking)"
+    }
+  }, item.provides), item.meta && /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700,
+      whiteSpace: "nowrap",
+      textAlign: "right"
+    }
+  }, item.meta)))), note && /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: 640,
+      margin: "13px 0 0",
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--body-size)",
+      lineHeight: 1.45
+    }
+  }, note));
+}
+Object.assign(__ds_scope, { Toolchain });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/evidence/Toolchain.jsx", error: String((e && e.message) || e) }); }
+
+// components/evidence/BeforeAfter.jsx
+try { (() => {
+/** A rewrite delivered as a diff with its measurements attached, so the person deciding whether to
+ *  take it can see what moved and by how much. The deltas are the argument — without them this is
+ *  just someone else's preferred wording. */
+function BeforeAfter({
+  before,
+  after,
+  beforeLabel = "Before",
+  afterLabel = "After",
+  deltas = [],
+  actions,
+  style,
+  ...rest
+}) {
+  const pane = (label, text, tone) => /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "14px 16px",
+      borderRight: tone === "before" ? "1px solid var(--story-line)" : 0
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      marginBottom: 9,
+      color: tone === "after" ? "var(--story-accent)" : "var(--story-muted)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700
+    }
+  }, label), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      color: tone === "before" ? "var(--story-muted)" : "var(--story-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--body-size)",
+      fontWeight: tone === "after" ? 560 : 480,
+      lineHeight: 1.45,
+      letterSpacing: "var(--body-tracking)"
+    }
+  }, text));
+  return /*#__PURE__*/React.createElement("div", {
+    "data-ds": "before-after",
+    style: {
+      border: "1px solid var(--story-line)",
+      background: "var(--story-raised)",
+      boxShadow: "var(--story-shadow)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(2,minmax(0,1fr))",
+      borderBottom: "1px solid var(--story-line)"
+    }
+  }, pane(beforeLabel, before, "before"), pane(afterLabel, after, "after")), deltas.length > 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(" + Math.max(deltas.length, 1) + ",minmax(0,1fr))",
+      borderBottom: actions ? "1px solid var(--story-line)" : 0
+    }
+  }, deltas.map((d, i) => {
+    const up = Number(d.to) > Number(d.from);
+    return /*#__PURE__*/React.createElement("div", {
+      key: d.name,
+      style: {
+        padding: "11px 14px",
+        borderRight: i === deltas.length - 1 ? 0 : "1px solid var(--story-line)"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        display: "block",
+        marginBottom: 6,
+        color: "var(--story-muted)",
+        fontFamily: "var(--font-mono)",
+        fontSize: 9,
+        fontWeight: 700
+      }
+    }, d.name), /*#__PURE__*/React.createElement("span", {
+      style: {
+        display: "flex",
+        gap: 6,
+        alignItems: "baseline",
+        fontFamily: "var(--font-sans)",
+        fontVariantNumeric: "tabular-nums"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "var(--story-muted)",
+        fontSize: 13,
+        fontWeight: 560,
+        letterSpacing: "-0.03em",
+        textDecoration: "line-through"
+      }
+    }, d.from), /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        color: "var(--story-muted)",
+        fontFamily: "var(--font-mono)",
+        fontSize: 9
+      }
+    }, up ? "↑" : "↓"), /*#__PURE__*/React.createElement("strong", {
+      style: {
+        color: "var(--story-accent)",
+        fontSize: 17,
+        fontWeight: 700,
+        letterSpacing: "-0.04em"
+      }
+    }, d.to)));
+  })), actions && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: "var(--space-8)",
+      alignItems: "center",
+      padding: "12px 16px"
+    }
+  }, actions));
+}
+Object.assign(__ds_scope, { BeforeAfter });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/evidence/BeforeAfter.jsx", error: String((e && e.message) || e) }); }
+
+// components/evidence/Ledger.jsx
+try { (() => {
+/** Counted facts, sized by what they say.
+ *
+ *  Label above value, so a cell is only as wide as the wider of the two and a row of four fits without
+ *  stretching. Side-by-side reads fine until a value is a word rather than a number, at which point the
+ *  cells go ragged and the label and the number end up at opposite ends of a void. This is the same
+ *  stacking `VoiceProfile` uses, which is the system's answer for a set of small readings. */
+function Ledger({
+  items = [],
+  label = "Counted",
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    "data-ds": "ledger",
+    style: {
+      width: "fit-content",
+      maxWidth: "100%",
+      borderTop: "1px solid var(--story-line)",
+      borderLeft: "1px solid var(--story-line)",
+      background: "var(--story-raised)",
+      boxShadow: "var(--story-shadow)",
+      ...style
+    },
+    ...rest
+  }, label && /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "11px 16px",
+      borderRight: "1px solid var(--story-line)",
+      borderBottom: "1px solid var(--story-line)",
+      background: "var(--story-band)",
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700
+    }
+  }, label), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap"
+    }
+  }, items.map((item, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      flex: "0 1 auto",
+      padding: "12px 18px 13px 16px",
+      borderRight: "1px solid var(--story-line)",
+      borderBottom: "1px solid var(--story-line)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      marginBottom: 7,
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700,
+      lineHeight: 1.35,
+      whiteSpace: "nowrap"
+    }
+  }, item.label), /*#__PURE__*/React.createElement("strong", {
+    style: {
+      display: "block",
+      color: "var(--story-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--metric-size)",
+      fontWeight: 700,
+      lineHeight: 0.9,
+      letterSpacing: "-0.045em",
+      whiteSpace: "nowrap",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, item.value)))));
+}
+Object.assign(__ds_scope, { Ledger });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/evidence/Ledger.jsx", error: String((e && e.message) || e) }); }
 
 __ds_ns.ScrollCue = __ds_scope.ScrollCue;
 

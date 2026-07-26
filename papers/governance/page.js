@@ -336,6 +336,7 @@ function App() {
       overflowX: "auto"
     }
   }, /*#__PURE__*/React.createElement("div", {
+    "data-ds": "two-col",
     style: {
       display: "grid",
       gridTemplateColumns: "1fr 1fr",

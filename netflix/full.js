@@ -315,6 +315,7 @@ function App() {
     caption: "Body prose, Help Center against Tudum, all twelve measured dimensions. Directness moves in opposite directions on the same two surfaces: help extends toward more of it, Tudum toward less.",
     source: "floor.json · deviations, body_prose/help and body_prose/tudum"
   }, /*#__PURE__*/React.createElement("div", {
+    "data-ds": "two-col",
     style: {
       display: "grid",
       gridTemplateColumns: "1fr 1fr",
@@ -429,6 +430,7 @@ function App() {
       margin: "1.2em 0"
     }
   }, /*#__PURE__*/React.createElement("div", {
+    "data-ds": "two-col",
     style: {
       display: "grid",
       gridTemplateColumns: "1fr 1fr",
