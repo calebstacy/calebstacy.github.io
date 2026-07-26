@@ -1,5 +1,5 @@
 :root{
-  --font-sans:"Geist",Arial,sans-serif;
+  --font-sans:"General Sans",-apple-system,"Segoe UI",Arial,sans-serif;
   --font-mono:"Geist Mono","Courier New",monospace;
 
   /* mono is the document default; sans is opted into for display + prose */
@@ -7,7 +7,7 @@
 
   /* display ladder — sans, tight tracking, sub-1 line-height */
   --display-xl-size:clamp(40px,3.6vw,58px);
-  --display-xl-weight:760;
+  --display-xl-weight:700;
   --display-xl-leading:0.92;
   --display-xl-tracking:-0.075em;
 
@@ -22,14 +22,14 @@
   --display-m-tracking:-0.055em;
 
   --display-s-size:clamp(19px,1.6vw,25px);
-  --display-s-weight:720;
+  --display-s-weight:700;
   --display-s-leading:1;
   --display-s-tracking:-0.06em;
 
   --wordmark-size:clamp(32px,2.7vw,42px);
-  --wordmark-weight:780;
+  --wordmark-weight:700;
   --wordmark-leading:0.94;
-  --wordmark-tracking:-0.065em;
+  --wordmark-tracking:-0.073em;
 
   /* statements + card titles */
   --headline-size:clamp(18px,1.5vw,23px);
