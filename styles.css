@@ -16,3 +16,11 @@
    at every width. Must sit AFTER the @imports: the CSS spec discards any @import that follows a
    style rule, and putting this first silently disabled every token file above. */
 *, *::before, *::after { box-sizing: border-box; }
+
+/* The About cover's "I design ____" line. JS types and erases the word; this block opts the line
+   out of the h1's balanced wrapping (balance re-shuffles lines on every keystroke) and reserves
+   two lines so the copy below never bounces as words change length. The caret blinks in step;
+   reduced-motion renders the settled line with no caret at all (enforced in JS and here). */
+[data-ds="design-rotator"] { display: block; text-wrap: wrap; min-height: calc(var(--display-xl-leading) * 2em); }
+@keyframes rotator-caret-blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { [data-ds="design-rotator-caret"] { display: none; } }

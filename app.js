@@ -515,6 +515,17 @@ function VersoDocument({
       margin: 0
     }
   }, "That became the rule I sorted everything by. A yes-or-no rule, like never say “click” or keep sentence case always, was solved by a regular expression decades ago. What was left, once all of that was pulled out, was smaller than anyone expected. It was almost all voice and tone. So I went looking for research on how language itself could be measured instead of just described: how formal a sentence reads, how direct it is, its rhythm, its density. Linguists had already been measuring exactly this for years. I just had to point it at a product.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "fieldwork",
+    title: "There was no dataset of Meta's voice. Making one was the real work."
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "The fingerprints had to come from language that actually shipped, not from anyone's guidelines. So I went digging through the products' codebases with deep searches across production strings, and pulled out thousands per surface: the button labels and error messages people actually see. I ran swarms of agents to do the ingesting, then categorized every string by the job it does: a button label, a notification, a step in an instruction, body text. Different jobs read differently on purpose, so each was measured on its own terms, never averaged together."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "From that corpus, each surface got its signature computed dimension by dimension and stored as a structured profile: the target the agent would later be held to. And because a measurement nobody runs might as well not exist, I put the measurement server on Meta's serverless infrastructure and kept it warm, so checking a draft cost seconds, not a meeting. That's what made self-linting viable: the check was cheap enough to run on every draft, every time.")), /*#__PURE__*/React.createElement(Beat, {
     id: "built",
     title: "What I built ended up being three things that only work together."
   }, /*#__PURE__*/React.createElement("p", {
@@ -533,7 +544,7 @@ function VersoDocument({
     style: {
       margin: "22px 0 0"
     }
-  }, "And underneath that is the index: everything usable that guidance had scattered across wikis, chat threads, spreadsheets and posts, sieved down to what was actually checkable and stored as records a tool could route: one per surface, versioned, owned and marked as a blocker or an advisory."), /*#__PURE__*/React.createElement(Door, {
+  }, "And underneath that is the index. I consolidated everything guidance had scattered across wikis, chat threads, spreadsheets and posts, ran a taxonomy over the pile, and categorized every rule by whether a machine could check it. What survived the sort became records a tool could route: versioned, owned, scoped to a surface and marked as a blocker or an advisory."), /*#__PURE__*/React.createElement(Door, {
     onOpen: open("verso/index")
   }, "What the index held"), /*#__PURE__*/React.createElement(ArtifactFigure, {
     contain: true,
@@ -2455,6 +2466,61 @@ const {
   ProvenanceNote,
   ResumeEntry
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
+
+/* The About cover's accent line: "I design ____", typed and erased like someone changing their
+   mind at the keyboard. Leads with systems (the discipline the whole site argues for) and rests
+   longest on the honest answer. Reduced motion gets the resting answer directly, no caret. */
+const DESIGN_WORDS = ["systems.", "language standards.", "taxonomies.", "onboarding.", "experiments.", "quests.", "poems.", "a lot of things."];
+const DESIGN_REST = DESIGN_WORDS[DESIGN_WORDS.length - 1];
+function DesignRotator() {
+  const reduced = React.useMemo(() => !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches), []);
+  const [text, setText] = React.useState(reduced ? DESIGN_REST : "");
+  React.useEffect(() => {
+    if (reduced) return undefined;
+    let alive = true,
+      t = 0,
+      i = 0;
+    const later = (fn, ms) => {
+      t = setTimeout(() => {
+        if (alive) fn();
+      }, ms);
+    };
+    const type = ci => {
+      const word = DESIGN_WORDS[i];
+      setText(word.slice(0, ci));
+      if (ci < word.length) later(() => type(ci + 1), 40);else later(() => erase(word.length - 1), word === DESIGN_REST ? 2400 : 950);
+    };
+    const erase = len => {
+      setText(DESIGN_WORDS[i].slice(0, len));
+      if (len > 0) later(() => erase(len - 1), 13);else {
+        i = (i + 1) % DESIGN_WORDS.length;
+        later(() => type(1), 170);
+      }
+    };
+    type(1);
+    return () => {
+      alive = false;
+      clearTimeout(t);
+    };
+  }, [reduced]);
+  return /*#__PURE__*/React.createElement("span", {
+    "data-ds": "design-rotator",
+    role: "text",
+    "aria-label": "I design " + DESIGN_REST
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }, "I design " + text, !reduced && /*#__PURE__*/React.createElement("span", {
+    "data-ds": "design-rotator-caret",
+    style: {
+      display: "inline-block",
+      width: "0.045em",
+      height: "0.74em",
+      marginLeft: "0.05em",
+      background: "var(--signal-stage)",
+      animation: "rotator-caret-blink 1.05s steps(1) infinite"
+    }
+  })));
+}
 function AboutDocument({
   data,
   onWork
@@ -2467,7 +2533,7 @@ function AboutDocument({
   }, /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
     eyebrow: "About",
     title: "Hi, I'm Caleb.",
-    accent: "I make voice measurable.",
+    accent: /*#__PURE__*/React.createElement(DesignRotator, null),
     deck: "At Meta that meant a measurement engine scoring language across eleven dimensions, wired into an agent that corrected its own drafts before anyone read them. I've since built a version anyone can run and used it to score other companies' shipped product language.",
     detail: "Seven years teaching writing, five designing product, then two more making voice something a machine could be held to."
   }, /*#__PURE__*/React.createElement(StageAction, {
