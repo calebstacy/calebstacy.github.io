@@ -583,7 +583,7 @@ function VersoDocument({
     style: {
       margin: 0
     }
-  }, "Voice had always been described in adjectives, things like warm or genuine, because that's how you describe a feeling to a person. None of those words mean anything to a machine, and honestly, not much to a new hire on their first week either. What I built was a way to turn that feeling into something checkable: eleven numbers, each one with a band it has to sit inside. A target, not a mood. Language you can hold an agent to isn't a smaller version of good writing. It's what good writing looks like once somebody bothers to measure it.")), /*#__PURE__*/React.createElement("div", {
+  }, "Voice had always been described in adjectives, things like warm or genuine, because that's how you describe a feeling to a person. None of those words mean anything to a machine, and honestly, not much to a new hire on their first week either. What I built was a way to turn that feeling into something checkable: eleven numbers, each one with a band it has to sit inside. A target, not a mood. And a target is something adjectives never were: testable. A voice change becomes an experiment you can run, not an argument you have to win. Language you can hold an agent to isn't a smaller version of good writing. It's what good writing looks like once somebody bothers to measure it.")), /*#__PURE__*/React.createElement("div", {
     id: "next",
     "data-ds": "case-next",
     style: {
@@ -2672,7 +2672,7 @@ function AboutDocument({
     style: {
       margin: 0
     }
-  }, "Product direction is framing the problem and defining the content model before the first screen exists. Interaction language is the words a product uses to move someone from intent to outcome. Experimentation means hypotheses that survive contact with shipped behavior, run with research and data partners. And the systems work is the machinery that turns a voice standard into something a build or an agent can fail against. Whatever the project starts as, it ends as a system that keeps the decision from being re-litigated."), /*#__PURE__*/React.createElement("p", {
+  }, "Product direction is framing the problem and defining the content model before the first screen exists. Interaction language is the words a product uses to move someone from intent to outcome. Experimentation means hypotheses that survive contact with shipped behavior, run with research and data partners. And the systems work is the machinery that turns a voice standard into something a build or an agent can fail against. Whatever the project starts as, it ends as a system that keeps the decision from being re-litigated. Measured standards carry a bonus: every band is a variable, so voice itself becomes something a team can A/B test instead of argue about."), /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }

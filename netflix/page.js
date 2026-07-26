@@ -305,7 +305,16 @@ function App() {
       asserts: "Help and marketing pair “TV show” with “movie”; Tudum and culture pair “series” with “film” — " + contentUnit.total_occurrences + " occurrences naming what reads like the same thing. This record doesn't pick a winner. It exists so the ruling, whichever way it goes, has somewhere to live.",
       meta: ["kind: vocabulary (proposed shape)", "status: proposed — no owner assigned", "evidence: terms.json · content-unit-pairing", "blocked on: a ruling, not more data"]
     }]
-  })), /*#__PURE__*/React.createElement(ProvenanceNote, {
+  })), /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: 620,
+      margin: "clamp(20px,2.6vw,28px) 0 0",
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--body-size)",
+      lineHeight: 1.55
+    }
+  }, "A record buys a second thing, and it may matter more than the gate: a vocabulary for experiments. \"Would warmer help copy hurt task completion?\" isn't answerable while warm is an adjective. The moment it's a band on a measured dimension, it's an A/B test. Every record above is a governed default today and a testable hypothesis the day someone challenges it."), /*#__PURE__*/React.createElement(ProvenanceNote, {
     label: "What these are",
     style: {
       marginTop: "clamp(20px,2.6vw,28px)"

@@ -538,7 +538,7 @@ function App() {
     style: {
       margin: "0 0 1em"
     }
-  }, "A record here is either a ", /*#__PURE__*/React.createElement("strong", null, "floor"), " (the default, until something more specific overrides it) or an ", /*#__PURE__*/React.createElement("strong", null, "extension"), ", scoped to one surface. Where an adopted extension's scope covers a surface, it wins there; the floor keeps applying everywhere nothing more specific reaches. Nothing is ever deleted. A record's status moves to deprecated, and whatever cited its old id resolves forward rather than breaking."), /*#__PURE__*/React.createElement(DocFigure, {
+  }, "A record here is either a ", /*#__PURE__*/React.createElement("strong", null, "floor"), " (the default, until something more specific overrides it) or an ", /*#__PURE__*/React.createElement("strong", null, "extension"), ", scoped to one surface. Where an adopted extension's scope covers a surface, it wins there; the floor keeps applying everywhere nothing more specific reaches. Nothing is ever deleted. A record's status moves to deprecated, and whatever cited its old id resolves forward rather than breaking. An adopted band is also an experimentable one: every dimension is an independent variable, so \"warmer support copy\" can run as a hypothesis with a readout instead of shipping as a preference with a sponsor."), /*#__PURE__*/React.createElement(DocFigure, {
     caption: "Three records, instantiated against this page's own findings rather than invented ones.",
     source: "Record shape: ../papers/governance/schema.json · record_shape. Evidence: floor.json, terms.json."
   }, /*#__PURE__*/React.createElement(IndexRows, {
