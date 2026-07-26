@@ -1,7 +1,15 @@
 /* The motion engine, lifted from app/globals.css in the source project.
    Keyframes are the one thing a component cannot carry inline, so they live here and
-   components apply them with an inline `animation` shorthand. Every animation in the
-   system is one of the nine below — there are no others, and nothing decorative. */
+   components apply them with an inline `animation` shorthand. Everything through the
+   scroll cue below is the original set, ported verbatim. The two `verso-*` entries at
+   the bottom are the one deliberate addition, added for `VersoHero` (the Verso case
+   cover's animated agent panel): it depicts a live product surface — a chat-style
+   thinking window — rather than decorating a document, so it is allowed one thing nothing
+   else here is, a streamed line's quiet shimmer. `verso-line-enter` still obeys the
+   drawn-never-faded law (a clip-path reveal plus a settle, opacity constant throughout);
+   `verso-shimmer-sweep` is the single exception to "nothing loops," scoped to the one
+   line currently streaming and never running longer than that. Nothing else in the
+   system reaches for either. */
 
 /* The copy column arriving on a stage. Defined in the source; applied where a stage's
    copy should enter rather than simply appear. */
@@ -23,8 +31,20 @@
 /* The case document rises over the pinned opening scene. */
 @keyframes case-enter{from{clip-path:inset(100% 0 0)}to{clip-path:inset(0 0 0)}}
 
-/* The only looping animation in the system: 4px, on the scroll cue. */
+/* The only looping animation in the original set: 4px, on the scroll cue. */
 @keyframes scroll-nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+/* VersoHero only, below. A reasoning line (or the self-check line that closes the
+   sequence) arriving in the thinking window: clip-path reveals it left to right and it
+   settles 6px upward into place. Opacity is never touched — same law `character-enter`
+   already keeps above. */
+@keyframes verso-line-enter{from{clip-path:inset(0 100% 0 0);transform:translateY(6px)}to{clip-path:inset(0 0 0 0);transform:translateY(0)}}
+
+/* VersoHero only. The one line currently streaming carries a quiet highlight sweeping
+   through it — text clipped to a gradient, not a background sitting behind it — so the
+   panel reads as live rather than posted. Applied only to the active line, removed the
+   moment it settles; never runs on more than one line at a time. */
+@keyframes verso-shimmer-sweep{0%{background-position:160% 0}100%{background-position:-60% 0}}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto !important;animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important}
