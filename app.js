@@ -153,13 +153,7 @@ function ProjectDocument({
     items: project.results
   }) : /*#__PURE__*/React.createElement(Outcome, {
     label: project.outcomeLabel
-  }, project.outcomeProse), /*#__PURE__*/React.createElement(StageAction, {
-    accent: "action",
-    style: {
-      marginTop: 23
-    },
-    onClick: () => jump("problem")
-  }, "Read the story")), /*#__PURE__*/React.createElement(SceneCharacter, {
+  }, project.outcomeProse)), /*#__PURE__*/React.createElement(SceneCharacter, {
     src: project.character,
     alt: project.characterAlt
   })), /*#__PURE__*/React.createElement(ChapterNav, {
@@ -590,13 +584,7 @@ function VersoDocument({
   }, /*#__PURE__*/React.createElement(Outcome, {
     label: project.outcomeLabel,
     items: project.results
-  }), /*#__PURE__*/React.createElement(StageAction, {
-    accent: "action",
-    style: {
-      marginTop: 23
-    },
-    onClick: openStory
-  }, "Read the story")), /*#__PURE__*/React.createElement(SceneCharacter, {
+  })), /*#__PURE__*/React.createElement(SceneCharacter, {
     src: project.character,
     alt: project.characterAlt
   })), /*#__PURE__*/React.createElement(CaseNav, {
@@ -1089,13 +1077,7 @@ function VrDocument({
   }, /*#__PURE__*/React.createElement(Outcome, {
     label: project.outcomeLabel,
     items: project.results
-  }), /*#__PURE__*/React.createElement(StageAction, {
-    accent: "action",
-    style: {
-      marginTop: 23
-    },
-    onClick: () => jump("problem")
-  }, "Read the story"))), /*#__PURE__*/React.createElement(ChapterNav, {
+  }))), /*#__PURE__*/React.createElement(ChapterNav, {
     chapters: VR_CHAPTERS,
     active: chapter,
     onSelect: jump
@@ -1439,13 +1421,7 @@ function HorizonDocument({
   }, /*#__PURE__*/React.createElement(Outcome, {
     label: project.outcomeLabel,
     items: project.results
-  }), /*#__PURE__*/React.createElement(StageAction, {
-    accent: "action",
-    style: {
-      marginTop: 23
-    },
-    onClick: openStory
-  }, "Read the story")), /*#__PURE__*/React.createElement(SceneCharacter, {
+  })), /*#__PURE__*/React.createElement(SceneCharacter, {
     src: project.character,
     alt: project.characterAlt
   })), /*#__PURE__*/React.createElement(Beat, {
@@ -1704,13 +1680,7 @@ function PortalsDocument({
     items: project.results
   }) : /*#__PURE__*/React.createElement(Outcome, {
     label: project.outcomeLabel
-  }, project.outcomeProse), /*#__PURE__*/React.createElement(StageAction, {
-    accent: "action",
-    style: {
-      marginTop: 23
-    },
-    onClick: () => jump("problem")
-  }, "Read the story")), /*#__PURE__*/React.createElement(SceneCharacter, {
+  }, project.outcomeProse)), /*#__PURE__*/React.createElement(SceneCharacter, {
     src: project.character,
     alt: project.characterAlt
   })), /*#__PURE__*/React.createElement(ChapterNav, {
@@ -2025,13 +1995,7 @@ function WordMathDocument({
   }, /*#__PURE__*/React.createElement(Outcome, {
     label: project.outcomeLabel,
     items: project.results
-  }), /*#__PURE__*/React.createElement(StageAction, {
-    accent: "action",
-    style: {
-      marginTop: 23
-    },
-    onClick: openStory
-  }, "Read the story")), /*#__PURE__*/React.createElement(SceneCharacter, {
+  })), /*#__PURE__*/React.createElement(SceneCharacter, {
     src: project.character,
     alt: project.characterAlt
   })), /*#__PURE__*/React.createElement(CaseNav, {
