@@ -1,4 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Caleb Stacy — résumé</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="assets/mark-favicon.svg">
 <link rel="stylesheet" href="styles.css">
 <style>
 doc-page:not(:defined){visibility:hidden}
@@ -23,6 +25,14 @@ td:first-child{font-weight:700}
 .tags span{padding:5px 8px;border:1px solid var(--soft-line);font-family:var(--font-sans);font-size:10px}
 .note{margin-top:14px;padding-top:9px;border-top:1px solid var(--soft-line);color:var(--muted-ink);font-family:var(--font-sans);font-size:9.5px;line-height:1.5}
 a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--signal)}a:hover{color:var(--signal-deep)}
+/* Phone reading view only. The letter sheet is the document; below 700px the sheet gives up its
+   fixed physical size and reflows. The PDF renderer (800px viewport, print media) and every
+   desktop keep the sheet exactly as designed. */
+@media screen and (max-width:700px){
+  doc-page{--doc-page-w:100%;--doc-page-margin:18px;min-width:0;padding:12px 8px}
+  doc-page [slot="header"]{flex-wrap:wrap}
+  .row{grid-template-columns:1fr;gap:6px}
+}
 </style></head><body>
 <doc-page margin="0.7in">
 <div slot="header" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding-bottom:9px;border-bottom:1px solid var(--ink)">

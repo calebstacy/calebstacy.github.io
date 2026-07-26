@@ -2611,6 +2611,10 @@ function AboutDocument({
   data,
   onWork
 }) {
+  /* The waving figure is an animated WebP with real transparency (cut from the original clay
+     wave take: idle, one small wave, back to pockets, looping). Animated WebP needs no autoplay
+     permission and honors the cutout like any image. Reduced motion gets a still frame. */
+  const reducedMotion = React.useMemo(() => !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches), []);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
     style: {
       minHeight: "min(660px, calc(100svh - 84px))",
@@ -2629,7 +2633,7 @@ function AboutDocument({
     },
     onClick: onWork
   }, "Start with Verso")), /*#__PURE__*/React.createElement(SceneCharacter, {
-    src: "assets/work/caleb-friendly-wave.png",
+    src: reducedMotion ? "assets/work/caleb-wave-still.webp" : "assets/work/caleb-wave-loop.webp",
     alt: "Clay Caleb waving"
   })), /*#__PURE__*/React.createElement("section", {
     "data-tone": "dark",
