@@ -302,7 +302,7 @@ function App() {
       meta: ["kind: extension", "status: proposed", "owner: surface voice lead", "evidence: floor.json · tudum/body_prose/directness"]
     }, {
       id: "vocabulary.content_unit.v0",
-      asserts: "Help and marketing pair “TV show” with “movie”; Tudum and culture pair “series” with “film” — " + contentUnit.total_occurrences + " occurrences naming what reads like the same thing. This record doesn't pick a winner. It exists so the ruling, whichever way it goes, has somewhere to live.",
+      asserts: "Help and marketing pair “TV show” with “movie”; Tudum and culture pair “series” with “film” — " + contentUnit.total_occurrences + " occurrences naming what reads like the same thing. This record doesn't pick a winner. It exists so the ruling, whichever way it goes, has somewhere to live. The public product's own shelf and genre names side with “Movies/Shows” 691 to 32.",
       meta: ["kind: vocabulary (proposed shape)", "status: proposed — no owner assigned", "evidence: terms.json · content-unit-pairing", "blocked on: a ruling, not more data"]
     }]
   })), /*#__PURE__*/React.createElement("p", {
@@ -426,7 +426,7 @@ function App() {
       fontWeight: 620,
       letterSpacing: "-0.025em"
     }
-  }, "Six places this page points to, if you want more than the walk."), /*#__PURE__*/React.createElement("div", {
+  }, "Seven places this page points to, if you want more than the walk."), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: "clamp(20px,2.6vw,28px)"
     }
@@ -437,6 +437,10 @@ function App() {
     title: "The full index",
     href: "./full.html",
     body: "Every measured cell, every ranked term, the underlying JSON. Nothing summarized."
+  }, {
+    title: "How Netflix names its shelves",
+    href: "../netflix-shelves/index.html",
+    body: "A public catalog of shelf and genre names, including Top 10; the rules they follow and the login boundary the crawl did not cross."
   }, {
     title: "Netflix and Discord, measured",
     href: "../papers/two-brands/index.html",

@@ -23,8 +23,8 @@ const {
   GridCard
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
 
-/* ---------- formatting and labels only — every number below is read from floor.json / terms.json
-   at runtime; nothing here is a measurement ---------- */
+/* ---------- formatting and labels only — every number below is read from floor.json /
+   terms.json / shelves.json at runtime; nothing here is a measurement ---------- */
 
 const DIM_LABEL = {
   involvement: "Involvement",
@@ -66,6 +66,7 @@ function fmtDate(iso) {
   return d + " " + MONTHS[m - 1] + " " + y;
 }
 const fmt = n => n === null || n === undefined ? "—" : Number(n).toFixed(2);
+const fmtN = n => Number(n).toLocaleString("en-US");
 const fmtP = p => {
   if (p === null || p === undefined) return "—";
   if (p < 0.001) return "<0.001";
@@ -98,15 +99,19 @@ function App() {
     }), fetch("./terms.json").then(r => {
       if (!r.ok) throw new Error("terms.json HTTP " + r.status);
       return r.json();
-    })]).then(([floor, terms]) => setData({
+    }), fetch("../netflix-shelves/shelves.json").then(r => {
+      if (!r.ok) throw new Error("shelves.json HTTP " + r.status);
+      return r.json();
+    })]).then(([floor, terms, shelves]) => setData({
       floor,
-      terms
+      terms,
+      shelves
     })).catch(e => setError(e.message || String(e)));
   }, []);
   if (error) {
     return /*#__PURE__*/React.createElement("div", {
       className: "errbox"
-    }, "Could not load the data files (", error, "). Every number on this page is read from ", /*#__PURE__*/React.createElement("code", null, "floor.json"), " and ", /*#__PURE__*/React.createElement("code", null, "terms.json"), " at runtime. Open this page over a local server, not as a bare file.");
+    }, "Could not load the data files (", error, "). Every number on this page is read from ", /*#__PURE__*/React.createElement("code", null, "floor.json"), ", ", /*#__PURE__*/React.createElement("code", null, "terms.json"), ", and ", /*#__PURE__*/React.createElement("code", null, "shelves.json"), " at runtime. Open this page over a local server, not as a bare file.");
   }
   if (!data) {
     return /*#__PURE__*/React.createElement("div", {
@@ -115,9 +120,11 @@ function App() {
   }
   const {
     floor,
-    terms
+    terms,
+    shelves
   } = data;
   const S = floor.summary;
+  const productContentUnits = shelves.terminology.families;
   const extendsRows = floor.deviations.filter(d => d.verdict === "extends");
   const surfaceOrder = {
     help: 0,
@@ -415,7 +422,13 @@ function App() {
     style: {
       margin: "0 0 1em"
     }
-  }, "Help and marketing consistently pair \"TV show\" with \"movie.\" Tudum and culture instead reach for \"series\" and \"film,\" at far higher volume. Both pairs describe the same thing, scripted long-form video Netflix carries, but the two surface groups barely share a word for it: ", contentUnit.total_occurrences, " occurrences across all four surfaces, and no public record that says whether the split is a deliberate register or unmanaged drift."), /*#__PURE__*/React.createElement(DocFigure, {
+  }, "Help and marketing consistently pair \"TV show\" with \"movie.\" Tudum and culture instead reach for \"series\" and \"film,\" at far higher volume. Both pairs describe the same thing, scripted long-form video Netflix carries, but the two surface groups barely share a word for it: ", contentUnit.total_occurrences, " occurrences across all four surfaces, and no public record that says whether the split is a deliberate register or unmanaged drift."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 1em"
+    }
+  }, "Netflix's public product taxonomy uses the movie/show family ", fmtN(productContentUnits.movie_show), " times against ", fmtN(productContentUnits.series_film), " uses of series/film. ", /*#__PURE__*/React.createElement("a", {
+    href: "../netflix-shelves/index.html"
+  }, "The companion paper"), " shows the naming grammar and the login boundary the crawl did not cross."), /*#__PURE__*/React.createElement(DocFigure, {
     kind: "table",
     wide: true,
     caption: "The content-unit family, every variant and where it's actually used.",
