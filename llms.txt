@@ -20,6 +20,21 @@ patterns, and explicit human review where the evidence did not determine one ans
 
 Portfolio route: https://calebstacy.com/#verso
 
+### Exact-output language proof
+
+Caleb built an independent proof of one language-governance mechanism using public Netflix shelf
+titles. A person supplies `Classic Anime Films`; an adopted demo profile returns REVIEW; the agent
+revises one term to `Classic Anime Movies`; code checks that exact revision again before the final
+title can appear. The proof keeps the responsibilities separate: a person adopts the profile, the
+agent revises, code verifies the final string, and a person still decides which title is right.
+
+This is independent work derived only from public shelf titles. It is not affiliated with Netflix
+and does not claim to reproduce Netflix policy or internal systems.
+
+Proof route: https://calebstacy.com/netflix-shelves/
+Evidence paper: https://calebstacy.com/netflix-shelves/evidence.html
+Recorded exchange: https://calebstacy.com/netflix-shelves/recorded_agent_trace.json
+
 ### VR NUX
 
 A just-in-time new-user education strategy replaced a fourteen-plus-lesson first run in Meta

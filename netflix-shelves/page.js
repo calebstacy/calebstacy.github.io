@@ -3,234 +3,252 @@
 /* ---- plays/netflix-shelves (inline script) ---- */
 (function () {
 const {
-  Report,
-  ReportSection,
-  DocFigure,
-  Finding,
-  IndexRows,
-  ProvenanceNote
+  RegistrationMark
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
-
-/* ---------- formatting only — every count and date below is read from shelves.json at
-   runtime; nothing here is a measurement ---------- */
-
-const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-/* The four rules the figure presents, strongest first, plus the selector rule the
-   exceptions section cites inline. All five must exist in the data. */
-const FIGURE_RULE_IDS = ["tv-uppercase", "title-case-discipline", "content-unit-terminal", "ampersand-over-and"];
-const FACET_RULE_ID = "top10-facet-order";
-const NAMING_KINDS = ["genre-name", "shelf-heading", "list-name"];
-function fmtDate(iso) {
-  if (!iso) return "";
-  const [year, month, day] = iso.split("-").map(Number);
-  return day + " " + MONTHS[month - 1] + " " + year;
+function validateFixture(value) {
+  const isText = item => typeof item === "string" && item.trim().length > 0;
+  const isHash = item => typeof item === "string" && /^[0-9a-f]{64}$/.test(item);
+  const isCount = item => Number.isInteger(item) && item >= 0;
+  const recordedRequest = "Review this exact proposed shelf title for a straightforward collection of classic anime: ‘Classic Anime Films’. Check that exact string against the adopted demo profile. If it returns for review, revise it, check the revised exact string again, and only then recommend the final title. Show a compact audit trail with the exact input, first check result, exact revision, second check result, and exact final title.";
+  if (!value || value.request !== recordedRequest) return false;
+  if (!Array.isArray(value.drafts) || value.drafts.length !== 2) return false;
+  if (!Array.isArray(value.final_titles) || value.final_titles.length !== 2 || !value.final_titles.every(isText)) return false;
+  if (!value.recorded_model || !value.terminology_evidence || !value.technical || !value.technical.policy) return false;
+  if (!isText(value.technical.policy.version) || !isHash(value.technical.policy.hash)) return false;
+  if (!Array.isArray(value.technical.receipts) || value.technical.receipts.length !== value.drafts.length) return false;
+  const [first, second] = value.drafts;
+  const model = value.recorded_model;
+  const evidence = value.terminology_evidence;
+  if (!first || !second || !isText(first.draft) || !isText(second.draft)) return false;
+  if (!Array.isArray(first.checks) || first.checks.length !== 2 || !Array.isArray(second.checks) || second.checks.length !== 1) return false;
+  if (!first.checks[0] || first.checks[0].result !== "REVIEW" || !Array.isArray(first.checks[0].findings) || first.checks[0].findings.length !== 1) return false;
+  if (!isText(first.checks[0].findings[0].message) || first.checks[0].findings[0].proposed_title !== model.revision) return false;
+  if (!first.what_changed || first.what_changed.before !== first.draft || first.what_changed.after !== model.revision) return false;
+  if (!first.checked_again || first.checked_again.title !== model.revision || first.checked_again.result !== "PASS") return false;
+  if (first.final_title !== model.final_recommendation || model.final_recommendation !== model.revision || value.final_titles[0] !== first.final_title) return false;
+  if (second.checks[0].result !== "PASS" || second.final_title !== second.draft || value.final_titles[1] !== second.final_title) return false;
+  if (model.input_title !== first.draft || model.input_role !== "provided to the agent" || model.revision_role !== "authored by the model") return false;
+  if (!isText(model.model) || !isText(model.capture_date) || !isHash(model.prompt_sha256) || !isHash(model.response_sha256) || model.reported_tool_call_count !== 4) return false;
+  if (model.prompt_sha256 !== "f64e7be2eb32985edb574c4399d03f544b72179419632cd88740f01ca1670ed4") return false;
+  if (model.response_sha256 !== "85d7261b018c8998c3e8467fc324b90bb19a6a353af414a3fa3154c05a1a6696") return false;
+  if (evidence.rule_id !== "movie-show-terminology" || evidence.adoption_status !== "adopted_for_demo") return false;
+  if (evidence.first_check_status !== "REVIEW" || evidence.second_check_status !== "PASS") return false;
+  if (![evidence.movie_show_family_count, evidence.series_film_family_count, evidence.sample_count, evidence.retained_counterexample_count].every(isCount)) return false;
+  if (!Array.isArray(evidence.retained_counterexamples) || evidence.retained_counterexample_count !== evidence.retained_counterexamples.length || !evidence.retained_counterexamples.every(isText)) return false;
+  if (!evidence.scope || !isText(evidence.scope.when) || !isText(evidence.adoption_decision)) return false;
+  return value.technical.receipts.every(receipt => receipt && isText(receipt.draft_id) && isHash(receipt.source_text_hash) && Array.isArray(receipt.check_text_hashes) && receipt.check_text_hashes.length > 0 && receipt.check_text_hashes.every(isHash) && isHash(receipt.final_text_hash));
 }
-const fmtN = n => Number(n).toLocaleString("en-US");
-const plural = (n, singular, pluralForm) => Number(n) === 1 ? singular : pluralForm || singular + "s";
-function App() {
-  const [data, setData] = React.useState(null);
-  const [error, setError] = React.useState(null);
-  React.useEffect(() => {
-    const getJson = url => fetch(url).then(response => {
-      if (!response.ok) throw new Error("HTTP " + response.status);
-      return response.json();
-    });
-    Promise.all([getJson("./shelves.json"), getJson("./scorecards.json"), getJson("./playbook.json")]).then(([shelves, scorecards, playbook]) => setData({
-      shelves,
-      scorecards,
-      playbook
-    })).catch(() => setError(true));
-  }, []);
-  if (error) {
-    return /*#__PURE__*/React.createElement("div", {
-      className: "errbox"
-    }, "Could not load the full reading. Open this page over a local server, not as a bare file.");
-  }
-  if (!data) {
-    return /*#__PURE__*/React.createElement("div", {
-      className: "errbox"
-    }, "Loading the full reading…");
-  }
-  const {
-    shelves,
-    scorecards,
-    playbook
-  } = data;
-  const {
-    run,
-    items,
-    grammar,
-    terminology,
-    derived_records: derivedRecords
-  } = shelves;
-  const rules = FIGURE_RULE_IDS.map(id => grammar.rules.find(rule => rule.id === id)).filter(Boolean);
-  const facetRule = grammar.rules.find(rule => rule.id === FACET_RULE_ID);
-  if (rules.length !== FIGURE_RULE_IDS.length || !facetRule) {
-    return /*#__PURE__*/React.createElement("div", {
-      className: "errbox"
-    }, "Could not find all five named grammar rules in shelves.json. The page has stopped rather than rendering partial evidence.");
-  }
-  const countKind = kind => items.filter(item => item.kind === kind).length;
-  const families = terminology.families;
-  const namingWordCounts = items.filter(item => NAMING_KINDS.includes(item.kind)).map(item => item.text.trim().split(/\s+/).length).sort((a, b) => a - b);
-  const medianWords = namingWordCounts[Math.floor(namingWordCounts.length / 2)];
-  const thisShowCount = items.filter(item => item.kind === "ui-label" && item.text.startsWith("This show is")).length;
-  const titleCaseRule = rules.find(rule => rule.id === "title-case-discipline");
-  const tvRule = rules.find(rule => rule.id === "tv-uppercase");
-  const unitRule = rules.find(rule => rule.id === "content-unit-terminal");
-  const ampRule = rules.find(rule => rule.id === "ampersand-over-and");
-  const hyphenExamples = Array.from(new Set(titleCaseRule.counter_examples)).slice(0, 3);
-  const counterMeta = rule => {
-    const count = Number(rule.counter_example_count);
-    const label = fmtN(count) + " " + plural(count, "counter-example");
-    if (!count) return [label, "examples: " + rule.match_examples.slice(0, 2).join(" / ")];
-    const examples = Array.from(new Set(rule.counter_examples)).slice(0, 2);
-    return [label, "retained: " + examples.join(" / ")];
-  };
-  const ruleRows = rules.map(rule => ({
-    id: rule.id,
-    asserts: rule.assertion,
-    meta: [fmtN(rule.match_count) + " of " + fmtN(rule.denominator) + " occurrences", ...counterMeta(rule)]
-  }));
-  const recordRows = derivedRecords.map(record => ({
-    id: record.id,
-    asserts: record.assertion,
-    meta: ["kind: " + record.kind, "status: " + record.status, "owner: " + record.owner, "evidence: shelves.json · " + record.evidence.count_pointer]
-  }));
-  const familySituations = playbook.situations.filter(entry => entry.facet === "genre-family");
-  const indexCell = (family, reading) => playbook.cells.find(cell => cell.situation_id === "family:" + family && cell.technique_id === reading && cell.basis === "observed");
-  const showReading = (family, reading, label, emptyLabel) => {
-    const cell = indexCell(family, reading);
-    if (!cell) return emptyLabel;
-    if (cell.band === "near-singleton") {
-      if (cell.examples.length) {
-        const sampleNote = cell.denominator === 1 ? "one name, not a pattern" : "only " + fmtN(cell.denominator) + " names, not a pattern";
-        return label + ": “" + cell.examples.join("” / “") + "”; " + sampleNote;
-      }
-      return label + ": none in " + fmtN(cell.denominator) + " " + plural(cell.denominator, "name") + " here; too small to call a pattern";
-    }
-    return label + ": " + fmtN(cell.count) + " of " + fmtN(cell.denominator);
-  };
-  const contentIndexRows = ["Anime", "Comedy", "Horror", "Romantic"].map(family => familySituations.find(entry => entry.label === family)).filter(Boolean).map(entry => ({
-    id: entry.label,
-    asserts: fmtN(entry.denominator_occurrences) + " shipped names",
-    meta: [showReading(entry.label, "title-case-discipline", "Title Case", "no Title Case examples"), showReading(entry.label, "content-unit-terminal", "noun last", "no closing noun examples"), showReading(entry.label, "tv-casing-holds", "TV uppercase", "TV does not appear"), showReading(entry.label, "connective-ampersand", "ampersand pairing", "no paired names"), showReading(entry.label, "tone-present", "tone word", "no tone-word examples"), showReading(entry.label, "speech-act-question", "question opening", "no question openings")]
-  }));
-  const reviewedWordplay = scorecards.rows.filter(row => row.wordplay.semantic_signed.present).length;
-  const contentIndexSource = "The Content Index · public names fetched " + fmtDate(run.date);
-  return /*#__PURE__*/React.createElement(Report, {
-    title: "How Netflix names its shelves",
-    runningHead: "How Netflix names its shelves — working paper",
-    status: "Working paper",
-    author: "Caleb Stacy",
-    date: fmtDate(run.date),
-    plain: /*#__PURE__*/React.createElement("p", {
-      style: {
-        margin: 0
-      }
-    }, "On ", fmtDate(run.date), ", I cataloged ", fmtN(items.length), " names from Netflix's public, signed-out surfaces: shelf headings, genre names, Top 10 lists, interface labels. Four rules cover nearly all of them, and each rule is deterministic: a name either satisfies it or it doesn't. That is what this page demonstrates. A product's naming carries rules a visitor was never handed, and measurement can recover them from shipped behavior alone and write them down as records the next draft can be checked against."),
-    subtitle: fmtN(countKind("shelf-heading")) + " shelf headings, " + fmtN(countKind("genre-name")) + " genre names, " + fmtN(countKind("list-name")) + " list names, and " + fmtN(countKind("ui-label")) + " interface labels, and the rules they already follow.",
-    abstract: /*#__PURE__*/React.createElement("p", {
-      style: {
-        margin: 0
-      }
-    }, "Every name here was visible to a signed-out visitor; anything behind a login stayed out. The counts are read from ", /*#__PURE__*/React.createElement("a", {
-      href: "./shelves.json"
-    }, "shelves.json"), " at runtime, and the full method sits at the end of the page.")
-  }, /*#__PURE__*/React.createElement(ReportSection, {
-    id: "rules",
-    title: "Four rules cover almost every name"
-  }, /*#__PURE__*/React.createElement(Finding, {
-    measured: rules.map(rule => fmtN(rule.match_count) + "/" + fmtN(rule.denominator)).join(" · "),
-    verdict: "deterministic"
-  }, "TV is uppercase in all ", fmtN(tvRule.match_count), " names that contain it. Title Case carries ", fmtN(titleCaseRule.match_count), " of ", fmtN(titleCaseRule.denominator), ". When a name has a content unit, the unit lands last in ", fmtN(unitRule.match_count), " of ", fmtN(unitRule.denominator), ". Names that need a connective use the ampersand ", fmtN(ampRule.match_count), " times against ", fmtN(ampRule.counter_example_count), " uses of “and”. Each count runs over the whole public catalog, exceptions kept."), /*#__PURE__*/React.createElement(DocFigure, {
-    caption: "Each rule with the occurrences that match it and the counterexamples the corpus keeps.",
-    source: "shelves.json · grammar.rules"
-  }, /*#__PURE__*/React.createElement(IndexRows, {
-    label: "Observed rules",
-    rows: ruleRows
-  })), /*#__PURE__*/React.createElement("p", {
+window.__netflixShelfDemoValidateFixture = validateFixture;
+function Result({
+  value
+}) {
+  const tone = value === "PASS" ? "result-pass" : "result-review";
+  return /*#__PURE__*/React.createElement("span", {
+    className: "result " + tone
+  }, value);
+}
+function FullReceipt({
+  fixture
+}) {
+  return /*#__PURE__*/React.createElement("details", null, /*#__PURE__*/React.createElement("summary", null, "Inspect hashes and recorded exchange"), /*#__PURE__*/React.createElement("dl", null, /*#__PURE__*/React.createElement("dt", null, "Profile hash"), /*#__PURE__*/React.createElement("dd", null, fixture.technical.policy.hash), /*#__PURE__*/React.createElement("dt", null, "Recorded prompt hash"), /*#__PURE__*/React.createElement("dd", null, fixture.recorded_model.prompt_sha256), /*#__PURE__*/React.createElement("dt", null, "Visible response hash"), /*#__PURE__*/React.createElement("dd", null, fixture.recorded_model.response_sha256), fixture.technical.receipts.map(receipt => /*#__PURE__*/React.createElement(React.Fragment, {
+    key: receipt.draft_id
+  }, /*#__PURE__*/React.createElement("dt", null, receipt.draft_id + " · source → checks → final"), /*#__PURE__*/React.createElement("dd", null, [receipt.source_text_hash, ...receipt.check_text_hashes, receipt.final_text_hash].join(" → ")))), /*#__PURE__*/React.createElement("dt", null, "Public record"), /*#__PURE__*/React.createElement("dd", null, /*#__PURE__*/React.createElement("a", {
+    href: "./recorded_agent_trace.json"
+  }, "Exact prompt and visible answer"))));
+}
+function Demo({
+  fixture
+}) {
+  const first = fixture.drafts[0];
+  const second = fixture.drafts[1];
+  const evidence = fixture.terminology_evidence;
+  const model = fixture.recorded_model;
+  return /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement("section", {
+    className: "demo-stage",
+    "data-tone": "stage",
+    "aria-labelledby": "demo-title"
+  }, /*#__PURE__*/React.createElement(RegistrationMark, {
+    className: "stage-register",
+    size: 28,
     style: {
-      margin: "0 0 1em"
+      top: "auto",
+      bottom: 30,
+      right: 30,
+      opacity: 0.42
     }
-  }, "Every one of these is a check code can run. A draft shelf name can be held to all four before a person reads it, and the answer comes back the same every time. The grammar is also compact enough to write with. The median name is ", fmtN(medianWords), " words: a modifier for audience, origin, tone, or era, then the content unit that closes it.")), /*#__PURE__*/React.createElement(ReportSection, {
-    id: "tendencies",
-    title: "Even the exceptions keep rules"
-  }, /*#__PURE__*/React.createElement(Finding, {
-    measured: fmtN(titleCaseRule.counter_example_count) + " Title Case exceptions · " + fmtN(unitRule.counter_example_count) + " unit-position exceptions · " + fmtN(facetRule.match_count) + " of " + fmtN(facetRule.denominator) + " selector labels identical",
-    verdict: "structured"
-  }, "The ", fmtN(titleCaseRule.counter_example_count), " names that break Title Case share one shape, a hyphenated compound whose second element stays lowercase: ", hyphenExamples.join(", "), ". The ", fmtN(unitRule.counter_example_count), " names that don't end on their content unit fall into two families: Top 10 pages write a longer availability frame, and Top 10 selectors put a language facet after the unit, identically in all ", fmtN(facetRule.match_count), " occurrences."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "0 0 1em"
-    }
-  }, "Whether anyone inside Netflix has ruled on the hyphen case can't be read from out here. What can be read is that the behavior holds, and behavior this steady works like a rule whether or not it began as one. Finding the tendencies a product keeps is most of this job; writing them down where the next name can meet them is the rest.")), /*#__PURE__*/React.createElement(ReportSection, {
-    id: "verdict",
-    title: "The product breaks the tie"
-  }, /*#__PURE__*/React.createElement(Finding, {
-    measured: fmtN(families.movie_show) + " movie/show · " + fmtN(families.series_film) + " series/film",
-    verdict: "product register"
-  }, "The ", /*#__PURE__*/React.createElement("a", {
-    href: "../netflix/index.html#move-2"
-  }, "earlier terminology pass"), " found a surface split: Tudum and culture write series and film, while Help and marketing write TV show and movie. The public product taxonomy lands with the second group. Across these names, the movie/show family appears ", fmtN(families.movie_show), " times; series/film appears ", fmtN(families.series_film), " times."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "0 0 1em"
-    }
-  }, "That reads less like four surfaces disagreeing evenly and more like a register line: editorial writing sits on series/film; support and marketing sit with the product itself on movie/show. The title pages push the register further: all ", fmtN(thisShowCount), " sampled title pages render the metadata label “This show is …”, and the label doesn't change with the kind of title on the page.")), /*#__PURE__*/React.createElement(ReportSection, {
-    id: "records",
-    title: "The rules become records"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "demo-wrap"
+  }, /*#__PURE__*/React.createElement("header", {
+    className: "demo-mast"
   }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "0 0 1em"
-    }
-  }, "Translation is the last step. Each observation above becomes a record: one claim, the observed variants kept under it, an owner seat, a status that can change, and a pointer into the counts that support it. Word Math, the measurement engine the rest of this project runs on, makes the same move on voice: there the target is a band on a measured dimension; here the rules are exact, so the records can be too. Four are derived below. Their status is proposed, and none of them is Netflix policy."), /*#__PURE__*/React.createElement(DocFigure, {
-    caption: "Four proposed records, each carrying its variants, owner, status, and evidence pointer.",
-    source: "shelves.json · derived_records"
-  }, /*#__PURE__*/React.createElement(IndexRows, {
-    label: "Derived records",
-    rows: recordRows
+    className: "demo-ident"
+  }, /*#__PURE__*/React.createElement("strong", null, "Caleb Stacy"), " · Shelf title proof"), /*#__PURE__*/React.createElement("p", {
+    className: "demo-ident"
+  }, "Recorded exchange · Independent checks")), /*#__PURE__*/React.createElement("div", {
+    className: "demo-intro"
+  }, /*#__PURE__*/React.createElement("h1", {
+    id: "demo-title"
+  }, "The final string has to meet the rule—not just the prompt."), /*#__PURE__*/React.createElement("div", {
+    className: "demo-intro-copy"
+  }, /*#__PURE__*/React.createElement("p", null, "I gave a live agent ", /*#__PURE__*/React.createElement("strong", null, "Classic Anime Films"), ". The adopted demo profile returned the title for review; the model changed one word; code checked the revision before this page could display it. The profile comes only from public Netflix shelf names—not Netflix policy."), /*#__PURE__*/React.createElement("p", null, "The check happens after generation, on the text a person would actually see."))), /*#__PURE__*/React.createElement("div", {
+    className: "hero-event",
+    "aria-label": model.input_title + " REVIEW to " + model.revision + " PASS"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "hero-event-label"
+  }, "The consequential event"), /*#__PURE__*/React.createElement("div", {
+    className: "hero-event-flow"
+  }, /*#__PURE__*/React.createElement("strong", null, model.input_title), /*#__PURE__*/React.createElement("span", null, "·"), /*#__PURE__*/React.createElement(Result, {
+    value: "REVIEW"
+  }), /*#__PURE__*/React.createElement("span", null, "→"), /*#__PURE__*/React.createElement("strong", null, model.revision), /*#__PURE__*/React.createElement("span", null, "·"), /*#__PURE__*/React.createElement(Result, {
+    value: "PASS"
+  }))), /*#__PURE__*/React.createElement("article", {
+    className: "proof-sheet",
+    "aria-label": "Annotated shelf-title proof"
+  }, /*#__PURE__*/React.createElement("header", {
+    className: "proof-head"
+  }, /*#__PURE__*/React.createElement("span", null, "Recorded proof 01"), /*#__PURE__*/React.createElement("span", null, model.model + " · " + model.capture_date + " · Profile " + fixture.technical.policy.version)), /*#__PURE__*/React.createElement("section", {
+    className: "proof-step",
+    "data-proof-panel": true
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "proof-label"
+  }, /*#__PURE__*/React.createElement("span", null, "1"), "Provided title"), /*#__PURE__*/React.createElement("div", {
+    className: "proof-content"
+  }, /*#__PURE__*/React.createElement("h2", null, "The starting title came from the person using the tool."), /*#__PURE__*/React.createElement("p", null, "The model did not generate it. Its job began with the supplied title."), /*#__PURE__*/React.createElement("div", {
+    className: "exact-string"
+  }, /*#__PURE__*/React.createElement("span", null, "Provided to the agent"), /*#__PURE__*/React.createElement("code", null, model.input_title)))), /*#__PURE__*/React.createElement("section", {
+    className: "proof-step",
+    "data-proof-panel": true
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "proof-label"
+  }, /*#__PURE__*/React.createElement("span", null, "2"), "Contextual review"), /*#__PURE__*/React.createElement("div", {
+    className: "proof-content"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "review-head"
+  }, /*#__PURE__*/React.createElement("h2", null, "The title is valid. The adopted profile still marks the terminology for review."), /*#__PURE__*/React.createElement(Result, {
+    value: evidence.first_check_status
+  })), /*#__PURE__*/React.createElement("p", null, "Movie/show-family terms appear " + evidence.movie_show_family_count + " times in the public corpus; film/series-family terms appear " + evidence.series_film_family_count + ". Because both forms ship, this is REVIEW—not FAIL."), /*#__PURE__*/React.createElement("section", {
+    className: "evidence-frame",
+    "aria-labelledby": "terminology-observation"
+  }, /*#__PURE__*/React.createElement("header", null, /*#__PURE__*/React.createElement("span", {
+    id: "terminology-observation"
+  }, "Public-corpus pattern"), /*#__PURE__*/React.createElement("span", null, evidence.rule_id)), /*#__PURE__*/React.createElement("div", {
+    className: "evidence-grid"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "evidence-item"
+  }, /*#__PURE__*/React.createElement("span", null, "Profile decision"), /*#__PURE__*/React.createElement("strong", null, "Human-adopted here as REVIEW")), /*#__PURE__*/React.createElement("div", {
+    className: "evidence-item"
+  }, /*#__PURE__*/React.createElement("span", null, "Examples retained · " + evidence.retained_counterexample_count + " of " + evidence.series_film_family_count + " occurrences"), /*#__PURE__*/React.createElement("strong", null, evidence.retained_counterexamples.join("; "))), /*#__PURE__*/React.createElement("div", {
+    className: "evidence-item"
+  }, /*#__PURE__*/React.createElement("span", null, "Applied scope"), /*#__PURE__*/React.createElement("strong", null, evidence.scope.when))), /*#__PURE__*/React.createElement("p", {
+    className: "evidence-note"
+  }, "Both terms occur in shipped titles. The profile treats the minority form as a contextual review, not an error or a violation.")))), /*#__PURE__*/React.createElement("section", {
+    className: "proof-step",
+    "data-proof-panel": true
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "proof-label"
+  }, /*#__PURE__*/React.createElement("span", null, "3"), "Recorded model revision"), /*#__PURE__*/React.createElement("div", {
+    className: "proof-content"
+  }, /*#__PURE__*/React.createElement("h2", null, "To match the adopted preference, the model changes one word."), /*#__PURE__*/React.createElement("p", null, "The recorded revision matches the one-word edit independently proposed by code."), /*#__PURE__*/React.createElement("div", {
+    className: "exact-change",
+    "aria-label": "Title revision"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "change-string"
+  }, /*#__PURE__*/React.createElement("span", null, "Provided title"), /*#__PURE__*/React.createElement("code", null, first.what_changed.before)), /*#__PURE__*/React.createElement("div", {
+    className: "change-arrow",
+    "aria-hidden": "true"
+  }, "→"), /*#__PURE__*/React.createElement("div", {
+    className: "change-string"
+  }, /*#__PURE__*/React.createElement("span", null, "Recorded revision"), /*#__PURE__*/React.createElement("code", null, model.revision))), /*#__PURE__*/React.createElement("p", {
+    className: "model-note"
+  }, model.model + " · revision authored by the model"), /*#__PURE__*/React.createElement("p", {
+    className: "computation-note"
+  }, "The recorded run reports the review and revision. This page independently reproduces both checks before it accepts the final title."))), /*#__PURE__*/React.createElement("section", {
+    className: "proof-step",
+    "data-proof-panel": true
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "proof-label"
+  }, /*#__PURE__*/React.createElement("span", null, "4"), "Checked again"), /*#__PURE__*/React.createElement("div", {
+    className: "proof-content"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "recheck-row"
+  }, /*#__PURE__*/React.createElement("h2", null, "Code checks the changed title again."), /*#__PURE__*/React.createElement(Result, {
+    value: evidence.second_check_status
+  })), /*#__PURE__*/React.createElement("p", null, "A prior result cannot carry forward after the text changes."), /*#__PURE__*/React.createElement("div", {
+    className: "recheck-string"
+  }, first.checked_again.title))), /*#__PURE__*/React.createElement("section", {
+    className: "proof-step",
+    "data-proof-panel": true
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "proof-label"
+  }, /*#__PURE__*/React.createElement("span", null, "5"), "Final recommendation"), /*#__PURE__*/React.createElement("div", {
+    className: "proof-content"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "final-head"
+  }, /*#__PURE__*/React.createElement("h2", null, "The checked revision becomes the recommendation."), /*#__PURE__*/React.createElement(Result, {
+    value: first.checked_again.result
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "final-recommendation"
+  }, /*#__PURE__*/React.createElement("span", null, "Final recommendation"), /*#__PURE__*/React.createElement("strong", null, model.final_recommendation)), /*#__PURE__*/React.createElement("p", {
+    className: "control"
+  }, /*#__PURE__*/React.createElement("strong", null, "Comparison control · " + second.final_title + " remained PASS without a rewrite.")), /*#__PURE__*/React.createElement("section", {
+    className: "receipt",
+    "aria-label": "Technical receipt"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "receipt-primary"
+  }, /*#__PURE__*/React.createElement("span", null, "Recorded " + model.model + " · " + model.capture_date), /*#__PURE__*/React.createElement("span", null, "Adopted demo profile " + fixture.technical.policy.version)), /*#__PURE__*/React.createElement(FullReceipt, {
+    fixture: fixture
   })), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "0 0 1em"
-    }
-  }, "A record does two jobs from the same boundary. Adopted, it gates: a draft that breaks Title Case or spells out the connective fails before a person reads it. The same boundary is a hypothesis: ship “and” to half a shelf's viewers, and the connective record stops being taste and becomes a readout. ", /*#__PURE__*/React.createElement("a", {
-    href: "../netflix/index.html#move-3"
-  }, "The walkthrough derives voice records the same way.")), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "0 0 1em"
-    }
-  }, "To watch the records answer for a specific lane — kids, anime, horror, K-dramas — or to hold a draft name to them live, ", /*#__PURE__*/React.createElement("a", {
-    href: "./ask.html"
-  }, "ask them directly"), ".")), /*#__PURE__*/React.createElement(ReportSection, {
-    id: "content-index",
-    title: "Every name gets a fuller reading"
-  }, /*#__PURE__*/React.createElement(Finding, {
-    measured: fmtN(scorecards.totals.distinct_names) + " distinct names · " + fmtN(familySituations.length) + " genre families · " + fmtN(reviewedWordplay) + " reviewed wordplay reads",
-    verdict: "descriptive"
-  }, fmtN(familySituations.length), " genre families, sorted out of the names themselves. The same read that found four stable habits now catches who a shelf is for, what mood it sells, whether it plays with sound, and where the noun lands."), /*#__PURE__*/React.createElement(DocFigure, {
-    caption: "Four genre families, with the four earlier checks and two newer readings shown inside each.",
-    source: contentIndexSource
-  }, /*#__PURE__*/React.createElement(IndexRows, {
-    label: "A sample from the Content Index",
-    rows: contentIndexRows
-  })), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "0 0 1em"
-    }
-  }, "The raw names are the description. Mining them into the Content Index codifies the reading. Adoption comes later, if a team chooses to use any of it as a gate. Nothing on this page is Netflix policy."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "0 0 1em"
-    }
-  }, "The Content Index is served warm. The same answers are available live in the terminal, one line down; ", /*#__PURE__*/React.createElement("a", {
-    href: "./ask.html"
-  }, "ask them directly"), ".")), /*#__PURE__*/React.createElement(ReportSection, {
-    id: "provenance",
-    title: "Provenance and limits"
-  }, /*#__PURE__*/React.createElement(ProvenanceNote, {
-    label: "Method"
-  }, "A signed-out, GET-only crawl on ", fmtDate(run.date), ": ", fmtN(run.fetch_count), " requests for ", fmtN(run.source_url_count), " source URLs, one at a time, with a delay between requests. A redirect toward a login ended that path before the destination was requested; ", fmtN(run.out_of_bounds_count), " walled destinations stayed out. Raw HTML stayed outside the repository; shelves.json keeps the extracted names and the request metadata needed to audit every count on this page."), /*#__PURE__*/React.createElement(ProvenanceNote, {
-    label: "Limits"
-  }, "Nothing authenticated or personalized is represented here. Publicness itself varies: of ", fmtN(run.genre_probe_count), " genre IDs probed, ", fmtN(run.public_genre_count), " served a full signed-out catalog. The time boundary is the public surface as fetched on ", fmtDate(run.date), ".")));
+    className: "boundary"
+  }, "Code can enforce the adopted preference. It cannot decide whether Movies is the right creative choice for this shelf.")))))), /*#__PURE__*/React.createElement("section", {
+    className: "demo-paper",
+    "aria-labelledby": "system-title"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "paper-wrap"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "system-copy"
+  }, /*#__PURE__*/React.createElement("h2", {
+    id: "system-title"
+  }, "Evidence describes the pattern. A person decides what becomes a rule."), /*#__PURE__*/React.createElement("p", null, "The Content Index describes patterns in published language. A person decides which observations become an adopted profile; code can then check against that versioned choice.")), /*#__PURE__*/React.createElement("p", {
+    className: "continuity"
+  }, "This public proof isolates one mechanism from my broader language-governance work: people adopt the standard, agents generate, and code checks the final text. ", /*#__PURE__*/React.createElement("a", {
+    href: "../index.html#verso"
+  }, "See the Verso case study.")), /*#__PURE__*/React.createElement("nav", {
+    className: "demo-doors",
+    "aria-label": "Supporting evidence"
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "demo-door",
+    href: "./evidence.html"
+  }, "Read the evidence paper"), /*#__PURE__*/React.createElement("a", {
+    className: "demo-door",
+    href: "./demo_fixture.json"
+  }, "View the generated receipt"), /*#__PURE__*/React.createElement("a", {
+    className: "demo-door",
+    href: "./recorded_agent_trace.json"
+  }, "Inspect the recorded exchange")), /*#__PURE__*/React.createElement("p", {
+    className: "demo-note"
+  }, "This independent demonstration uses patterns observed in public Netflix shelf titles and is not affiliated with Netflix."))));
+}
+function App() {
+  const [fixture, setFixture] = React.useState(null);
+  const [failed, setFailed] = React.useState(false);
+  React.useEffect(() => {
+    fetch("./demo_fixture.json").then(response => {
+      if (!response.ok) throw new Error("fixture unavailable");
+      return response.json();
+    }).then(value => {
+      if (!validateFixture(value)) throw new Error("fixture invalid");
+      setFixture(value);
+    }).catch(() => setFailed(true));
+  }, []);
+  if (failed) return /*#__PURE__*/React.createElement("div", {
+    className: "demo-loading"
+  }, "The proof could not load its generated fixture. The supporting evidence remains available from this directory.");
+  if (!fixture) return /*#__PURE__*/React.createElement("div", {
+    className: "demo-loading"
+  }, "Loading the exact-string proof…");
+  return /*#__PURE__*/React.createElement(Demo, {
+    fixture: fixture
+  });
 }
 ReactDOM.createRoot(document.getElementById("root")).render(/*#__PURE__*/React.createElement(App, null));
 })();

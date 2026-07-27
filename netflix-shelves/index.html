@@ -1,28 +1,194 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
-<title>How Netflix names its shelves — a working paper</title>
-<meta name="description" content="Netflix's public shelf and genre names, read into four deterministic rules — and what those rules look like written down as records a draft can be checked against.">
-<meta name="robots" content="noindex, nofollow">
+<title>The final string has to meet the rule—not just the prompt — Caleb Stacy</title>
+<meta name="description" content="A recorded agent revision, checked against a versioned human-adopted profile before the final shelf title appears. Independent work from public Netflix titles.">
+<meta name="author" content="Caleb Stacy">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="../assets/mark-favicon.svg">
+<meta name="theme-color" content="#0f3b34">
+<link rel="canonical" href="https://calebstacy.com/netflix-shelves/">
+<link rel="alternate" type="application/json" href="https://calebstacy.com/netflix-shelves/recorded_agent_trace.json" title="Exact recorded prompt and visible answer">
+<link rel="icon" type="image/svg+xml" href="../assets/mark-favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Caleb Stacy">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://calebstacy.com/netflix-shelves/">
+<meta property="og:title" content="The final string has to meet the rule—not just the prompt">
+<meta property="og:description" content="A recorded agent revision, checked against a versioned human-adopted profile before the final shelf title appears. Independent work from public Netflix titles.">
+<meta property="og:image" content="https://calebstacy.com/netflix-shelves/netflix-shelf-proof-social.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="Classic Anime Films returns REVIEW; the agent revises it to Classic Anime Movies, and code returns PASS.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The final string has to meet the rule—not just the prompt">
+<meta name="twitter:description" content="A recorded agent revision, checked against a versioned human-adopted profile before the final shelf title appears.">
+<meta name="twitter:image" content="https://calebstacy.com/netflix-shelves/netflix-shelf-proof-social.png">
+<meta name="twitter:image:alt" content="Classic Anime Films returns REVIEW; the agent revises it to Classic Anime Movies, and code returns PASS.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "@id": "https://calebstacy.com/netflix-shelves/#proof",
+  "name": "The final string has to meet the rule—not just the prompt",
+  "headline": "A recorded shelf-title revision checked against a versioned language profile",
+  "description": "A recorded agent revision, checked against a versioned human-adopted profile before the final shelf title appears. Independent work from public Netflix titles.",
+  "url": "https://calebstacy.com/netflix-shelves/",
+  "image": "https://calebstacy.com/netflix-shelves/netflix-shelf-proof-social.png",
+  "datePublished": "2026-07-26",
+  "dateModified": "2026-07-27",
+  "inLanguage": "en-US",
+  "author": {
+    "@type": "Person",
+    "@id": "https://calebstacy.com/#caleb",
+    "name": "Caleb Stacy",
+    "url": "https://calebstacy.com/"
+  },
+  "about": [
+    "Language systems",
+    "Content governance",
+    "Design systems",
+    "AI agents",
+    "Deterministic validation"
+  ],
+  "keywords": [
+    "content design",
+    "language systems",
+    "agent-readable standards",
+    "content governance",
+    "design systems",
+    "deterministic checks"
+  ],
+  "isBasedOn": {
+    "@type": "CreativeWork",
+    "name": "Public Netflix shelf-title corpus",
+    "url": "https://calebstacy.com/netflix-shelves/evidence.html"
+  },
+  "citation": [
+    "https://calebstacy.com/netflix-shelves/evidence.html",
+    "https://calebstacy.com/netflix-shelves/recorded_agent_trace.json"
+  ],
+  "disambiguatingDescription": "Independent work based only on public Netflix shelf titles; not affiliated with Netflix and does not describe Netflix policy."
+}
+</script>
 <link rel="stylesheet" href="../styles.css">
-<style>html,body{margin:0;background:var(--paper)}
-.errbox{padding:var(--space-9,48px);font-family:var(--font-sans);max-width:640px;color:var(--muted-ink)}
-@media print{
-  .ds-doc-figure div{overflow:visible!important}
+<style>
+html,body{margin:0;background:var(--stage-deep);color:var(--ink);--review-ink:#a63519}
+*{box-sizing:border-box}
+body{font-family:var(--font-sans)}
+a{color:inherit;text-underline-offset:4px}
+.demo-loading{padding:clamp(36px,7vw,84px);background:var(--paper);color:var(--muted-ink);font-size:18px}
+.demo-stage{position:relative;background:var(--stage-field);color:var(--stage-ink);padding:clamp(24px,3.4vw,42px) clamp(18px,4.8vw,76px) clamp(42px,5.5vw,68px)}
+.demo-stage::after{content:"";position:absolute;inset:0;background-image:var(--texture-graph);background-size:25% 25%;opacity:.1;pointer-events:none}
+.demo-wrap{position:relative;z-index:1;width:min(1180px,100%);margin:0 auto}
+.demo-mast{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-bottom:clamp(24px,3vw,34px)}
+.demo-ident{margin:0;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--stage-muted)}
+.demo-ident strong{color:var(--signal-stage)}
+.demo-intro{display:grid;grid-template-columns:minmax(0,1.22fr) minmax(290px,.78fr);gap:clamp(28px,6vw,76px);align-items:end;margin-bottom:clamp(22px,3vw,32px)}
+.demo-intro h1{max-width:760px;margin:0;font-size:clamp(40px,6.2vw,74px);font-weight:700;line-height:.95;letter-spacing:-.068em}
+.demo-intro-copy{border-top:1px solid var(--stage-line);padding-top:15px}
+.demo-intro-copy p{margin:0;color:var(--stage-muted);font-size:clamp(16px,1.35vw,18px);line-height:1.43;letter-spacing:-.018em}
+.demo-intro-copy p+p{margin-top:10px;color:var(--stage-ink);font-weight:600}
+.hero-event{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px 22px;align-items:center;margin-bottom:12px;padding:12px 14px;border:1px solid var(--stage-line);background:rgba(4,26,22,.34)}
+.hero-event-label{margin:0;color:var(--signal-stage);font-family:var(--font-mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.hero-event-flow{display:flex;flex-wrap:wrap;align-items:center;gap:7px;color:var(--stage-ink);font-size:clamp(16px,1.7vw,22px);font-weight:650;line-height:1.25;letter-spacing:-.025em}
+.hero-event .result-review{color:#ffb39f}.hero-event .result-pass{color:var(--signal-stage)}
+.proof-sheet{background:var(--paper-bright);color:var(--ink);border:1px solid var(--ink);box-shadow:8px 9px 0 rgba(4,26,22,.62)}
+.proof-head{display:flex;justify-content:space-between;gap:20px;padding:10px 14px;border-bottom:1px solid var(--ink);font-family:var(--font-mono);font-size:11px;font-weight:700}
+.proof-head span:last-child{color:var(--muted-ink);text-align:right}
+.proof-step{display:grid;grid-template-columns:clamp(112px,12vw,148px) minmax(0,1fr);border-bottom:1px solid var(--ink)}
+.proof-step:last-child{border-bottom:0}
+.proof-label{padding:15px 14px;border-right:1px solid var(--ink);font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--muted-ink);line-height:1.35}
+.proof-label span{display:block;margin-bottom:6px;color:var(--signal);font-size:17px;line-height:1}
+.proof-content{min-width:0;padding:clamp(15px,1.9vw,22px)}
+.proof-content h2{margin:0 0 6px;font-size:clamp(21px,1.95vw,27px);line-height:1.08;letter-spacing:-.04em}
+.proof-content>p{max-width:850px;margin:0;color:var(--muted-ink);font-size:15px;line-height:1.43}
+.exact-string{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;margin:12px 0 0;border:1px solid var(--ink);background:var(--ink);color:var(--paper-bright);box-shadow:4px 4px 0 var(--signal)}
+.exact-string span{padding:11px;border-right:1px solid rgba(248,243,232,.25);font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--paper-dim)}
+.exact-string code{display:block;padding:13px 14px;font-family:var(--font-sans);font-size:clamp(23px,2.4vw,32px);font-weight:650;line-height:1.03;letter-spacing:-.045em;overflow-wrap:anywhere}
+.result{display:inline-block;border:1px solid currentColor;padding:4px 7px;font-family:var(--font-mono);font-size:11px;font-weight:700}
+.result-review{color:var(--review-ink)}.result-pass{color:var(--stage)}
+.review-head,.recheck-row,.final-head{display:flex;justify-content:space-between;gap:18px;align-items:center}
+.evidence-frame{margin-top:12px;border:1px solid var(--ink);background:var(--paper)}
+.evidence-frame header{display:flex;justify-content:space-between;gap:18px;padding:8px 10px;border-bottom:1px solid var(--ink);font-family:var(--font-mono);font-size:11px;font-weight:700}
+.evidence-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.evidence-item{min-width:0;padding:10px}
+.evidence-item+.evidence-item{border-left:1px solid rgba(17,17,15,.24)}
+.evidence-item span{display:block;margin-bottom:4px;color:var(--muted-ink);font-family:var(--font-mono);font-size:11px;font-weight:700}
+.evidence-item strong{display:block;font-size:13px;line-height:1.35}
+.evidence-note{margin:0;padding:9px 10px;border-top:1px solid rgba(17,17,15,.24);color:var(--muted-ink);font-size:13px;line-height:1.4}
+.exact-change{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);gap:8px;align-items:center;margin-top:12px}
+.change-string{min-width:0;border:1px solid var(--ink);background:var(--paper);padding:9px 10px}
+.change-string span{display:block;margin-bottom:5px;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--muted-ink)}
+.change-string code{font-family:var(--font-sans);font-size:clamp(16px,1.55vw,19px);font-weight:650;line-height:1.18;overflow-wrap:anywhere}
+.change-arrow{text-align:center;font-family:var(--font-mono);font-size:18px}
+.model-note,.computation-note{margin:9px 0 0!important;font-family:var(--font-mono);font-size:11px!important;font-weight:700}
+.computation-note{padding-top:9px;border-top:1px solid rgba(17,17,15,.24);color:var(--ink)!important}
+.recheck-string{margin-top:10px;font-size:clamp(20px,2vw,27px);font-weight:650;line-height:1.08;letter-spacing:-.035em}
+.final-recommendation{margin-top:10px;padding:11px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.final-recommendation span{display:block;margin-bottom:5px;color:var(--muted-ink);font-family:var(--font-mono);font-size:11px;font-weight:700}
+.final-recommendation strong{font-size:clamp(22px,2.3vw,31px);line-height:1.04;letter-spacing:-.04em}
+.control{margin:9px 0 0;font-size:14px;line-height:1.4}
+.receipt{margin-top:11px;border-top:1px solid var(--ink);padding-top:10px}
+.receipt-primary{display:flex;justify-content:space-between;gap:18px;align-items:baseline;font-family:var(--font-mono);font-size:11px;font-weight:700}
+.receipt-primary span:last-child{color:var(--muted-ink);text-align:right}
+.receipt details{margin-top:8px;border:1px solid var(--ink);background:var(--paper)}
+.receipt summary{cursor:pointer;padding:9px 10px;font-family:var(--font-mono);font-size:11px;font-weight:700}
+.receipt dl{margin:0;padding:0 10px 11px;border-top:1px solid var(--ink)}
+.receipt dt{margin-top:9px;color:var(--muted-ink);font-family:var(--font-mono);font-size:11px;font-weight:700}
+.receipt dd{margin:3px 0 0;font-family:var(--font-mono);font-size:11px;line-height:1.4;overflow-wrap:anywhere}
+.boundary{margin:11px 0 0!important;color:var(--ink)!important;font-size:15px!important;font-weight:650;line-height:1.4!important}
+.demo-paper{background:var(--paper);padding:clamp(38px,5vw,58px) clamp(18px,4.8vw,76px)}
+.paper-wrap{width:min(1060px,100%);margin:0 auto}
+.system-copy{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,7vw,82px);align-items:start}
+.system-copy h2{margin:0;font-size:clamp(30px,3.7vw,46px);line-height:1;letter-spacing:-.055em}
+.system-copy p{margin:0;font-size:clamp(17px,1.4vw,19px);line-height:1.48;letter-spacing:-.018em}
+.continuity{margin:clamp(26px,4vw,38px) 0 0;padding-top:15px;border-top:1px solid var(--ink);font-size:15px;line-height:1.48}
+.continuity a{font-weight:700}
+.demo-doors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:18px;border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+.demo-door{display:flex;justify-content:space-between;gap:18px;min-width:0;padding:14px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper-bright);font-size:14px;font-weight:650;text-decoration:none}
+.demo-door::after{content:"→";font-family:var(--font-mono);font-weight:700}
+.demo-door:hover{background:var(--ink);color:var(--paper-bright)}
+.demo-door:focus-visible,summary:focus-visible,.continuity a:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+.demo-note{margin:14px 0 0;color:var(--muted-ink);font-family:var(--font-mono);font-size:11px;line-height:1.5}
+@media(max-width:900px){
+  .demo-intro,.system-copy{grid-template-columns:1fr}
+  .demo-intro-copy{max-width:760px}
+  .evidence-grid{grid-template-columns:1fr}
+  .evidence-item+.evidence-item{border-left:0;border-top:1px solid rgba(17,17,15,.24)}
 }
-@media (max-width:480px){
-  .ds-doc-figure figcaption{grid-template-columns:46px minmax(0,1fr)!important}
+@media(max-width:650px){
+  .demo-stage,.demo-paper{padding-left:16px;padding-right:16px}
+  .demo-mast{align-items:flex-start}
+  .demo-intro h1{font-size:clamp(38px,12vw,54px)}
+  .hero-event{grid-template-columns:1fr}
+  .proof-step{grid-template-columns:1fr}
+  .proof-label{display:flex;align-items:baseline;gap:9px;border-right:0;border-bottom:1px solid var(--ink);padding:9px 11px}
+  .proof-label span{margin:0;font-size:15px}
+  .proof-content{padding:15px 11px 18px}
+  .exact-string{grid-template-columns:1fr}
+  .exact-string span{border-right:0;border-bottom:1px solid rgba(248,243,232,.25)}
+  .exact-change,.demo-doors{grid-template-columns:1fr}
+  .change-arrow{font-size:0}
+  .change-arrow::before{content:"↓";font-size:18px}
+  .review-head,.recheck-row,.final-head,.receipt-primary{align-items:flex-start}
 }
+@media(max-width:390px){
+  .demo-mast{padding-bottom:24px}
+  .proof-head{align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 </style>
 </head><body><div id="root">
-<noscript>This page renders a measured naming grammar with React and needs JavaScript. The underlying catalog lives in <a href="./shelves.json">shelves.json</a>.</noscript>
+<noscript>
+  <main class="demo-loading">
+    <h1>The final string has to meet the rule—not just the prompt.</h1>
+    <p>This proof reads its exact strings, checks, recorded revision, and receipt from <a href="./demo_fixture.json">the generated fixture</a>. JavaScript is needed to lay out that record, but the proof does not depend on the live Shelf Tool.</p>
+  </main>
+</noscript>
 </div>
-
 <script src="../vendor/react.production.min.js"></script>
 <script src="../vendor/react-dom.production.min.js"></script>
 
-
 <script src="../_ds_bundle.js"></script>
-
 <script src="page.js"></script>
 </body></html>

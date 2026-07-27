@@ -1,0 +1,13 @@
+{
+  "capture_date": "2026-07-26",
+  "surface": "Shelf Tool live terminal",
+  "model": "claude-opus-5",
+  "prompt": "Review this exact proposed shelf title for a straightforward collection of classic anime: ‘Classic Anime Films’. Check that exact string against the adopted demo profile. If it returns for review, revise it, check the revised exact string again, and only then recommend the final title. Show a compact audit trail with the exact input, first check result, exact revision, second check result, and exact final title.",
+  "visible_final_answer": "Audit trail:\n\nInput: Classic Anime Films\nFirst check: returns for review. Title Case holds, the noun closes the name, era modifier sits up front where era modifiers go. The single problem is Films. Public-facing names overwhelmingly say movie and show rather than film and series, and this lane already ships Anime Movies.\n\nRevision: Classic Anime Movies\nSecond check: clean. Nothing flagged. Classic sets the era, Anime narrows the category, Movies closes on the noun, which is what nearly every anime name here does.\n\nFinal: Classic Anime Movies\n\nOne alternative, since both shapes ship in this lane: Classic Anime also checks clean, because Anime itself works as the closing noun in names like Horror Anime and Fantasy Anime. Use it if the shelf holds series too; keep Movies if the collection really is films only. Neither exact string appears in the crawl today, so both are new builds on shipped patterns.",
+  "reported_tool_call_count": 4,
+  "input_title": "Classic Anime Films",
+  "model_authored_revision": "Classic Anime Movies",
+  "final_recommendation": "Classic Anime Movies",
+  "prompt_sha256": "f64e7be2eb32985edb574c4399d03f544b72179419632cd88740f01ca1670ed4",
+  "visible_response_sha256": "85d7261b018c8998c3e8467fc324b90bb19a6a353af414a3fa3154c05a1a6696"
+}
