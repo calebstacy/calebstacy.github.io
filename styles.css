@@ -1,15 +1,15 @@
-@import "./tokens/fonts.css";
-@import "./tokens/colors.css";
-@import "./tokens/typography.css";
-@import "./tokens/spacing.css";
-@import "./tokens/elevation.css";
-@import "./tokens/motion.css";
-@import "./tokens/animation.css";
-@import "./tokens/interaction.css";
-@import "./tokens/surfaces.css";
-@import "./tokens/document.css";
-@import "./tokens/case.css";
-@import "./tokens/shell.css";
+@import "./tokens/fonts.css?v=c404e04054fb";
+@import "./tokens/colors.css?v=c404e04054fb";
+@import "./tokens/typography.css?v=c404e04054fb";
+@import "./tokens/spacing.css?v=c404e04054fb";
+@import "./tokens/elevation.css?v=c404e04054fb";
+@import "./tokens/motion.css?v=c404e04054fb";
+@import "./tokens/animation.css?v=c404e04054fb";
+@import "./tokens/interaction.css?v=c404e04054fb";
+@import "./tokens/surfaces.css?v=c404e04054fb";
+@import "./tokens/document.css?v=c404e04054fb";
+@import "./tokens/case.css?v=c404e04054fb";
+@import "./tokens/shell.css?v=c404e04054fb";
 
 /* Every element sizes by its border box. Without this, a component that sets both a width and
    padding is oversized by its padding — which is what made stage copy overlap the character art
