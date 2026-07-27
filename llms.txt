@@ -1,0 +1,42 @@
+# Caleb Stacy
+
+Caleb Stacy is a senior content designer with twelve years across product and education. His work
+spans product strategy, interaction language, onboarding, experimentation, content standards,
+terminology, taxonomy, and AI-assisted content systems.
+
+Canonical portfolio: https://calebstacy.com/
+Resume: https://calebstacy.com/Caleb-Stacy-Resume.pdf
+Contact: calebstacy@gmail.com
+GitHub: https://github.com/calebstacy
+
+## Selected work
+
+### Verso
+
+Verso combined a governed content-design agent, an eleven-dimension language measurement engine,
+and a structured content index. It routed each claim to the strongest computation it could honestly
+support: deterministic checks for determinate rules, measured evidence for observable language
+patterns, and explicit human review where the evidence did not determine one answer.
+
+Portfolio route: https://calebstacy.com/#verso
+
+### VR NUX
+
+A just-in-time new-user education strategy replaced a fourteen-plus-lesson first run in Meta
+Horizon VR. The work improved onboarding completion, weekly active use, and new-user retention.
+
+Portfolio route: https://calebstacy.com/#vr-education
+
+### Horizon Portals
+
+A proximity-based information architecture let people understand a destination before stepping
+through it. The work shipped in Meta Horizon and was introduced at Meta Connect 2024.
+
+Portfolio route: https://calebstacy.com/#portals
+
+## Positioning
+
+Caleb is an experienced senior content designer first. Systems are one method he uses: when a
+decision can be made repeatable, he turns it into guidance, an experiment, a deterministic check,
+or a tool. He keeps contextual judgment with people when the available evidence does not determine
+one answer.

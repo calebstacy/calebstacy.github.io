@@ -7,7 +7,6 @@ const {
   ReportSection,
   DocFigure,
   Finding,
-  Ledger,
   IndexRows,
   ProvenanceNote
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
@@ -16,7 +15,12 @@ const {
    runtime; nothing here is a measurement ---------- */
 
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-const RULE_IDS = ["title-case-discipline", "tv-uppercase", "content-unit-terminal", "ampersand-over-and"];
+
+/* The four rules the figure presents, strongest first, plus the selector rule the
+   exceptions section cites inline. All five must exist in the data. */
+const FIGURE_RULE_IDS = ["tv-uppercase", "title-case-discipline", "content-unit-terminal", "ampersand-over-and"];
+const FACET_RULE_ID = "top10-facet-order";
+const NAMING_KINDS = ["genre-name", "shelf-heading", "list-name"];
 function fmtDate(iso) {
   if (!iso) return "";
   const [year, month, day] = iso.split("-").map(Number);
@@ -28,36 +32,55 @@ function App() {
   const [data, setData] = React.useState(null);
   const [error, setError] = React.useState(null);
   React.useEffect(() => {
-    fetch("./shelves.json").then(r => {
-      if (!r.ok) throw new Error("shelves.json HTTP " + r.status);
-      return r.json();
-    }).then(setData).catch(e => setError(e.message || String(e)));
+    const getJson = url => fetch(url).then(response => {
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      return response.json();
+    });
+    Promise.all([getJson("./shelves.json"), getJson("./scorecards.json"), getJson("./playbook.json")]).then(([shelves, scorecards, playbook]) => setData({
+      shelves,
+      scorecards,
+      playbook
+    })).catch(() => setError(true));
   }, []);
   if (error) {
     return /*#__PURE__*/React.createElement("div", {
       className: "errbox"
-    }, "Could not load shelves.json (", error, "). Every number on this page is read from that file at runtime. Open this page over a local server, not as a bare file.");
+    }, "Could not load the full reading. Open this page over a local server, not as a bare file.");
   }
   if (!data) {
     return /*#__PURE__*/React.createElement("div", {
       className: "errbox"
-    }, "Loading shelves.json…");
+    }, "Loading the full reading…");
   }
+  const {
+    shelves,
+    scorecards,
+    playbook
+  } = data;
   const {
     run,
     items,
     grammar,
     terminology,
     derived_records: derivedRecords
-  } = data;
-  const rules = RULE_IDS.map(id => grammar.rules.find(rule => rule.id === id)).filter(Boolean);
-  if (rules.length !== RULE_IDS.length) {
+  } = shelves;
+  const rules = FIGURE_RULE_IDS.map(id => grammar.rules.find(rule => rule.id === id)).filter(Boolean);
+  const facetRule = grammar.rules.find(rule => rule.id === FACET_RULE_ID);
+  if (rules.length !== FIGURE_RULE_IDS.length || !facetRule) {
     return /*#__PURE__*/React.createElement("div", {
       className: "errbox"
-    }, "Could not find all four named grammar rules in shelves.json. The page has stopped rather than rendering partial evidence.");
+    }, "Could not find all five named grammar rules in shelves.json. The page has stopped rather than rendering partial evidence.");
   }
   const countKind = kind => items.filter(item => item.kind === kind).length;
   const families = terminology.families;
+  const namingWordCounts = items.filter(item => NAMING_KINDS.includes(item.kind)).map(item => item.text.trim().split(/\s+/).length).sort((a, b) => a - b);
+  const medianWords = namingWordCounts[Math.floor(namingWordCounts.length / 2)];
+  const thisShowCount = items.filter(item => item.kind === "ui-label" && item.text.startsWith("This show is")).length;
+  const titleCaseRule = rules.find(rule => rule.id === "title-case-discipline");
+  const tvRule = rules.find(rule => rule.id === "tv-uppercase");
+  const unitRule = rules.find(rule => rule.id === "content-unit-terminal");
+  const ampRule = rules.find(rule => rule.id === "ampersand-over-and");
+  const hyphenExamples = Array.from(new Set(titleCaseRule.counter_examples)).slice(0, 3);
   const counterMeta = rule => {
     const count = Number(rule.counter_example_count);
     const label = fmtN(count) + " " + plural(count, "counter-example");
@@ -75,6 +98,27 @@ function App() {
     asserts: record.assertion,
     meta: ["kind: " + record.kind, "status: " + record.status, "owner: " + record.owner, "evidence: shelves.json · " + record.evidence.count_pointer]
   }));
+  const familySituations = playbook.situations.filter(entry => entry.facet === "genre-family");
+  const indexCell = (family, reading) => playbook.cells.find(cell => cell.situation_id === "family:" + family && cell.technique_id === reading && cell.basis === "observed");
+  const showReading = (family, reading, label, emptyLabel) => {
+    const cell = indexCell(family, reading);
+    if (!cell) return emptyLabel;
+    if (cell.band === "near-singleton") {
+      if (cell.examples.length) {
+        const sampleNote = cell.denominator === 1 ? "one name, not a pattern" : "only " + fmtN(cell.denominator) + " names, not a pattern";
+        return label + ": “" + cell.examples.join("” / “") + "”; " + sampleNote;
+      }
+      return label + ": none in " + fmtN(cell.denominator) + " " + plural(cell.denominator, "name") + " here; too small to call a pattern";
+    }
+    return label + ": " + fmtN(cell.count) + " of " + fmtN(cell.denominator);
+  };
+  const contentIndexRows = ["Anime", "Comedy", "Horror", "Romantic"].map(family => familySituations.find(entry => entry.label === family)).filter(Boolean).map(entry => ({
+    id: entry.label,
+    asserts: fmtN(entry.denominator_occurrences) + " shipped names",
+    meta: [showReading(entry.label, "title-case-discipline", "Title Case", "no Title Case examples"), showReading(entry.label, "content-unit-terminal", "noun last", "no closing noun examples"), showReading(entry.label, "tv-casing-holds", "TV uppercase", "TV does not appear"), showReading(entry.label, "connective-ampersand", "ampersand pairing", "no paired names"), showReading(entry.label, "tone-present", "tone word", "no tone-word examples"), showReading(entry.label, "speech-act-question", "question opening", "no question openings")]
+  }));
+  const reviewedWordplay = scorecards.rows.filter(row => row.wordplay.semantic_signed.present).length;
+  const contentIndexSource = "The Content Index · public names fetched " + fmtDate(run.date);
   return /*#__PURE__*/React.createElement(Report, {
     title: "How Netflix names its shelves",
     runningHead: "How Netflix names its shelves — working paper",
@@ -85,54 +129,42 @@ function App() {
       style: {
         margin: 0
       }
-    }, "On ", fmtDate(run.date), ", this paper cataloged ", fmtN(items.length), " names visible on Netflix's public, signed-out surfaces: shelf headings and genres, plus Top 10 lists and interface labels. The crawl kept ", fmtN(run.public_source_count), " public sources and refused ", fmtN(run.out_of_bounds_count), " login-walled destinations untouched. That boundary is part of the result: it shows which parts of the product's naming a visitor can inspect without an account."),
-    subtitle: fmtN(countKind("shelf-heading")) + " shelf headings, " + fmtN(countKind("genre-name")) + " genre names, " + fmtN(countKind("list-name")) + " list names, and " + fmtN(countKind("ui-label")) + " interface labels from a signed-out public crawl.",
+    }, "On ", fmtDate(run.date), ", I cataloged ", fmtN(items.length), " names from Netflix's public, signed-out surfaces: shelf headings, genre names, Top 10 lists, interface labels. Four rules cover nearly all of them, and each rule is deterministic: a name either satisfies it or it doesn't. That is what this page demonstrates. A product's naming carries rules a visitor was never handed, and measurement can recover them from shipped behavior alone and write them down as records the next draft can be checked against."),
+    subtitle: fmtN(countKind("shelf-heading")) + " shelf headings, " + fmtN(countKind("genre-name")) + " genre names, " + fmtN(countKind("list-name")) + " list names, and " + fmtN(countKind("ui-label")) + " interface labels, and the rules they already follow.",
     abstract: /*#__PURE__*/React.createElement("p", {
       style: {
         margin: 0
       }
-    }, "The product's public taxonomy has a compact naming grammar. Title Case dominates. TV stays uppercase. A content unit usually closes the name. An ampersand is the normal coordinating connective. Each rule below carries its denominator and its retained counterexamples; none is inferred from tone or preference.")
+    }, "Every name here was visible to a signed-out visitor; anything behind a login stayed out. The counts are read from ", /*#__PURE__*/React.createElement("a", {
+      href: "./shelves.json"
+    }, "shelves.json"), " at runtime, and the full method sits at the end of the page.")
   }, /*#__PURE__*/React.createElement(ReportSection, {
-    id: "bounds",
-    title: "The clean boundary is part of the result"
-  }, /*#__PURE__*/React.createElement(Finding, {
-    measured: fmtN(run.public_source_count) + " public sources kept · " + fmtN(run.out_of_bounds_count) + " login-walled destinations refused",
-    verdict: "public corpus"
-  }, "The crawl tested public Netflix URLs one request at a time without an authenticated browser session or page interaction. Public sources entered the corpus. Any redirect to an account wall stopped before the destination was requested. Sources that returned no contentful public catalog stayed out."), /*#__PURE__*/React.createElement(DocFigure, {
-    caption: "How the source URLs resolved before any naming rule was counted.",
-    source: "shelves.json · run"
-  }, /*#__PURE__*/React.createElement(Ledger, {
-    label: "The public boundary",
-    items: [{
-      value: fmtN(run.public_source_count),
-      label: "public sources kept"
-    }, {
-      value: fmtN(run.out_of_bounds_count),
-      label: "login-walled destinations refused before request"
-    }, {
-      value: fmtN(run.not_public_count),
-      label: "sources with no contentful public catalog"
-    }, {
-      value: fmtN(items.length),
-      label: "cataloged name and label occurrences"
-    }]
-  })), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "0 0 1em"
-    }
-  }, "Publicness varies across Netflix genre URLs. Some expose a full signed-out catalog and a rendered genre name; others redirect straight to login. The split records the public boundary instead of folding walled pages into the corpus.")), /*#__PURE__*/React.createElement(ReportSection, {
-    id: "grammar",
-    title: "Four rules describe the public naming grammar"
+    id: "rules",
+    title: "Four rules cover almost every name"
   }, /*#__PURE__*/React.createElement(Finding, {
     measured: rules.map(rule => fmtN(rule.match_count) + "/" + fmtN(rule.denominator)).join(" · "),
-    verdict: "counted, with exceptions"
-  }, "The four rules describe the dominant pattern. Their counterexamples form recognizable subgrammars. Top 10 uses longer sentence frames. Language selectors put a facet after the unit. The few non-Title-Case names cluster in hyphenated compounds."), /*#__PURE__*/React.createElement(DocFigure, {
-    caption: "Every rule carries the number of matching occurrences and the counterexamples kept in the corpus.",
+    verdict: "deterministic"
+  }, "TV is uppercase in all ", fmtN(tvRule.match_count), " names that contain it. Title Case carries ", fmtN(titleCaseRule.match_count), " of ", fmtN(titleCaseRule.denominator), ". When a name has a content unit, the unit lands last in ", fmtN(unitRule.match_count), " of ", fmtN(unitRule.denominator), ". Names that need a connective use the ampersand ", fmtN(ampRule.match_count), " times against ", fmtN(ampRule.counter_example_count), " uses of “and”. Each count runs over the whole public catalog, exceptions kept."), /*#__PURE__*/React.createElement(DocFigure, {
+    caption: "Each rule with the occurrences that match it and the counterexamples the corpus keeps.",
     source: "shelves.json · grammar.rules"
   }, /*#__PURE__*/React.createElement(IndexRows, {
     label: "Observed rules",
     rows: ruleRows
-  }))), /*#__PURE__*/React.createElement(ReportSection, {
+  })), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 1em"
+    }
+  }, "Every one of these is a check code can run. A draft shelf name can be held to all four before a person reads it, and the answer comes back the same every time. The grammar is also compact enough to write with. The median name is ", fmtN(medianWords), " words: a modifier for audience, origin, tone, or era, then the content unit that closes it.")), /*#__PURE__*/React.createElement(ReportSection, {
+    id: "tendencies",
+    title: "Even the exceptions keep rules"
+  }, /*#__PURE__*/React.createElement(Finding, {
+    measured: fmtN(titleCaseRule.counter_example_count) + " Title Case exceptions · " + fmtN(unitRule.counter_example_count) + " unit-position exceptions · " + fmtN(facetRule.match_count) + " of " + fmtN(facetRule.denominator) + " selector labels identical",
+    verdict: "structured"
+  }, "The ", fmtN(titleCaseRule.counter_example_count), " names that break Title Case share one shape, a hyphenated compound whose second element stays lowercase: ", hyphenExamples.join(", "), ". The ", fmtN(unitRule.counter_example_count), " names that don't end on their content unit fall into two families: Top 10 pages write a longer availability frame, and Top 10 selectors put a language facet after the unit, identically in all ", fmtN(facetRule.match_count), " occurrences."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 1em"
+    }
+  }, "Whether anyone inside Netflix has ruled on the hyphen case can't be read from out here. What can be read is that the behavior holds, and behavior this steady works like a rule whether or not it began as one. Finding the tendencies a product keeps is most of this job; writing them down where the next name can meet them is the rest.")), /*#__PURE__*/React.createElement(ReportSection, {
     id: "verdict",
     title: "The product breaks the tie"
   }, /*#__PURE__*/React.createElement(Finding, {
@@ -140,38 +172,65 @@ function App() {
     verdict: "product register"
   }, "The ", /*#__PURE__*/React.createElement("a", {
     href: "../netflix/index.html#move-2"
-  }, "earlier terminology pass"), " found a surface split: Tudum and culture use series and film, while Help and marketing use TV show and movie. The public product taxonomy now lands decisively with the second group. Across these names, the movie/show family appears ", fmtN(families.movie_show), " times; series/film appears ", fmtN(families.series_film), " times."), /*#__PURE__*/React.createElement("p", {
+  }, "earlier terminology pass"), " found a surface split: Tudum and culture write series and film, while Help and marketing write TV show and movie. The public product taxonomy lands with the second group. Across these names, the movie/show family appears ", fmtN(families.movie_show), " times; series/film appears ", fmtN(families.series_film), " times."), /*#__PURE__*/React.createElement("p", {
     style: {
       margin: "0 0 1em"
     }
-  }, "That changes the reading. This is less like four surfaces disagreeing evenly and more like a register line: editorial writing sits on series/film; support and marketing sit with the product itself on movie/show. It still says nothing about an internal ruling. It makes the question a vocabulary record would need to decide more precise.")), /*#__PURE__*/React.createElement(ReportSection, {
+  }, "That reads less like four surfaces disagreeing evenly and more like a register line: editorial writing sits on series/film; support and marketing sit with the product itself on movie/show. The title pages push the register further: all ", fmtN(thisShowCount), " sampled title pages render the metadata label “This show is …”, and the label doesn't change with the kind of title on the page.")), /*#__PURE__*/React.createElement(ReportSection, {
     id: "records",
-    title: "What the observed rules look like as records"
+    title: "The rules become records"
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: "0 0 1em"
     }
-  }, "Four records follow directly from the observed corpus. One covers product-register content units. Two cover Title Case and TV casing. The fourth covers the connective. Their status is proposed, and they do not represent Netflix policy. Each preserves the observed variants and its evidence pointer rather than turning a majority pattern into an undocumented rule."), /*#__PURE__*/React.createElement(DocFigure, {
-    caption: "Four proposed records derived from the crawl's own counts.",
+  }, "Translation is the last step. Each observation above becomes a record: one claim, the observed variants kept under it, an owner seat, a status that can change, and a pointer into the counts that support it. Word Math, the measurement engine the rest of this project runs on, makes the same move on voice: there the target is a band on a measured dimension; here the rules are exact, so the records can be too. Four are derived below. Their status is proposed, and none of them is Netflix policy."), /*#__PURE__*/React.createElement(DocFigure, {
+    caption: "Four proposed records, each carrying its variants, owner, status, and evidence pointer.",
     source: "shelves.json · derived_records"
   }, /*#__PURE__*/React.createElement(IndexRows, {
     label: "Derived records",
     rows: recordRows
-  }))), /*#__PURE__*/React.createElement(ReportSection, {
-    id: "experiment",
-    title: "The rule can become a question"
-  }, /*#__PURE__*/React.createElement("p", {
+  })), /*#__PURE__*/React.createElement("p", {
     style: {
       margin: "0 0 1em"
     }
-  }, "Measurement starts the next decision. Once a target is recorded as a band, it can stop an out-of-range draft today and become an A/B-testable hypothesis tomorrow; governance and experimentation use the same boundary for different decisions.")), /*#__PURE__*/React.createElement(ReportSection, {
+  }, "A record does two jobs from the same boundary. Adopted, it gates: a draft that breaks Title Case or spells out the connective fails before a person reads it. The same boundary is a hypothesis: ship “and” to half a shelf's viewers, and the connective record stops being taste and becomes a readout. ", /*#__PURE__*/React.createElement("a", {
+    href: "../netflix/index.html#move-3"
+  }, "The walkthrough derives voice records the same way.")), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 1em"
+    }
+  }, "To watch the records answer for a specific lane — kids, anime, horror, K-dramas — or to hold a draft name to them live, ", /*#__PURE__*/React.createElement("a", {
+    href: "./ask.html"
+  }, "ask them directly"), ".")), /*#__PURE__*/React.createElement(ReportSection, {
+    id: "content-index",
+    title: "Every name gets a fuller reading"
+  }, /*#__PURE__*/React.createElement(Finding, {
+    measured: fmtN(scorecards.totals.distinct_names) + " distinct names · " + fmtN(familySituations.length) + " genre families · " + fmtN(reviewedWordplay) + " reviewed wordplay reads",
+    verdict: "descriptive"
+  }, fmtN(familySituations.length), " genre families, sorted out of the names themselves. The same read that found four stable habits now catches who a shelf is for, what mood it sells, whether it plays with sound, and where the noun lands."), /*#__PURE__*/React.createElement(DocFigure, {
+    caption: "Four genre families, with the four earlier checks and two newer readings shown inside each.",
+    source: contentIndexSource
+  }, /*#__PURE__*/React.createElement(IndexRows, {
+    label: "A sample from the Content Index",
+    rows: contentIndexRows
+  })), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 1em"
+    }
+  }, "The raw names are the description. Mining them into the Content Index codifies the reading. Adoption comes later, if a team chooses to use any of it as a gate. Nothing on this page is Netflix policy."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 1em"
+    }
+  }, "The Content Index is served warm. The same answers are available live in the terminal, one line down; ", /*#__PURE__*/React.createElement("a", {
+    href: "./ask.html"
+  }, "ask them directly"), ".")), /*#__PURE__*/React.createElement(ReportSection, {
     id: "provenance",
     title: "Provenance and limits"
   }, /*#__PURE__*/React.createElement(ProvenanceNote, {
     label: "Method"
-  }, "This was a signed-out, GET-only crawl using a normal browser user agent with no stored session or page interaction. It made ", fmtN(run.fetch_count), " requests for ", fmtN(run.source_url_count), " source URLs, with a delay between requests. Redirects were followed only while the destination stayed public. Raw HTML remained outside the repository; the JSON keeps the extracted names and request metadata needed to audit the result."), /*#__PURE__*/React.createElement(ProvenanceNote, {
+  }, "A signed-out, GET-only crawl on ", fmtDate(run.date), ": ", fmtN(run.fetch_count), " requests for ", fmtN(run.source_url_count), " source URLs, one at a time, with a delay between requests. A redirect toward a login ended that path before the destination was requested; ", fmtN(run.out_of_bounds_count), " walled destinations stayed out. Raw HTML stayed outside the repository; shelves.json keeps the extracted names and the request metadata needed to audit every count on this page."), /*#__PURE__*/React.createElement(ProvenanceNote, {
     label: "Limits"
-  }, "This paper cannot see authenticated or personalized content. Names served only inside an authenticated app stay out too. Its time boundary is the public surface fetched on ", fmtDate(run.date), ".")));
+  }, "Nothing authenticated or personalized is represented here. Publicness itself varies: of ", fmtN(run.genre_probe_count), " genre IDs probed, ", fmtN(run.public_genre_count), " served a full signed-out catalog. The time boundary is the public surface as fetched on ", fmtDate(run.date), ".")));
 }
 ReactDOM.createRoot(document.getElementById("root")).render(/*#__PURE__*/React.createElement(App, null));
 })();

@@ -288,7 +288,6 @@ const {
   RegistrationMark,
   VersoHero,
   CaseMeta,
-  ArtifactFigure,
   StageAction,
   Eyebrow
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
@@ -301,16 +300,13 @@ const {
    sub-pages never narrate." So everything that used to be a rendered instrument here (the
    research grid, the fingerprint bars, the score ring, the rewrite diff, the index rows, the
    rule split, the source map, the toolchain) moved to screen-verso-subpages.jsx, in full, with
-   room to be the subject instead of an aside. What is left below is six beats of prose, one
-   artifact, and one pine "punctuation" card in the vocabulary Horizon and Portals already use
-   for a single held statement.
+   room to be the subject instead of an aside. What is left below is four beats: the problem,
+   the system thesis, three doors to the implementation, and the strongest ownership and adoption
+   evidence.
 
-   THE COVER IS UNTOUCHED. Stage / StageCopy / VersoHero / RegistrationMark and the constants
-   they read (REWRITE, HERO_THINKING, SCORE_DIMS, HERO_SELF_LINT) are exactly what the Verso hero
-   PR landed — do not edit them here. screen-verso-subpages.jsx reuses the same fixture values
-   (same draft, same rewrite, same deltas) on the Agent and Engine pages, so a reader who opens a
-   door is looking at the same on-the-record example the cover already showed them, at a larger
-   scale and with room to explain it. */
+   The cover and the satellite pages use the same public-safe draft, revision, and measurement
+   fixture. The cover omits an aggregate score because this example does not define an honest
+   scalar; it shows only the supported dimension readings and the re-measurement verdict. */
 
 const REWRITE = {
   before: "Oops! Something went wrong with your world. Don't worry, we're fixing it! Please try again in a few minutes and everything should be back to normal.",
@@ -333,7 +329,7 @@ const REWRITE = {
     to: 82
   }]
 };
-const SCORE_DIMS = [{
+const MEASURED_DIMS = [{
   name: "Formality",
   value: 82
 }, {
@@ -347,9 +343,9 @@ const SCORE_DIMS = [{
   value: 71
 }];
 
-/* The cover instrument's reasoning window. Generic phrasing — no internal tool names — narrating
+/* The cover instrument's checks window. Generic phrasing — no internal tool names — narrating
    the same measure-and-rewrite pass the Agent page shows in full below. */
-const HERO_THINKING = ["Reading the draft against the surface's voice profile", "Comparing eleven dimensions to the target band", "Two dimensions out of band", "Drafting a rewrite with the deltas attached"];
+const HERO_THINKING = ["Reading the draft against the context's measurement profile", "Comparing eleven dimensions to the target band", "Two dimensions out of band", "Drafting a rewrite with the deltas attached"];
 
 /* The closing beat's self-check. Verso measured ELEVEN dimensions (the sacred count; the
    twelve-dimension trace belongs to the later open-source engine and must not appear here) —
@@ -455,11 +451,11 @@ function VersoDocument({
     items: project.results
   })), /*#__PURE__*/React.createElement(VersoHero, {
     draft: REWRITE.before,
+    thinkingLabel: "Checks",
     thinking: HERO_THINKING,
     reading: {
-      score: 73,
-      verdict: "Close. A few things to tighten.",
-      dimensions: SCORE_DIMS
+      verdict: "Two dimensions outside the applicable range.",
+      dimensions: MEASURED_DIMS
     },
     rewrite: {
       after: REWRITE.after,
@@ -485,47 +481,18 @@ function VersoDocument({
     style: {
       margin: 0
     }
-  }, "Central content design was asking the harder question underneath all of it. If we stop reviewing every draft an agent writes and trust it to write on its own, on the loop instead of in it, how do we know the writing is any good? Their answer, for now, was a review board: people reading agent output and deciding whether it met the bar. That's a linter made of humans. It's slow, and it isn't any more consistent than the thing it's checking. It isn't free, either. A prompt file with forty rules stapled to it doesn't fix that. It's still a prompt file, and it fails the same way. Just later.")), /*#__PURE__*/React.createElement(Beat, {
+  }, "Central content design was asking the harder question underneath all of it. If we stop reviewing every draft an agent writes and trust it to write on its own, on the loop instead of in it, how do we know the writing is any good? Guidance said things like “be concise” and “sound genuine.” Both are true, and both are useless to a writer, because they describe what a reader feels, not what a writer does to produce that feeling.")), /*#__PURE__*/React.createElement(Beat, {
     id: "question",
-    title: "Voice and tone were the one part everyone had filed under “you just have to feel it.”"
+    title: "Every claim is routed to the strongest computation it can honestly support."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "Sounding like the brand is one of the actual jobs a content designer does, and central cared about it. But nobody had written it down as anything a person could act on, let alone an agent. Guidance said things like “be concise” and “sound genuine.” Both are true, and both are useless to a writer, because they describe what a reader feels, not what a writer does to produce that feeling."), /*#__PURE__*/React.createElement("p", {
+  }, "Voice and tone are not directly measurable properties of copy. They are reader interpretations produced by measurable patterns in language, context, and relationship. Verso measured eleven of those observable patterns and let an agent compare a draft to an adopted target for its context. That did not turn “warm” into a number. It made the evidence under the metaphor inspectable — and, once a target existed, difficult to ignore accidentally."), /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "I have an MFA in poetry, and the thing that never stopped fascinating me about meter is that rhythm isn't a mood. It's mechanics. You can learn the rules of stress and syllable that make a line feel urgent or feel slow, and then use them on purpose. If a felt effect like rhythm could be that legible, I didn't see why voice and tone had to stay a matter of taste."), /*#__PURE__*/React.createElement("div", {
-    "data-tone": "stage",
-    style: {
-      background: "var(--story-bg)",
-      color: "var(--story-ink)",
-      margin: "clamp(8px,1vw,14px) 0",
-      padding: "clamp(30px,4vw,40px) clamp(22px,3vw,32px)",
-      textAlign: "center"
-    }
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      ...header,
-      textAlign: "center"
-    }
-  }, "Judgment belongs in the model. Checkable rules belong in code.")), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "That became the rule I sorted everything by. A yes-or-no rule, like never say “click” or keep sentence case always, was solved by a regular expression decades ago. What was left, once all of that was pulled out, was smaller than anyone expected. It was almost all voice and tone. So I went looking for research on how language itself could be measured instead of just described: how formal a sentence reads, how direct it is, its rhythm, its density. Linguists had already been measuring exactly this for years. I just had to point it at a product.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "fieldwork",
-    title: "There was no dataset of Meta's voice. Making one was the real work."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "The fingerprints had to come from language that actually shipped, not from anyone's guidelines. So I went digging through the products' codebases with deep searches across production strings, and pulled out thousands per surface: the button labels and error messages people actually see. I ran swarms of agents to do the ingesting, then categorized every string by the job it does: a button label, a notification, a step in an instruction, body text. Different jobs read differently on purpose, so each was measured on its own terms, never averaged together."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "From that corpus, each surface got its signature computed dimension by dimension and stored as a structured profile: the target the agent would later be held to. And because a measurement nobody runs might as well not exist, I put the measurement server on Meta's serverless infrastructure and kept it warm, so checking a draft cost seconds, not a meeting. That's what made self-linting viable: the check was cheap enough to run on every draft, every time.")), /*#__PURE__*/React.createElement(Beat, {
+  }, "A yes-or-no rule, like never say “click” or keep sentence case always, was solved by a regular expression decades ago. What was left, once all of that was pulled out, was smaller than anyone expected. It was almost all voice and tone. So I went looking for research on how language itself could be measured instead of just described: how formal a sentence reads, how direct it is, its rhythm, its density.")), /*#__PURE__*/React.createElement(Beat, {
     id: "built",
     title: "What I built ended up being three things that only work together."
   }, /*#__PURE__*/React.createElement("p", {
@@ -546,44 +513,22 @@ function VersoDocument({
     }
   }, "And underneath that is the index. I consolidated everything guidance had scattered across wikis, chat threads, spreadsheets and posts, ran a taxonomy over the pile, and categorized every rule by whether a machine could check it. What survived the sort became records a tool could route: versioned, owned, scoped to a surface and marked as a blocker or an advisory."), /*#__PURE__*/React.createElement(Door, {
     onOpen: open("verso/index")
-  }, "What the index held"), /*#__PURE__*/React.createElement(ArtifactFigure, {
-    contain: true,
-    style: {
-      marginTop: 8
-    },
-    src: project.artifacts[0].src,
-    alt: project.artifacts[0].alt,
-    caption: "A rendered stand-in for the system, not a screenshot of it: each surface its own drawer, each measured dimension its own card. No Meta material or real index values appear in it."
-  })), /*#__PURE__*/React.createElement(Beat, {
-    id: "adoption",
-    title: "It spread before I asked anyone to use it."
+  }, "What the index held")), /*#__PURE__*/React.createElement(Beat, {
+    id: "proof",
+    title: "I built it alone. It spread before I asked anyone to use it."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "Content designers started running drafts through Verso before I'd even wired up the measurement engine behind it. The prompt alone was that good, and people found it by word of mouth, not because I announced anything. By the time central content design took it over, it had reached nearly sixty content designers across the company, and the agent had logged more than 500 conversations testing and refining what it should say."), /*#__PURE__*/React.createElement("p", {
+  }, "I built all of it myself, over about six months: the agent, the engine, the taxonomy underneath it and the index. It ran on Meta's internal infrastructure, and once central content design was ready to take it on formally, I handed it to them."), /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "With central, it went from live on one product area to running company-wide in about six months, on word of mouth, before the partnership was even formal. Adoption is usually the part of a system you have to argue for. This was the part I didn't have to.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "boundary",
-    title: "I built it alone. It outlived the org chart that built it."
-  }, /*#__PURE__*/React.createElement("p", {
+  }, "By the time central content design took it over, it had reached nearly sixty content designers across the company, and the agent had logged more than 500 conversations testing and refining what it should say. With central, it went from live on one product area to running company-wide in about six months, on word of mouth, before the partnership was even formal."), /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "I built all of it myself, over about six months: the agent, the engine, the taxonomy underneath it and the index. It ran on Meta's internal infrastructure, and once central content design was ready to take it on formally, I handed it to them. I stayed close enough to see the partnership land. But the platform itself was never mine, and neither was the call to take it company-wide. Which products it measured was central's call to make."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "I was laid off in the middle of finishing that handoff. Central kept running it anyway. It's still in use.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "close",
-    title: "A target, not a mood."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Voice had always been described in adjectives, things like warm or genuine, because that's how you describe a feeling to a person. None of those words mean anything to a machine, and honestly, not much to a new hire on their first week either. What I built was a way to turn that feeling into something checkable: eleven numbers, each one with a band it has to sit inside. A target, not a mood. And a target is something adjectives never were: testable. A voice change becomes an experiment you can run, not an argument you have to win. Language you can hold an agent to isn't a smaller version of good writing. It's what good writing looks like once somebody bothers to measure it.")), /*#__PURE__*/React.createElement("div", {
+  }, "I was laid off in the middle of finishing that handoff. Central kept running it anyway. It's still in use.")), /*#__PURE__*/React.createElement("div", {
     id: "next",
     "data-ds": "case-next",
     style: {
@@ -623,39 +568,29 @@ Object.assign(window, {
 const {
   Eyebrow,
   StageAction,
-  ArtifactFigure,
-  VersoHero,
-  DisciplineVenn,
   ResearchGrid,
-  FingerprintBars,
-  VoiceScoreRing,
-  VoiceProfile,
-  Toolchain,
   SourceMap,
-  RuleSplit,
   IndexRows,
   EvidenceTrace,
   BeforeAfter
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
 
-/* The three doors Verso's main story opens: Agent, Engine, Index. Per
-   reference/verso-subpages-plan.md, "the sub-pages never narrate" — each one exists to let an
-   instrument be the subject instead of an aside, so component richness here is correct where it
-   would have been a demo in the main story. All three share this file so the layout grammar
-   (SubHeader, Beat, SubDoors) is written once instead of drifting three ways: a compact pine
-   band — title and one purpose line, deliberately smaller than a case cover, never the two-pane
-   Stage — then the same ink ground and three-size prose rule the main story runs on, with mono
-   reserved for the instruments' own chrome (each of ResearchGrid / FingerprintBars /
-   VoiceScoreRing / VoiceProfile / Toolchain / SourceMap / RuleSplit / IndexRows / EvidenceTrace
-   already carries its own established mono labels — that register is untouched here, only my own
-   prose headings stay sentence-case sans).
+/* Verso has three satellite pages because the system has three different jobs.
 
-   Fixture data (VERSO_READING, VERSO_REWRITE, VERSO_THINKING, VERSO_SELF_LINT) intentionally
-   mirrors the literal values screen-verso.jsx's cover hero uses — same draft, same rewrite, same
-   deltas, same score — so a reader who opens a door is looking at the same on-the-record example
-   at a larger scale, not a new invented one. The two files can't share a JS module (each
-   <script type="text/babel"> tag is its own top-level scope), so the values are duplicated by
-   hand; if the cover's fixtures ever change, update both. */
+   Agent follows a draft through generation and the self-check.
+   Engine shows which claims a method can honestly support.
+   Index shows where evidence and adopted policy live so neither the model nor the code has to
+   invent them.
+
+   The original sub-page plan said these pages should not narrate. The reader-facing essays and
+   the portfolio's current narrative rule made the problem with that clear: an isolated link still
+   has to tell a reader what the artifact is and why it exists. It also has to show where the
+   evidence stops. The
+   pages below keep their instrument richness, but each now has its own causal arc and its own
+   object. They do not repeat one scalar score three times.
+
+   The rewrite is public-safe example copy written for this portfolio. It is not an internal
+   screen or a recovered Meta string. It discloses no internal measurement. */
 
 const HAIRLINE = "1px solid color-mix(in srgb, var(--story-ink) 25%, transparent)";
 const SECTION_PAD_FIRST = "clamp(36px,5.5vh,56px) var(--gutter) 0";
@@ -669,15 +604,6 @@ const header = {
   lineHeight: "var(--display-m-leading)",
   letterSpacing: "var(--display-m-tracking)"
 };
-const subhead = {
-  margin: 0,
-  fontFamily: "var(--font-sans)",
-  fontSize: "var(--subhead-size)",
-  fontWeight: 620,
-  lineHeight: 1.2,
-  letterSpacing: "var(--subhead-tracking)",
-  color: "var(--story-ink)"
-};
 const proseCol = {
   marginTop: 22,
   display: "flex",
@@ -688,214 +614,100 @@ const proseCol = {
   lineHeight: "var(--prose-leading)",
   letterSpacing: "var(--prose-tracking)"
 };
-
-/* Shared fixtures — see file comment. */
+const artifactNote = {
+  margin: "4px 0 0",
+  color: "var(--story-muted)",
+  fontFamily: "var(--font-sans)",
+  fontSize: "var(--body-size)",
+  lineHeight: 1.45
+};
 const VERSO_REWRITE = {
   before: "Oops! Something went wrong with your world. Don't worry, we're fixing it! Please try again in a few minutes and everything should be back to normal.",
-  after: "We couldn't load your world. Check your connection and try again, or come back in a few minutes.",
-  deltas: [{
-    name: "Words",
-    from: 27,
-    to: 19
-  }, {
-    name: "Formality",
-    from: 25,
-    to: 68
-  }, {
-    name: "Directness",
-    from: 45,
-    to: 88
-  }, {
-    name: "Brevity",
-    from: 40,
-    to: 82
-  }]
+  after: "We couldn't load your world. Check your connection and try again, or come back in a few minutes."
 };
-const VERSO_THINKING = ["Reading the draft against the surface's voice profile", "Comparing eleven dimensions to the target band", "Two dimensions out of band", "Drafting a rewrite with the deltas attached"];
-const VERSO_SCORE_DIMS = [{
-  name: "Formality",
-  value: 82
+const VERSO_AGENT_TRACE = [{
+  step: "Receive the brief or draft",
+  detail: "Verso starts with the writing job, the product surface, and the context the string will appear in."
 }, {
-  name: "Vocabulary",
-  value: 65
+  step: "Produce one draft",
+  detail: "The draft is the exact string under review. The agent's explanation is kept separate from it."
 }, {
-  name: "Directness",
-  value: 90
+  step: "Load the applicable record",
+  detail: "The Content Index, Verso's governed matrix, supplies the scoped profile and any adopted rules that apply to this kind of string."
 }, {
-  name: "Conciseness",
-  value: 71
-}];
-const VERSO_SELF_LINT = {
-  line: "Re-measuring the revision",
-  verdict: "Re-measured: all eleven dimensions in band."
-};
-const VERSO_TRACE = [{
-  step: "Scope loaded",
-  detail: "Which surface, which string type, and which context the draft is for."
+  step: "Measure that string",
+  detail: "The Engine returns separate findings with their methods and limits. It does not replace them with one quality score."
 }, {
-  step: "Index queried",
-  detail: "The product's own record, plus the company-wide standards that apply everywhere."
+  step: "Revise and check again",
+  detail: "When the draft changes, the new string gets a new check. The prior result cannot certify different text."
 }, {
-  step: "Draft fingerprinted",
-  detail: "Eleven dimensions measured against the surface's band. Rule violations are counted separately."
-}, {
-  step: "Rewritten and re-checked",
-  detail: "The agent adjusts and re-measures, as many times as it takes, until the reading lands inside the band."
-}, {
-  step: "Returned with citations",
-  detail: "Every standard applied is named, dated, and traceable back to the record it came from."
+  step: "Return the current evidence",
+  detail: "The person reviewing the work sees the current draft and the findings that actually belong to it."
 }];
 const VERSO_RESEARCH = [{
   source: "Biber",
   year: "1988",
-  gives: "Register variation",
-  note: "Sixty-seven linguistic features that cluster into dimensions of register, replicated across more than twenty languages. The reason “formal” is a measurement and not a mood."
+  gives: "Multidimensional register analysis",
+  note: "Co-occurring linguistic features can distinguish kinds of language in a corpus. That supports a comparison method; it does not prove a brand effect."
 }, {
   source: "Searle",
   year: "1976",
-  gives: "Speech acts",
-  note: "Commands, promises, apologies, assertions. A button label and an error message are different acts, and the difference is countable."
+  gives: "Speech-act categories",
+  note: "Requests, promises, apologies, and assertions give a reviewer categories to define and test. The paper does not validate an automatic classifier by itself."
 }, {
   source: "Brown & Levinson",
   year: "1987",
-  gives: "Politeness strategy",
-  note: "Face-threat and mitigation: what an error message or a permission prompt is actually negotiating."
+  gives: "Politeness strategies",
+  note: "Their framework gives names to mitigation and face work. Whether a reader experiences a string as considerate remains a claim about readers."
 }, {
   source: "Halliday",
   year: "1985",
   gives: "Lexical density",
-  note: "The ratio of content words to total words. How much a sentence is carrying, independent of how long it is."
+  note: "The ratio of content words to total words is computable. The ratio does not become a clarity score simply because it returns a number."
 }];
-const VERSO_READING = [{
-  name: "Readability",
-  value: 88,
-  band: [70, 92]
+const VERSO_CLAIM_ROUTES = [{
+  id: "claim.exact_feature",
+  asserts: "Can the property be established from the exact string? Run versioned code and return the result for that property.",
+  meta: ["method · code", "supports · construction within declared scope"]
 }, {
-  name: "Formality",
-  value: 41,
-  band: [10, 34]
+  id: "claim.observed_pattern",
+  asserts: "How often did a construction appear in comparable shipped strings? Compute the distribution and keep the sample visible.",
+  meta: ["method · corpus", "supports · description, never policy by frequency"]
 }, {
-  name: "Directness",
-  value: 78,
-  band: [64, 88]
+  id: "claim.contextual_reading",
+  asserts: "What reading might the construction support here? Record an identified interpretation and its evidence. Keep the uncertainty visible.",
+  meta: ["method · review or validated model", "supports · a bounded hypothesis, not a reader effect"]
 }, {
-  name: "Concreteness",
-  value: 71,
-  band: [58, 80]
+  id: "claim.reader_effect",
+  asserts: "Did people experience the string as clear, human, reassuring, or persuasive? That question needs research with the relevant readers.",
+  meta: ["method · human research", "supports · an audience effect within the study"]
 }, {
-  name: "Rhythm",
-  value: 72,
-  band: [55, 78]
-}, {
-  name: "Brevity",
-  value: 85,
-  band: [72, 94]
-}];
-const VERSO_PROFILE_DIMS = [{
-  name: "Formality",
-  value: 65
-}, {
-  name: "Enthusiasm",
-  value: 30
-}, {
-  name: "Directness",
-  value: 85
-}, {
-  name: "Humour",
-  value: 10
-}, {
-  name: "Reassurance",
-  value: 55
-}, {
-  name: "Brevity",
-  value: 80
-}];
-const VERSO_PROFILE_NOTES = [{
-  name: "Directness",
-  why: "State what happened and what to do next. An error is not the place to be indirect about either."
-}, {
-  name: "Humour",
-  why: "Near zero. Nobody reading an error message wants to meet a personality."
-}, {
-  name: "Brevity",
-  why: "High. It has to be scannable by someone who is already annoyed."
-}];
-const VERSO_TOOLCHAIN = [{
-  name: "spaCy",
-  href: "https://spacy.io",
-  provides: "Tokenising, part-of-speech tagging, dependency parsing, and named entities: the parse everything structural is measured on.",
-  meta: "MIT"
-}, {
-  name: "textstat",
-  href: "https://github.com/textstat/textstat",
-  provides: "The published readability formulas, so readability is a citation rather than a guess.",
-  meta: "MIT"
-}, {
-  name: "wordfreq",
-  href: "https://github.com/rspeer/wordfreq",
-  provides: "Word-frequency lookups behind lexical sophistication: how common a word is, on a real distribution.",
-  meta: "Apache 2.0"
-}, {
-  name: "lexicalrichness",
-  href: "https://github.com/LSYS/LexicalRichness",
-  provides: "MTLD, a length-independent measure of lexical diversity.",
-  meta: "MIT"
-}, {
-  name: "pyphen",
-  href: "https://pyphen.org",
-  provides: "Offline syllable counting, so nothing about prosody depends on a network call.",
-  meta: "MPL"
-}, {
-  name: "Python",
-  href: "https://www.python.org",
-  provides: "The engine itself, served warm so measurement is cheap enough to call on every draft.",
-  meta: "—"
-}];
-const VERSO_RULES = [{
-  kind: "model",
-  rule: "Be warm and friendly"
-}, {
-  kind: "code",
-  rule: "Sentence case, always"
-}, {
-  kind: "model",
-  rule: "Sound genuine, not scripted"
-}, {
-  kind: "code",
-  rule: "Never say “click”"
-}, {
-  kind: "model",
-  rule: "Show empathy in an error"
-}, {
-  kind: "code",
-  rule: "Buttons under twenty characters"
-}, {
-  kind: "model",
-  rule: "The voice is bold"
-}, {
-  kind: "code",
-  rule: "At most one exclamation mark"
-}, {
-  kind: "model",
-  rule: "Read the room"
-}, {
-  kind: "code",
-  rule: "Say “people”, not “users”"
+  id: "claim.policy_conformance",
+  asserts: "Does the string meet an adopted target? The Engine can answer only after the Index supplies an authorized rule and scope. The exception state must be known too.",
+  meta: ["method · adopted rule plus code", "missing policy · unresolved"]
 }];
 const VERSO_INDEX_ROWS = [{
-  id: "<surface>.terminology.<rule>.v1",
-  asserts: "Use this word, never that one. Deterministic, so a linter owns it outright.",
-  meta: ["scope · surface", "severity · blocker", "owner named", "versioned"]
+  id: "<context>.evidence.observed.v1",
+  asserts: "What the defined sample did. The record keeps the source, sample, string type, method, and date beside the observation.",
+  meta: ["status · descriptive", "revision preserves history"]
 }, {
-  id: "<surface>.requirements.<rule>.v1",
-  asserts: "A claim the product is not allowed to make. Checkable, and a review blocker when it fails.",
-  meta: ["scope · surface", "severity · blocker", "source cited", "versioned"]
+  id: "<context>.target.proposed.v1",
+  asserts: "A future-facing target someone has proposed from the evidence. It remains a proposal until an authorized owner decides.",
+  meta: ["status · proposed", "rationale and open exceptions named"]
 }, {
-  id: "<surface>.fingerprint.<context>.v1",
-  asserts: "The measured profile for one string type on one surface, derived from strings that actually shipped.",
-  meta: ["scope · context", "severity · advisory", "corpus sized", "versioned"]
+  id: "<context>.policy.adopted.v1",
+  asserts: "The decision a named owner adopted, including where it applies, when it does not, and when it should be reviewed.",
+  meta: ["status · adopted", "owner, scope, and exceptions named"]
+}, {
+  id: "<context>.check.executable.v1",
+  asserts: "The versioned implementation of an adopted rule, with examples that should pass, fail, and remain outside its scope.",
+  meta: ["method · code", "policy reference, tests, and version"]
+}, {
+  id: "<context>.interpretation.review.v1",
+  asserts: "A contextual reading that still needs a person or validated classifier. Its evidence and uncertainty stay visible; it cannot quietly become a blocker.",
+  meta: ["status · review with method and owner", "insufficient evidence · unresolved"]
 }];
-const VERSO_SOURCES = ["Central brand guidance", "Product-area guidance", "Docs, chats, and spreadsheets", "Real shipped strings"];
+const VERSO_SOURCES = ["Central content guidance", "Product-area guidance", "Docs, chats, and spreadsheets", "Real shipped strings"];
 
 /* ---- shared layout: compact pine band, ink-ground beats, paper doors ---- */
 
@@ -948,7 +760,7 @@ function SubHeader({
     }
   }, title), purpose && /*#__PURE__*/React.createElement("p", {
     style: {
-      maxWidth: 480,
+      maxWidth: 520,
       margin: "14px 0 0",
       color: "var(--stage-muted)",
       fontFamily: "var(--font-sans)",
@@ -1023,7 +835,7 @@ function SubDoors({
 }
 
 /* ============================================================================================
-   AGENT — how Verso talked back
+   AGENT — the exact draft and its self-check loop
    ============================================================================================ */
 
 function VersoAgentDocument({
@@ -1036,113 +848,67 @@ function VersoAgentDocument({
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SubHeader, {
     eyebrow: "Verso",
     title: "Agent",
-    purpose: "How Verso talked back: what it was thinking, and why you could trust what it decided.",
+    purpose: "What happened between a writing brief and the draft Verso returned: generate the text, measure that exact string, then check any revision.",
     onBack: toStory
   }), /*#__PURE__*/React.createElement(Beat, {
-    id: "reasoning",
+    id: "draft",
     first: true,
-    title: "It showed its work before it showed its answer."
+    title: "Verso was the part a content designer talked to."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "Every review opened the same way: a short reasoning window, open by default, naming which surface the draft was for and which dimensions it was about to check. Then it read the draft and produced a score. If anything sat outside the target, it wrote a rewrite too, with the reasoning left in rather than collapsed away the moment the answer arrived."), /*#__PURE__*/React.createElement("p", {
+  }, "A designer gave the internal agent a brief or a draft. Verso proposed copy, sent that proposed string to the measurement service, and used the findings to decide whether another pass was needed. The model handled the open-ended act of writing. The Engine handled the repeatable measurement."), /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "None of that was decoration. A rewrite with no reasoning attached gets exactly one reasonable response from a content designer, which is to ignore it. The window below is the same review the cover opened with, replayed at a size where you can actually read the reasoning as it runs."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 8,
-      display: "flex",
-      justifyContent: "center"
-    }
-  }, /*#__PURE__*/React.createElement(VersoHero, {
-    draft: VERSO_REWRITE.before,
-    thinking: VERSO_THINKING,
-    reading: {
-      score: 73,
-      verdict: "Close. A few things to tighten.",
-      dimensions: VERSO_SCORE_DIMS
-    },
-    rewrite: {
-      after: VERSO_REWRITE.after,
-      deltas: VERSO_REWRITE.deltas
-    },
-    selfLint: VERSO_SELF_LINT,
-    label: "Verso — reviewing the same draft, larger",
-    style: {
-      position: "relative",
-      top: "auto",
-      right: "auto",
-      bottom: "auto",
-      left: "auto",
-      width: "100%",
-      maxWidth: 560,
-      overflow: "visible"
-    }
-  })), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "4px 0 0",
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-size)",
-      lineHeight: 1.45
-    }
-  }, "Plays through once on a wide screen. On a phone it shows the settled reading directly: there's no room to run the sequence, so it skips straight to what the agent decided.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "rewrite",
-    title: "The rewrite came with an argument, not just new words."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Without the numbers next to it, a rewrite is just someone else's preferred wording. A designer is right to ignore it on that basis alone. With them, it's a claim that can be checked. A designer can argue with it or simply overrule it, and either way, that choice goes on the record. Accepting logged which version shipped. Keeping the original logged that too, with the reasoning still attached to it."), /*#__PURE__*/React.createElement(BeforeAfter, {
+  }, "The draft was the exact string that might be returned. Keeping it separate from the surrounding explanation mattered: a fluent rationale could not stand in for a check on the words a person might actually ship."), /*#__PURE__*/React.createElement(BeforeAfter, {
     style: {
       marginTop: 4
     },
     before: VERSO_REWRITE.before,
     after: VERSO_REWRITE.after,
-    deltas: VERSO_REWRITE.deltas,
-    actions:
-    /*#__PURE__*/
-    /* actions renders as-is inside BeforeAfter's own fixed, non-wrapping flex row — at
-       390px two full-width labels ("Accept the rewrite" / "Keep mine") sit right at that
-       row's edge with no room to spare. A single wrapped child, given width:100% so it
-       governs its own available space instead of shrink-to-fit, lets the two buttons
-       stack on narrow screens rather than crowd or bleed past the card's own border. */
-    React.createElement("div", {
-      style: {
-        width: "100%",
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "10px 28px"
-      }
-    }, /*#__PURE__*/React.createElement(StageAction, {
-      accent: "signal"
-    }, "Accept the rewrite"), /*#__PURE__*/React.createElement(StageAction, {
-      accent: "ink",
-      reverse: true
-    }, "Keep mine"))
-  })), /*#__PURE__*/React.createElement(Beat, {
-    id: "selflint",
-    title: "Before any of that reached a person, the agent checked itself first."
+    beforeLabel: "Example draft",
+    afterLabel: "Revised draft"
+  }), /*#__PURE__*/React.createElement("p", {
+    style: artifactNote
+  }, "This is portfolio copy built to show the sequence. It is not an internal Meta screen, and neither string came from a Meta product.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "self-check",
+    title: "The check followed the draft when the words changed."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "The same measurement that scored a designer's draft also ran on Verso's own writing, in a loop. It would produce text and measure it. If a dimension sat outside the band, it adjusted and measured again. Only once the draft actually landed inside the target did it reach a person at all. The intake, the engine, the rewrite and the self-check below are one continuous pass, not four separate steps bolted together."), /*#__PURE__*/React.createElement(EvidenceTrace, {
-    steps: VERSO_TRACE,
+  }, "Verso used the same measurement service on its own writing that it used on a designer's draft. If the result fell outside the applicable target, the agent could adjust the copy and call the service again. The revision had to be measured as a new string. A result for the earlier draft said nothing about the changed one."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "That separation is the self-lint loop. Generation can vary. The check runs as its own operation, with the context and current draft made explicit each time."), /*#__PURE__*/React.createElement(EvidenceTrace, {
+    label: "Self-check loop",
+    steps: VERSO_AGENT_TRACE,
     style: {
       marginTop: 4
     }
-  })), /*#__PURE__*/React.createElement(SubDoors, {
+  })), /*#__PURE__*/React.createElement(Beat, {
+    id: "authority",
+    title: "Policy still needed an owner."
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "The agent could interpret a brief and propose or repair drafts. It did not get to turn a preference into policy. The applicable target came from a governed record, and the Engine applied only the check that record supported."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "Some questions remained open after the checks ran. A person still had to decide whether the copy fit the situation, and a claimed effect on readers still required research with readers. When neither evidence nor an adopted decision settled the question, the honest result was unresolved.")), /*#__PURE__*/React.createElement(SubDoors, {
     onBack: toStory,
     onForward: toEngine,
-    forwardLabel: "How the reading worked, in Engine"
+    forwardLabel: "See how Engine bounded each claim"
   }));
 }
 
 /* ============================================================================================
-   ENGINE — eleven dimensions, and how a reading reaches someone mid-draft
+   ENGINE — the method has to match the claim
    ============================================================================================ */
 
 function VersoEngineDocument({
@@ -1155,115 +921,69 @@ function VersoEngineDocument({
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SubHeader, {
     eyebrow: "Verso",
     title: "Engine",
-    purpose: "Eleven dimensions of language, measured as code, and how a reading reaches someone mid-draft.",
+    purpose: "What the Engine could establish about an exact string, which method supported the finding, and where the claim had to stop.",
     onBack: toStory
   }), /*#__PURE__*/React.createElement(Beat, {
-    id: "fields",
+    id: "object",
     first: true,
-    title: "The engine exists where three fields overlap, and nowhere else."
+    title: "The Engine received one string in one context."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "Content design already had the standards, but wrote them for a person to feel. Computational linguistics already had ways to measure register, rhythm and tone, but no reason to point them at a button. Product had the strings themselves, and no way to tell whether they actually sounded like the brand. The engine only exists in the piece all three share."), /*#__PURE__*/React.createElement(DisciplineVenn, {
+  }, "The Engine was a Python measurement service running warm on Meta's infrastructure. It did not write. Verso sent it the current string and the product context. The service computed eleven dimensions of language and returned the findings to the agent."), /*#__PURE__*/React.createElement("p", {
     style: {
-      marginTop: 8,
-      maxWidth: 520
-    },
-    fields: ["Content design", "Computational linguistics", "Product"],
-    intersection: "Voice, stated as a target a machine can check and a team can argue with.",
-    caption: "Each field on its own already existed. This is the work that only exists where all three carry."
+      margin: 0
+    }
+  }, "I used to describe that as measuring voice. I think the narrower account is more useful. The Engine measured linguistic evidence: sentence structure, directness, density, cadence, lexical choices, and other observable features. “Human,” “warm,” and “confident” remained interpretations people could form from that evidence in a particular situation.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "router",
+    title: "Every claim needs the strongest computation it can honestly support."
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "A number can make several different claims look interchangeable. They are not. An exact count, a corpus comparison, a contextual interpretation, and a reader-effect study require different evidence. The router below is how I describe that boundary now: it keeps the method attached to the claim."), /*#__PURE__*/React.createElement(IndexRows, {
+    label: "Claim router",
+    rows: VERSO_CLAIM_ROUTES,
+    style: {
+      marginTop: 4
+    }
   })), /*#__PURE__*/React.createElement(Beat, {
     id: "research",
-    title: "Every dimension sits on research someone else already published."
+    title: "Published research supplied methods with narrower claims."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "Each of the eleven dimensions runs as deterministic code rather than invention. The engine measures. It never generates. That's why its output can be argued with in public: a number has a method behind it, and a method can be shown to be wrong. Below are four of the eleven; the rest cover readability, psychological tone, prosody, concreteness, lexical diversity, syntactic structure and specificity, each resting on a published source the same way."), /*#__PURE__*/React.createElement(ResearchGrid, {
+  }, "I built the eleven-dimension system from computational linguistics and standard Python tools. A published framework can justify a definition or calculation. It does not validate my implementation, establish a product target, or prove how a reader will respond. Those are separate jobs with separate evidence."), /*#__PURE__*/React.createElement(ResearchGrid, {
     items: VERSO_RESEARCH,
     style: {
       marginTop: 4
     }
   })), /*#__PURE__*/React.createElement(Beat, {
-    id: "band",
-    title: "A fingerprint is a tolerance, not a score."
+    id: "profile",
+    title: "A profile belongs to a defined kind of language."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "The band below is what a surface has earned the right to sit inside, computed from its own shipped strings. Only a reading outside the band counts as a miss. Here, formality runs high. A profile also only ever applies within one context: a button label, a step in a procedure and a paragraph of explanation are different acts of writing, and averaging them together describes your sampling rather than the surface's voice."), /*#__PURE__*/React.createElement(FingerprintBars, {
-    dimensions: VERSO_READING,
-    style: {
-      marginTop: 4
-    }
-  }), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0,
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-size)",
-      lineHeight: 1.45
-    }
-  }, "Several dimensions need enough text to mean anything. A four-word button can't carry a reading for syntactic complexity, because there isn't enough sentence to measure. Those report as unavailable rather than as low, on purpose. A suppressed reading and a poor one look identical in a row of numbers, and they mean opposite things.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "reaching",
-    title: "A measurement nobody can act on is just a number."
-  }, /*#__PURE__*/React.createElement("p", {
+  }, "I derived context-specific profiles from real shipped strings. A button label and an error message do different jobs. A paragraph of explanation does another. Averaging them together mostly describes the sample mix. Each comparison needs the same kind of string and surface, with enough language for the method to mean anything."), /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "The other half of the engine's job is what a content designer actually receives while they're writing: a score, the dimensions underneath it and a verdict in words rather than a bare figure. This is the same reading the Agent page's review showed, on its own here as the instrument it is."), /*#__PURE__*/React.createElement(VoiceScoreRing, {
-    style: {
-      marginTop: 4
-    },
-    score: 73,
-    verdict: "Close. A few things to tighten.",
-    scope: ["Horizon Worlds", "Onboarding", "First-time user"],
-    dimensions: VERSO_SCORE_DIMS
-  }), project.artifacts[1] && /*#__PURE__*/React.createElement(ArtifactFigure, {
-    contain: true,
-    style: {
-      marginTop: 8
-    },
-    src: project.artifacts[1].src,
-    alt: project.artifacts[1].alt,
-    caption: "A portfolio-built mock of the same instrument: a deterministic pass on one side, the measured dimensions drawn as a shape on the other. Not a Meta screen, and the values are not Meta's."
-  })), /*#__PURE__*/React.createElement(Beat, {
-    id: "target",
-    title: "Every surface's target is published with its reasoning attached."
-  }, /*#__PURE__*/React.createElement("p", {
+  }, "Several dimensions need more text than a short label contains. In that case the Engine should return unavailable. Low and unavailable are different findings. A missing measurement cannot be repaired by drawing a zero."), /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "A number a team can't interrogate is a number they'll quietly stop honoring. So the profile a surface is measured against was readable by the people writing to it: every setting came with the one sentence explaining why it sits where it does."), /*#__PURE__*/React.createElement(VoiceProfile, {
-    style: {
-      marginTop: 4
-    },
-    product: "Horizon Worlds",
-    surface: "Error states",
-    dimensions: VERSO_PROFILE_DIMS,
-    notes: VERSO_PROFILE_NOTES
-  })), /*#__PURE__*/React.createElement(Beat, {
-    id: "built-on",
-    title: "What it actually runs on."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Everything below is named and linked, so it can be checked directly. Three other libraries didn't make it in, each for a different licensing reason: one only allowed non-commercial use, another was copyleft, and the third needed a paid commercial license just for its lexicon. Two published psycholinguistic norm sets are still sitting unused while author permission is outstanding. A measurement system that can't ship isn't a measurement system yet."), /*#__PURE__*/React.createElement(Toolchain, {
-    style: {
-      marginTop: 4
-    },
-    items: VERSO_TOOLCHAIN
-  })), /*#__PURE__*/React.createElement(SubDoors, {
+  }, "The observed range is descriptive evidence. It becomes a target only after an authorized owner adopts it for a stated scope. The Index carries that decision.")), /*#__PURE__*/React.createElement(SubDoors, {
     onBack: toStory,
     onForward: toIndex,
-    forwardLabel: "What the index held"
+    forwardLabel: "See where policy lived in Index"
   }));
 }
 
 /* ============================================================================================
-   INDEX — the governed record
+   INDEX — evidence, adoption, scope, and authority
    ============================================================================================ */
 
 function VersoIndexDocument({
@@ -1272,83 +992,68 @@ function VersoIndexDocument({
   scrollRef
 }) {
   const toStory = () => onNavigate && onNavigate("verso");
-  const toResume = () => onNavigate && onNavigate("resume");
   const toAgent = () => onNavigate && onNavigate("verso/agent");
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SubHeader, {
     eyebrow: "Verso",
     title: "Index",
-    purpose: "The governed record: terminology rules, review blockers and a measurement profile for every surface it covered.",
+    purpose: "How scattered content guidance and shipped-language evidence became records an agent could use without inventing the policy.",
     onBack: toStory
   }), /*#__PURE__*/React.createElement(Beat, {
-    id: "sources",
+    id: "definition",
     first: true,
-    title: "The guidance existed. It just wasn't anywhere a tool could reach."
+    title: "Content Index is my name for the matrix behind the system."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "Real guidance was scattered across docs, chat threads, spreadsheets and posts, on top of whatever central brand guidance already existed. None of it was in one place, and almost none of it was in a shape an agent could route against. Consolidating it per product area came first; sieving out what was actually deterministic came second."), /*#__PURE__*/React.createElement(SourceMap, {
+  }, "I built the first one inside Verso. I consolidated content guidance that lived across documents, chats, spreadsheets, and posts, then paired it with patterns computed from real product strings. The Index gave the agent one machine-readable place to find the context that applied to its draft."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "The model is general. Each implementation belongs to a particular product and writing job, with its own evidence. Verso used eleven language dimensions. Another system may need a different set entirely. The Content Index is the governed matrix, not a fixed dimension list."), /*#__PURE__*/React.createElement(SourceMap, {
     items: VERSO_SOURCES,
     style: {
       marginTop: 4
     }
   })), /*#__PURE__*/React.createElement(Beat, {
-    id: "split",
-    title: "Judgment stayed in the prompt. Everything checkable became a record."
+    id: "separation",
+    title: "The matrix keeps an observation separate from a decision."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "Sorting the guidance this way is most of the argument for the index existing at all: a yes-or-no rule belongs in code, and a matter of taste stays with the model. Once the deterministic half was pulled out, what remained in the prompt was smaller than anyone expected."), /*#__PURE__*/React.createElement(RuleSplit, {
-    style: {
-      marginTop: 4
-    },
-    rules: VERSO_RULES,
-    note: "What lands in the left column stays prompt guidance. Everything on the right becomes a record: versioned, owned and checkable without a person in the loop."
-  })), /*#__PURE__*/React.createElement(Beat, {
-    id: "shape",
-    title: "A record, not a paragraph."
-  }, /*#__PURE__*/React.createElement("p", {
+  }, "A repeated construction in shipped copy can be strong evidence about what a product did. It cannot decide what the product must do next. The future-facing step needs an owner with authority to adopt a target and define its scope. The same record has to show the exceptions."), /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "Every entry in the index took the same shape: a versioned id, the thing it asserts and the metadata that lets a tool route it, meaning scope, severity, an owner, a source. Publishing the shape discloses nothing about any surface's actual content, and it says something real about the system anyway."), /*#__PURE__*/React.createElement(IndexRows, {
+  }, "I describe the record more precisely now than I did in the first build. Observed evidence, proposed targets, adopted policy, executable checks, and contextual interpretations need separate states. The shape below is public; the internal records and product strings are not."), /*#__PURE__*/React.createElement(IndexRows, {
+    label: "Governed record shape",
     rows: VERSO_INDEX_ROWS,
     style: {
       marginTop: 4
     }
   })), /*#__PURE__*/React.createElement(Beat, {
-    id: "surfaces",
-    title: "One profile per surface, not one profile for a product."
+    id: "dependability",
+    title: "Code makes an adopted decision difficult to miss."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "Five surfaces were fingerprinted from their own real, shipped strings: Instagram, WhatsApp, Meta Horizon, Quest and Facebook. Each carries its own measurement profile rather than borrowing another surface's, because a shared brand voice still sounds different in a chat app than it does in a headset. Same floor, a different band on top of it.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "scale",
-    title: "One product area became company-wide in about six months."
+  }, "People with authority make policy. Once an authorized rule exists, a deterministic check applies it inside the declared scope. The check still needs tests and versioning, plus correct scoping. Its dependable part is narrower: the same implemented rule returns the same answer for the same input."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "New evidence can revise the descriptive record without silently changing policy. A policy owner can change the adopted rule without pretending the earlier evidence never existed. If the owner, scope, or decision is missing, the Index can leave that state visible instead of asking the agent to fill it in.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "implementation",
+    title: "Verso was one implementation of that structure."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "The index went from covering a single product area to running company-wide in roughly six months, entirely on word of mouth, before central content design formally took it on. They own the index now: the schema, the records and the decision to extend it to whatever comes next."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "A rebuilt version of the same shape now exists in the open: a public engine, working papers on measuring and governing product language and a deterministic prose scanner built on the same idea. None of it depends on Meta or contains anything of Meta's. It's the discipline, not the record."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 4
-    }
-  }, /*#__PURE__*/React.createElement(StageAction, {
-    accent: "signal",
-    onClick: toResume,
-    style: {
-      padding: "10px 0 12px"
-    }
-  }, "See the public work"))), /*#__PURE__*/React.createElement(SubDoors, {
+  }, "I created context-specific profiles for five Meta surfaces and stored them with the consolidated guidance the agent needed. The private records stay private. What I can show here is the separation that made the system governable: evidence describes, people adopt policy, code applies the adopted decision, and the agent works inside those boundaries.")), /*#__PURE__*/React.createElement(SubDoors, {
     onBack: toStory,
     onForward: toAgent,
-    forwardLabel: "How the agent worked"
+    forwardLabel: "Follow the loop again in Agent"
   }));
 }
 Object.assign(window, {
@@ -1445,50 +1150,50 @@ function Beat({
     style: proseCol
   }, children)));
 }
+function VrHeroDiorama() {
+  return /*#__PURE__*/React.createElement("figure", {
+    "data-ds": "vr-diorama"
+  }, /*#__PURE__*/React.createElement("img", {
+    src: "assets/work/vr-onboarding-obstacle-course.png",
+    width: "1672",
+    height: "941",
+    alt: "Clay diorama of a required setup, recording consent, fourteen-plus lessons, and world selection opening into a social world full of people"
+  }), /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("span", {
+    "data-ds": "vr-diorama-label",
+    "data-step": "setup"
+  }, "Required", /*#__PURE__*/React.createElement("br", null), "setup"), /*#__PURE__*/React.createElement("span", {
+    "data-ds": "vr-diorama-label",
+    "data-step": "consent"
+  }, "Consent to", /*#__PURE__*/React.createElement("br", null), "recording"), /*#__PURE__*/React.createElement("span", {
+    "data-ds": "vr-diorama-label",
+    "data-step": "lessons"
+  }, "Complete", /*#__PURE__*/React.createElement("br", null), "14+ lessons"), /*#__PURE__*/React.createElement("span", {
+    "data-ds": "vr-diorama-label",
+    "data-step": "world"
+  }, "Choose a", /*#__PURE__*/React.createElement("br", null), "world")));
+}
 function VrDocument({
   project,
   onNext,
   nextProject,
   scrollRef
 }) {
-  const openStory = () => {
-    const target = document.getElementById("before");
-    if (!target) return;
-    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    target.scrollIntoView({
-      behavior: reduce ? "auto" : "smooth",
-      block: "start"
-    });
-  };
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
     style: {
-      minHeight: "min(660px, calc(100svh - 84px))",
-      display: "flex",
+      minHeight: 0,
+      display: "block",
       position: "relative"
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: "absolute",
-      inset: 0,
-      zIndex: 0
-    },
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "assets/work/vr-onboarding-obstacle-course.png",
-    alt: "",
+  }, /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
+    width: "100%",
     style: {
       width: "100%",
-      height: "100%",
-      objectFit: "cover",
-      objectPosition: "center right"
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: "absolute",
-      inset: 0,
-      background: "linear-gradient(90deg, rgba(10,14,20,.88) 0%, rgba(10,14,20,.62) 34%, rgba(10,14,20,.12) 62%, rgba(10,14,20,0) 78%)"
-    }
-  })), /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
+      maxWidth: 780,
+      height: "auto",
+      paddingBottom: "clamp(34px,5vh,52px)"
+    },
     eyebrow: "Project " + project.number + " · " + project.context,
     title: project.title,
     statement: project.statement,
@@ -1496,7 +1201,14 @@ function VrDocument({
   }, /*#__PURE__*/React.createElement(Outcome, {
     label: project.outcomeLabel,
     items: project.results
-  }))), /*#__PURE__*/React.createElement(Beat, {
+  })), /*#__PURE__*/React.createElement("img", {
+    "data-ds": "case-cover-character",
+    "data-character": "vr",
+    src: project.character,
+    width: "1029",
+    height: "1528",
+    alt: project.characterAlt
+  }), /*#__PURE__*/React.createElement(VrHeroDiorama, null)), /*#__PURE__*/React.createElement(Beat, {
     id: "overview",
     first: true
   }, /*#__PURE__*/React.createElement(CaseMeta, {
@@ -1561,7 +1273,7 @@ function VrDocument({
     style: {
       margin: 0
     }
-  }, "Interaction and visual design, engineering, and the experiment analysis belonged to the product designer, the engineers, and the partner teams on this. The education strategy and every string in it were mine.")), /*#__PURE__*/React.createElement(Beat, {
+  }, "I led the content design and education strategy. Product, interaction and visual design, engineering, research, data, and the partner teams each owned parts of the experience and the experiment. The overhaul belonged to all of us; the just-in-time education model and interaction language were my contribution.")), /*#__PURE__*/React.createElement(Beat, {
     id: "results",
     title: "It moved the three numbers that mattered."
   }, /*#__PURE__*/React.createElement("p", {
@@ -1617,285 +1329,6 @@ Object.assign(window, {
 });
 })();
 
-/* ---- ui_kits/portfolio/screen-horizon.jsx ---- */
-(function () {
-const {
-  Stage,
-  StageCopy,
-  Outcome,
-  StageAction,
-  RegistrationMark,
-  ArtifactFigure,
-  Eyebrow,
-  CaseMeta
-} = window.CalebStacyPortfolioDesignSystem_4a3883;
-
-/* Rebuilt in the "Thomas" metronome (a Framer case-page template Caleb found: a facts strip, then
-   label / prose / one artifact, repeated, nothing else) and then folded into the "pine all the way
-   down" law screen-utility.jsx's AboutDocument landed on main the same session (598c98c, 5704a63):
-   the cover's own stage-green ground continues underneath the whole scroll — plain `<section
-   data-tone="dark">` blocks, a ~640px centered reading column, left-aligned display-m headers,
-   paragraphs, hairline separators at 25% ink — rather than the case/ component family's own
-   nav-and-numbered-chapter apparatus. Four rules this file holds to:
-
-   1. ONE GROUND. Every section below the cover is tone="dark" (the rail-highlight ink; Caleb 2026-07-26). Nothing rotates through
-      paper/bright/dark as a chapter color. The one deliberate exception is the single quote
-      interlude in "Decisions" — an intentional ink-black card, the "punctuation" Caleb asked to
-      keep in the vocabulary, used exactly once, never as a repeating pattern.
-   2. NO SECOND COVER. Below the facts line, the reader drops straight into prose — no eyebrow or
-      deck slab restating the cover's own title and claim in smaller type.
-   3. THREE TEXT SIZES. Per CLAUDE.md's "Three text sizes" law (added this session): a header per
-      beat, body paragraphs, and a plain-sans figure caption. No mono kickers, no numbered chapter
-      stamps, no labeled fact cells — FactsPanel, CaseNav, CaseSection, StoryBeat, CaseQuote, and
-      ProvenanceNote are all sat out here because each either renders a 9-11px mono label or (in
-      CaseQuote's case) its own fixed quote-size, a fourth size this law doesn't leave room for. The
-      one quote interlude reuses the beat-header style verbatim, in its own dark card, rather than
-      inventing a size — it reads as a header-weight statement, not a fourth register. What replaces
-      the sticky jump nav: nothing. Thomas itself has no per-case anchor nav either, only its
-      persistent site rail, which this system already has in IndexRail.
-   4. ARTIFACTS FLOAT LIGHT. ArtifactFigure's frame sits on `--surface-mat`, a fixed light color
-      regardless of surrounding tone, so it already renders as a paper-light panel on the pine
-      ground with no extra work — the Usborne device, for free.
-
-   Case-completion pass (2026-07-26): added `CaseMeta` — Role, Team, Timeline, Surface — as the
-   overview beat's sole content, replacing the one-line "Lead content designer, mobile retention ·
-   with product and design partners · iOS and Android, 2024." sentence it made redundant. CaseMeta
-   is the scroll's one legitimate home for a third, caption-size text register (11px sans, no mono,
-   no box) per CLAUDE.md's "Three text sizes" law, and it is now wired into every case in this pass
-   except Verso, which runs its own document. Portals and First-time VR were converted to this same
-   grammar in the same pass; Word Math kept its own six chapters but moved onto this file's one dark
-   ground and lost its remaining mono registers.
-
-   Six beats, matching the brief's mapping: the situation (the 0-to-1 redesign, one app doing two
-   jobs), decisions (the five-job content model and the quest-card IA questions — the strongest
-   existing material, drawn from Caleb's own account in reference/intake-horizon-2026-07-25.md and
-   paraphrased fresh, never quoted), experiments (the quests homepage and feed units, with the
-   rounded figures CLAUDE.md's 2026-07-25 ruling approved straight from the résumé bullet in
-   kit-data experience[0]), the boundary, and the outcome, which closes on a short reflection that
-   loops back to the cover's claim without repeating its exact sentence. Cut entirely: CardGrid/
-   GridCard, ChapterNav, StorySection's tone rotation, DataTable and Pipeline (no table-shaped
-   evidence here), and one of the two existing artifacts wherever a beat only earned one. Both
-   artifacts that survive are the two already wired in kit-data — no new image reference. */
-
-const SECTION_PAD_FIRST = "clamp(40px,6vh,64px) var(--gutter) 0";
-const SECTION_PAD = "0 var(--gutter) clamp(56px,8vh,96px)";
-const HAIRLINE = "1px solid color-mix(in srgb, var(--story-ink) 25%, transparent)";
-const header = {
-  margin: 0,
-  textAlign: "left",
-  fontFamily: "var(--font-sans)",
-  fontSize: "var(--display-m-size)",
-  fontWeight: "var(--display-m-weight)",
-  lineHeight: "var(--display-m-leading)",
-  letterSpacing: "var(--display-m-tracking)"
-};
-const proseCol = {
-  marginTop: 22,
-  display: "flex",
-  flexDirection: "column",
-  gap: "1.15em",
-  fontFamily: "var(--font-sans)",
-  fontSize: "var(--prose-size)",
-  lineHeight: "var(--prose-leading)",
-  letterSpacing: "var(--prose-tracking)"
-};
-function Beat({
-  id,
-  first,
-  title,
-  children
-}) {
-  return /*#__PURE__*/React.createElement("section", {
-    "data-tone": "dark",
-    style: {
-      background: "var(--story-bg)",
-      color: "var(--story-ink)",
-      padding: first ? SECTION_PAD_FIRST : SECTION_PAD
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    id: id,
-    style: {
-      maxWidth: 640,
-      margin: "0 auto",
-      scrollMarginTop: 56,
-      ...(first ? null : {
-        borderTop: HAIRLINE,
-        paddingTop: "clamp(40px,6vh,64px)"
-      })
-    }
-  }, title && /*#__PURE__*/React.createElement("h2", {
-    style: header
-  }, title), /*#__PURE__*/React.createElement("div", {
-    style: proseCol
-  }, children)));
-}
-function HorizonDocument({
-  project,
-  onNext,
-  nextProject,
-  scrollRef
-}) {
-  const openStory = () => {
-    const target = document.getElementById("situation");
-    if (!target) return;
-    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    target.scrollIntoView({
-      behavior: reduce ? "auto" : "smooth",
-      block: "start"
-    });
-  };
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
-    style: {
-      minHeight: "min(660px, calc(100svh - 84px))",
-      display: "flex"
-    }
-  }, /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
-    eyebrow: "Project " + project.number + " · " + project.context,
-    title: project.title,
-    statement: project.statement,
-    deck: project.summary
-  }, /*#__PURE__*/React.createElement(Outcome, {
-    label: project.outcomeLabel,
-    items: project.results
-  })), /*#__PURE__*/React.createElement(SceneCharacter, {
-    src: project.character,
-    alt: project.characterAlt
-  })), /*#__PURE__*/React.createElement(Beat, {
-    id: "overview",
-    first: true
-  }, /*#__PURE__*/React.createElement(CaseMeta, {
-    role: project.role,
-    team: project.team,
-    timeline: project.timeline,
-    surface: project.surface
-  })), /*#__PURE__*/React.createElement(Beat, {
-    id: "situation",
-    title: "The redesign had to do two jobs from one app."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "When I joined, the team had already decided to rebuild the Meta Quest companion app into Meta Horizon: a 0-to-1 redesign that would let people join Horizon Worlds from a phone, with no headset anywhere nearby. The app it was replacing had grown up entirely in service of the headset: casting a game to a TV, checking a controller's battery, a social layer for people already inside VR, device settings. Nothing about it assumed a reason to open the app that didn't run through owning a headset first."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "The redesign had to keep all of that working for the people who did own a headset, while building an entirely new front door for the people who didn't. Two jobs, from one app, and no existing research that described what using Horizon looked like with no headset in the room.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "decisions",
-    title: "The content model came before the interface did."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Before any of this had a screen, I helped write the strategy one-pager that went to Mark Zuckerberg's desk. That's the document that got the redesign an actual decision from leadership, not just permission to keep exploring. Once that decision existed, the easy path would have been to ship a feed: discovery content, notifications, a reason to open the app more often. That's the obvious read of a mobile relaunch, and it would have made Horizon into one more app competing for the same five minutes as everything else on a phone."), /*#__PURE__*/React.createElement("div", {
-    "data-tone": "stage",
-    style: {
-      background: "var(--story-bg)",
-      color: "var(--story-ink)",
-      margin: "clamp(8px,1vw,14px) 0",
-      padding: "clamp(30px,4vw,40px) clamp(22px,3vw,32px)",
-      textAlign: "center"
-    }
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      ...header,
-      textAlign: "center"
-    }
-  }, "The phone can start the loop. Play stays the destination.")), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "So I decided on a content model first: five reusable jobs that any surface in the loop could plug into — discover, choose, progress, reward, return. Then I had to make that real at the level of one card. A quest on mobile needed a header, and there was no default answer for what it should say. Is it the object you're trying to win, or the name of the quest? Are those even the same thing? Where does the world it belongs to show up? If a friend is already there, does the card say so, and where? Every one of those answers had to still hold once it went through localization."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "None of that has a template answer. It's information architecture, and the IA for mobile was mine to work through, card by card, until the hierarchy could carry all of it without turning into a paragraph of instructions, then test it with research before a single pixel of visual design got attached to it."), /*#__PURE__*/React.createElement(ArtifactFigure, {
-    contain: true,
-    style: {
-      marginTop: 8
-    },
-    src: project.artifacts[1].src,
-    alt: project.artifacts[1].alt,
-    caption: "The profile and identity surface the progress and reward jobs eventually connected back to."
-  })), /*#__PURE__*/React.createElement(Beat, {
-    id: "experiments",
-    title: "Two experiments tested that model against real people."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "The quests homepage and feed units were two separate tests of the same five-job model, run as experiments rather than approved on read. The quests homepage was the first mobile surface built for its own screen instead of mirrored from the headset app. It showed you where you stood and what to try next, without a walkthrough explaining the page to itself. In its first test, it grew daily actives by nearly 5%."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Feed units tested a slower number: whether the same model still brought someone back weeks later, not just the day after. It lifted 28-day retention by about 15%. That mattered more than the first result, because it argued for the model holding up as a system rather than for one well-designed screen inside it. Both are the rounded figures I'm able to publish; the dashboards behind them carry more decimal precision than is mine to share."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Feed units and the reward framing around them went out as hypotheses, not finished decisions: each one built to answer a specific question about whether the loop could bring people back, and rewritten whenever the data disagreed with the first draft."), /*#__PURE__*/React.createElement(ArtifactFigure, {
-    contain: true,
-    style: {
-      marginTop: 8
-    },
-    src: project.artifacts[0].src,
-    alt: project.artifacts[0].alt,
-    caption: "Profile, feed, and device management as they later shipped on mobile, shown as product context, not the exact 2024 experiment surface."
-  })), /*#__PURE__*/React.createElement(Beat, {
-    id: "boundary",
-    title: "The information architecture was mine to own."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Content design and the IA behind it were mine: the five-job model, the quest card hierarchy, and the hypotheses behind both experiments above. Visual and interaction design, engineering, and the analysis that turned raw results into a read on the roadmap belonged to the product and design partners on the team."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "I stayed close enough to that analysis to know what the numbers were arguing, without owning the call on what to do next with them.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "outcome",
-    title: "Both experiments moved in the direction the model predicted."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Read together, the quests homepage's next-day movement and feed units' multi-week hold argue for something bigger than one good screen: a reason to keep investing in the loop itself."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "This is the shape of work I keep angling toward: show up while a product is still a question, help find what it can actually promise someone, then stay close enough to learn whether that promise held. For Horizon, the promise turned out to be simple: a reason to open the app that had nothing to do with a headset already being in the room.")), /*#__PURE__*/React.createElement("div", {
-    id: "next",
-    "data-ds": "case-next",
-    style: {
-      minHeight: 190,
-      scrollMarginTop: 56,
-      display: "flex",
-      justifyContent: "space-between",
-      gap: 24,
-      alignItems: "center",
-      padding: "0 var(--gutter)",
-      background: "var(--paper)",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "Next project"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "10px 0 0",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: "var(--display-s-weight)",
-      letterSpacing: "var(--display-s-tracking)"
-    }
-  }, nextProject.title)), /*#__PURE__*/React.createElement(StageAction, {
-    accent: "signal",
-    onClick: onNext
-  }, nextProject.statement)));
-}
-Object.assign(window, {
-  HorizonDocument
-});
-})();
-
 /* ---- ui_kits/portfolio/screen-portals.jsx ---- */
 (function () {
 const {
@@ -1926,9 +1359,9 @@ const {
    information architecture, the metadata framework, the pushback), the keynote (Meta Connect 2024 —
    per the refined name rule, naming Zuckerberg is now allowed since the name carries the claim),
    the boundary (the physical/spatial layer belonged to a different discipline, role-credited), and
-   a reflective close. Artifacts: the two already wired in kit-data (card-portals.jpg for the
-   shipped surface, card-portals-keynote.jpg for the public broadcast frame), one per beat, nothing
-   new added. Several open questions from reference/intake-portals-2026-07-25.md (the reframe's
+   a reflective close. The public Meta Connect footage now leads as the cover proof; the shipped
+   card stays with the proximity decision it demonstrates. Several open questions from
+   reference/intake-portals-2026-07-25.md (the reframe's
    originating moment, an earlier rejected fix, who argued against the distance model and what
    changed their mind, a sayable engagement number, the precise name of the boundary discipline)
    are marked inline as INTAKE GAP comments rather than guessed at. */
@@ -1985,27 +1418,101 @@ function Beat({
     style: proseCol
   }, children)));
 }
+function PortalsHeroMedia({
+  project
+}) {
+  const reducedMotion = React.useMemo(() => !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches), []);
+  const videoRef = React.useRef(null);
+  const [playing, setPlaying] = React.useState(!reducedMotion);
+  const togglePlayback = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) video.play().catch(() => setPlaying(false));else video.pause();
+  };
+  return /*#__PURE__*/React.createElement("figure", {
+    style: {
+      position: "relative",
+      zIndex: 2,
+      margin: 0
+    }
+  }, reducedMotion ? /*#__PURE__*/React.createElement("img", {
+    src: project.heroPoster,
+    alt: "Mark Zuckerberg on the Meta Connect 2024 keynote stage beside a large screen showing the Horizon portal experience",
+    style: {
+      display: "block",
+      width: "100%",
+      height: "auto"
+    }
+  }) : /*#__PURE__*/React.createElement("video", {
+    ref: videoRef,
+    src: project.heroVideo,
+    poster: project.heroPoster,
+    autoPlay: true,
+    muted: true,
+    playsInline: true,
+    loop: true,
+    preload: "metadata",
+    "aria-label": "Meta Connect 2024 keynote footage showing the Horizon portal experience and Mark Zuckerberg presenting it on stage",
+    onPlay: () => setPlaying(true),
+    onPause: () => setPlaying(false),
+    style: {
+      display: "block",
+      width: "100%",
+      height: "auto",
+      background: "#000"
+    }
+  }), /*#__PURE__*/React.createElement("figcaption", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      gap: 18,
+      padding: "13px var(--gutter) 15px",
+      borderTop: "1px solid var(--ink)",
+      background: "var(--paper)",
+      color: "var(--ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 10,
+      lineHeight: 1.45
+    }
+  }, /*#__PURE__*/React.createElement("span", null, project.heroCaption), !reducedMotion && /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: togglePlayback,
+    "aria-label": (playing ? "Pause" : "Play") + " the Meta Connect 2024 keynote loop",
+    style: {
+      flex: "0 0 auto",
+      minHeight: 32,
+      padding: "0 0 2px",
+      border: 0,
+      borderBottom: "1px solid currentColor",
+      background: "transparent",
+      color: "inherit",
+      font: "inherit",
+      fontWeight: 700,
+      cursor: "pointer"
+    }
+  }, playing ? "Pause loop" : "Play loop")));
+}
 function PortalsDocument({
   project,
   onNext,
   nextProject,
   scrollRef
 }) {
-  const openStory = () => {
-    const target = document.getElementById("condition");
-    if (!target) return;
-    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    target.scrollIntoView({
-      behavior: reduce ? "auto" : "smooth",
-      block: "start"
-    });
-  };
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
     style: {
-      minHeight: "min(660px, calc(100svh - 84px))",
-      display: "flex"
+      minHeight: 0,
+      display: "block",
+      position: "relative"
     }
   }, /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
+    width: "100%",
+    style: {
+      width: "100%",
+      maxWidth: 780,
+      height: "auto",
+      paddingBottom: "clamp(34px,5vh,52px)"
+    },
     eyebrow: "Project " + project.number + " · " + project.context,
     title: project.title,
     statement: project.statement,
@@ -2015,9 +1522,15 @@ function PortalsDocument({
     items: project.results
   }) : /*#__PURE__*/React.createElement(Outcome, {
     label: project.outcomeLabel
-  }, project.outcomeProse)), /*#__PURE__*/React.createElement(SceneCharacter, {
+  }, project.outcomeProse)), /*#__PURE__*/React.createElement("img", {
+    "data-ds": "case-cover-character",
+    "data-character": "portals",
     src: project.character,
+    width: "1024",
+    height: "1536",
     alt: project.characterAlt
+  }), /*#__PURE__*/React.createElement(PortalsHeroMedia, {
+    project: project
   })), /*#__PURE__*/React.createElement(Beat, {
     id: "overview",
     first: true
@@ -2092,15 +1605,7 @@ function PortalsDocument({
     style: {
       margin: 0
     }
-  }, "The portal this case describes was unveiled by Mark Zuckerberg at the Meta Connect 2024 keynote, live in front of the audience watching the future of Horizon get introduced. It shipped, portal engagement and retention both moved in the direction the reframe predicted, and the work earned VP alignment on that basis."), /*#__PURE__*/React.createElement(ArtifactFigure, {
-    contain: true,
-    style: {
-      marginTop: 8
-    },
-    src: project.artifacts[1].src,
-    alt: project.artifacts[1].alt,
-    caption: project.artifacts[1].caption
-  })), /*#__PURE__*/React.createElement(Beat, {
+  }, "The portal this case describes was unveiled by Mark Zuckerberg at the Meta Connect 2024 keynote, live in front of the audience watching the future of Horizon get introduced. It shipped, portal engagement and retention both moved in the direction the reframe predicted, and the work earned VP alignment on that basis.")), /*#__PURE__*/React.createElement(Beat, {
     id: "boundary",
     title: "The physical layer belonged to a different discipline."
   }, /*#__PURE__*/React.createElement("p", {
@@ -2157,318 +1662,6 @@ Object.assign(window, {
 });
 })();
 
-/* ---- ui_kits/portfolio/screen-word-math.jsx ---- */
-(function () {
-const {
-  Stage,
-  StageCopy,
-  Outcome,
-  StageAction,
-  RegistrationMark,
-  Eyebrow,
-  CaseMeta
-} = window.CalebStacyPortfolioDesignSystem_4a3883;
-
-/* Aligned to the Horizon grammar (screen-horizon.jsx, "THE model") in this pass: one ink ground
-   straight through the scroll (previously a paper/stage/dark/bright tone rotation across the six
-   CaseSection chapters), CaseMeta added under the cover, and every remaining mono register removed
-   — CaseSection's own 11px mono chapter numeral, StoryBeat's 10px mono kicker, and CaseNav's sticky
-   jump bar are all cut, matching CLAUDE.md's "Three text sizes" law (2026-07-26) and Horizon's own
-   "no second cover, nothing replaces the jump nav" rule. The six chapters and every sentence of
-   prose are untouched — this file's copy was recently blessed and the brief asked to touch it
-   lightly, so only the scaffolding changed: two stacked headers (chapter title + beat title)
-   collapse into the one header per beat every other case now uses, and the twelve-dimension
-   measurement table — the one place in this document a table earns its keep over prose, per
-   CLAUDE.md's narrative-first law ("a table that must be compared") — is rebuilt without DataTable's
-   mono cells, at caption size (11px sans, tabular-nums) instead, so it spends the scroll's third
-   text size rather than adding a fourth. */
-
-const SECTION_PAD_FIRST = "clamp(40px,6vh,64px) var(--gutter) 0";
-const SECTION_PAD = "0 var(--gutter) clamp(56px,8vh,96px)";
-const HAIRLINE = "1px solid color-mix(in srgb, var(--story-ink) 25%, transparent)";
-const header = {
-  margin: 0,
-  textAlign: "left",
-  fontFamily: "var(--font-sans)",
-  fontSize: "var(--display-m-size)",
-  fontWeight: "var(--display-m-weight)",
-  lineHeight: "var(--display-m-leading)",
-  letterSpacing: "var(--display-m-tracking)"
-};
-const proseCol = {
-  marginTop: 22,
-  display: "flex",
-  flexDirection: "column",
-  gap: "1.15em",
-  fontFamily: "var(--font-sans)",
-  fontSize: "var(--prose-size)",
-  lineHeight: "var(--prose-leading)",
-  letterSpacing: "var(--prose-tracking)"
-};
-const tableCell = {
-  padding: "9px 10px",
-  textAlign: "left",
-  fontFamily: "var(--font-sans)",
-  fontSize: 11,
-  lineHeight: 1.45,
-  fontVariantNumeric: "tabular-nums",
-  borderTop: HAIRLINE
-};
-function Beat({
-  id,
-  first,
-  title,
-  children
-}) {
-  return /*#__PURE__*/React.createElement("section", {
-    "data-tone": "dark",
-    style: {
-      background: "var(--story-bg)",
-      color: "var(--story-ink)",
-      padding: first ? SECTION_PAD_FIRST : SECTION_PAD
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    id: id,
-    style: {
-      maxWidth: 640,
-      margin: "0 auto",
-      scrollMarginTop: 56,
-      ...(first ? null : {
-        borderTop: HAIRLINE,
-        paddingTop: "clamp(40px,6vh,64px)"
-      })
-    }
-  }, title && /*#__PURE__*/React.createElement("h2", {
-    style: header
-  }, title), /*#__PURE__*/React.createElement("div", {
-    style: proseCol
-  }, children)));
-}
-const MEASUREMENT_ROWS = [["Involvement", "6.26", "5.95", "7.29"], ["Readability", "8.35", "8.96", "9.53"], ["Emotional tone", "3.27", "1.45", "5.38"], ["Syntactic complexity", "8.20", "7.09", "5.95"], ["Information density", "2.77", "2.08", "1.65"], ["Concreteness", "7.84", "8.69", "6.99"]];
-function MeasurementTable() {
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 8,
-      overflowX: "auto"
-    }
-  }, /*#__PURE__*/React.createElement("table", {
-    style: {
-      width: "100%",
-      minWidth: 480,
-      borderCollapse: "collapse"
-    }
-  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, ["Dimension", "Naive", "Mailchimp", "Word Math"].map(c => /*#__PURE__*/React.createElement("th", {
-    key: c,
-    scope: "col",
-    style: {
-      ...tableCell,
-      borderTop: "none",
-      fontWeight: 650,
-      color: "var(--story-ink)"
-    }
-  }, c)))), /*#__PURE__*/React.createElement("tbody", null, MEASUREMENT_ROWS.map(row => /*#__PURE__*/React.createElement("tr", {
-    key: row[0]
-  }, /*#__PURE__*/React.createElement("th", {
-    scope: "row",
-    style: {
-      ...tableCell,
-      fontWeight: 560,
-      color: "var(--story-ink)"
-    }
-  }, row[0]), /*#__PURE__*/React.createElement("td", {
-    style: {
-      ...tableCell,
-      color: "var(--story-muted)"
-    }
-  }, row[1]), /*#__PURE__*/React.createElement("td", {
-    style: {
-      ...tableCell,
-      color: "var(--story-muted)"
-    }
-  }, row[2]), /*#__PURE__*/React.createElement("td", {
-    style: {
-      ...tableCell,
-      color: "var(--story-ink)",
-      fontWeight: 650
-    }
-  }, row[3]))))));
-}
-function WordMathDocument({
-  project,
-  onNext,
-  nextProject,
-  scrollRef
-}) {
-  const openStory = () => {
-    const target = document.getElementById("idea");
-    if (!target) return;
-    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    target.scrollIntoView({
-      behavior: reduce ? "auto" : "smooth",
-      block: "start"
-    });
-  };
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
-    style: {
-      minHeight: "min(660px, calc(100svh - 84px))",
-      display: "flex",
-      position: "relative"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: "absolute",
-      inset: 0,
-      zIndex: 0
-    }
-  }, /*#__PURE__*/React.createElement("img", {
-    src: project.character,
-    alt: project.characterAlt,
-    style: {
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
-      objectPosition: "68% 30%"
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: "absolute",
-      inset: 0,
-      background: "linear-gradient(90deg, rgba(20,12,5,.88) 0%, rgba(20,12,5,.6) 34%, rgba(20,12,5,.12) 62%, rgba(20,12,5,0) 78%)"
-    }
-  })), /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
-    eyebrow: "Project " + project.number + " · " + project.context,
-    title: project.title,
-    statement: project.statement,
-    deck: project.summary
-  }, /*#__PURE__*/React.createElement(Outcome, {
-    label: project.outcomeLabel,
-    items: project.results
-  }))), /*#__PURE__*/React.createElement(Beat, {
-    id: "overview",
-    first: true
-  }, /*#__PURE__*/React.createElement(CaseMeta, {
-    role: project.role,
-    team: project.team,
-    timeline: project.timeline,
-    surface: project.surface
-  })), /*#__PURE__*/React.createElement(Beat, {
-    id: "idea",
-    title: "A voice guide names an effect. It never names how to produce it."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Every guide I've read is built out of adjectives: warm, friendly, direct, clear. Those words name what a reader is supposed to feel. They don't name what a writer, a person or a model, actually has to do on the page to make them feel it. A person closes that gap by instinct, differently every time they sit down to write. A model closes it by guessing, differently every time it generates."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "I built an engine, Word Math, that scores a piece of writing on twelve dimensions instead of adjectives: how personal it sounds, how readable it is, how direct, how emotionally warm, and eight more, each one a number a script can check rather than an impression a person has to interpret. Then I ran the test nobody selling a voice guide usually runs. I took a real one, translated its adjectives into numbers, and measured what a language model actually did with each version.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "guide",
-    title: "Mailchimp's guide is the one nobody could call a straw man."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Mailchimp's content style guide is public, well known, and genuinely well written. Ask around for a company known for its voice and there's a good chance someone says Mailchimp. If a guide this good still leaves a model guessing, a guide written internally in an afternoon doesn't stand a chance."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "So I ran the same short writing task three ways: a bare one-line instruction with no guidance at all, Mailchimp's own voice section copied into the prompt exactly as written, and that same voice translated into Word Math's numeric targets. Neither the bare instruction nor Mailchimp's guide was a straw man standing in for a bad example. Both are close to what I've actually seen teams do. The question was never whether guidance helps. It was which grammar of guidance a model can actually act on.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "translation",
-    title: "Take “friendly” apart and it resolves into four numbers."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Mailchimp's guide asks for a voice that's friendly, and friendly isn't one thing. It decomposes into four checkable properties: involvement above seven, how personally the writing addresses someone; directness above six; readability above six; and lexical sophistication on the low side, plain words rather than showy ones. Four numbers standing in for one adjective, each one a model can be told to hit and a script can confirm afterward, rather than a single word it has to interpret on its own."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "That's the translation, repeated across everything the guide asked for. Read what Mailchimp wanted. Decide which of the twelve dimensions it was actually describing. Set a target for it. What came out the other side was a system prompt built entirely from numbers and short instructions tied to those numbers, standing in for the same voice the original guide describes in prose.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "measurement",
-    title: "The numbers moved the model. Mailchimp's own words barely did."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "I ran fifty generations per condition on Claude Sonnet 4.6, then again on Claude Haiku 4.5: three hundred generations across the setup I just described. A follow-up hundred-generation run kept only the numbers and dropped every sentence of English, to see what the words on top of the numbers were actually contributing. Four hundred generations in total, scored on the same twelve dimensions every time."), /*#__PURE__*/React.createElement(MeasurementTable, null), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Involvement climbed from a naive 6.26 to 7.29 once the prompt specified it. Readability moved from 8.35 to 9.53 the same way, emotional tone from 3.27 to 5.38, and two more dimensions moved just as cleanly. Mailchimp's own guide, copied in verbatim, held six of the twelve dimensions within half a point of the no-guidance baseline. My read: a voice this thoroughly documented online is probably already close to what the model writes without being asked, which makes the guide reassuring to read and not very useful to prompt with."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "The hundred-generation, numbers-only run showed where the words still mattered. Stripped down to just the numbers, the constraints still moved involvement and readability. Lexical sophistication moved too. Syntactic complexity and emotional tone barely budged, and only once the English descriptions came back did those two move as well. Numbers controlled the surface features outright; English still did work numbers alone couldn't, shaping how a sentence gets built rather than which words it reaches for. Haiku 4.5 moved the same direction on every dimension, by smaller margins, and lost the most ground exactly where Sonnet held it: composing a sentence, not just picking words."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "None of this needed a platform built first. Anyone can put numeric targets straight into a prompt template, check what comes back against them, and tighten the target when a generation misses. The full four hundred generations, ablation included, cost under five dollars in API calls.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "shipped",
-    title: "The engine measures. It doesn't write a word of its own."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Word Math is a small, installable Python library, not a platform. It fingerprints a piece of writing into the same twelve numbers every time, and turns a target profile into a system prompt any model can follow. It never writes a word itself. That's still someone else's model; Word Math measures the draft that comes back, tells you which dimensions missed and by how much, and lets you tighten the target and try again."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "That loop is also a skill file, so a coding agent can run it on its own writing without a person in between: measure the draft against a target voice, see which dimensions missed, revise, and check again, usually landing inside range within a pass or two. github.com/calebstacy/word-math has all of it, the engine and the skill both, for anyone to install and point at their own writing."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Word Math and Verso, the system I built inside Meta and cover elsewhere in this portfolio, don't share a line of code, a prompt, or a standard. I built this one from zero, on dependencies anyone can license, and every method and result here can be reproduced outside Meta from public research alone.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "limits",
-    title: "It's honest about what it still can't tell you."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "The engine only measures. It has no opinion about which model generated the text or why, and it won't write a replacement sentence for you: constrain() hands back a system prompt, and what happens with it is someone else's call."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "The results have real limits too. Concreteness is the one dimension in the table above that missed: the numeric constraint pushed it further from the naive baseline, away from where I'd aimed it. And I can't fully separate “the guide is vague” from “a large model has already read enough Mailchimp-adjacent writing to sound like it without being told to.” A voice this public may already be baked into the model, which would make the guide look ineffective for a reason that has nothing to do with the guide itself."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "The scope is narrow, too: four hundred generations, a single welcome-message prompt, Mailchimp's voice specifically, tested on Sonnet 4.6 and Haiku 4.5. That's real evidence for this one case. I'd want to see it hold on a longer piece of writing and a third vendor's model before calling it a general result.")), /*#__PURE__*/React.createElement("div", {
-    id: "next",
-    "data-ds": "case-next",
-    style: {
-      minHeight: 190,
-      scrollMarginTop: 56,
-      display: "flex",
-      justifyContent: "space-between",
-      gap: 24,
-      alignItems: "center",
-      padding: "0 var(--gutter)",
-      background: "var(--paper)",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "Next project"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "10px 0 0",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: "var(--display-s-weight)",
-      letterSpacing: "var(--display-s-tracking)"
-    }
-  }, nextProject.title)), /*#__PURE__*/React.createElement(StageAction, {
-    accent: "signal",
-    onClick: onNext
-  }, nextProject.statement)));
-}
-Object.assign(window, {
-  WordMathDocument
-});
-})();
-
 /* ---- ui_kits/portfolio/screen-utility.jsx ---- */
 (function () {
 const {
@@ -2476,22 +1669,18 @@ const {
   StageCopy,
   StorySection,
   StageAction,
-  CardGrid,
-  GridCard,
-  Tag,
   PullQuote,
   RegistrationMark,
   Eyebrow,
-  DataTable,
   ProvenanceNote,
-  ResumeEntry
+  ArtifactFigure,
+  CaptureFigure
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
 
-/* The About cover's accent line: "I design ____", typed and erased like someone changing their
-   mind at the keyboard. Leads with systems (the discipline the whole site argues for) and rests
-   longest on the honest answer. Reduced motion gets the resting answer directly, no caret. */
-const DESIGN_WORDS = ["systems.", "language standards.", "taxonomies.", "onboarding.", "experiments.", "quests.", "poems.", "a lot of things."];
-const DESIGN_REST = DESIGN_WORDS[DESIGN_WORDS.length - 1];
+/* The About cover's transforming line introduces range through actions, then rests on the
+   through-line: decisions a team can reuse. Reduced motion gets the resting answer directly. */
+const ABOUT_LINES = ["I shape product strategy.", "I write interaction language.", "I design onboarding.", "I run experiments.", "I lead workshops.", "I write poems.", "I build tools.", "I build systems.", "I make decisions teams can reuse."];
+const ABOUT_REST = ABOUT_LINES[ABOUT_LINES.length - 1];
 function DesignRotator() {
   const reduced = React.useMemo(() => !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches), []);
   /* The film-credits trick: every character of the current word is in the layout from the word's
@@ -2499,8 +1688,8 @@ function DesignRotator() {
      letter shows and nothing can hop lines mid-word. Multi-word phrases wrap only at their
      spaces, exactly where the finished line wraps; letters inside a chunk are nowrap-bound. The
      caret is absolutely positioned after the last visible letter, outside the flow entirely. */
-  const [i, setI] = React.useState(reduced ? DESIGN_WORDS.length - 1 : 0);
-  const [n, setN] = React.useState(reduced ? DESIGN_REST.length : 0);
+  const [i, setI] = React.useState(reduced ? ABOUT_LINES.length - 1 : 0);
+  const [n, setN] = React.useState(reduced ? ABOUT_REST.length : 0);
   const hostRef = React.useRef(null);
   const caretRef = React.useRef(null);
   React.useEffect(() => {
@@ -2514,15 +1703,15 @@ function DesignRotator() {
       }, ms);
     };
     const type = ci => {
-      const w = DESIGN_WORDS[wi];
+      const w = ABOUT_LINES[wi];
       setI(wi);
       setN(ci);
-      if (ci < w.length) later(() => type(ci + 1), 40);else later(() => erase(w.length - 1), w === DESIGN_REST ? 2400 : 950);
+      if (ci < w.length) later(() => type(ci + 1), 40);else later(() => erase(w.length - 1), w === ABOUT_REST ? 2400 : 950);
     };
     const erase = len => {
       setN(len);
       if (len > 0) later(() => erase(len - 1), 13);else {
-        wi = (wi + 1) % DESIGN_WORDS.length;
+        wi = (wi + 1) % ABOUT_LINES.length;
         later(() => type(1), 170);
       }
     };
@@ -2532,7 +1721,7 @@ function DesignRotator() {
       clearTimeout(t);
     };
   }, [reduced]);
-  const word = DESIGN_WORDS[i];
+  const word = ABOUT_LINES[i];
   React.useLayoutEffect(() => {
     const host = hostRef.current,
       caret = caretRef.current;
@@ -2587,15 +1776,15 @@ function DesignRotator() {
     "data-ds": "design-rotator",
     ref: hostRef,
     role: "text",
-    "aria-label": "I design " + DESIGN_REST,
+    "aria-label": ABOUT_REST,
     style: {
       position: "relative"
     }
   }, /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "true"
-  }, "I design", /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("span", {
     "data-ch-anchor": true
-  }, " "), chunks, !reduced && /*#__PURE__*/React.createElement("span", {
+  }, "\u200B"), chunks, !reduced && /*#__PURE__*/React.createElement("span", {
     ref: caretRef,
     "data-ds": "design-rotator-caret",
     style: {
@@ -2607,14 +1796,101 @@ function DesignRotator() {
     }
   })));
 }
+function AboutWaveScene({
+  reducedMotion,
+  credibilityMode = "marquee"
+}) {
+  const marks = [{
+    brand: "meta-horizon",
+    src: "assets/brands/meta-horizon.svg"
+  }, {
+    brand: "digbi",
+    src: "assets/brands/digbi-health.svg"
+  }, {
+    brand: "8x8",
+    src: "assets/brands/8x8.svg"
+  }];
+  const effectiveMode = reducedMotion ? "static" : credibilityMode;
+  const mediaStyle = {
+    position: "absolute",
+    zIndex: 1,
+    inset: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+    objectPosition: "center"
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    "data-ds": "scene-character",
+    "data-credibility-mode": effectiveMode,
+    role: "group",
+    "aria-label": "Clay Caleb waves hello once. The scene names teams where he has worked: Meta Horizon, Digbi Health, and 8x8.",
+    tabIndex: effectiveMode === "marquee" ? 0 : undefined,
+    style: {
+      position: "absolute",
+      zIndex: 5,
+      top: 0,
+      right: 0,
+      bottom: 0,
+      width: "51%",
+      overflow: "hidden",
+      background: "#000",
+      pointerEvents: effectiveMode === "marquee" ? "auto" : "none",
+      animation: "character-enter var(--dur-character) var(--delay-character) var(--ease-authored) both"
+    }
+  }, reducedMotion ? /*#__PURE__*/React.createElement("img", {
+    src: "assets/work/caleb-about-wave-poster.webp",
+    alt: "",
+    "aria-hidden": "true",
+    style: mediaStyle
+  }) : /*#__PURE__*/React.createElement("video", {
+    src: "assets/work/caleb-about-wave-once.mp4",
+    poster: "assets/work/caleb-about-wave-poster.webp",
+    autoPlay: true,
+    muted: true,
+    playsInline: true,
+    preload: "auto",
+    "aria-hidden": "true",
+    tabIndex: -1,
+    style: mediaStyle
+  }), effectiveMode === "static" ? /*#__PURE__*/React.createElement("div", {
+    "data-ds": "about-credibility",
+    "data-mode": "static",
+    "aria-hidden": "true"
+  }, marks.map(mark => /*#__PURE__*/React.createElement("img", {
+    key: mark.brand,
+    "data-ds": "about-credibility-mark",
+    "data-brand": mark.brand,
+    src: mark.src,
+    alt: ""
+  }))) : /*#__PURE__*/React.createElement("div", {
+    "data-ds": "about-credibility",
+    "data-mode": "marquee",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("div", {
+    "data-ds": "about-credibility-track"
+  }, [0, 1].map(copy => /*#__PURE__*/React.createElement("div", {
+    key: copy,
+    "data-ds": "about-credibility-set"
+  }, marks.map(mark => /*#__PURE__*/React.createElement("img", {
+    key: mark.brand,
+    "data-ds": "about-credibility-mark",
+    "data-brand": mark.brand,
+    src: mark.src,
+    alt: ""
+  })))))));
+}
 function AboutDocument({
   data,
   onWork
 }) {
-  /* The waving figure is an animated WebP with real transparency (cut from the original clay
-     wave take: idle, one small wave, back to pockets, looping). Animated WebP needs no autoplay
-     permission and honors the cutout like any image. Reduced motion gets a still frame. */
+  /* The original five-second clay take plays once and then holds its closing frame.
+     Reduced-motion readers get the original poster instead. */
   const reducedMotion = React.useMemo(() => !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches), []);
+  const credibilityMode = React.useMemo(() => {
+    const requested = new URLSearchParams(window.location.search).get("credits");
+    return requested === "static" ? "static" : "marquee";
+  }, []);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
     style: {
       minHeight: "min(660px, calc(100svh - 84px))",
@@ -2624,17 +1900,17 @@ function AboutDocument({
     eyebrow: "About",
     title: "Hi, I'm Caleb.",
     accent: /*#__PURE__*/React.createElement(DesignRotator, null),
-    deck: "At Meta that meant a measurement engine scoring language across eleven dimensions, wired into an agent that corrected its own drafts before anyone read them. I've since built a version anyone can run and used it to score other companies' shipped product language.",
-    detail: "Seven years teaching writing, five designing product, then two more making voice something a machine could be held to."
+    deck: "I'm a senior content designer. My work spans product strategy and interaction language. I design onboarding, run experiments, and build systems that make good decisions easier to repeat.",
+    detail: "I've led that work on cross-functional teams spanning product, design, research, data and engineering. Before product, I spent seven years teaching writing and earned an MFA in poetry. I still care about the sentence. Sometimes the work also needs a workshop, an experiment or code."
   }, /*#__PURE__*/React.createElement(StageAction, {
     accent: "action",
     style: {
       marginTop: 23
     },
     onClick: onWork
-  }, "Start with Verso")), /*#__PURE__*/React.createElement(SceneCharacter, {
-    src: reducedMotion ? "assets/work/caleb-wave-still.webp" : "assets/work/caleb-wave-loop.webp",
-    alt: "Clay Caleb waving"
+  }, "See selected work")), /*#__PURE__*/React.createElement(AboutWaveScene, {
+    reducedMotion: reducedMotion,
+    credibilityMode: credibilityMode
   })), /*#__PURE__*/React.createElement("section", {
     "data-tone": "dark",
     style: {
@@ -2657,7 +1933,7 @@ function AboutDocument({
       lineHeight: "var(--display-m-leading)",
       letterSpacing: "var(--display-m-tracking)"
     }
-  }, "Everything ends in a system."), /*#__PURE__*/React.createElement("div", {
+  }, "I start with the question."), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 22,
       display: "flex",
@@ -2672,11 +1948,43 @@ function AboutDocument({
     style: {
       margin: 0
     }
-  }, "Product direction is framing the problem and defining the content model before the first screen exists. Interaction language is the words a product uses to move someone from intent to outcome. Experimentation means hypotheses that survive contact with shipped behavior, run with research and data partners. And the systems work is the machinery that turns a voice standard into something a build or an agent can fail against. Whatever the project starts as, it ends as a system that keeps the decision from being re-litigated. Measured standards carry a bonus: every band is a variable, so voice itself becomes something a team can A/B test instead of argue about."), /*#__PURE__*/React.createElement("p", {
+  }, "I ask questions because the discipline is changing, not because I have solved it. I want to know what someone is trying to do and what the product needs to decide. Then I ask what evidence would change that decision. The answer might be early product strategy or a line of interaction language. It might be just-in-time education or an experiment run with research and data partners. I've led all of that work, and I have concrete things to teach about it.")))), /*#__PURE__*/React.createElement("section", {
+    "data-tone": "dark",
+    style: {
+      background: "var(--story-bg)",
+      color: "var(--story-ink)",
+      padding: "0 var(--gutter) clamp(56px,8vh,96px)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: 640,
+      margin: "0 auto",
+      borderTop: "1px solid color-mix(in srgb, var(--story-ink) 25%, transparent)",
+      paddingTop: "clamp(40px,6vh,64px)"
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      margin: 0,
+      textAlign: "left",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--display-m-size)",
+      fontWeight: "var(--display-m-weight)",
+      lineHeight: "var(--display-m-leading)",
+      letterSpacing: "var(--display-m-tracking)"
+    }
+  }, "I make the decision reusable."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 22,
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--prose-size)",
+      lineHeight: "var(--prose-leading)",
+      letterSpacing: "var(--prose-tracking)"
+    }
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "A colleague once put it in a way I keep: \"He turns arguments about wording into decisions a team can reuse.\"")))), /*#__PURE__*/React.createElement("section", {
+  }, "Systems are one way I do that, not the whole job. I route each claim to the strongest computation it can honestly support. That might be a count or a deterministic check. It might be an experiment, or no computation at all. When a rule can be checked, I can write it into code. When the judgment belongs with people, I leave it there. The point is not to turn every content problem into infrastructure. It is to keep a good decision from being re-litigated.")))), /*#__PURE__*/React.createElement("section", {
     "data-tone": "dark",
     style: {
       background: "var(--story-bg)",
@@ -2712,30 +2020,107 @@ function AboutDocument({
     style: {
       margin: 0
     }
-  }, "Seven years of communication instruction and an MFA in poetry are why the systems work reads as language work. I taught composition and poetry workshops, then trained Army officers to turn complex, high-stakes information into clear, direct language. Watching what makes writing land, over and over, is where the rest of this comes from.")))));
+  }, "Before product work, I taught composition and poetry workshops, then trained Army officers to turn complex, high-stakes information into clear, direct language. Seven years of watching what makes writing land is where the rest of this comes from. Teaching made me care about craft. I still teach what I learn and keep asking what the work could become next.")))));
 }
-
-/* Falls back to the same anatomy until the compiled bundle carries ResumeEntry. */
-const Entry = ResumeEntry || function Entry({
+function MicrocopyDocument({
+  onNavigate
+}) {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
+    variant: "section",
+    style: {
+      minHeight: 390,
+      display: "flex"
+    }
+  }, /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
+    eyebrow: "Supporting work",
+    title: "Microcopy.",
+    deck: "A grab bag of microcopy."
+  })), /*#__PURE__*/React.createElement("section", {
+    "data-tone": "dark",
+    style: {
+      background: "var(--story-bg)",
+      color: "var(--story-ink)",
+      padding: "clamp(48px,7vh,84px) var(--gutter) clamp(64px,9vh,104px)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: 920,
+      margin: "0 auto"
+    }
+  }, /*#__PURE__*/React.createElement("article", null, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      margin: 0,
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--display-m-size)",
+      fontWeight: "var(--display-m-weight)",
+      lineHeight: "var(--display-m-leading)",
+      letterSpacing: "var(--display-m-tracking)"
+    }
+  }, "Your mic is on."), /*#__PURE__*/React.createElement(CaptureFigure, {
+    style: {
+      marginTop: 24
+    },
+    src: "assets/work/vr/controller-nudge.mp4",
+    poster: "assets/work/vr-controller-nudge-poster.webp",
+    caption: "In-headset capture of the shipped nudge. I wrote the string; the interaction was built with the product designer and engineering."
+  }), /*#__PURE__*/React.createElement(StageAction, {
+    accent: "signal",
+    style: {
+      marginTop: 18
+    },
+    onClick: () => onNavigate && onNavigate("vr-education")
+  }, "Read VR NUX")), /*#__PURE__*/React.createElement("article", {
+    style: {
+      marginTop: "clamp(56px,8vh,88px)",
+      paddingTop: "clamp(44px,6vh,64px)",
+      borderTop: "1px solid color-mix(in srgb, var(--story-ink) 25%, transparent)"
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      margin: 0,
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--display-m-size)",
+      fontWeight: "var(--display-m-weight)",
+      lineHeight: "var(--display-m-leading)",
+      letterSpacing: "var(--display-m-tracking)"
+    }
+  }, "Go. View details."), /*#__PURE__*/React.createElement(ArtifactFigure, {
+    contain: true,
+    style: {
+      marginTop: 24
+    },
+    src: "assets/work/card-portals.jpg",
+    alt: "A portal card showing a world, who is inside, and the actions Go and View details",
+    caption: "A portal at approach distance: identity, who is already inside, and the available actions."
+  }), /*#__PURE__*/React.createElement(StageAction, {
+    accent: "signal",
+    style: {
+      marginTop: 18
+    },
+    onClick: () => onNavigate && onNavigate("portals")
+  }, "Read Horizon Portals")))));
+}
+function ResumeWebEntry({
   when,
   org,
   role,
   bullets = []
 }) {
   return /*#__PURE__*/React.createElement("article", {
+    "data-ds": "resume-entry",
     style: {
       display: "grid",
-      gridTemplateColumns: "var(--label-gutter) minmax(0,1fr)",
-      gap: "clamp(16px,2vw,28px)",
-      padding: "var(--space-7) 0",
-      borderTop: "1px solid var(--story-line)"
+      gridTemplateColumns: "140px minmax(0,1fr)",
+      gap: "clamp(18px,3vw,42px)",
+      padding: "clamp(22px,3vw,34px) 0",
+      borderTop: "1px solid var(--soft-line)"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      paddingTop: 3,
-      color: "var(--story-muted)",
+      paddingTop: 4,
+      color: "var(--muted-ink)",
       fontFamily: "var(--font-mono)",
-      fontSize: 9,
+      fontSize: 10,
       fontWeight: 700,
       lineHeight: 1.45
     }
@@ -2746,162 +2131,243 @@ const Entry = ResumeEntry || function Entry({
   }, /*#__PURE__*/React.createElement("h3", {
     style: {
       margin: 0,
+      color: "var(--ink)",
       fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: 700,
+      fontSize: "clamp(24px,2.4vw,34px)",
+      fontWeight: 720,
       lineHeight: 1,
-      letterSpacing: "var(--display-s-tracking)"
+      letterSpacing: "-0.055em"
     }
   }, org), role && /*#__PURE__*/React.createElement("p", {
     style: {
-      margin: "9px 0 0",
-      color: "var(--story-muted)",
+      margin: "8px 0 0",
+      color: "var(--muted-ink)",
       fontFamily: "var(--font-sans)",
       fontSize: 15,
       fontWeight: 520,
       lineHeight: 1.35,
-      letterSpacing: "-0.03em"
+      letterSpacing: "-0.025em"
     }
-  }, role), /*#__PURE__*/React.createElement("ul", {
+  }, role), bullets.length > 0 && /*#__PURE__*/React.createElement("ul", {
     style: {
       display: "flex",
       flexDirection: "column",
       gap: 11,
-      margin: "var(--space-5) 0 0",
+      margin: "20px 0 0",
       padding: 0,
       listStyle: "none"
     }
-  }, bullets.map((b, i) => /*#__PURE__*/React.createElement("li", {
-    key: i,
+  }, bullets.map((bullet, index) => /*#__PURE__*/React.createElement("li", {
+    key: index,
     style: {
       display: "grid",
       gridTemplateColumns: "14px minmax(0,1fr)",
       gap: 10,
+      color: "var(--ink)",
       fontFamily: "var(--font-sans)",
-      fontSize: "var(--prose-size)",
-      lineHeight: 1.45,
-      letterSpacing: "-0.025em",
+      fontSize: "clamp(15px,1.35vw,17px)",
+      lineHeight: 1.5,
+      letterSpacing: "-0.02em",
       textWrap: "pretty"
     }
   }, /*#__PURE__*/React.createElement("i", {
     style: {
-      marginTop: "0.62em",
+      marginTop: "0.7em",
       width: 7,
       height: 1,
-      background: "var(--story-accent)"
+      background: "var(--signal)"
     }
-  }), b)))));
-};
+  }), bullet)))));
+}
 function ResumeDocument({
   data
 }) {
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
-    variant: "section",
+  return /*#__PURE__*/React.createElement("article", {
+    "data-ds": "resume-document",
+    "data-tone": "paper",
     style: {
-      minHeight: 420,
-      display: "flex"
+      minHeight: "100%",
+      background: "var(--paper)",
+      color: "var(--ink)"
     }
-  }, /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
-    eyebrow: "Caleb Stacy · July 2026",
-    title: "Résumé.",
-    deck: data.resumeSummary
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("header", {
+    "data-ds": "resume-header",
     style: {
-      display: "flex",
-      flexWrap: "wrap",
-      gap: "var(--space-8)",
-      marginTop: 23
+      display: "grid",
+      gridTemplateColumns: "minmax(0,1fr) auto",
+      gap: "clamp(28px,5vw,72px)",
+      alignItems: "end",
+      padding: "clamp(42px,7vw,86px) var(--gutter) clamp(28px,4vw,46px)",
+      borderBottom: "1px solid var(--ink)"
     }
-  }, /*#__PURE__*/React.createElement(StageAction, {
-    accent: "action",
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+    style: {
+      margin: 0,
+      fontFamily: "var(--font-sans)",
+      fontSize: "clamp(48px,6vw,84px)",
+      fontWeight: 780,
+      lineHeight: 0.92,
+      letterSpacing: "-0.075em"
+    }
+  }, data.identity.name), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "15px 0 0",
+      fontFamily: "var(--font-sans)",
+      fontSize: "clamp(21px,2.4vw,32px)",
+      fontWeight: 620,
+      lineHeight: 1.1,
+      letterSpacing: "-0.045em"
+    }
+  }, data.identity.title)), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "resume-contact",
+    style: {
+      display: "grid",
+      justifyItems: "end",
+      gap: 8,
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 10,
+      fontWeight: 700,
+      lineHeight: 1.5,
+      textAlign: "right"
+    }
+  }, /*#__PURE__*/React.createElement("a", {
+    href: "mailto:" + data.contact,
+    style: {
+      color: "var(--ink)"
+    }
+  }, data.contact), /*#__PURE__*/React.createElement("a", {
+    href: "https://" + data.identity.site,
+    style: {
+      color: "var(--ink)"
+    }
+  }, data.identity.site), /*#__PURE__*/React.createElement("span", null, data.identity.location), /*#__PURE__*/React.createElement("a", {
     href: "Caleb-Stacy-Resume.pdf",
-    download: true
-  }, "Download the PDF"), /*#__PURE__*/React.createElement(StageAction, {
-    accent: "stage",
-    href: "mailto:" + data.contact
-  }, data.contact))), /*#__PURE__*/React.createElement(SceneCharacter, {
-    src: "assets/work/caleb-presenting.png",
-    alt: "Clay Caleb presenting"
-  })), /*#__PURE__*/React.createElement(StorySection, {
-    tone: "paper",
-    index: "01",
-    title: "Experience",
+    download: true,
     style: {
-      rowGap: 18
+      marginTop: 5,
+      color: "var(--signal-deep)",
+      fontFamily: "var(--font-sans)",
+      fontSize: 14,
+      fontWeight: 700
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, "Download PDF"))), /*#__PURE__*/React.createElement("div", {
     style: {
-      marginTop: "var(--space-6)",
-      borderBottom: "1px solid var(--story-line)"
+      padding: "clamp(34px,5vw,66px) var(--gutter) clamp(60px,8vw,108px)"
     }
-  }, data.experience.map(e => /*#__PURE__*/React.createElement(Entry, {
-    key: e.org,
-    when: e.when,
-    org: e.org,
-    role: e.role,
-    bullets: e.bullets
-  })))), /*#__PURE__*/React.createElement(StorySection, {
-    tone: "bright",
-    index: "02",
-    title: "Selected work",
-    intro: "Every claim below is the same sentence the case study opens with.",
+  }, /*#__PURE__*/React.createElement("p", {
     style: {
-      rowGap: 18
+      maxWidth: 850,
+      margin: 0,
+      fontFamily: "var(--font-sans)",
+      fontSize: "clamp(20px,2vw,28px)",
+      fontWeight: 480,
+      lineHeight: 1.42,
+      letterSpacing: "-0.035em",
+      textWrap: "pretty"
     }
-  }, /*#__PURE__*/React.createElement(DataTable, {
-    columns: ["Project", "The claim", "Context"],
-    rows: data.projects.map(p => [p.title, p.statement, p.context])
-  })), /*#__PURE__*/React.createElement(StorySection, {
-    tone: "dark",
-    index: "03",
-    title: "Public work",
+  }, data.resumeSummary), /*#__PURE__*/React.createElement("section", {
+    "aria-labelledby": "resume-experience",
     style: {
-      rowGap: 18
+      maxWidth: 960,
+      marginTop: "clamp(52px,7vw,82px)"
     }
-  }, /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 3,
-    label: "Public work"
-  }, data.publicWork.map((w, i) => /*#__PURE__*/React.createElement(GridCard, {
-    key: w.title,
-    label: String(i + 1).padStart(2, "0"),
-    title: w.title,
-    body: w.body
-  })))), /*#__PURE__*/React.createElement(StorySection, {
-    tone: "paper",
-    index: "04",
-    title: "Tools and methods",
+  }, /*#__PURE__*/React.createElement("h2", {
+    id: "resume-experience",
     style: {
-      rowGap: 18
+      margin: "0 0 18px",
+      fontFamily: "var(--font-sans)",
+      fontSize: "clamp(30px,3.5vw,46px)",
+      fontWeight: 740,
+      lineHeight: 1,
+      letterSpacing: "-0.06em"
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, "Experience"), /*#__PURE__*/React.createElement("div", {
     style: {
-      display: "flex",
-      flexWrap: "wrap",
-      gap: "var(--space-2)",
-      marginTop: "var(--space-6)"
+      borderBottom: "1px solid var(--soft-line)"
     }
-  }, data.tools.map(tool => /*#__PURE__*/React.createElement(Tag, {
-    key: tool,
-    on: "paper"
-  }, tool)))), /*#__PURE__*/React.createElement(StorySection, {
-    tone: "dark",
-    index: "05",
-    title: "Education",
+  }, data.experience.map(entry => /*#__PURE__*/React.createElement(ResumeWebEntry, {
+    key: entry.org,
+    when: entry.when,
+    org: entry.org,
+    role: entry.role,
+    bullets: entry.bullets
+  })))), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "resume-lower",
     style: {
-      rowGap: 18
+      display: "grid",
+      gridTemplateColumns: "minmax(0,1.25fr) minmax(260px,0.75fr)",
+      gap: "clamp(44px,7vw,96px)",
+      maxWidth: 960,
+      marginTop: "clamp(52px,7vw,82px)"
     }
-  }, /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 2,
-    label: "Degrees"
-  }, data.education.map(e => /*#__PURE__*/React.createElement(GridCard, {
-    key: e.org,
-    label: e.when,
-    title: e.role,
-    body: e.org
-  })))));
+  }, /*#__PURE__*/React.createElement("section", {
+    "aria-labelledby": "resume-methods"
+  }, /*#__PURE__*/React.createElement("h2", {
+    id: "resume-methods",
+    style: {
+      margin: 0,
+      fontFamily: "var(--font-sans)",
+      fontSize: "clamp(26px,3vw,38px)",
+      fontWeight: 720,
+      lineHeight: 1,
+      letterSpacing: "-0.055em"
+    }
+  }, "Methods and tools"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "20px 0 0",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: 16,
+      lineHeight: 1.7,
+      letterSpacing: "-0.02em",
+      textWrap: "pretty"
+    }
+  }, data.tools.join(" · "))), /*#__PURE__*/React.createElement("section", {
+    "aria-labelledby": "resume-education"
+  }, /*#__PURE__*/React.createElement("h2", {
+    id: "resume-education",
+    style: {
+      margin: 0,
+      fontFamily: "var(--font-sans)",
+      fontSize: "clamp(26px,3vw,38px)",
+      fontWeight: 720,
+      lineHeight: 1,
+      letterSpacing: "-0.055em"
+    }
+  }, "Education"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 20,
+      borderBottom: "1px solid var(--soft-line)"
+    }
+  }, data.education.map(item => /*#__PURE__*/React.createElement("div", {
+    key: item.org,
+    style: {
+      padding: "15px 0",
+      borderTop: "1px solid var(--soft-line)"
+    }
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontFamily: "var(--font-sans)",
+      fontSize: 17,
+      fontWeight: 700,
+      lineHeight: 1.25,
+      letterSpacing: "-0.03em"
+    }
+  }, item.role), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "6px 0 0",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: 14,
+      lineHeight: 1.4
+    }
+  }, item.org, " · ", item.when))))))));
 }
 Object.assign(window, {
   AboutDocument,
+  MicrocopyDocument,
   ResumeDocument
 });
 })();
@@ -2966,9 +2432,10 @@ function PortfolioApp() {
   const data = window.PORTFOLIO;
 
   /* Documents are ordered so the curtain can travel the way the reader is moving:
-     About, the five projects, then Résumé. Memoized so the popstate effect below doesn't
+     About, the three projects, the supporting microcopy shelf, then Résumé. Memoized so the
+     popstate effect below doesn't
      resubscribe on every render. */
-  const order = React.useMemo(() => ["about", ...data.projects.map(p => p.id), "resume"], [data]);
+  const order = React.useMemo(() => ["about", ...data.projects.map(p => p.id), "microcopy", "resume"], [data]);
   const [active, setActive] = React.useState(() => destinationFromHash(order));
   const [curtain, setCurtain] = React.useState({
     state: "idle",
@@ -2985,6 +2452,7 @@ function PortfolioApp() {
     if (sub) return sub.label + " — Verso";
     const project = data.projects.find(p => p.id === id);
     if (project) return project.title;
+    if (id === "microcopy") return "Microcopy";
     return id === "resume" ? "Résumé" : "About";
   };
   React.useEffect(() => {
@@ -3091,6 +2559,9 @@ function PortfolioApp() {
     id: "about",
     label: "About"
   }, {
+    id: "microcopy",
+    label: "Microcopy"
+  }, {
     id: "resume",
     label: "Résumé"
   }];
@@ -3144,13 +2615,12 @@ function PortfolioApp() {
       background: "var(--paper)"
     }
   }, /*#__PURE__*/React.createElement("div", {
-    key: active,
-    style: {
-      animation: "case-enter var(--dur-case) var(--ease-authored) both"
-    }
+    key: active
   }, active === "about" && /*#__PURE__*/React.createElement(AboutDocument, {
     data: data,
     onWork: () => go(data.projects[0].id)
+  }), active === "microcopy" && typeof MicrocopyDocument === "function" && /*#__PURE__*/React.createElement(MicrocopyDocument, {
+    onNavigate: go
   }), active === "resume" && /*#__PURE__*/React.createElement(ResumeDocument, {
     data: data
   }), project && (
@@ -3185,19 +2655,7 @@ function PortfolioApp() {
     nextProject: nextProject,
     onNext: () => go(nextProject.id),
     scrollRef: scrollRef
-  }) : project.id === "horizon" && typeof HorizonDocument === "function" ? /*#__PURE__*/React.createElement(HorizonDocument, {
-    key: project.id,
-    project: project,
-    nextProject: nextProject,
-    onNext: () => go(nextProject.id),
-    scrollRef: scrollRef
   }) : project.id === "portals" && typeof PortalsDocument === "function" ? /*#__PURE__*/React.createElement(PortalsDocument, {
-    key: project.id,
-    project: project,
-    nextProject: nextProject,
-    onNext: () => go(nextProject.id),
-    scrollRef: scrollRef
-  }) : project.id === "word-math" && typeof WordMathDocument === "function" ? /*#__PURE__*/React.createElement(WordMathDocument, {
     key: project.id,
     project: project,
     nextProject: nextProject,

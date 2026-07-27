@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Caleb Stacy — résumé</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Caleb Stacy - résumé</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="assets/mark-favicon.svg">
 <link rel="stylesheet" href="styles.css">
@@ -7,76 +7,74 @@ doc-page:not(:defined){visibility:hidden}
 body{color:var(--ink);font-family:var(--font-mono)}
 h1,h2,h3{margin:0;font-family:var(--font-sans);font-weight:700}
 p{margin:0}
-.lab{color:var(--muted-ink);font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:0}
-.sec{margin-top:26px;padding-top:12px;border-top:1px solid var(--ink)}
-.sec>h2{margin-bottom:14px;font-size:13px;font-weight:700;letter-spacing:-0.03em}
-.row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:20px;padding:14px 0;border-top:1px solid var(--soft-line);break-inside:avoid}
+.lab{color:var(--muted-ink);font-family:var(--font-mono);font-size:9px;font-weight:700;line-height:1.35;letter-spacing:0}
+.summary{max-width:700px;margin-top:12px;font-family:var(--font-sans);font-size:12px;line-height:1.44;letter-spacing:-0.02em;text-wrap:pretty}
+.sec{margin-top:18px;padding-top:9px;border-top:1px solid var(--ink);break-inside:avoid}
+.sec>h2{margin-bottom:8px;font-size:13px;font-weight:720;letter-spacing:-0.03em}
+.row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:17px;padding:10px 0;border-top:1px solid var(--soft-line);break-inside:avoid}
 .row:first-of-type{border-top:0}
-.org{font-size:17px;font-weight:700;line-height:1;letter-spacing:-0.05em}
-.role{margin-top:6px;color:var(--muted-ink);font-family:var(--font-sans);font-size:12px;font-weight:520;letter-spacing:-0.02em}
-.pts{display:flex;flex-direction:column;gap:7px;margin:11px 0 0;padding:0;list-style:none}
-.pts li{display:grid;grid-template-columns:13px minmax(0,1fr);gap:8px;font-family:var(--font-sans);font-size:11.5px;line-height:1.45;letter-spacing:-0.02em;text-wrap:pretty;orphans:3;widows:3}
-.pts i{margin-top:0.62em;width:7px;height:1px;background:var(--signal)}
-table{width:100%;border-collapse:collapse;font-family:var(--font-sans)}
-th{padding:6px 10px;border:1px solid var(--ink);background:var(--ink);color:var(--paper-bright);font-family:var(--font-mono);font-size:8px;font-weight:700;text-align:left}
-td{padding:8px 10px;border:1px solid var(--soft-line);font-size:11px;line-height:1.35;letter-spacing:-0.02em;vertical-align:top}
-td:first-child{font-weight:700}
-.tags{display:flex;flex-wrap:wrap;gap:5px}
-.tags span{padding:5px 8px;border:1px solid var(--soft-line);font-family:var(--font-sans);font-size:10px}
-.note{margin-top:14px;padding-top:9px;border-top:1px solid var(--soft-line);color:var(--muted-ink);font-family:var(--font-sans);font-size:9.5px;line-height:1.5}
-a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--signal)}a:hover{color:var(--signal-deep)}
-/* Phone reading view only. The letter sheet is the document; below 700px the sheet gives up its
-   fixed physical size and reflows. The PDF renderer (800px viewport, print media) and every
-   desktop keep the sheet exactly as designed. */
+.org{font-size:17px;font-weight:720;line-height:1;letter-spacing:-0.045em}
+.role{margin-top:5px;color:var(--muted-ink);font-family:var(--font-sans);font-size:11px;font-weight:520;line-height:1.25;letter-spacing:-0.015em}
+.pts{display:flex;flex-direction:column;gap:5px;margin:8px 0 0;padding:0;list-style:none}
+.pts li{display:grid;grid-template-columns:11px minmax(0,1fr);gap:7px;font-family:var(--font-sans);font-size:11px;line-height:1.38;letter-spacing:-0.012em;text-wrap:pretty;orphans:3;widows:3}
+.pts i{margin-top:0.64em;width:6px;height:1px;background:var(--signal)}
+.closing{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr);gap:24px;break-inside:avoid}
+.methods{font-family:var(--font-sans);font-size:10.8px;line-height:1.55;letter-spacing:-0.01em;text-wrap:pretty}
+.edu{display:grid;gap:7px}
+.edu-item{display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;font-family:var(--font-sans);font-size:10.5px;line-height:1.3}
+.edu-item b{font-weight:700}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--signal)}
 @media screen and (max-width:700px){
   doc-page{--doc-page-w:100%;--doc-page-margin:18px;min-width:0;padding:12px 8px}
-  doc-page [slot="header"]{flex-wrap:wrap}
-  .row{grid-template-columns:1fr;gap:6px}
+  doc-page [slot="header"]{align-items:flex-start!important;flex-direction:column;gap:12px!important}
+  .row,.closing{grid-template-columns:1fr;gap:6px}
 }
 </style></head><body>
-<doc-page margin="0.7in">
-<div slot="header" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding-bottom:9px;border-bottom:1px solid var(--ink)">
-<h1 style="font-size:25px;font-weight:780;line-height:1;letter-spacing:-0.065em">Caleb Stacy</h1>
-<span class="lab" style="white-space:nowrap">Senior content designer</span>
-</div>
-<div slot="footer" style="display:flex;justify-content:space-between;gap:20px;padding-top:8px;border-top:1px solid var(--soft-line)"><span class="lab">calebstacy@gmail.com · <a href="https://github.com/calebstacy/word-math">github.com/calebstacy/word-math</a></span><span class="lab">Language systems · content engineering · Richmond, Virginia</span></div>
-
-<p style="margin-top:6px;font-family:var(--font-sans);font-size:12.5px;line-height:1.5;letter-spacing:-0.025em;text-wrap:pretty">Senior content designer who builds language systems: measurable voice standards, terminology schemas, and the checks that hold both writers and AI agents to a target instead of an adjective. I work upstream of interface copy, stay with the work through launch, and turn the decisions worth repeating into systems people and agents can use.</p>
-
-<div class="sec"><h2>Experience</h2>
-<div class="row"><span class="lab">November 2022 – May 2026</span><div><h3 class="org">Meta</h3><p class="role">Content designer → Senior content designer</p>
-<ul class="pts">
-<li><i></i>Created Meta's content-standards infrastructure. Built Verso, the company's first domain-specific AI CD, and the platform to power it: a deterministic lint toolkit, an eleven-dimension measurement engine with per-product voice baselines computed from shipped strings, and a structured index of terminology rules, review blockers, and measurement profiles covering product surfaces including Instagram, Facebook, Messenger, WhatsApp, Quest, and Horizon.</li>
-<li><i></i>Led travel terminology across Meta Horizon OS — one vocabulary for calling, sessions, and travel across VR, mobile, and desktop surfaces — and the naming audit for the Meta Quest to Horizon OS re-brand.</li>
-<li><i></i>Established Meta Horizon's first content experimentation practice and led content designers across its major product areas, representing the org. Built the workshops and the working tools for writing hypotheses and tracking tests.</li>
-<li><i></i>Brought content designers into agentic workflows through workshops and office hours. Taught local agent setup in VS Code, then helped designers author their own reusable skill files and deterministic scripts for the rules prose guidance could never reliably enforce.</li>
-<li><i></i>Helped turn the Meta Horizon phone app from a headset utility into a repeat-use mobile product. I led content from the early journeys and a strategy one-pager written for Zuck through the launch experiments; the feed experiment lifted 28-day retention by about 15%, and the quests homepage grew daily actives by nearly 5% in its first test.</li>
-<li><i></i>Defined the strategy and jobs to be done for Horizon portals, including the metadata and progressive-disclosure framework for moving between virtual worlds. Earned VP alignment and appeared in the Meta Connect 2024 keynote.</li>
-<li><i></i>Replaced billboard-style instruction with just-in-time spatial education: controllers and spatial cues teaching one thing at the moment it became relevant. Improved first-world visits, onboarding completion, and retention. The strategy and components were adopted by the Meta Quest onboarding team.</li>
-</ul></div></div>
-<div class="row"><span class="lab">October 2021 – October 2022</span><div><h3 class="org">Digbi Health</h3><p class="role">Lead UX writer</p>
-<ul class="pts"><li><i></i>Led product content for a precision-health startup, turning microbiome science and clinical data into personalized journeys from onboarding through behavior change.</li></ul></div></div>
-<div class="row"><span class="lab">April – October 2021</span><div><h3 class="org">8x8</h3><p class="role">UX writer</p>
-<ul class="pts"><li><i></i>Made enterprise voice, video, chat, and contact-center tools understandable, including the phone administration the business owners setting it up had to get through.</li></ul></div></div>
-<div class="row"><span class="lab">2014 – 2021</span><div><h3 class="org">WVU, VCU, and Army Logistics University</h3><p class="role">Professor</p>
-<ul class="pts"><li><i></i>Seven years teaching writing and communication — the through-line to how I treat language as a system.</li></ul></div></div>
+<doc-page margin="0.55in">
+<div slot="header" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding-bottom:9px;border-bottom:1px solid var(--ink)">
+  <div>
+    <h1 style="font-size:25px;font-weight:780;line-height:1;letter-spacing:-0.065em">Caleb Stacy</h1>
+    <p style="margin-top:5px;font-family:var(--font-sans);font-size:11px;font-weight:620;letter-spacing:-0.025em">Senior content designer</p>
+  </div>
+  <div class="lab" style="display:grid;grid-template-columns:auto auto;gap:2px 12px;text-align:right">
+    <a href="mailto:calebstacy@gmail.com">calebstacy@gmail.com</a><a href="https://calebstacy.com">calebstacy.com</a>
+    <span>Richmond, Virginia</span><span>Local + remote</span>
+  </div>
 </div>
 
-<div class="sec"><h2>Public work</h2>
-<ul class="pts">
-<li><i></i><span><b>Word Math.</b> An open engine that decomposes writing into twelve computable dimensions, turns a target profile into generation constraints, then validates the result; ships a skill that teaches any coding agent to lint its own prose. <a href="https://github.com/calebstacy/word-math">github.com/calebstacy/word-math</a></span></li>
-<li><i></i><span><b>Working papers.</b> A running list of short public studies on measuring and governing product language. <a href="https://calebstacy.com/papers">calebstacy.com/papers</a></span></li>
-<li><i></i><span><b>slop-no-more.</b> A deterministic scanner for the rhetorical moves that make prose read as machine-written: a 26-family catalog, severity tiers and repair rules.</span></li>
-</ul>
-</div>
+<p class="summary">Senior content designer with 12 years across product and education. I lead complex work from early strategy through interaction language, onboarding, experimentation, and launch, then turn decisions worth repeating into standards and tools teams can use. My product experience spans social and spatial computing, health, and enterprise software.</p>
 
-<div class="sec"><h2>Tools and methods</h2>
-<div class="tags"><span>Figma</span><span>Python</span><span>Content modelling</span><span>Terminology schemas</span><span>Experiment design</span><span>Evals</span><span>Agent context</span><span>Prototyping</span><span>Research partnership</span></div>
-</div>
+<section class="sec"><h2>Experience</h2>
+  <article class="row"><span class="lab">Nov 2022 - May 2026</span><div><h3 class="org">Meta</h3><p class="role">Content designer → Senior content designer · Horizon, experimentation, and AI</p>
+    <ul class="pts">
+      <li><i></i>Built Meta's content-standards infrastructure, including Verso, the company's first domain-specific content-design agent, plus deterministic checks, an 11-dimension measurement engine with product baselines derived from shipped strings, and a structured index of terminology rules and review blockers.</li>
+      <li><i></i>Led travel terminology across Meta Horizon OS: one vocabulary for calling, sessions, and travel across VR, mobile, and desktop. Also led the naming audit for the Meta Quest-to-Horizon OS rebrand.</li>
+      <li><i></i>Established Meta Horizon's first content experimentation practice and led content designers across its major product areas. Built workshops and tools for hypotheses and test tracking, then coached designers to create reusable AI skills and deterministic checks.</li>
+      <li><i></i>Led content strategy for the Meta Horizon mobile app from early journeys through launch experiments. A feed test lifted 28-day retention by about 15%; a quests homepage increased daily active use by nearly 5% in its first test.</li>
+      <li><i></i>Defined the jobs to be done and progressive-disclosure model for Horizon Portals, introduced by Mark Zuckerberg at Meta Connect 2024. Replaced a 14-plus-lesson VR onboarding syllabus with just-in-time spatial education, improving onboarding completion by nearly 30%, weekly active use by about 20%, and new-user retention by roughly 7%.</li>
+    </ul>
+  </div></article>
+  <article class="row"><span class="lab">Oct 2021 - Oct 2022</span><div><h3 class="org">Digbi Health</h3><p class="role">Lead UX writer</p>
+    <ul class="pts"><li><i></i>Led end-to-end product content for a precision-health startup, translating microbiome, genetic, and clinical data into personalized journeys from onboarding through behavior change.</li></ul>
+  </div></article>
+  <article class="row"><span class="lab">Apr - Oct 2021</span><div><h3 class="org">8x8</h3><p class="role">UX writer</p>
+    <ul class="pts"><li><i></i>Made enterprise voice, video, chat, contact-center, and phone-administration tools understandable to the business owners who had to configure them.</li></ul>
+  </div></article>
+  <article class="row"><span class="lab">2014 - 2021</span><div><h3 class="org">WVU, VCU, and Army Logistics University</h3><p class="role">Professor</p>
+    <ul class="pts"><li><i></i>Spent seven years teaching composition and poetry at WVU and VCU, then training Army officers to turn complex, high-stakes information into clear, direct language.</li></ul>
+  </div></article>
+</section>
 
-<div class="sec"><h2>Education</h2>
-<div class="row"><span class="lab">2018</span><div><h3 class="org">MFA in Poetry</h3></div></div>
-<div class="row"><span class="lab">2014</span><div><h3 class="org">BA in English</h3></div></div>
+<div class="closing">
+  <section class="sec"><h2>Methods and tools</h2>
+    <p class="methods">Product strategy · Interaction language · Onboarding and education · Experiment design · Content modeling · Terminology and taxonomy · AI workflows and evals · Workshop facilitation · Figma · Python</p>
+  </section>
+  <section class="sec"><h2>Education</h2>
+    <div class="edu">
+      <div class="edu-item"><span class="lab">2018</span><span><b>MFA, Poetry</b><br>Virginia Commonwealth University</span></div>
+      <div class="edu-item"><span class="lab">2014</span><span><b>BA, English</b><br>West Virginia University</span></div>
+    </div>
+  </section>
 </div>
 </doc-page>
 <script src="./doc-page.js"></script>

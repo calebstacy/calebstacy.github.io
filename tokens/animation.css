@@ -1,15 +1,11 @@
 /* The motion engine, lifted from app/globals.css in the source project.
    Keyframes are the one thing a component cannot carry inline, so they live here and
    components apply them with an inline `animation` shorthand. Everything through the
-   scroll cue below is the original set, ported verbatim. The two `verso-*` entries at
-   the bottom are the one deliberate addition, added for `VersoHero` (the Verso case
-   cover's animated agent panel): it depicts a live product surface — a chat-style
-   thinking window — rather than decorating a document, so it is allowed one thing nothing
-   else here is, a streamed line's quiet shimmer. `verso-line-enter` still obeys the
-   drawn-never-faded law (a clip-path reveal plus a settle, opacity constant throughout);
-   `verso-shimmer-sweep` is the single exception to "nothing loops," scoped to the one
-   line currently streaming and never running longer than that. Nothing else in the
-   system reaches for either. */
+   scroll cue below is the original set, ported verbatim. The `verso-*` entries animate
+   the Verso cover's live evidence panel. `about-credits-marquee` is the other authored
+   addition: one deliberately slow career-credits band, pausable on hover or focus and
+   replaced by a static constellation under reduced motion. Every entrance still obeys
+   the drawn-never-faded law. */
 
 /* The copy column arriving on a stage. Defined in the source; applied where a stage's
    copy should enter rather than simply appear. */
@@ -24,28 +20,30 @@
 @keyframes stage-curtain-label-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes stage-curtain-label-out{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-14px)}}
 
-/* The character walks in from the right and settles. Opacity never changes — the clay
+/* The character walks in from the right and settles. Opacity never changes: the clay
    figure is present from the first frame, it simply has not arrived yet. */
 @keyframes character-enter{from{opacity:1;transform:translateX(110px) rotate(1deg)}to{opacity:1;transform:translateX(0) rotate(0)}}
 
-/* The case document rises over the pinned opening scene. */
+/* Retained for in-document scenes that need to rise over a pinned opening. The portfolio
+   router never combines it with StageCurtain; doing both exposes the paper background. */
 @keyframes case-enter{from{clip-path:inset(100% 0 0)}to{clip-path:inset(0 0 0)}}
 
-/* The only looping animation in the original set: 4px, on the scroll cue. */
+/* The original looping cue: 4px of vertical travel. */
 @keyframes scroll-nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
 
-/* VersoHero only, below. A reasoning line (or the self-check line that closes the
-   sequence) arriving in the thinking window: clip-path reveals it left to right and it
-   settles 6px upward into place. Opacity is never touched — same law `character-enter`
-   already keeps above. */
+/* VersoHero only. A reasoning line (or the self-check line that closes the sequence)
+   reveals left to right and settles 6px upward into place. Opacity never changes. */
 @keyframes verso-line-enter{from{clip-path:inset(0 100% 0 0);transform:translateY(6px)}to{clip-path:inset(0 0 0 0);transform:translateY(0)}}
 
-/* VersoHero only. The one line currently streaming carries a quiet highlight sweeping
-   through it — text clipped to a gradient, not a background sitting behind it — so the
-   panel reads as live rather than posted. Applied only to the active line, removed the
-   moment it settles; never runs on more than one line at a time. */
+/* VersoHero only. A quiet highlight sweeps through the one line currently streaming. */
 @keyframes verso-shimmer-sweep{0%{background-position:160% 0}100%{background-position:-60% 0}}
+
+/* About only. Two identical logo sets travel exactly half of a 200%-wide track, so the
+   second reaches the first set's starting position without a seam. */
+@keyframes about-credits-marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto !important;animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important}
+  [data-ds="about-credibility-track"]{animation:none !important;transform:none !important}
+  [data-ds="about-credibility-set"] + [data-ds="about-credibility-set"]{display:none !important}
 }

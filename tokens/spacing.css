@@ -21,7 +21,7 @@
   --panel-pad:clamp(20px,2.2vw,30px);
   --card-pad:clamp(13px,1.3vw,17px);
   --card-pad-wide:clamp(15px,1.5vw,20px);
-  --rail-pad-x:clamp(28px,3vw,42px);
+  --rail-pad-x:clamp(22px,2.1vw,30px);
   --stage-pad-x:clamp(42px,4.4vw,72px);
 
   /* the label gutter shared by every evidence component */
@@ -31,15 +31,13 @@
   --label-gutter-tight:clamp(38px,3.2vw,52px); /* @kind spacing */
 
   /* fixed chrome */
-  --rail-width:clamp(360px,29vw,440px); /* @kind spacing */
+  --rail-width:clamp(286px,22vw,316px); /* @kind spacing */
   --frame-inset:12px;
   --frame-max:1680px;
   --topbar-height:60px;
   --chapter-nav-height:56px;
-  --utility-nav-height:62px;
-  /* the compact phone identity bar — same value as the source's --mobile-global-bar */
-  --mobile-bar-height:56px;
-  --spine-item-min:82px;
+  /* the phone identity and index control */
+  --mobile-bar-height:64px;
   /* No --card-min-height. A cell is as tall as what it holds; a floor is dead ground by another name. */
   --figure-min-height:360px;
   --hairline:1px;

@@ -440,7 +440,7 @@ function App() {
   }, {
     title: "How Netflix names its shelves",
     href: "../netflix-shelves/index.html",
-    body: "A public catalog of shelf and genre names, including Top 10; the rules they follow and the login boundary the crawl did not cross."
+    body: "A public catalog of shelf, genre, and Top 10 names, read into four deterministic rules and the records they support."
   }, {
     title: "Netflix and Discord, measured",
     href: "../papers/two-brands/index.html",

@@ -428,7 +428,7 @@ function App() {
     }
   }, "Netflix's public product taxonomy uses the movie/show family ", fmtN(productContentUnits.movie_show), " times against ", fmtN(productContentUnits.series_film), " uses of series/film. ", /*#__PURE__*/React.createElement("a", {
     href: "../netflix-shelves/index.html"
-  }, "The companion paper"), " shows the naming grammar and the login boundary the crawl did not cross."), /*#__PURE__*/React.createElement(DocFigure, {
+  }, "The companion paper"), " reads the full public catalog into four deterministic naming rules and derives records from them."), /*#__PURE__*/React.createElement(DocFigure, {
     kind: "table",
     wide: true,
     caption: "The content-unit family, every variant and where it's actually used.",

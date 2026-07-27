@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"CalebStacyPortfolioDesignSystem_4a3883","components":[{"name":"ScrollCue","sourcePath":"components/actions/ScrollCue.jsx"},{"name":"StageAction","sourcePath":"components/actions/StageAction.jsx"},{"name":"CaseMeta","sourcePath":"components/case/CaseMeta.jsx"},{"name":"CaseNav","sourcePath":"components/case/CaseNav.jsx"},{"name":"CaseQuote","sourcePath":"components/case/CaseQuote.jsx"},{"name":"CaseSection","sourcePath":"components/case/CaseSection.jsx"},{"name":"MetricStrip","sourcePath":"components/case/MetricStrip.jsx"},{"name":"StoryBeat","sourcePath":"components/case/StoryBeat.jsx"},{"name":"VersoHero","sourcePath":"components/case/VersoHero.jsx"},{"name":"DocFigure","sourcePath":"components/document/DocFigure.jsx"},{"name":"Endnotes","sourcePath":"components/document/Endnotes.jsx"},{"name":"NoteRef","sourcePath":"components/document/Endnotes.jsx"},{"name":"References","sourcePath":"components/document/Endnotes.jsx"},{"name":"Finding","sourcePath":"components/document/Finding.jsx"},{"name":"PaperTable","sourcePath":"components/document/PaperTable.jsx"},{"name":"Report","sourcePath":"components/document/Report.jsx"},{"name":"ReportSection","sourcePath":"components/document/ReportSection.jsx"},{"name":"ArtifactFigure","sourcePath":"components/evidence/ArtifactFigure.jsx"},{"name":"BeforeAfter","sourcePath":"components/evidence/BeforeAfter.jsx"},{"name":"CaptureFigure","sourcePath":"components/evidence/CaptureFigure.jsx"},{"name":"CardGrid","sourcePath":"components/evidence/CardGrid.jsx"},{"name":"DataTable","sourcePath":"components/evidence/DataTable.jsx"},{"name":"DisciplineVenn","sourcePath":"components/evidence/DisciplineVenn.jsx"},{"name":"EvidenceTrace","sourcePath":"components/evidence/EvidenceTrace.jsx"},{"name":"FactsPanel","sourcePath":"components/evidence/FactsPanel.jsx"},{"name":"FingerprintBars","sourcePath":"components/evidence/FingerprintBars.jsx"},{"name":"GateRun","sourcePath":"components/evidence/GateRun.jsx"},{"name":"GridCard","sourcePath":"components/evidence/GridCard.jsx"},{"name":"IndexRows","sourcePath":"components/evidence/IndexRows.jsx"},{"name":"Ledger","sourcePath":"components/evidence/Ledger.jsx"},{"name":"Outcome","sourcePath":"components/evidence/Outcome.jsx"},{"name":"Pipeline","sourcePath":"components/evidence/Pipeline.jsx"},{"name":"PullQuote","sourcePath":"components/evidence/PullQuote.jsx"},{"name":"ResearchGrid","sourcePath":"components/evidence/ResearchGrid.jsx"},{"name":"ResumeEntry","sourcePath":"components/evidence/ResumeEntry.jsx"},{"name":"RuleSplit","sourcePath":"components/evidence/RuleSplit.jsx"},{"name":"SourceMap","sourcePath":"components/evidence/SourceMap.jsx"},{"name":"TenGrid","sourcePath":"components/evidence/TenGrid.jsx"},{"name":"Toolchain","sourcePath":"components/evidence/Toolchain.jsx"},{"name":"VoiceProfile","sourcePath":"components/evidence/VoiceProfile.jsx"},{"name":"VoiceScoreRing","sourcePath":"components/evidence/VoiceScoreRing.jsx"},{"name":"Eyebrow","sourcePath":"components/foundation/Eyebrow.jsx"},{"name":"LineArrow","sourcePath":"components/foundation/LineArrow.jsx"},{"name":"ProvenanceNote","sourcePath":"components/foundation/ProvenanceNote.jsx"},{"name":"RegistrationMark","sourcePath":"components/foundation/RegistrationMark.jsx"},{"name":"Tag","sourcePath":"components/foundation/Tag.jsx"},{"name":"Panel","sourcePath":"components/layout/Panel.jsx"},{"name":"PanelRow","sourcePath":"components/layout/Panel.jsx"},{"name":"PaperFrame","sourcePath":"components/layout/PaperFrame.jsx"},{"name":"Stage","sourcePath":"components/layout/Stage.jsx"},{"name":"StageCopy","sourcePath":"components/layout/StageCopy.jsx"},{"name":"StageCurtain","sourcePath":"components/layout/StageCurtain.jsx"},{"name":"StorySection","sourcePath":"components/layout/StorySection.jsx"},{"name":"ChapterNav","sourcePath":"components/navigation/ChapterNav.jsx"},{"name":"IndexRail","sourcePath":"components/navigation/IndexRail.jsx"},{"name":"MobileIdentityBar","sourcePath":"components/navigation/MobileIdentityBar.jsx"},{"name":"MobileMenu","sourcePath":"components/navigation/MobileMenu.jsx"},{"name":"ProjectSpineItem","sourcePath":"components/navigation/ProjectSpineItem.jsx"},{"name":"UtilityNav","sourcePath":"components/navigation/UtilityNav.jsx"}],"sourceHashes":{"components/actions/ScrollCue.jsx":"8bb658147fda","components/actions/StageAction.jsx":"5a98543af3b5","components/evidence/ArtifactFigure.jsx":"127fb9077aa2","components/evidence/CardGrid.jsx":"803ac13ab7bd","components/evidence/DataTable.jsx":"e463933290ef","components/evidence/FactsPanel.jsx":"d1281305f605","components/evidence/GridCard.jsx":"fc995a72a9ed","components/evidence/Ledger.jsx":"30ffa1dd140d","components/evidence/Outcome.jsx":"87e9bb425f06","components/evidence/Pipeline.jsx":"0a78361dc86f","components/evidence/PullQuote.jsx":"b00277528fb2","components/evidence/ResumeEntry.jsx":"022a5e5c0dec","components/evidence/SourceMap.jsx":"223f6d8e812b","components/evidence/TenGrid.jsx":"189c24069a2b","components/foundation/Eyebrow.jsx":"339d08d17838","components/foundation/LineArrow.jsx":"d1caad2e912f","components/foundation/ProvenanceNote.jsx":"b8816411ea6e","components/foundation/RegistrationMark.jsx":"75a36243789a","components/foundation/Tag.jsx":"5778ff0b56c7","components/layout/PaperFrame.jsx":"0d2965baa9ba","components/layout/Stage.jsx":"1e5269281805","components/layout/StageCopy.jsx":"007e4ad0a85a","components/layout/StageCurtain.jsx":"2fe263912177","components/layout/StorySection.jsx":"e97b2c28af96","components/navigation/ChapterNav.jsx":"c1cb8c701f50","components/navigation/IndexRail.jsx":"84d0c61ad494","components/navigation/ProjectSpineItem.jsx":"2faf505c2297","components/navigation/UtilityNav.jsx":"49225082ad7f","ui_kits/portfolio/app.jsx":"38938eb8d687","ui_kits/portfolio/doc-page.js":"ef8ab2118053","ui_kits/portfolio/kit-data.js":"c4e4a093b428","ui_kits/portfolio/scene-visual.jsx":"6cff7cdfe351","ui_kits/portfolio/screen-project.jsx":"acc56b681e3b","ui_kits/portfolio/screen-utility.jsx":"1bdbe5e1668c","components/evidence/RuleSplit.jsx":"df64f7a3e979","components/evidence/ResearchGrid.jsx":"7ac09d17bc27","components/evidence/FingerprintBars.jsx":"662c407f2939","components/evidence/EvidenceTrace.jsx":"1c52a31cba97","components/evidence/IndexRows.jsx":"d1cf16db6e0d","components/evidence/DisciplineVenn.jsx":"e1565f7822a0","components/evidence/VoiceScoreRing.jsx":"f1d9d92fe57c","components/evidence/BeforeAfter.jsx":"acae0740ee64","components/evidence/VoiceProfile.jsx":"3760a08b0d90","components/layout/Panel.jsx":"5013c544891a","components/evidence/GateRun.jsx":"fc67aaf9e806","components/evidence/CaptureFigure.jsx":"d015bc84a966","components/document/Report.jsx":"d526bb6cda51","components/document/ReportSection.jsx":"1131f245e776","components/document/DocFigure.jsx":"ad268702d487","components/document/Endnotes.jsx":"70804d8c8006","components/evidence/Toolchain.jsx":"5e1d68775f89","components/document/Finding.jsx":"72c749fc75c2","components/document/PaperTable.jsx":"f6bb51014d4e","components/case/CaseSection.jsx":"09e3d510dfaa","components/case/StoryBeat.jsx":"3b7ad214cf82","components/case/CaseQuote.jsx":"851b5a124fe4","components/case/MetricStrip.jsx":"5f86becb4df6","components/case/CaseNav.jsx":"e12f0f5468cf","components/navigation/MobileIdentityBar.jsx":"c91c97cc209d","components/navigation/MobileMenu.jsx":"7d46e46155d4","components/case/CaseMeta.jsx":"af757cdf13ec","components/case/VersoHero.jsx":"3f5cee78fd49"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":4,"namespace":"CalebStacyPortfolioDesignSystem_4a3883","components":[{"name":"ScrollCue","sourcePath":"components/actions/ScrollCue.jsx"},{"name":"StageAction","sourcePath":"components/actions/StageAction.jsx"},{"name":"CaseMeta","sourcePath":"components/case/CaseMeta.jsx"},{"name":"CaseNav","sourcePath":"components/case/CaseNav.jsx"},{"name":"CaseQuote","sourcePath":"components/case/CaseQuote.jsx"},{"name":"CaseSection","sourcePath":"components/case/CaseSection.jsx"},{"name":"MetricStrip","sourcePath":"components/case/MetricStrip.jsx"},{"name":"StoryBeat","sourcePath":"components/case/StoryBeat.jsx"},{"name":"VersoHero","sourcePath":"components/case/VersoHero.jsx"},{"name":"DocFigure","sourcePath":"components/document/DocFigure.jsx"},{"name":"Endnotes","sourcePath":"components/document/Endnotes.jsx"},{"name":"NoteRef","sourcePath":"components/document/Endnotes.jsx"},{"name":"References","sourcePath":"components/document/Endnotes.jsx"},{"name":"Finding","sourcePath":"components/document/Finding.jsx"},{"name":"PaperTable","sourcePath":"components/document/PaperTable.jsx"},{"name":"Report","sourcePath":"components/document/Report.jsx"},{"name":"ReportSection","sourcePath":"components/document/ReportSection.jsx"},{"name":"ArtifactFigure","sourcePath":"components/evidence/ArtifactFigure.jsx"},{"name":"BeforeAfter","sourcePath":"components/evidence/BeforeAfter.jsx"},{"name":"CaptureFigure","sourcePath":"components/evidence/CaptureFigure.jsx"},{"name":"CardGrid","sourcePath":"components/evidence/CardGrid.jsx"},{"name":"DataTable","sourcePath":"components/evidence/DataTable.jsx"},{"name":"DisciplineVenn","sourcePath":"components/evidence/DisciplineVenn.jsx"},{"name":"EvidenceTrace","sourcePath":"components/evidence/EvidenceTrace.jsx"},{"name":"FactsPanel","sourcePath":"components/evidence/FactsPanel.jsx"},{"name":"FingerprintBars","sourcePath":"components/evidence/FingerprintBars.jsx"},{"name":"GateRun","sourcePath":"components/evidence/GateRun.jsx"},{"name":"GridCard","sourcePath":"components/evidence/GridCard.jsx"},{"name":"IndexRows","sourcePath":"components/evidence/IndexRows.jsx"},{"name":"Ledger","sourcePath":"components/evidence/Ledger.jsx"},{"name":"Outcome","sourcePath":"components/evidence/Outcome.jsx"},{"name":"Pipeline","sourcePath":"components/evidence/Pipeline.jsx"},{"name":"PullQuote","sourcePath":"components/evidence/PullQuote.jsx"},{"name":"ResearchGrid","sourcePath":"components/evidence/ResearchGrid.jsx"},{"name":"ResumeEntry","sourcePath":"components/evidence/ResumeEntry.jsx"},{"name":"RuleSplit","sourcePath":"components/evidence/RuleSplit.jsx"},{"name":"SourceMap","sourcePath":"components/evidence/SourceMap.jsx"},{"name":"TenGrid","sourcePath":"components/evidence/TenGrid.jsx"},{"name":"Toolchain","sourcePath":"components/evidence/Toolchain.jsx"},{"name":"VoiceProfile","sourcePath":"components/evidence/VoiceProfile.jsx"},{"name":"VoiceScoreRing","sourcePath":"components/evidence/VoiceScoreRing.jsx"},{"name":"Eyebrow","sourcePath":"components/foundation/Eyebrow.jsx"},{"name":"LineArrow","sourcePath":"components/foundation/LineArrow.jsx"},{"name":"ProvenanceNote","sourcePath":"components/foundation/ProvenanceNote.jsx"},{"name":"RegistrationMark","sourcePath":"components/foundation/RegistrationMark.jsx"},{"name":"Tag","sourcePath":"components/foundation/Tag.jsx"},{"name":"Panel","sourcePath":"components/layout/Panel.jsx"},{"name":"PanelRow","sourcePath":"components/layout/Panel.jsx"},{"name":"PaperFrame","sourcePath":"components/layout/PaperFrame.jsx"},{"name":"Stage","sourcePath":"components/layout/Stage.jsx"},{"name":"StageCopy","sourcePath":"components/layout/StageCopy.jsx"},{"name":"StageCurtain","sourcePath":"components/layout/StageCurtain.jsx"},{"name":"StorySection","sourcePath":"components/layout/StorySection.jsx"},{"name":"ChapterNav","sourcePath":"components/navigation/ChapterNav.jsx"},{"name":"IndexRail","sourcePath":"components/navigation/IndexRail.jsx"},{"name":"MobileIdentityBar","sourcePath":"components/navigation/MobileIdentityBar.jsx"},{"name":"MobileMenu","sourcePath":"components/navigation/MobileMenu.jsx"},{"name":"ProjectSpineItem","sourcePath":"components/navigation/ProjectSpineItem.jsx"},{"name":"UtilityNav","sourcePath":"components/navigation/UtilityNav.jsx"}],"sourceHashes":{"components/actions/ScrollCue.jsx":"8bb658147fda","components/actions/StageAction.jsx":"5a98543af3b5","components/evidence/ArtifactFigure.jsx":"127fb9077aa2","components/evidence/CardGrid.jsx":"803ac13ab7bd","components/evidence/DataTable.jsx":"e463933290ef","components/evidence/FactsPanel.jsx":"d1281305f605","components/evidence/GridCard.jsx":"fc995a72a9ed","components/evidence/Ledger.jsx":"30ffa1dd140d","components/evidence/Outcome.jsx":"87e9bb425f06","components/evidence/Pipeline.jsx":"0a78361dc86f","components/evidence/PullQuote.jsx":"b00277528fb2","components/evidence/ResumeEntry.jsx":"022a5e5c0dec","components/evidence/SourceMap.jsx":"223f6d8e812b","components/evidence/TenGrid.jsx":"189c24069a2b","components/foundation/Eyebrow.jsx":"339d08d17838","components/foundation/LineArrow.jsx":"d1caad2e912f","components/foundation/ProvenanceNote.jsx":"b8816411ea6e","components/foundation/RegistrationMark.jsx":"75a36243789a","components/foundation/Tag.jsx":"5778ff0b56c7","components/layout/PaperFrame.jsx":"0d2965baa9ba","components/layout/Stage.jsx":"1e5269281805","components/layout/StageCopy.jsx":"007e4ad0a85a","components/layout/StageCurtain.jsx":"2fe263912177","components/layout/StorySection.jsx":"e97b2c28af96","components/navigation/ChapterNav.jsx":"c1cb8c701f50","components/navigation/IndexRail.jsx":"82250570440b","components/navigation/ProjectSpineItem.jsx":"072cc8885ec3","components/navigation/UtilityNav.jsx":"d680f52dcd23","components/evidence/RuleSplit.jsx":"df64f7a3e979","components/evidence/ResearchGrid.jsx":"7ac09d17bc27","components/evidence/FingerprintBars.jsx":"662c407f2939","components/evidence/EvidenceTrace.jsx":"1c52a31cba97","components/evidence/IndexRows.jsx":"d1cf16db6e0d","components/evidence/DisciplineVenn.jsx":"e1565f7822a0","components/evidence/VoiceScoreRing.jsx":"f1d9d92fe57c","components/evidence/BeforeAfter.jsx":"acae0740ee64","components/evidence/VoiceProfile.jsx":"3760a08b0d90","components/layout/Panel.jsx":"5013c544891a","components/evidence/GateRun.jsx":"fc67aaf9e806","components/evidence/CaptureFigure.jsx":"d015bc84a966","components/document/Report.jsx":"d526bb6cda51","components/document/ReportSection.jsx":"1131f245e776","components/document/DocFigure.jsx":"ad268702d487","components/document/Endnotes.jsx":"70804d8c8006","components/evidence/Toolchain.jsx":"5e1d68775f89","components/document/Finding.jsx":"72c749fc75c2","components/document/PaperTable.jsx":"f6bb51014d4e","components/case/CaseSection.jsx":"09e3d510dfaa","components/case/StoryBeat.jsx":"3b7ad214cf82","components/case/CaseQuote.jsx":"851b5a124fe4","components/case/MetricStrip.jsx":"5f86becb4df6","components/case/CaseNav.jsx":"e12f0f5468cf","components/navigation/MobileIdentityBar.jsx":"e8e721c45205","components/navigation/MobileMenu.jsx":"923357937138","components/case/CaseMeta.jsx":"af757cdf13ec","components/case/VersoHero.jsx":"344f09715365"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -1435,1950 +1435,8 @@ function ChapterNav({
 Object.assign(__ds_scope, { ChapterNav });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ChapterNav.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/ProjectSpineItem.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-/** One row of the project spine. Active state is inversion: the row becomes an ink block, reversed out. */
-function ProjectSpineItem({
-  number,
-  title,
-  statement,
-  active = false,
-  onSelect,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("button", _extends({
-    type: "button",
-    className: "ds-spine-item",
-    onClick: onSelect,
-    "aria-current": active ? "page" : undefined,
-    style: {
-      position: "relative",
-      display: "flex",
-      width: "100%",
-      minHeight: "var(--spine-item-min)",
-      overflow: "hidden",
-      flex: "1 1 0",
-      flexGrow: active ? 1.7 : 1,
-      border: 0,
-      borderBottom: "1px solid var(--ink)",
-      textAlign: "left",
-      cursor: "pointer",
-      background: active ? "var(--ink)" : "transparent",
-      color: active ? "var(--paper-bright)" : "var(--ink)",
-      transition: "flex-grow var(--dur-stage) var(--ease-authored), background var(--dur-base) var(--ease-authored), color var(--dur-base) var(--ease-authored)",
-      ...style
-    }
-  }, rest), /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "grid",
-      gridTemplateColumns: "46px minmax(0,1fr)",
-      gap: "var(--space-3)",
-      alignItems: "start",
-      flex: "1 1 auto",
-      padding: "var(--space-5) clamp(20px,2.6vw,32px)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      paddingTop: 4,
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 15,
-      fontWeight: 700,
-      lineHeight: 0.9,
-      letterSpacing: "-0.05em",
-      transition: "color var(--dur-base) var(--ease-authored)"
-    }
-  }, number), /*#__PURE__*/React.createElement("span", {
-    style: {
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("strong", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: "var(--display-s-weight)",
-      lineHeight: "var(--display-s-leading)",
-      letterSpacing: "var(--display-s-tracking)"
-    }
-  }, title), /*#__PURE__*/React.createElement("small", {
-    style: {
-      display: "block",
-      maxWidth: 265,
-      overflow: "hidden",
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 12,
-      fontWeight: 480,
-      lineHeight: 1.35,
-      letterSpacing: "-0.025em",
-      maxHeight: active ? 60 : 0,
-      marginTop: active ? 9 : 0,
-      opacity: active ? 1 : 0,
-      transition: "max-height var(--dur-slow) var(--ease-authored), margin var(--dur-slow) var(--ease-authored), opacity var(--dur-tap) var(--ease-authored)"
-    }
-  }, statement))));
-}
-Object.assign(__ds_scope, { ProjectSpineItem });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ProjectSpineItem.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/UtilityNav.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-/** Equal-width tab row. The active tab inverts to ink, matching the spine. */
-function UtilityNav({
-  items = [],
-  active,
-  onSelect,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("nav", _extends({
-    style: {
-      minHeight: "var(--utility-nav-height)",
-      display: "grid",
-      gridTemplateColumns: "repeat(" + Math.max(items.length, 1) + ",1fr)",
-      borderBottom: "1px solid var(--ink)",
-      ...style
-    }
-  }, rest), items.map((item, i) => {
-    const on = item.id === active;
-    return /*#__PURE__*/React.createElement("button", {
-      key: item.id,
-      type: "button",
-      className: "ds-tab",
-      onClick: () => onSelect && onSelect(item.id),
-      "aria-current": on ? "page" : undefined,
-      style: {
-        position: "relative",
-        padding: "0 10px",
-        border: 0,
-        borderRight: i === items.length - 1 ? 0 : "1px solid " + (on ? "var(--ink)" : "var(--soft-line)"),
-        background: on ? "var(--ink)" : "transparent",
-        color: on ? "var(--paper-bright)" : "var(--ink)",
-        fontFamily: "var(--font-sans)",
-        fontSize: "var(--ui-size)",
-        fontWeight: "var(--ui-weight)",
-        letterSpacing: "var(--ui-tracking)",
-        cursor: "pointer",
-        transition: "background var(--dur-base) var(--ease-authored), color var(--dur-base) var(--ease-authored)"
-      }
-    }, item.label);
-  }));
-}
-Object.assign(__ds_scope, { UtilityNav });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/UtilityNav.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/IndexRail.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-/** The fixed left rail: identity, thesis, project spine, utilities, contact. The only navigation. */
-function IndexRail({
-  name = "Caleb Stacy",
-  title = "Senior content designer",
-  differentiator = "Product systems · content engineering",
-  thesis,
-  projects = [],
-  active,
-  onSelect,
-  utilities = [],
-  location,
-  contactLabel = "Contact",
-  contactHref,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("aside", _extends({
-    "aria-label": "Identity and portfolio navigation",
-    style: {
-      position: "relative",
-      zIndex: 20,
-      minWidth: 0,
-      minHeight: 0,
-      display: "flex",
-      flexDirection: "column",
-      borderRight: "1px solid var(--ink)",
-      background: "var(--paper)",
-      ...style
-    }
-  }, rest), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: () => onSelect && onSelect(utilities[0] ? utilities[0].id : "about"),
-    style: {
-      width: "100%",
-      display: "block",
-      padding: "clamp(30px,4.7vh,52px) var(--rail-pad-x) 21px",
-      border: 0,
-      background: "transparent",
-      textAlign: "left",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--wordmark-size)",
-      fontWeight: "var(--wordmark-weight)",
-      lineHeight: "var(--wordmark-leading)",
-      letterSpacing: "var(--wordmark-tracking)"
-    }
-  }, name), /*#__PURE__*/React.createElement("small", {
-    style: {
-      display: "block",
-      marginTop: "var(--space-3)",
-      fontFamily: "var(--font-mono)",
-      fontSize: "var(--eyebrow-size)",
-      fontWeight: 560,
-      lineHeight: 1.4,
-      letterSpacing: "-0.02em"
-    }
-  }, title, /*#__PURE__*/React.createElement("i", {
-    style: {
-      display: "block",
-      color: "var(--muted-ink)",
-      fontStyle: "normal"
-    }
-  }, differentiator))), thesis && /*#__PURE__*/React.createElement("p", {
-    style: {
-      maxWidth: 360,
-      margin: 0,
-      padding: "0 var(--rail-pad-x) clamp(22px,3.5vh,34px)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-s-size)",
-      lineHeight: 1.45,
-      letterSpacing: "-0.035em"
-    }
-  }, thesis), /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Selected work",
-    style: {
-      minHeight: 0,
-      display: "flex",
-      flex: "1 1 auto",
-      flexDirection: "column",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
-    key: p.id,
-    number: p.number,
-    title: p.title,
-    statement: p.statement,
-    active: active === p.id,
-    onSelect: () => onSelect && onSelect(p.id)
-  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
-    items: utilities,
-    active: active,
-    onSelect: onSelect
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      minHeight: 47,
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "var(--space-5)",
-      alignItems: "center",
-      padding: "0 clamp(24px,2.6vw,38px)",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      lineHeight: 1.3
-    }
-  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
-    href: contactHref,
-    style: {
-      flex: "0 0 auto",
-      paddingBottom: 2,
-      borderBottom: "1px solid var(--signal)",
-      color: "var(--ink)",
-      fontSize: 10,
-      fontWeight: 700,
-      textDecoration: "none"
-    }
-  }, contactLabel)));
-}
-Object.assign(__ds_scope, { IndexRail });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/IndexRail.jsx", error: String((e && e.message) || e) }); }
-
-// ui_kits/portfolio/app.jsx
-try { (() => {
-const {
-  PaperFrame,
-  IndexRail,
-  StageCurtain
-} = window.CalebStacyPortfolioDesignSystem_4a3883;
-
-/* Tolerates a bundle that has not recompiled with StageCurtain yet. */
-const Curtain = StageCurtain || (() => null);
-const COVER_MS = 380;
-const REVEAL_MS = 560;
-function PortfolioApp() {
-  const data = window.PORTFOLIO;
-  const [active, setActive] = React.useState("about");
-  const [curtain, setCurtain] = React.useState({
-    state: "idle",
-    direction: "forward",
-    label: ""
-  });
-  const scrollRef = React.useRef(null);
-  const timers = React.useRef([]);
-  React.useEffect(() => {
-    if (scrollRef.current) scrollRef.current.scrollTop = 0;
-  }, [active]);
-  React.useEffect(() => () => timers.current.forEach(clearTimeout), []);
-
-  /* Documents are ordered so the curtain can travel the way the reader is moving:
-     About, the five projects, then Résumé. */
-  const order = ["about", ...data.projects.map(p => p.id), "resume"];
-  const labelFor = id => {
-    const project = data.projects.find(p => p.id === id);
-    if (project) return project.title;
-    return id === "resume" ? "Résumé" : "About";
-  };
-  const go = id => {
-    if (id === active) return;
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setActive(id);
-      return;
-    }
-    const direction = order.indexOf(id) < order.indexOf(active) ? "backward" : "forward";
-    timers.current.forEach(clearTimeout);
-    setCurtain({
-      state: "covering",
-      direction,
-      label: labelFor(id)
-    });
-    timers.current = [setTimeout(() => {
-      setActive(id);
-      setCurtain(c => ({
-        ...c,
-        state: "revealing"
-      }));
-    }, COVER_MS), setTimeout(() => setCurtain(c => ({
-      ...c,
-      state: "idle"
-    })), COVER_MS + REVEAL_MS)];
-  };
-  const project = data.projects.find(p => p.id === active);
-  const nextProject = project ? data.projects[(data.projects.findIndex(p => p.id === active) + 1) % data.projects.length] : null;
-  return /*#__PURE__*/React.createElement(PaperFrame, null, /*#__PURE__*/React.createElement(IndexRail, {
-    name: data.identity.name,
-    title: data.identity.title,
-    differentiator: data.identity.differentiator,
-    thesis: data.identity.thesis,
-    projects: data.projects.map(p => ({
-      id: p.id,
-      number: p.number,
-      title: p.title,
-      statement: p.statement
-    })),
-    active: active,
-    onSelect: go,
-    utilities: [{
-      id: "about",
-      label: "About"
-    }, {
-      id: "resume",
-      label: "Résumé"
-    }],
-    location: data.identity.location,
-    contactHref: "mailto:calebstacy@gmail.com"
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: "relative",
-      minWidth: 0,
-      minHeight: 0,
-      overflow: "hidden"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    ref: scrollRef,
-    style: {
-      position: "absolute",
-      inset: 0,
-      overflowY: "auto",
-      background: "var(--paper)"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    key: active,
-    style: {
-      animation: "case-enter var(--dur-case) var(--ease-authored) both"
-    }
-  }, active === "about" && /*#__PURE__*/React.createElement(AboutDocument, {
-    data: data,
-    onWork: () => go(data.projects[0].id)
-  }), active === "resume" && /*#__PURE__*/React.createElement(ResumeDocument, {
-    data: data
-  }), project && /*#__PURE__*/React.createElement(ProjectDocument, {
-    key: project.id,
-    project: project,
-    chapters: data.chapters,
-    nextProject: nextProject,
-    onNext: () => go(nextProject.id),
-    scrollRef: scrollRef
-  }))), /*#__PURE__*/React.createElement(Curtain, {
-    state: curtain.state,
-    direction: curtain.direction,
-    label: curtain.label
-  })));
-}
-Object.assign(window, {
-  PortfolioApp
-});
-})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/portfolio/app.jsx", error: String((e && e.message) || e) }); }
-
-// ui_kits/portfolio/doc-page.js
-try { (() => {
-// @ds-adherence-ignore -- omelette starter scaffold (raw elements/hex/px by design)
-// Copied omelette starter. Re-running copy_starter_component with this kind overwrites this file with the latest version (page content is unaffected).
-/* BEGIN USAGE */
-/**
- * <doc-page> — paged-document shell for printable HTML.
- *
- * FIRST, decide how the document paginates — up front, before building:
- *
- * - FLOWING document (the default): write the whole document as one
- *   normal HTML flow inside <doc-page>; the browser's print engine
- *   splits it onto pages at export. Use for long-form documents with a
- *   single text flow: reports, memos, letters, essays.
- * - EXPLICIT pagination: a fixed set of pre-paginated pages, one
- *   <section class="page"> child per page. Use when the user asks for a
- *   specific page count, or the design implies one: a one-page resume, a
- *   two-sided flier, a poster, a certificate, a brochure — any richly
- *   laid-out document without a single text flow.
- * - If in doubt, ask the user as part of the build.
- *
- * PAGE SIZING — paper differs by country (letter vs A4), so the printed
- * sheet is not one fixed truth:
- * - FLOWING documents pin NO paper size: the print engine paginates
- *   onto the user's real paper, and the content reflows to it.
- * - EXPLICITLY PAGINATED documents print each page at a FIXED page box
- *   with overflow hidden — letter by default, size="a4" for a clearly
- *   metric user, the user's chosen paper when they export. Design each
- *   page to FILL that box, fitting letter and A4 alike without overlap.
- * - width/height pin an explicit fixed size, ONLY when the user gives
- *   one.
- * Never write your own @page rule or hard-code paper dimensions in the
- * content.
- *
- * Sizing modes (attributes):
- *   (none)                      — portrait: flowing docs use the user's
- *           paper; explicitly paginated pages use the named size box
- *           (letter unless size="a4")
- *   orientation="landscape"     — the same, landscape
- *   width / height              — explicit fixed size, ONLY when the user
- *           gives one (e.g. width="22in" height="30in" for a 22×30
- *           poster): the page IS the design's size, printed at true
- *           dimensions (or scaled onto the user's paper at print time).
- *           Any absolute CSS length: px/in/mm/cm/pt/pc.
- * The component announces the chosen mode to the host app at runtime (a
- * meta tag it injects), so the print path can inject the user's true
- * paper size.
- *
- * On screen the document renders on a desk background: a flowing
- * document as one tall scrolling sheet (Google Docs' pageless view);
- * explicitly paginated documents as one card per page.
- *
- * EXPLICIT pagination usage:
- *   <style>doc-page:not(:defined){visibility:hidden}</style>
- *   <doc-page>
- *     <section class="page" id="p1">…one page's design…</section>
- *     <section class="page" id="p2">…</section>
- *   </doc-page>
- *   <script src="doc-page.js"></script>
- * How the page box works, concretely: each .page prints as ONE full-bleed
- * sheet at a FIXED physical size — letter by default (set size="a4" for
- * a clearly metric user), the user's chosen paper when they export —
- * with overflow hidden. Nothing scrolls and nothing reflows onto a next
- * sheet: content that misses the box is CLIPPED. Design each page to
- * FILL that page box, and to fit it — letter and A4 alike — without
- * overlap. Each page is a size container; don't size anything in
- * viewport units (they track the window, not the page), and never set
- * width or height on the .page section itself (the component sizes the
- * page box; an authored height like 100% is meaningless at print and is
- * overridden). The component owns the page box, the screen card chrome,
- * and the page breaks (never add your own break-before/after). Don't mix
- * .page sections with flowing content or header/footer slots in the same
- * document.
- *
- * FLOWING usage:
- *   <style>doc-page:not(:defined){visibility:hidden}</style>
- *   <doc-page margin="0.75in">
- *     <h1>Title</h1>
- *     <p>…body…</p>
- *   </doc-page>
- *   <script src="doc-page.js"></script>
- * There is no manual page-splitting — the browser's print engine
- * paginates at export. Standard break-hygiene rules (`break-inside:
- * avoid` on figures, code blocks, images and table rows; `orphans/
- * widows: 3`) are applied so paragraphs and groups split cleanly. On
- * screen and at print, headings default to `text-wrap: balance` and
- * body text to `text-wrap: pretty`; the defaults have zero specificity,
- * so any text-wrap you declare wins.
- *
- * Other attributes:
- *   size    — letter | a4 | legal (default letter). Flowing documents:
- *           preview proportion only — it does NOT pin their printed
- *           paper (the print dialog's paper governs); leave it alone
- *           there. Explicitly paginated documents: it sets the page box
- *           the cards and the pinned @page share (the export dialog's
- *           choice overrides both at print) — set size="a4" for a
- *           clearly metric user. Scaled-fit: names the sheet the fit is
- *           computed against, same a4-for-metric-users advice.
- *   content-width / content-height — the design's own fixed dimensions
- *           (CSS lengths), for scaling a fixed-size design ONTO the
- *           named sheet: content lays out at exactly this size, and the
- *           component scales it to fit that sheet's printable area
- *           (centered horizontally, top-aligned; the export dialog
- *           re-fits to the user's actual paper choice where available).
- *           Both must be set; they do not change the page box. For pages
- *           WITHOUT running header/footer slots.
- *   margin  — printable inset on every page of a FLOWING document
- *           (default 0.75in); margin="0" makes pages full-bleed.
- *           Explicitly paginated pages are always full-bleed.
- *
- * Running header/footer (flowing documents only): give an element
- * `slot="header"` or `slot="footer"` and it repeats on every printed
- * page via `position: fixed`. To keep body text from sliding under it,
- * the component prints inside a single-cell table whose <thead>/<tfoot>
- * are spacers sized to the header/footer height — browsers repeat
- * thead/tfoot on every page, so each sheet's content starts below the
- * header and ends above the footer. On screen the header/footer render
- * once at the top/bottom of the sheet.
- *
- * At print the component injects `@page { margin: 0 }` (which leaves
- * Chrome no margin box to draw its date/URL/page-count header in) and
- * moves the visual margin onto the sheet's own padding. It also marks
- * the document as owning its print CSS (a
- * `meta[name="omelette-owns-print"]` it injects at runtime), so the
- * PDF export never injects page-geometry CSS of its own on top.
- *
- * Print best practices for the content you author:
- * - Multi-column text: use CSS columns (`column-count` +
- *   `column-gap`), never side-by-side flex/grid columns — only real
- *   CSS columns flow and break across pages. `column-span: all` lets
- *   a heading span the columns; `hyphens: auto` (needs `lang` on
- *   the html element) keeps narrow columns readable.
- * - Page breaks in flowing documents: `break-before: page` on an
- *   element that must start a new page (a chapter, an appendix). Add
- *   your own kept-together blocks (callouts, stat tiles, cards) to a
- *   `break-inside: avoid` rule, and keep each one shorter than a page.
- * - Extend `orphans: 3; widows: 3` to any custom text blocks you add
- *   (p and li are covered by default).
- * - Give long tables a <thead> — browsers repeat it on every printed
- *   page.
- * - No `position: fixed`/`sticky` and no viewport units in content:
- *   fixed elements stamp every printed page (running headers/footers go
- *   in the component's slots) and `100vh` mis-sizes at print.
- *
- * Author content as static HTML so the user can click-to-edit any text
- * directly. Do not set width/padding/background on the document body —
- * the component owns the sheet box.
- */
-/* END USAGE */
-
-(() => {
-  const PAPER = {
-    letter: ['8.5in', '11in'],
-    a4: ['210mm', '297mm'],
-    legal: ['8.5in', '14in']
-  };
-  const CSS_LENGTH = /^\d+(\.\d+)?(px|in|mm|cm|pt|pc)$/;
-  // Unitless "0" is a valid CSS length and the natural way to write
-  // margin="0"; normalise it to 0px so max()/calc() (which reject a bare
-  // number) keep working.
-  const safeLen = (v, fb) => {
-    v = (v || '').trim();
-    return v === '0' ? '0px' : CSS_LENGTH.test(v) ? v : fb;
-  };
-  // WebKit (Safari and every iOS browser shell) never repeats a table's
-  // thead/tfoot on printed pages (WebKit bug 17205), so the spacer-borne
-  // vertical margins of a FLOWING document reach only the first page
-  // there. Engine check, not browser check: vendor is 'Apple Computer,
-  // Inc.' exactly for WebKit and 'Google Inc.' for Blink.
-  const WK_PRINT = /apple/i.test(navigator.vendor || '');
-  // CSS length → px number (CSS absolute units are exact: 1in = 96px).
-  // Returns NaN for anything safeLen would reject — callers gate on it.
-  const PX_PER = {
-    px: 1,
-    in: 96,
-    mm: 96 / 25.4,
-    cm: 96 / 2.54,
-    pt: 96 / 72,
-    pc: 16
-  };
-  const toPx = v => {
-    const m = /^(\d+(?:\.\d+)?)(px|in|mm|cm|pt|pc)$/.exec((v || '').trim());
-    return m ? parseFloat(m[1]) * PX_PER[m[2]] : NaN;
-  };
-  const stylesheet = `
-    :host {
-      position: relative;
-      display: block;
-      /* When the viewport is narrower than the page, grow to wrap the
-       * sheet (plus this padding) instead of staying viewport-width, so
-       * the desk background and right margin reach the sheet's far edge
-       * in the horizontal scroll. */
-      min-width: max-content;
-      min-height: 100vh;
-      background: #f5f5f4;
-      padding: 48px 24px;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-      --doc-page-w: 8.5in;
-      --doc-page-h: 11in;
-      --doc-page-margin: 0.75in;
-      --doc-hdr-h: 0px;
-      --doc-ftr-h: 0px;
-      --doc-hdr-pad: 0px;
-      --doc-ftr-pad: 0px;
-    }
-    .sheet {
-      width: var(--doc-page-w);
-      margin: 0 auto;
-      background: #fff;
-      box-shadow: 0 2px 10px rgba(20, 20, 19, 0.12);
-      border-radius: 7px;
-      box-sizing: border-box;
-      padding: var(--doc-page-margin);
-    }
-    .frame { width: 100%; border-collapse: collapse; }
-    /* Scaled-fit mode (content-width/content-height): the inner .fit box
-     * lays the content out at its authored fixed size and scales it onto
-     * the printable area; .fit-box reserves the scaled footprint in flow
-     * (transforms don't affect layout) and centers it. Without the mode,
-     * both divs are unstyled block pass-throughs. */
-    /* Explicit pagination: direct .page children are the pages. The sheet
-     * becomes a transparent stack and each page carries the card look on
-     * screen; at print each page is exactly one full-bleed sheet. The
-     * ::slotted defaults are deliberately weak (document CSS wins), so
-     * authored page styling can override any of this. */
-    .sheet.paginated {
-      background: transparent;
-      box-shadow: none;
-      border-radius: 0;
-      padding: 0;
-    }
-    .paginated ::slotted(.page) {
-      position: relative;
-      display: block;
-      width: 100%;
-      aspect-ratio: var(--doc-page-ar);
-      container-type: size;
-      overflow: hidden;
-      box-sizing: border-box;
-      background: #fff;
-      border-radius: 7px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-      print-color-adjust: exact;
-      -webkit-print-color-adjust: exact;
-      break-inside: avoid;
-    }
-    .paginated ::slotted(.page:not(:first-child)) { margin-top: 1rem; }
-    @media print {
-      .sheet.paginated { padding: 0; }
-      /* The flowing-document vertical inset lives on the repeating
-       * thead/tfoot spacers, not the sheet padding — they must go too,
-       * or each full-sheet .page is pushed ~margin down and spills onto
-       * a second sheet. Paginated pages are full-bleed by definition
-       * (content owns its insets). */
-      .sheet.paginated .hdr-space,
-      .sheet.paginated .ftr-space { height: 0; }
-      .paginated ::slotted(.page) {
-        border-radius: 0 !important;
-        box-shadow: none !important;
-        margin: 0 !important;
-        /* Physical page-box sizing, no viewport units: Safari resolves
-         * 100vh against the window, not the page box, so a vh-sized card
-         * paginates wrong there. --doc-page-w/h are the named size by
-         * default and are overridden to the user's chosen paper by the
-         * export path, so every card is exactly one sheet either way.
-         * Width + height (same source values as @page size) rather than
-         * width + aspect-ratio: the ratio is a 6-decimal rounding of the
-         * same division, and a few millionths of overflow would spill a
-         * blank sheet after every page. The screen-only aspect-ratio
-         * (preview proportions) must not leak into print. cqh typography
-         * tracks the same box.
-         *
-         * Every declaration is !important: per CSS Scoping, unimportant
-         * shadow ::slotted rules LOSE to the document context, so a page
-         * section's authored inline style would silently beat this print
-         * geometry. A model-authored height:100% did exactly that — the
-         * percentage resolves as auto in the all-auto print ancestry, the
-         * base rule's size containment turns auto into ZERO, and
-         * overflow:hidden then paints nothing: a blank PDF with perfect
-         * page boxes. At print the component's geometry is the design's
-         * whole contract, so it must win over any authored sizing. */
-        aspect-ratio: auto !important;
-        width: var(--doc-page-w) !important;
-        height: var(--doc-page-h) !important;
-        overflow: hidden !important;
-      }
-      .paginated ::slotted(.page:not(:first-child)) {
-        break-before: page !important;
-        margin-top: 0 !important;
-      }
-    }
-    .fit-mode .fit-box {
-      width: calc(var(--doc-fit-w) * var(--doc-fit-scale));
-      height: calc(var(--doc-fit-h) * var(--doc-fit-scale));
-      margin: 0 auto;
-      break-inside: avoid;
-    }
-    .fit-mode .fit {
-      width: var(--doc-fit-w);
-      height: var(--doc-fit-h);
-      transform: scale(var(--doc-fit-scale));
-      transform-origin: top left;
-    }
-    .frame td, .frame th { padding: 0; text-align: left; font-weight: inherit; }
-    .hdr-space { height: var(--doc-hdr-h); }
-    .ftr-space { height: var(--doc-ftr-h); }
-    ::slotted([slot="header"]),
-    ::slotted([slot="footer"]) { display: block; box-sizing: border-box; }
-    @media print {
-      :host { background: none; padding: 0; min-width: 0; min-height: 0; }
-      .sheet {
-        width: auto; margin: 0; box-shadow: none; border-radius: 0;
-        padding: 0 var(--doc-page-margin);
-      }
-      /* The thead/tfoot spacers repeat on every page, so they carry the
-       * vertical page margin (which the sheet's own padding cannot, since
-       * that padding is consumed once on the first/last page). The running
-       * header/footer are fixed inside that band. */
-      /* The 0.35in is breathing room between a running header/footer and
-       * the body; without one the spacer is exactly the page margin, so a
-       * margin="0" full-bleed document gets truly full-bleed pages. */
-      .hdr-space { height: max(var(--doc-page-margin), calc(var(--doc-hdr-h) + var(--doc-hdr-pad))); }
-      .ftr-space { height: max(var(--doc-page-margin), calc(var(--doc-ftr-h) + var(--doc-ftr-pad))); }
-      /* WebKit flowing documents: @page carries the vertical margin (see
-       * _syncPrintPageRule), so the spacers keep only whatever a running
-       * header/footer needs BEYOND it — page 1 would otherwise double its
-       * top inset. Paginated sheets already zero their spacers above. */
-      .sheet.wk-print:not(.paginated) .hdr-space { height: max(0px, calc(max(var(--doc-page-margin), calc(var(--doc-hdr-h) + var(--doc-hdr-pad))) - var(--doc-page-margin))); }
-      .sheet.wk-print:not(.paginated) .ftr-space { height: max(0px, calc(max(var(--doc-page-margin), calc(var(--doc-ftr-h) + var(--doc-ftr-pad))) - var(--doc-page-margin))); }
-      ::slotted([slot="header"]) {
-        position: fixed; top: 0; left: 0; right: 0; margin: 0;
-        padding: calc(var(--doc-page-margin) * 0.45) var(--doc-page-margin) 0;
-      }
-      ::slotted([slot="footer"]) {
-        position: fixed; bottom: 0; left: 0; right: 0; margin: 0;
-        padding: 0 var(--doc-page-margin) calc(var(--doc-page-margin) * 0.45);
-      }
-    }
-  `;
-  class DocPage extends HTMLElement {
-    static get observedAttributes() {
-      return ['size', 'width', 'height', 'margin', 'orientation', 'content-width', 'content-height'];
-    }
-    constructor() {
-      super();
-      this._root = this.attachShadow({
-        mode: 'open'
-      });
-      this._mo = typeof MutationObserver === 'function' ? new MutationObserver(() => this._scheduleMeasure()) : null;
-    }
-
-    /** The named paper's [w, h], swapped when orientation="landscape".
-     *  Only the named size swaps — explicit width/height are exact values
-     *  the author already oriented. */
-    _paperSize() {
-      const named = PAPER[(this.getAttribute('size') || '').toLowerCase()] || PAPER.letter;
-      const landscape = (this.getAttribute('orientation') || '').trim().toLowerCase() === 'landscape';
-      return landscape ? [named[1], named[0]] : named;
-    }
-    get pageWidth() {
-      return safeLen(this.getAttribute('width'), this._paperSize()[0]);
-    }
-    get pageHeight() {
-      return safeLen(this.getAttribute('height'), this._paperSize()[1]);
-    }
-    get pageMargin() {
-      return safeLen(this.getAttribute('margin'), '0.75in');
-    }
-
-    /** Scaled-fit mode's content box [w, h] as CSS lengths, or null when
-     *  the mode is off (either attribute missing/invalid/zero — a partial
-     *  declaration falls back to normal flow rather than guessing). */
-    _contentFit() {
-      const w = safeLen(this.getAttribute('content-width'), null);
-      const h = safeLen(this.getAttribute('content-height'), null);
-      if (!w || !h) return null;
-      const wPx = toPx(w),
-        hPx = toPx(h);
-      return wPx > 0 && hPx > 0 ? [w, h, wPx, hPx] : null;
-    }
-    connectedCallback() {
-      if (!this._sheet) this._render();
-      this._syncSize();
-      this._syncPrintPageRule();
-      this._ensureTextWrapDefaults();
-      this._ensureOwnsPrintMeta();
-      this._syncFixedSizeMeta();
-      this._syncPrintSizingMeta();
-      if (this._mo) this._mo.observe(this, {
-        subtree: true,
-        childList: true,
-        characterData: true,
-        attributes: true
-      });
-      this._onResize = () => this._scheduleMeasure();
-      window.addEventListener('resize', this._onResize);
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(() => this._scheduleMeasure());
-      }
-      this._scheduleMeasure();
-      /* Local fix: on first upgrade the slotted header/footer can still
-       * measure 0, which leaves the print spacers at zero and lets body
-       * text run under the running header. Re-measure once the document
-       * has finished loading, and once more after layout settles. */
-      window.addEventListener('load', () => this._scheduleMeasure(), {
-        once: true
-      });
-      setTimeout(() => this._scheduleMeasure(), 150);
-    }
-    disconnectedCallback() {
-      window.removeEventListener('resize', this._onResize);
-      if (this._mo) this._mo.disconnect();
-      if (this._raf) {
-        cancelAnimationFrame(this._raf);
-        this._raf = null;
-      }
-      // Drop the head rules when the last doc-page leaves, so a deleted
-      // document's @page geometry and text-wrap defaults can't apply to
-      // whatever replaces it.
-      const survivor = document.querySelector('doc-page');
-      if (!survivor) {
-        ['doc-page-print', 'doc-page-text-wrap', 'doc-page-owns-print', 'doc-page-fixed-size', 'doc-page-print-sizing'].forEach(id => {
-          const tag = document.getElementById(id);
-          if (tag) tag.remove();
-        });
-        // A live deck-stage deferred its own print-sizing meta to ours —
-        // hand the page-global meta over so the deck isn't left unmarked.
-        const deck = document.querySelector('deck-stage');
-        if (deck && typeof deck._ensurePrintSizingMeta === 'function') {
-          deck._ensurePrintSizingMeta();
-        }
-      } else {
-        // A departed owner hands each page-global meta to whatever
-        // doc-page remains (or it's removed).
-        if (typeof survivor._syncFixedSizeMeta === 'function') {
-          survivor._syncFixedSizeMeta();
-        }
-        if (typeof survivor._syncPrintSizingMeta === 'function') {
-          survivor._syncPrintSizingMeta();
-        }
-      }
-    }
-    attributeChangedCallback() {
-      if (!this._sheet) return;
-      this._syncSize();
-      this._syncPrintPageRule();
-      this._syncFixedSizeMeta();
-      this._syncPrintSizingMeta();
-      this._scheduleMeasure();
-    }
-    _render() {
-      this._root.innerHTML = `
-        <style>${stylesheet}</style>
-        <style id="vars"></style>
-        <div class="sheet" data-screen-label="Document">
-          <table class="frame" role="presentation">
-            <thead><tr><th><div class="hdr-space"><slot name="header"></slot></div></th></tr></thead>
-            <tbody><tr><td class="body"><div class="fit-box"><div class="fit"><slot></slot></div></div></td></tr></tbody>
-            <tfoot><tr><td><div class="ftr-space"><slot name="footer"></slot></div></td></tr></tfoot>
-          </table>
-        </div>`;
-      this._sheet = this._root.querySelector('.sheet');
-      this._vars = this._root.getElementById('vars');
-    }
-
-    /** Runtime sizing lives in a shadow <style> :host rule, never on the
-     *  light-DOM host element, so serialize-persist can't write it back. */
-    _syncSize(hdrH, ftrH) {
-      // Scaled-fit mode: content at its authored size, scaled onto the
-      // printable area (page minus margins on both axes). The factor is a
-      // plain number var so calc(length * number) stays valid; 4 decimals
-      // keeps the shadow style stable across re-measures. Upscaling is
-      // allowed — print transforms are vector, so text and CSS stay crisp
-      // (raster images soften, which the catalog bullet warns about).
-      const fit = this._contentFit();
-      let fitVars = '';
-      if (fit) {
-        const marginPx = toPx(this.pageMargin) || 0;
-        const availW = toPx(this.pageWidth) - 2 * marginPx;
-        const availH = toPx(this.pageHeight) - 2 * marginPx;
-        const scale = Math.min(availW / fit[2], availH / fit[3]);
-        if (scale > 0 && Number.isFinite(scale)) {
-          fitVars = '--doc-fit-w:' + fit[0] + ';' + '--doc-fit-h:' + fit[1] + ';' + '--doc-fit-scale:' + scale.toFixed(4) + ';';
-        }
-      }
-      this._sheet.classList.toggle('fit-mode', !!fitVars);
-      // Numeric w/h ratio for the paginated page cards' aspect-ratio —
-      // aspect-ratio takes a number, not a length ratio, so compute it
-      // here (CSS length division isn't portable). 6 decimals keeps the
-      // shadow style stable across re-syncs.
-      const arW = toPx(this.pageWidth);
-      const arH = toPx(this.pageHeight);
-      const ar = arW > 0 && arH > 0 ? (arW / arH).toFixed(6) : '0.772727';
-      this._vars.textContent = ':host{' + fitVars + '--doc-page-ar:' + ar + ';' + '--doc-page-w:' + this.pageWidth + ';' + '--doc-page-h:' + this.pageHeight + ';' + '--doc-page-margin:' + this.pageMargin + ';' + '--doc-hdr-h:' + (hdrH || 0) + 'px;' + '--doc-ftr-h:' + (ftrH || 0) + 'px;' + '--doc-hdr-pad:' + (hdrH ? '0.35in' : '0px') + ';' + '--doc-ftr-pad:' + (ftrH ? '0.35in' : '0px') + '}';
-    }
-
-    /** @page is a no-op inside shadow DOM, so the rule lives in <head>.
-     *  Re-appended on every sync so it stays last in source order — the
-     *  @page cascade is source-order per descriptor, so this rule wins
-     *  over any other @page rule in the document.
-     *
-     *  The @page SIZE is pinned where the page box IS part of the design:
-     *  explicit-fixed-size mode (width + height authored), scaled-fit
-     *  mode (the named sheet the fit targets), and explicit pagination
-     *  (the named size the cards share — so card and sheet agree on
-     *  every print path, and the export path's chosen paper overrides
-     *  BOTH with one later rule). For FLOWING documents no paper size is
-     *  emitted at all — the true size comes from the user's preference,
-     *  injected by the export path or chosen in the print dialog — so a
-     *  flowing document never fights the paper it lands on.
-     *  margin: 0 is emitted in every mode: it leaves Chrome no margin box
-     *  to draw its date/URL/page-count header in, and the visual margin
-     *  lives on the sheet's own padding. */
-    _syncPrintPageRule() {
-      const id = 'doc-page-print';
-      let tag = document.getElementById(id);
-      if (!tag) {
-        tag = document.createElement('style');
-        tag.id = id;
-      }
-      document.head.appendChild(tag);
-      // Three print-geometry regimes:
-      // - true-size: the page IS the design — pin its exact size.
-      // - scaled-fit (content-width/height): the fit factor is computed
-      //   against the NAMED paper's printable area, so that paper must
-      //   stay pinned or the scaled content overflows a smaller sheet
-      //   (the export path re-fits and re-pins at print time on top).
-      // - default modes: no paper size — but landscape still needs the
-      //   paper-agnostic 'size: landscape' keyword, because the size
-      //   descriptor is what carries orientation; without it a landscape
-      //   document prints portrait whenever nothing injects a size.
-      const landscape = (this.getAttribute('orientation') || '').trim().toLowerCase() === 'landscape';
-      // Explicit pagination pins the page box to the SAME values that
-      // size the cards (the named size by default, the export path's
-      // chosen paper when its later rule overrides both) — card and
-      // sheet agree on every print path, and a mismatched real paper
-      // shrinks-to-fit in the dialog instead of clipping a Letter card
-      // on A4. Declared before the paginated read below so both derive
-      // from one check.
-      const paginatedNow = this.querySelector(':scope > .page') !== null;
-      const sizeDescriptor = this._trueSizePx() ? 'size: ' + this.pageWidth + ' ' + this.pageHeight + '; ' : this._contentFit() ? 'size: ' + this.pageWidth + ' ' + this.pageHeight + '; ' : paginatedNow ? 'size: ' + this.pageWidth + ' ' + this.pageHeight + '; ' : landscape ? 'size: landscape; ' : '';
-      // WebKit never repeats the thead/tfoot spacers that carry a flowing
-      // document's vertical page margins (see WK_PRINT above), so pages
-      // after the first print edge-to-edge there. Carry the VERTICAL
-      // margins on @page for WebKit instead, and the shadow print CSS
-      // trims the first-page spacers by the same amount (.sheet.wk-print
-      // rules). Horizontal inset stays on the sheet's own padding in
-      // every engine. Blink keeps margin: 0 (a nonzero margin there
-      // re-opens the box Chrome draws its header furniture in). One cost,
-      // learned in testing: Safari's own date/URL headers are a USER
-      // dialog setting ("Print headers and footers") that renders in the
-      // margin area when room exists — margin: 0 only suppressed it by
-      // leaving no room, and no CSS controls it. The export dialog's
-      // Safari guide teaches turning the setting off for flowing
-      // documents. Explicitly paginated and fixed-size documents keep
-      // margin: 0 everywhere: their pages ARE the sheet.
-      const wkFlowing = WK_PRINT && !paginatedNow && !this._trueSizePx() && !this._contentFit();
-      const marginDescriptor = wkFlowing ? 'margin: ' + this.pageMargin + ' 0; ' : 'margin: 0; ';
-      // Shadow-internal marker (never serialized), kept in lockstep with
-      // the @page decision above: the print CSS trims the first-page
-      // spacers ONLY while @page actually carries the margins — a
-      // true-size or scaled-fit sheet keeps margin: 0 and must keep its
-      // spacers too. Re-synced here so attribute changes and pagination
-      // flips move both together.
-      if (this._sheet) this._sheet.classList.toggle('wk-print', wkFlowing);
-      tag.textContent = '@page { ' + sizeDescriptor + marginDescriptor + '} ' + '@media print { html, body { margin: 0 !important; padding: 0 !important; background: none !important; height: auto !important; overflow: visible !important; } ' + 'h1,h2,h3,h4,h5,h6 { break-after: avoid; } ' + 'figure,pre,blockquote,img,svg,tr { break-inside: avoid; } ' + 'p,li { orphans: 3; widows: 3; } ' + '* { -webkit-print-color-adjust: exact; print-color-adjust: exact; ' + 'backdrop-filter: none !important; -webkit-backdrop-filter: none !important; } ' + '*, *::before, *::after { animation-delay: -99s !important; animation-duration: .001s !important; ' + 'animation-iteration-count: 1 !important; animation-fill-mode: both !important; ' + 'animation-play-state: running !important; transition-duration: 0s !important; } }';
-    }
-
-    /** Typographic defaults for document text: balance headings, avoid
-     *  widowed/orphaned words in body copy (browsers without text-wrap
-     *  support drop the declarations). Zero-specificity via :where() so
-     *  any text-wrap authored on those elements wins; document-level so the
-     *  rules reach the slotted (light DOM) content — shadow styles can't.
-     *  data-omelette-injected marks the tag for the host editor to strip
-     *  at serialize, so it is never written back as authored source. */
-    _ensureTextWrapDefaults() {
-      if (document.getElementById('doc-page-text-wrap')) return;
-      const tag = document.createElement('style');
-      tag.id = 'doc-page-text-wrap';
-      tag.setAttribute('data-omelette-injected', '');
-      tag.textContent = ':where(h1,h2,h3,h4,h5,h6){text-wrap:balance}' + ':where(p,li,blockquote,figcaption){text-wrap:pretty}';
-      document.head.appendChild(tag);
-    }
-
-    /** Declares that this document owns its print CSS. The instant-PDF
-     *  export checks for the meta by NAME PRESENCE alone (content is
-     *  ignored) and skips its automatic print-CSS injections, so the
-     *  component's @page geometry is never overridden by a heuristic.
-     *  data-omelette-injected keeps it out of serialized source. */
-    _ensureOwnsPrintMeta() {
-      if (document.getElementById('doc-page-owns-print')) return;
-      const tag = document.createElement('meta');
-      tag.id = 'doc-page-owns-print';
-      tag.name = 'omelette-owns-print';
-      tag.content = 'true';
-      tag.setAttribute('data-omelette-injected', '');
-      document.head.appendChild(tag);
-    }
-
-    /** This page's valid true-size page box (explicit width AND height)
-     *  as [w, h] px ints, or null when the mode is off. */
-    _trueSizePx() {
-      if (!safeLen(this.getAttribute('width'), null) || !safeLen(this.getAttribute('height'), null)) return null;
-      const w = Math.round(toPx(this.pageWidth));
-      const h = Math.round(toPx(this.pageHeight));
-      return w > 0 && h > 0 ? [w, h] : null;
-    }
-
-    /** True-size pages (explicit width AND height) also declare the page
-     *  box as the preview size: the in-app preview reads
-     *  meta[name="omelette-fixed-size"] (content "W,H" in px ints) and
-     *  scales the sheet into view — without it an 18in poster previews at
-     *  true size with scrollbars. Never overrides an author-set meta
-     *  (only the component's own id is managed). The meta is page-global
-     *  while doc-page instances are not, so every sync recomputes the
-     *  page-wide owner — the first connected true-size doc-page — and a
-     *  non-true-size sibling's sync can never delete the owner's meta.
-     *  Removed when no true-size page remains (the owner's disconnect
-     *  re-syncs via any survivor) or when an author-set meta exists. */
-    _syncFixedSizeMeta() {
-      const id = 'doc-page-fixed-size';
-      const own = document.getElementById(id);
-      const authored = document.querySelector('meta[name="omelette-fixed-size"]:not([data-omelette-injected])');
-      // The page-wide owner, not this instance: an upgraded true-size page
-      // anywhere in the document keeps the meta alive and sized.
-      let box = null;
-      for (const el of document.querySelectorAll('doc-page')) {
-        box = typeof el._trueSizePx === 'function' ? el._trueSizePx() : null;
-        if (box) break;
-      }
-      if (!box || authored) {
-        if (own) own.remove();
-        return;
-      }
-      const tag = own || document.createElement('meta');
-      tag.id = id;
-      tag.name = 'omelette-fixed-size';
-      tag.content = box[0] + ',' + box[1];
-      tag.setAttribute('data-omelette-injected', '');
-      if (!own) document.head.appendChild(tag);
-    }
-
-    /** This page's print-sizing mode: 'fixed' when an explicit width AND
-     *  height are authored (the page is the design's own size), else the
-     *  default paper in the authored orientation. */
-    _printSizingMode() {
-      if (this._trueSizePx()) return 'fixed';
-      const landscape = (this.getAttribute('orientation') || '').trim().toLowerCase() === 'landscape';
-      return landscape ? 'default-landscape' : 'default-portrait';
-    }
-
-    /** Announces the print-sizing mode to the host app:
-     *  meta[name="omelette-print-sizing"] with content 'default-portrait',
-     *  'default-landscape', or 'fixed' (fixed pages also carry the
-     *  omelette-fixed-size meta with the page box in px). The export path
-     *  probes it to decide what true paper size to inject at print time —
-     *  in the default modes the component emits no paper size of its own.
-     *  Same page-global ownership rules as the fixed-size meta above:
-     *  first connected doc-page owns it, an authored meta is never
-     *  overridden, removed when no doc-page remains. */
-    _syncPrintSizingMeta() {
-      const id = 'doc-page-print-sizing';
-      const own = document.getElementById(id);
-      const authored = document.querySelector('meta[name="omelette-print-sizing"]:not([data-omelette-injected])');
-      // A fixed page wins outright (mirroring the fixed-size loop above,
-      // so the two metas can never contradict each other in a mixed
-      // multi-page document); otherwise the first page's mode holds.
-      let mode = null;
-      for (const el of document.querySelectorAll('doc-page')) {
-        if (typeof el._printSizingMode !== 'function') continue;
-        const m = el._printSizingMode();
-        if (m === 'fixed') {
-          mode = m;
-          break;
-        }
-        if (mode === null) mode = m;
-      }
-      if (!mode || authored) {
-        if (own) own.remove();
-        return;
-      }
-      // A deck-stage that connected first injected its own meta and
-      // defers to any existing one — take it over, or the document ends
-      // up with two conflicting injected metas (a doc-page page is the
-      // document; the deck re-ensures its meta if every doc-page leaves).
-      const deckMeta = document.getElementById('deck-stage-print-sizing');
-      if (deckMeta) deckMeta.remove();
-      const tag = own || document.createElement('meta');
-      tag.id = id;
-      tag.name = 'omelette-print-sizing';
-      tag.content = mode;
-      tag.setAttribute('data-omelette-injected', '');
-      if (!own) document.head.appendChild(tag);
-    }
-    _scheduleMeasure() {
-      /* Local fix: requestAnimationFrame never fires while the frame is
-       * hidden, which latches _raf and freezes the spacers at 0 for the
-       * life of the page. A timer guarantees the measure lands. */
-      clearTimeout(this._measureT);
-      this._measureT = setTimeout(() => {
-        if (this._raf) {
-          cancelAnimationFrame(this._raf);
-          this._raf = null;
-        }
-        this._measure();
-      }, 200);
-      if (this._raf) return;
-      this._raf = requestAnimationFrame(() => {
-        this._raf = null;
-        this._measure();
-      });
-    }
-
-    /** Slot heights feed the print spacers (--doc-hdr-h / --doc-ftr-h), so
-     *  they re-measure on content mutation, resize, and font load. The
-     *  same pass detects explicit pagination (direct .page children) and
-     *  toggles the sheet between the flowing-document card and the
-     *  page-per-card stack — content edits can add or remove pages at any
-     *  time, so this tracks the same mutations the measurement does. */
-    _measure() {
-      const hdr = this.querySelector(':scope > [slot="header"]');
-      const ftr = this.querySelector(':scope > [slot="footer"]');
-      const wasPaginated = this._sheet.classList.contains('paginated');
-      this._sheet.classList.toggle('paginated', this.querySelector(':scope > .page') !== null);
-      // The WebKit @page margin is flowing-only, so a pagination flip
-      // must re-emit the rule (content edits can add or remove .page
-      // sections at any time).
-      if (this._sheet.classList.contains('paginated') !== wasPaginated) {
-        this._syncPrintPageRule();
-      }
-      this._syncSize(hdr ? hdr.offsetHeight : 0, ftr ? ftr.offsetHeight : 0);
-    }
-  }
-  if (!customElements.get('doc-page')) {
-    customElements.define('doc-page', DocPage);
-  }
-})();
-})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/portfolio/doc-page.js", error: String((e && e.message) || e) }); }
-
-// ui_kits/portfolio/kit-data.js
-try { (() => {
-// Project facts and résumé records. Case-study prose is authored from intake, not lifted.
-window.PORTFOLIO = {
-  identity: {
-    name: "Caleb Stacy",
-    title: "Senior content designer",
-    differentiator: "Product systems · content engineering",
-    thesis: "I shape complex products from early direction through interaction language and experiments. Then I turn the decisions worth repeating into systems people—and agents—can use.",
-    location: "Richmond, Virginia · Local + remote"
-  },
-  projects: [{
-    id: "verso",
-    number: "01",
-    title: "Verso",
-    context: "AI content governance · Meta · 2025–2026",
-    statement: "Voice was written in adjectives. I turned it into a target an agent could be held to.",
-    summary: "Meta's content design org was being asked to move from in the loop to on the loop — to govern what agents wrote instead of writing it. I built Verso: a content agent that measures its own draft against a product's real voice and corrects itself before a human sees it.",
-    outcomeLabel: "Results",
-    results: ["Adopted by content designers across Meta by word of mouth", "Five product surfaces fingerprinted from their real strings", "Still the infrastructure central content design runs on"],
-    role: "I built all of it over six months — the agent, the measurement server, the guidance taxonomy, and the content index.",
-    teamSurface: "Solo, on Meta's internal infrastructure. I partnered with central content design to adopt it, and they own it now.",
-    character: "../../assets/work/caleb-verso-workstation-fixed.png",
-    characterAlt: "Clay Caleb working at a large computer",
-    artifacts: [{
-      src: "../../assets/work/verso-evidence-cabinet.png",
-      alt: "Clay render of a card-index cabinet holding filed evidence",
-      label: "The index, as an object",
-      caption: "A rendered stand-in for the index: one drawer per surface, one card per measurable dimension. No internal Meta material, index values, or product strings are shown."
-    }, {
-      src: "../../assets/work/card-verso.jpg",
-      alt: "Prototype screen showing a deterministic pass and a voice-shape radar",
-      label: "Public-safe prototype",
-      caption: "A prototype of the instrument: the deterministic pass on the left, the voice shape as a radar of the measured dimensions on the right. Built for portfolio use — the values shown are not Meta's."
-    }],
-    sources: ["Central brand guidance", "Product-area guidance", "Docs, chats, and spreadsheets", "Real shipped strings"],
-    ledger: [{
-      value: "11",
-      label: "Measured dimensions"
-    }, {
-      value: "5",
-      label: "Surfaces fingerprinted"
-    }, {
-      value: "6 mo",
-      label: "Solo build"
-    }, {
-      value: "Not public",
-      label: "Exact figures"
-    }],
-    pipeline: ["Ingest the real shipped strings of a product surface.", "Fingerprint the corpus across eleven measurable dimensions.", "Serve it warm, so measurement is cheap enough to call on every draft.", "The agent measures its own draft and adjusts until it lands inside the deviation."],
-    quote: "“Be concise” names something the reader feels. It does not name anything the writer did.",
-    quoteBy: "The receiver-side problem"
-  }, {
-    id: "vr-education",
-    number: "02",
-    title: "First-time VR",
-    context: "New-user education · Meta Horizon · 2025",
-    statement: "Find the fun first. Teach in the moment.",
-    summary: "New users came to socialize, but Horizon asked them to choose a world, consent, complete fourteen-plus lessons, and wait through loading before they met anyone. I partnered with product designer Becca Urry to replace the curriculum with a just-in-time education strategy.",
-    outcomeLabel: "Results",
-    results: ["+29% onboarding completion", "+20% weekly active use", "+7% new-user retention"],
-    role: "Content designer · education strategy and interaction language",
-    teamSurface: "With product designer Becca Urry · 1 PM · 3 engineers · 5 partner teams · Meta Horizon Worlds, first-run VR",
-    character: "../../assets/work/caleb-friendly-wave.png",
-    characterAlt: "Clay Caleb waving",
-    artifacts: [],
-    evidenceNote: "The measured lifts are on the cover and the education strategy is stated in full above. The first-run sequence itself stays unpublished — the captures belong to Meta, and a rebuilt approximation of an onboarding flow would be the one thing this document refuses to do: present a reconstruction as the experiment.",
-    sources: ["World selection", "Recording consent", "Fourteen-plus lessons", "Starter world loading"],
-    ledger: [{
-      value: "72%",
-      label: "Original drop-off"
-    }, {
-      value: "15 min",
-      label: "Original onboarding"
-    }, {
-      value: "90 s",
-      label: "Of loading"
-    }, {
-      value: "14+",
-      label: "Lessons before play"
-    }],
-    pipeline: ["Teach one action, attached to the input that needs it.", "Reinforce in context when state changes.", "Nudge on the controller, not in a modal.", "Never replay the syllabus."],
-    quote: "Stop teaching everything once. Teach one action, in the moment it matters.",
-    quoteBy: "Education strategy principle"
-  }, {
-    id: "horizon",
-    number: "03",
-    title: "Horizon mobile",
-    context: "Mobile product strategy · Meta Horizon · 2024",
-    statement: "Giving people a reason to open Horizon on their phone.",
-    summary: "I led content design for the first repeat-use loop in Meta Horizon's mobile redesign: discovery became a choice, choice became progress, progress connected to rewards, and rewards gave people an honest reason to return.",
-    outcomeLabel: "Results",
-    results: ["Quests experiment improved repeat use", "Feed showed stronger longer-term return", "Exact lifts are not public"],
-    role: "Lead content designer, mobile retention",
-    teamSurface: "Product + Design · iOS and Android",
-    character: "../../assets/work/caleb-horizon-headset.png",
-    characterAlt: "Clay Caleb examining a VR headset",
-    artifacts: [{
-      src: "../../assets/work/horizon-app-montage.png",
-      alt: "Three shipped Horizon mobile screens",
-      label: "Shipped surfaces",
-      caption: "Profile, feed, and device management as they shipped on mobile. Not the exact experiment surface."
-    }, {
-      src: "../../assets/work/horizon-profile-ui.png",
-      alt: "Horizon mobile profile screen",
-      label: "Identity and profile",
-      caption: "The profile surface the identity and progress work landed on."
-    }],
-    sources: ["Quests homepage", "Feed hypotheses", "Identity and profile", "Social context", "Safety surfaces", "Rewards"],
-    ledger: [{
-      value: "5",
-      label: "Reusable jobs"
-    }, {
-      value: "2",
-      label: "Experiment families"
-    }, {
-      value: "iOS + Android",
-      label: "Surfaces"
-    }, {
-      value: "Not public",
-      label: "Exact lifts"
-    }],
-    pipeline: ["Discover — the phone can start the loop.", "Choose — one clear next thing.", "Progress — visible and honest.", "Reward — earned in play, not in the feed.", "Return — a real reason, not a badge."],
-    quote: "The phone can start the loop. Play stays the destination.",
-    quoteBy: "Mobile product principle"
-  }, {
-    id: "portals",
-    number: "04",
-    title: "Portals",
-    context: "Spatial interaction · Meta Horizon",
-    statement: "Designing navigation when the interface is the space.",
-    summary: "I turned proximity into an information architecture: identity at a distance, actions when someone showed interest, and the full decision context only when they moved close enough to need it.",
-    outcomeLabel: "What changed",
-    outcomeProse: "The work increased portal engagement, improved retention, earned VP alignment, shipped in Horizon, and was introduced by Mark Zuckerberg at Meta Connect 2024.",
-    role: "Content design lead",
-    teamSurface: "Product, Engineering, UXR, and Design · spatial navigation in Meta Horizon",
-    character: "../../assets/work/caleb-portals-threshold.png",
-    characterAlt: "Clay Caleb stepping through a portal",
-    artifacts: [{
-      src: "../../assets/work/card-portals.jpg",
-      alt: "A portal card showing a world, who is inside, and one action",
-      label: "Shipped surface",
-      caption: "A portal at approach distance: identity, who is already inside, and the one available action."
-    }, {
-      src: "../../assets/work/card-portals-keynote.jpg",
-      alt: "Frame from the Meta Connect 2024 keynote",
-      label: "Public source",
-      caption: "Introduced at Meta Connect 2024. Frame from the public keynote."
-    }],
-    sources: ["Identity at a distance", "Social context", "Available action", "Full decision context"],
-    ledger: [{
-      value: "3",
-      label: "Disclosure distances"
-    }, {
-      value: "A/B",
-      label: "Tested with UXR"
-    }, {
-      value: "Connect 2024",
-      label: "Public reveal"
-    }, {
-      value: "Shipped",
-      label: "In Horizon"
-    }],
-    pipeline: ["At distance, show identity only.", "On interest, add the available action.", "On approach, reveal the full decision context.", "Never show maximum entries at once."],
-    quote: "State of intent, not maximum entries.",
-    quoteBy: "Spatial IA principle"
-  }, {
-    id: "word-math",
-    number: "05",
-    title: "Word Math",
-    context: "Independent research · May 2026",
-    statement: "Measuring what voice guides leave vague.",
-    summary: "I built a model-agnostic voice-fingerprinting engine, then used four hundred Claude generations to test whether measurable, form-side guidance changes model output more reliably than a published voice guide.",
-    outcomeLabel: "Results",
-    results: ["400 controlled generations", "12 measured dimensions", "Constraints moved output"],
-    role: "Creator and researcher",
-    teamSurface: "Independent research · Python engine · 12 dimensions · 400 generations",
-    character: "../../assets/work/caleb-inspecting.png",
-    characterAlt: "Clay Caleb reaching toward a language measurement panel",
-    artifacts: [],
-    evidenceNote: "Word Math is independent research: the evidence is the measurements themselves, in the table above. There is no product surface to show, and an illustration of one would add nothing a number does not already say.",
-    sources: ["Naive prompt", "Published voice guide", "Numerical constraints", "Numerical plus English"],
-    ledger: [{
-      value: "400",
-      label: "Generations"
-    }, {
-      value: "12",
-      label: "Dimensions"
-    }, {
-      value: "4",
-      label: "Conditions"
-    }, {
-      value: "Sonnet 4.6",
-      label: "Model tested"
-    }],
-    pipeline: ["Numbers control surface features.", "English descriptions still shape composition.", "Deterministic checks beat prose where both apply.", "Model judgment sits last, not first."],
-    quote: "Numbers controlled surface features. English still mattered for composition.",
-    quoteBy: "Selected finding",
-    table: {
-      columns: ["Dimension", "Naive", "Published guide", "Numerical"],
-      rows: [["Sentence length", "24.1", "21.8", {
-        value: "16.4",
-        highlight: true
-      }], ["Hedging density", "0.9", "0.7", {
-        value: "0.2",
-        highlight: true
-      }], ["Clause depth", "2.4", "2.3", {
-        value: "1.6",
-        highlight: true
-      }]]
-    }
-  }],
-  chapters: [{
-    id: "overview",
-    label: "Overview"
-  }, {
-    id: "problem",
-    label: "Problem"
-  }, {
-    id: "reframe",
-    label: "Reframe"
-  }, {
-    id: "decisions",
-    label: "Decisions"
-  }, {
-    id: "proof",
-    label: "Proof"
-  }],
-  contact: "calebstacy@gmail.com",
-  resumeSummary: "Senior content designer working across product strategy, interaction language, content systems, experimentation, and governed agent context. I work upstream of interface copy, stay through shipped behaviour, and turn the decisions worth repeating into systems people and agents can use.",
-  experience: [{
-    when: "November 2022 – May 2026",
-    org: "Meta",
-    role: "Content designer → Senior content designer",
-    bullets: ["Built Verso, the content governance infrastructure central content design now runs on: a self-linting content agent, a warm MCP measurement server, a consolidated guidance taxonomy, and a content index covering five product surfaces.", "Made voice measurable on the producer side across eleven computable dimensions with spaCy and Python, so agent output could be held to a target instead of judged after the fact by a review board.", "Led content design for spatial navigation in Meta Horizon — proximity as an information architecture. Shipped, and introduced at Meta Connect 2024.", "Set new-user education strategy for first-time VR with product designer Becca Urry: +29% onboarding completion, +20% weekly active use, +7% new-user retention.", "Led content design for Horizon's mobile retention loop on iOS and Android across two experiment families. Exact lifts are not public."]
-  }, {
-    when: "October 2021 – October 2022",
-    org: "Digbi Health",
-    role: "Content design",
-    bullets: []
-  }, {
-    when: "April – October 2021",
-    org: "8x8",
-    role: "Content design",
-    bullets: []
-  }, {
-    when: "2014 – 2021",
-    org: "University and Army communication instruction",
-    role: "Instructor",
-    bullets: ["Seven years teaching writing and communication — the through-line to how I treat language as a system."]
-  }],
-  resume: [{
-    org: "Meta",
-    role: "Content designer → Senior content designer",
-    when: "November 2022 – May 2026"
-  }, {
-    org: "Digbi Health",
-    role: "Content design",
-    when: "October 2021 – October 2022"
-  }, {
-    org: "8x8",
-    role: "Content design",
-    when: "April – October 2021"
-  }, {
-    org: "University and Army communication instruction",
-    role: "Instructor",
-    when: "2014 – 2021"
-  }],
-  education: [{
-    org: "MFA in Poetry",
-    when: "2018"
-  }, {
-    org: "BA in English",
-    when: "2014"
-  }],
-  tools: ["Figma", "Python", "Content modelling", "Experiment design", "Evals", "Agent context", "Prototyping", "Research partnership"]
-};
-})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/portfolio/kit-data.js", error: String((e && e.message) || e) }); }
-
-// ui_kits/portfolio/scene-visual.jsx
-try { (() => {
-const {
-  RegistrationMark
-} = window.CalebStacyPortfolioDesignSystem_4a3883;
-function SceneCharacter({
-  src,
-  alt
-}) {
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: "absolute",
-      zIndex: 5,
-      top: 0,
-      right: 0,
-      bottom: 0,
-      width: "57%",
-      pointerEvents: "none",
-      animation: "character-enter var(--dur-character) var(--delay-character) var(--ease-authored) both"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: "absolute",
-      zIndex: 0,
-      right: "3%",
-      bottom: "3%",
-      width: "76%",
-      height: "9%",
-      borderRadius: "50%",
-      background: "rgba(4,26,22,0.45)",
-      filter: "blur(18px)"
-    }
-  }), /*#__PURE__*/React.createElement("img", {
-    src: src,
-    alt: alt,
-    style: {
-      position: "absolute",
-      inset: 0,
-      width: "100%",
-      height: "100%",
-      objectFit: "contain",
-      objectPosition: "bottom right"
-    }
-  }));
-}
-Object.assign(window, {
-  SceneCharacter,
-  RegistrationMark
-});
-})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/portfolio/scene-visual.jsx", error: String((e && e.message) || e) }); }
-
-// ui_kits/portfolio/screen-project.jsx
-try { (() => {
-const {
-  Stage,
-  StageCopy,
-  StorySection,
-  Outcome,
-  StageAction,
-  ChapterNav,
-  FactsPanel,
-  CardGrid,
-  GridCard,
-  Ledger,
-  SourceMap,
-  Pipeline,
-  DataTable,
-  ArtifactFigure,
-  PullQuote,
-  ProvenanceNote,
-  Eyebrow,
-  RegistrationMark,
-  LineArrow
-} = window.CalebStacyPortfolioDesignSystem_4a3883;
-function ProjectDocument({
-  project,
-  chapters,
-  onNext,
-  nextProject,
-  scrollRef
-}) {
-  const [chapter, setChapter] = React.useState("overview");
-  React.useEffect(() => {
-    const node = scrollRef.current;
-    if (!node) return;
-    const onScroll = () => {
-      const marks = node.querySelectorAll("[data-chapter]");
-      let current = "overview";
-      marks.forEach(m => {
-        if (m.getBoundingClientRect().top < 220) current = m.dataset.chapter;
-      });
-      setChapter(current);
-    };
-    node.addEventListener("scroll", onScroll, {
-      passive: true
-    });
-    return () => node.removeEventListener("scroll", onScroll);
-  }, [project.id, scrollRef]);
-  const glide = React.useRef(null);
-  const jump = id => {
-    const node = scrollRef.current;
-    const target = node && node.querySelector('[data-chapter="' + id + '"]');
-    if (!node || !target) return;
-    const to = Math.max(0, node.scrollTop + target.getBoundingClientRect().top - node.getBoundingClientRect().top - 64);
-    if (glide.current) cancelAnimationFrame(glide.current);
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      node.scrollTop = to;
-      return;
-    }
-    const from = node.scrollTop,
-      start = performance.now(),
-      dur = 430;
-    const ease = x => {
-      const b = (t, p, q) => 3 * (1 - t) * (1 - t) * t * p + 3 * (1 - t) * t * t * q + t * t * t;
-      let lo = 0,
-        hi = 1,
-        t = x;
-      for (let i = 0; i < 12; i++) {
-        t = (lo + hi) / 2;
-        if (b(t, 0.16, 0.3) < x) lo = t;else hi = t;
-      }
-      return b(t, 1, 1);
-    };
-    const step = now => {
-      const p = Math.min(1, (now - start) / dur);
-      node.scrollTop = from + (to - from) * ease(p);
-      if (p < 1) glide.current = requestAnimationFrame(step);
-    };
-    glide.current = requestAnimationFrame(step);
-  };
-  const artifacts = project.artifacts || [];
-  const hasArtifacts = artifacts.length > 0;
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
-    style: {
-      minHeight: "min(660px, calc(100svh - 84px))",
-      display: "flex"
-    }
-  }, /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
-    eyebrow: "Project " + project.number + " · " + project.context,
-    title: project.title,
-    statement: project.statement,
-    deck: project.summary
-  }, project.results ? /*#__PURE__*/React.createElement(Outcome, {
-    label: project.outcomeLabel,
-    items: project.results
-  }) : /*#__PURE__*/React.createElement(Outcome, {
-    label: project.outcomeLabel
-  }, project.outcomeProse), /*#__PURE__*/React.createElement(StageAction, {
-    accent: "action",
-    style: {
-      marginTop: 23
-    },
-    onClick: () => jump("problem")
-  }, "Open case story")), /*#__PURE__*/React.createElement(SceneCharacter, {
-    src: project.character,
-    alt: project.characterAlt
-  })), /*#__PURE__*/React.createElement(ChapterNav, {
-    chapters: chapters,
-    active: chapter,
-    onSelect: jump
-  }), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "overview"
-  }, /*#__PURE__*/React.createElement(FactsPanel, {
-    facts: [{
-      label: "Role",
-      value: project.role
-    }, {
-      label: "Team and surface",
-      value: project.teamSurface
-    }]
-  })), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "problem"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "paper",
-    index: "01",
-    chapterLabel: "Problem",
-    kicker: "The operating condition",
-    title: project.statement,
-    intro: project.summary
-  }, /*#__PURE__*/React.createElement(SourceMap, {
-    items: project.sources
-  }), /*#__PURE__*/React.createElement(Ledger, {
-    items: project.ledger,
-    style: {
-      marginTop: "var(--space-6)"
-    }
-  }), /*#__PURE__*/React.createElement(ProvenanceNote, null, "Figures reflect what public evidence supports. Where exact lifts are not public, this document says so."))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "reframe"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "stage",
-    index: "02",
-    chapterLabel: "Reframe",
-    kicker: "What I changed",
-    title: "The reframe that made the work possible."
-  }, /*#__PURE__*/React.createElement(PullQuote, {
-    attribution: project.quoteBy
-  }, project.quote))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "decisions"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "dark",
-    index: "03",
-    chapterLabel: "Decisions",
-    kicker: "How it works",
-    title: "The decisions worth repeating.",
-    intro: "Each row below is a decision I would make again on a comparable product."
-  }, /*#__PURE__*/React.createElement(Pipeline, {
-    steps: project.pipeline.map(label => ({
-      label
-    }))
-  }), /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 2,
-    style: {
-      marginTop: "var(--space-8)"
-    }
-  }, /*#__PURE__*/React.createElement(GridCard, {
-    label: "What I led",
-    title: "Content design",
-    body: project.role
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "What I did not own",
-    title: "Boundaries",
-    body: "Engineering implementation, research execution, and product prioritisation belonged to partners named above."
-  })))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "proof"
-  }, /*#__PURE__*/React.createElement(StorySection, {
-    tone: "bright",
-    index: "04",
-    chapterLabel: "Proof",
-    kicker: hasArtifacts ? "Evidence" : "What I can and cannot show",
-    title: hasArtifacts ? "What the work produced." : "The results are real. The screens are not mine to publish.",
-    intro: hasArtifacts ? "Artifacts carry their own provenance labels." : undefined
-  }, project.table && /*#__PURE__*/React.createElement(DataTable, {
-    variant: "result",
-    columns: project.table.columns,
-    rows: project.table.rows
-  }), artifacts.map(a => /*#__PURE__*/React.createElement(ArtifactFigure, {
-    key: a.src,
-    style: {
-      marginTop: "var(--space-8)"
-    },
-    contain: true,
-    src: a.src,
-    alt: a.alt || a.caption,
-    label: a.label,
-    caption: a.caption
-  })), /*#__PURE__*/React.createElement(ProvenanceNote, null, project.evidenceNote || "Internal material is never exposed. Reconstructions are labelled as reconstructions."))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      minHeight: 190,
-      display: "flex",
-      justifyContent: "space-between",
-      gap: 24,
-      alignItems: "center",
-      padding: "0 var(--gutter)",
-      background: "var(--paper)",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "Next project"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "10px 0 0",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: "var(--display-s-weight)",
-      letterSpacing: "var(--display-s-tracking)"
-    }
-  }, nextProject.title)), /*#__PURE__*/React.createElement(StageAction, {
-    accent: "signal",
-    onClick: onNext
-  }, nextProject.statement)));
-}
-Object.assign(window, {
-  ProjectDocument
-});
-})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/portfolio/screen-project.jsx", error: String((e && e.message) || e) }); }
-
-// ui_kits/portfolio/screen-utility.jsx
-try { (() => {
-const {
-  Stage,
-  StageCopy,
-  StorySection,
-  StageAction,
-  CardGrid,
-  GridCard,
-  Tag,
-  PullQuote,
-  RegistrationMark,
-  Eyebrow,
-  DataTable,
-  ProvenanceNote,
-  ResumeEntry
-} = window.CalebStacyPortfolioDesignSystem_4a3883;
-function AboutDocument({
-  data,
-  onWork
-}) {
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
-    style: {
-      minHeight: "min(660px, calc(100svh - 84px))",
-      display: "flex"
-    }
-  }, /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
-    eyebrow: "About the practice",
-    title: "I design the experience.",
-    accent: "Then I make the decisions reusable.",
-    deck: "I work upstream of interface copy: framing the product problem, defining the content model, then staying through prototypes, experiments, and shipped behaviour.",
-    detail: "Content engineering is a differentiator, not a replacement title."
-  }, /*#__PURE__*/React.createElement(StageAction, {
-    accent: "action",
-    style: {
-      marginTop: 23
-    },
-    onClick: onWork
-  }, "See selected work")), /*#__PURE__*/React.createElement(SceneCharacter, {
-    src: "../../assets/work/caleb-friendly-wave.png",
-    alt: "Clay Caleb waving"
-  })), /*#__PURE__*/React.createElement(StorySection, {
-    tone: "paper",
-    index: "01",
-    chapterLabel: "Practice",
-    kicker: "What I do",
-    title: "Four things, in this order.",
-    intro: "Product direction, interaction language, experimentation, and the systems that keep the decisions from being re-litigated."
-  }, /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 2
-  }, /*#__PURE__*/React.createElement(GridCard, {
-    label: "01",
-    title: "Product direction",
-    body: "Framing the problem and defining the content model before the first screen exists."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "02",
-    title: "Interaction language",
-    body: "The words a product uses to move someone from intent to outcome."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "03",
-    title: "Experimentation",
-    body: "Hypotheses that survive contact with shipped behaviour, run with research and data partners."
-  }), /*#__PURE__*/React.createElement(GridCard, {
-    label: "04",
-    title: "Systems that scale",
-    body: "Standards, schemas, checks, measurements, evaluations, and governed agent context."
-  })), /*#__PURE__*/React.createElement(PullQuote, {
-    attribution: "Anonymous colleague feedback"
-  }, "He turns arguments about wording into decisions a team can reuse.")), /*#__PURE__*/React.createElement(StorySection, {
-    tone: "bright",
-    index: "02",
-    chapterLabel: "Range",
-    kicker: "Career through-line",
-    title: "Teaching and poetry, then product design.",
-    intro: "Seven years of communication instruction and an MFA in poetry are why the systems work reads as language work."
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      flexWrap: "wrap",
-      gap: "var(--space-2)",
-      marginTop: "var(--space-9)"
-    }
-  }, data.tools.map(tool => /*#__PURE__*/React.createElement(Tag, {
-    key: tool,
-    on: "paper"
-  }, tool)))));
-}
-
-/* Falls back to the same anatomy until the compiled bundle carries ResumeEntry. */
-const Entry = ResumeEntry || function Entry({
-  when,
-  org,
-  role,
-  bullets = []
-}) {
-  return /*#__PURE__*/React.createElement("article", {
-    style: {
-      display: "grid",
-      gridTemplateColumns: "var(--label-gutter) minmax(0,1fr)",
-      gap: "clamp(16px,2vw,28px)",
-      padding: "var(--space-7) 0",
-      borderTop: "1px solid var(--story-line)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      paddingTop: 3,
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 9,
-      fontWeight: 700,
-      lineHeight: 1.45
-    }
-  }, when), /*#__PURE__*/React.createElement("div", {
-    style: {
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("h3", {
-    style: {
-      margin: 0,
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: 700,
-      lineHeight: 1,
-      letterSpacing: "var(--display-s-tracking)"
-    }
-  }, org), role && /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "9px 0 0",
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 15,
-      fontWeight: 520,
-      lineHeight: 1.35,
-      letterSpacing: "-0.03em"
-    }
-  }, role), /*#__PURE__*/React.createElement("ul", {
-    style: {
-      display: "flex",
-      flexDirection: "column",
-      gap: 11,
-      margin: "var(--space-5) 0 0",
-      padding: 0,
-      listStyle: "none"
-    }
-  }, bullets.map((b, i) => /*#__PURE__*/React.createElement("li", {
-    key: i,
-    style: {
-      display: "grid",
-      gridTemplateColumns: "14px minmax(0,1fr)",
-      gap: 10,
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--prose-size)",
-      lineHeight: 1.45,
-      letterSpacing: "-0.025em",
-      textWrap: "pretty"
-    }
-  }, /*#__PURE__*/React.createElement("i", {
-    style: {
-      marginTop: "0.62em",
-      width: 7,
-      height: 1,
-      background: "var(--story-accent)"
-    }
-  }), b)))));
-};
-function ResumeDocument({
-  data
-}) {
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
-    variant: "section",
-    style: {
-      minHeight: 420,
-      display: "flex"
-    }
-  }, /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
-    eyebrow: "R\xE9sum\xE9 \xB7 July 2026",
-    title: "Content design with systems range.",
-    deck: data.resumeSummary
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      flexWrap: "wrap",
-      gap: "var(--space-8)",
-      marginTop: 23
-    }
-  }, /*#__PURE__*/React.createElement(StageAction, {
-    accent: "action",
-    href: "resume-print.html"
-  }, "Download the PDF"), /*#__PURE__*/React.createElement(StageAction, {
-    accent: "stage",
-    href: "mailto:" + data.contact
-  }, data.contact))), /*#__PURE__*/React.createElement(SceneCharacter, {
-    src: "../../assets/work/caleb-presenting.png",
-    alt: "Clay Caleb presenting"
-  })), /*#__PURE__*/React.createElement(StorySection, {
-    tone: "paper",
-    index: "01",
-    chapterLabel: "Experience",
-    kicker: "Where the work happened",
-    title: "Four places, one through-line."
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: "var(--space-9)",
-      borderBottom: "1px solid var(--story-line)"
-    }
-  }, data.experience.map(e => /*#__PURE__*/React.createElement(Entry, {
-    key: e.org,
-    when: e.when,
-    org: e.org,
-    role: e.role,
-    bullets: e.bullets
-  })))), /*#__PURE__*/React.createElement(StorySection, {
-    tone: "bright",
-    index: "02",
-    chapterLabel: "Selected work",
-    kicker: "Five projects",
-    title: "What each one claims.",
-    intro: "Every claim below is the same sentence the case study opens with."
-  }, /*#__PURE__*/React.createElement(DataTable, {
-    columns: ["Project", "The claim", "Context"],
-    rows: data.projects.map(p => [p.title, p.statement, p.context])
-  }), /*#__PURE__*/React.createElement(ProvenanceNote, {
-    label: "On numbers"
-  }, "Figures are the ones the shipping teams reported. Exact experiment lifts at Meta are not public, and where a number would be a guess this r\xE9sum\xE9 leaves it out.")), /*#__PURE__*/React.createElement(StorySection, {
-    tone: "paper",
-    index: "03",
-    chapterLabel: "Practice",
-    kicker: "What I work with",
-    title: "Tools and methods."
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      flexWrap: "wrap",
-      gap: "var(--space-2)",
-      marginTop: "var(--space-9)"
-    }
-  }, data.tools.map(tool => /*#__PURE__*/React.createElement(Tag, {
-    key: tool,
-    on: "paper"
-  }, tool)))), /*#__PURE__*/React.createElement(StorySection, {
-    tone: "dark",
-    index: "04",
-    chapterLabel: "Education",
-    kicker: "Degrees",
-    title: "Language first."
-  }, /*#__PURE__*/React.createElement(CardGrid, {
-    columns: 2
-  }, data.education.map(e => /*#__PURE__*/React.createElement(GridCard, {
-    key: e.org,
-    label: e.when,
-    title: e.org
-  })))));
-}
-Object.assign(window, {
-  AboutDocument,
-  ResumeDocument
-});
-})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/portfolio/screen-utility.jsx", error: String((e && e.message) || e) }); }
 
 // components/evidence/RuleSplit.jsx
 try { (() => {
@@ -7338,97 +5396,6 @@ function Outcome({
 Object.assign(__ds_scope, { Outcome });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/evidence/Outcome.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/ProjectSpineItem.jsx
-try { (() => {
-/** One row of the project spine. Active state is inversion: the row becomes an ink block, reversed out. */
-function ProjectSpineItem({
-  number,
-  title,
-  statement,
-  active = false,
-  onSelect,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "ds-spine-item",
-    onClick: onSelect,
-    "aria-current": active ? "page" : undefined,
-    style: {
-      position: "relative",
-      display: "flex",
-      width: "100%",
-      minHeight: "var(--spine-item-min)",
-      overflow: "hidden",
-      /* The active row bases on its own content, not on zero. With `1 1 0` it grew by ratio only,
-         so on a short rail it stayed shorter than the statement and `overflow: hidden` sliced the
-         last line off. Inactive rows keep the zero base so they still share the leftover evenly. */
-      flex: active ? "1 1 auto" : "1 1 0",
-      flexGrow: active ? 1.7 : 1,
-      border: 0,
-      borderBottom: "1px solid var(--ink)",
-      textAlign: "left",
-      cursor: "pointer",
-      background: active ? "var(--ink)" : "transparent",
-      color: active ? "var(--paper-bright)" : "var(--ink)",
-      transition: "flex-grow var(--dur-stage) var(--ease-authored), background var(--dur-base) var(--ease-authored), color var(--dur-base) var(--ease-authored)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "grid",
-      gridTemplateColumns: "46px minmax(0,1fr)",
-      gap: "var(--space-3)",
-      alignItems: "start",
-      flex: "1 1 auto",
-      padding: "var(--space-5) clamp(20px,2.6vw,32px)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      paddingTop: 4,
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 15,
-      fontWeight: 700,
-      lineHeight: 0.9,
-      letterSpacing: "-0.05em",
-      transition: "color var(--dur-base) var(--ease-authored)"
-    }
-  }, number), /*#__PURE__*/React.createElement("span", {
-    style: {
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("strong", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: "var(--display-s-weight)",
-      lineHeight: "var(--display-s-leading)",
-      letterSpacing: "var(--display-s-tracking)"
-    }
-  }, title), /*#__PURE__*/React.createElement("small", {
-    style: {
-      display: "block",
-      maxWidth: 265,
-      overflow: "hidden",
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 12,
-      fontWeight: 480,
-      lineHeight: 1.35,
-      letterSpacing: "-0.025em",
-      maxHeight: active ? 96 : 0,
-      marginTop: active ? 9 : 0,
-      opacity: active ? 1 : 0,
-      transition: "max-height var(--dur-slow) var(--ease-authored), margin var(--dur-slow) var(--ease-authored), opacity var(--dur-tap) var(--ease-authored)"
-    }
-  }, statement))));
-}
-Object.assign(__ds_scope, { ProjectSpineItem });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ProjectSpineItem.jsx", error: String((e && e.message) || e) }); }
 
 // components/layout/StageCopy.jsx
 try { (() => {
@@ -12366,274 +10333,8 @@ function ChapterNav({
 Object.assign(__ds_scope, { ChapterNav });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ChapterNav.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/IndexRail.jsx
-try { (() => {
-/** The fixed left rail: identity, thesis, project spine, utilities, contact. The only navigation. */
-function IndexRail({
-  name = "Caleb Stacy",
-  title = "Senior content designer",
-  differentiator = "Product systems · content engineering",
-  thesis,
-  projects = [],
-  active,
-  onSelect,
-  utilities = [],
-  location,
-  contactLabel = "Contact",
-  contactHref,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("aside", {
-    "aria-label": "Identity and portfolio navigation",
-    style: {
-      position: "relative",
-      zIndex: 20,
-      minWidth: 0,
-      minHeight: 0,
-      display: "flex",
-      flexDirection: "column",
-      borderRight: "1px solid var(--ink)",
-      background: "var(--paper)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: () => onSelect && onSelect(utilities[0] ? utilities[0].id : "about"),
-    style: {
-      width: "100%",
-      display: "block",
-      padding: "clamp(30px,4.7vh,52px) var(--rail-pad-x) 21px",
-      border: 0,
-      background: "transparent",
-      textAlign: "left",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--wordmark-size)",
-      fontWeight: "var(--wordmark-weight)",
-      lineHeight: "var(--wordmark-leading)",
-      letterSpacing: "var(--wordmark-tracking)"
-    }
-  }, name), /*#__PURE__*/React.createElement("small", {
-    style: {
-      display: "block",
-      marginTop: "var(--space-3)",
-      fontFamily: "var(--font-mono)",
-      fontSize: "var(--eyebrow-size)",
-      fontWeight: 560,
-      lineHeight: 1.4,
-      letterSpacing: "-0.02em"
-    }
-  }, title, /*#__PURE__*/React.createElement("i", {
-    style: {
-      display: "block",
-      color: "var(--muted-ink)",
-      fontStyle: "normal"
-    }
-  }, differentiator))), thesis && /*#__PURE__*/React.createElement("p", {
-    style: {
-      maxWidth: 360,
-      margin: 0,
-      padding: "0 var(--rail-pad-x) clamp(22px,3.5vh,34px)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-s-size)",
-      lineHeight: 1.45,
-      letterSpacing: "-0.035em"
-    }
-  }, thesis), /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Selected work",
-    style: {
-      minHeight: 0,
-      display: "flex",
-      flex: "1 1 auto",
-      flexDirection: "column",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
-    key: p.id,
-    number: p.number,
-    title: p.title,
-    statement: p.statement,
-    active: active === p.id,
-    onSelect: () => onSelect && onSelect(p.id)
-  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
-    items: utilities,
-    active: active,
-    onSelect: onSelect
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      minHeight: 47,
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "var(--space-5)",
-      alignItems: "center",
-      padding: "0 clamp(24px,2.6vw,38px)",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      lineHeight: 1.3
-    }
-  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
-    href: contactHref,
-    style: {
-      flex: "0 0 auto",
-      paddingBottom: 2,
-      borderBottom: "1px solid var(--signal)",
-      color: "var(--ink)",
-      fontSize: 10,
-      fontWeight: 700,
-      textDecoration: "none"
-    }
-  }, contactLabel)));
-}
-Object.assign(__ds_scope, { IndexRail });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/IndexRail.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/ProjectSpineItem.jsx
-try { (() => {
-/** One row of the project spine. Active state is inversion: the row becomes an ink block, reversed out. */
-function ProjectSpineItem({
-  number,
-  title,
-  statement,
-  active = false,
-  onSelect,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "ds-spine-item",
-    onClick: onSelect,
-    "aria-current": active ? "page" : undefined,
-    style: {
-      position: "relative",
-      display: "flex",
-      width: "100%",
-      minHeight: "var(--spine-item-min)",
-      overflow: "hidden",
-      /* The active row bases on its own content, not on zero. With `1 1 0` it grew by ratio only,
-         so on a short rail it stayed shorter than the statement and `overflow: hidden` sliced the
-         last line off. Inactive rows keep the zero base so they still share the leftover evenly. */
-      flex: active ? "1 1 auto" : "1 1 0",
-      flexGrow: active ? 1.7 : 1,
-      border: 0,
-      borderBottom: "1px solid var(--ink)",
-      textAlign: "left",
-      cursor: "pointer",
-      background: active ? "var(--ink)" : "transparent",
-      color: active ? "var(--paper-bright)" : "var(--ink)",
-      transition: "flex-grow var(--dur-stage) var(--ease-authored), background var(--dur-base) var(--ease-authored), color var(--dur-base) var(--ease-authored)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "grid",
-      gridTemplateColumns: "46px minmax(0,1fr)",
-      gap: "var(--space-3)",
-      alignItems: "start",
-      flex: "1 1 auto",
-      padding: "var(--space-5) clamp(20px,2.6vw,32px)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      paddingTop: 4,
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 15,
-      fontWeight: 700,
-      lineHeight: 0.9,
-      letterSpacing: "-0.05em",
-      transition: "color var(--dur-base) var(--ease-authored)"
-    }
-  }, number), /*#__PURE__*/React.createElement("span", {
-    style: {
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("strong", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: "var(--display-s-weight)",
-      lineHeight: "var(--display-s-leading)",
-      letterSpacing: "var(--display-s-tracking)"
-    }
-  }, title), /*#__PURE__*/React.createElement("small", {
-    "aria-hidden": !active,
-    style: {
-      display: "block",
-      maxWidth: 265,
-      overflow: "hidden",
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 12,
-      fontWeight: 480,
-      lineHeight: 1.35,
-      letterSpacing: "-0.025em",
-      maxHeight: active ? 96 : 0,
-      marginTop: active ? 9 : 0,
-      opacity: active ? 1 : 0,
-      transition: "max-height var(--dur-slow) var(--ease-authored), margin var(--dur-slow) var(--ease-authored), opacity var(--dur-tap) var(--ease-authored)"
-    }
-  }, statement))));
-}
-Object.assign(__ds_scope, { ProjectSpineItem });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ProjectSpineItem.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/UtilityNav.jsx
-try { (() => {
-/** Equal-width tab row. The active tab inverts to ink, matching the spine. */
-function UtilityNav({
-  items = [],
-  active,
-  onSelect,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Utilities",
-    style: {
-      minHeight: "var(--utility-nav-height)",
-      display: "grid",
-      gridTemplateColumns: "repeat(" + Math.max(items.length, 1) + ",1fr)",
-      borderBottom: "1px solid var(--ink)",
-      ...style
-    },
-    ...rest
-  }, items.map((item, i) => {
-    const on = item.id === active;
-    return /*#__PURE__*/React.createElement("button", {
-      key: item.id,
-      type: "button",
-      className: "ds-tab",
-      onClick: () => onSelect && onSelect(item.id),
-      "aria-current": on ? "page" : undefined,
-      style: {
-        position: "relative",
-        padding: "0 10px",
-        border: 0,
-        borderRight: i === items.length - 1 ? 0 : "1px solid " + (on ? "var(--ink)" : "var(--soft-line)"),
-        background: on ? "var(--ink)" : "transparent",
-        color: on ? "var(--paper-bright)" : "var(--ink)",
-        fontFamily: "var(--font-sans)",
-        fontSize: "var(--ui-size)",
-        fontWeight: "var(--ui-weight)",
-        letterSpacing: "var(--ui-tracking)",
-        cursor: "pointer",
-        transition: "background var(--dur-base) var(--ease-authored), color var(--dur-base) var(--ease-authored)"
-      }
-    }, item.label);
-  }));
-}
-Object.assign(__ds_scope, { UtilityNav });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/UtilityNav.jsx", error: String((e && e.message) || e) }); }
 
 // components/actions/ScrollCue.jsx
 try { (() => {
@@ -16297,274 +13998,8 @@ function ChapterNav({
 Object.assign(__ds_scope, { ChapterNav });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ChapterNav.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/IndexRail.jsx
-try { (() => {
-/** The fixed left rail: identity, thesis, project spine, utilities, contact. The only navigation. */
-function IndexRail({
-  name = "Caleb Stacy",
-  title = "Senior content designer",
-  differentiator = "Product systems · content engineering",
-  thesis,
-  projects = [],
-  active,
-  onSelect,
-  utilities = [],
-  location,
-  contactLabel = "Contact",
-  contactHref,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("aside", {
-    "aria-label": "Identity and portfolio navigation",
-    style: {
-      position: "relative",
-      zIndex: 20,
-      minWidth: 0,
-      minHeight: 0,
-      display: "flex",
-      flexDirection: "column",
-      borderRight: "1px solid var(--ink)",
-      background: "var(--paper)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: () => onSelect && onSelect(utilities[0] ? utilities[0].id : "about"),
-    style: {
-      width: "100%",
-      display: "block",
-      padding: "clamp(30px,4.7vh,52px) var(--rail-pad-x) 21px",
-      border: 0,
-      background: "transparent",
-      textAlign: "left",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--wordmark-size)",
-      fontWeight: "var(--wordmark-weight)",
-      lineHeight: "var(--wordmark-leading)",
-      letterSpacing: "var(--wordmark-tracking)"
-    }
-  }, name), /*#__PURE__*/React.createElement("small", {
-    style: {
-      display: "block",
-      marginTop: "var(--space-3)",
-      fontFamily: "var(--font-mono)",
-      fontSize: "var(--eyebrow-size)",
-      fontWeight: 560,
-      lineHeight: 1.4,
-      letterSpacing: "-0.02em"
-    }
-  }, title, /*#__PURE__*/React.createElement("i", {
-    style: {
-      display: "block",
-      color: "var(--muted-ink)",
-      fontStyle: "normal"
-    }
-  }, differentiator))), thesis && /*#__PURE__*/React.createElement("p", {
-    style: {
-      maxWidth: 360,
-      margin: 0,
-      padding: "0 var(--rail-pad-x) clamp(22px,3.5vh,34px)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-s-size)",
-      lineHeight: 1.45,
-      letterSpacing: "-0.035em"
-    }
-  }, thesis), /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Selected work",
-    style: {
-      minHeight: 0,
-      display: "flex",
-      flex: "1 1 auto",
-      flexDirection: "column",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
-    key: p.id,
-    number: p.number,
-    title: p.title,
-    statement: p.statement,
-    active: active === p.id,
-    onSelect: () => onSelect && onSelect(p.id)
-  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
-    items: utilities,
-    active: active,
-    onSelect: onSelect
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      minHeight: 47,
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "var(--space-5)",
-      alignItems: "center",
-      padding: "0 clamp(24px,2.6vw,38px)",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      lineHeight: 1.3
-    }
-  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
-    href: contactHref,
-    style: {
-      flex: "0 0 auto",
-      paddingBottom: 2,
-      borderBottom: "1px solid var(--signal)",
-      color: "var(--ink)",
-      fontSize: 10,
-      fontWeight: 700,
-      textDecoration: "none"
-    }
-  }, contactLabel)));
-}
-Object.assign(__ds_scope, { IndexRail });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/IndexRail.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/ProjectSpineItem.jsx
-try { (() => {
-/** One row of the project spine. Active state is inversion: the row becomes an ink block, reversed out. */
-function ProjectSpineItem({
-  number,
-  title,
-  statement,
-  active = false,
-  onSelect,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "ds-spine-item",
-    onClick: onSelect,
-    "aria-current": active ? "page" : undefined,
-    style: {
-      position: "relative",
-      display: "flex",
-      width: "100%",
-      minHeight: "var(--spine-item-min)",
-      overflow: "hidden",
-      /* The active row bases on its own content, not on zero. With `1 1 0` it grew by ratio only,
-         so on a short rail it stayed shorter than the statement and `overflow: hidden` sliced the
-         last line off. Inactive rows keep the zero base so they still share the leftover evenly. */
-      flex: active ? "1 1 auto" : "1 1 0",
-      flexGrow: active ? 1.7 : 1,
-      border: 0,
-      borderBottom: "1px solid var(--ink)",
-      textAlign: "left",
-      cursor: "pointer",
-      background: active ? "var(--ink)" : "transparent",
-      color: active ? "var(--paper-bright)" : "var(--ink)",
-      transition: "flex-grow var(--dur-stage) var(--ease-authored), background var(--dur-base) var(--ease-authored), color var(--dur-base) var(--ease-authored)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "grid",
-      gridTemplateColumns: "46px minmax(0,1fr)",
-      gap: "var(--space-3)",
-      alignItems: "start",
-      flex: "1 1 auto",
-      padding: "var(--space-5) clamp(20px,2.6vw,32px)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      paddingTop: 4,
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 15,
-      fontWeight: 700,
-      lineHeight: 0.9,
-      letterSpacing: "-0.05em",
-      transition: "color var(--dur-base) var(--ease-authored)"
-    }
-  }, number), /*#__PURE__*/React.createElement("span", {
-    style: {
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("strong", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: "var(--display-s-weight)",
-      lineHeight: "var(--display-s-leading)",
-      letterSpacing: "var(--display-s-tracking)"
-    }
-  }, title), /*#__PURE__*/React.createElement("small", {
-    "aria-hidden": !active,
-    style: {
-      display: "block",
-      maxWidth: 265,
-      overflow: "hidden",
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 12,
-      fontWeight: 480,
-      lineHeight: 1.35,
-      letterSpacing: "-0.025em",
-      maxHeight: active ? 96 : 0,
-      marginTop: active ? 9 : 0,
-      opacity: active ? 1 : 0,
-      transition: "max-height var(--dur-slow) var(--ease-authored), margin var(--dur-slow) var(--ease-authored), opacity var(--dur-tap) var(--ease-authored)"
-    }
-  }, statement))));
-}
-Object.assign(__ds_scope, { ProjectSpineItem });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ProjectSpineItem.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/UtilityNav.jsx
-try { (() => {
-/** Equal-width tab row. The active tab inverts to ink, matching the spine. */
-function UtilityNav({
-  items = [],
-  active,
-  onSelect,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Utilities",
-    style: {
-      minHeight: "var(--utility-nav-height)",
-      display: "grid",
-      gridTemplateColumns: "repeat(" + Math.max(items.length, 1) + ",1fr)",
-      borderBottom: "1px solid var(--ink)",
-      ...style
-    },
-    ...rest
-  }, items.map((item, i) => {
-    const on = item.id === active;
-    return /*#__PURE__*/React.createElement("button", {
-      key: item.id,
-      type: "button",
-      className: "ds-tab",
-      onClick: () => onSelect && onSelect(item.id),
-      "aria-current": on ? "page" : undefined,
-      style: {
-        position: "relative",
-        padding: "0 10px",
-        border: 0,
-        borderRight: i === items.length - 1 ? 0 : "1px solid " + (on ? "var(--ink)" : "var(--soft-line)"),
-        background: on ? "var(--ink)" : "transparent",
-        color: on ? "var(--paper-bright)" : "var(--ink)",
-        fontFamily: "var(--font-sans)",
-        fontSize: "var(--ui-size)",
-        fontWeight: "var(--ui-weight)",
-        letterSpacing: "var(--ui-tracking)",
-        cursor: "pointer",
-        transition: "background var(--dur-base) var(--ease-authored), color var(--dur-base) var(--ease-authored)"
-      }
-    }, item.label);
-  }));
-}
-Object.assign(__ds_scope, { UtilityNav });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/UtilityNav.jsx", error: String((e && e.message) || e) }); }
 
 // components/case/CaseSection.jsx
 try { (() => {
@@ -16892,134 +14327,6 @@ function CaseNav({
 Object.assign(__ds_scope, { CaseNav });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/case/CaseNav.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/IndexRail.jsx
-try { (() => {
-/** The fixed left rail: identity, thesis, project spine, utilities, contact. The only navigation. */
-function IndexRail({
-  name = "Caleb Stacy",
-  title = "Senior content designer",
-  differentiator = "Product systems · content engineering",
-  thesis,
-  projects = [],
-  active,
-  onSelect,
-  utilities = [],
-  location,
-  contactLabel = "Contact",
-  contactHref,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("aside", {
-    "aria-label": "Identity and portfolio navigation",
-    style: {
-      position: "relative",
-      zIndex: 20,
-      minWidth: 0,
-      minHeight: 0,
-      display: "flex",
-      flexDirection: "column",
-      borderRight: "1px solid var(--ink)",
-      background: "var(--paper)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: () => onSelect && onSelect(utilities[0] ? utilities[0].id : "about"),
-    style: {
-      width: "100%",
-      display: "block",
-      padding: "clamp(30px,4.7vh,52px) var(--rail-pad-x) 21px",
-      border: 0,
-      background: "transparent",
-      color: "var(--ink)",
-      textAlign: "left",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--wordmark-size)",
-      fontWeight: "var(--wordmark-weight)",
-      lineHeight: "var(--wordmark-leading)",
-      letterSpacing: "var(--wordmark-tracking)"
-    }
-  }, name), /*#__PURE__*/React.createElement("small", {
-    style: {
-      display: "block",
-      marginTop: "var(--space-3)",
-      fontFamily: "var(--font-mono)",
-      fontSize: "var(--eyebrow-size)",
-      fontWeight: 560,
-      lineHeight: 1.4,
-      letterSpacing: "-0.02em"
-    }
-  }, title, /*#__PURE__*/React.createElement("i", {
-    style: {
-      display: "block",
-      color: "var(--muted-ink)",
-      fontStyle: "normal"
-    }
-  }, differentiator))), thesis && /*#__PURE__*/React.createElement("p", {
-    style: {
-      maxWidth: 360,
-      margin: 0,
-      padding: "0 var(--rail-pad-x) clamp(22px,3.5vh,34px)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-s-size)",
-      lineHeight: 1.45,
-      letterSpacing: "-0.035em"
-    }
-  }, thesis), /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Selected work",
-    style: {
-      minHeight: 0,
-      display: "flex",
-      flex: "1 1 auto",
-      flexDirection: "column",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
-    key: p.id,
-    number: p.number,
-    title: p.title,
-    statement: p.statement,
-    active: active === p.id,
-    onSelect: () => onSelect && onSelect(p.id)
-  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
-    items: utilities,
-    active: active,
-    onSelect: onSelect
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      minHeight: 47,
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "var(--space-5)",
-      alignItems: "center",
-      padding: "0 clamp(24px,2.6vw,38px)",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      lineHeight: 1.3
-    }
-  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
-    href: contactHref,
-    style: {
-      flex: "0 0 auto",
-      paddingBottom: 2,
-      borderBottom: "1px solid var(--signal)",
-      color: "var(--ink)",
-      fontSize: 10,
-      fontWeight: 700,
-      textDecoration: "none"
-    }
-  }, contactLabel)));
-}
-Object.assign(__ds_scope, { IndexRail });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/IndexRail.jsx", error: String((e && e.message) || e) }); }
 
 // components/layout/PaperFrame.jsx
 try { (() => {
@@ -17276,135 +14583,6 @@ function StageCurtain({
 Object.assign(__ds_scope, { StageCurtain });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/layout/StageCurtain.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/IndexRail.jsx
-try { (() => {
-/** The fixed left rail: identity, thesis, project spine, utilities, contact. The only navigation. */
-function IndexRail({
-  name = "Caleb Stacy",
-  title = "Senior content designer",
-  differentiator = "Product systems · content engineering",
-  thesis,
-  projects = [],
-  active,
-  onSelect,
-  utilities = [],
-  location,
-  contactLabel = "Contact",
-  contactHref,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("aside", {
-    "aria-label": "Identity and portfolio navigation",
-    "data-ds": "rail",
-    style: {
-      position: "relative",
-      zIndex: 20,
-      minWidth: 0,
-      minHeight: 0,
-      display: "flex",
-      flexDirection: "column",
-      borderRight: "1px solid var(--ink)",
-      background: "var(--paper)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: () => onSelect && onSelect(utilities[0] ? utilities[0].id : "about"),
-    style: {
-      width: "100%",
-      display: "block",
-      padding: "clamp(30px,4.7vh,52px) var(--rail-pad-x) 21px",
-      border: 0,
-      background: "transparent",
-      color: "var(--ink)",
-      textAlign: "left",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--wordmark-size)",
-      fontWeight: "var(--wordmark-weight)",
-      lineHeight: "var(--wordmark-leading)",
-      letterSpacing: "var(--wordmark-tracking)"
-    }
-  }, name), /*#__PURE__*/React.createElement("small", {
-    style: {
-      display: "block",
-      marginTop: "var(--space-3)",
-      fontFamily: "var(--font-mono)",
-      fontSize: "var(--eyebrow-size)",
-      fontWeight: 560,
-      lineHeight: 1.4,
-      letterSpacing: "-0.02em"
-    }
-  }, title, /*#__PURE__*/React.createElement("i", {
-    style: {
-      display: "block",
-      color: "var(--muted-ink)",
-      fontStyle: "normal"
-    }
-  }, differentiator))), thesis && /*#__PURE__*/React.createElement("p", {
-    style: {
-      maxWidth: 360,
-      margin: 0,
-      padding: "0 var(--rail-pad-x) clamp(22px,3.5vh,34px)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-s-size)",
-      lineHeight: 1.45,
-      letterSpacing: "-0.035em"
-    }
-  }, thesis), /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Selected work",
-    style: {
-      minHeight: 0,
-      display: "flex",
-      flex: "1 1 auto",
-      flexDirection: "column",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
-    key: p.id,
-    number: p.number,
-    title: p.title,
-    statement: p.statement,
-    active: active === p.id,
-    onSelect: () => onSelect && onSelect(p.id)
-  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
-    items: utilities,
-    active: active,
-    onSelect: onSelect
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      minHeight: 47,
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "var(--space-5)",
-      alignItems: "center",
-      padding: "0 clamp(24px,2.6vw,38px)",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      lineHeight: 1.3
-    }
-  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
-    href: contactHref,
-    style: {
-      flex: "0 0 auto",
-      paddingBottom: 2,
-      borderBottom: "1px solid var(--signal)",
-      color: "var(--ink)",
-      fontSize: 10,
-      fontWeight: 700,
-      textDecoration: "none"
-    }
-  }, contactLabel)));
-}
-Object.assign(__ds_scope, { IndexRail });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/IndexRail.jsx", error: String((e && e.message) || e) }); }
 
 // components/navigation/ChapterNav.jsx
 try { (() => {
@@ -17483,329 +14661,7 @@ function ChapterNav({
 Object.assign(__ds_scope, { ChapterNav });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ChapterNav.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/MobileIdentityBar.jsx
-try { (() => {
-/** The entire persistent phone chrome: identity plus the one control that opens the full menu.
- *  Below the shell breakpoint this replaces `IndexRail` outright rather than reflowing it — the
- *  desktop rail is a column of navigation; the phone gets a header. Safe-area-aware so it clears
- *  a notch, and the name button carries an explicit ink color for the same reason the desktop
- *  rail's identity button does: an unstyled `<button>` renders its text in iOS Safari's system
- *  blue otherwise. */
-function MobileIdentityBar({
-  name = "Caleb Stacy",
-  title = "Senior content designer",
-  isOpen = false,
-  onToggle,
-  onHome,
-  toggleRef,
-  menuId,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("header", {
-    "data-ds": "mobile-bar",
-    style: {
-      position: "sticky",
-      zIndex: 300,
-      top: 0,
-      paddingTop: "env(safe-area-inset-top, 0px)",
-      borderBottom: "1px solid var(--ink)",
-      background: "var(--paper-bright)",
-      color: "var(--ink)",
-      boxShadow: "var(--shadow-sticky)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      height: "var(--mobile-bar-height)",
-      display: "flex",
-      alignItems: "stretch"
-    }
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: onHome,
-    style: {
-      minWidth: 0,
-      display: "flex",
-      flex: "1 1 auto",
-      flexDirection: "column",
-      justifyContent: "center",
-      gap: 2,
-      padding: "0 18px",
-      border: 0,
-      background: "transparent",
-      color: "var(--ink)",
-      textAlign: "left",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/React.createElement("strong", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: 17,
-      fontWeight: 760,
-      lineHeight: 1,
-      letterSpacing: "-0.045em"
-    }
-  }, name), /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "block",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      fontWeight: 660,
-      letterSpacing: "-0.01em"
-    }
-  }, title)), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    ref: toggleRef,
-    onClick: onToggle,
-    "aria-expanded": isOpen,
-    "aria-controls": menuId,
-    "aria-label": isOpen ? "Close menu" : "Open menu",
-    style: {
-      width: 84,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: 9,
-      border: 0,
-      borderLeft: "1px solid var(--ink)",
-      background: "transparent",
-      color: "var(--ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 9,
-      fontWeight: 760,
-      cursor: "pointer"
-    }
-  }, isOpen ? "Close" : "Menu", /*#__PURE__*/React.createElement("i", {
-    className: "ds-mobile-toggle-icon",
-    "data-state": isOpen ? "open" : "closed",
-    "aria-hidden": "true"
-  }))));
-}
-Object.assign(__ds_scope, { MobileIdentityBar });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileIdentityBar.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/MobileMenu.jsx
-try { (() => {
-/** The phone destination list: work and profile as separate groups, in a full-surface overlay
- *  under the identity bar. Never a second, quieter navigation living beside the reader — this
- *  IS the rail's content, shown only after an explicit tap, exactly as the rail's spine is always
- *  showing on desktop.
- *
- *  The panel stays mounted at rest and draws itself with `clip-path` — open reveals top-down,
- *  close retracts the same way, over `--dur-fast` — never an opacity fade. `visibility` follows
- *  the same clip, flipped instantly on open and held until the retraction finishes on close, so
- *  a clipped-away panel can never be tabbed into. `prefers-reduced-motion` is handled globally
- *  (tokens/animation.css collapses every transition to 0.01ms), so the state still changes here,
- *  it just arrives at once. */
-function MobileMenu({
-  isOpen = false,
-  onClose,
-  projects = [],
-  utilities = [],
-  activeId,
-  onSelect,
-  location,
-  contactLabel = "Contact",
-  contactHref,
-  menuId,
-  returnFocusRef,
-  style,
-  ...rest
-}) {
-  const panelRef = React.useRef(null);
-  const wasOpen = React.useRef(false);
-  React.useEffect(() => {
-    if (isOpen) {
-      const first = panelRef.current && panelRef.current.querySelector("a, button");
-      if (first) first.focus();
-    } else if (wasOpen.current && returnFocusRef && returnFocusRef.current) {
-      returnFocusRef.current.focus();
-    }
-    wasOpen.current = isOpen;
-  }, [isOpen, returnFocusRef]);
-  React.useEffect(() => {
-    if (!isOpen) return undefined;
-    const onKeyDown = event => {
-      if (event.key === "Escape") {
-        onClose && onClose();
-        return;
-      }
-      if (event.key !== "Tab" || !panelRef.current) return;
-      const focusable = panelRef.current.querySelectorAll("a, button");
-      if (!focusable.length) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isOpen, onClose]);
-  const select = id => {
-    onSelect && onSelect(id);
-    onClose && onClose();
-  };
-  return /*#__PURE__*/React.createElement("div", {
-    ref: panelRef,
-    id: menuId,
-    role: "dialog",
-    "aria-modal": "true",
-    "aria-label": "Site navigation",
-    "data-ds": "mobile-menu",
-    style: {
-      position: "fixed",
-      zIndex: 290,
-      left: 0,
-      right: 0,
-      top: "calc(env(safe-area-inset-top, 0px) + var(--mobile-bar-height))",
-      bottom: 0,
-      display: "grid",
-      gridTemplateRows: "minmax(0,1fr) auto auto",
-      overflowY: "auto",
-      background: "var(--paper)",
-      color: "var(--ink)",
-      boxShadow: "0 18px 40px rgba(17,17,15,0.2)",
-      clipPath: isOpen ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)",
-      visibility: isOpen ? "visible" : "hidden",
-      transition: isOpen ? "clip-path var(--dur-fast) var(--ease-authored)" : "clip-path var(--dur-fast) var(--ease-authored), visibility 0s var(--dur-fast)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Work",
-    style: {
-      padding: "24px 18px"
-    }
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "0 0 14px",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      fontWeight: 760
-    }
-  }, "Work"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "grid",
-      gridTemplateColumns: "repeat(2,minmax(0,1fr))",
-      gap: 8
-    }
-  }, projects.map(p => {
-    const on = p.id === activeId;
-    return /*#__PURE__*/React.createElement("button", {
-      key: p.id,
-      type: "button",
-      tabIndex: isOpen ? 0 : -1,
-      onClick: () => select(p.id),
-      "aria-current": on ? "page" : undefined,
-      style: {
-        minHeight: 112,
-        display: "grid",
-        gridTemplateColumns: "30px minmax(0,1fr)",
-        gridTemplateRows: "auto 1fr",
-        gap: "8px 10px",
-        padding: 16,
-        overflow: "hidden",
-        textAlign: "left",
-        border: 0,
-        background: on ? "var(--ink)" : "var(--paper-bright)",
-        color: on ? "var(--paper-bright)" : "var(--ink)",
-        boxShadow: "3px 4px 0 rgba(17,17,15,0.14)",
-        cursor: "pointer",
-        transition: "background var(--dur-fast) var(--ease-authored), color var(--dur-fast) var(--ease-authored)"
-      }
-    }, /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: on ? "var(--paper-dim)" : "var(--signal)",
-        fontFamily: "var(--font-mono)",
-        fontSize: 9,
-        fontWeight: 760
-      }
-    }, p.number), /*#__PURE__*/React.createElement("strong", {
-      style: {
-        fontFamily: "var(--font-sans)",
-        fontSize: "clamp(19px,4.4vw,25px)",
-        fontWeight: 720,
-        lineHeight: 1,
-        letterSpacing: "-0.05em"
-      }
-    }, p.title), /*#__PURE__*/React.createElement("small", {
-      style: {
-        gridColumn: 2,
-        alignSelf: "end",
-        color: on ? "var(--paper-dim)" : "var(--muted-ink)",
-        fontFamily: "var(--font-sans)",
-        fontSize: 10,
-        lineHeight: 1.3
-      }
-    }, p.statement));
-  }))), utilities.length > 0 && /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Profile",
-    style: {
-      borderTop: "1px solid var(--ink)"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "grid",
-      gridTemplateColumns: "repeat(" + utilities.length + ",1fr)"
-    }
-  }, utilities.map((u, i) => {
-    const on = u.id === activeId;
-    return /*#__PURE__*/React.createElement("button", {
-      key: u.id,
-      type: "button",
-      tabIndex: isOpen ? 0 : -1,
-      onClick: () => select(u.id),
-      "aria-current": on ? "page" : undefined,
-      style: {
-        minHeight: 54,
-        border: 0,
-        borderRight: i === utilities.length - 1 ? 0 : "1px solid var(--ink)",
-        background: on ? "var(--ink)" : "var(--paper-bright)",
-        color: on ? "var(--paper-bright)" : "var(--ink)",
-        fontFamily: "var(--font-sans)",
-        fontSize: 16,
-        fontWeight: 650,
-        cursor: "pointer",
-        transition: "background var(--dur-fast) var(--ease-authored), color var(--dur-fast) var(--ease-authored)"
-      }
-    }, u.label);
-  }))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      justifyContent: "space-between",
-      gap: 18,
-      alignItems: "center",
-      padding: "16px 18px calc(16px + env(safe-area-inset-bottom, 0px))",
-      borderTop: "1px solid var(--ink)",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8
-    }
-  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
-    href: contactHref,
-    tabIndex: isOpen ? 0 : -1,
-    style: {
-      paddingBottom: 2,
-      borderBottom: "1px solid var(--signal)",
-      color: "var(--ink)",
-      fontSize: 10,
-      fontWeight: 700,
-      textDecoration: "none"
-    }
-  }, contactLabel)));
-}
-Object.assign(__ds_scope, { MobileMenu });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileMenu.jsx", error: String((e && e.message) || e) }); }
 
 // components/evidence/FactsPanel.jsx
 try { (() => {
@@ -18054,340 +14910,8 @@ function StageCurtain({
 Object.assign(__ds_scope, { StageCurtain });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/layout/StageCurtain.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/MobileIdentityBar.jsx
-try { (() => {
-/** The entire persistent phone chrome, and the entire bar IS the control — identity and the menu
- *  trigger are one tappable unit, not identity plus a bolted-on hamburger. Below the shell
- *  breakpoint this replaces `IndexRail` outright rather than reflowing it: the desktop rail is a
- *  column of navigation; the phone gets a header that opens the same navigation as an overlay.
- *  Safe-area-aware so it clears a notch, and it carries an explicit ink color for the same reason
- *  the desktop rail's identity button does — an unstyled `<button>` renders its text in iOS
- *  Safari's system blue otherwise. */
-function MobileIdentityBar({
-  name = "Caleb Stacy",
-  title = "Senior content designer",
-  isOpen = false,
-  onToggle,
-  toggleRef,
-  menuId,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("header", {
-    "data-ds": "mobile-bar",
-    style: {
-      position: "sticky",
-      zIndex: 300,
-      top: 0,
-      paddingTop: "env(safe-area-inset-top, 0px)",
-      borderBottom: "1px solid var(--ink)",
-      background: "var(--paper-bright)",
-      color: "var(--ink)",
-      boxShadow: "var(--shadow-sticky)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    ref: toggleRef,
-    onClick: onToggle,
-    "aria-expanded": isOpen,
-    "aria-controls": menuId,
-    style: {
-      width: "100%",
-      height: "var(--mobile-bar-height)",
-      display: "flex",
-      alignItems: "stretch",
-      border: 0,
-      background: "transparent",
-      color: "var(--ink)",
-      textAlign: "left",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      minWidth: 0,
-      display: "flex",
-      flex: "1 1 auto",
-      flexDirection: "column",
-      justifyContent: "center",
-      gap: 2,
-      padding: "0 18px"
-    }
-  }, /*#__PURE__*/React.createElement("strong", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: 17,
-      fontWeight: 760,
-      lineHeight: 1,
-      letterSpacing: "-0.045em"
-    }
-  }, name), /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "block",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      fontWeight: 660,
-      letterSpacing: "-0.01em"
-    }
-  }, title)), /*#__PURE__*/React.createElement("span", {
-    style: {
-      flex: "0 0 auto",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: 9,
-      width: 84,
-      borderLeft: "1px solid var(--ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 9,
-      fontWeight: 760
-    }
-  }, isOpen ? "Close" : "Menu", /*#__PURE__*/React.createElement("i", {
-    className: "ds-mobile-toggle-icon",
-    "data-state": isOpen ? "open" : "closed",
-    "aria-hidden": "true"
-  }))));
-}
-Object.assign(__ds_scope, { MobileIdentityBar });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileIdentityBar.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/MobileMenu.jsx
-try { (() => {
-/** The phone destination list — the desktop rail's own navigation, shown as a full-surface
- *  overlay instead of a fixed column. It composes the rail's real parts (`ProjectSpineItem`,
- *  `UtilityNav`) rather than a smaller, invented "mobile menu" shape: every project row inverts
- *  to ink and unfurls its one-line statement exactly when it's the open document, the same
- *  active-state language the desktop spine uses, and About/Résumé are the same tab row. Shown
- *  only after an explicit tap on `MobileIdentityBar`; the default phone page never opens on the
- *  complete sitemap. */
-function MobileMenu({
-  isOpen = false,
-  onClose,
-  projects = [],
-  utilities = [],
-  activeId,
-  onSelect,
-  location,
-  contactLabel = "Contact",
-  contactHref,
-  menuId,
-  returnFocusRef,
-  style,
-  ...rest
-}) {
-  const panelRef = React.useRef(null);
-  const wasOpen = React.useRef(false);
-  React.useEffect(() => {
-    if (isOpen) {
-      const first = panelRef.current && panelRef.current.querySelector("a, button");
-      if (first) first.focus();
-    } else if (wasOpen.current && returnFocusRef && returnFocusRef.current) {
-      returnFocusRef.current.focus();
-    }
-    wasOpen.current = isOpen;
-  }, [isOpen, returnFocusRef]);
-  React.useEffect(() => {
-    if (!isOpen) return undefined;
-    const onKeyDown = event => {
-      if (event.key === "Escape") {
-        onClose && onClose();
-        return;
-      }
-      if (event.key !== "Tab" || !panelRef.current) return;
-      const focusable = panelRef.current.querySelectorAll("a, button");
-      if (!focusable.length) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isOpen, onClose]);
-  const select = id => {
-    onSelect && onSelect(id);
-    onClose && onClose();
-  };
-  const tab = isOpen ? undefined : -1;
-  return /*#__PURE__*/React.createElement("div", {
-    ref: panelRef,
-    id: menuId,
-    role: "dialog",
-    "aria-modal": "true",
-    "aria-label": "Site navigation",
-    "data-ds": "mobile-menu",
-    style: {
-      position: "fixed",
-      zIndex: 290,
-      left: 0,
-      right: 0,
-      top: "calc(env(safe-area-inset-top, 0px) + var(--mobile-bar-height))",
-      bottom: 0,
-      display: "flex",
-      flexDirection: "column",
-      overflowY: "auto",
-      background: "var(--paper)",
-      color: "var(--ink)",
-      boxShadow: "0 18px 40px rgba(17,17,15,0.2)",
-      clipPath: isOpen ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)",
-      visibility: isOpen ? "visible" : "hidden",
-      transition: isOpen ? "clip-path var(--dur-fast) var(--ease-authored)" : "clip-path var(--dur-fast) var(--ease-authored), visibility 0s var(--dur-fast)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Work",
-    style: {
-      display: "flex",
-      flexDirection: "column",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
-    key: p.id,
-    number: p.number,
-    title: p.title,
-    statement: p.statement,
-    active: p.id === activeId,
-    onSelect: () => select(p.id),
-    tabIndex: tab
-  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
-    items: utilities,
-    active: activeId,
-    onSelect: select,
-    style: {
-      flex: "0 0 auto"
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      minHeight: 47,
-      flex: "0 0 auto",
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "var(--space-5)",
-      alignItems: "center",
-      padding: "0 clamp(24px,2.6vw,38px)",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      lineHeight: 1.3
-    }
-  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
-    href: contactHref,
-    tabIndex: tab,
-    style: {
-      flex: "0 0 auto",
-      paddingBottom: 2,
-      borderBottom: "1px solid var(--signal)",
-      color: "var(--ink)",
-      fontSize: 10,
-      fontWeight: 700,
-      textDecoration: "none"
-    }
-  }, contactLabel)));
-}
-Object.assign(__ds_scope, { MobileMenu });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileMenu.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/ProjectSpineItem.jsx
-try { (() => {
-/** One row of the project spine. Active state is inversion: the row becomes an ink block, reversed out. */
-function ProjectSpineItem({
-  number,
-  title,
-  statement,
-  active = false,
-  onSelect,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "ds-spine-item",
-    onClick: onSelect,
-    "aria-current": active ? "page" : undefined,
-    style: {
-      position: "relative",
-      display: "flex",
-      width: "100%",
-      minHeight: "var(--spine-item-min)",
-      overflow: "hidden",
-      /* The active row bases on its own content, not on zero. With `1 1 0` it grew by ratio only,
-         so on a short rail it stayed shorter than the statement and `overflow: hidden` sliced the
-         last line off. Inactive rows keep the zero base so they still share the leftover evenly. */
-      flex: active ? "1 1 auto" : "1 1 0",
-      flexGrow: 1,
-      border: 0,
-      borderBottom: "1px solid var(--ink)",
-      textAlign: "left",
-      cursor: "pointer",
-      background: active ? "var(--ink)" : "transparent",
-      color: active ? "var(--paper-bright)" : "var(--ink)",
-      transition: "flex-grow var(--dur-stage) var(--ease-authored), background var(--dur-base) var(--ease-authored), color var(--dur-base) var(--ease-authored)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "grid",
-      gridTemplateColumns: "46px minmax(0,1fr)",
-      gap: "var(--space-3)",
-      alignItems: "start",
-      flex: "1 1 auto",
-      padding: "var(--space-5) clamp(20px,2.6vw,32px)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      paddingTop: 4,
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 15,
-      fontWeight: 700,
-      lineHeight: 0.9,
-      letterSpacing: "-0.05em",
-      transition: "color var(--dur-base) var(--ease-authored)"
-    }
-  }, number), /*#__PURE__*/React.createElement("span", {
-    style: {
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("strong", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: "var(--display-s-weight)",
-      lineHeight: "var(--display-s-leading)",
-      letterSpacing: "var(--display-s-tracking)"
-    }
-  }, title), /*#__PURE__*/React.createElement("small", {
-    "aria-hidden": !active,
-    style: {
-      display: "block",
-      maxWidth: 265,
-      overflow: "hidden",
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 12,
-      fontWeight: 480,
-      lineHeight: 1.35,
-      letterSpacing: "-0.025em",
-      maxHeight: active ? 96 : 0,
-      marginTop: active ? 9 : 0,
-      opacity: active ? 1 : 0,
-      transition: "max-height var(--dur-slow) var(--ease-authored), margin var(--dur-slow) var(--ease-authored), opacity var(--dur-tap) var(--ease-authored)"
-    }
-  }, statement))));
-}
-Object.assign(__ds_scope, { ProjectSpineItem });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ProjectSpineItem.jsx", error: String((e && e.message) || e) }); }
 
 // components/case/CaseMeta.jsx
 try { (() => {
@@ -22534,518 +19058,10 @@ function ChapterNav({
 Object.assign(__ds_scope, { ChapterNav });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ChapterNav.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/IndexRail.jsx
-try { (() => {
-/** The fixed left rail: identity, thesis, project spine, utilities, contact. The only navigation. */
-function IndexRail({
-  name = "Caleb Stacy",
-  title = "Senior content designer",
-  differentiator = "Product systems · content engineering",
-  thesis,
-  projects = [],
-  active,
-  onSelect,
-  utilities = [],
-  location,
-  contactLabel = "Contact",
-  contactHref,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("aside", {
-    "aria-label": "Identity and portfolio navigation",
-    "data-ds": "rail",
-    style: {
-      position: "relative",
-      zIndex: 20,
-      minWidth: 0,
-      minHeight: 0,
-      display: "flex",
-      flexDirection: "column",
-      borderRight: "1px solid var(--ink)",
-      background: "var(--paper)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: () => onSelect && onSelect(utilities[0] ? utilities[0].id : "about"),
-    style: {
-      width: "100%",
-      display: "block",
-      padding: "clamp(30px,4.7vh,52px) var(--rail-pad-x) 21px",
-      border: 0,
-      background: "transparent",
-      color: "var(--ink)",
-      textAlign: "left",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--wordmark-size)",
-      fontWeight: "var(--wordmark-weight)",
-      lineHeight: "var(--wordmark-leading)",
-      letterSpacing: "var(--wordmark-tracking)"
-    }
-  }, name), /*#__PURE__*/React.createElement("small", {
-    style: {
-      display: "block",
-      marginTop: "var(--space-3)",
-      fontFamily: "var(--font-mono)",
-      fontSize: "var(--eyebrow-size)",
-      fontWeight: 560,
-      lineHeight: 1.4,
-      letterSpacing: "-0.02em"
-    }
-  }, title, /*#__PURE__*/React.createElement("i", {
-    style: {
-      display: "block",
-      color: "var(--muted-ink)",
-      fontStyle: "normal"
-    }
-  }, differentiator))), thesis && /*#__PURE__*/React.createElement("p", {
-    style: {
-      maxWidth: 360,
-      margin: 0,
-      padding: "0 var(--rail-pad-x) clamp(22px,3.5vh,34px)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-s-size)",
-      lineHeight: 1.45,
-      letterSpacing: "-0.035em"
-    }
-  }, thesis), /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Selected work",
-    style: {
-      minHeight: 0,
-      display: "flex",
-      flex: "1 1 auto",
-      flexDirection: "column",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
-    key: p.id,
-    number: p.number,
-    title: p.title,
-    statement: p.statement,
-    active: active === p.id,
-    onSelect: () => onSelect && onSelect(p.id)
-  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
-    items: utilities,
-    active: active,
-    onSelect: onSelect
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      minHeight: 47,
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "var(--space-5)",
-      alignItems: "center",
-      padding: "0 clamp(24px,2.6vw,38px)",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      lineHeight: 1.3
-    }
-  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
-    href: contactHref,
-    style: {
-      flex: "0 0 auto",
-      paddingBottom: 2,
-      borderBottom: "1px solid var(--signal)",
-      color: "var(--ink)",
-      fontSize: 10,
-      fontWeight: 700,
-      textDecoration: "none"
-    }
-  }, contactLabel)));
-}
-Object.assign(__ds_scope, { IndexRail });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/IndexRail.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/MobileIdentityBar.jsx
-try { (() => {
-/** The entire persistent phone chrome, and the entire bar IS the control — identity and the menu
- *  trigger are one tappable unit, not identity plus a bolted-on hamburger. Below the shell
- *  breakpoint this replaces `IndexRail` outright rather than reflowing it: the desktop rail is a
- *  column of navigation; the phone gets a header that opens the same navigation as an overlay.
- *  Safe-area-aware so it clears a notch, and it carries an explicit ink color for the same reason
- *  the desktop rail's identity button does — an unstyled `<button>` renders its text in iOS
- *  Safari's system blue otherwise. */
-function MobileIdentityBar({
-  name = "Caleb Stacy",
-  title = "Senior content designer",
-  isOpen = false,
-  onToggle,
-  toggleRef,
-  menuId,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("header", {
-    "data-ds": "mobile-bar",
-    style: {
-      position: "sticky",
-      zIndex: 300,
-      top: 0,
-      paddingTop: "env(safe-area-inset-top, 0px)",
-      borderBottom: "1px solid var(--ink)",
-      background: "var(--paper-bright)",
-      color: "var(--ink)",
-      boxShadow: "var(--shadow-sticky)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    ref: toggleRef,
-    onClick: onToggle,
-    "aria-expanded": isOpen,
-    "aria-controls": menuId,
-    style: {
-      width: "100%",
-      height: "var(--mobile-bar-height)",
-      display: "flex",
-      alignItems: "stretch",
-      border: 0,
-      background: "transparent",
-      color: "var(--ink)",
-      textAlign: "left",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      minWidth: 0,
-      display: "flex",
-      flex: "1 1 auto",
-      flexDirection: "column",
-      justifyContent: "center",
-      gap: 2,
-      padding: "0 18px"
-    }
-  }, /*#__PURE__*/React.createElement("strong", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: 17,
-      fontWeight: 760,
-      lineHeight: 1,
-      letterSpacing: "-0.045em"
-    }
-  }, name), /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "block",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      fontWeight: 660,
-      letterSpacing: "-0.01em"
-    }
-  }, title)), /*#__PURE__*/React.createElement("span", {
-    style: {
-      flex: "0 0 auto",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: 9,
-      width: 84,
-      borderLeft: "1px solid var(--ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 9,
-      fontWeight: 760
-    }
-  }, isOpen ? "Close" : "Menu", /*#__PURE__*/React.createElement("i", {
-    className: "ds-mobile-toggle-icon",
-    "data-state": isOpen ? "open" : "closed",
-    "aria-hidden": "true"
-  }))));
-}
-Object.assign(__ds_scope, { MobileIdentityBar });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileIdentityBar.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/MobileMenu.jsx
-try { (() => {
-/** The phone destination list — the desktop rail's own navigation, shown as a full-surface
- *  overlay instead of a fixed column. It composes the rail's real parts (`ProjectSpineItem`,
- *  `UtilityNav`) rather than a smaller, invented "mobile menu" shape: every project row inverts
- *  to ink and unfurls its one-line statement exactly when it's the open document, the same
- *  active-state language the desktop spine uses, and About/Résumé are the same tab row. Shown
- *  only after an explicit tap on `MobileIdentityBar`; the default phone page never opens on the
- *  complete sitemap. */
-function MobileMenu({
-  isOpen = false,
-  onClose,
-  projects = [],
-  utilities = [],
-  activeId,
-  onSelect,
-  location,
-  contactLabel = "Contact",
-  contactHref,
-  menuId,
-  returnFocusRef,
-  style,
-  ...rest
-}) {
-  const panelRef = React.useRef(null);
-  const wasOpen = React.useRef(false);
-  React.useEffect(() => {
-    if (isOpen) {
-      const first = panelRef.current && panelRef.current.querySelector("a, button");
-      if (first) first.focus();
-    } else if (wasOpen.current && returnFocusRef && returnFocusRef.current) {
-      returnFocusRef.current.focus();
-    }
-    wasOpen.current = isOpen;
-  }, [isOpen, returnFocusRef]);
-  React.useEffect(() => {
-    if (!isOpen) return undefined;
-    const onKeyDown = event => {
-      if (event.key === "Escape") {
-        onClose && onClose();
-        return;
-      }
-      if (event.key !== "Tab" || !panelRef.current) return;
-      const focusable = panelRef.current.querySelectorAll("a, button");
-      if (!focusable.length) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isOpen, onClose]);
-  const select = id => {
-    onSelect && onSelect(id);
-    onClose && onClose();
-  };
-  const tab = isOpen ? undefined : -1;
-  return /*#__PURE__*/React.createElement("div", {
-    ref: panelRef,
-    id: menuId,
-    role: "dialog",
-    "aria-modal": "true",
-    "aria-label": "Site navigation",
-    "data-ds": "mobile-menu",
-    style: {
-      position: "fixed",
-      zIndex: 290,
-      left: 0,
-      right: 0,
-      top: "calc(env(safe-area-inset-top, 0px) + var(--mobile-bar-height))",
-      bottom: 0,
-      display: "flex",
-      flexDirection: "column",
-      overflowY: "auto",
-      background: "var(--paper)",
-      color: "var(--ink)",
-      boxShadow: "0 18px 40px rgba(17,17,15,0.2)",
-      clipPath: isOpen ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)",
-      visibility: isOpen ? "visible" : "hidden",
-      transition: isOpen ? "clip-path var(--dur-fast) var(--ease-authored)" : "clip-path var(--dur-fast) var(--ease-authored), visibility 0s var(--dur-fast)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Work",
-    style: {
-      display: "flex",
-      flexDirection: "column",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
-    key: p.id,
-    number: p.number,
-    title: p.title,
-    statement: p.statement,
-    active: p.id === activeId,
-    onSelect: () => select(p.id),
-    tabIndex: tab
-  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
-    items: utilities,
-    active: activeId,
-    onSelect: select,
-    style: {
-      flex: "0 0 auto"
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      minHeight: 47,
-      flex: "0 0 auto",
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "var(--space-5)",
-      alignItems: "center",
-      padding: "0 clamp(24px,2.6vw,38px)",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      lineHeight: 1.3
-    }
-  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
-    href: contactHref,
-    tabIndex: tab,
-    style: {
-      flex: "0 0 auto",
-      paddingBottom: 2,
-      borderBottom: "1px solid var(--signal)",
-      color: "var(--ink)",
-      fontSize: 10,
-      fontWeight: 700,
-      textDecoration: "none"
-    }
-  }, contactLabel)));
-}
-Object.assign(__ds_scope, { MobileMenu });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileMenu.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/ProjectSpineItem.jsx
-try { (() => {
-/** One row of the project spine. Active state is inversion: the row becomes an ink block, reversed out. */
-function ProjectSpineItem({
-  number,
-  title,
-  statement,
-  active = false,
-  onSelect,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "ds-spine-item",
-    onClick: onSelect,
-    "aria-current": active ? "page" : undefined,
-    style: {
-      position: "relative",
-      display: "flex",
-      width: "100%",
-      minHeight: "var(--spine-item-min)",
-      overflow: "hidden",
-      /* The active row bases on its own content, not on zero. With `1 1 0` it grew by ratio only,
-         so on a short rail it stayed shorter than the statement and `overflow: hidden` sliced the
-         last line off. Inactive rows keep the zero base so they still share the leftover evenly. */
-      flex: active ? "1 1 auto" : "1 1 0",
-      flexGrow: 1,
-      border: 0,
-      borderBottom: "1px solid var(--ink)",
-      textAlign: "left",
-      cursor: "pointer",
-      background: active ? "var(--ink)" : "transparent",
-      color: active ? "var(--paper-bright)" : "var(--ink)",
-      transition: "flex-grow var(--dur-stage) var(--ease-authored), background var(--dur-base) var(--ease-authored), color var(--dur-base) var(--ease-authored)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "grid",
-      gridTemplateColumns: "46px minmax(0,1fr)",
-      gap: "var(--space-3)",
-      alignItems: "start",
-      flex: "1 1 auto",
-      padding: "var(--space-5) clamp(20px,2.6vw,32px)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      paddingTop: 4,
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 15,
-      fontWeight: 700,
-      lineHeight: 0.9,
-      letterSpacing: "-0.05em",
-      transition: "color var(--dur-base) var(--ease-authored)"
-    }
-  }, number), /*#__PURE__*/React.createElement("span", {
-    style: {
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("strong", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: "var(--display-s-weight)",
-      lineHeight: "var(--display-s-leading)",
-      letterSpacing: "var(--display-s-tracking)"
-    }
-  }, title), /*#__PURE__*/React.createElement("small", {
-    "aria-hidden": !active,
-    style: {
-      display: "block",
-      maxWidth: 265,
-      overflow: "hidden",
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 12,
-      fontWeight: 480,
-      lineHeight: 1.35,
-      letterSpacing: "-0.025em",
-      maxHeight: active ? 96 : 0,
-      marginTop: active ? 9 : 0,
-      opacity: active ? 1 : 0,
-      transition: "max-height var(--dur-slow) var(--ease-authored), margin var(--dur-slow) var(--ease-authored), opacity var(--dur-tap) var(--ease-authored)"
-    }
-  }, statement))));
-}
-Object.assign(__ds_scope, { ProjectSpineItem });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ProjectSpineItem.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/UtilityNav.jsx
-try { (() => {
-/** Equal-width tab row. The active tab inverts to ink, matching the spine. */
-function UtilityNav({
-  items = [],
-  active,
-  onSelect,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Utilities",
-    style: {
-      minHeight: "var(--utility-nav-height)",
-      display: "grid",
-      gridTemplateColumns: "repeat(" + Math.max(items.length, 1) + ",1fr)",
-      borderBottom: "1px solid var(--ink)",
-      ...style
-    },
-    ...rest
-  }, items.map((item, i) => {
-    const on = item.id === active;
-    return /*#__PURE__*/React.createElement("button", {
-      key: item.id,
-      type: "button",
-      className: "ds-tab",
-      onClick: () => onSelect && onSelect(item.id),
-      "aria-current": on ? "page" : undefined,
-      style: {
-        position: "relative",
-        padding: "0 10px",
-        border: 0,
-        borderRight: i === items.length - 1 ? 0 : "1px solid " + (on ? "var(--ink)" : "var(--soft-line)"),
-        background: on ? "var(--ink)" : "transparent",
-        color: on ? "var(--paper-bright)" : "var(--ink)",
-        fontFamily: "var(--font-sans)",
-        fontSize: "var(--ui-size)",
-        fontWeight: "var(--ui-weight)",
-        letterSpacing: "var(--ui-tracking)",
-        cursor: "pointer",
-        transition: "background var(--dur-base) var(--ease-authored), color var(--dur-base) var(--ease-authored)"
-      }
-    }, item.label);
-  }));
-}
-Object.assign(__ds_scope, { UtilityNav });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/UtilityNav.jsx", error: String((e && e.message) || e) }); }
 
 // components/actions/ScrollCue.jsx
 try { (() => {
@@ -23539,895 +19555,6 @@ function StoryBeat({
 }
 Object.assign(__ds_scope, { StoryBeat });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/case/StoryBeat.jsx", error: String((e && e.message) || e) }); }
-
-// components/case/VersoHero.jsx
-try { (() => {
-/* Verso's cover instrument: a draft arrives, the reasoning window streams and quiets into a
- * collapsed strip, the voice reading draws itself, the rewrite arrives with its deltas, and a
- * short self-check closes the loop. Plays once, settles, replays on request.
- *
- * Every mark is drawn, never faded: text streams in behind a left-to-right clip-path (never an
- * opacity fade), the ring's arc is a stroke-dashoffset sweep, the dimension bars extend from the
- * left edge, and the accept affordance's underline grows from nothing. The one exception the
- * house rule itself allows — "subtle opacity on top of a directional draw" — never happens either;
- * even the reasoning window's shimmer is a moving gradient clipped to the text, not an opacity
- * layer. `prefers-reduced-motion` (and phone width, where the two-pane stage stacks and this panel
- * has no room to run the sequence) renders the fully composed end state on the first frame and
- * hides the replay control — there is nothing to replay.
- *
- * The sequencer is a single `step` index into a named timeline (`draft`, one entry per reasoning
- * line, `think-collapse`, `reading`, `reading-verdict`, `rewrite-after`, `rewrite-deltas`,
- * `rewrite-cta`, `selflint-line`, `selflint-verdict`, `settled`). Every visual that a CSS
- * transition can own (the ring, the bars, every text reveal, the CTA underline) reads straight off
- * a `step >=` comparison, so React owns them and reduced motion's global transition-speed override
- * already makes them instant for free. Only what a stylesheet cannot animate — typed characters,
- * counted numbers, and the reasoning window's height, which CSS cannot tween to `auto` — runs
- * through small imperative helpers against refs. `window.__versoHeroSequencer` (last-mounted
- * instance) exposes `gotoStep`, `showReadingPartial`, `showRewritePartial`, and `replay` for
- * screenshot proof and, later, reuse — the streamed-line, ring/bar-draw, and counter primitives
- * here are the pieces a fuller "Language instruments" page would want back. */
-
-const EASE = "var(--ease-authored)";
-const RING_SIZE = 74;
-const RING_STROKE = 6;
-const RING_MS = 760; // var(--dur-character)
-const BAR_STAGGER_MS = 80;
-const DRAFT_TYPE_MS = 820;
-const AFTER_TYPE_MS = 560;
-const DELTA_MS = 640;
-const DELTA_STAGGER_MS = 70;
-const COLLAPSED_PX = 24;
-function easeOutCubic(x) {
-  return 1 - Math.pow(1 - x, 3);
-}
-
-/** Character-by-character reveal into `el.textContent`. Cancelable; used for the two moments
- *  that are genuinely typed or written (the incoming draft, the agent's rewritten line) rather
- *  than streamed reasoning. */
-function typeText(el, text, duration) {
-  if (!el) return () => {};
-  const start = performance.now();
-  const total = text.length;
-  let raf = requestAnimationFrame(function step(now) {
-    const p = Math.min(1, (now - start) / duration);
-    el.textContent = text.slice(0, Math.round(total * p));
-    if (p < 1) raf = requestAnimationFrame(step);
-  });
-  return () => cancelAnimationFrame(raf);
-}
-
-/** Decelerating count from `from` to `to`, written straight into `el.textContent`. The ring's
- *  score, the four dimension values, and the four rewrite deltas all use this one helper. */
-function countTo(el, from, to, duration, prefix, suffix) {
-  if (!el) return () => {};
-  const start = performance.now();
-  let raf = requestAnimationFrame(function step(now) {
-    const p = Math.min(1, (now - start) / duration);
-    const v = Math.round(from + (to - from) * easeOutCubic(p));
-    el.textContent = (prefix || "") + v + (suffix || "");
-    if (p < 1) raf = requestAnimationFrame(step);
-  });
-  return () => cancelAnimationFrame(raf);
-}
-
-/** The reasoning window collapsing to its silkscreen strip. CSS cannot transition to/from
- *  `height:auto`, so the natural height is measured once and locked in pixels before the
- *  transition starts — the classic vanilla trick, not a library. */
-function collapseThinkBox(el) {
-  if (!el) return;
-  const full = el.scrollHeight;
-  el.style.transition = "none";
-  el.style.height = full + "px";
-  void el.offsetHeight; // force layout before swapping the transition back on
-  el.style.transition = "height var(--dur-mid) " + EASE;
-  requestAnimationFrame(() => {
-    el.style.height = COLLAPSED_PX + "px";
-  });
-}
-function expandThinkBoxInstant(el) {
-  if (!el) return;
-  el.style.transition = "none";
-  el.style.height = "auto";
-  void el.offsetHeight;
-}
-const revealStyle = open => open ? {
-  clipPath: "inset(0 0 0 0)"
-} : {
-  clipPath: "inset(0 100% 0 0)"
-};
-const drawn = {
-  animation: "verso-line-enter var(--dur-mid) " + EASE + " both"
-};
-const shimmerStyle = {
-  backgroundImage: "linear-gradient(90deg, var(--story-muted) 38%, var(--story-ink) 50%, var(--story-muted) 62%)",
-  backgroundSize: "250% 100%",
-  WebkitBackgroundClip: "text",
-  backgroundClip: "text",
-  color: "transparent",
-  animation: "verso-shimmer-sweep 1.4s linear infinite"
-};
-function VersoHero({
-  draft,
-  thinking = [],
-  reading = {},
-  rewrite = {},
-  selfLint = {},
-  label = "Verso — reviewing a draft",
-  replayLabel = "Watch it again",
-  style,
-  ...rest
-}) {
-  const {
-    score = 0,
-    outOf = 100,
-    verdict: readingVerdict,
-    dimensions = []
-  } = reading;
-  const {
-    after = "",
-    deltas = [],
-    acceptLabel = "Accept the rewrite"
-  } = rewrite;
-  const {
-    line: selfLintLine,
-    verdict: selfLintVerdict
-  } = selfLint;
-  const [reduced] = React.useState(() => typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  const [compact] = React.useState(() => typeof window !== "undefined" && window.matchMedia && window.matchMedia("(max-width: 768px)").matches);
-  const timeline = React.useMemo(() => {
-    const names = ["draft"];
-    const delays = [0];
-    thinking.forEach((_, i) => {
-      names.push("think-" + i);
-      delays.push(i === 0 ? 950 : 620);
-    });
-    names.push("think-collapse", "reading", "reading-verdict", "rewrite-after", "rewrite-deltas", "rewrite-cta", "selflint-line", "selflint-verdict", "settled");
-    delays.push(700, 450, 980, 520, 850, 950, 500, 560, 550);
-    const index = {};
-    names.forEach((n, i) => index[n] = i);
-    return {
-      names,
-      delays,
-      index,
-      last: names.length - 1
-    };
-  }, [thinking.length]);
-  const [step, setStep] = React.useState(() => reduced || compact ? timeline.last : -1);
-  const els = React.useRef({});
-  const setRef = key => el => {
-    els.current[key] = el;
-  };
-  const timersRef = React.useRef([]);
-  const clearTimers = () => {
-    timersRef.current.forEach(clearTimeout);
-    timersRef.current = [];
-  };
-
-  // `typeText`/`countTo` each return a canceler for the rAF loop they start. `clearTimers` alone
-  // only stops timers that have not fired yet — a `typeText` already in flight (draft typing
-  // starts the instant the panel comes into view, before a jump could ever race it) keeps writing
-  // `el.textContent` every frame regardless. Every real (animated) start pushes its canceler here;
-  // every instant jump (`gotoStep`, `replay`) drains it first, so a jump can never lose a frame
-  // later to a stray loop it didn't know was still running.
-  const activeAnimRef = React.useRef([]);
-  const cancelActiveAnims = () => {
-    activeAnimRef.current.forEach(fn => fn());
-    activeAnimRef.current = [];
-  };
-  const ringR = (RING_SIZE - RING_STROKE) / 2;
-  const ringC = 2 * Math.PI * ringR;
-  const scoreFrac = Math.max(0, Math.min(1, score / outOf));
-
-  /** Everything a stylesheet cannot own for milestone `name`: typed text, counted numbers, the
-   *  reasoning window's collapse. Two callers, two speeds — `runAnimatedFor` is invoked directly
-   *  by the timer that reaches a step during real playback and actually animates; `applyInstant`
-   *  is invoked by the instant paths (reduced motion, compact, and the seek hook's jumps) and
-   *  snaps straight to the same end state. Neither is wired through a `step`-keyed `useEffect`:
-   *  a jump changes `step` too (so the declarative, CSS-transition-owned parts of the JSX — the
-   *  ring, the bars, every clip-path reveal — still land correctly), and if the imperative work
-   *  were *also* re-derived from `step` in an effect, a seek hook jump and a real timer landing
-   *  on the same index would race and the jump would lose to a half-second of stray animation. */
-  const runAnimatedFor = React.useCallback(name => {
-    const e = els.current;
-    const track = cancel => activeAnimRef.current.push(cancel);
-    const trackDelayed = (fn, delay) => {
-      const id = setTimeout(() => track(fn()), delay);
-      track(() => clearTimeout(id));
-    };
-    if (name === "draft") track(typeText(e.draft, draft, DRAFT_TYPE_MS));else if (name === "think-collapse") collapseThinkBox(e.thinkBox);else if (name === "reading") {
-      track(countTo(e.score, 0, Math.round(score), RING_MS));
-      dimensions.forEach((d, i) => trackDelayed(() => countTo(e["dim-" + i], 0, d.value, RING_MS - i * 40), i * BAR_STAGGER_MS));
-    } else if (name === "rewrite-after") track(typeText(e.after, after, AFTER_TYPE_MS));else if (name === "rewrite-deltas") {
-      deltas.forEach((d, i) => trackDelayed(() => countTo(e["delta-" + i], d.from, d.to, DELTA_MS), i * DELTA_STAGGER_MS));
-    }
-  }, [draft, after, score, dimensions, deltas]);
-  const applyInstant = React.useCallback(name => {
-    const e = els.current;
-    if (name === "draft" && e.draft) e.draft.textContent = draft;else if (name === "think-collapse" && e.thinkBox) {
-      e.thinkBox.style.transition = "none";
-      e.thinkBox.style.height = COLLAPSED_PX + "px";
-    } else if (name === "reading") {
-      if (e.score) e.score.textContent = String(Math.round(score));
-      dimensions.forEach((d, i) => {
-        if (e["dim-" + i]) e["dim-" + i].textContent = String(d.value);
-      });
-    } else if (name === "rewrite-after" && e.after) {
-      e.after.textContent = after;
-    } else if (name === "rewrite-deltas") {
-      deltas.forEach((d, i) => {
-        if (e["delta-" + i]) e["delta-" + i].textContent = String(d.to);
-      });
-    }
-  }, [draft, after, score, dimensions, deltas]);
-  const playFrom = React.useCallback(fromIndex => {
-    clearTimers();
-    let acc = 0;
-    for (let i = fromIndex + 1; i <= timeline.last; i++) {
-      acc += timeline.delays[i];
-      const idx = i;
-      const name = timeline.names[idx];
-      timersRef.current.push(setTimeout(() => {
-        setStep(idx);
-        runAnimatedFor(name);
-      }, acc));
-    }
-  }, [timeline, runAnimatedFor]);
-  const gotoStep = React.useCallback(name => {
-    const idx = timeline.index[name];
-    if (idx == null) return;
-    clearTimers();
-    cancelActiveAnims();
-    for (let i = 0; i <= idx; i++) applyInstant(timeline.names[i]);
-    setStep(idx);
-  }, [timeline, applyInstant]);
-  const replay = React.useCallback(() => {
-    clearTimers();
-    cancelActiveAnims();
-    const e = els.current;
-    if (e.draft) e.draft.textContent = "";
-    if (e.after) e.after.textContent = "";
-    if (e.score) e.score.textContent = "0";
-    dimensions.forEach((d, i) => {
-      if (e["dim-" + i]) e["dim-" + i].textContent = "0";
-    });
-    deltas.forEach((d, i) => {
-      if (e["delta-" + i]) e["delta-" + i].textContent = String(d.from);
-    });
-    expandThinkBoxInstant(e.thinkBox);
-    setStep(-1);
-    playFrom(-1);
-  }, [playFrom, dimensions, deltas]);
-
-  // First run: reduced motion / compact apply every milestone's end state once and never play.
-  // Otherwise wait for the panel to actually be on screen, then run the timeline once.
-  const wrapRef = React.useRef(null);
-  React.useEffect(() => {
-    if (reduced || compact) {
-      timeline.names.forEach(applyInstant);
-      return;
-    }
-    const node = wrapRef.current;
-    if (!node || typeof IntersectionObserver === "undefined") {
-      playFrom(-1);
-      return clearTimers;
-    }
-    let started = false;
-    const io = new IntersectionObserver(entries => {
-      if (started || !entries.some(en => en.isIntersecting)) return;
-      started = true;
-      playFrom(-1);
-      io.disconnect();
-    }, {
-      threshold: 0.15
-    });
-    io.observe(node);
-    return () => {
-      io.disconnect();
-      clearTimers();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // ---- the seek/test hook: last-mounted instance wins, harmless in production ----
-  React.useEffect(() => {
-    window.__versoHeroSequencer = {
-      stepNames: timeline.names,
-      gotoStep,
-      replay,
-      // Freezes for the two continuous draws no static jump can capture: hold everything through
-      // the previous milestone at rest, then paint the ring/bars or the deltas at an exact
-      // fraction with their transitions switched off, so the frame is stable under a screenshot
-      // instead of a real in-flight animation a screenshot's own latency could miss or catch at
-      // an unrepeatable instant.
-      showReadingPartial(fraction) {
-        gotoStep("think-collapse");
-        const f = Math.max(0, Math.min(1, fraction));
-        requestAnimationFrame(() => {
-          const e = els.current;
-          if (e.ring) {
-            e.ring.style.transition = "none";
-            e.ring.style.strokeDashoffset = String(ringC * (1 - scoreFrac * f));
-          }
-          if (e.score) e.score.textContent = String(Math.round(score * f));
-          dimensions.forEach((d, i) => {
-            if (e["bar-" + i]) {
-              e["bar-" + i].style.transition = "none";
-              e["bar-" + i].style.transform = "scaleX(" + f + ")";
-            }
-            if (e["dim-" + i]) e["dim-" + i].textContent = String(Math.round(d.value * f));
-          });
-        });
-      },
-      showRewritePartial(fraction) {
-        gotoStep("rewrite-after");
-        // The delta row's own container is a clip-path reveal keyed to `step` reaching
-        // "rewrite-deltas" (see `at("rewrite-deltas")` in the JSX) — advancing `step` one more
-        // stop, on its own, never re-triggers `runAnimatedFor` (that only ever runs from
-        // `playFrom`'s timers, never from a `step`-watching effect), so this opens the row without
-        // restarting its count.
-        setStep(timeline.index["rewrite-deltas"]);
-        const f = Math.max(0, Math.min(1, fraction));
-        requestAnimationFrame(() => {
-          const e = els.current;
-          deltas.forEach((d, i) => {
-            if (e["delta-" + i]) e["delta-" + i].textContent = String(Math.round(d.from + (d.to - d.from) * f));
-          });
-        });
-      }
-    };
-    return () => {
-      if (window.__versoHeroSequencer && window.__versoHeroSequencer.gotoStep === gotoStep) delete window.__versoHeroSequencer;
-    };
-  }, [timeline, gotoStep, replay, deltas, dimensions, score, scoreFrac, ringC]);
-  const at = name => step >= timeline.index[name];
-  const activeLine = (() => {
-    for (let i = 0; i < thinking.length; i++) {
-      if (step === timeline.index["think-" + i]) return i;
-    }
-    if (step === timeline.index["selflint-line"]) return "self";
-    return null;
-  })();
-  const collapsed = at("think-collapse");
-  const settled = step === timeline.last;
-  if (compact) {
-    return /*#__PURE__*/React.createElement("div", {
-      "data-ds": "scene-character",
-      style: {
-        position: "relative",
-        width: "100%",
-        height: "min(46vh,340px)",
-        ...style
-      },
-      ...rest
-    }, /*#__PURE__*/React.createElement("div", {
-      "aria-hidden": "true",
-      "data-ds": "verso-hero",
-      style: {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        gap: 14,
-        height: "100%",
-        padding: "18px var(--stage-pad-x)",
-        border: "1px solid var(--story-line)",
-        background: "var(--story-raised)",
-        boxShadow: "var(--story-shadow)"
-      }
-    }, /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "var(--story-muted)",
-        fontFamily: "var(--font-mono)",
-        fontSize: 9,
-        fontWeight: 700
-      }
-    }, label), /*#__PURE__*/React.createElement("div", {
-      style: {
-        display: "flex",
-        alignItems: "center",
-        gap: 16
-      }
-    }, /*#__PURE__*/React.createElement(Ring, {
-      size: 56,
-      stroke: 5,
-      score: score,
-      outOf: outOf,
-      r: (56 - 5) / 2,
-      filled: true
-    }), readingVerdict && /*#__PURE__*/React.createElement("p", {
-      style: {
-        margin: 0,
-        color: "var(--story-ink)",
-        fontFamily: "var(--font-sans)",
-        fontSize: 13,
-        fontWeight: 650,
-        lineHeight: 1.25,
-        letterSpacing: "-0.02em"
-      }
-    }, readingVerdict)), selfLintVerdict && /*#__PURE__*/React.createElement("p", {
-      style: {
-        margin: 0,
-        paddingTop: 10,
-        borderTop: "1px solid var(--story-line)",
-        color: "var(--story-muted)",
-        fontFamily: "var(--font-sans)",
-        fontSize: 12,
-        lineHeight: 1.4,
-        letterSpacing: "-0.02em"
-      }
-    }, selfLintVerdict)));
-  }
-  return /*#__PURE__*/React.createElement("div", {
-    ref: wrapRef,
-    "data-ds": "scene-character",
-    style: {
-      position: "absolute",
-      zIndex: 5,
-      top: 0,
-      right: 0,
-      bottom: 0,
-      width: "51%",
-      overflow: "hidden",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    "data-ds": "verso-hero",
-    style: {
-      display: "flex",
-      flexDirection: "column",
-      height: "100%",
-      justifyContent: "center",
-      padding: "0 clamp(14px,2.4vw,26px)"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      border: "1px solid var(--story-line)",
-      background: "var(--story-raised)",
-      boxShadow: "var(--story-shadow)"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "baseline",
-      gap: 10,
-      padding: "9px 13px",
-      borderBottom: "1px solid var(--story-line)",
-      background: "var(--story-band)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 9,
-      fontWeight: 700
-    }
-  }, label), !reduced && /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "inline-block",
-      ...(settled ? drawn : revealStyle(false))
-    }
-  }, /*#__PURE__*/React.createElement(__ds_scope.StageAction, {
-    accent: "signal",
-    tabIndex: -1,
-    onClick: settled ? replay : undefined,
-    style: {
-      fontSize: 10.5,
-      gap: 7,
-      padding: "0 0 3px"
-    }
-  }, replayLabel))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      padding: "12px 13px 13px"
-    }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(__ds_scope.Eyebrow, {
-    size: "micro",
-    tone: "muted"
-  }, "Draft"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "4px 0 0",
-      color: "var(--story-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 12.5,
-      lineHeight: 1.4,
-      letterSpacing: "-0.02em"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    ref: setRef("draft")
-  }))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 12,
-      paddingTop: 11,
-      borderTop: "1px solid var(--story-line)"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      alignItems: "center",
-      gap: 7,
-      height: COLLAPSED_PX - 4
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true",
-    style: {
-      width: 6,
-      height: 6,
-      borderTop: "1px solid var(--story-muted)",
-      borderRight: "1px solid var(--story-muted)",
-      transform: collapsed ? "rotate(45deg)" : "rotate(135deg)",
-      transition: "transform var(--dur-fast) " + EASE
-    }
-  }), /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 9,
-      fontWeight: 700
-    }
-  }, "Reasoning"), /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "inline-block",
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 9,
-      fontWeight: 700,
-      ...(collapsed ? drawn : revealStyle(false))
-    }
-  }, "· ", thinking.length, " steps")), /*#__PURE__*/React.createElement("div", {
-    ref: setRef("thinkBox"),
-    style: {
-      overflow: "hidden",
-      height: "auto"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      flexDirection: "column",
-      gap: 5,
-      paddingTop: 6
-    }
-  }, thinking.map((t, i) => {
-    const revealed = step >= timeline.index["think-" + i];
-    const active = activeLine === i;
-    return /*#__PURE__*/React.createElement("div", {
-      key: i,
-      style: {
-        display: "flex",
-        alignItems: "baseline",
-        gap: 7
-      }
-    }, /*#__PURE__*/React.createElement("span", {
-      "aria-hidden": "true",
-      style: {
-        flex: "0 0 auto",
-        width: 4,
-        height: 4,
-        borderRadius: "50%",
-        background: active ? "var(--story-accent)" : "var(--story-line)"
-      }
-    }), /*#__PURE__*/React.createElement("span", {
-      ref: setRef("think-" + i),
-      style: {
-        display: "inline-block",
-        fontFamily: "var(--font-sans)",
-        fontSize: 11.5,
-        lineHeight: 1.4,
-        letterSpacing: "-0.015em",
-        ...(revealed ? drawn : revealStyle(false)),
-        ...(active ? shimmerStyle : revealed ? {
-          color: "var(--story-muted)"
-        } : null)
-      }
-    }, t));
-  })))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 12,
-      paddingTop: 11,
-      borderTop: "1px solid var(--story-line)",
-      display: "flex",
-      gap: 14,
-      alignItems: "center"
-    }
-  }, /*#__PURE__*/React.createElement(Ring, {
-    size: RING_SIZE,
-    stroke: RING_STROKE,
-    r: ringR,
-    score: score,
-    outOf: outOf,
-    filled: at("reading"),
-    setScoreRef: setRef("score"),
-    setRingRef: setRef("ring")
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      flex: 1,
-      minWidth: 0
-    }
-  }, dimensions.map((d, i) => /*#__PURE__*/React.createElement("div", {
-    key: d.name,
-    style: {
-      display: "grid",
-      gridTemplateColumns: "minmax(58px,0.8fr) minmax(0,1.4fr) 24px",
-      gap: 8,
-      alignItems: "center",
-      padding: "3px 0"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 9,
-      fontWeight: 700
-    }
-  }, d.name), /*#__PURE__*/React.createElement("span", {
-    style: {
-      position: "relative",
-      height: 4,
-      display: "block",
-      background: "var(--story-band)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    ref: setRef("bar-" + i),
-    "aria-hidden": "true",
-    style: {
-      position: "absolute",
-      inset: "0 0 0 0",
-      transformOrigin: "left",
-      background: "var(--story-ink)",
-      transform: at("reading") ? "scaleX(1)" : "scaleX(0)",
-      transition: "transform " + RING_MS + "ms " + EASE,
-      transitionDelay: at("reading") ? i * BAR_STAGGER_MS + "ms" : "0ms"
-    }
-  })), /*#__PURE__*/React.createElement("strong", {
-    ref: setRef("dim-" + i),
-    style: {
-      color: "var(--story-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 11.5,
-      fontWeight: 700,
-      letterSpacing: "-0.03em",
-      textAlign: "right",
-      fontVariantNumeric: "tabular-nums"
-    }
-  }, "0"))), readingVerdict && /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "6px 0 0",
-      color: "var(--story-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 12.5,
-      fontWeight: 650,
-      lineHeight: 1.3,
-      letterSpacing: "-0.02em",
-      ...(at("reading-verdict") ? drawn : revealStyle(false))
-    }
-  }, readingVerdict))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 12,
-      paddingTop: 11,
-      borderTop: "1px solid var(--story-line)"
-    }
-  }, /*#__PURE__*/React.createElement(__ds_scope.Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "After"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "4px 0 0",
-      color: "var(--story-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 12.5,
-      fontWeight: 560,
-      lineHeight: 1.4,
-      letterSpacing: "-0.02em"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    ref: setRef("after")
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 9,
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr",
-      gap: "5px 12px"
-    }
-  }, deltas.map((d, i) => {
-    const up = Number(d.to) > Number(d.from);
-    return /*#__PURE__*/React.createElement("div", {
-      key: d.name,
-      style: {
-        ...(at("rewrite-deltas") ? drawn : revealStyle(false))
-      }
-    }, /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "var(--story-muted)",
-        fontFamily: "var(--font-mono)",
-        fontSize: 8.5,
-        fontWeight: 700
-      }
-    }, d.name, " "), /*#__PURE__*/React.createElement("span", {
-      style: {
-        fontFamily: "var(--font-sans)",
-        fontVariantNumeric: "tabular-nums"
-      }
-    }, /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "var(--story-muted)",
-        fontSize: 11,
-        textDecoration: "line-through"
-      }
-    }, d.from), /*#__PURE__*/React.createElement("span", {
-      "aria-hidden": "true",
-      style: {
-        margin: "0 3px",
-        color: "var(--story-muted)",
-        fontFamily: "var(--font-mono)",
-        fontSize: 8
-      }
-    }, up ? "↑" : "↓"), /*#__PURE__*/React.createElement("strong", {
-      ref: setRef("delta-" + i),
-      style: {
-        color: "var(--story-accent)",
-        fontSize: 12,
-        fontWeight: 700
-      }
-    }, d.from)));
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 10
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      position: "relative",
-      display: "inline-block",
-      color: "var(--story-accent)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 11.5,
-      fontWeight: 700,
-      letterSpacing: "-0.02em",
-      ...(at("rewrite-cta") ? drawn : revealStyle(false))
-    }
-  }, acceptLabel, /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true",
-    style: {
-      position: "absolute",
-      left: 0,
-      right: 0,
-      bottom: -3,
-      height: 1.5,
-      background: "var(--story-accent)",
-      transformOrigin: "left",
-      transform: at("rewrite-cta") ? "scaleX(1)" : "scaleX(0)",
-      transition: "transform var(--dur-mid) " + EASE,
-      transitionDelay: at("rewrite-cta") ? "var(--dur-base)" : "0ms"
-    }
-  })))), (selfLintLine || selfLintVerdict) && /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 12,
-      paddingTop: 11,
-      borderTop: "1px solid var(--story-line)"
-    }
-  }, selfLintLine && /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      alignItems: "baseline",
-      gap: 7
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true",
-    style: {
-      flex: "0 0 auto",
-      width: 4,
-      height: 4,
-      borderRadius: "50%",
-      background: activeLine === "self" ? "var(--story-accent)" : "var(--story-line)"
-    }
-  }), /*#__PURE__*/React.createElement("span", {
-    ref: setRef("selflint-line"),
-    style: {
-      display: "inline-block",
-      fontFamily: "var(--font-sans)",
-      fontSize: 11.5,
-      lineHeight: 1.4,
-      letterSpacing: "-0.015em",
-      ...(at("selflint-line") ? drawn : revealStyle(false)),
-      ...(activeLine === "self" ? shimmerStyle : at("selflint-line") ? {
-        color: "var(--story-muted)"
-      } : null)
-    }
-  }, selfLintLine)), selfLintVerdict && /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "6px 0 0",
-      color: "var(--story-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 12.5,
-      fontWeight: 650,
-      lineHeight: 1.35,
-      letterSpacing: "-0.02em",
-      ...(at("selflint-verdict") ? drawn : revealStyle(false))
-    }
-  }, selfLintVerdict))))));
-}
-
-/** The ring alone, factored out so the compact (phone) render and the full sequence can share it.
- *  In compact mode it is always `filled` and carries no refs — nothing about it plays. */
-function Ring({
-  size,
-  stroke,
-  r,
-  score,
-  outOf,
-  filled,
-  setScoreRef,
-  setRingRef
-}) {
-  const c = 2 * Math.PI * r;
-  const frac = Math.max(0, Math.min(1, score / outOf));
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: "relative",
-      flex: "0 0 auto",
-      width: size,
-      height: size
-    }
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: size,
-    height: size,
-    style: {
-      display: "block",
-      transform: "rotate(-90deg)"
-    },
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("circle", {
-    cx: size / 2,
-    cy: size / 2,
-    r: r,
-    fill: "none",
-    stroke: "var(--story-line)",
-    strokeWidth: stroke
-  }), /*#__PURE__*/React.createElement("circle", {
-    ref: setRingRef,
-    cx: size / 2,
-    cy: size / 2,
-    r: r,
-    fill: "none",
-    stroke: "var(--story-accent)",
-    strokeWidth: stroke,
-    strokeLinecap: "butt",
-    strokeDasharray: c,
-    style: {
-      strokeDashoffset: filled ? c * (1 - frac) : c,
-      transition: "stroke-dashoffset " + RING_MS + "ms " + EASE
-    }
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: "absolute",
-      inset: 0,
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center"
-    }
-  }, /*#__PURE__*/React.createElement("strong", {
-    ref: setScoreRef,
-    style: {
-      color: "var(--story-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: size >= 70 ? 22 : 18,
-      fontWeight: 700,
-      lineHeight: 0.9,
-      letterSpacing: "-0.05em",
-      fontVariantNumeric: "tabular-nums"
-    }
-  }, setScoreRef ? 0 : score), /*#__PURE__*/React.createElement("span", {
-    style: {
-      marginTop: 3,
-      color: "var(--story-muted)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 7.5,
-      fontWeight: 700
-    }
-  }, "of ", outOf)));
-}
-Object.assign(__ds_scope, { VersoHero });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/case/VersoHero.jsx", error: String((e && e.message) || e) }); }
 
 // components/document/DocFigure.jsx
 try { (() => {
@@ -28013,518 +23140,10 @@ function ChapterNav({
 Object.assign(__ds_scope, { ChapterNav });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ChapterNav.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/IndexRail.jsx
-try { (() => {
-/** The fixed left rail: identity, thesis, project spine, utilities, contact. The only navigation. */
-function IndexRail({
-  name = "Caleb Stacy",
-  title = "Senior content designer",
-  differentiator = "Product systems · content engineering",
-  thesis,
-  projects = [],
-  active,
-  onSelect,
-  utilities = [],
-  location,
-  contactLabel = "Contact",
-  contactHref,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("aside", {
-    "aria-label": "Identity and portfolio navigation",
-    "data-ds": "rail",
-    style: {
-      position: "relative",
-      zIndex: 20,
-      minWidth: 0,
-      minHeight: 0,
-      display: "flex",
-      flexDirection: "column",
-      borderRight: "1px solid var(--ink)",
-      background: "var(--paper)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: () => onSelect && onSelect(utilities[0] ? utilities[0].id : "about"),
-    style: {
-      width: "100%",
-      display: "block",
-      padding: "clamp(30px,4.7vh,52px) var(--rail-pad-x) 21px",
-      border: 0,
-      background: "transparent",
-      color: "var(--ink)",
-      textAlign: "left",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--wordmark-size)",
-      fontWeight: "var(--wordmark-weight)",
-      lineHeight: "var(--wordmark-leading)",
-      letterSpacing: "var(--wordmark-tracking)"
-    }
-  }, name), /*#__PURE__*/React.createElement("small", {
-    style: {
-      display: "block",
-      marginTop: "var(--space-3)",
-      fontFamily: "var(--font-mono)",
-      fontSize: "var(--eyebrow-size)",
-      fontWeight: 560,
-      lineHeight: 1.4,
-      letterSpacing: "-0.02em"
-    }
-  }, title, /*#__PURE__*/React.createElement("i", {
-    style: {
-      display: "block",
-      color: "var(--muted-ink)",
-      fontStyle: "normal"
-    }
-  }, differentiator))), thesis && /*#__PURE__*/React.createElement("p", {
-    style: {
-      maxWidth: 360,
-      margin: 0,
-      padding: "0 var(--rail-pad-x) clamp(22px,3.5vh,34px)",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-s-size)",
-      lineHeight: 1.45,
-      letterSpacing: "-0.035em"
-    }
-  }, thesis), /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Selected work",
-    style: {
-      minHeight: 0,
-      display: "flex",
-      flex: "1 1 auto",
-      flexDirection: "column",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
-    key: p.id,
-    number: p.number,
-    title: p.title,
-    statement: p.statement,
-    active: active === p.id,
-    onSelect: () => onSelect && onSelect(p.id)
-  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
-    items: utilities,
-    active: active,
-    onSelect: onSelect
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      minHeight: 47,
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "var(--space-5)",
-      alignItems: "center",
-      padding: "0 clamp(24px,2.6vw,38px)",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      lineHeight: 1.3
-    }
-  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
-    href: contactHref,
-    style: {
-      flex: "0 0 auto",
-      paddingBottom: 2,
-      borderBottom: "1px solid var(--signal)",
-      color: "var(--ink)",
-      fontSize: 10,
-      fontWeight: 700,
-      textDecoration: "none"
-    }
-  }, contactLabel)));
-}
-Object.assign(__ds_scope, { IndexRail });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/IndexRail.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/MobileIdentityBar.jsx
-try { (() => {
-/** The entire persistent phone chrome, and the entire bar IS the control — identity and the menu
- *  trigger are one tappable unit, not identity plus a bolted-on hamburger. Below the shell
- *  breakpoint this replaces `IndexRail` outright rather than reflowing it: the desktop rail is a
- *  column of navigation; the phone gets a header that opens the same navigation as an overlay.
- *  Safe-area-aware so it clears a notch, and it carries an explicit ink color for the same reason
- *  the desktop rail's identity button does — an unstyled `<button>` renders its text in iOS
- *  Safari's system blue otherwise. */
-function MobileIdentityBar({
-  name = "Caleb Stacy",
-  title = "Senior content designer",
-  isOpen = false,
-  onToggle,
-  toggleRef,
-  menuId,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("header", {
-    "data-ds": "mobile-bar",
-    style: {
-      position: "sticky",
-      zIndex: 300,
-      top: 0,
-      paddingTop: "env(safe-area-inset-top, 0px)",
-      borderBottom: "1px solid var(--ink)",
-      background: "var(--paper-bright)",
-      color: "var(--ink)",
-      boxShadow: "var(--shadow-sticky)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    ref: toggleRef,
-    onClick: onToggle,
-    "aria-expanded": isOpen,
-    "aria-controls": menuId,
-    style: {
-      width: "100%",
-      height: "var(--mobile-bar-height)",
-      display: "flex",
-      alignItems: "stretch",
-      border: 0,
-      background: "transparent",
-      color: "var(--ink)",
-      textAlign: "left",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      minWidth: 0,
-      display: "flex",
-      flex: "1 1 auto",
-      flexDirection: "column",
-      justifyContent: "center",
-      gap: 2,
-      padding: "0 18px"
-    }
-  }, /*#__PURE__*/React.createElement("strong", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: 17,
-      fontWeight: 760,
-      lineHeight: 1,
-      letterSpacing: "-0.045em"
-    }
-  }, name), /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "block",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      fontWeight: 660,
-      letterSpacing: "-0.01em"
-    }
-  }, title)), /*#__PURE__*/React.createElement("span", {
-    style: {
-      flex: "0 0 auto",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: 9,
-      width: 84,
-      borderLeft: "1px solid var(--ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 9,
-      fontWeight: 760
-    }
-  }, isOpen ? "Close" : "Menu", /*#__PURE__*/React.createElement("i", {
-    className: "ds-mobile-toggle-icon",
-    "data-state": isOpen ? "open" : "closed",
-    "aria-hidden": "true"
-  }))));
-}
-Object.assign(__ds_scope, { MobileIdentityBar });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileIdentityBar.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/MobileMenu.jsx
-try { (() => {
-/** The phone destination list — the desktop rail's own navigation, shown as a full-surface
- *  overlay instead of a fixed column. It composes the rail's real parts (`ProjectSpineItem`,
- *  `UtilityNav`) rather than a smaller, invented "mobile menu" shape: every project row inverts
- *  to ink and unfurls its one-line statement exactly when it's the open document, the same
- *  active-state language the desktop spine uses, and About/Résumé are the same tab row. Shown
- *  only after an explicit tap on `MobileIdentityBar`; the default phone page never opens on the
- *  complete sitemap. */
-function MobileMenu({
-  isOpen = false,
-  onClose,
-  projects = [],
-  utilities = [],
-  activeId,
-  onSelect,
-  location,
-  contactLabel = "Contact",
-  contactHref,
-  menuId,
-  returnFocusRef,
-  style,
-  ...rest
-}) {
-  const panelRef = React.useRef(null);
-  const wasOpen = React.useRef(false);
-  React.useEffect(() => {
-    if (isOpen) {
-      const first = panelRef.current && panelRef.current.querySelector("a, button");
-      if (first) first.focus();
-    } else if (wasOpen.current && returnFocusRef && returnFocusRef.current) {
-      returnFocusRef.current.focus();
-    }
-    wasOpen.current = isOpen;
-  }, [isOpen, returnFocusRef]);
-  React.useEffect(() => {
-    if (!isOpen) return undefined;
-    const onKeyDown = event => {
-      if (event.key === "Escape") {
-        onClose && onClose();
-        return;
-      }
-      if (event.key !== "Tab" || !panelRef.current) return;
-      const focusable = panelRef.current.querySelectorAll("a, button");
-      if (!focusable.length) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isOpen, onClose]);
-  const select = id => {
-    onSelect && onSelect(id);
-    onClose && onClose();
-  };
-  const tab = isOpen ? undefined : -1;
-  return /*#__PURE__*/React.createElement("div", {
-    ref: panelRef,
-    id: menuId,
-    role: "dialog",
-    "aria-modal": "true",
-    "aria-label": "Site navigation",
-    "data-ds": "mobile-menu",
-    style: {
-      position: "fixed",
-      zIndex: 290,
-      left: 0,
-      right: 0,
-      top: "calc(env(safe-area-inset-top, 0px) + var(--mobile-bar-height))",
-      bottom: 0,
-      display: "flex",
-      flexDirection: "column",
-      overflowY: "auto",
-      background: "var(--paper)",
-      color: "var(--ink)",
-      boxShadow: "0 18px 40px rgba(17,17,15,0.2)",
-      clipPath: isOpen ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)",
-      visibility: isOpen ? "visible" : "hidden",
-      transition: isOpen ? "clip-path var(--dur-fast) var(--ease-authored)" : "clip-path var(--dur-fast) var(--ease-authored), visibility 0s var(--dur-fast)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Work",
-    style: {
-      display: "flex",
-      flexDirection: "column",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
-    key: p.id,
-    number: p.number,
-    title: p.title,
-    statement: p.statement,
-    active: p.id === activeId,
-    onSelect: () => select(p.id),
-    tabIndex: tab
-  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
-    items: utilities,
-    active: activeId,
-    onSelect: select,
-    style: {
-      flex: "0 0 auto"
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      minHeight: 47,
-      flex: "0 0 auto",
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "var(--space-5)",
-      alignItems: "center",
-      padding: "0 clamp(24px,2.6vw,38px)",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      lineHeight: 1.3
-    }
-  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
-    href: contactHref,
-    tabIndex: tab,
-    style: {
-      flex: "0 0 auto",
-      paddingBottom: 2,
-      borderBottom: "1px solid var(--signal)",
-      color: "var(--ink)",
-      fontSize: 10,
-      fontWeight: 700,
-      textDecoration: "none"
-    }
-  }, contactLabel)));
-}
-Object.assign(__ds_scope, { MobileMenu });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileMenu.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/ProjectSpineItem.jsx
-try { (() => {
-/** One row of the project spine. Active state is inversion: the row becomes an ink block, reversed out. */
-function ProjectSpineItem({
-  number,
-  title,
-  statement,
-  active = false,
-  onSelect,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "ds-spine-item",
-    onClick: onSelect,
-    "aria-current": active ? "page" : undefined,
-    style: {
-      position: "relative",
-      display: "flex",
-      width: "100%",
-      minHeight: "var(--spine-item-min)",
-      overflow: "hidden",
-      /* The active row bases on its own content, not on zero. With `1 1 0` it grew by ratio only,
-         so on a short rail it stayed shorter than the statement and `overflow: hidden` sliced the
-         last line off. Inactive rows keep the zero base so they still share the leftover evenly. */
-      flex: active ? "1 1 auto" : "1 1 0",
-      flexGrow: 1,
-      border: 0,
-      borderBottom: "1px solid var(--ink)",
-      textAlign: "left",
-      cursor: "pointer",
-      background: active ? "var(--ink)" : "transparent",
-      color: active ? "var(--paper-bright)" : "var(--ink)",
-      transition: "flex-grow var(--dur-stage) var(--ease-authored), background var(--dur-base) var(--ease-authored), color var(--dur-base) var(--ease-authored)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "grid",
-      gridTemplateColumns: "46px minmax(0,1fr)",
-      gap: "var(--space-3)",
-      alignItems: "start",
-      flex: "1 1 auto",
-      padding: "var(--space-5) clamp(20px,2.6vw,32px)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      paddingTop: 4,
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 15,
-      fontWeight: 700,
-      lineHeight: 0.9,
-      letterSpacing: "-0.05em",
-      transition: "color var(--dur-base) var(--ease-authored)"
-    }
-  }, number), /*#__PURE__*/React.createElement("span", {
-    style: {
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("strong", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: "var(--display-s-weight)",
-      lineHeight: "var(--display-s-leading)",
-      letterSpacing: "var(--display-s-tracking)"
-    }
-  }, title), /*#__PURE__*/React.createElement("small", {
-    "aria-hidden": !active,
-    style: {
-      display: "block",
-      maxWidth: 265,
-      overflow: "hidden",
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 12,
-      fontWeight: 480,
-      lineHeight: 1.35,
-      letterSpacing: "-0.025em",
-      maxHeight: active ? 96 : 0,
-      marginTop: active ? 9 : 0,
-      opacity: active ? 1 : 0,
-      transition: "max-height var(--dur-slow) var(--ease-authored), margin var(--dur-slow) var(--ease-authored), opacity var(--dur-tap) var(--ease-authored)"
-    }
-  }, statement))));
-}
-Object.assign(__ds_scope, { ProjectSpineItem });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ProjectSpineItem.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/UtilityNav.jsx
-try { (() => {
-/** Equal-width tab row. The active tab inverts to ink, matching the spine. */
-function UtilityNav({
-  items = [],
-  active,
-  onSelect,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Utilities",
-    style: {
-      minHeight: "var(--utility-nav-height)",
-      display: "grid",
-      gridTemplateColumns: "repeat(" + Math.max(items.length, 1) + ",1fr)",
-      borderBottom: "1px solid var(--ink)",
-      ...style
-    },
-    ...rest
-  }, items.map((item, i) => {
-    const on = item.id === active;
-    return /*#__PURE__*/React.createElement("button", {
-      key: item.id,
-      type: "button",
-      className: "ds-tab",
-      onClick: () => onSelect && onSelect(item.id),
-      "aria-current": on ? "page" : undefined,
-      style: {
-        position: "relative",
-        padding: "0 10px",
-        border: 0,
-        borderRight: i === items.length - 1 ? 0 : "1px solid " + (on ? "var(--ink)" : "var(--soft-line)"),
-        background: on ? "var(--ink)" : "transparent",
-        color: on ? "var(--paper-bright)" : "var(--ink)",
-        fontFamily: "var(--font-sans)",
-        fontSize: "var(--ui-size)",
-        fontWeight: "var(--ui-weight)",
-        letterSpacing: "var(--ui-tracking)",
-        cursor: "pointer",
-        transition: "background var(--dur-base) var(--ease-authored), color var(--dur-base) var(--ease-authored)"
-      }
-    }, item.label);
-  }));
-}
-Object.assign(__ds_scope, { UtilityNav });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/UtilityNav.jsx", error: String((e && e.message) || e) }); }
 
 // components/evidence/CardGrid.jsx
 try { (() => {
@@ -29067,159 +23686,27 @@ function Ledger({
 Object.assign(__ds_scope, { Ledger });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/evidence/Ledger.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/ProjectSpineItem.jsx
-try { (() => {
-/** One row of the project spine. Active state is inversion: the row becomes an ink block, reversed out.
- *  A project with sub-pages reveals them inside its ink block while active — quiet rows aligned under
- *  the title, each a real destination (Verso's Agent / Engine / Index). */
-function ProjectSpineItem({
-  number,
-  title,
-  statement,
-  active = false,
-  onSelect,
-  subItems,
-  activeSub,
-  onSelectSub,
-  style,
-  ...rest
-}) {
-  const hasSubs = Array.isArray(subItems) && subItems.length > 0;
-  const showSubs = active && hasSubs;
-  return /*#__PURE__*/React.createElement("div", {
-    className: "ds-spine-item",
-    "aria-current": active ? "page" : undefined,
-    style: {
-      position: "relative",
-      display: "flex",
-      flexDirection: "column",
-      width: "100%",
-      minHeight: "var(--spine-item-min)",
-      overflow: "hidden",
-      /* The active row bases on its own content, not on zero. With `1 1 0` it grew by ratio only,
-         so on a short rail it stayed shorter than the statement and `overflow: hidden` sliced the
-         last line off. Inactive rows keep the zero base so they still share the leftover evenly. */
-      flex: active ? "1 1 auto" : "1 1 0",
-      flexGrow: 1,
-      borderBottom: "1px solid var(--ink)",
-      background: active ? "var(--ink)" : "transparent",
-      color: active ? "var(--paper-bright)" : "var(--ink)",
-      transition: "flex-grow var(--dur-stage) var(--ease-authored), background var(--dur-base) var(--ease-authored), color var(--dur-base) var(--ease-authored)",
-      ...style
-    }
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: onSelect,
-    style: {
-      display: "flex",
-      flex: "1 1 auto",
-      width: "100%",
-      border: 0,
-      background: "transparent",
-      color: "inherit",
-      textAlign: "left",
-      cursor: "pointer"
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "grid",
-      gridTemplateColumns: "46px minmax(0,1fr)",
-      gap: "var(--space-3)",
-      alignItems: "start",
-      flex: "1 1 auto",
-      padding: "var(--space-5) clamp(20px,2.6vw,32px)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      paddingTop: 4,
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 15,
-      fontWeight: 700,
-      lineHeight: 0.9,
-      letterSpacing: "-0.05em",
-      transition: "color var(--dur-base) var(--ease-authored)"
-    }
-  }, number), /*#__PURE__*/React.createElement("span", {
-    style: {
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("strong", {
-    style: {
-      display: "block",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: "var(--display-s-weight)",
-      lineHeight: "var(--display-s-leading)",
-      letterSpacing: "var(--display-s-tracking)"
-    }
-  }, title), /*#__PURE__*/React.createElement("small", {
-    "aria-hidden": !active,
-    style: {
-      display: "block",
-      maxWidth: 265,
-      overflow: "hidden",
-      color: active ? "var(--paper-dim)" : "var(--muted-ink)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 12,
-      fontWeight: 480,
-      lineHeight: 1.35,
-      letterSpacing: "-0.025em",
-      maxHeight: active ? 96 : 0,
-      marginTop: active ? 9 : 0,
-      opacity: active ? 1 : 0,
-      transition: "max-height var(--dur-slow) var(--ease-authored), margin var(--dur-slow) var(--ease-authored), opacity var(--dur-tap) var(--ease-authored)"
-    }
-  }, statement)))), hasSubs && /*#__PURE__*/React.createElement("div", {
-    role: "group",
-    "aria-label": title + " pages",
-    "aria-hidden": !showSubs,
-    style: {
-      overflow: "hidden",
-      maxHeight: showSubs ? 150 : 0,
-      opacity: showSubs ? 1 : 0,
-      paddingBottom: showSubs ? "var(--space-4)" : 0,
-      transition: "max-height var(--dur-slow) var(--ease-authored), padding var(--dur-slow) var(--ease-authored), opacity var(--dur-tap) var(--ease-authored)"
-    }
-  }, subItems.map(s => /*#__PURE__*/React.createElement("button", {
-    key: s.id,
-    type: "button",
-    className: "ds-spine-sub",
-    "aria-current": activeSub === s.id ? "page" : undefined,
-    onClick: () => onSelectSub && onSelectSub(s.id),
-    tabIndex: showSubs ? undefined : -1,
-    style: {
-      display: "grid",
-      gridTemplateColumns: "46px minmax(0,1fr)",
-      gap: "var(--space-3)",
-      width: "100%",
-      padding: "6px clamp(20px,2.6vw,32px)",
-      border: 0,
-      background: "transparent",
-      textAlign: "left",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("span", {
-    className: "ds-spine-sub-label",
-    style: {
-      justifySelf: "start",
-      fontFamily: "var(--font-sans)",
-      fontSize: 14,
-      fontWeight: 560,
-      lineHeight: 1.4,
-      letterSpacing: "-0.03em"
-    }
-  }, s.label)))));
-}
-Object.assign(__ds_scope, { ProjectSpineItem });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ProjectSpineItem.jsx", error: String((e && e.message) || e) }); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // components/navigation/IndexRail.jsx
 try { (() => {
-/** The fixed left rail: identity, thesis, project spine, utilities, contact. The only navigation. */
+/** The fixed left rail: one continuous editorial contents field for identity, work, and utilities. */
 function IndexRail({
   name = "Caleb Stacy",
   title = "Senior content designer",
@@ -29253,11 +23740,12 @@ function IndexRail({
     ...rest
   }, /*#__PURE__*/React.createElement("button", {
     type: "button",
+    className: "ds-rail-identity",
     onClick: () => onSelect && onSelect(utilities[0] ? utilities[0].id : "about"),
     style: {
       width: "100%",
       display: "block",
-      padding: "clamp(30px,4.7vh,52px) var(--rail-pad-x) 21px",
+      padding: "clamp(28px,4.4vh,42px) var(--rail-pad-x) 14px",
       border: 0,
       background: "transparent",
       color: "var(--ink)",
@@ -29265,22 +23753,23 @@ function IndexRail({
       cursor: "pointer"
     }
   }, /*#__PURE__*/React.createElement("span", {
+    className: "ds-rail-name",
     style: {
-      display: "block",
+      display: "inline",
       fontFamily: "var(--font-sans)",
-      fontSize: "var(--wordmark-size)",
+      fontSize: "clamp(28px,2.25vw,34px)",
       fontWeight: "var(--wordmark-weight)",
-      lineHeight: "var(--wordmark-leading)",
+      lineHeight: 0.94,
       letterSpacing: "var(--wordmark-tracking)"
     }
   }, name), /*#__PURE__*/React.createElement("small", {
     style: {
       display: "block",
-      marginTop: "var(--space-3)",
+      marginTop: 10,
       fontFamily: "var(--font-mono)",
-      fontSize: "var(--eyebrow-size)",
-      fontWeight: 560,
-      lineHeight: 1.4,
+      fontSize: 9,
+      fontWeight: 620,
+      lineHeight: 1.45,
       letterSpacing: "-0.02em"
     }
   }, title, /*#__PURE__*/React.createElement("i", {
@@ -29291,24 +23780,38 @@ function IndexRail({
     }
   }, differentiator))), thesis && /*#__PURE__*/React.createElement("p", {
     style: {
-      maxWidth: 360,
+      maxWidth: "32ch",
       margin: 0,
-      padding: "0 var(--rail-pad-x) clamp(22px,3.5vh,34px)",
+      padding: "0 var(--rail-pad-x) clamp(25px,3.5vh,32px)",
       fontFamily: "var(--font-sans)",
-      fontSize: "var(--body-s-size)",
-      lineHeight: 1.45,
-      letterSpacing: "-0.035em"
+      fontSize: 13,
+      lineHeight: 1.48,
+      letterSpacing: "-0.025em"
     }
   }, thesis), /*#__PURE__*/React.createElement("nav", {
     "aria-label": "Selected work",
+    "data-ds": "rail-projects",
     style: {
-      minHeight: 0,
       display: "flex",
-      flex: "1 1 auto",
-      flexDirection: "column",
-      borderTop: "1px solid var(--ink)"
+      flex: "0 0 auto",
+      flexDirection: "column"
     }
-  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
+  }, /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: 12,
+      padding: "0 var(--rail-pad-x) 7px",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      fontWeight: 650,
+      lineHeight: 1.3,
+      letterSpacing: "-0.01em",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, /*#__PURE__*/React.createElement("span", null, "Selected work"), /*#__PURE__*/React.createElement("span", null, String(projects.length).padStart(2, "0"))), projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
     key: p.id,
     number: p.number,
     title: p.title,
@@ -29318,48 +23821,375 @@ function IndexRail({
     subItems: p.subPages,
     activeSub: activeSub,
     onSelectSub: sid => onSelect && onSelect(sid)
-  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
-    items: utilities,
-    active: active,
-    onSelect: onSelect
-  }), /*#__PURE__*/React.createElement("div", {
+  }))), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "rail-utility-cluster",
     style: {
-      minHeight: 47,
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "var(--space-5)",
-      alignItems: "center",
-      padding: "0 clamp(24px,2.6vw,38px)",
+      marginTop: "auto",
+      padding: "18px var(--rail-pad-x) 20px",
+      borderTop: "1px solid var(--soft-line)"
+    }
+  }, utilities.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      marginBottom: 3,
       color: "var(--muted-ink)",
       fontFamily: "var(--font-mono)",
       fontSize: 8,
+      fontWeight: 650,
       lineHeight: 1.3
     }
-  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
+  }, "Profile"), /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
+    items: utilities,
+    active: active,
+    onSelect: onSelect
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: "var(--space-4)",
+      alignItems: "end",
+      marginTop: utilities.length > 0 ? 17 : 0,
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 7.5,
+      lineHeight: 1.4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      maxWidth: "22ch"
+    }
+  }, location), contactHref && /*#__PURE__*/React.createElement("a", {
+    className: "ds-rail-contact",
     href: contactHref,
     style: {
       flex: "0 0 auto",
       paddingBottom: 2,
-      borderBottom: "1px solid var(--signal)",
       color: "var(--ink)",
-      fontSize: 10,
+      fontSize: 9.5,
       fontWeight: 700,
       textDecoration: "none"
     }
-  }, contactLabel)));
+  }, contactLabel))));
 }
 Object.assign(__ds_scope, { IndexRail });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/IndexRail.jsx", error: String((e && e.message) || e) }); }
 
+// components/navigation/ProjectSpineItem.jsx
+try { (() => {
+/** One entry in the portfolio's editorial contents. The active project is located by one drawn
+ *  rule at the rail edge; type and ground stay still. A project with sub-pages reveals them in
+ *  the same continuous field while active. */
+function ProjectSpineItem({
+  number,
+  title,
+  statement,
+  active = false,
+  onSelect,
+  subItems,
+  activeSub,
+  onSelectSub,
+  context = "rail",
+  style,
+  ...rest
+}) {
+  const hasSubs = Array.isArray(subItems) && subItems.length > 0;
+  const showSubs = active && hasSubs;
+  const inMenu = context === "menu";
+  const removedFromTabOrder = rest.tabIndex === -1;
+  const columns = inMenu ? "38px minmax(0,1fr)" : "28px minmax(0,1fr)";
+  const horizontalPadding = inMenu ? "22px" : "var(--rail-pad-x)";
+  return /*#__PURE__*/React.createElement("div", {
+    className: "ds-spine-item",
+    "aria-current": active ? "page" : undefined,
+    "data-context": context,
+    style: {
+      position: "relative",
+      display: "flex",
+      flex: "0 0 auto",
+      flexDirection: "column",
+      width: "100%",
+      overflow: "visible",
+      color: "var(--ink)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("i", {
+    "aria-hidden": "true",
+    className: "ds-spine-active-marker",
+    "data-active": active ? "true" : "false",
+    "data-ds": "active-marker",
+    style: {
+      top: inMenu ? 23 : 17,
+      width: inMenu ? 18 : 20
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "ds-spine-trigger",
+    onClick: onSelect,
+    style: {
+      display: "grid",
+      gridTemplateColumns: columns,
+      gap: inMenu ? 12 : 9,
+      width: "100%",
+      padding: inMenu ? "12px " + horizontalPadding + " 10px" : "8px " + horizontalPadding,
+      border: 0,
+      background: "transparent",
+      color: "inherit",
+      textAlign: "left",
+      cursor: "pointer"
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      paddingTop: inMenu ? 5 : 4,
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: inMenu ? 10 : 9,
+      fontWeight: 680,
+      lineHeight: 1,
+      letterSpacing: "-0.03em",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, number), /*#__PURE__*/React.createElement("span", {
+    style: {
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("strong", {
+    className: "ds-spine-title-label",
+    style: {
+      display: "inline",
+      fontFamily: "var(--font-sans)",
+      fontSize: inMenu ? 18 : 16,
+      fontWeight: active ? 700 : 610,
+      lineHeight: 1.15,
+      letterSpacing: "-0.045em",
+      transition: "font-weight var(--dur-base) var(--ease-authored)"
+    }
+  }, title), /*#__PURE__*/React.createElement("small", {
+    "aria-hidden": !active,
+    style: {
+      display: "block",
+      maxWidth: inMenu ? 274 : 230,
+      overflow: "hidden",
+      color: "var(--muted-ink)",
+      visibility: active ? "visible" : "hidden",
+      fontFamily: "var(--font-sans)",
+      fontSize: inMenu ? 12 : 11,
+      fontWeight: 470,
+      lineHeight: 1.4,
+      letterSpacing: "-0.02em",
+      maxHeight: active ? 84 : 0,
+      marginTop: active ? 7 : 0,
+      clipPath: active ? "inset(0 0 0 0)" : "inset(0 0 100% 0)",
+      transition: "max-height var(--dur-slow) var(--ease-authored), margin var(--dur-slow) var(--ease-authored), clip-path var(--dur-slow) var(--ease-authored), visibility 0s " + (active ? "0s" : "var(--dur-slow)")
+    }
+  }, statement))), hasSubs && /*#__PURE__*/React.createElement("div", {
+    role: "group",
+    "aria-label": title + " pages",
+    "aria-hidden": !showSubs,
+    style: {
+      overflow: "hidden",
+      maxHeight: showSubs ? 144 : 0,
+      paddingBottom: showSubs ? inMenu ? 10 : 7 : 0,
+      visibility: showSubs ? "visible" : "hidden",
+      clipPath: showSubs ? "inset(0 0 0 0)" : "inset(0 0 100% 0)",
+      transition: "max-height var(--dur-slow) var(--ease-authored), padding var(--dur-slow) var(--ease-authored), clip-path var(--dur-slow) var(--ease-authored), visibility 0s " + (showSubs ? "0s" : "var(--dur-slow)")
+    }
+  }, subItems.map(s => /*#__PURE__*/React.createElement("button", {
+    key: s.id,
+    type: "button",
+    className: "ds-spine-sub",
+    "aria-current": activeSub === s.id ? "page" : undefined,
+    onClick: () => onSelectSub && onSelectSub(s.id),
+    tabIndex: showSubs && !removedFromTabOrder ? undefined : -1,
+    style: {
+      display: "grid",
+      gridTemplateColumns: columns,
+      gap: inMenu ? 12 : 9,
+      width: "100%",
+      padding: (inMenu ? "4px " : "3px ") + horizontalPadding,
+      border: 0,
+      background: "transparent",
+      color: "var(--muted-ink)",
+      textAlign: "left",
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "ds-spine-sub-label",
+    style: {
+      justifySelf: "start",
+      fontFamily: "var(--font-sans)",
+      fontSize: inMenu ? 14 : 12.5,
+      fontWeight: 560,
+      lineHeight: 1.4,
+      letterSpacing: "-0.025em"
+    }
+  }, s.label)))));
+}
+Object.assign(__ds_scope, { ProjectSpineItem });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ProjectSpineItem.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/UtilityNav.jsx
+try { (() => {
+/** A wrapping text-link cluster for secondary destinations. State is a drawn rule, never a box. */
+function UtilityNav({
+  items = [],
+  active,
+  onSelect,
+  itemTabIndex,
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Utilities",
+    "data-ds": "utility-nav",
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: "2px 18px",
+      alignItems: "baseline",
+      ...style
+    },
+    ...rest
+  }, items.map(item => {
+    const on = item.id === active;
+    return /*#__PURE__*/React.createElement("button", {
+      key: item.id,
+      type: "button",
+      className: "ds-utility-link",
+      onClick: () => onSelect && onSelect(item.id),
+      "aria-current": on ? "page" : undefined,
+      tabIndex: itemTabIndex,
+      style: {
+        position: "relative",
+        flex: "0 0 auto",
+        padding: "6px 0 5px",
+        border: 0,
+        background: "transparent",
+        color: "var(--ink)",
+        fontFamily: "var(--font-sans)",
+        fontSize: 12.5,
+        fontWeight: on ? 700 : 560,
+        lineHeight: 1.2,
+        letterSpacing: "-0.025em",
+        cursor: "pointer",
+        transition: "font-weight var(--dur-base) var(--ease-authored)"
+      }
+    }, item.label);
+  }));
+}
+Object.assign(__ds_scope, { UtilityNav });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/UtilityNav.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/MobileIdentityBar.jsx
+try { (() => {
+/** The persistent phone identity and index control. It is one composed bar and one tap target:
+ *  identity at the start, an explicit Index / Close index action at the end. */
+function MobileIdentityBar({
+  name = "Caleb Stacy",
+  title = "Senior content designer",
+  isOpen = false,
+  onToggle,
+  toggleRef,
+  menuId,
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("header", {
+    "data-ds": "mobile-bar",
+    style: {
+      position: "sticky",
+      zIndex: 300,
+      top: 0,
+      paddingTop: "env(safe-area-inset-top, 0px)",
+      borderBottom: "1px solid var(--ink)",
+      background: "var(--paper-bright)",
+      color: "var(--ink)",
+      boxShadow: "var(--shadow-sticky)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "ds-mobile-identity-control",
+    ref: toggleRef,
+    onClick: onToggle,
+    "aria-expanded": isOpen,
+    "aria-controls": menuId,
+    "aria-label": isOpen ? "Close site index" : "Open site index",
+    "data-state": isOpen ? "open" : "closed",
+    style: {
+      width: "100%",
+      height: "var(--mobile-bar-height)",
+      display: "grid",
+      gridTemplateColumns: "minmax(0,1fr) auto",
+      alignItems: "center",
+      gap: 18,
+      padding: "0 20px",
+      border: 0,
+      background: "transparent",
+      color: "var(--ink)",
+      textAlign: "left",
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      minWidth: 0,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      gap: 3
+    }
+  }, /*#__PURE__*/React.createElement("strong", {
+    style: {
+      display: "block",
+      fontFamily: "var(--font-sans)",
+      fontSize: 16.5,
+      fontWeight: 700,
+      lineHeight: 1,
+      letterSpacing: "-0.045em"
+    }
+  }, name), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      overflow: "hidden",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      fontWeight: 620,
+      lineHeight: 1.2,
+      letterSpacing: "-0.01em",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap"
+    }
+  }, title)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: "0 0 auto",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "end",
+      gap: 10,
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700,
+      whiteSpace: "nowrap"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ds-mobile-toggle-label"
+  }, isOpen ? "Close index" : "Index"), /*#__PURE__*/React.createElement("i", {
+    className: "ds-mobile-toggle-icon",
+    "data-state": isOpen ? "open" : "closed",
+    "aria-hidden": "true"
+  }))));
+}
+Object.assign(__ds_scope, { MobileIdentityBar });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileIdentityBar.jsx", error: String((e && e.message) || e) }); }
+
 // components/navigation/MobileMenu.jsx
 try { (() => {
-/** The phone destination list — the desktop rail's own navigation, shown as a full-surface
- *  overlay instead of a fixed column. It composes the rail's real parts (`ProjectSpineItem`,
- *  `UtilityNav`) rather than a smaller, invented "mobile menu" shape: every project row inverts
- *  to ink and unfurls its one-line statement exactly when it's the open document, the same
- *  active-state language the desktop spine uses, and About/Résumé are the same tab row. Shown
- *  only after an explicit tap on `MobileIdentityBar`; the default phone page never opens on the
- *  complete sitemap. */
+/** The phone's full-surface editorial index. It composes the rail's real destinations in one
+ *  continuous paper field, with the active project located by the same drawn rule as desktop. */
 function MobileMenu({
   isOpen = false,
   onClose,
@@ -29379,13 +24209,22 @@ function MobileMenu({
   const panelRef = React.useRef(null);
   const wasOpen = React.useRef(false);
   React.useEffect(() => {
+    let focusTimer;
     if (isOpen) {
-      const first = panelRef.current && panelRef.current.querySelector("a, button");
-      if (first) first.focus();
+      /* Run after the opening gesture completes. Focusing in the same click turn lets the
+         trigger reclaim focus in some browsers, leaving the modal visually open but the
+         keyboard outside it. */
+      focusTimer = window.setTimeout(() => {
+        const first = panelRef.current && (panelRef.current.querySelector("[data-menu-initial-focus]") || panelRef.current.querySelector("a, button"));
+        if (first) first.focus();
+      }, 60);
     } else if (wasOpen.current && returnFocusRef && returnFocusRef.current) {
       returnFocusRef.current.focus();
     }
     wasOpen.current = isOpen;
+    return () => {
+      if (focusTimer) window.clearTimeout(focusTimer);
+    };
   }, [isOpen, returnFocusRef]);
   React.useEffect(() => {
     if (!isOpen) return undefined;
@@ -29422,6 +24261,7 @@ function MobileMenu({
     "aria-modal": "true",
     "aria-label": "Site navigation",
     "data-ds": "mobile-menu",
+    className: "ds-mobile-menu",
     style: {
       position: "fixed",
       zIndex: 290,
@@ -29434,7 +24274,6 @@ function MobileMenu({
       overflowY: "auto",
       background: "var(--paper)",
       color: "var(--ink)",
-      boxShadow: "0 18px 40px rgba(17,17,15,0.2)",
       clipPath: isOpen ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)",
       visibility: isOpen ? "visible" : "hidden",
       transition: isOpen ? "clip-path var(--dur-fast) var(--ease-authored)" : "clip-path var(--dur-fast) var(--ease-authored), visibility 0s var(--dur-fast)",
@@ -29445,10 +24284,25 @@ function MobileMenu({
     "aria-label": "Work",
     style: {
       display: "flex",
+      flex: "0 0 auto",
       flexDirection: "column",
-      borderTop: "1px solid var(--ink)"
+      paddingTop: "clamp(22px,6vw,30px)"
     }
-  }, projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
+  }, /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: 12,
+      padding: "0 22px 8px",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8.5,
+      fontWeight: 650,
+      lineHeight: 1.3,
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, /*#__PURE__*/React.createElement("span", null, "Selected work"), /*#__PURE__*/React.createElement("span", null, String(projects.length).padStart(2, "0"))), projects.map((p, index) => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
     key: p.id,
     number: p.number,
     title: p.title,
@@ -29458,44 +24312,1506 @@ function MobileMenu({
     subItems: p.subPages,
     activeSub: activeSubId,
     onSelectSub: sid => select(sid),
-    tabIndex: tab
-  }))), utilities.length > 0 && /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
+    tabIndex: tab,
+    context: "menu",
+    "data-menu-initial-focus": index === 0 ? "true" : undefined
+  }))), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "mobile-utility-cluster",
+    style: {
+      flex: "0 0 auto",
+      marginTop: "auto",
+      padding: "18px 22px calc(20px + env(safe-area-inset-bottom, 0px))",
+      borderTop: "1px solid var(--soft-line)"
+    }
+  }, utilities.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      marginBottom: 3,
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8.5,
+      fontWeight: 650,
+      lineHeight: 1.3
+    }
+  }, "Profile"), /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
     items: utilities,
     active: activeId,
     onSelect: select,
+    itemTabIndex: tab,
     style: {
-      flex: "0 0 auto"
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      minHeight: 47,
       flex: "0 0 auto",
+      gap: "2px 24px"
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
       display: "flex",
       justifyContent: "space-between",
       gap: "var(--space-5)",
-      alignItems: "center",
-      padding: "0 clamp(24px,2.6vw,38px)",
+      alignItems: "end",
+      marginTop: utilities.length > 0 ? 22 : 0,
       color: "var(--muted-ink)",
       fontFamily: "var(--font-mono)",
       fontSize: 8,
-      lineHeight: 1.3
+      lineHeight: 1.4
     }
-  }, /*#__PURE__*/React.createElement("span", null, location), contactHref && /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      maxWidth: "23ch"
+    }
+  }, location), contactHref && /*#__PURE__*/React.createElement("a", {
+    className: "ds-rail-contact",
     href: contactHref,
     tabIndex: tab,
     style: {
       flex: "0 0 auto",
       paddingBottom: 2,
-      borderBottom: "1px solid var(--signal)",
       color: "var(--ink)",
       fontSize: 10,
       fontWeight: 700,
       textDecoration: "none"
     }
-  }, contactLabel)));
+  }, contactLabel))));
 }
 Object.assign(__ds_scope, { MobileMenu });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileMenu.jsx", error: String((e && e.message) || e) }); }
+
+// components\navigation\IndexRail.jsx
+try { (() => {
+/** The fixed left rail: one continuous editorial contents field for identity, work, and utilities. */
+function IndexRail({
+  name = "Caleb Stacy",
+  title = "Senior content designer",
+  differentiator = "Product systems · content engineering",
+  thesis,
+  projects = [],
+  active,
+  activeSub,
+  onSelect,
+  utilities = [],
+  location,
+  contactLabel = "Contact",
+  contactHref,
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("aside", {
+    "aria-label": "Identity and portfolio navigation",
+    "data-ds": "rail",
+    style: {
+      position: "relative",
+      zIndex: 20,
+      minWidth: 0,
+      minHeight: 0,
+      display: "flex",
+      flexDirection: "column",
+      borderRight: "1px solid var(--ink)",
+      background: "var(--paper)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "ds-rail-identity",
+    onClick: () => onSelect && onSelect(utilities[0] ? utilities[0].id : "about"),
+    style: {
+      width: "100%",
+      display: "block",
+      padding: "clamp(28px,4.4vh,42px) var(--rail-pad-x) 14px",
+      border: 0,
+      background: "transparent",
+      color: "var(--ink)",
+      textAlign: "left",
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ds-rail-name",
+    style: {
+      display: "inline",
+      fontFamily: "var(--font-sans)",
+      fontSize: "clamp(28px,2.25vw,34px)",
+      fontWeight: "var(--wordmark-weight)",
+      lineHeight: 0.94,
+      letterSpacing: "var(--wordmark-tracking)"
+    }
+  }, name), /*#__PURE__*/React.createElement("small", {
+    style: {
+      display: "block",
+      marginTop: 10,
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 620,
+      lineHeight: 1.45,
+      letterSpacing: "-0.02em"
+    }
+  }, title, /*#__PURE__*/React.createElement("i", {
+    style: {
+      display: "block",
+      color: "var(--muted-ink)",
+      fontStyle: "normal"
+    }
+  }, differentiator))), thesis && /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: "32ch",
+      margin: 0,
+      padding: "0 var(--rail-pad-x) clamp(25px,3.5vh,32px)",
+      fontFamily: "var(--font-sans)",
+      fontSize: 13,
+      lineHeight: 1.48,
+      letterSpacing: "-0.025em"
+    }
+  }, thesis), /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Selected work",
+    "data-ds": "rail-projects",
+    style: {
+      display: "flex",
+      flex: "0 0 auto",
+      flexDirection: "column"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: 12,
+      padding: "0 var(--rail-pad-x) 7px",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      fontWeight: 650,
+      lineHeight: 1.3,
+      letterSpacing: "-0.01em",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, /*#__PURE__*/React.createElement("span", null, "Selected work"), /*#__PURE__*/React.createElement("span", null, String(projects.length).padStart(2, "0"))), projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
+    key: p.id,
+    number: p.number,
+    title: p.title,
+    statement: p.statement,
+    active: active === p.id,
+    onSelect: () => onSelect && onSelect(p.id),
+    subItems: p.subPages,
+    activeSub: activeSub,
+    onSelectSub: sid => onSelect && onSelect(sid)
+  }))), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "rail-utility-cluster",
+    style: {
+      marginTop: "auto",
+      padding: "18px var(--rail-pad-x) 20px",
+      borderTop: "1px solid var(--soft-line)"
+    }
+  }, utilities.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      marginBottom: 3,
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      fontWeight: 650,
+      lineHeight: 1.3
+    }
+  }, "More"), /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
+    items: utilities,
+    active: active,
+    onSelect: onSelect
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: "var(--space-4)",
+      alignItems: "end",
+      marginTop: utilities.length > 0 ? 17 : 0,
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 7.5,
+      lineHeight: 1.4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      maxWidth: "22ch"
+    }
+  }, location), contactHref && /*#__PURE__*/React.createElement("a", {
+    className: "ds-rail-contact",
+    href: contactHref,
+    style: {
+      flex: "0 0 auto",
+      paddingBottom: 2,
+      color: "var(--ink)",
+      fontSize: 9.5,
+      fontWeight: 700,
+      textDecoration: "none"
+    }
+  }, contactLabel))));
+}
+Object.assign(__ds_scope, { IndexRail });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components\\navigation\\IndexRail.jsx", error: String((e && e.message) || e) }); }
+
+// components\navigation\MobileMenu.jsx
+try { (() => {
+/** The phone's full-surface editorial index. It composes the rail's real destinations in one
+ *  continuous paper field, with the active project located by the same drawn rule as desktop. */
+function MobileMenu({
+  isOpen = false,
+  onClose,
+  projects = [],
+  utilities = [],
+  activeId,
+  activeSubId,
+  onSelect,
+  location,
+  contactLabel = "Contact",
+  contactHref,
+  menuId,
+  returnFocusRef,
+  style,
+  ...rest
+}) {
+  const panelRef = React.useRef(null);
+  const wasOpen = React.useRef(false);
+  React.useEffect(() => {
+    let focusTimer;
+    if (isOpen) {
+      /* Run after the opening gesture completes. Focusing in the same click turn lets the
+         trigger reclaim focus in some browsers, leaving the modal visually open but the
+         keyboard outside it. */
+      focusTimer = window.setTimeout(() => {
+        const first = panelRef.current && (panelRef.current.querySelector("[data-menu-initial-focus]") || panelRef.current.querySelector("a, button"));
+        if (first) first.focus();
+      }, 60);
+    } else if (wasOpen.current && returnFocusRef && returnFocusRef.current) {
+      returnFocusRef.current.focus();
+    }
+    wasOpen.current = isOpen;
+    return () => {
+      if (focusTimer) window.clearTimeout(focusTimer);
+    };
+  }, [isOpen, returnFocusRef]);
+  React.useEffect(() => {
+    if (!isOpen) return undefined;
+    const onKeyDown = event => {
+      if (event.key === "Escape") {
+        onClose && onClose();
+        return;
+      }
+      if (event.key !== "Tab" || !panelRef.current) return;
+      const focusable = panelRef.current.querySelectorAll("a, button");
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen, onClose]);
+  const select = id => {
+    onSelect && onSelect(id);
+    onClose && onClose();
+  };
+  const tab = isOpen ? undefined : -1;
+  return /*#__PURE__*/React.createElement("div", {
+    ref: panelRef,
+    id: menuId,
+    role: "dialog",
+    "aria-modal": "true",
+    "aria-label": "Site navigation",
+    "data-ds": "mobile-menu",
+    className: "ds-mobile-menu",
+    style: {
+      position: "fixed",
+      zIndex: 290,
+      left: 0,
+      right: 0,
+      top: "calc(env(safe-area-inset-top, 0px) + var(--mobile-bar-height))",
+      bottom: 0,
+      display: "flex",
+      flexDirection: "column",
+      overflowY: "auto",
+      background: "var(--paper)",
+      color: "var(--ink)",
+      clipPath: isOpen ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)",
+      visibility: isOpen ? "visible" : "hidden",
+      transition: isOpen ? "clip-path var(--dur-fast) var(--ease-authored)" : "clip-path var(--dur-fast) var(--ease-authored), visibility 0s var(--dur-fast)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Work",
+    style: {
+      display: "flex",
+      flex: "0 0 auto",
+      flexDirection: "column",
+      paddingTop: "clamp(22px,6vw,30px)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: 12,
+      padding: "0 22px 8px",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8.5,
+      fontWeight: 650,
+      lineHeight: 1.3,
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, /*#__PURE__*/React.createElement("span", null, "Selected work"), /*#__PURE__*/React.createElement("span", null, String(projects.length).padStart(2, "0"))), projects.map((p, index) => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
+    key: p.id,
+    number: p.number,
+    title: p.title,
+    statement: p.statement,
+    active: p.id === activeId,
+    onSelect: () => select(p.id),
+    subItems: p.subPages,
+    activeSub: activeSubId,
+    onSelectSub: sid => select(sid),
+    tabIndex: tab,
+    context: "menu",
+    "data-menu-initial-focus": index === 0 ? "true" : undefined
+  }))), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "mobile-utility-cluster",
+    style: {
+      flex: "0 0 auto",
+      marginTop: "auto",
+      padding: "18px 22px calc(20px + env(safe-area-inset-bottom, 0px))",
+      borderTop: "1px solid var(--soft-line)"
+    }
+  }, utilities.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      marginBottom: 3,
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8.5,
+      fontWeight: 650,
+      lineHeight: 1.3
+    }
+  }, "More"), /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
+    items: utilities,
+    active: activeId,
+    onSelect: select,
+    itemTabIndex: tab,
+    style: {
+      flex: "0 0 auto",
+      gap: "2px 24px"
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: "var(--space-5)",
+      alignItems: "end",
+      marginTop: utilities.length > 0 ? 22 : 0,
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      lineHeight: 1.4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      maxWidth: "23ch"
+    }
+  }, location), contactHref && /*#__PURE__*/React.createElement("a", {
+    className: "ds-rail-contact",
+    href: contactHref,
+    tabIndex: tab,
+    style: {
+      flex: "0 0 auto",
+      paddingBottom: 2,
+      color: "var(--ink)",
+      fontSize: 10,
+      fontWeight: 700,
+      textDecoration: "none"
+    }
+  }, contactLabel))));
+}
+Object.assign(__ds_scope, { MobileMenu });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components\\navigation\\MobileMenu.jsx", error: String((e && e.message) || e) }); }
+
+// components\case\VersoHero.jsx
+try { (() => {
+/* Verso's cover instrument: a draft arrives, the checks stream and quiet into a collapsed strip,
+ * the supported measurements draw themselves, the rewrite arrives with its deltas, and a
+ * short self-check closes the loop. Plays once, settles, replays on request.
+ *
+ * Every mark is drawn, never faded: text streams in behind a left-to-right clip-path (never an
+ * opacity fade), the ring's arc is a stroke-dashoffset sweep, the dimension bars extend from the
+ * left edge, and the accept affordance's underline grows from nothing. The one exception the
+ * house rule itself allows — "subtle opacity on top of a directional draw" — never happens either;
+ * even the checks window's shimmer is a moving gradient clipped to the text, not an opacity
+ * layer. `prefers-reduced-motion` (and phone width, where the two-pane stage stacks and this panel
+ * has no room to run the sequence) renders the fully composed end state on the first frame and
+ * hides the replay control — there is nothing to replay.
+ *
+ * The sequencer is a single `step` index into a named timeline (`draft`, one entry per reasoning
+ * check, `think-collapse`, `reading`, `reading-verdict`, `rewrite-after`, `rewrite-deltas`,
+ * `rewrite-cta`, `selflint-line`, `selflint-verdict`, `settled`). Every visual that a CSS
+ * transition can own (the ring, the bars, every text reveal, the CTA underline) reads straight off
+ * a `step >=` comparison, so React owns them and reduced motion's global transition-speed override
+ * already makes them instant for free. Only what a stylesheet cannot animate — typed characters,
+ * counted numbers, and the checks window's height, which CSS cannot tween to `auto` — runs
+ * through small imperative helpers against refs. `window.__versoHeroSequencer` (last-mounted
+ * instance) exposes `gotoStep`, `showReadingPartial`, `showRewritePartial`, and `replay` for
+ * screenshot proof and, later, reuse — the streamed-line, optional ring/bar-draw, and counter primitives
+ * here are the pieces a fuller "Language instruments" page would want back. */
+
+const EASE = "var(--ease-authored)";
+const RING_SIZE = 74;
+const RING_STROKE = 6;
+const RING_MS = 760; // var(--dur-character)
+const BAR_STAGGER_MS = 80;
+const DRAFT_TYPE_MS = 820;
+const AFTER_TYPE_MS = 560;
+const DELTA_MS = 640;
+const DELTA_STAGGER_MS = 70;
+const COLLAPSED_PX = 24;
+function easeOutCubic(x) {
+  return 1 - Math.pow(1 - x, 3);
+}
+
+/** Character-by-character reveal into `el.textContent`. Cancelable; used for the two moments
+ *  that are genuinely typed or written (the incoming draft, the agent's rewritten line) rather
+ *  than streamed reasoning. */
+function typeText(el, text, duration) {
+  if (!el) return () => {};
+  const start = performance.now();
+  const total = text.length;
+  let raf = requestAnimationFrame(function step(now) {
+    const p = Math.min(1, (now - start) / duration);
+    el.textContent = text.slice(0, Math.round(total * p));
+    if (p < 1) raf = requestAnimationFrame(step);
+  });
+  return () => cancelAnimationFrame(raf);
+}
+
+/** Decelerating count from `from` to `to`, written straight into `el.textContent`. Any supported
+ *  aggregate, the dimension values, and the rewrite deltas all use this one helper. */
+function countTo(el, from, to, duration, prefix, suffix) {
+  if (!el) return () => {};
+  const start = performance.now();
+  let raf = requestAnimationFrame(function step(now) {
+    const p = Math.min(1, (now - start) / duration);
+    const v = Math.round(from + (to - from) * easeOutCubic(p));
+    el.textContent = (prefix || "") + v + (suffix || "");
+    if (p < 1) raf = requestAnimationFrame(step);
+  });
+  return () => cancelAnimationFrame(raf);
+}
+
+/** The checks window collapsing to its silkscreen strip. CSS cannot transition to/from
+ *  `height:auto`, so the natural height is measured once and locked in pixels before the
+ *  transition starts — the classic vanilla trick, not a library. */
+function collapseThinkBox(el) {
+  if (!el) return;
+  const full = el.scrollHeight;
+  el.style.transition = "none";
+  el.style.height = full + "px";
+  void el.offsetHeight; // force layout before swapping the transition back on
+  el.style.transition = "height var(--dur-mid) " + EASE;
+  requestAnimationFrame(() => {
+    el.style.height = COLLAPSED_PX + "px";
+  });
+}
+function expandThinkBoxInstant(el) {
+  if (!el) return;
+  el.style.transition = "none";
+  el.style.height = "auto";
+  void el.offsetHeight;
+}
+const revealStyle = open => open ? {
+  clipPath: "inset(0 0 0 0)"
+} : {
+  clipPath: "inset(0 100% 0 0)"
+};
+const drawn = {
+  animation: "verso-line-enter var(--dur-mid) " + EASE + " both"
+};
+const shimmerStyle = {
+  backgroundImage: "linear-gradient(90deg, var(--story-muted) 38%, var(--story-ink) 50%, var(--story-muted) 62%)",
+  backgroundSize: "250% 100%",
+  WebkitBackgroundClip: "text",
+  backgroundClip: "text",
+  color: "transparent",
+  animation: "verso-shimmer-sweep 1.4s linear infinite"
+};
+function VersoHero({
+  draft,
+  thinking = [],
+  reading = {},
+  rewrite = {},
+  selfLint = {},
+  label = "Verso — reviewing a draft",
+  thinkingLabel = "Checks",
+  replayLabel = "Watch it again",
+  style,
+  ...rest
+}) {
+  const {
+    score,
+    outOf = 100,
+    verdict: readingVerdict,
+    dimensions = []
+  } = reading;
+  const {
+    after = "",
+    deltas = [],
+    acceptLabel = "Accept the rewrite"
+  } = rewrite;
+  const {
+    line: selfLintLine,
+    verdict: selfLintVerdict
+  } = selfLint;
+  const hasScore = Number.isFinite(score) && Number.isFinite(outOf) && outOf > 0;
+  const [reduced] = React.useState(() => typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [compact] = React.useState(() => typeof window !== "undefined" && window.matchMedia && window.matchMedia("(max-width: 768px)").matches);
+  const timeline = React.useMemo(() => {
+    const names = ["draft"];
+    const delays = [0];
+    thinking.forEach((_, i) => {
+      names.push("think-" + i);
+      delays.push(i === 0 ? 950 : 620);
+    });
+    names.push("think-collapse", "reading", "reading-verdict", "rewrite-after", "rewrite-deltas", "rewrite-cta", "selflint-line", "selflint-verdict", "settled");
+    delays.push(700, 450, 980, 520, 850, 950, 500, 560, 550);
+    const index = {};
+    names.forEach((n, i) => index[n] = i);
+    return {
+      names,
+      delays,
+      index,
+      last: names.length - 1
+    };
+  }, [thinking.length]);
+  const [step, setStep] = React.useState(() => reduced || compact ? timeline.last : -1);
+  const els = React.useRef({});
+  const setRef = key => el => {
+    els.current[key] = el;
+  };
+  const timersRef = React.useRef([]);
+  const clearTimers = () => {
+    timersRef.current.forEach(clearTimeout);
+    timersRef.current = [];
+  };
+
+  // `typeText`/`countTo` each return a canceler for the rAF loop they start. `clearTimers` alone
+  // only stops timers that have not fired yet — a `typeText` already in flight (draft typing
+  // starts the instant the panel comes into view, before a jump could ever race it) keeps writing
+  // `el.textContent` every frame regardless. Every real (animated) start pushes its canceler here;
+  // every instant jump (`gotoStep`, `replay`) drains it first, so a jump can never lose a frame
+  // later to a stray loop it didn't know was still running.
+  const activeAnimRef = React.useRef([]);
+  const cancelActiveAnims = () => {
+    activeAnimRef.current.forEach(fn => fn());
+    activeAnimRef.current = [];
+  };
+  const ringR = (RING_SIZE - RING_STROKE) / 2;
+  const ringC = 2 * Math.PI * ringR;
+  const scoreFrac = hasScore ? Math.max(0, Math.min(1, score / outOf)) : 0;
+
+  /** Everything a stylesheet cannot own for milestone `name`: typed text, counted numbers, the
+   *  reasoning window's collapse. Two callers, two speeds — `runAnimatedFor` is invoked directly
+   *  by the timer that reaches a step during real playback and actually animates; `applyInstant`
+   *  is invoked by the instant paths (reduced motion, compact, and the seek hook's jumps) and
+   *  snaps straight to the same end state. Neither is wired through a `step`-keyed `useEffect`:
+   *  a jump changes `step` too (so the declarative, CSS-transition-owned parts of the JSX — the
+   *  ring, the bars, every clip-path reveal — still land correctly), and if the imperative work
+   *  were *also* re-derived from `step` in an effect, a seek hook jump and a real timer landing
+   *  on the same index would race and the jump would lose to a half-second of stray animation. */
+  const runAnimatedFor = React.useCallback(name => {
+    const e = els.current;
+    const track = cancel => activeAnimRef.current.push(cancel);
+    const trackDelayed = (fn, delay) => {
+      const id = setTimeout(() => track(fn()), delay);
+      track(() => clearTimeout(id));
+    };
+    if (name === "draft") track(typeText(e.draft, draft, DRAFT_TYPE_MS));else if (name === "think-collapse") collapseThinkBox(e.thinkBox);else if (name === "reading") {
+      if (hasScore) track(countTo(e.score, 0, Math.round(score), RING_MS));
+      dimensions.forEach((d, i) => trackDelayed(() => countTo(e["dim-" + i], 0, d.value, RING_MS - i * 40), i * BAR_STAGGER_MS));
+    } else if (name === "rewrite-after") track(typeText(e.after, after, AFTER_TYPE_MS));else if (name === "rewrite-deltas") {
+      deltas.forEach((d, i) => trackDelayed(() => countTo(e["delta-" + i], d.from, d.to, DELTA_MS), i * DELTA_STAGGER_MS));
+    }
+  }, [draft, after, score, hasScore, dimensions, deltas]);
+  const applyInstant = React.useCallback(name => {
+    const e = els.current;
+    if (name === "draft" && e.draft) e.draft.textContent = draft;else if (name === "think-collapse" && e.thinkBox) {
+      e.thinkBox.style.transition = "none";
+      e.thinkBox.style.height = COLLAPSED_PX + "px";
+    } else if (name === "reading") {
+      if (hasScore && e.score) e.score.textContent = String(Math.round(score));
+      dimensions.forEach((d, i) => {
+        if (e["dim-" + i]) e["dim-" + i].textContent = String(d.value);
+      });
+    } else if (name === "rewrite-after" && e.after) {
+      e.after.textContent = after;
+    } else if (name === "rewrite-deltas") {
+      deltas.forEach((d, i) => {
+        if (e["delta-" + i]) e["delta-" + i].textContent = String(d.to);
+      });
+    }
+  }, [draft, after, score, hasScore, dimensions, deltas]);
+  const playFrom = React.useCallback(fromIndex => {
+    clearTimers();
+    let acc = 0;
+    for (let i = fromIndex + 1; i <= timeline.last; i++) {
+      acc += timeline.delays[i];
+      const idx = i;
+      const name = timeline.names[idx];
+      timersRef.current.push(setTimeout(() => {
+        setStep(idx);
+        runAnimatedFor(name);
+      }, acc));
+    }
+  }, [timeline, runAnimatedFor]);
+  const gotoStep = React.useCallback(name => {
+    const idx = timeline.index[name];
+    if (idx == null) return;
+    clearTimers();
+    cancelActiveAnims();
+    for (let i = 0; i <= idx; i++) applyInstant(timeline.names[i]);
+    setStep(idx);
+  }, [timeline, applyInstant]);
+  const replay = React.useCallback(() => {
+    clearTimers();
+    cancelActiveAnims();
+    const e = els.current;
+    if (e.draft) e.draft.textContent = "";
+    if (e.after) e.after.textContent = "";
+    if (e.score) e.score.textContent = "0";
+    dimensions.forEach((d, i) => {
+      if (e["dim-" + i]) e["dim-" + i].textContent = "0";
+    });
+    deltas.forEach((d, i) => {
+      if (e["delta-" + i]) e["delta-" + i].textContent = String(d.from);
+    });
+    expandThinkBoxInstant(e.thinkBox);
+    setStep(-1);
+    playFrom(-1);
+  }, [playFrom, dimensions, deltas]);
+
+  // First run: reduced motion / compact apply every milestone's end state once and never play.
+  // Otherwise wait for the panel to actually be on screen, then run the timeline once.
+  const wrapRef = React.useRef(null);
+  React.useEffect(() => {
+    if (reduced || compact) {
+      timeline.names.forEach(applyInstant);
+      return;
+    }
+    const node = wrapRef.current;
+    if (!node || typeof IntersectionObserver === "undefined") {
+      playFrom(-1);
+      return clearTimers;
+    }
+    let started = false;
+    const io = new IntersectionObserver(entries => {
+      if (started || !entries.some(en => en.isIntersecting)) return;
+      started = true;
+      playFrom(-1);
+      io.disconnect();
+    }, {
+      threshold: 0.15
+    });
+    io.observe(node);
+    return () => {
+      io.disconnect();
+      clearTimers();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // ---- the seek/test hook: last-mounted instance wins, harmless in production ----
+  React.useEffect(() => {
+    window.__versoHeroSequencer = {
+      stepNames: timeline.names,
+      gotoStep,
+      replay,
+      // Freezes for the two continuous draws no static jump can capture: hold everything through
+      // the previous milestone at rest, then paint the ring/bars or the deltas at an exact
+      // fraction with their transitions switched off, so the frame is stable under a screenshot
+      // instead of a real in-flight animation a screenshot's own latency could miss or catch at
+      // an unrepeatable instant.
+      showReadingPartial(fraction) {
+        gotoStep("think-collapse");
+        const f = Math.max(0, Math.min(1, fraction));
+        requestAnimationFrame(() => {
+          const e = els.current;
+          if (e.ring) {
+            e.ring.style.transition = "none";
+            e.ring.style.strokeDashoffset = String(ringC * (1 - scoreFrac * f));
+          }
+          if (e.score) e.score.textContent = String(Math.round(score * f));
+          dimensions.forEach((d, i) => {
+            if (e["bar-" + i]) {
+              e["bar-" + i].style.transition = "none";
+              e["bar-" + i].style.transform = "scaleX(" + f + ")";
+            }
+            if (e["dim-" + i]) e["dim-" + i].textContent = String(Math.round(d.value * f));
+          });
+        });
+      },
+      showRewritePartial(fraction) {
+        gotoStep("rewrite-after");
+        // The delta row's own container is a clip-path reveal keyed to `step` reaching
+        // "rewrite-deltas" (see `at("rewrite-deltas")` in the JSX) — advancing `step` one more
+        // stop, on its own, never re-triggers `runAnimatedFor` (that only ever runs from
+        // `playFrom`'s timers, never from a `step`-watching effect), so this opens the row without
+        // restarting its count.
+        setStep(timeline.index["rewrite-deltas"]);
+        const f = Math.max(0, Math.min(1, fraction));
+        requestAnimationFrame(() => {
+          const e = els.current;
+          deltas.forEach((d, i) => {
+            if (e["delta-" + i]) e["delta-" + i].textContent = String(Math.round(d.from + (d.to - d.from) * f));
+          });
+        });
+      }
+    };
+    return () => {
+      if (window.__versoHeroSequencer && window.__versoHeroSequencer.gotoStep === gotoStep) delete window.__versoHeroSequencer;
+    };
+  }, [timeline, gotoStep, replay, deltas, dimensions, score, scoreFrac, ringC]);
+  const at = name => step >= timeline.index[name];
+  const activeLine = (() => {
+    for (let i = 0; i < thinking.length; i++) {
+      if (step === timeline.index["think-" + i]) return i;
+    }
+    if (step === timeline.index["selflint-line"]) return "self";
+    return null;
+  })();
+  const collapsed = at("think-collapse");
+  const settled = step === timeline.last;
+  if (compact) {
+    return /*#__PURE__*/React.createElement("div", {
+      "data-ds": "scene-character",
+      "data-layout": "document",
+      style: {
+        position: "relative",
+        width: "100%",
+        ...style
+      },
+      ...rest
+    }, /*#__PURE__*/React.createElement("div", {
+      "aria-hidden": "true",
+      "data-ds": "verso-hero",
+      style: {
+        display: "flex",
+        flexDirection: "column",
+        gap: 14,
+        padding: "20px var(--stage-pad-x) 24px",
+        border: "1px solid var(--story-line)",
+        background: "var(--story-raised)",
+        boxShadow: "var(--story-shadow)"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "var(--story-muted)",
+        fontFamily: "var(--font-mono)",
+        fontSize: 9,
+        fontWeight: 700
+      }
+    }, label), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(__ds_scope.Eyebrow, {
+      size: "micro",
+      tone: "muted"
+    }, "Draft"), /*#__PURE__*/React.createElement("p", {
+      style: {
+        margin: "4px 0 0",
+        color: "var(--story-ink)",
+        fontFamily: "var(--font-sans)",
+        fontSize: 12.5,
+        lineHeight: 1.4,
+        letterSpacing: "-0.02em"
+      }
+    }, draft)), /*#__PURE__*/React.createElement("div", {
+      style: {
+        paddingTop: 11,
+        borderTop: "1px solid var(--story-line)"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 7
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        width: 6,
+        height: 6,
+        borderTop: "1px solid var(--story-muted)",
+        borderRight: "1px solid var(--story-muted)",
+        transform: "rotate(45deg)"
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "var(--story-muted)",
+        fontFamily: "var(--font-mono)",
+        fontSize: 9,
+        fontWeight: 700
+      }
+    }, thinkingLabel, " · ", thinking.length, " steps"))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        paddingTop: 11,
+        borderTop: "1px solid var(--story-line)",
+        display: "flex",
+        gap: 14,
+        alignItems: "center"
+      }
+    }, hasScore && /*#__PURE__*/React.createElement(Ring, {
+      size: 56,
+      stroke: 5,
+      score: score,
+      outOf: outOf,
+      r: (56 - 5) / 2,
+      filled: true
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1,
+        minWidth: 0
+      }
+    }, dimensions.map(d => /*#__PURE__*/React.createElement("div", {
+      key: d.name,
+      style: {
+        display: "grid",
+        gridTemplateColumns: "minmax(68px,0.9fr) minmax(0,1.4fr) 24px",
+        gap: 7,
+        alignItems: "center",
+        padding: "3px 0"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "var(--story-muted)",
+        fontFamily: "var(--font-mono)",
+        fontSize: 8.5,
+        fontWeight: 700
+      }
+    }, d.name), /*#__PURE__*/React.createElement("span", {
+      style: {
+        position: "relative",
+        height: 4,
+        display: "block",
+        background: "var(--story-band)"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        position: "absolute",
+        inset: "0 auto 0 0",
+        width: Math.max(0, Math.min(100, d.value)) + "%",
+        background: "var(--story-ink)"
+      }
+    })), /*#__PURE__*/React.createElement("strong", {
+      style: {
+        color: "var(--story-ink)",
+        fontFamily: "var(--font-sans)",
+        fontSize: 11.5,
+        fontWeight: 700,
+        letterSpacing: "-0.03em",
+        textAlign: "right",
+        fontVariantNumeric: "tabular-nums"
+      }
+    }, d.value))), readingVerdict && /*#__PURE__*/React.createElement("p", {
+      style: {
+        margin: "7px 0 0",
+        color: "var(--story-ink)",
+        fontFamily: "var(--font-sans)",
+        fontSize: 12.5,
+        fontWeight: 650,
+        lineHeight: 1.3,
+        letterSpacing: "-0.02em"
+      }
+    }, readingVerdict))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        paddingTop: 11,
+        borderTop: "1px solid var(--story-line)"
+      }
+    }, /*#__PURE__*/React.createElement(__ds_scope.Eyebrow, {
+      size: "micro",
+      tone: "signal"
+    }, "After"), /*#__PURE__*/React.createElement("p", {
+      style: {
+        margin: "4px 0 0",
+        color: "var(--story-ink)",
+        fontFamily: "var(--font-sans)",
+        fontSize: 12.5,
+        fontWeight: 560,
+        lineHeight: 1.4,
+        letterSpacing: "-0.02em"
+      }
+    }, after), /*#__PURE__*/React.createElement("div", {
+      style: {
+        marginTop: 9,
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: "5px 12px"
+      }
+    }, deltas.map(d => {
+      const up = Number(d.to) > Number(d.from);
+      return /*#__PURE__*/React.createElement("div", {
+        key: d.name
+      }, /*#__PURE__*/React.createElement("span", {
+        style: {
+          color: "var(--story-muted)",
+          fontFamily: "var(--font-mono)",
+          fontSize: 8.5,
+          fontWeight: 700
+        }
+      }, d.name, " "), /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontFamily: "var(--font-sans)",
+          fontVariantNumeric: "tabular-nums"
+        }
+      }, /*#__PURE__*/React.createElement("span", {
+        style: {
+          color: "var(--story-muted)",
+          fontSize: 11,
+          textDecoration: "line-through"
+        }
+      }, d.from), /*#__PURE__*/React.createElement("span", {
+        "aria-hidden": "true",
+        style: {
+          margin: "0 3px",
+          color: "var(--story-muted)",
+          fontFamily: "var(--font-mono)",
+          fontSize: 8
+        }
+      }, up ? "↑" : "↓"), /*#__PURE__*/React.createElement("strong", {
+        style: {
+          color: "var(--story-accent)",
+          fontSize: 12,
+          fontWeight: 700
+        }
+      }, d.to)));
+    })), /*#__PURE__*/React.createElement("div", {
+      style: {
+        marginTop: 10
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "var(--story-accent)",
+        fontFamily: "var(--font-sans)",
+        fontSize: 11.5,
+        fontWeight: 700,
+        letterSpacing: "-0.02em",
+        borderBottom: "1.5px solid var(--story-accent)",
+        paddingBottom: 3
+      }
+    }, acceptLabel))), (selfLintLine || selfLintVerdict) && /*#__PURE__*/React.createElement("div", {
+      style: {
+        paddingTop: 11,
+        borderTop: "1px solid var(--story-line)"
+      }
+    }, selfLintLine && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "baseline",
+        gap: 7
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        flex: "0 0 auto",
+        width: 4,
+        height: 4,
+        borderRadius: "50%",
+        background: "var(--story-line)"
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "var(--story-muted)",
+        fontFamily: "var(--font-sans)",
+        fontSize: 11.5,
+        lineHeight: 1.4,
+        letterSpacing: "-0.015em"
+      }
+    }, selfLintLine)), selfLintVerdict && /*#__PURE__*/React.createElement("p", {
+      style: {
+        margin: "6px 0 0",
+        color: "var(--story-ink)",
+        fontFamily: "var(--font-sans)",
+        fontSize: 12.5,
+        fontWeight: 650,
+        lineHeight: 1.35,
+        letterSpacing: "-0.02em"
+      }
+    }, selfLintVerdict))));
+  }
+  return /*#__PURE__*/React.createElement("div", {
+    ref: wrapRef,
+    "data-ds": "scene-character",
+    style: {
+      position: "absolute",
+      zIndex: 5,
+      top: 0,
+      right: 0,
+      bottom: 0,
+      width: "51%",
+      overflow: "hidden",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    "data-ds": "verso-hero",
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      height: "100%",
+      justifyContent: "center",
+      padding: "0 clamp(14px,2.4vw,26px)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      border: "1px solid var(--story-line)",
+      background: "var(--story-raised)",
+      boxShadow: "var(--story-shadow)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "baseline",
+      gap: 10,
+      padding: "9px 13px",
+      borderBottom: "1px solid var(--story-line)",
+      background: "var(--story-band)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700
+    }
+  }, label), !reduced && /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-block",
+      ...(settled ? drawn : revealStyle(false))
+    }
+  }, /*#__PURE__*/React.createElement(__ds_scope.StageAction, {
+    accent: "signal",
+    tabIndex: -1,
+    onClick: settled ? replay : undefined,
+    style: {
+      fontSize: 10.5,
+      gap: 7,
+      padding: "0 0 3px"
+    }
+  }, replayLabel))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "12px 13px 13px"
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(__ds_scope.Eyebrow, {
+    size: "micro",
+    tone: "muted"
+  }, "Draft"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "4px 0 0",
+      color: "var(--story-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: 12.5,
+      lineHeight: 1.4,
+      letterSpacing: "-0.02em"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    ref: setRef("draft")
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 12,
+      paddingTop: 11,
+      borderTop: "1px solid var(--story-line)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 7,
+      height: COLLAPSED_PX - 4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 6,
+      height: 6,
+      borderTop: "1px solid var(--story-muted)",
+      borderRight: "1px solid var(--story-muted)",
+      transform: collapsed ? "rotate(45deg)" : "rotate(135deg)",
+      transition: "transform var(--dur-fast) " + EASE
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700
+    }
+  }, thinkingLabel), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-block",
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700,
+      ...(collapsed ? drawn : revealStyle(false))
+    }
+  }, "· ", thinking.length, " steps")), /*#__PURE__*/React.createElement("div", {
+    ref: setRef("thinkBox"),
+    style: {
+      overflow: "hidden",
+      height: "auto"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 5,
+      paddingTop: 6
+    }
+  }, thinking.map((t, i) => {
+    const revealed = step >= timeline.index["think-" + i];
+    const active = activeLine === i;
+    return /*#__PURE__*/React.createElement("div", {
+      key: i,
+      style: {
+        display: "flex",
+        alignItems: "baseline",
+        gap: 7
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        flex: "0 0 auto",
+        width: 4,
+        height: 4,
+        borderRadius: "50%",
+        background: active ? "var(--story-accent)" : "var(--story-line)"
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      ref: setRef("think-" + i),
+      style: {
+        display: "inline-block",
+        fontFamily: "var(--font-sans)",
+        fontSize: 11.5,
+        lineHeight: 1.4,
+        letterSpacing: "-0.015em",
+        ...(revealed ? drawn : revealStyle(false)),
+        ...(active ? shimmerStyle : revealed ? {
+          color: "var(--story-muted)"
+        } : null)
+      }
+    }, t));
+  })))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 12,
+      paddingTop: 11,
+      borderTop: "1px solid var(--story-line)",
+      display: "flex",
+      gap: 14,
+      alignItems: "center"
+    }
+  }, hasScore && /*#__PURE__*/React.createElement(Ring, {
+    size: RING_SIZE,
+    stroke: RING_STROKE,
+    r: ringR,
+    score: score,
+    outOf: outOf,
+    filled: at("reading"),
+    setScoreRef: setRef("score"),
+    setRingRef: setRef("ring")
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      minWidth: 0
+    }
+  }, dimensions.map((d, i) => /*#__PURE__*/React.createElement("div", {
+    key: d.name,
+    style: {
+      display: "grid",
+      gridTemplateColumns: "minmax(58px,0.8fr) minmax(0,1.4fr) 24px",
+      gap: 8,
+      alignItems: "center",
+      padding: "3px 0"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 700
+    }
+  }, d.name), /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "relative",
+      height: 4,
+      display: "block",
+      background: "var(--story-band)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    ref: setRef("bar-" + i),
+    "aria-hidden": "true",
+    style: {
+      position: "absolute",
+      inset: "0 0 0 0",
+      transformOrigin: "left",
+      background: "var(--story-ink)",
+      transform: at("reading") ? "scaleX(1)" : "scaleX(0)",
+      transition: "transform " + RING_MS + "ms " + EASE,
+      transitionDelay: at("reading") ? i * BAR_STAGGER_MS + "ms" : "0ms"
+    }
+  })), /*#__PURE__*/React.createElement("strong", {
+    ref: setRef("dim-" + i),
+    style: {
+      color: "var(--story-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: 11.5,
+      fontWeight: 700,
+      letterSpacing: "-0.03em",
+      textAlign: "right",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, "0"))), readingVerdict && /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "6px 0 0",
+      color: "var(--story-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: 12.5,
+      fontWeight: 650,
+      lineHeight: 1.3,
+      letterSpacing: "-0.02em",
+      ...(at("reading-verdict") ? drawn : revealStyle(false))
+    }
+  }, readingVerdict))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 12,
+      paddingTop: 11,
+      borderTop: "1px solid var(--story-line)"
+    }
+  }, /*#__PURE__*/React.createElement(__ds_scope.Eyebrow, {
+    size: "micro",
+    tone: "signal"
+  }, "After"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "4px 0 0",
+      color: "var(--story-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: 12.5,
+      fontWeight: 560,
+      lineHeight: 1.4,
+      letterSpacing: "-0.02em"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    ref: setRef("after")
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 9,
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: "5px 12px"
+    }
+  }, deltas.map((d, i) => {
+    const up = Number(d.to) > Number(d.from);
+    return /*#__PURE__*/React.createElement("div", {
+      key: d.name,
+      style: {
+        ...(at("rewrite-deltas") ? drawn : revealStyle(false))
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "var(--story-muted)",
+        fontFamily: "var(--font-mono)",
+        fontSize: 8.5,
+        fontWeight: 700
+      }
+    }, d.name, " "), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontVariantNumeric: "tabular-nums"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "var(--story-muted)",
+        fontSize: 11,
+        textDecoration: "line-through"
+      }
+    }, d.from), /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        margin: "0 3px",
+        color: "var(--story-muted)",
+        fontFamily: "var(--font-mono)",
+        fontSize: 8
+      }
+    }, up ? "↑" : "↓"), /*#__PURE__*/React.createElement("strong", {
+      ref: setRef("delta-" + i),
+      style: {
+        color: "var(--story-accent)",
+        fontSize: 12,
+        fontWeight: 700
+      }
+    }, d.from)));
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 10
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "relative",
+      display: "inline-block",
+      color: "var(--story-accent)",
+      fontFamily: "var(--font-sans)",
+      fontSize: 11.5,
+      fontWeight: 700,
+      letterSpacing: "-0.02em",
+      ...(at("rewrite-cta") ? drawn : revealStyle(false))
+    }
+  }, acceptLabel, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      position: "absolute",
+      left: 0,
+      right: 0,
+      bottom: -3,
+      height: 1.5,
+      background: "var(--story-accent)",
+      transformOrigin: "left",
+      transform: at("rewrite-cta") ? "scaleX(1)" : "scaleX(0)",
+      transition: "transform var(--dur-mid) " + EASE,
+      transitionDelay: at("rewrite-cta") ? "var(--dur-base)" : "0ms"
+    }
+  })))), (selfLintLine || selfLintVerdict) && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 12,
+      paddingTop: 11,
+      borderTop: "1px solid var(--story-line)"
+    }
+  }, selfLintLine && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "baseline",
+      gap: 7
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      flex: "0 0 auto",
+      width: 4,
+      height: 4,
+      borderRadius: "50%",
+      background: activeLine === "self" ? "var(--story-accent)" : "var(--story-line)"
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    ref: setRef("selflint-line"),
+    style: {
+      display: "inline-block",
+      fontFamily: "var(--font-sans)",
+      fontSize: 11.5,
+      lineHeight: 1.4,
+      letterSpacing: "-0.015em",
+      ...(at("selflint-line") ? drawn : revealStyle(false)),
+      ...(activeLine === "self" ? shimmerStyle : at("selflint-line") ? {
+        color: "var(--story-muted)"
+      } : null)
+    }
+  }, selfLintLine)), selfLintVerdict && /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "6px 0 0",
+      color: "var(--story-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: 12.5,
+      fontWeight: 650,
+      lineHeight: 1.35,
+      letterSpacing: "-0.02em",
+      ...(at("selflint-verdict") ? drawn : revealStyle(false))
+    }
+  }, selfLintVerdict))))));
+}
+
+/** The ring alone, factored out so the compact (phone) render and the full sequence can share it.
+ *  In compact mode it is always `filled` and carries no refs — nothing about it plays. */
+function Ring({
+  size,
+  stroke,
+  r,
+  score,
+  outOf,
+  filled,
+  setScoreRef,
+  setRingRef
+}) {
+  const c = 2 * Math.PI * r;
+  const frac = Math.max(0, Math.min(1, score / outOf));
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "relative",
+      flex: "0 0 auto",
+      width: size,
+      height: size
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: size,
+    height: size,
+    style: {
+      display: "block",
+      transform: "rotate(-90deg)"
+    },
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("circle", {
+    cx: size / 2,
+    cy: size / 2,
+    r: r,
+    fill: "none",
+    stroke: "var(--story-line)",
+    strokeWidth: stroke
+  }), /*#__PURE__*/React.createElement("circle", {
+    ref: setRingRef,
+    cx: size / 2,
+    cy: size / 2,
+    r: r,
+    fill: "none",
+    stroke: "var(--story-accent)",
+    strokeWidth: stroke,
+    strokeLinecap: "butt",
+    strokeDasharray: c,
+    style: {
+      strokeDashoffset: filled ? c * (1 - frac) : c,
+      transition: "stroke-dashoffset " + RING_MS + "ms " + EASE
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      inset: 0,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement("strong", {
+    ref: setScoreRef,
+    style: {
+      color: "var(--story-ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: size >= 70 ? 22 : 18,
+      fontWeight: 700,
+      lineHeight: 0.9,
+      letterSpacing: "-0.05em",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, setScoreRef ? 0 : score), /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginTop: 3,
+      color: "var(--story-muted)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 7.5,
+      fontWeight: 700
+    }
+  }, "of ", outOf)));
+}
+Object.assign(__ds_scope, { VersoHero });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components\\case\\VersoHero.jsx", error: String((e && e.message) || e) }); }
 
 __ds_ns.ScrollCue = __ds_scope.ScrollCue;
 

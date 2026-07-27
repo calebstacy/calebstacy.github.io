@@ -22,6 +22,192 @@
   display: none !important;
 }
 
+/* The About portrait carries three quiet employment marks. Meta + Horizon stay one lockup because
+   Horizon is the scope of the Meta role, not a second employer. The approved default is a single
+   slow credits band: it moves over the opaque portrait video, while a stationary mask removes it
+   through Caleb's central lane so the marks read as passing behind him. `?credits=static` preserves
+   the earlier constellation for comparison, and reduced motion receives that static arrangement. */
+[data-ds="about-credibility"] {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+[data-ds="about-credibility-mark"] {
+  display: block;
+  height: auto;
+  filter:
+    drop-shadow(0 1px 0 rgba(255, 255, 255, 0.16))
+    drop-shadow(0 5px 9px rgba(0, 0, 0, 0.42));
+}
+[data-ds="about-credibility"][data-mode="static"] {
+  inset: 0;
+}
+[data-ds="about-credibility"][data-mode="static"] [data-ds="about-credibility-mark"] {
+  position: absolute;
+}
+[data-ds="about-credibility"][data-mode="static"] [data-brand="meta-horizon"] {
+  top: 58px;
+  left: 28px;
+  width: 124px;
+}
+[data-ds="about-credibility"][data-mode="static"] [data-brand="digbi"] {
+  top: 352px;
+  left: 34px;
+  width: 90px;
+}
+[data-ds="about-credibility"][data-mode="static"] [data-brand="8x8"] {
+  top: 232px;
+  right: 24px;
+  width: 42px;
+}
+[data-ds="about-credibility"][data-mode="marquee"] {
+  top: 52%;
+  right: 0;
+  left: 0;
+  height: 76px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 8%,
+    #000 25%,
+    transparent 35%,
+    transparent 68%,
+    #000 78%,
+    #000 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 8%,
+    #000 25%,
+    transparent 35%,
+    transparent 68%,
+    #000 78%,
+    #000 92%,
+    transparent 100%
+  );
+}
+[data-ds="about-credibility-track"] {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  will-change: transform;
+  animation: about-credits-marquee 36s linear infinite;
+}
+[data-ds="about-credibility-set"] {
+  display: flex;
+  flex: 0 0 50%;
+  align-items: center;
+  justify-content: space-around;
+  gap: 28px;
+  box-sizing: border-box;
+  padding: 0 28px;
+}
+[data-ds="about-credibility"][data-mode="marquee"] [data-ds="about-credibility-mark"] {
+  position: relative;
+  flex: 0 0 auto;
+}
+[data-ds="about-credibility"][data-mode="marquee"] [data-brand="meta-horizon"] { width: 124px; }
+[data-ds="about-credibility"][data-mode="marquee"] [data-brand="digbi"] { width: 82px; }
+[data-ds="about-credibility"][data-mode="marquee"] [data-brand="8x8"] { width: 42px; }
+[data-ds="scene-character"][data-credibility-mode="marquee"]:hover [data-ds="about-credibility-track"],
+[data-ds="scene-character"][data-credibility-mode="marquee"]:focus-within [data-ds="about-credibility-track"] {
+  animation-play-state: paused;
+}
+[data-ds="scene-character"][data-credibility-mode="marquee"]:focus-visible {
+  outline: 0;
+  box-shadow: inset 0 -2px 0 var(--action);
+}
+
+/* Route changes move focus to the destination heading so assistive technology announces the new
+   document. The heading is not an interactive target, so the portfolio shell keeps that focus
+   handoff without drawing the button-style vermillion box around the title. */
+[data-ds="reader"] [data-doc-heading]:focus-visible {
+  outline: none;
+}
+
+/* The custom VR and Portals covers keep their public proof full-width, then restore the earlier
+   clay character as a small desktop counterweight in the otherwise empty upper-right field. */
+[data-ds="case-cover-character"] {
+  display: none;
+}
+@media (min-width: 1100px) {
+  [data-ds="case-cover-character"] {
+    position: absolute;
+    z-index: 6;
+    display: block;
+    height: auto;
+    pointer-events: none;
+  }
+  [data-ds="case-cover-character"][data-character="portals"] {
+    top: 36px;
+    right: 42px;
+    width: clamp(210px, 18vw, 258px);
+  }
+  [data-ds="case-cover-character"][data-character="vr"] {
+    top: 48px;
+    right: 54px;
+    width: clamp(168px, 15vw, 220px);
+  }
+}
+
+/* The VR cover's four clay plaques label the sequence without baking another lossy generation
+   into the diorama. Percent geometry keeps the type registered to the original 1672x941 artwork. */
+[data-ds="vr-diorama"] {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+}
+[data-ds="vr-diorama"] > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+[data-ds="vr-diorama-label"] {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  color: #20364a;
+  font-family: var(--font-sans);
+  font-size: clamp(6px, 0.82vw, 14px);
+  font-weight: 760;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-align: center;
+  text-wrap: balance;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.48);
+}
+[data-ds="vr-diorama-label"][data-step="setup"] {
+  top: 20.8%;
+  left: 13.4%;
+  width: 11.8%;
+  height: 8.8%;
+  transform: rotate(-0.8deg);
+}
+[data-ds="vr-diorama-label"][data-step="consent"] {
+  top: 14.4%;
+  left: 32.7%;
+  width: 10.7%;
+  height: 8.2%;
+  transform: rotate(-0.4deg);
+}
+[data-ds="vr-diorama-label"][data-step="lessons"] {
+  top: 13.2%;
+  left: 50.9%;
+  width: 10.6%;
+  height: 8.1%;
+  transform: rotate(-0.7deg);
+}
+[data-ds="vr-diorama-label"][data-step="world"] {
+  top: 10.6%;
+  left: 70.2%;
+  width: 9.4%;
+  height: 7.5%;
+  transform: rotate(-0.9deg);
+}
+
 /* Hairline-drawn hamburger-to-close transform on the identity bar's toggle — a transform, never
    an opacity fade, ported and re-timed onto this system's own duration token from the source's
    fixed 180ms (see readme's "Gaps and substitutions": that number was never carried over until
@@ -120,6 +306,76 @@
   [data-ds="stage"] { flex-wrap: wrap !important; height: auto !important; min-height: 0 !important; }
   [data-ds="stage-copy"] { position: relative !important; width: 100% !important; height: auto !important; padding: clamp(30px,7vw,42px) var(--stage-pad-x) 20px !important; }
   [data-ds="scene-character"] { position: relative !important; inset: auto !important; width: 100% !important; height: min(42vh, 320px) !important; margin: -6px 0 56px !important; }
+  [data-ds="scene-character"][data-layout="document"] { height: auto !important; margin-bottom: 0 !important; overflow: visible !important; }
+  [data-ds="about-credibility"][data-mode="static"] [data-brand="meta-horizon"] {
+    top: 28px;
+    left: 24px;
+    width: 120px;
+  }
+  [data-ds="about-credibility"][data-mode="static"] [data-brand="digbi"] {
+    top: 140px;
+    left: 64px;
+    width: 84px;
+  }
+  [data-ds="about-credibility"][data-mode="static"] [data-brand="8x8"] {
+    top: 236px;
+    right: auto;
+    left: 26px;
+    width: 40px;
+  }
+  [data-ds="about-credibility"][data-mode="marquee"] {
+    top: 58%;
+    height: 62px;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 5%,
+      #000 28%,
+      transparent 37%,
+      transparent 65%,
+      #000 74%,
+      #000 95%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 5%,
+      #000 28%,
+      transparent 37%,
+      transparent 65%,
+      #000 74%,
+      #000 95%,
+      transparent 100%
+    );
+  }
+  [data-ds="about-credibility-set"] {
+    gap: 18px;
+    padding: 0 16px;
+  }
+  [data-ds="about-credibility"][data-mode="marquee"] [data-brand="meta-horizon"] { width: 108px; }
+  [data-ds="about-credibility"][data-mode="marquee"] [data-brand="digbi"] { width: 70px; }
+  [data-ds="about-credibility"][data-mode="marquee"] [data-brand="8x8"] { width: 36px; }
+
+  /* The résumé is a document, not another cover. Its desktop header and dated experience rows
+     collapse into a single reading column so the phone keeps the full measure for actual copy. */
+  [data-ds="resume-header"] {
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+    gap: 24px !important;
+  }
+  [data-ds="resume-contact"] {
+    justify-items: start !important;
+    text-align: left !important;
+  }
+  [data-ds="resume-entry"] {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  [data-ds="resume-lower"] {
+    grid-template-columns: 1fr !important;
+    gap: 44px !important;
+  }
 
   /* The old template's contribution-facts masthead: two fixed columns crowd a long value
      ("Team and surface") into half the phone's width. One fact per row instead, the same fold
