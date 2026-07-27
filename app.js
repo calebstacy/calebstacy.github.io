@@ -1901,7 +1901,7 @@ function AboutDocument({
     title: "Hi, I'm Caleb.",
     accent: /*#__PURE__*/React.createElement(DesignRotator, null),
     deck: "I'm a senior content designer. My work spans product strategy and interaction language. I design onboarding, run experiments, and build systems that make good decisions easier to repeat.",
-    detail: "I've led that work on cross-functional teams spanning product, design, research, data and engineering. Before product, I spent seven years teaching writing and earned an MFA in poetry. I still care about the sentence. Sometimes the work also needs a workshop, an experiment or code."
+    detail: "I've led that work on cross-functional teams spanning product, design, research, data and engineering. Before product, I spent five years teaching writing and earned an MFA in poetry. I still care about the sentence. Sometimes the work also needs a workshop, an experiment or code."
   }, /*#__PURE__*/React.createElement(StageAction, {
     accent: "action",
     style: {
@@ -2020,7 +2020,7 @@ function AboutDocument({
     style: {
       margin: 0
     }
-  }, "Before product work, I taught composition and poetry workshops, then trained Army officers to turn complex, high-stakes information into clear, direct language. Seven years of watching what makes writing land is where the rest of this comes from. Teaching made me care about craft. I still teach what I learn and keep asking what the work could become next.")))));
+  }, "Before product work, I taught composition and poetry workshops, then trained Army officers to turn complex, high-stakes information into clear, direct language. Five years of watching what makes writing land is where the rest of this comes from. Teaching made me care about craft. I still teach what I learn and keep asking what the work could become next.")))));
 }
 function MicrocopyDocument({
   onNavigate
