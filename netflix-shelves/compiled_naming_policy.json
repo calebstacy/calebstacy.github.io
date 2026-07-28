@@ -1,0 +1,979 @@
+{
+  "claims": {
+    "adopted_rule_conformance": "The linter may report conformance only to rules explicitly adopted in this demo profile.",
+    "descriptive_familiarity": "Review-only signals report resemblance to this public evidence snapshot.",
+    "effectiveness_not_assessed": "The corpus does not establish whether a candidate will be clear, appealing, or effective."
+  },
+  "compiled_from": "naming_policy.json",
+  "compiled_policy_hash": "a2dbe7cbf41b058212fb09c9b86673559c6afb1054abf9d76919ed5b8f1799f2",
+  "compiler": {
+    "id": "build_naming_policy.py",
+    "schema_version": 1,
+    "supported_predicates": [
+      "ampersand_over_and",
+      "content_unit_presence",
+      "content_unit_terminal",
+      "direct_address",
+      "length_signal",
+      "mood_signal",
+      "movie_show_terminology",
+      "time_promise",
+      "title_case",
+      "tv_uppercase",
+      "unfamiliar_modifier",
+      "wordplay_signal"
+    ],
+    "supported_repairs": [
+      "uppercase_tv"
+    ]
+  },
+  "dimension_targets": [
+    {
+      "dimension": "audience",
+      "evidence_pointer": {
+        "expected": {
+          "#/id": "audience"
+        },
+        "pointer": "#/dimensions/7",
+        "source": "scorecards.json"
+      },
+      "interpretation": "Descriptive familiarity only.",
+      "sample": {
+        "band": "broad",
+        "size": 1297
+      },
+      "target": null,
+      "target_kind": "review_only"
+    },
+    {
+      "dimension": "casing",
+      "evidence_pointer": {
+        "expected": {
+          "#/denominator": 1297,
+          "#/id": "title-case-discipline",
+          "#/match_count": 1281
+        },
+        "pointer": "#/grammar/rules/0",
+        "source": "shelves.json"
+      },
+      "interpretation": "Demo conformance target; exceptions remain reviewable rather than automatically rewritten.",
+      "sample": {
+        "band": "broad",
+        "size": 1297
+      },
+      "target": {
+        "path": "title_case",
+        "value": "holds"
+      },
+      "target_kind": "exact_categorical"
+    },
+    {
+      "dimension": "connective",
+      "evidence_pointer": {
+        "expected": {
+          "#/denominator": 70,
+          "#/id": "ampersand-over-and",
+          "#/match_count": 66
+        },
+        "pointer": "#/grammar/rules/5",
+        "source": "shelves.json"
+      },
+      "interpretation": "Near-binary demo target; counterexamples keep the runtime treatment at review.",
+      "sample": {
+        "band": "broad",
+        "size": 70
+      },
+      "target": {
+        "value": "holds"
+      },
+      "target_kind": "exact_categorical"
+    },
+    {
+      "dimension": "content_unit",
+      "evidence_pointer": {
+        "expected": {
+          "#/id": "content_unit"
+        },
+        "pointer": "#/dimensions/1",
+        "source": "scorecards.json"
+      },
+      "interpretation": "Presence and position are contextual evidence, not a global target.",
+      "sample": {
+        "band": "broad",
+        "size": 1297
+      },
+      "target": null,
+      "target_kind": "review_only"
+    },
+    {
+      "dimension": "genre_families",
+      "evidence_pointer": {
+        "expected": {
+          "#": 532
+        },
+        "pointer": "#/totals/genre_family_tagged_occurrences",
+        "source": "scorecards.json"
+      },
+      "interpretation": "Descriptive familiarity only; absence is not a defect.",
+      "sample": {
+        "band": "broad",
+        "size": 532
+      },
+      "target": null,
+      "target_kind": "review_only"
+    },
+    {
+      "dimension": "length_words",
+      "evidence_pointer": {
+        "expected": {
+          "#/occurrences/bins/5_plus_words": 107,
+          "#/occurrences/max": 10,
+          "#/occurrences/mean": 2.81,
+          "#/occurrences/median": 3,
+          "#/occurrences/min": 1,
+          "#/occurrences/n": 1297
+        },
+        "pointer": "#/grammar/length_distribution",
+        "source": "shelves.json"
+      },
+      "interpretation": "Distributional familiarity only; the range is not a pass/fail threshold.",
+      "sample": {
+        "band": "broad",
+        "size": 1297
+      },
+      "target": {
+        "bands": {
+          "1": 49,
+          "2": 541,
+          "3": 492,
+          "4": 108,
+          "5_plus": 107
+        },
+        "maximum": 10,
+        "mean": 2.81,
+        "median": 3,
+        "minimum": 1
+      },
+      "target_kind": "numeric_distribution"
+    },
+    {
+      "dimension": "second_person",
+      "evidence_pointer": {
+        "expected": {
+          "#/id": "direct-address",
+          "#/occurrence_count": 114
+        },
+        "pointer": "#/moves/2",
+        "source": "moves.json"
+      },
+      "interpretation": "Descriptive familiarity only.",
+      "sample": {
+        "band": "broad",
+        "size": 1297
+      },
+      "target": null,
+      "target_kind": "review_only"
+    },
+    {
+      "dimension": "speech_act",
+      "evidence_pointer": {
+        "expected": {
+          "#/id": "speech_act"
+        },
+        "pointer": "#/dimensions/6",
+        "source": "scorecards.json"
+      },
+      "interpretation": "Descriptive familiarity only.",
+      "sample": {
+        "band": "broad",
+        "size": 1297
+      },
+      "target": null,
+      "target_kind": "review_only"
+    },
+    {
+      "dimension": "template_shape",
+      "evidence_pointer": {
+        "expected": {
+          "#/id": "template_shape"
+        },
+        "pointer": "#/dimensions/11",
+        "source": "scorecards.json"
+      },
+      "interpretation": "Construction shape is descriptive evidence only.",
+      "sample": {
+        "band": "broad",
+        "size": 1297
+      },
+      "target": null,
+      "target_kind": "review_only"
+    },
+    {
+      "dimension": "tone",
+      "evidence_pointer": {
+        "expected": {
+          "#": 114
+        },
+        "pointer": "#/totals/tone_present_occurrences",
+        "source": "scorecards.json"
+      },
+      "interpretation": "Descriptive familiarity only.",
+      "sample": {
+        "band": "broad",
+        "size": 1297
+      },
+      "target": null,
+      "target_kind": "review_only"
+    },
+    {
+      "dimension": "tv_casing",
+      "evidence_pointer": {
+        "expected": {
+          "#/denominator": 196,
+          "#/id": "tv-uppercase",
+          "#/match_count": 196
+        },
+        "pointer": "#/grammar/rules/3",
+        "source": "shelves.json"
+      },
+      "interpretation": "Exact adopted casing target when TV occurs.",
+      "sample": {
+        "band": "broad",
+        "size": 196
+      },
+      "target": {
+        "value": "holds"
+      },
+      "target_kind": "exact_categorical"
+    },
+    {
+      "dimension": "wordplay",
+      "evidence_pointer": {
+        "expected": {
+          "#/wordplay_mechanical_alliteration_occurrences": 53,
+          "#/wordplay_mechanical_rhyme_occurrences": 0,
+          "#/wordplay_semantic_signed_occurrences": 67
+        },
+        "pointer": "#/totals",
+        "source": "scorecards.json"
+      },
+      "interpretation": "Mechanical detection and signed readings are evidence, not effectiveness.",
+      "sample": {
+        "band": "broad",
+        "size": 1297
+      },
+      "target": null,
+      "target_kind": "review_only"
+    }
+  ],
+  "disclaimer": "This is a proposed adoption profile for a portfolio demonstration. It is not Netflix policy and does not claim that corpus familiarity establishes naming effectiveness.",
+  "evidence_snapshot_date": "2026-07-26",
+  "language_signature_evidence": {
+    "method": "Exact-title lookup of authored reads in moves.json; unsigned candidates receive no inferred semantic judgment.",
+    "semantic_signed_reads": [
+      {
+        "basis": "the laugh stands in for the sitcom that produces it",
+        "occurrence_count": 4,
+        "read": "metonymy",
+        "text": "30-Minute Laughs"
+      },
+      {
+        "basis": "tales/tails in a kids' animal context",
+        "occurrence_count": 4,
+        "read": "homophone pun",
+        "text": "Animal Tales"
+      },
+      {
+        "basis": "paired b-words; tone adjectives promoted to the whole name",
+        "occurrence_count": 1,
+        "read": "alliterative pairing",
+        "text": "Bold & Brash"
+      },
+      {
+        "basis": "the audience-reaction idiom replaces any content description",
+        "occurrence_count": 12,
+        "read": "idiom as label",
+        "text": "Crowd Pleasers"
+      },
+      {
+        "basis": "reworks food for thought into an appetite for learning",
+        "occurrence_count": 7,
+        "read": "idiom twist",
+        "text": "Food For Hungry Brains"
+      },
+      {
+        "basis": "the idiom's own word doubles as the genre name: Action",
+        "occurrence_count": 21,
+        "read": "genre pun",
+        "text": "Get In on the Action"
+      },
+      {
+        "basis": "the idiom stands in for the romance-gone-wrong shelf it fronts",
+        "occurrence_count": 1,
+        "read": "idiom as label",
+        "text": "Love Hurts"
+      },
+      {
+        "basis": "paired o-words; the ampersand carries the coupling",
+        "occurrence_count": 4,
+        "read": "alliterative pairing",
+        "text": "Oddballs & Outcasts"
+      },
+      {
+        "basis": "crosses night in with squad; the shelf names the occasion, never the content",
+        "occurrence_count": 4,
+        "read": "idiom remix",
+        "text": "Squad Night In"
+      },
+      {
+        "basis": "teen/screams rhyme; a horror shelf aimed at the teen lane",
+        "occurrence_count": 2,
+        "read": "rhyme",
+        "text": "Teen Screams"
+      },
+      {
+        "basis": "a documentary shelf sold as journalism, no joke anywhere in it",
+        "occurrence_count": 4,
+        "read": "elevated frame",
+        "text": "The Stories Behind the Headlines"
+      },
+      {
+        "basis": "a full relative clause; the flourish is stature, never a pun",
+        "occurrence_count": 3,
+        "read": "elevated frame",
+        "text": "Women Who Rule The Screen"
+      }
+    ],
+    "source_pointer": "moves.json#/reads"
+  },
+  "policy_id": "netflix-public-english-demo-naming",
+  "rules": [
+    {
+      "adoption_record": {
+        "date": "2026-07-26",
+        "decision": "Adopt as review; propose the observed connective without mutating candidate text.",
+        "id": "demo-adoption-2026-07-26-ampersand"
+      },
+      "adoption_status": "adopted_for_demo",
+      "evidence": {
+        "counterexamples": [
+          "Drug Lords, Mob Bosses, and Gangsters",
+          "Action Anime Shows and Movies"
+        ],
+        "counts": {
+          "counterexamples": 4,
+          "denominator": 70,
+          "matches": 66
+        },
+        "pointers": [
+          {
+            "expected": {
+              "#/counter_example_count": 4,
+              "#/denominator": 70,
+              "#/id": "ampersand-over-and",
+              "#/match_count": 66
+            },
+            "pointer": "#/grammar/rules/5",
+            "source": "shelves.json"
+          }
+        ],
+        "sample": {
+          "band": "broad",
+          "size": 70
+        }
+      },
+      "id": "ampersand-over-and",
+      "message": "Review whether the coordinating connective should use &.",
+      "predicate_id": "ampersand_over_and",
+      "rule_type": "near_binary",
+      "runtime_treatment": "review_proposed_edit",
+      "safe_repair": {
+        "policy": "proposed_edit_only",
+        "repair_id": null
+      },
+      "scope": {
+        "locales": [
+          "en"
+        ],
+        "when": "A coordinating connective occurs in a public product name."
+      },
+      "violation_outcome": "REVIEW"
+    },
+    {
+      "adoption_record": {
+        "date": "2026-07-26",
+        "decision": "Adopt only as a contextual review signal for category-led names whose category is not visible elsewhere.",
+        "id": "demo-adoption-2026-07-26-content-unit-presence"
+      },
+      "adoption_status": "adopted_for_demo",
+      "evidence": {
+        "counterexamples": [
+          "New on Netflix",
+          "Your Next Watch"
+        ],
+        "counts": {
+          "naming_occurrences": 1297
+        },
+        "pointers": [
+          {
+            "expected": {
+              "#/id": "content-unit-present"
+            },
+            "pointer": "#/techniques/1",
+            "source": "playbook.json"
+          },
+          {
+            "pointer": "#/dimensions/1",
+            "source": "scorecards.json"
+          }
+        ],
+        "sample": {
+          "band": "broad",
+          "size": 1297
+        }
+      },
+      "id": "content-unit-presence",
+      "message": "A category-led name may need a visible content noun in this context.",
+      "predicate_id": "content_unit_presence",
+      "rule_type": "review_signal",
+      "runtime_treatment": "scoped_review",
+      "safe_repair": {
+        "policy": "none",
+        "repair_id": null
+      },
+      "scope": {
+        "category_visible_elsewhere": false,
+        "intended_reading": [
+          "category-led"
+        ],
+        "locales": [
+          "en"
+        ],
+        "surfaces": [
+          "shelf-heading",
+          "list-name"
+        ]
+      },
+      "violation_outcome": "REVIEW"
+    },
+    {
+      "adoption_record": {
+        "date": "2026-07-26",
+        "decision": "Adopt only as contextual review; Top 10 and facet counterexamples make global repair unsafe.",
+        "id": "demo-adoption-2026-07-26-content-unit-terminal"
+      },
+      "adoption_status": "adopted_for_demo",
+      "evidence": {
+        "counterexamples": [
+          "Top 10 Movies on Netflix Right Now",
+          "Movies | English"
+        ],
+        "counts": {
+          "counterexamples": 91,
+          "denominator": 911,
+          "matches": 820
+        },
+        "pointers": [
+          {
+            "expected": {
+              "#/counter_example_count": 91,
+              "#/denominator": 911,
+              "#/id": "content-unit-terminal",
+              "#/match_count": 820
+            },
+            "pointer": "#/grammar/rules/1",
+            "source": "shelves.json"
+          }
+        ],
+        "sample": {
+          "band": "broad",
+          "size": 911
+        }
+      },
+      "id": "content-unit-terminal",
+      "message": "Review whether the content noun should close this category-led name.",
+      "predicate_id": "content_unit_terminal",
+      "rule_type": "review_signal",
+      "runtime_treatment": "scoped_review",
+      "safe_repair": {
+        "policy": "none",
+        "repair_id": null
+      },
+      "scope": {
+        "category_visible_elsewhere": false,
+        "intended_reading": [
+          "category-led"
+        ],
+        "locales": [
+          "en"
+        ],
+        "surfaces": [
+          "shelf-heading"
+        ]
+      },
+      "violation_outcome": "REVIEW"
+    },
+    {
+      "adoption_record": null,
+      "adoption_status": "descriptive_only",
+      "evidence": {
+        "counterexamples": [],
+        "counts": {
+          "occurrences": 114,
+          "unique_names": 3
+        },
+        "pointers": [
+          {
+            "expected": {
+              "#/id": "direct-address",
+              "#/occurrence_count": 114,
+              "#/unique_name_count": 3
+            },
+            "pointer": "#/moves/2",
+            "source": "moves.json"
+          }
+        ],
+        "sample": {
+          "band": "broad",
+          "size": 1297
+        }
+      },
+      "id": "direct-address",
+      "message": "This candidate uses direct address observed in the public corpus.",
+      "predicate_id": "direct_address",
+      "rule_type": "review_signal",
+      "runtime_treatment": "evidence_only",
+      "safe_repair": {
+        "policy": "none",
+        "repair_id": null
+      },
+      "scope": {
+        "locales": [
+          "en"
+        ]
+      },
+      "violation_outcome": null
+    },
+    {
+      "adoption_record": null,
+      "adoption_status": "descriptive_only",
+      "evidence": {
+        "counterexamples": [],
+        "counts": {
+          "maximum": 10,
+          "median": 3,
+          "minimum": 1,
+          "occurrences": 1297
+        },
+        "pointers": [
+          {
+            "expected": {
+              "#/occurrences/max": 10,
+              "#/occurrences/median": 3,
+              "#/occurrences/min": 1,
+              "#/occurrences/n": 1297
+            },
+            "pointer": "#/grammar/length_distribution",
+            "source": "shelves.json"
+          }
+        ],
+        "sample": {
+          "band": "broad",
+          "size": 1297
+        }
+      },
+      "id": "length-signal",
+      "message": "Candidate length is compared with the observed distribution, not scored.",
+      "predicate_id": "length_signal",
+      "rule_type": "review_signal",
+      "runtime_treatment": "evidence_only",
+      "safe_repair": {
+        "policy": "none",
+        "repair_id": null
+      },
+      "scope": {
+        "locales": [
+          "en"
+        ]
+      },
+      "violation_outcome": null
+    },
+    {
+      "adoption_record": null,
+      "adoption_status": "descriptive_only",
+      "evidence": {
+        "counterexamples": [],
+        "counts": {
+          "move_occurrences": 113,
+          "scorecard_tone_occurrences": 114
+        },
+        "pointers": [
+          {
+            "expected": {
+              "#/id": "tonal-adjective",
+              "#/occurrence_count": 113,
+              "#/unique_name_count": 30
+            },
+            "pointer": "#/moves/4",
+            "source": "moves.json"
+          },
+          {
+            "pointer": "#/totals/tone_present_occurrences",
+            "source": "scorecards.json"
+          }
+        ],
+        "sample": {
+          "band": "broad",
+          "size": 1297
+        }
+      },
+      "id": "mood-signal",
+      "message": "This candidate contains a mood or tone word observed in the public corpus.",
+      "predicate_id": "mood_signal",
+      "rule_type": "review_signal",
+      "runtime_treatment": "evidence_only",
+      "safe_repair": {
+        "policy": "none",
+        "repair_id": null
+      },
+      "scope": {
+        "locales": [
+          "en"
+        ]
+      },
+      "violation_outcome": null
+    },
+    {
+      "adoption_record": {
+        "date": "2026-07-26",
+        "decision": "Adopt only when a category-led candidate chooses a film/series content term; never infer a missing term.",
+        "id": "demo-adoption-2026-07-26-movie-show-terminology"
+      },
+      "adoption_status": "adopted_for_demo",
+      "evidence": {
+        "counterexamples": [
+          "Classic Films",
+          "Documentary Series"
+        ],
+        "counts": {
+          "movie_show": 691,
+          "series_film": 32
+        },
+        "pointers": [
+          {
+            "expected": {
+              "#/movie_show": 691,
+              "#/movie_show_to_series_film_ratio": 21.59,
+              "#/series_film": 32
+            },
+            "pointer": "#/terminology/families",
+            "source": "shelves.json"
+          }
+        ],
+        "sample": {
+          "band": "broad",
+          "size": 723
+        }
+      },
+      "id": "movie-show-terminology",
+      "message": "Review the public product register's stronger movie/show terminology.",
+      "predicate_id": "movie_show_terminology",
+      "rule_type": "review_signal",
+      "runtime_treatment": "scoped_review",
+      "safe_repair": {
+        "policy": "proposed_edit_only",
+        "repair_id": null
+      },
+      "scope": {
+        "intended_reading": [
+          "category-led"
+        ],
+        "locales": [
+          "en"
+        ],
+        "when": "A film/series family content term is present."
+      },
+      "violation_outcome": "REVIEW"
+    },
+    {
+      "adoption_record": null,
+      "adoption_status": "descriptive_only",
+      "evidence": {
+        "counterexamples": [],
+        "counts": {
+          "occurrences": 284,
+          "unique_names": 16
+        },
+        "pointers": [
+          {
+            "expected": {
+              "#/id": "time-promise",
+              "#/occurrence_count": 284,
+              "#/unique_name_count": 16
+            },
+            "pointer": "#/moves/3",
+            "source": "moves.json"
+          }
+        ],
+        "sample": {
+          "band": "broad",
+          "size": 1297
+        }
+      },
+      "id": "time-promise",
+      "message": "This candidate uses a time promise observed in the public corpus.",
+      "predicate_id": "time_promise",
+      "rule_type": "review_signal",
+      "runtime_treatment": "evidence_only",
+      "safe_repair": {
+        "policy": "none",
+        "repair_id": null
+      },
+      "scope": {
+        "locales": [
+          "en"
+        ]
+      },
+      "violation_outcome": null
+    },
+    {
+      "adoption_record": {
+        "date": "2026-07-26",
+        "decision": "Adopt as review because observed counterexamples make automatic rewriting unsafe.",
+        "id": "demo-adoption-2026-07-26-title-case"
+      },
+      "adoption_status": "adopted_for_demo",
+      "evidence": {
+        "counterexamples": [
+          "Feel-good Movies",
+          "Award-winning Documentaries"
+        ],
+        "counts": {
+          "counterexamples": 16,
+          "denominator": 1297,
+          "matches": 1281
+        },
+        "pointers": [
+          {
+            "expected": {
+              "#/counter_example_count": 16,
+              "#/denominator": 1297,
+              "#/id": "title-case-discipline",
+              "#/match_count": 1281
+            },
+            "pointer": "#/grammar/rules/0",
+            "source": "shelves.json"
+          }
+        ],
+        "sample": {
+          "band": "broad",
+          "size": 1297
+        }
+      },
+      "id": "title-case-discipline",
+      "message": "Review English title casing; short connectives may remain lowercase.",
+      "predicate_id": "title_case",
+      "rule_type": "near_binary",
+      "runtime_treatment": "review_proposed_edit",
+      "safe_repair": {
+        "policy": "proposed_edit_only",
+        "repair_id": null
+      },
+      "scope": {
+        "locales": [
+          "en"
+        ],
+        "surfaces": [
+          "genre-name",
+          "shelf-heading",
+          "list-name"
+        ]
+      },
+      "violation_outcome": "REVIEW"
+    },
+    {
+      "adoption_record": {
+        "date": "2026-07-26",
+        "decision": "Adopt as an exact hard rule with a bounded casing-only repair.",
+        "id": "demo-adoption-2026-07-26-tv-uppercase"
+      },
+      "adoption_status": "adopted_for_demo",
+      "evidence": {
+        "counterexamples": [],
+        "counts": {
+          "counterexamples": 0,
+          "denominator": 196,
+          "matches": 196
+        },
+        "pointers": [
+          {
+            "expected": {
+              "#/counter_example_count": 0,
+              "#/denominator": 196,
+              "#/id": "tv-uppercase",
+              "#/match_count": 196
+            },
+            "pointer": "#/grammar/rules/3",
+            "source": "shelves.json"
+          }
+        ],
+        "sample": {
+          "band": "broad",
+          "size": 196
+        }
+      },
+      "id": "tv-uppercase",
+      "message": "Render the TV initialism in uppercase.",
+      "predicate_id": "tv_uppercase",
+      "rule_type": "hard_rule",
+      "runtime_treatment": "automatic_repair",
+      "safe_repair": {
+        "idempotent": true,
+        "maximum_rounds": 2,
+        "policy": "automatic",
+        "repair_id": "uppercase_tv",
+        "span_bounded": true
+      },
+      "scope": {
+        "locales": [
+          "en"
+        ],
+        "when": "TV occurs as a standalone initialism."
+      },
+      "violation_outcome": "FAIL"
+    },
+    {
+      "adoption_record": null,
+      "adoption_status": "descriptive_only",
+      "evidence": {
+        "counterexamples": [],
+        "counts": {
+          "naming_occurrences": 1297
+        },
+        "pointers": [
+          {
+            "expected": {
+              "#/id": "template_shape"
+            },
+            "pointer": "#/dimensions/11",
+            "source": "scorecards.json"
+          }
+        ],
+        "sample": {
+          "band": "broad",
+          "size": 1297
+        }
+      },
+      "id": "unfamiliar-modifier",
+      "message": "This candidate contains a modifier outside the small public-evidence vocabulary used by this demo.",
+      "predicate_id": "unfamiliar_modifier",
+      "rule_type": "review_signal",
+      "runtime_treatment": "evidence_only",
+      "safe_repair": {
+        "policy": "none",
+        "repair_id": null
+      },
+      "scope": {
+        "locales": [
+          "en"
+        ]
+      },
+      "violation_outcome": null
+    },
+    {
+      "adoption_record": null,
+      "adoption_status": "descriptive_only",
+      "evidence": {
+        "counterexamples": [],
+        "counts": {
+          "alliteration_occurrences": 53,
+          "rhyme_occurrences": 0,
+          "signed_semantic_occurrences": 67
+        },
+        "pointers": [
+          {
+            "expected": {
+              "#": 53
+            },
+            "pointer": "#/totals/wordplay_mechanical_alliteration_occurrences",
+            "source": "scorecards.json"
+          },
+          {
+            "pointer": "#/totals/wordplay_mechanical_rhyme_occurrences",
+            "source": "scorecards.json"
+          }
+        ],
+        "sample": {
+          "band": "broad",
+          "size": 1297
+        }
+      },
+      "id": "wordplay-signal",
+      "message": "This candidate contains corpus-signed or mechanically detectable wordplay; that observation is not an effectiveness claim.",
+      "predicate_id": "wordplay_signal",
+      "rule_type": "review_signal",
+      "runtime_treatment": "evidence_only",
+      "safe_repair": {
+        "policy": "none",
+        "repair_id": null
+      },
+      "scope": {
+        "locales": [
+          "en"
+        ]
+      },
+      "violation_outcome": null
+    }
+  ],
+  "schema_version": 1,
+  "scope": {
+    "corpus": "Unauthenticated public Netflix English naming surfaces in the checked-in evidence snapshot.",
+    "exclusions": [
+      "Authenticated product surfaces",
+      "Non-English capitalization rules",
+      "Title names",
+      "Claims about audience response or naming effectiveness"
+    ],
+    "locales": [
+      "en"
+    ],
+    "surfaces": [
+      "genre-name",
+      "shelf-heading",
+      "list-name"
+    ]
+  },
+  "sources": [
+    {
+      "path": "analyze_shelves.py",
+      "role": "descriptive Content Index token and casing definitions",
+      "sha256": "df7024de52a2dcbf70d11228e8b8b69bc26191091b786058be91bed0bed28a19"
+    },
+    {
+      "path": "derive_corpus.py",
+      "role": "descriptive Content Index feature functions",
+      "sha256": "0e2cd426cce2bed5fc0ab3b3c5621cd7219d3bf8947c091408a88e31b72c8042"
+    },
+    {
+      "path": "moves.json",
+      "role": "descriptive naming-move evidence",
+      "sha256": "f09337463261bfde2712ee749d372a3a86197695cccc3f5645523a26a2836ab2"
+    },
+    {
+      "path": "playbook.json",
+      "role": "descriptive situation-by-technique evidence",
+      "sha256": "fdcb160897465e6a0d1c3e7de65b1c2dd3bcec229e843156483f9a4a0d3b78da"
+    },
+    {
+      "path": "scorecards.json",
+      "role": "descriptive twelve-dimension Content Index evidence",
+      "sha256": "0fecb985300c9ba145f37da71fa371aaa7e01e507aedfaf4fac4f517efecfabe"
+    },
+    {
+      "path": "shelves.json",
+      "role": "public corpus and measured grammar evidence",
+      "sha256": "8c0d5327dd3389b14e9c5891d7b54c31ee3ded81bca28e16082499bbed5c4557"
+    }
+  ],
+  "version": "1.0.1"
+}

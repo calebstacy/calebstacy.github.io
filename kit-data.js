@@ -91,18 +91,16 @@ window.PORTFOLIO = {
     { id: "reframe", label: "Reframe" }, { id: "decisions", label: "Decisions" }, { id: "proof", label: "Proof" },
   ],
   contact: "calebstacy@gmail.com",
-  resumeSummary: "Senior content designer who builds language systems: measurable voice standards, terminology schemas, and the checks that hold both writers and AI agents to a target instead of an adjective. I work upstream of interface copy, stay with the work through launch, and turn the decisions worth repeating into systems people and agents can use.",
+  resumeSummary: "Senior content designer with 12 years across product and education. I lead complex work from early strategy through interaction language, onboarding, experimentation, and launch, then turn decisions worth repeating into standards and tools teams can use. My product experience spans social and spatial computing, health, and enterprise software.",
   experience: [
     {
       when: "Nov 2022 - May 2026", org: "Meta", role: "Content designer → Senior content designer · Horizon, experimentation, and AI",
       bullets: [
-        "Created Meta's content-standards infrastructure. Built Verso, the company's first domain-specific content-design agent, and the platform behind it: a deterministic lint toolkit, an 11-dimension measurement engine with per-product voice baselines computed from shipped strings, and a structured index of terminology rules, review blockers, and measurement profiles covering Instagram, Facebook, Messenger, WhatsApp, Quest, and Horizon.",
-        "Led travel terminology across Meta Horizon OS: one vocabulary for calling, sessions, and travel across VR, mobile, and desktop surfaces. Also led the naming audit for the Meta Quest-to-Horizon OS rebrand.",
-        "Established Meta Horizon's first content experimentation practice and led content designers across its major product areas, representing the organization. Built workshops and working tools for writing hypotheses and tracking tests.",
-        "Brought content designers into agentic workflows through workshops and office hours. Taught local agent setup in VS Code, then helped designers author reusable skill files and deterministic scripts for the rules prose guidance could never reliably enforce.",
-        "Helped turn the Meta Horizon phone app from a headset utility into a repeat-use mobile product. Led content from the early journeys and a strategy one-pager written for Mark Zuckerberg through the launch experiments; the feed experiment lifted 28-day retention by about 15%, and the quests homepage grew daily active use by nearly 5% in its first test.",
-        "Defined the strategy and jobs to be done for Horizon Portals, including the metadata and progressive-disclosure framework for moving between virtual worlds. The work earned VP alignment and appeared in the Meta Connect 2024 keynote.",
-        "Replaced billboard-style instruction with just-in-time spatial education: controllers and spatial cues teaching one thing at the moment it became relevant. Improved onboarding completion by nearly 30%, weekly active use by about 20%, and new-user retention by roughly 7%. The strategy and components were adopted by the Meta Quest onboarding team.",
+        "Built Meta's content-standards infrastructure, including Verso, the company's first domain-specific content-design agent, plus deterministic checks, an 11-dimension measurement engine with product baselines derived from shipped strings, and a structured index of terminology rules and review blockers.",
+        "Led travel terminology across Meta Horizon OS: one vocabulary for calling, sessions, and travel across VR, mobile, and desktop. Also led the naming audit for the Meta Quest-to-Horizon OS rebrand.",
+        "Established Meta Horizon's first content experimentation practice and led content designers across its major product areas. Built workshops and tools for hypotheses and test tracking, then coached designers to create reusable AI skills and deterministic checks.",
+        "Led content strategy for the Meta Horizon mobile app from early journeys through launch experiments. A feed test lifted 28-day retention by about 15%; a quests homepage increased daily active use by nearly 5% in its first test.",
+        "Defined the jobs to be done and progressive-disclosure model for Horizon Portals, introduced by Mark Zuckerberg at Meta Connect 2024. Replaced a 14-plus-lesson VR onboarding syllabus with just-in-time spatial education, improving onboarding completion by nearly 30%, weekly active use by about 20%, and new-user retention by roughly 7%.",
       ],
     },
     {
@@ -112,15 +110,15 @@ window.PORTFOLIO = {
       ],
     },
     {
-      when: "Apr 2020 - Oct 2021", org: "8x8", role: "UX writer",
+      when: "Apr - Oct 2021", org: "8x8", role: "UX writer",
       bullets: [
         "Made enterprise voice, video, chat, contact-center, and phone-administration tools understandable to the business owners who had to configure them.",
       ],
     },
     {
-      when: "Jul 2015 - Jun 2020", org: "WVU, VCU, and Army Logistics University", role: "Professor",
+      when: "2014 - 2021", org: "WVU, VCU, and Army Logistics University", role: "Professor",
       bullets: [
-        "Spent five years teaching composition and poetry at WVU and VCU, then training Army officers to turn complex, high-stakes information into clear, direct language.",
+        "Spent seven years teaching composition and poetry at WVU and VCU, then training Army officers to turn complex, high-stakes information into clear, direct language.",
       ],
     },
   ],

@@ -223,9 +223,9 @@ function App() {
     }
   }, "The Content Index is served warm. ", /*#__PURE__*/React.createElement("a", {
     href: "./recorded_agent_trace.json"
-  }, "The recorded exchange"), " and ", /*#__PURE__*/React.createElement("a", {
+  }, "The recorded exchange"), " preserves the model output. The ", /*#__PURE__*/React.createElement("a", {
     href: "./demo_fixture.json"
-  }, "generated receipt"), " show one adopted profile in use.")), /*#__PURE__*/React.createElement(ReportSection, {
+  }, "generated receipt"), " shows a later deterministic recheck against the active adopted profile.")), /*#__PURE__*/React.createElement(ReportSection, {
     id: "provenance",
     title: "Provenance and limits"
   }, /*#__PURE__*/React.createElement(ProvenanceNote, {

@@ -2,253 +2,1028 @@
 
 /* ---- plays/netflix-shelves (inline script) ---- */
 (function () {
-const {
-  RegistrationMark
-} = window.CalebStacyPortfolioDesignSystem_4a3883;
-function validateFixture(value) {
-  const isText = item => typeof item === "string" && item.trim().length > 0;
-  const isHash = item => typeof item === "string" && /^[0-9a-f]{64}$/.test(item);
-  const isCount = item => Number.isInteger(item) && item >= 0;
-  const recordedRequest = "Review this exact proposed shelf title for a straightforward collection of classic anime: ‘Classic Anime Films’. Check that exact string against the adopted demo profile. If it returns for review, revise it, check the revised exact string again, and only then recommend the final title. Show a compact audit trail with the exact input, first check result, exact revision, second check result, and exact final title.";
-  if (!value || value.request !== recordedRequest) return false;
-  if (!Array.isArray(value.drafts) || value.drafts.length !== 2) return false;
-  if (!Array.isArray(value.final_titles) || value.final_titles.length !== 2 || !value.final_titles.every(isText)) return false;
-  if (!value.recorded_model || !value.terminology_evidence || !value.technical || !value.technical.policy) return false;
-  if (!isText(value.technical.policy.version) || !isHash(value.technical.policy.hash)) return false;
-  if (!Array.isArray(value.technical.receipts) || value.technical.receipts.length !== value.drafts.length) return false;
-  const [first, second] = value.drafts;
-  const model = value.recorded_model;
-  const evidence = value.terminology_evidence;
-  if (!first || !second || !isText(first.draft) || !isText(second.draft)) return false;
-  if (!Array.isArray(first.checks) || first.checks.length !== 2 || !Array.isArray(second.checks) || second.checks.length !== 1) return false;
-  if (!first.checks[0] || first.checks[0].result !== "REVIEW" || !Array.isArray(first.checks[0].findings) || first.checks[0].findings.length !== 1) return false;
-  if (!isText(first.checks[0].findings[0].message) || first.checks[0].findings[0].proposed_title !== model.revision) return false;
-  if (!first.what_changed || first.what_changed.before !== first.draft || first.what_changed.after !== model.revision) return false;
-  if (!first.checked_again || first.checked_again.title !== model.revision || first.checked_again.result !== "PASS") return false;
-  if (first.final_title !== model.final_recommendation || model.final_recommendation !== model.revision || value.final_titles[0] !== first.final_title) return false;
-  if (second.checks[0].result !== "PASS" || second.final_title !== second.draft || value.final_titles[1] !== second.final_title) return false;
-  if (model.input_title !== first.draft || model.input_role !== "provided to the agent" || model.revision_role !== "authored by the model") return false;
-  if (!isText(model.model) || !isText(model.capture_date) || !isHash(model.prompt_sha256) || !isHash(model.response_sha256) || model.reported_tool_call_count !== 4) return false;
-  if (model.prompt_sha256 !== "f64e7be2eb32985edb574c4399d03f544b72179419632cd88740f01ca1670ed4") return false;
-  if (model.response_sha256 !== "85d7261b018c8998c3e8467fc324b90bb19a6a353af414a3fa3154c05a1a6696") return false;
-  if (evidence.rule_id !== "movie-show-terminology" || evidence.adoption_status !== "adopted_for_demo") return false;
-  if (evidence.first_check_status !== "REVIEW" || evidence.second_check_status !== "PASS") return false;
-  if (![evidence.movie_show_family_count, evidence.series_film_family_count, evidence.sample_count, evidence.retained_counterexample_count].every(isCount)) return false;
-  if (!Array.isArray(evidence.retained_counterexamples) || evidence.retained_counterexample_count !== evidence.retained_counterexamples.length || !evidence.retained_counterexamples.every(isText)) return false;
-  if (!evidence.scope || !isText(evidence.scope.when) || !isText(evidence.adoption_decision)) return false;
-  return value.technical.receipts.every(receipt => receipt && isText(receipt.draft_id) && isHash(receipt.source_text_hash) && Array.isArray(receipt.check_text_hashes) && receipt.check_text_hashes.length > 0 && receipt.check_text_hashes.every(isHash) && isHash(receipt.final_text_hash));
+const STEP_DEFINITIONS = [{
+  slug: "component",
+  label: "Component state"
+}, {
+  slug: "contract",
+  label: "String contract"
+}, {
+  slug: "draft",
+  label: "Agent draft"
+}, {
+  slug: "checks",
+  label: "Deterministic checks"
+}, {
+  slug: "decision",
+  label: "Human decision"
+}, {
+  slug: "receipt",
+  label: "Versioned receipt"
+}];
+const VALID_STEPS = new Set(STEP_DEFINITIONS.map(step => step.slug));
+const TERMINAL_URL = "https://5-161-60-100.sslip.io/";
+const REDUCED_MOTION = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const SESSION_SRC = REDUCED_MOTION ? TERMINAL_URL + "?arg=--plain" : TERMINAL_URL;
+const RECORDED_TRACE_FIELDS = ["capture_date", "surface", "model", "prompt", "visible_final_answer", "reported_tool_call_count", "input_title", "model_authored_revision", "final_recommendation", "prompt_sha256", "visible_response_sha256"];
+const RECORDED_PROVENANCE = {
+  capture_date: "2026-07-26",
+  surface: "Shelf Tool live terminal",
+  model: "claude-opus-5",
+  reported_tool_call_count: 4,
+  prompt_sha256: "f64e7be2eb32985edb574c4399d03f544b72179419632cd88740f01ca1670ed4",
+  visible_response_sha256: "85d7261b018c8998c3e8467fc324b90bb19a6a353af414a3fa3154c05a1a6696",
+  input_title_sha256: "f432a6553638d055b59321fb4194c1802093eefc245fabd12587f2fd7ab510c1",
+  model_authored_revision_sha256: "fa50f52854be81ee7bc503f00245d4efcc637671b31e5347e4f9defa728708ce",
+  final_recommendation_sha256: "fa50f52854be81ee7bc503f00245d4efcc637671b31e5347e4f9defa728708ce"
+};
+const DETERMINISTIC_PROOF_SHA256 = "62a35647061bf410778e4e5fe258b583cac66b603512cbfd5865ad51c06e1115";
+const sameKeys = (value, keys) => value && typeof value === "object" && !Array.isArray(value) && JSON.stringify(Object.keys(value).sort()) === JSON.stringify([...keys].sort());
+const isText = value => typeof value === "string" && value.trim().length > 0;
+const isHash = value => typeof value === "string" && /^[0-9a-f]{64}$/.test(value);
+const sortDeep = value => {
+  if (Array.isArray(value)) return value.map(sortDeep);
+  if (value && typeof value === "object") {
+    return Object.keys(value).sort().reduce((result, key) => {
+      result[key] = sortDeep(value[key]);
+      return result;
+    }, {});
+  }
+  return value;
+};
+const sameValue = (left, right) => JSON.stringify(sortDeep(left)) === JSON.stringify(sortDeep(right));
+const sha256 = async text => {
+  const bytes = new TextEncoder().encode(text);
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return [...new Uint8Array(digest)].map(item => item.toString(16).padStart(2, "0")).join("");
+};
+const hasExactHash = async (text, expected) => isText(text) && isHash(expected) && (await sha256(text)) === expected;
+async function validateRecordedTrace(trace) {
+  if (!sameKeys(trace, RECORDED_TRACE_FIELDS)) return false;
+  if (trace.capture_date !== RECORDED_PROVENANCE.capture_date || trace.surface !== RECORDED_PROVENANCE.surface || trace.model !== RECORDED_PROVENANCE.model || trace.reported_tool_call_count !== RECORDED_PROVENANCE.reported_tool_call_count || !Number.isInteger(trace.reported_tool_call_count) || !isText(trace.input_title) || !isText(trace.model_authored_revision) || !isText(trace.final_recommendation) || !isHash(trace.prompt_sha256) || !isHash(trace.visible_response_sha256) || trace.prompt_sha256 !== RECORDED_PROVENANCE.prompt_sha256 || trace.visible_response_sha256 !== RECORDED_PROVENANCE.visible_response_sha256 || !(await hasExactHash(trace.prompt, trace.prompt_sha256)) || !(await hasExactHash(trace.visible_final_answer, trace.visible_response_sha256)) || (await sha256(trace.input_title)) !== RECORDED_PROVENANCE.input_title_sha256 || (await sha256(trace.model_authored_revision)) !== RECORDED_PROVENANCE.model_authored_revision_sha256 || (await sha256(trace.final_recommendation)) !== RECORDED_PROVENANCE.final_recommendation_sha256) return false;
+  return true;
 }
-window.__netflixShelfDemoValidateFixture = validateFixture;
-function Result({
-  value
-}) {
-  const tone = value === "PASS" ? "result-pass" : "result-review";
-  return /*#__PURE__*/React.createElement("span", {
-    className: "result " + tone
-  }, value);
+async function validateCompiledProfile(profile) {
+  const keys = ["claims", "compiled_from", "compiled_policy_hash", "compiler", "dimension_targets", "disclaimer", "evidence_snapshot_date", "language_signature_evidence", "policy_id", "rules", "schema_version", "scope", "sources", "version"];
+  if (!sameKeys(profile, keys)) return false;
+  if (profile.schema_version !== 1 || !isText(profile.policy_id) || !/^(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)$/.test(profile.version) || !isHash(profile.compiled_policy_hash) || !/^\d{4}-\d{2}-\d{2}$/.test(profile.evidence_snapshot_date) || !isText(profile.disclaimer) || !profile.disclaimer.includes("not Netflix policy") || !Array.isArray(profile.rules) || !Array.isArray(profile.dimension_targets) || !Array.isArray(profile.sources) || !profile.scope || typeof profile.scope !== "object" || !profile.claims || typeof profile.claims !== "object") return false;
+  const payload = {
+    ...profile
+  };
+  delete payload.compiled_policy_hash;
+  return (await sha256(JSON.stringify(sortDeep(payload)))) === profile.compiled_policy_hash;
 }
-function FullReceipt({
-  fixture
-}) {
-  return /*#__PURE__*/React.createElement("details", null, /*#__PURE__*/React.createElement("summary", null, "Inspect hashes and recorded exchange"), /*#__PURE__*/React.createElement("dl", null, /*#__PURE__*/React.createElement("dt", null, "Profile hash"), /*#__PURE__*/React.createElement("dd", null, fixture.technical.policy.hash), /*#__PURE__*/React.createElement("dt", null, "Recorded prompt hash"), /*#__PURE__*/React.createElement("dd", null, fixture.recorded_model.prompt_sha256), /*#__PURE__*/React.createElement("dt", null, "Visible response hash"), /*#__PURE__*/React.createElement("dd", null, fixture.recorded_model.response_sha256), fixture.technical.receipts.map(receipt => /*#__PURE__*/React.createElement(React.Fragment, {
-    key: receipt.draft_id
-  }, /*#__PURE__*/React.createElement("dt", null, receipt.draft_id + " · source → checks → final"), /*#__PURE__*/React.createElement("dd", null, [receipt.source_text_hash, ...receipt.check_text_hashes, receipt.final_text_hash].join(" → ")))), /*#__PURE__*/React.createElement("dt", null, "Public record"), /*#__PURE__*/React.createElement("dd", null, /*#__PURE__*/React.createElement("a", {
-    href: "./recorded_agent_trace.json"
-  }, "Exact prompt and visible answer"))));
-}
-function Demo({
-  fixture
-}) {
+async function validateProof(fixture, profile, recordedTrace) {
+  const invalid = () => ({
+    ok: false,
+    reason: "invalid"
+  });
+  const mismatch = () => ({
+    ok: false,
+    reason: "mismatch"
+  });
+  if (!sameKeys(fixture, ["request", "drafts", "final_titles", "recorded_exchange", "deterministic_recheck"])) return invalid();
+  if (!sameKeys(fixture.recorded_exchange, ["model", "capture_date", "prompt_sha256", "visible_response_sha256", "reported_tool_call_count", "input_title", "revision", "final_recommendation", "input_role", "revision_role"])) return invalid();
+  if (!sameKeys(fixture.deterministic_recheck, ["policy_id", "policy_version", "compiled_policy_sha256", "evidence_snapshot_date", "terminology_evidence", "receipts"])) return invalid();
+  if (!(await validateRecordedTrace(recordedTrace))) return invalid();
+  const recheck = fixture.deterministic_recheck;
+  if (isText(recheck.policy_id) && isText(recheck.policy_version) && isHash(recheck.compiled_policy_sha256) && profile && typeof profile === "object" && (recheck.policy_id !== profile.policy_id || recheck.policy_version !== profile.version || recheck.compiled_policy_sha256 !== profile.compiled_policy_hash || recheck.evidence_snapshot_date !== profile.evidence_snapshot_date)) return mismatch();
+  if (!(await validateCompiledProfile(profile))) return invalid();
+  if (recheck.policy_id !== profile.policy_id || recheck.policy_version !== profile.version || recheck.compiled_policy_sha256 !== profile.compiled_policy_hash || recheck.evidence_snapshot_date !== profile.evidence_snapshot_date) return mismatch();
+  if (!isText(fixture.request) || !Array.isArray(fixture.drafts) || fixture.drafts.length !== 2) return invalid();
+  if (!Array.isArray(fixture.final_titles) || fixture.final_titles.length !== fixture.drafts.length) return invalid();
+  if (!Array.isArray(recheck.receipts) || recheck.receipts.length !== fixture.drafts.length) return invalid();
   const first = fixture.drafts[0];
   const second = fixture.drafts[1];
-  const evidence = fixture.terminology_evidence;
-  const model = fixture.recorded_model;
-  return /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement("section", {
-    className: "demo-stage",
-    "data-tone": "stage",
-    "aria-labelledby": "demo-title"
-  }, /*#__PURE__*/React.createElement(RegistrationMark, {
-    className: "stage-register",
-    size: 28,
-    style: {
-      top: "auto",
-      bottom: 30,
-      right: 30,
-      opacity: 0.42
+  if (!sameKeys(first, ["draft", "checks", "what_changed", "checked_again", "final_title", "context", "lineage", "human_decision", "shipping"])) return invalid();
+  if (!sameKeys(second, ["draft", "context", "checks", "what_changed", "checked_again", "final_title"])) return invalid();
+  const checkKeys = ["title", "title_sha256", "result", "verification_outcome", "review_ids", "findings"];
+  if (!Array.isArray(first.checks) || first.checks.length !== 2 || !Array.isArray(second.checks) || second.checks.length !== 1 || !first.checks.every(check => sameKeys(check, checkKeys)) || !second.checks.every(check => sameKeys(check, checkKeys))) return invalid();
+  if (!sameKeys(first.what_changed, ["round", "before", "before_sha256", "after", "after_sha256"]) || first.what_changed.round !== 1 || !sameKeys(first.checked_again, checkKeys) || second.what_changed !== null || second.checked_again !== null) return invalid();
+  const allowedOutcomes = new Set(["PASS", "REVIEW", "FAIL", "NOT_APPLICABLE"]);
+  for (const check of [...first.checks, ...second.checks, first.checked_again]) {
+    if (!(await hasExactHash(check.title, check.title_sha256)) || !allowedOutcomes.has(check.result) || !allowedOutcomes.has(check.verification_outcome) || !Array.isArray(check.review_ids) || !check.review_ids.every(isText) || new Set(check.review_ids).size !== check.review_ids.length || !Array.isArray(check.findings)) return invalid();
+  }
+  if (first.draft !== first.checks[0].title || first.what_changed.before !== first.draft || first.what_changed.before_sha256 !== first.checks[0].title_sha256 || first.what_changed.after !== first.checks[1].title || first.what_changed.after_sha256 !== first.checks[1].title_sha256 || first.checked_again.title !== first.checks[1].title || first.checked_again.title_sha256 !== first.checks[1].title_sha256 || first.checked_again.result !== first.checks[1].result || first.checked_again.verification_outcome !== first.checks[1].verification_outcome || !sameValue(first.checked_again.review_ids, first.checks[1].review_ids) || first.final_title !== first.checked_again.title || second.draft !== second.checks[0].title || second.final_title !== second.draft || fixture.final_titles[0] !== first.final_title || fixture.final_titles[1] !== second.final_title || !(await hasExactHash(first.what_changed.before, first.what_changed.before_sha256)) || !(await hasExactHash(first.what_changed.after, first.what_changed.after_sha256))) return invalid();
+  const contextKeys = ["surface", "locale", "genre_family", "intended_reading", "category_visible_elsewhere", "mode"];
+  for (const draft of fixture.drafts) {
+    if (!sameKeys(draft.context, contextKeys)) return invalid();
+    for (const key of ["surface", "locale", "genre_family", "intended_reading", "mode"]) {
+      if (!isText(draft.context[key])) return invalid();
     }
+    if (typeof draft.context.category_visible_elsewhere !== "boolean" || !Array.isArray(profile.scope.surfaces) || !profile.scope.surfaces.includes(draft.context.surface) || !Array.isArray(profile.scope.locales) || !profile.scope.locales.includes(draft.context.locale.split("-")[0])) return invalid();
+  }
+  if (!sameKeys(first.lineage, ["parent_source", "parent_text_hash", "child_source", "child_parent_text_hash", "child_text_hash"])) return invalid();
+  if (first.lineage.parent_source !== "user" || first.lineage.child_source !== "agent" || first.lineage.parent_text_hash !== first.checks[0].title_sha256 || first.lineage.child_parent_text_hash !== first.lineage.parent_text_hash || first.lineage.child_text_hash !== first.checks[1].title_sha256) return invalid();
+  if (!sameKeys(first.human_decision, ["decision", "reviewer_role", "rationale", "text_hash", "verification_outcome", "lint_run_index", "lint_event_sequence", "covered_review_ids"])) return invalid();
+  if (first.human_decision.decision !== "approve" || !isText(first.human_decision.reviewer_role) || !isText(first.human_decision.rationale) || first.human_decision.text_hash !== first.checks[1].title_sha256 || first.human_decision.verification_outcome !== first.checks[1].verification_outcome || !Number.isInteger(first.human_decision.lint_run_index) || first.human_decision.lint_run_index < 0 || !Number.isInteger(first.human_decision.lint_event_sequence) || !Array.isArray(first.human_decision.covered_review_ids) || !sameValue(first.human_decision.covered_review_ids, [])) return invalid();
+  if (!sameKeys(first.shipping, ["verified", "verification_outcome", "finalized", "shippable", "shipping_status"])) return invalid();
+  if (first.shipping.verified !== true || first.shipping.verification_outcome !== first.checks[1].verification_outcome || first.shipping.finalized !== true || first.shipping.shippable !== true || first.shipping.shipping_status !== "SHIPPABLE") return invalid();
+  const exchange = fixture.recorded_exchange;
+  if (!isText(exchange.model) || !/^\d{4}-\d{2}-\d{2}$/.test(exchange.capture_date) || !isHash(exchange.prompt_sha256) || !isHash(exchange.visible_response_sha256) || !Number.isInteger(exchange.reported_tool_call_count) || exchange.reported_tool_call_count < 1 || exchange.input_title !== first.draft || exchange.revision !== first.final_title || exchange.final_recommendation !== first.final_title || exchange.input_role !== "provided to the agent" || exchange.revision_role !== "authored by the model" || exchange.prompt_sha256 !== (await sha256(fixture.request)) || fixture.request !== recordedTrace.prompt || exchange.model !== recordedTrace.model || exchange.capture_date !== recordedTrace.capture_date || exchange.reported_tool_call_count !== recordedTrace.reported_tool_call_count || exchange.prompt_sha256 !== recordedTrace.prompt_sha256 || exchange.visible_response_sha256 !== recordedTrace.visible_response_sha256 || exchange.input_title !== recordedTrace.input_title || exchange.revision !== recordedTrace.model_authored_revision || exchange.final_recommendation !== recordedTrace.final_recommendation || (await sha256(recordedTrace.input_title)) !== first.checks[0].title_sha256 || (await sha256(recordedTrace.model_authored_revision)) !== first.checks[1].title_sha256 || (await sha256(recordedTrace.final_recommendation)) !== first.checked_again.title_sha256) return invalid();
+  const evidenceKeys = ["adoption_decision", "adoption_record_id", "adoption_status", "first_check_status", "movie_show_family_count", "retained_counterexample_count", "retained_counterexamples", "rule_id", "sample_count", "scope", "second_check_status", "series_film_family_count"];
+  const evidence = recheck.terminology_evidence;
+  if (!sameKeys(evidence, evidenceKeys)) return invalid();
+  const matchingRules = profile.rules.filter(rule => rule && rule.id === evidence.rule_id);
+  if (matchingRules.length !== 1) return invalid();
+  const rule = matchingRules[0];
+  if (!rule.evidence || !rule.evidence.counts || !rule.evidence.sample || !rule.adoption_record || evidence.adoption_status !== rule.adoption_status || evidence.adoption_record_id !== rule.adoption_record.id || evidence.adoption_decision !== rule.adoption_record.decision || !sameValue(evidence.scope, rule.scope) || evidence.movie_show_family_count !== rule.evidence.counts.movie_show || evidence.series_film_family_count !== rule.evidence.counts.series_film || evidence.sample_count !== rule.evidence.sample.size || !sameValue(evidence.retained_counterexamples, rule.evidence.counterexamples) || evidence.retained_counterexample_count !== evidence.retained_counterexamples.length || evidence.first_check_status !== first.checks[0].result || evidence.first_check_status !== rule.violation_outcome || evidence.second_check_status !== first.checks[1].result || !evidence.movie_show_family_count || !evidence.series_film_family_count) return invalid();
+  if (first.checks[0].findings.length !== 1 || !sameKeys(first.checks[0].findings[0], ["message", "proposed_title", "result"]) || !isText(first.checks[0].findings[0].message) || first.checks[0].findings[0].proposed_title !== first.final_title || first.checks[0].findings[0].result !== first.checks[0].result || first.checks[1].findings.length !== 0 || second.checks[0].findings.length !== 0) return invalid();
+  const receiptKeys = ["draft_id", "context", "context_sha256", "lineage", "checks", "approval", "finalization"];
+  const lineageKeys = ["relation", "source_record_id", "final_record_id", "source_role", "final_role", "parent_record_id", "parent_text_sha256"];
+  const receiptCheckKeys = ["title_record_id", "title", "title_sha256", "result", "verification_outcome", "review_ids", "policy_version", "compiled_policy_sha256", "lint_event_sequence"];
+  const approvalKeys = ["title_record_id", "title", "title_sha256", "decision", "reviewer_role", "rationale", "verification_outcome", "policy_version", "compiled_policy_sha256", "lint_run_index", "lint_event_sequence", "approval_event_sequence", "covered_review_ids"];
+  const finalizationKeys = ["title_record_id", "title", "title_sha256", "verified", "finalized", "shippable", "shipping_status", "verification_outcome", "policy_version", "compiled_policy_sha256", "lint_run_index", "lint_event_sequence", "approval_event_sequence", "finalization_event_sequence"];
+  for (let index = 0; index < recheck.receipts.length; index += 1) {
+    const receipt = recheck.receipts[index];
+    const draft = fixture.drafts[index];
+    if (!sameKeys(receipt, receiptKeys) || !isText(receipt.draft_id) || !sameKeys(receipt.context, contextKeys) || !sameValue(receipt.context, draft.context) || !isHash(receipt.context_sha256) || (await sha256(JSON.stringify(sortDeep(receipt.context)))) !== receipt.context_sha256 || !sameKeys(receipt.lineage, lineageKeys)) return invalid();
+    if (index === 0 && (receipt.lineage.relation !== "agent_revision_of_user_text" || receipt.lineage.source_role !== "provided_by_person" || receipt.lineage.final_role !== "authored_by_model" || receipt.lineage.parent_record_id !== receipt.lineage.source_record_id || receipt.lineage.source_record_id === receipt.lineage.final_record_id)) return invalid();
+    if (index !== 0 && (receipt.lineage.relation !== "unchanged_user_text" || receipt.lineage.source_role !== "provided_by_person" || receipt.lineage.final_role !== "provided_by_person" || receipt.lineage.source_record_id !== receipt.lineage.final_record_id || receipt.lineage.parent_record_id !== null || receipt.lineage.parent_text_sha256 !== null)) return invalid();
+    if (!Array.isArray(receipt.checks) || receipt.checks.length !== draft.checks.length) return invalid();
+    for (let checkIndex = 0; checkIndex < receipt.checks.length; checkIndex += 1) {
+      const check = receipt.checks[checkIndex];
+      const display = draft.checks[checkIndex];
+      const expectedRecordId = checkIndex === 0 ? receipt.lineage.source_record_id : receipt.lineage.final_record_id;
+      if (!sameKeys(check, receiptCheckKeys) || check.title_record_id !== expectedRecordId || check.title !== display.title || check.title_sha256 !== display.title_sha256 || check.result !== display.result || check.verification_outcome !== display.verification_outcome || !sameValue(check.review_ids, display.review_ids) || check.policy_version !== recheck.policy_version || check.compiled_policy_sha256 !== recheck.compiled_policy_sha256 || !Number.isInteger(check.lint_event_sequence) || !(await hasExactHash(check.title, check.title_sha256))) return invalid();
+    }
+    const lastCheck = receipt.checks[receipt.checks.length - 1];
+    if (!sameKeys(receipt.approval, approvalKeys) || !sameKeys(receipt.finalization, finalizationKeys)) return invalid();
+    if (receipt.approval.title_record_id !== receipt.lineage.final_record_id || receipt.approval.title !== lastCheck.title || receipt.approval.title_sha256 !== lastCheck.title_sha256 || receipt.approval.decision !== "approve" || receipt.approval.verification_outcome !== lastCheck.verification_outcome || receipt.approval.policy_version !== recheck.policy_version || receipt.approval.compiled_policy_sha256 !== recheck.compiled_policy_sha256 || !Number.isInteger(receipt.approval.lint_run_index) || receipt.approval.lint_run_index < 0 || receipt.approval.lint_event_sequence !== lastCheck.lint_event_sequence || !Number.isInteger(receipt.approval.approval_event_sequence) || receipt.approval.approval_event_sequence <= receipt.approval.lint_event_sequence || !sameValue(receipt.approval.covered_review_ids, []) || receipt.finalization.title_record_id !== receipt.lineage.final_record_id || receipt.finalization.title !== receipt.approval.title || receipt.finalization.title_sha256 !== receipt.approval.title_sha256 || receipt.finalization.title !== draft.final_title || receipt.finalization.verified !== true || receipt.finalization.finalized !== true || receipt.finalization.shippable !== true || receipt.finalization.shipping_status !== "SHIPPABLE" || receipt.finalization.verification_outcome !== receipt.approval.verification_outcome || receipt.finalization.policy_version !== recheck.policy_version || receipt.finalization.compiled_policy_sha256 !== recheck.compiled_policy_sha256 || receipt.finalization.lint_run_index !== receipt.approval.lint_run_index || receipt.finalization.lint_event_sequence !== receipt.approval.lint_event_sequence || receipt.finalization.approval_event_sequence !== receipt.approval.approval_event_sequence || receipt.finalization.finalization_event_sequence <= receipt.finalization.approval_event_sequence) return invalid();
+  }
+  const primaryReceipt = recheck.receipts[0];
+  if (primaryReceipt.lineage.relation !== "agent_revision_of_user_text" || primaryReceipt.lineage.source_role !== "provided_by_person" || primaryReceipt.lineage.final_role !== "authored_by_model" || primaryReceipt.lineage.parent_record_id !== primaryReceipt.lineage.source_record_id || primaryReceipt.lineage.parent_text_sha256 !== first.lineage.parent_text_hash || primaryReceipt.approval.decision !== first.human_decision.decision || primaryReceipt.approval.reviewer_role !== first.human_decision.reviewer_role || primaryReceipt.approval.rationale !== first.human_decision.rationale || primaryReceipt.approval.title_sha256 !== first.human_decision.text_hash || primaryReceipt.approval.verification_outcome !== first.human_decision.verification_outcome || primaryReceipt.approval.lint_run_index !== first.human_decision.lint_run_index || primaryReceipt.approval.lint_event_sequence !== first.human_decision.lint_event_sequence || !sameValue(primaryReceipt.approval.covered_review_ids, first.human_decision.covered_review_ids) || primaryReceipt.finalization.verified !== first.shipping.verified || primaryReceipt.finalization.verification_outcome !== first.shipping.verification_outcome || primaryReceipt.finalization.finalized !== first.shipping.finalized || primaryReceipt.finalization.shippable !== first.shipping.shippable || primaryReceipt.finalization.shipping_status !== first.shipping.shipping_status) return invalid();
+  const deterministicProjection = {
+    drafts: fixture.drafts,
+    final_titles: fixture.final_titles,
+    deterministic_recheck: fixture.deterministic_recheck,
+    profile_binding: {
+      policy_id: profile.policy_id,
+      version: profile.version,
+      compiled_policy_hash: profile.compiled_policy_hash,
+      evidence_snapshot_date: profile.evidence_snapshot_date
+    }
+  };
+  if ((await sha256(JSON.stringify(sortDeep(deterministicProjection)))) !== DETERMINISTIC_PROOF_SHA256) return invalid();
+  return {
+    ok: true,
+    reason: null
+  };
+}
+window.__netflixShelfProofValidate = validateProof;
+function Status({
+  value,
+  kind
+}) {
+  return /*#__PURE__*/React.createElement("span", {
+    className: "status status-" + kind
+  }, value);
+}
+const CONTEXT_LABELS = {
+  surface: "Surface",
+  locale: "Locale",
+  genre_family: "Genre family",
+  intended_reading: "Intended reading",
+  category_visible_elsewhere: "Category visible elsewhere",
+  mode: "Mode"
+};
+function ContextList({
+  context
+}) {
+  return /*#__PURE__*/React.createElement("dl", {
+    className: "context"
+  }, Object.keys(CONTEXT_LABELS).map(key => /*#__PURE__*/React.createElement("div", {
+    className: "context-row",
+    key: key
+  }, /*#__PURE__*/React.createElement("dt", null, CONTEXT_LABELS[key]), /*#__PURE__*/React.createElement("dd", null, typeof context[key] === "boolean" ? String(context[key]) : context[key]))));
+}
+function FieldGrid({
+  fields
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "field-grid"
+  }, fields.map(([label, value]) => /*#__PURE__*/React.createElement("div", {
+    className: "field",
+    key: label
+  }, /*#__PURE__*/React.createElement("span", null, label), /*#__PURE__*/React.createElement("strong", null, String(value)))));
+}
+function HashDetails({
+  label,
+  rows
+}) {
+  return /*#__PURE__*/React.createElement("details", {
+    className: "hash-details"
+  }, /*#__PURE__*/React.createElement("summary", null, label), /*#__PURE__*/React.createElement("dl", null, rows.map(([name, value]) => /*#__PURE__*/React.createElement(React.Fragment, {
+    key: name
+  }, /*#__PURE__*/React.createElement("dt", null, name), /*#__PURE__*/React.createElement("dd", null, value)))));
+}
+function PanelHeader({
+  index,
+  title,
+  status
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "panel-intro",
+    "aria-live": "polite"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "panel-index"
+  }, "Step ", index), /*#__PURE__*/React.createElement("h3", {
+    className: "panel-title",
+    id: "proof-panel-heading"
+  }, title)), status);
+}
+function ProofPanel({
+  step,
+  fixture,
+  profile,
+  checkView,
+  setCheckView
+}) {
+  const first = fixture.drafts[0];
+  const exchange = fixture.recorded_exchange;
+  const recheck = fixture.deterministic_recheck;
+  const evidence = recheck.terminology_evidence;
+  const receipt = recheck.receipts[0];
+  const contextFields = Object.keys(CONTEXT_LABELS).map(key => [CONTEXT_LABELS[key], typeof first.context[key] === "boolean" ? String(first.context[key]) : first.context[key]]);
+  if (step === "component") return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(PanelHeader, {
+    index: "1",
+    title: "A string slot enters with typed context."
+  }), /*#__PURE__*/React.createElement("p", {
+    className: "panel-copy"
+  }, "The checker needs state that components and tokens do not express by themselves."), /*#__PURE__*/React.createElement("div", {
+    className: "evidence-block"
+  }, /*#__PURE__*/React.createElement("h4", null, "Supplied component state"), /*#__PURE__*/React.createElement(FieldGrid, {
+    fields: contextFields
+  })));
+  if (step === "contract") return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(PanelHeader, {
+    index: "2",
+    title: "The language layer turns that state into a checkable contract."
+  }), /*#__PURE__*/React.createElement("p", {
+    className: "panel-copy"
+  }, "The same six fields become explicit inputs instead of prompt-side assumptions."), /*#__PURE__*/React.createElement(FieldGrid, {
+    fields: contextFields
   }), /*#__PURE__*/React.createElement("div", {
-    className: "demo-wrap"
-  }, /*#__PURE__*/React.createElement("header", {
-    className: "demo-mast"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "demo-ident"
-  }, /*#__PURE__*/React.createElement("strong", null, "Caleb Stacy"), " · Shelf title proof"), /*#__PURE__*/React.createElement("p", {
-    className: "demo-ident"
-  }, "Recorded exchange · Independent checks")), /*#__PURE__*/React.createElement("div", {
-    className: "demo-intro"
-  }, /*#__PURE__*/React.createElement("h1", {
-    id: "demo-title"
-  }, "The final string has to meet the rule—not just the prompt."), /*#__PURE__*/React.createElement("div", {
-    className: "demo-intro-copy"
-  }, /*#__PURE__*/React.createElement("p", null, "I gave a live agent ", /*#__PURE__*/React.createElement("strong", null, "Classic Anime Films"), ". The adopted demo profile returned the title for review; the model changed one word; code checked the revision before this page could display it. The profile comes only from public Netflix shelf names—not Netflix policy."), /*#__PURE__*/React.createElement("p", null, "The check happens after generation, on the text a person would actually see."))), /*#__PURE__*/React.createElement("div", {
-    className: "hero-event",
-    "aria-label": model.input_title + " REVIEW to " + model.revision + " PASS"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "hero-event-label"
-  }, "The consequential event"), /*#__PURE__*/React.createElement("div", {
-    className: "hero-event-flow"
-  }, /*#__PURE__*/React.createElement("strong", null, model.input_title), /*#__PURE__*/React.createElement("span", null, "·"), /*#__PURE__*/React.createElement(Result, {
-    value: "REVIEW"
-  }), /*#__PURE__*/React.createElement("span", null, "→"), /*#__PURE__*/React.createElement("strong", null, model.revision), /*#__PURE__*/React.createElement("span", null, "·"), /*#__PURE__*/React.createElement(Result, {
-    value: "PASS"
-  }))), /*#__PURE__*/React.createElement("article", {
-    className: "proof-sheet",
-    "aria-label": "Annotated shelf-title proof"
-  }, /*#__PURE__*/React.createElement("header", {
-    className: "proof-head"
-  }, /*#__PURE__*/React.createElement("span", null, "Recorded proof 01"), /*#__PURE__*/React.createElement("span", null, model.model + " · " + model.capture_date + " · Profile " + fixture.technical.policy.version)), /*#__PURE__*/React.createElement("section", {
-    className: "proof-step",
-    "data-proof-panel": true
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "proof-label"
-  }, /*#__PURE__*/React.createElement("span", null, "1"), "Provided title"), /*#__PURE__*/React.createElement("div", {
-    className: "proof-content"
-  }, /*#__PURE__*/React.createElement("h2", null, "The starting title came from the person using the tool."), /*#__PURE__*/React.createElement("p", null, "The model did not generate it. Its job began with the supplied title."), /*#__PURE__*/React.createElement("div", {
-    className: "exact-string"
-  }, /*#__PURE__*/React.createElement("span", null, "Provided to the agent"), /*#__PURE__*/React.createElement("code", null, model.input_title)))), /*#__PURE__*/React.createElement("section", {
-    className: "proof-step",
-    "data-proof-panel": true
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "proof-label"
-  }, /*#__PURE__*/React.createElement("span", null, "2"), "Contextual review"), /*#__PURE__*/React.createElement("div", {
-    className: "proof-content"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "review-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "The title is valid. The adopted profile still marks the terminology for review."), /*#__PURE__*/React.createElement(Result, {
-    value: evidence.first_check_status
-  })), /*#__PURE__*/React.createElement("p", null, "Movie/show-family terms appear " + evidence.movie_show_family_count + " times in the public corpus; film/series-family terms appear " + evidence.series_film_family_count + ". Because both forms ship, this is REVIEW—not FAIL."), /*#__PURE__*/React.createElement("section", {
-    className: "evidence-frame",
-    "aria-labelledby": "terminology-observation"
-  }, /*#__PURE__*/React.createElement("header", null, /*#__PURE__*/React.createElement("span", {
-    id: "terminology-observation"
-  }, "Public-corpus pattern"), /*#__PURE__*/React.createElement("span", null, evidence.rule_id)), /*#__PURE__*/React.createElement("div", {
-    className: "evidence-grid"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "evidence-item"
-  }, /*#__PURE__*/React.createElement("span", null, "Profile decision"), /*#__PURE__*/React.createElement("strong", null, "Human-adopted here as REVIEW")), /*#__PURE__*/React.createElement("div", {
-    className: "evidence-item"
-  }, /*#__PURE__*/React.createElement("span", null, "Examples retained · " + evidence.retained_counterexample_count + " of " + evidence.series_film_family_count + " occurrences"), /*#__PURE__*/React.createElement("strong", null, evidence.retained_counterexamples.join("; "))), /*#__PURE__*/React.createElement("div", {
-    className: "evidence-item"
-  }, /*#__PURE__*/React.createElement("span", null, "Applied scope"), /*#__PURE__*/React.createElement("strong", null, evidence.scope.when))), /*#__PURE__*/React.createElement("p", {
-    className: "evidence-note"
-  }, "Both terms occur in shipped titles. The profile treats the minority form as a contextual review, not an error or a violation.")))), /*#__PURE__*/React.createElement("section", {
-    className: "proof-step",
-    "data-proof-panel": true
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "proof-label"
-  }, /*#__PURE__*/React.createElement("span", null, "3"), "Recorded model revision"), /*#__PURE__*/React.createElement("div", {
-    className: "proof-content"
-  }, /*#__PURE__*/React.createElement("h2", null, "To match the adopted preference, the model changes one word."), /*#__PURE__*/React.createElement("p", null, "The recorded revision matches the one-word edit independently proposed by code."), /*#__PURE__*/React.createElement("div", {
+    className: "evidence-block"
+  }, /*#__PURE__*/React.createElement("h4", null, "Active public-demo scope"), /*#__PURE__*/React.createElement("ul", {
+    className: "boundary-lines"
+  }, /*#__PURE__*/React.createElement("li", null, profile.claims.adopted_rule_conformance), /*#__PURE__*/React.createElement("li", null, profile.claims.descriptive_familiarity), /*#__PURE__*/React.createElement("li", null, profile.disclaimer))));
+  if (step === "draft") return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(PanelHeader, {
+    index: "3",
+    title: "The recorded model authored a child draft; it did not overwrite the supplied one."
+  }), /*#__PURE__*/React.createElement("p", {
+    className: "panel-copy"
+  }, "User draft: ", first.draft, "; agent draft: ", first.final_title, "."), /*#__PURE__*/React.createElement("div", {
     className: "exact-change",
-    "aria-label": "Title revision"
+    "data-collision-group": "lineage"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "change-string"
-  }, /*#__PURE__*/React.createElement("span", null, "Provided title"), /*#__PURE__*/React.createElement("code", null, first.what_changed.before)), /*#__PURE__*/React.createElement("div", {
-    className: "change-arrow",
+    className: "string-record"
+  }, /*#__PURE__*/React.createElement("span", null, "User-authored parent"), /*#__PURE__*/React.createElement("strong", null, first.draft)), /*#__PURE__*/React.createElement("div", {
+    className: "lineage-arrow",
     "aria-hidden": "true"
   }, "→"), /*#__PURE__*/React.createElement("div", {
-    className: "change-string"
-  }, /*#__PURE__*/React.createElement("span", null, "Recorded revision"), /*#__PURE__*/React.createElement("code", null, model.revision))), /*#__PURE__*/React.createElement("p", {
-    className: "model-note"
-  }, model.model + " · revision authored by the model"), /*#__PURE__*/React.createElement("p", {
-    className: "computation-note"
-  }, "The recorded run reports the review and revision. This page independently reproduces both checks before it accepts the final title."))), /*#__PURE__*/React.createElement("section", {
-    className: "proof-step",
-    "data-proof-panel": true
+    className: "string-record"
+  }, /*#__PURE__*/React.createElement("span", null, "Agent-authored child"), /*#__PURE__*/React.createElement("strong", null, first.what_changed.after))), /*#__PURE__*/React.createElement(HashDetails, {
+    label: "Inspect exact-lineage hashes",
+    rows: [["Parent text SHA-256", first.lineage.parent_text_hash], ["Child binding to parent SHA-256", first.lineage.child_parent_text_hash], ["Child text SHA-256", first.lineage.child_text_hash]]
+  }), /*#__PURE__*/React.createElement("section", {
+    className: "provenance",
+    "aria-labelledby": "recorded-exchange-heading",
+    style: {
+      marginTop: 15
+    }
+  }, /*#__PURE__*/React.createElement("header", {
+    id: "recorded-exchange-heading"
+  }, "RECORDED MODEL EXCHANGE"), /*#__PURE__*/React.createElement("dl", null, /*#__PURE__*/React.createElement("dt", null, "Model"), /*#__PURE__*/React.createElement("dd", null, exchange.model), /*#__PURE__*/React.createElement("dt", null, "Capture date"), /*#__PURE__*/React.createElement("dd", null, exchange.capture_date), /*#__PURE__*/React.createElement("dt", null, "Reported activity"), /*#__PURE__*/React.createElement("dd", null, "Recorded run reported " + exchange.reported_tool_call_count + " tool calls."))), /*#__PURE__*/React.createElement(HashDetails, {
+    label: "Inspect recorded-exchange hashes",
+    rows: [["Prompt SHA-256", exchange.prompt_sha256], ["Visible response SHA-256", exchange.visible_response_sha256]]
+  }));
+  if (step === "checks") return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(PanelHeader, {
+    index: "4",
+    title: "A later deterministic recheck evaluates each exact string.",
+    status: /*#__PURE__*/React.createElement(Status, {
+      value: checkView === "parent" ? first.checks[0].result : first.checks[1].result,
+      kind: checkView === "parent" ? "review" : "pass"
+    })
+  }), /*#__PURE__*/React.createElement("p", {
+    className: "panel-copy"
+  }, "The exact strings were later independently rechecked against the active public-demo profile."), /*#__PURE__*/React.createElement("div", {
+    className: "check-rows"
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "check-button",
+    type: "button",
+    "aria-pressed": checkView === "parent",
+    onClick: () => setCheckView("parent")
+  }, /*#__PURE__*/React.createElement("span", null, "User parent"), /*#__PURE__*/React.createElement("strong", null, first.checks[0].title), /*#__PURE__*/React.createElement(Status, {
+    value: first.checks[0].result,
+    kind: "review"
+  })), /*#__PURE__*/React.createElement("button", {
+    className: "check-button",
+    type: "button",
+    "aria-pressed": checkView === "child",
+    onClick: () => setCheckView("child")
+  }, /*#__PURE__*/React.createElement("span", null, "Agent child"), /*#__PURE__*/React.createElement("strong", null, first.checks[1].title), /*#__PURE__*/React.createElement(Status, {
+    value: first.checks[1].result,
+    kind: "pass"
+  }))), checkView === "parent" ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", {
+    className: "finding"
+  }, first.checks[0].findings[0].message, " Proposed edit: ", /*#__PURE__*/React.createElement("strong", null, first.checks[0].findings[0].proposed_title), "."), /*#__PURE__*/React.createElement("div", {
+    className: "count-line"
+  }, /*#__PURE__*/React.createElement("span", null, evidence.movie_show_family_count + " movie/show-family occurrences"), /*#__PURE__*/React.createElement("span", null, evidence.series_film_family_count + " film/series-family occurrences"), /*#__PURE__*/React.createElement("span", null, evidence.sample_count + " observed names")), /*#__PURE__*/React.createElement("p", {
+    className: "counter-note"
+  }, "Both forms occur in the public corpus, including ", evidence.retained_counterexamples.join(" and "), ". The adopted demo treatment is ", evidence.first_check_status, ", not FAIL. This calculation does not establish creative quality or effectiveness.")) : /*#__PURE__*/React.createElement("p", {
+    className: "finding"
+  }, /*#__PURE__*/React.createElement("strong", null, "When the text changes, the earlier result does not carry forward."), " The child draft has its own exact-text hash, lint event, and result."), /*#__PURE__*/React.createElement("section", {
+    className: "provenance",
+    "aria-labelledby": "deterministic-recheck-heading",
+    style: {
+      marginTop: 15
+    }
+  }, /*#__PURE__*/React.createElement("header", {
+    id: "deterministic-recheck-heading"
+  }, "DETERMINISTIC RECHECK"), /*#__PURE__*/React.createElement("dl", null, /*#__PURE__*/React.createElement("dt", null, "Policy ID"), /*#__PURE__*/React.createElement("dd", null, recheck.policy_id), /*#__PURE__*/React.createElement("dt", null, "Active version"), /*#__PURE__*/React.createElement("dd", null, recheck.policy_version), /*#__PURE__*/React.createElement("dt", null, "Evidence snapshot date"), /*#__PURE__*/React.createElement("dd", null, recheck.evidence_snapshot_date), /*#__PURE__*/React.createElement("dt", null, "Compiled policy SHA-256"), /*#__PURE__*/React.createElement("dd", null, recheck.compiled_policy_sha256))));
+  if (step === "decision") return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(PanelHeader, {
+    index: "5",
+    title: "Verification still does not make the draft final.",
+    status: /*#__PURE__*/React.createElement(Status, {
+      value: first.human_decision.decision,
+      kind: "decision"
+    })
+  }), /*#__PURE__*/React.createElement("p", {
+    className: "panel-copy"
+  }, "The person reviews the checked exact string before any shipping claim appears."), /*#__PURE__*/React.createElement("section", {
+    className: "decision"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "proof-label"
-  }, /*#__PURE__*/React.createElement("span", null, "4"), "Checked again"), /*#__PURE__*/React.createElement("div", {
-    className: "proof-content"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "recheck-row"
-  }, /*#__PURE__*/React.createElement("h2", null, "Code checks the changed title again."), /*#__PURE__*/React.createElement(Result, {
-    value: evidence.second_check_status
-  })), /*#__PURE__*/React.createElement("p", null, "A prior result cannot carry forward after the text changes."), /*#__PURE__*/React.createElement("div", {
-    className: "recheck-string"
-  }, first.checked_again.title))), /*#__PURE__*/React.createElement("section", {
-    className: "proof-step",
-    "data-proof-panel": true
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "proof-label"
-  }, /*#__PURE__*/React.createElement("span", null, "5"), "Final recommendation"), /*#__PURE__*/React.createElement("div", {
-    className: "proof-content"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "final-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "The checked revision becomes the recommendation."), /*#__PURE__*/React.createElement(Result, {
-    value: first.checked_again.result
+    className: "decision-head"
+  }, /*#__PURE__*/React.createElement("strong", null, "Human decision"), /*#__PURE__*/React.createElement(Status, {
+    value: first.human_decision.decision,
+    kind: "decision"
   })), /*#__PURE__*/React.createElement("div", {
-    className: "final-recommendation"
-  }, /*#__PURE__*/React.createElement("span", null, "Final recommendation"), /*#__PURE__*/React.createElement("strong", null, model.final_recommendation)), /*#__PURE__*/React.createElement("p", {
-    className: "control"
-  }, /*#__PURE__*/React.createElement("strong", null, "Comparison control · " + second.final_title + " remained PASS without a rewrite.")), /*#__PURE__*/React.createElement("section", {
-    className: "receipt",
-    "aria-label": "Technical receipt"
+    className: "decision-body"
+  }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, first.human_decision.reviewer_role)), /*#__PURE__*/React.createElement("p", null, first.human_decision.rationale))), /*#__PURE__*/React.createElement(HashDetails, {
+    label: "Inspect decision binding",
+    rows: [["Covered exact-text SHA-256", first.human_decision.text_hash], ["Lint run index", first.human_decision.lint_run_index], ["Lint event sequence", first.human_decision.lint_event_sequence]]
+  }));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(PanelHeader, {
+    index: "6",
+    title: "The approved exact string leaves a versioned receipt.",
+    status: /*#__PURE__*/React.createElement(Status, {
+      value: first.shipping.shipping_status,
+      kind: "shippable"
+    })
+  }), /*#__PURE__*/React.createElement("p", {
+    className: "panel-copy"
+  }, "The check, human decision, finalization, exact text, and policy identity agree."), /*#__PURE__*/React.createElement("div", {
+    className: "receipt-title"
+  }, /*#__PURE__*/React.createElement("span", null, "Approved title"), /*#__PURE__*/React.createElement("strong", null, first.final_title)), /*#__PURE__*/React.createElement("dl", {
+    className: "receipt-list"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "receipt-primary"
-  }, /*#__PURE__*/React.createElement("span", null, "Recorded " + model.model + " · " + model.capture_date), /*#__PURE__*/React.createElement("span", null, "Adopted demo profile " + fixture.technical.policy.version)), /*#__PURE__*/React.createElement(FullReceipt, {
-    fixture: fixture
-  })), /*#__PURE__*/React.createElement("p", {
-    className: "boundary"
-  }, "Code can enforce the adopted preference. It cannot decide whether Movies is the right creative choice for this shelf.")))))), /*#__PURE__*/React.createElement("section", {
-    className: "demo-paper",
-    "aria-labelledby": "system-title"
+    className: "receipt-row"
+  }, /*#__PURE__*/React.createElement("dt", null, "Source roles"), /*#__PURE__*/React.createElement("dd", null, receipt.lineage.source_role + " → " + receipt.lineage.final_role)), /*#__PURE__*/React.createElement("div", {
+    className: "receipt-row"
+  }, /*#__PURE__*/React.createElement("dt", null, "Verification outcome"), /*#__PURE__*/React.createElement("dd", null, first.shipping.verification_outcome)), /*#__PURE__*/React.createElement("div", {
+    className: "receipt-row"
+  }, /*#__PURE__*/React.createElement("dt", null, "Human decision"), /*#__PURE__*/React.createElement("dd", null, first.human_decision.decision)), /*#__PURE__*/React.createElement("div", {
+    className: "receipt-row"
+  }, /*#__PURE__*/React.createElement("dt", null, "Finalized"), /*#__PURE__*/React.createElement("dd", null, String(first.shipping.finalized))), /*#__PURE__*/React.createElement("div", {
+    className: "receipt-row"
+  }, /*#__PURE__*/React.createElement("dt", null, "Shipping status"), /*#__PURE__*/React.createElement("dd", null, first.shipping.shipping_status)), /*#__PURE__*/React.createElement("div", {
+    className: "receipt-row"
+  }, /*#__PURE__*/React.createElement("dt", null, "Policy version"), /*#__PURE__*/React.createElement("dd", null, recheck.policy_version))), /*#__PURE__*/React.createElement(HashDetails, {
+    label: "Inspect the full versioned receipt",
+    rows: [["Parent text SHA-256", first.lineage.parent_text_hash], ["Child text SHA-256", first.lineage.child_text_hash], ["Human-decision text SHA-256", first.human_decision.text_hash], ["Compiled policy SHA-256", recheck.compiled_policy_sha256], ["Final exact-text SHA-256", receipt.finalization.title_sha256], ["Lint event sequence", receipt.finalization.lint_event_sequence], ["Approval event sequence", receipt.finalization.approval_event_sequence], ["Finalization event sequence", receipt.finalization.finalization_event_sequence]]
+  }));
+}
+function QuickProof({
+  fixture,
+  profile
+}) {
+  const [state, setState] = React.useState("ready");
+  const nextActionRef = React.useRef(null);
+  const previousStateRef = React.useRef("ready");
+  const first = fixture.drafts[0];
+  const second = fixture.drafts[1];
+  const recheck = fixture.deterministic_recheck;
+  const receipt = recheck.receipts[0];
+  const evidence = recheck.terminology_evidence;
+  const terminologyRule = profile.rules.find(rule => rule.id === evidence.rule_id);
+  const descriptiveRules = profile.rules.filter(rule => second.checks[0].review_ids.includes(rule.id));
+  const contextFields = Object.keys(CONTEXT_LABELS).map(key => [CONTEXT_LABELS[key], typeof first.context[key] === "boolean" ? String(first.context[key]) : first.context[key]]);
+  const secondContextFields = Object.keys(CONTEXT_LABELS).map(key => [CONTEXT_LABELS[key], typeof second.context[key] === "boolean" ? String(second.context[key]) : second.context[key]]);
+  const parentKind = first.checks[0].result.toLowerCase();
+  const childKind = first.checks[1].result.toLowerCase();
+  React.useEffect(() => {
+    if (previousStateRef.current === state) return;
+    previousStateRef.current = state;
+    nextActionRef.current?.focus();
+  }, [state]);
+  const inspectReceipt = () => {
+    location.hash = "receipt";
+    setTimeout(() => {
+      document.querySelector(".full-chain")?.scrollIntoView({
+        block: "start"
+      });
+    }, 0);
+  };
+  return /*#__PURE__*/React.createElement("article", {
+    className: "quick-proof",
+    "data-quick-proof": "validated",
+    "data-quick-state": state,
+    "aria-live": "polite"
+  }, state === "ready" && /*#__PURE__*/React.createElement("div", {
+    className: "quick-ready"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "paper-wrap"
+    className: "quick-ready-grid"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "quick-label"
+  }, "Exact supplied title"), /*#__PURE__*/React.createElement("h3", {
+    className: "quick-title",
+    "data-quick-order": "exact-title"
+  }, first.draft), /*#__PURE__*/React.createElement("div", {
+    className: "quick-actions"
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "quick-action",
+    type: "button",
+    "data-quick-action": "check",
+    onClick: () => setState("parent")
+  }, "Replay the exact-title check")), /*#__PURE__*/React.createElement("details", {
+    className: "quick-context"
+  }, /*#__PURE__*/React.createElement("summary", null, first.context.surface + " · " + first.context.locale + " · " + first.context.intended_reading), /*#__PURE__*/React.createElement(FieldGrid, {
+    fields: contextFields
+  }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dl", {
+    className: "quick-meta"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Policy identity"), /*#__PURE__*/React.createElement("dd", null, recheck.policy_id)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Version"), /*#__PURE__*/React.createElement("dd", null, recheck.policy_version))), /*#__PURE__*/React.createElement("p", {
+    className: "quick-boundary"
+  }, "This replays a recorded model revision and an independent deterministic recheck. It does not claim the recorded model used today’s profile.")))), state === "parent" && /*#__PURE__*/React.createElement("div", {
+    className: "quick-state"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "system-copy"
-  }, /*#__PURE__*/React.createElement("h2", {
-    id: "system-title"
-  }, "Evidence describes the pattern. A person decides what becomes a rule."), /*#__PURE__*/React.createElement("p", null, "The Content Index describes patterns in published language. A person decides which observations become an adopted profile; code can then check against that versioned choice.")), /*#__PURE__*/React.createElement("p", {
-    className: "continuity"
-  }, "This public proof isolates one mechanism from my broader language-governance work: people adopt the standard, agents generate, and code checks the final text. ", /*#__PURE__*/React.createElement("a", {
-    href: "../index.html#verso"
-  }, "See the Verso case study.")), /*#__PURE__*/React.createElement("nav", {
-    className: "demo-doors",
-    "aria-label": "Supporting evidence"
-  }, /*#__PURE__*/React.createElement("a", {
-    className: "demo-door",
+    className: "quick-state-head"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "quick-label"
+  }, "Exact supplied title"), /*#__PURE__*/React.createElement("h3", {
+    className: "quick-title"
+  }, first.checks[0].title)), /*#__PURE__*/React.createElement(Status, {
+    value: first.checks[0].result,
+    kind: parentKind
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "quick-readings"
+  }, /*#__PURE__*/React.createElement("section", {
+    className: "quick-reading",
+    "data-quick-order": "result"
+  }, /*#__PURE__*/React.createElement("h4", null, "Deterministic check"), /*#__PURE__*/React.createElement("dl", null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Adopted demo rule"), /*#__PURE__*/React.createElement("dd", null, terminologyRule.adoption_record.decision)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Exact input"), /*#__PURE__*/React.createElement("dd", null, first.checks[0].title)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Result and policy"), /*#__PURE__*/React.createElement("dd", null, first.checks[0].result + " · v" + recheck.policy_version)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Proposed edit"), /*#__PURE__*/React.createElement("dd", null, first.checks[0].findings[0].proposed_title)))), /*#__PURE__*/React.createElement("section", {
+    className: "quick-reading",
+    "data-quick-order": "measured-basis"
+  }, /*#__PURE__*/React.createElement("h4", null, "Measured basis"), /*#__PURE__*/React.createElement("div", {
+    className: "quick-counts"
+  }, /*#__PURE__*/React.createElement("div", {
+    "data-measured-count": true
+  }, /*#__PURE__*/React.createElement("strong", null, evidence.movie_show_family_count), /*#__PURE__*/React.createElement("span", null, "movie/show-family occurrences")), /*#__PURE__*/React.createElement("div", {
+    "data-measured-count": true
+  }, /*#__PURE__*/React.createElement("strong", null, evidence.series_film_family_count), /*#__PURE__*/React.createElement("span", null, "series/film-family occurrences")), /*#__PURE__*/React.createElement("div", {
+    "data-measured-count": true
+  }, /*#__PURE__*/React.createElement("strong", null, evidence.sample_count), /*#__PURE__*/React.createElement("span", null, "observed occurrences"))), /*#__PURE__*/React.createElement("ul", {
+    className: "quick-counterexamples"
+  }, evidence.retained_counterexamples.map(item => /*#__PURE__*/React.createElement("li", {
+    key: item
+  }, item))), /*#__PURE__*/React.createElement("p", null, recheck.evidence_snapshot_date, " · ", /*#__PURE__*/React.createElement("a", {
     href: "./evidence.html"
-  }, "Read the evidence paper"), /*#__PURE__*/React.createElement("a", {
-    className: "demo-door",
+  }, "Read the public evidence"))), /*#__PURE__*/React.createElement("section", {
+    className: "quick-reading",
+    "data-quick-order": "human-judgment"
+  }, /*#__PURE__*/React.createElement("h4", null, "Human judgment"), /*#__PURE__*/React.createElement("p", null, "Not computed: whether “Movies” is the clearer, more appealing, or more effective word for this shelf."), /*#__PURE__*/React.createElement("p", null, "Not computed: whether this demo rule should become Netflix policy."))), /*#__PURE__*/React.createElement("div", {
+    className: "quick-actions"
+  }, /*#__PURE__*/React.createElement("button", {
+    ref: nextActionRef,
+    className: "quick-action",
+    type: "button",
+    "data-quick-action": "show-edit",
+    onClick: () => setState("child")
+  }, "Show the recorded model edit"))), state === "child" && /*#__PURE__*/React.createElement("div", {
+    className: "quick-state"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "quick-state-head"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "quick-label"
+  }, "Recorded model exchange"), /*#__PURE__*/React.createElement("h3", null, "The supplied exact string stays intact while the revision becomes a child record."))), /*#__PURE__*/React.createElement("div", {
+    className: "exact-change quick-lineage"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "string-record",
+    "data-lineage-role": "parent"
+  }, /*#__PURE__*/React.createElement("span", null, "Parent · " + receipt.lineage.source_role), /*#__PURE__*/React.createElement("strong", null, first.draft)), /*#__PURE__*/React.createElement("div", {
+    className: "lineage-arrow",
+    "aria-hidden": "true"
+  }, "→"), /*#__PURE__*/React.createElement("div", {
+    className: "string-record",
+    "data-lineage-role": "child"
+  }, /*#__PURE__*/React.createElement("span", null, "Child · " + receipt.lineage.final_role), /*#__PURE__*/React.createElement("strong", null, first.final_title))), /*#__PURE__*/React.createElement("p", {
+    className: "quick-lineage-note"
+  }, receipt.lineage.relation + " · parent record " + receipt.lineage.parent_record_id + " · child record " + receipt.lineage.final_record_id), /*#__PURE__*/React.createElement(HashDetails, {
+    label: "Inspect exact lineage",
+    rows: [["Parent text SHA-256", first.lineage.parent_text_hash], ["Child binding to parent SHA-256", first.lineage.child_parent_text_hash], ["Child text SHA-256", first.lineage.child_text_hash]]
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "quick-actions"
+  }, /*#__PURE__*/React.createElement("button", {
+    ref: nextActionRef,
+    className: "quick-action",
+    type: "button",
+    "data-quick-action": "recheck",
+    onClick: () => setState("recheck")
+  }, "Recheck the revised exact title"))), state === "recheck" && /*#__PURE__*/React.createElement("div", {
+    className: "quick-state"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "quick-state-head"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "quick-label"
+  }, "Independent deterministic recheck"), /*#__PURE__*/React.createElement("h3", {
+    className: "quick-title"
+  }, first.checks[1].title)), /*#__PURE__*/React.createElement(Status, {
+    value: first.checks[1].result,
+    kind: childKind
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "quick-gate"
+  }, /*#__PURE__*/React.createElement("strong", null, "Human decision required"), /*#__PURE__*/React.createElement("p", null, "The revised exact string passes the adopted demo checks. Verification is not approval.")), /*#__PURE__*/React.createElement("div", {
+    className: "quick-actions"
+  }, /*#__PURE__*/React.createElement("button", {
+    ref: nextActionRef,
+    className: "quick-action",
+    type: "button",
+    "data-quick-action": "decision",
+    onClick: () => setState("decision")
+  }, "Show the recorded human decision"))), state === "decision" && /*#__PURE__*/React.createElement("div", {
+    className: "quick-state"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "quick-state-head"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "quick-label"
+  }, "Recorded portfolio-demo evidence"), /*#__PURE__*/React.createElement("h3", null, "This approval belongs to this portfolio demo."), /*#__PURE__*/React.createElement("p", {
+    className: "quick-lineage-note"
+  }, "It is not a decision made by you or by Netflix."))), /*#__PURE__*/React.createElement("div", {
+    className: "quick-decision-grid"
+  }, /*#__PURE__*/React.createElement("section", {
+    className: "quick-decision"
+  }, /*#__PURE__*/React.createElement("h4", null, "Recorded human decision"), /*#__PURE__*/React.createElement("dl", {
+    className: "quick-receipt-list"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Reviewer role"), /*#__PURE__*/React.createElement("dd", null, receipt.approval.reviewer_role)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Decision"), /*#__PURE__*/React.createElement("dd", null, receipt.approval.decision)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Rationale"), /*#__PURE__*/React.createElement("dd", null, receipt.approval.rationale))), /*#__PURE__*/React.createElement(HashDetails, {
+    label: "Inspect exact-text decision binding",
+    rows: [["Approved exact text", receipt.approval.title], ["Approved exact-text SHA-256", receipt.approval.title_sha256]]
+  })), /*#__PURE__*/React.createElement("section", {
+    className: "quick-receipt"
+  }, /*#__PURE__*/React.createElement("h4", null, "Versioned receipt summary"), /*#__PURE__*/React.createElement("p", {
+    className: "quick-receipt-status"
+  }, receipt.finalization.shipping_status + " inside this demo"), /*#__PURE__*/React.createElement("dl", {
+    className: "quick-receipt-list"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Exact final title"), /*#__PURE__*/React.createElement("dd", null, receipt.finalization.title)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Verification"), /*#__PURE__*/React.createElement("dd", null, receipt.finalization.verification_outcome)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Human decision"), /*#__PURE__*/React.createElement("dd", null, receipt.approval.decision)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Finalized"), /*#__PURE__*/React.createElement("dd", null, String(receipt.finalization.finalized))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Policy version"), /*#__PURE__*/React.createElement("dd", null, receipt.finalization.policy_version))))), /*#__PURE__*/React.createElement("div", {
+    className: "quick-equation",
+    "data-readable-equation": true
+  }, /*#__PURE__*/React.createElement("div", null, first.checks[1].result + " + no decision = HUMAN_DECISION_REQUIRED"), /*#__PURE__*/React.createElement("div", null, first.checks[1].result + " + " + receipt.approval.decision.toUpperCase() + " + explicit finalization = " + receipt.finalization.shipping_status + " inside this demo")), /*#__PURE__*/React.createElement("div", {
+    className: "quick-actions"
+  }, /*#__PURE__*/React.createElement("button", {
+    ref: nextActionRef,
+    className: "quick-action",
+    type: "button",
+    "data-quick-action": "receipt",
+    onClick: inspectReceipt
+  }, "Inspect the full receipt")), /*#__PURE__*/React.createElement("section", {
+    className: "quick-contrast",
+    "data-contrast-case": true
+  }, /*#__PURE__*/React.createElement("h4", null, "Contrast case: ", second.draft), /*#__PURE__*/React.createElement("p", null, "The title passes the adopted rules. The system still returns descriptive evidence for a person to consider."), /*#__PURE__*/React.createElement("div", {
+    className: "quick-contrast-grid"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "quick-contrast-cell"
+  }, /*#__PURE__*/React.createElement("h5", null, "Adopted-rule result"), /*#__PURE__*/React.createElement(Status, {
+    value: second.checks[0].result,
+    kind: second.checks[0].result.toLowerCase()
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "quick-contrast-cell",
+    "data-descriptive-evidence": true
+  }, /*#__PURE__*/React.createElement("h5", null, "Descriptive verification outcome"), /*#__PURE__*/React.createElement("p", null, second.checks[0].verification_outcome)), /*#__PURE__*/React.createElement("div", {
+    className: "quick-contrast-cell",
+    "data-descriptive-evidence": true
+  }, /*#__PURE__*/React.createElement("h5", null, "Descriptive signals"), /*#__PURE__*/React.createElement("ul", null, descriptiveRules.map(rule => /*#__PURE__*/React.createElement("li", {
+    key: rule.id
+  }, rule.message)))), /*#__PURE__*/React.createElement("div", {
+    className: "quick-contrast-cell"
+  }, /*#__PURE__*/React.createElement("h5", null, "Context"), /*#__PURE__*/React.createElement("dl", {
+    className: "quick-contrast-context"
+  }, secondContextFields.map(([label, value]) => /*#__PURE__*/React.createElement("div", {
+    key: label
+  }, /*#__PURE__*/React.createElement("dt", null, label), /*#__PURE__*/React.createElement("dd", null, value)))))))));
+}
+function FullChain({
+  fixture,
+  profile
+}) {
+  const [open, setOpen] = React.useState(VALID_STEPS.has(location.hash.slice(1)));
+  React.useEffect(() => {
+    const revealAddressedStep = () => {
+      if (VALID_STEPS.has(location.hash.slice(1))) setOpen(true);
+    };
+    window.addEventListener("hashchange", revealAddressedStep);
+    return () => window.removeEventListener("hashchange", revealAddressedStep);
+  }, []);
+  return /*#__PURE__*/React.createElement("details", {
+    className: "full-chain",
+    open: open,
+    onToggle: event => setOpen(event.currentTarget.open)
+  }, /*#__PURE__*/React.createElement("summary", null, "Inspect the full chain"), /*#__PURE__*/React.createElement("div", {
+    className: "full-chain-inner"
+  }, /*#__PURE__*/React.createElement(Workbench, {
+    fixture: fixture,
+    profile: profile
+  })));
+}
+function Surface({
+  fixture,
+  step,
+  checkView
+}) {
+  const first = fixture.drafts[0];
+  const approved = step === "receipt";
+  const agent = step === "draft" || step === "decision" || step === "checks" && checkView === "child" || approved;
+  const label = approved ? "Approved title" : agent ? "Agent draft" : "User draft";
+  const title = agent ? first.final_title : first.draft;
+  return /*#__PURE__*/React.createElement("section", {
+    className: "surface-column",
+    "aria-labelledby": "surface-title"
+  }, /*#__PURE__*/React.createElement("header", {
+    className: "frame-head"
+  }, /*#__PURE__*/React.createElement("span", null, "Measured component state"), /*#__PURE__*/React.createElement("span", null, first.context.surface)), /*#__PURE__*/React.createElement("div", {
+    className: "shelf-surface"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "surface-copy",
+    "data-collision-text": true
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "slot-name"
+  }, "Shelf heading"), /*#__PURE__*/React.createElement("span", {
+    className: "surface-state",
+    "data-surface-state": label
+  }, label), /*#__PURE__*/React.createElement("h3", {
+    className: "surface-title",
+    id: "surface-title"
+  }, title)), /*#__PURE__*/React.createElement("div", {
+    className: "covers",
+    "aria-hidden": "true",
+    "data-collision-visual": true
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "cover"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "cover"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "cover"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "cover"
+  }))), /*#__PURE__*/React.createElement(ContextList, {
+    context: first.context
+  }));
+}
+function Workbench({
+  fixture,
+  profile
+}) {
+  const initial = VALID_STEPS.has(location.hash.slice(1)) ? location.hash.slice(1) : "component";
+  const [step, setStep] = React.useState(initial);
+  const [checkView, setCheckView] = React.useState("parent");
+  const first = fixture.drafts[0];
+  const evidence = fixture.deterministic_recheck.terminology_evidence;
+  const summaries = {
+    component: first.context.surface,
+    contract: first.context.intended_reading + " · " + first.context.mode,
+    draft: first.final_title,
+    checks: evidence.first_check_status + " → " + evidence.second_check_status,
+    decision: first.human_decision.decision,
+    receipt: first.shipping.shipping_status + " · v" + fixture.deterministic_recheck.policy_version
+  };
+  React.useEffect(() => {
+    const sync = () => {
+      const next = VALID_STEPS.has(location.hash.slice(1)) ? location.hash.slice(1) : "component";
+      setStep(next);
+      if (next !== "checks") setCheckView("parent");
+    };
+    window.addEventListener("popstate", sync);
+    window.addEventListener("hashchange", sync);
+    return () => {
+      window.removeEventListener("popstate", sync);
+      window.removeEventListener("hashchange", sync);
+    };
+  }, []);
+  const choose = slug => {
+    if (slug !== "checks") setCheckView("parent");
+    history.pushState(null, "", "#" + slug);
+    setStep(slug);
+  };
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("ol", {
+    className: "chain",
+    "aria-label": "Six-stage proof"
+  }, STEP_DEFINITIONS.map((item, index) => /*#__PURE__*/React.createElement("li", {
+    key: item.slug
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "step-button",
+    "aria-expanded": step === item.slug,
+    "aria-controls": "proof-panel",
+    "aria-current": step === item.slug ? "step" : undefined,
+    onClick: () => choose(item.slug)
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "step-number"
+  }, String(index + 1).padStart(2, "0")), /*#__PURE__*/React.createElement("span", {
+    className: "step-name"
+  }, item.label), /*#__PURE__*/React.createElement("span", {
+    className: "step-summary"
+  }, summaries[item.slug]))))), /*#__PURE__*/React.createElement("div", {
+    className: "proof-state"
+  }, /*#__PURE__*/React.createElement("article", {
+    className: "workbench",
+    "aria-label": "Fixture-backed language-layer proof"
+  }, /*#__PURE__*/React.createElement(Surface, {
+    fixture: fixture,
+    step: step,
+    checkView: checkView
+  }), /*#__PURE__*/React.createElement("section", {
+    className: "trace-column",
+    id: "proof-panel",
+    "aria-labelledby": "proof-panel-heading"
+  }, /*#__PURE__*/React.createElement(ProofPanel, {
+    step: step,
+    fixture: fixture,
+    profile: profile,
+    checkView: checkView,
+    setCheckView: setCheckView
+  })))));
+}
+function ProofFailure({
+  kind
+}) {
+  const message = kind === "mismatch" ? "The generated receipt and active demo profile do not match. The proof has stopped." : "The proof could not validate its recorded trace, generated receipt, and active demo profile. No title or result is being presented.";
+  return /*#__PURE__*/React.createElement("div", {
+    className: "failure",
+    role: "alert",
+    "data-proof-state": kind
+  }, /*#__PURE__*/React.createElement("strong", null, message), /*#__PURE__*/React.createElement("nav", {
+    className: "failure-links",
+    "aria-label": "Raw proof records"
+  }, /*#__PURE__*/React.createElement("a", {
     href: "./demo_fixture.json"
-  }, "View the generated receipt"), /*#__PURE__*/React.createElement("a", {
-    className: "demo-door",
+  }, "Generated fixture"), /*#__PURE__*/React.createElement("a", {
     href: "./recorded_agent_trace.json"
-  }, "Inspect the recorded exchange")), /*#__PURE__*/React.createElement("p", {
-    className: "demo-note"
-  }, "This independent demonstration uses patterns observed in public Netflix shelf titles and is not affiliated with Netflix."))));
+  }, "Recorded exchange"), /*#__PURE__*/React.createElement("a", {
+    href: "./compiled_naming_policy.json"
+  }, "Compiled demo profile"), /*#__PURE__*/React.createElement("a", {
+    href: "./evidence.html"
+  }, "Evidence paper")));
+}
+function Terminal() {
+  const [state, setState] = React.useState("checking");
+  const [connected, setConnected] = React.useState(false);
+  const [session, setSession] = React.useState(1);
+  const sectionRef = React.useRef(null);
+  const frameRef = React.useRef(null);
+  const probed = React.useRef(false);
+  React.useEffect(() => {
+    let controller = null;
+    let timer = null;
+    let active = true;
+    const runProbe = () => {
+      if (probed.current) return;
+      probed.current = true;
+      controller = new AbortController();
+      timer = setTimeout(() => controller.abort(), 5000);
+      fetch(TERMINAL_URL, {
+        mode: "cors",
+        cache: "no-store",
+        credentials: "omit",
+        redirect: "error",
+        signal: controller.signal
+      }).then(response => {
+        if (!response.ok || response.status !== 200 || response.type === "opaque") {
+          throw new Error("terminal unavailable");
+        }
+        if (active) setState("available");
+      }).catch(() => {
+        if (active) setState("offline");
+      }).finally(() => {
+        if (timer) clearTimeout(timer);
+      });
+    };
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        runProbe();
+        observer.disconnect();
+      }
+    }, {
+      rootMargin: "180px"
+    });
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => {
+      active = false;
+      observer.disconnect();
+      if (controller) controller.abort();
+      if (timer) clearTimeout(timer);
+    };
+  }, []);
+  const connect = () => {
+    if (state !== "available") return;
+    setConnected(true);
+    setState("connected");
+    setTimeout(() => frameRef.current && frameRef.current.focus(), 600);
+  };
+  const restart = () => {
+    setState("restarting");
+    setSession(value => value + 1);
+    setTimeout(() => {
+      setState("connected");
+      if (frameRef.current) frameRef.current.focus();
+    }, 0);
+  };
+  const status = state === "checking" ? "checking availability" : state === "available" ? "available · connect explicitly" : state === "offline" ? "offline" : state === "restarting" ? "starting a new session" : "connected";
+  return /*#__PURE__*/React.createElement("section", {
+    className: "terminal-section",
+    id: "live-runtime",
+    "aria-labelledby": "terminal-title",
+    ref: sectionRef,
+    "data-terminal-state": state
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "terminal-wrap"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "terminal-intro"
+  }, /*#__PURE__*/React.createElement("h2", {
+    id: "terminal-title"
+  }, "Try the same contract in the live terminal"), /*#__PURE__*/React.createElement("p", null, "Use the live runtime to inspect the contract or replay the exact sequence in a fresh in-memory ledger.")), /*#__PURE__*/React.createElement("div", {
+    className: "terminal-shell"
+  }, /*#__PURE__*/React.createElement("header", {
+    className: "terminal-head"
+  }, /*#__PURE__*/React.createElement("span", null, "Shelf Tool · " + status), /*#__PURE__*/React.createElement("div", {
+    className: "terminal-actions",
+    "data-collision-group": "terminal-actions"
+  }, !connected && /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "terminal-action",
+    onClick: connect,
+    disabled: state !== "available"
+  }, "Connect"), connected && /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "terminal-action",
+    onClick: restart
+  }, "New session"), /*#__PURE__*/React.createElement("a", {
+    className: "terminal-link",
+    href: SESSION_SRC,
+    target: "_blank",
+    rel: "noopener",
+    "data-terminal-src": SESSION_SRC
+  }, "Full screen ", /*#__PURE__*/React.createElement("span", {
+    className: "sr-only"
+  }, "(opens in a new window)"), "↗"))), /*#__PURE__*/React.createElement("div", {
+    className: "terminal-frame-wrap"
+  }, connected ? /*#__PURE__*/React.createElement("iframe", {
+    key: session,
+    ref: frameRef,
+    className: "terminal-frame",
+    src: SESSION_SRC,
+    title: "Shelf Tool live terminal session",
+    allow: "clipboard-write",
+    referrerPolicy: "no-referrer"
+  }) : /*#__PURE__*/React.createElement("div", {
+    className: "terminal-cover"
+  }, state === "offline" ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "The live terminal is offline. The checked browser proof above remains available.")), /*#__PURE__*/React.createElement("p", null, "No cached or simulated output stands in for the process."), /*#__PURE__*/React.createElement("nav", {
+    className: "terminal-fallback-links",
+    "aria-label": "Offline proof records"
+  }, /*#__PURE__*/React.createElement("a", {
+    href: "./demo_fixture.json"
+  }, "Generated fixture"), /*#__PURE__*/React.createElement("a", {
+    href: "./recorded_agent_trace.json"
+  }, "Recorded exchange"), /*#__PURE__*/React.createElement("a", {
+    href: "./compiled_naming_policy.json"
+  }, "Compiled demo profile"), /*#__PURE__*/React.createElement("a", {
+    href: "./evidence.html"
+  }, "Evidence paper"))) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "A remote process is not created on page load.")), /*#__PURE__*/React.createElement("p", null, "Once availability is confirmed, connect and try ", /*#__PURE__*/React.createElement("code", null, "contract"), " or ", /*#__PURE__*/React.createElement("code", null, "demo"), ".")))))));
 }
 function App() {
-  const [fixture, setFixture] = React.useState(null);
-  const [failed, setFailed] = React.useState(false);
-  React.useEffect(() => {
-    fetch("./demo_fixture.json").then(response => {
-      if (!response.ok) throw new Error("fixture unavailable");
-      return response.json();
-    }).then(value => {
-      if (!validateFixture(value)) throw new Error("fixture invalid");
-      setFixture(value);
-    }).catch(() => setFailed(true));
-  }, []);
-  if (failed) return /*#__PURE__*/React.createElement("div", {
-    className: "demo-loading"
-  }, "The proof could not load its generated fixture. The supporting evidence remains available from this directory.");
-  if (!fixture) return /*#__PURE__*/React.createElement("div", {
-    className: "demo-loading"
-  }, "Loading the exact-string proof…");
-  return /*#__PURE__*/React.createElement(Demo, {
-    fixture: fixture
+  const [proof, setProof] = React.useState({
+    state: "loading",
+    fixture: null,
+    profile: null
   });
+  React.useEffect(() => {
+    Promise.all([fetch("./demo_fixture.json", {
+      cache: "no-store"
+    }), fetch("./compiled_naming_policy.json", {
+      cache: "no-store"
+    }), fetch("./recorded_agent_trace.json", {
+      cache: "no-store"
+    })]).then(async ([fixtureResponse, profileResponse, traceResponse]) => {
+      if (!fixtureResponse.ok || !profileResponse.ok || !traceResponse.ok) throw new Error("unavailable");
+      let fixture;
+      let profile;
+      let recordedTrace;
+      try {
+        fixture = await fixtureResponse.json();
+        profile = await profileResponse.json();
+        recordedTrace = await traceResponse.json();
+      } catch {
+        throw new Error("invalid");
+      }
+      const result = await validateProof(fixture, profile, recordedTrace);
+      if (!result.ok) {
+        setProof({
+          state: result.reason,
+          fixture: null,
+          profile: null
+        });
+        return;
+      }
+      setProof({
+        state: "ready",
+        fixture,
+        profile
+      });
+    }).catch(() => setProof({
+      state: "invalid",
+      fixture: null,
+      profile: null
+    }));
+  }, []);
+  return /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement("section", {
+    className: "proof-stage",
+    "aria-labelledby": "page-title"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "page-wrap"
+  }, /*#__PURE__*/React.createElement("header", {
+    className: "mast"
+  }, /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("strong", null, "Independent proof"), " · public signed-out evidence · not Netflix policy"), /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Proof records"
+  }, /*#__PURE__*/React.createElement("a", {
+    href: "./evidence.html"
+  }, "Read the evidence"), /*#__PURE__*/React.createElement("a", {
+    href: "./recorded_agent_trace.json"
+  }, "Inspect the raw record"))), /*#__PURE__*/React.createElement("div", {
+    className: "hero"
+  }, /*#__PURE__*/React.createElement("h1", {
+    id: "page-title"
+  }, "A public Netflix naming grammar you can check."), /*#__PURE__*/React.createElement("div", {
+    className: "hero-copy"
+  }, /*#__PURE__*/React.createElement("p", null, "I measured 1,627 names from signed-out public surfaces, turned the stable patterns into a bounded demo policy, and built an exact-text check with human approval and versioned receipts."), /*#__PURE__*/React.createElement("p", null, "Machine-readable components can constrain what an agent assembles while still accepting language that violates the product’s adopted patterns. A string carries state, user intent, relationship, risk, terminology, and the action a component is performing, so each text slot needs a contract of its own."))), /*#__PURE__*/React.createElement("p", {
+    className: "scope-row"
+  }, "1,627 cataloged occurrences · 122 public sources kept · 93 login-walled destinations refused"), /*#__PURE__*/React.createElement("section", {
+    className: "proof-section",
+    id: "proof-workbench",
+    tabIndex: "-1",
+    "aria-labelledby": "proof-section-title"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "proof-section-head"
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "proof-section-title",
+    id: "proof-section-title"
+  }, "See one title move through the system.")), proof.state === "ready" ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    className: "value-bridge"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "contract-intro"
+  }, "This shelf heading is one typed content slot. Its surface, locale, intended reading, adjacent state, and mode select a bounded contract before a model writes. The reusable pattern is the contract shape: other slots can encode their own terminology, state, action, relationship, and risk rules when a team has adopted evidence for them."), /*#__PURE__*/React.createElement("div", {
+    className: "operational-payoff"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "operational-chain"
+  }, "Evidence describes → policy and code check → a model proposes → a person decides → the receipt records."), /*#__PURE__*/React.createElement("p", null, "The same adopted minimum check can run on every generated string without asking another model to re-decide it. People still own choices the evidence cannot determine."))), /*#__PURE__*/React.createElement(QuickProof, {
+    fixture: proof.fixture,
+    profile: proof.profile
+  }), /*#__PURE__*/React.createElement(FullChain, {
+    fixture: proof.fixture,
+    profile: proof.profile
+  })) : proof.state === "loading" ? /*#__PURE__*/React.createElement("div", {
+    className: "loading",
+    "data-proof-state": "loading"
+  }, "Validating the recorded trace, fixture, and active demo profile…") : /*#__PURE__*/React.createElement(ProofFailure, {
+    kind: proof.state
+  })))), /*#__PURE__*/React.createElement("section", {
+    className: "honesty",
+    "aria-labelledby": "honesty-title"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "honesty-wrap"
+  }, /*#__PURE__*/React.createElement("section", {
+    className: "contribution-boundary",
+    "aria-labelledby": "contribution-title"
+  }, /*#__PURE__*/React.createElement("h2", {
+    id: "contribution-title"
+  }, "Contribution boundary"), /*#__PURE__*/React.createElement("p", null, "I collected and normalized the public corpus, translated observed patterns into the demo policy, built the versioned runtime, and designed this proof interface. A recorded model response supplied the revision; the recorded approval belongs to this portfolio demo."), /*#__PURE__*/React.createElement("p", null, "My content-design contribution was turning the meaning a string must carry in context—and the line between evidence, enforceable minimums, and human judgment—into a versioned contract that agents and engineers can execute.")), /*#__PURE__*/React.createElement("h2", {
+    id: "honesty-title"
+  }, "Every claim is routed to the strongest computation it can honestly support."), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "Evidence describes an adopted pattern."), /*#__PURE__*/React.createElement("li", null, "Policy and code check exact text against the adopted demo rule."), /*#__PURE__*/React.createElement("li", null, "A model proposes a child draft without overwriting the supplied string."), /*#__PURE__*/React.createElement("li", null, "A person decides whether the checked draft ships.")), /*#__PURE__*/React.createElement("p", {
+    className: "honesty-note"
+  }, "The system cannot decide whether “Movies” is the right creative choice for the shelf."), /*#__PURE__*/React.createElement("p", {
+    className: "closing-proposition"
+  }, "Applied to a design system, the next step is to choose one text slot, declare its context and adopted minimums, recheck exact agent output, and require a person wherever the contract stops."))), /*#__PURE__*/React.createElement(Terminal, null), /*#__PURE__*/React.createElement("section", {
+    className: "doors-section"
+  }, /*#__PURE__*/React.createElement("nav", {
+    className: "doors",
+    "aria-label": "Supporting records"
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "door",
+    href: "./evidence.html"
+  }, "Read the evidence paper"), /*#__PURE__*/React.createElement("a", {
+    className: "door",
+    href: "./recorded_agent_trace.json"
+  }, "Inspect the recorded exchange"), /*#__PURE__*/React.createElement("a", {
+    className: "door",
+    href: "./demo_fixture.json"
+  }, "View the generated receipt"), /*#__PURE__*/React.createElement("a", {
+    className: "door",
+    href: "./compiled_naming_policy.json"
+  }, "Inspect the compiled demo profile"))));
 }
 ReactDOM.createRoot(document.getElementById("root")).render(/*#__PURE__*/React.createElement(App, null));
 })();

@@ -1,10 +1,192 @@
 {
+  "deterministic_recheck": {
+    "compiled_policy_sha256": "a2dbe7cbf41b058212fb09c9b86673559c6afb1054abf9d76919ed5b8f1799f2",
+    "evidence_snapshot_date": "2026-07-26",
+    "policy_id": "netflix-public-english-demo-naming",
+    "policy_version": "1.0.1",
+    "receipts": [
+      {
+        "approval": {
+          "approval_event_sequence": 7,
+          "compiled_policy_sha256": "a2dbe7cbf41b058212fb09c9b86673559c6afb1054abf9d76919ed5b8f1799f2",
+          "covered_review_ids": [],
+          "decision": "approve",
+          "lint_event_sequence": 5,
+          "lint_run_index": 0,
+          "policy_version": "1.0.1",
+          "rationale": "Approved this exact string for the deterministic public-demo recheck.",
+          "reviewer_role": "portfolio artifact owner",
+          "title": "Classic Anime Movies",
+          "title_record_id": "title-record-1-final",
+          "title_sha256": "fa50f52854be81ee7bc503f00245d4efcc637671b31e5347e4f9defa728708ce",
+          "verification_outcome": "PASS"
+        },
+        "checks": [
+          {
+            "compiled_policy_sha256": "a2dbe7cbf41b058212fb09c9b86673559c6afb1054abf9d76919ed5b8f1799f2",
+            "lint_event_sequence": 2,
+            "policy_version": "1.0.1",
+            "result": "REVIEW",
+            "review_ids": [
+              "movie-show-terminology"
+            ],
+            "title": "Classic Anime Films",
+            "title_record_id": "title-record-1-source",
+            "title_sha256": "f432a6553638d055b59321fb4194c1802093eefc245fabd12587f2fd7ab510c1",
+            "verification_outcome": "REVIEW"
+          },
+          {
+            "compiled_policy_sha256": "a2dbe7cbf41b058212fb09c9b86673559c6afb1054abf9d76919ed5b8f1799f2",
+            "lint_event_sequence": 5,
+            "policy_version": "1.0.1",
+            "result": "PASS",
+            "review_ids": [],
+            "title": "Classic Anime Movies",
+            "title_record_id": "title-record-1-final",
+            "title_sha256": "fa50f52854be81ee7bc503f00245d4efcc637671b31e5347e4f9defa728708ce",
+            "verification_outcome": "PASS"
+          }
+        ],
+        "context": {
+          "category_visible_elsewhere": false,
+          "genre_family": "Anime",
+          "intended_reading": "category-led",
+          "locale": "en-US",
+          "mode": "conform",
+          "surface": "shelf-heading"
+        },
+        "context_sha256": "3e1e7b53a8fb919f0e14514f55796ce2dd1b67ecaace03fbb858e6a29c0fb002",
+        "draft_id": "draft-1",
+        "finalization": {
+          "approval_event_sequence": 7,
+          "compiled_policy_sha256": "a2dbe7cbf41b058212fb09c9b86673559c6afb1054abf9d76919ed5b8f1799f2",
+          "finalization_event_sequence": 8,
+          "finalized": true,
+          "lint_event_sequence": 5,
+          "lint_run_index": 0,
+          "policy_version": "1.0.1",
+          "shippable": true,
+          "shipping_status": "SHIPPABLE",
+          "title": "Classic Anime Movies",
+          "title_record_id": "title-record-1-final",
+          "title_sha256": "fa50f52854be81ee7bc503f00245d4efcc637671b31e5347e4f9defa728708ce",
+          "verification_outcome": "PASS",
+          "verified": true
+        },
+        "lineage": {
+          "final_record_id": "title-record-1-final",
+          "final_role": "authored_by_model",
+          "parent_record_id": "title-record-1-source",
+          "parent_text_sha256": "f432a6553638d055b59321fb4194c1802093eefc245fabd12587f2fd7ab510c1",
+          "relation": "agent_revision_of_user_text",
+          "source_record_id": "title-record-1-source",
+          "source_role": "provided_by_person"
+        }
+      },
+      {
+        "approval": {
+          "approval_event_sequence": 12,
+          "compiled_policy_sha256": "a2dbe7cbf41b058212fb09c9b86673559c6afb1054abf9d76919ed5b8f1799f2",
+          "covered_review_ids": [],
+          "decision": "approve",
+          "lint_event_sequence": 10,
+          "lint_run_index": 0,
+          "policy_version": "1.0.1",
+          "rationale": "Approved this exact string for the deterministic public-demo recheck.",
+          "reviewer_role": "portfolio artifact owner",
+          "title": "Weekend Anime Marathon",
+          "title_record_id": "title-record-2-final",
+          "title_sha256": "a125ec7d60fbe0e7df9ad54f58299b7368dfa24f4c3fb28ced20ee2e9b37685d",
+          "verification_outcome": "REVIEW"
+        },
+        "checks": [
+          {
+            "compiled_policy_sha256": "a2dbe7cbf41b058212fb09c9b86673559c6afb1054abf9d76919ed5b8f1799f2",
+            "lint_event_sequence": 10,
+            "policy_version": "1.0.1",
+            "result": "PASS",
+            "review_ids": [
+              "time-promise",
+              "unfamiliar-modifier"
+            ],
+            "title": "Weekend Anime Marathon",
+            "title_record_id": "title-record-2-final",
+            "title_sha256": "a125ec7d60fbe0e7df9ad54f58299b7368dfa24f4c3fb28ced20ee2e9b37685d",
+            "verification_outcome": "REVIEW"
+          }
+        ],
+        "context": {
+          "category_visible_elsewhere": true,
+          "genre_family": "Anime",
+          "intended_reading": "occasion-led",
+          "locale": "en-US",
+          "mode": "stretch",
+          "surface": "shelf-heading"
+        },
+        "context_sha256": "0264c4aeb0662b174e322b02a05b18bf77748b1c80e70c5c78f4ab3d51940bce",
+        "draft_id": "draft-2",
+        "finalization": {
+          "approval_event_sequence": 12,
+          "compiled_policy_sha256": "a2dbe7cbf41b058212fb09c9b86673559c6afb1054abf9d76919ed5b8f1799f2",
+          "finalization_event_sequence": 13,
+          "finalized": true,
+          "lint_event_sequence": 10,
+          "lint_run_index": 0,
+          "policy_version": "1.0.1",
+          "shippable": true,
+          "shipping_status": "SHIPPABLE",
+          "title": "Weekend Anime Marathon",
+          "title_record_id": "title-record-2-final",
+          "title_sha256": "a125ec7d60fbe0e7df9ad54f58299b7368dfa24f4c3fb28ced20ee2e9b37685d",
+          "verification_outcome": "REVIEW",
+          "verified": true
+        },
+        "lineage": {
+          "final_record_id": "title-record-2-final",
+          "final_role": "provided_by_person",
+          "parent_record_id": null,
+          "parent_text_sha256": null,
+          "relation": "unchanged_user_text",
+          "source_record_id": "title-record-2-final",
+          "source_role": "provided_by_person"
+        }
+      }
+    ],
+    "terminology_evidence": {
+      "adoption_decision": "Adopt only when a category-led candidate chooses a film/series content term; never infer a missing term.",
+      "adoption_record_id": "demo-adoption-2026-07-26-movie-show-terminology",
+      "adoption_status": "adopted_for_demo",
+      "first_check_status": "REVIEW",
+      "movie_show_family_count": 691,
+      "retained_counterexample_count": 2,
+      "retained_counterexamples": [
+        "Classic Films",
+        "Documentary Series"
+      ],
+      "rule_id": "movie-show-terminology",
+      "sample_count": 723,
+      "scope": {
+        "intended_reading": [
+          "category-led"
+        ],
+        "locales": [
+          "en"
+        ],
+        "when": "A film/series family content term is present."
+      },
+      "second_check_status": "PASS",
+      "series_film_family_count": 32
+    }
+  },
   "drafts": [
     {
       "checked_again": {
         "findings": [],
         "result": "PASS",
-        "title": "Classic Anime Movies"
+        "review_ids": [],
+        "title": "Classic Anime Movies",
+        "title_sha256": "fa50f52854be81ee7bc503f00245d4efcc637671b31e5347e4f9defa728708ce",
+        "verification_outcome": "PASS"
       },
       "checks": [
         {
@@ -16,19 +198,61 @@
             }
           ],
           "result": "REVIEW",
-          "title": "Classic Anime Films"
+          "review_ids": [
+            "movie-show-terminology"
+          ],
+          "title": "Classic Anime Films",
+          "title_sha256": "f432a6553638d055b59321fb4194c1802093eefc245fabd12587f2fd7ab510c1",
+          "verification_outcome": "REVIEW"
         },
         {
           "findings": [],
           "result": "PASS",
-          "title": "Classic Anime Movies"
+          "review_ids": [],
+          "title": "Classic Anime Movies",
+          "title_sha256": "fa50f52854be81ee7bc503f00245d4efcc637671b31e5347e4f9defa728708ce",
+          "verification_outcome": "PASS"
         }
       ],
+      "context": {
+        "category_visible_elsewhere": false,
+        "genre_family": "Anime",
+        "intended_reading": "category-led",
+        "locale": "en-US",
+        "mode": "conform",
+        "surface": "shelf-heading"
+      },
       "draft": "Classic Anime Films",
       "final_title": "Classic Anime Movies",
+      "human_decision": {
+        "covered_review_ids": [],
+        "decision": "approve",
+        "lint_event_sequence": 5,
+        "lint_run_index": 0,
+        "rationale": "Approved this exact string for the deterministic public-demo recheck.",
+        "reviewer_role": "portfolio artifact owner",
+        "text_hash": "fa50f52854be81ee7bc503f00245d4efcc637671b31e5347e4f9defa728708ce",
+        "verification_outcome": "PASS"
+      },
+      "lineage": {
+        "child_parent_text_hash": "f432a6553638d055b59321fb4194c1802093eefc245fabd12587f2fd7ab510c1",
+        "child_source": "agent",
+        "child_text_hash": "fa50f52854be81ee7bc503f00245d4efcc637671b31e5347e4f9defa728708ce",
+        "parent_source": "user",
+        "parent_text_hash": "f432a6553638d055b59321fb4194c1802093eefc245fabd12587f2fd7ab510c1"
+      },
+      "shipping": {
+        "finalized": true,
+        "shippable": true,
+        "shipping_status": "SHIPPABLE",
+        "verification_outcome": "PASS",
+        "verified": true
+      },
       "what_changed": {
         "after": "Classic Anime Movies",
+        "after_sha256": "fa50f52854be81ee7bc503f00245d4efcc637671b31e5347e4f9defa728708ce",
         "before": "Classic Anime Films",
+        "before_sha256": "f432a6553638d055b59321fb4194c1802093eefc245fabd12587f2fd7ab510c1",
         "round": 1
       }
     },
@@ -38,9 +262,23 @@
         {
           "findings": [],
           "result": "PASS",
-          "title": "Weekend Anime Marathon"
+          "review_ids": [
+            "time-promise",
+            "unfamiliar-modifier"
+          ],
+          "title": "Weekend Anime Marathon",
+          "title_sha256": "a125ec7d60fbe0e7df9ad54f58299b7368dfa24f4c3fb28ced20ee2e9b37685d",
+          "verification_outcome": "REVIEW"
         }
       ],
+      "context": {
+        "category_visible_elsewhere": true,
+        "genre_family": "Anime",
+        "intended_reading": "occasion-led",
+        "locale": "en-US",
+        "mode": "stretch",
+        "surface": "shelf-heading"
+      },
       "draft": "Weekend Anime Marathon",
       "final_title": "Weekend Anime Marathon",
       "what_changed": null
@@ -50,7 +288,7 @@
     "Classic Anime Movies",
     "Weekend Anime Marathon"
   ],
-  "recorded_model": {
+  "recorded_exchange": {
     "capture_date": "2026-07-26",
     "final_recommendation": "Classic Anime Movies",
     "input_role": "provided to the agent",
@@ -58,59 +296,9 @@
     "model": "claude-opus-5",
     "prompt_sha256": "f64e7be2eb32985edb574c4399d03f544b72179419632cd88740f01ca1670ed4",
     "reported_tool_call_count": 4,
-    "response_sha256": "85d7261b018c8998c3e8467fc324b90bb19a6a353af414a3fa3154c05a1a6696",
     "revision": "Classic Anime Movies",
-    "revision_role": "authored by the model"
+    "revision_role": "authored by the model",
+    "visible_response_sha256": "85d7261b018c8998c3e8467fc324b90bb19a6a353af414a3fa3154c05a1a6696"
   },
-  "request": "Review this exact proposed shelf title for a straightforward collection of classic anime: ‘Classic Anime Films’. Check that exact string against the adopted demo profile. If it returns for review, revise it, check the revised exact string again, and only then recommend the final title. Show a compact audit trail with the exact input, first check result, exact revision, second check result, and exact final title.",
-  "technical": {
-    "policy": {
-      "hash": "c5983a3f7ac47a4e4b48cfbcc3305f5369bfc90e7dc1c5b8c1436f61a528ba83",
-      "version": "1.0.0"
-    },
-    "receipts": [
-      {
-        "check_text_hashes": [
-          "f432a6553638d055b59321fb4194c1802093eefc245fabd12587f2fd7ab510c1",
-          "fa50f52854be81ee7bc503f00245d4efcc637671b31e5347e4f9defa728708ce"
-        ],
-        "draft_id": "draft-1",
-        "final_text_hash": "fa50f52854be81ee7bc503f00245d4efcc637671b31e5347e4f9defa728708ce",
-        "source_text_hash": "f432a6553638d055b59321fb4194c1802093eefc245fabd12587f2fd7ab510c1"
-      },
-      {
-        "check_text_hashes": [
-          "a125ec7d60fbe0e7df9ad54f58299b7368dfa24f4c3fb28ced20ee2e9b37685d"
-        ],
-        "draft_id": "draft-2",
-        "final_text_hash": "a125ec7d60fbe0e7df9ad54f58299b7368dfa24f4c3fb28ced20ee2e9b37685d",
-        "source_text_hash": "a125ec7d60fbe0e7df9ad54f58299b7368dfa24f4c3fb28ced20ee2e9b37685d"
-      }
-    ]
-  },
-  "terminology_evidence": {
-    "adoption_decision": "Adopt only when a category-led option chooses a film/series content term; never infer a missing term.",
-    "adoption_record_id": "demo-adoption-2026-07-26-movie-show-terminology",
-    "adoption_status": "adopted_for_demo",
-    "first_check_status": "REVIEW",
-    "movie_show_family_count": 691,
-    "retained_counterexample_count": 2,
-    "retained_counterexamples": [
-      "Classic Films",
-      "Documentary Series"
-    ],
-    "rule_id": "movie-show-terminology",
-    "sample_count": 723,
-    "scope": {
-      "intended_reading": [
-        "category-led"
-      ],
-      "locales": [
-        "en"
-      ],
-      "when": "A film/series family content term is present."
-    },
-    "second_check_status": "PASS",
-    "series_film_family_count": 32
-  }
+  "request": "Review this exact proposed shelf title for a straightforward collection of classic anime: ‘Classic Anime Films’. Check that exact string against the adopted demo profile. If it returns for review, revise it, check the revised exact string again, and only then recommend the final title. Show a compact audit trail with the exact input, first check result, exact revision, second check result, and exact final title."
 }

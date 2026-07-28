@@ -1796,77 +1796,6 @@ function DesignRotator() {
     }
   })));
 }
-function AutoplayOnceVideo({
-  src,
-  poster,
-  style
-}) {
-  const videoRef = React.useRef(null);
-  const [hasStarted, setHasStarted] = React.useState(false);
-  const [failed, setFailed] = React.useState(false);
-  const bindVideo = React.useCallback(node => {
-    videoRef.current = node;
-    if (!node) return;
-
-    /* Keep the reflected attribute and properties aligned before requesting playback. The previous
-       raw element stayed visible while autoplay policy was unresolved, exposing native fallback UI. */
-    node.defaultMuted = true;
-    node.muted = true;
-    node.controls = false;
-    node.setAttribute("muted", "");
-    node.setAttribute("playsinline", "");
-    node.setAttribute("webkit-playsinline", "");
-  }, []);
-  React.useLayoutEffect(() => {
-    const video = videoRef.current;
-    if (!video) return undefined;
-    let alive = true;
-    const playback = video.play();
-    if (playback && typeof playback.catch === "function") {
-      playback.catch(() => {
-        if (alive) setFailed(true);
-      });
-    }
-    return () => {
-      alive = false;
-      video.pause();
-    };
-  }, [src]);
-  const posterStyle = {
-    ...style,
-    zIndex: 2,
-    pointerEvents: "none"
-  };
-  const videoStyle = {
-    ...style,
-    zIndex: 1,
-    pointerEvents: "none"
-  };
-  return /*#__PURE__*/React.createElement(React.Fragment, null, (!hasStarted || failed) && /*#__PURE__*/React.createElement("img", {
-    src: poster,
-    alt: "",
-    "aria-hidden": "true",
-    "data-avatar-fallback": failed ? "failed" : "pending",
-    style: posterStyle
-  }), !failed && /*#__PURE__*/React.createElement("video", {
-    ref: bindVideo,
-    src: src,
-    poster: poster,
-    autoPlay: true,
-    muted: true,
-    playsInline: true,
-    preload: "auto",
-    controls: false,
-    disablePictureInPicture: true,
-    disableRemotePlayback: true,
-    "aria-hidden": "true",
-    tabIndex: -1,
-    "data-avatar-playback": hasStarted ? "playing" : "pending",
-    onPlaying: () => setHasStarted(true),
-    onError: () => setFailed(true),
-    style: videoStyle
-  }));
-}
 function AboutWaveScene({
   reducedMotion,
   credibilityMode = "marquee"
@@ -1914,9 +1843,15 @@ function AboutWaveScene({
     alt: "",
     "aria-hidden": "true",
     style: mediaStyle
-  }) : /*#__PURE__*/React.createElement(AutoplayOnceVideo, {
+  }) : /*#__PURE__*/React.createElement("video", {
     src: "assets/work/caleb-about-wave-once.mp4",
     poster: "assets/work/caleb-about-wave-poster.webp",
+    autoPlay: true,
+    muted: true,
+    playsInline: true,
+    preload: "auto",
+    "aria-hidden": "true",
+    tabIndex: -1,
     style: mediaStyle
   }), effectiveMode === "static" ? /*#__PURE__*/React.createElement("div", {
     "data-ds": "about-credibility",
@@ -1966,7 +1901,7 @@ function AboutDocument({
     title: "Hi, I'm Caleb.",
     accent: /*#__PURE__*/React.createElement(DesignRotator, null),
     deck: "I'm a senior content designer. My work spans product strategy and interaction language. I design onboarding, run experiments, and build systems that make good decisions easier to repeat.",
-    detail: "I've led that work on cross-functional teams spanning product, design, research, data and engineering. Before product, I spent five years teaching writing and earned an MFA in poetry. I still care about the sentence. Sometimes the work also needs a workshop, an experiment or code."
+    detail: "I've led that work on cross-functional teams spanning product, design, research, data and engineering. Before product, I spent seven years teaching writing and earned an MFA in poetry. I still care about the sentence. Sometimes the work also needs a workshop, an experiment or code."
   }, /*#__PURE__*/React.createElement(StageAction, {
     accent: "action",
     style: {
@@ -2085,7 +2020,7 @@ function AboutDocument({
     style: {
       margin: 0
     }
-  }, "Before product work, I taught composition and poetry workshops, then trained Army officers to turn complex, high-stakes information into clear, direct language. Five years of watching what makes writing land is where the rest of this comes from. Teaching made me care about craft. I still teach what I learn and keep asking what the work could become next.")))));
+  }, "Before product work, I taught composition and poetry workshops, then trained Army officers to turn complex, high-stakes information into clear, direct language. Seven years of watching what makes writing land is where the rest of this comes from. Teaching made me care about craft. I still teach what I learn and keep asking what the work could become next.")))));
 }
 function MicrocopyDocument({
   onNavigate
