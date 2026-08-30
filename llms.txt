@@ -1,38 +1,58 @@
 # Caleb Stacy
 
-Caleb Stacy is a senior content designer with twelve years across product and education. His work
+Caleb Stacy is a senior content designer with eleven years across product and education. His work
 spans product strategy, interaction language, onboarding, experimentation, content standards,
 terminology, taxonomy, and AI-assisted content systems.
 
 Canonical portfolio: https://calebstacy.com/
-Resume: https://calebstacy.com/Caleb-Stacy-Resume.pdf
+About: https://calebstacy.com/about/
+Canonical resume: https://calebstacy.com/resume.html
+Downloadable PDF: https://calebstacy.com/Caleb-Stacy-Resume.pdf
 Contact: calebstacy@gmail.com
 GitHub: https://github.com/calebstacy
 
+<!-- selected-work-llms:start -->
 ## Selected work
 
-### Verso
+### 01 — First-time VR
 
-Verso combined a governed content-design agent, an eleven-dimension language measurement engine,
-and a structured content index. It routed each claim to the strongest computation it could honestly
-support: deterministic checks for determinate rules, measured evidence for observable language
-patterns, and explicit human review where the evidence did not determine one answer.
+How I replaced a front-loaded Meta Horizon VR onboarding syllabus with behavior-triggered education, improving completion, weekly use, and retention.
 
-Portfolio route: https://calebstacy.com/#verso
+Problem or value: People came to meet other people, but the first-run experience made them complete more than fourteen lessons before they reached the social experience. The first run took roughly 15 minutes, and roughly 70% of people dropped out.
 
-### VR NUX
+Contribution: I led the education strategy and interaction language inside a broader product, design, research, data, and engineering effort. My contribution was the shift from a front-loaded syllabus to behavior-triggered education at the moment of need.
 
-A just-in-time new-user education strategy replaced a fourteen-plus-lesson first run in Meta
-Horizon VR. The work improved onboarding completion, weekly active use, and new-user retention.
+Evidence: Onboarding completion improved by nearly 30%, weekly active use improved by about 20%, and new-user retention improved by roughly 7%. These were project outcomes, not copy-only attribution.
 
-Portfolio route: https://calebstacy.com/#vr-education
+Portfolio route: https://calebstacy.com/work/vr-nux/
 
-### Horizon Portals
+### 02 — Horizon Portals
 
-A proximity-based information architecture let people understand a destination before stepping
-through it. The work shipped in Meta Horizon and was introduced at Meta Connect 2024.
+How I moved a Meta Horizon portal decision before the threshold with a proximity-based information architecture, introduced at Meta Connect 2024.
 
-Portfolio route: https://calebstacy.com/#portals
+Problem or value: A portal gave people almost no information until after they crossed into another world. I turned physical approach into an information architecture so someone could reach a confident yes or no before stepping through.
+
+Contribution: A different discipline owned the portal's physical scale and pointing behavior. I owned what appeared, when it appeared, and what each distance needed to support an informed decision.
+
+Evidence: The model shipped in Meta Horizon, was introduced at Meta Connect 2024, and set a metadata precedent for other travel surfaces. Engagement and retention improved, although the figures are not public.
+
+Portfolio route: https://calebstacy.com/work/horizon-portals/
+
+### 03 — Verso
+
+How I built a content-design agent that found product context, separated evidence from judgment, and checked its own recommendations.
+
+Problem or value: A longer prompt was not governance. I separated what a model could draft, what deterministic checks could evaluate, and what people still had to decide.
+
+Contribution: I built the agent, an engine that computed eleven observable language dimensions, and an index that turned adopted guidance into scoped, versioned records.
+
+Evidence: Over six months, Verso fingerprinted five product surfaces, logged more than 500 conversations, and spread to nearly 60 content designers before central content design assumed ownership. These figures are owner-reported internal history.
+
+Portfolio route: https://calebstacy.com/work/verso/
+Agent: https://calebstacy.com/work/verso/agent/
+Engine: https://calebstacy.com/work/verso/engine/
+Index: https://calebstacy.com/work/verso/index/
+<!-- selected-work-llms:end -->
 
 ## Positioning
 

@@ -52,6 +52,257 @@ Object.assign(window, {
 });
 })();
 
+/* ---- ui_kits/portfolio/star-case.jsx ---- */
+(function () {
+const PHASES = [{
+  id: "situation",
+  label: "Situation"
+}, {
+  id: "task",
+  label: "Task"
+}, {
+  id: "action",
+  label: "Action"
+}, {
+  id: "result",
+  label: "Result"
+}];
+const HAIRLINE = "1px solid color-mix(in srgb, var(--story-ink) 25%, transparent)";
+const SECTION_PAD_FIRST = "clamp(40px,6vh,64px) var(--gutter) 0";
+const SECTION_PAD = "0 var(--gutter) clamp(56px,8vh,96px)";
+const header = {
+  margin: 0,
+  textAlign: "left",
+  fontFamily: "var(--font-sans)",
+  fontSize: "var(--display-m-size)",
+  fontWeight: "var(--display-m-weight)",
+  lineHeight: "var(--display-m-leading)",
+  letterSpacing: "var(--display-m-tracking)"
+};
+const proseCol = {
+  marginTop: 22,
+  display: "flex",
+  flexDirection: "column",
+  gap: "1.15em",
+  fontFamily: "var(--font-sans)",
+  fontSize: "var(--prose-size)",
+  lineHeight: "var(--prose-leading)",
+  letterSpacing: "var(--prose-tracking)"
+};
+const phaseLabel = {
+  margin: "0 0 10px",
+  color: "var(--signal)",
+  fontFamily: "var(--font-sans)",
+  fontSize: "var(--prose-size)",
+  fontWeight: 700,
+  lineHeight: 1.2
+};
+function reducedMotion() {
+  return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+}
+function jumpInScroller(scroller, id) {
+  if (!scroller) return;
+  const target = scroller.querySelector("#" + id);
+  if (!target) return;
+  const to = Math.max(0, scroller.scrollTop + target.getBoundingClientRect().top - scroller.getBoundingClientRect().top - 64);
+  if (reducedMotion()) {
+    scroller.scrollTop = to;
+    return;
+  }
+  const gsap = window.gsap;
+  if (gsap) {
+    gsap.to(scroller, {
+      scrollTop: to,
+      duration: 0.43,
+      ease: "power3.out",
+      overwrite: true
+    });
+    return;
+  }
+  scroller.scrollTop = to;
+}
+function StarBeat({
+  id,
+  first,
+  phase,
+  title,
+  children
+}) {
+  return /*#__PURE__*/React.createElement("section", {
+    "data-tone": "dark",
+    "data-star-beat": id,
+    "data-chapter": id,
+    style: {
+      background: "var(--story-bg)",
+      color: "var(--story-ink)",
+      padding: first ? SECTION_PAD_FIRST : SECTION_PAD
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    id: id,
+    style: {
+      maxWidth: 640,
+      margin: "0 auto",
+      scrollMarginTop: 72,
+      ...(first ? null : {
+        borderTop: HAIRLINE,
+        paddingTop: "clamp(40px,6vh,64px)"
+      })
+    }
+  }, phase && /*#__PURE__*/React.createElement("p", {
+    style: phaseLabel
+  }, phase), title && /*#__PURE__*/React.createElement("h2", {
+    "data-star-title": "",
+    style: header
+  }, title), /*#__PURE__*/React.createElement("div", {
+    style: proseCol
+  }, children)));
+}
+function StarGuide({
+  scrollerRef
+}) {
+  const [active, setActive] = React.useState("situation");
+  React.useEffect(() => {
+    const scroller = scrollerRef && scrollerRef.current;
+    const gsap = window.gsap;
+    const ST = window.ScrollTrigger;
+    if (!scroller) return undefined;
+    if (!gsap || !ST) {
+      const onScroll = () => {
+        let current = "situation";
+        PHASES.forEach(phase => {
+          const node = scroller.querySelector("#" + phase.id);
+          if (node && node.getBoundingClientRect().top < 220) current = phase.id;
+        });
+        setActive(current);
+      };
+      scroller.addEventListener("scroll", onScroll, {
+        passive: true
+      });
+      onScroll();
+      return () => scroller.removeEventListener("scroll", onScroll);
+    }
+    gsap.registerPlugin(ST);
+    const triggers = PHASES.map(phase => {
+      const trigger = scroller.querySelector("#" + phase.id);
+      if (!trigger) return null;
+      return ST.create({
+        trigger,
+        scroller,
+        start: "top 32%",
+        end: "bottom 32%",
+        onToggle: self => {
+          if (self.isActive) setActive(phase.id);
+        }
+      });
+    }).filter(Boolean);
+    return () => triggers.forEach(t => t.kill());
+  }, [scrollerRef]);
+  return /*#__PURE__*/React.createElement("nav", {
+    "data-ds": "star-guide",
+    "aria-label": "Case study structure",
+    style: {
+      position: "sticky",
+      top: 0,
+      zIndex: 8,
+      margin: "22px 0 0",
+      padding: "10px 0",
+      borderTop: HAIRLINE,
+      borderBottom: HAIRLINE,
+      background: "var(--story-bg)"
+    }
+  }, /*#__PURE__*/React.createElement("ol", {
+    style: {
+      listStyle: "none",
+      margin: 0,
+      padding: 0,
+      display: "grid",
+      gridTemplateColumns: "repeat(4,minmax(0,1fr))",
+      gap: 8,
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--prose-size)",
+      lineHeight: 1.3
+    }
+  }, PHASES.map((phase, index) => {
+    const isActive = active === phase.id;
+    return /*#__PURE__*/React.createElement("li", {
+      key: phase.id
+    }, /*#__PURE__*/React.createElement("a", {
+      href: "#" + phase.id,
+      "aria-current": isActive ? "true" : undefined,
+      onClick: event => {
+        event.preventDefault();
+        jumpInScroller(scrollerRef && scrollerRef.current, phase.id);
+      },
+      style: {
+        display: "flex",
+        gap: 8,
+        alignItems: "baseline",
+        fontWeight: 700,
+        color: isActive ? "var(--story-ink)" : "color-mix(in srgb, var(--story-ink) 55%, transparent)",
+        textDecoration: "none",
+        borderBottom: isActive ? "2px solid var(--signal)" : "2px solid transparent",
+        paddingBottom: 4
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        color: "var(--signal)"
+      }
+    }, index + 1, "."), /*#__PURE__*/React.createElement("span", null, phase.label)));
+  })));
+}
+function useStarMotion(scrollRef) {
+  React.useEffect(() => {
+    const scroller = scrollRef && scrollRef.current;
+    const gsap = window.gsap;
+    const ST = window.ScrollTrigger;
+    if (!scroller || !gsap || !ST || reducedMotion()) return undefined;
+    gsap.registerPlugin(ST);
+    const tweens = [];
+    scroller.querySelectorAll("[data-star-beat] [data-star-title]").forEach(el => {
+      tweens.push(gsap.from(el, {
+        x: 36,
+        duration: 0.62,
+        ease: "power3.out",
+        immediateRender: false,
+        scrollTrigger: {
+          trigger: el,
+          scroller,
+          start: "top 88%",
+          once: true
+        }
+      }));
+    });
+    scroller.querySelectorAll("[data-ds='case-process'] > li").forEach((el, i) => {
+      tweens.push(gsap.from(el, {
+        x: 22,
+        duration: 0.48,
+        delay: i * 0.06,
+        ease: "power3.out",
+        immediateRender: false,
+        scrollTrigger: {
+          trigger: el.parentNode,
+          scroller,
+          start: "top 82%",
+          once: true
+        }
+      }));
+    });
+    return () => {
+      tweens.forEach(tween => {
+        if (tween.scrollTrigger) tween.scrollTrigger.kill();
+        tween.kill();
+      });
+    };
+  }, [scrollRef]);
+}
+Object.assign(window, {
+  StarBeat,
+  StarGuide,
+  useStarMotion
+});
+})();
+
 /* ---- ui_kits/portfolio/screen-project.jsx ---- */
 (function () {
 const {
@@ -80,15 +331,16 @@ function ProjectDocument({
   chapters,
   onNext,
   nextProject,
+  nextHref,
   scrollRef
 }) {
-  const [chapter, setChapter] = React.useState("overview");
+  const [chapter, setChapter] = React.useState("situation");
   React.useEffect(() => {
     const node = scrollRef.current;
     if (!node) return;
     const onScroll = () => {
       const marks = node.querySelectorAll("[data-chapter]");
-      let current = "overview";
+      let current = "situation";
       marks.forEach(m => {
         if (m.getBoundingClientRect().top < 220) current = m.dataset.chapter;
       });
@@ -139,6 +391,7 @@ function ProjectDocument({
   const artifacts = project.artifacts || [];
   const hasArtifacts = artifacts.length > 0;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
+    "data-layout-overlap": "intentional-hero",
     style: {
       minHeight: "min(660px, calc(100svh - 84px))",
       display: "flex"
@@ -161,7 +414,7 @@ function ProjectDocument({
     active: chapter,
     onSelect: jump
   }), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "overview"
+    "data-chapter": "meta"
   }, /*#__PURE__*/React.createElement(FactsPanel, {
     facts: [{
       label: "Role",
@@ -171,11 +424,11 @@ function ProjectDocument({
       value: project.teamSurface
     }]
   })), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "problem"
+    "data-chapter": "situation"
   }, /*#__PURE__*/React.createElement(StorySection, {
     tone: "paper",
     index: "01",
-    chapterLabel: "Problem",
+    chapterLabel: "Situation",
     kicker: "The operating condition",
     title: project.statement,
     intro: project.summary
@@ -187,21 +440,21 @@ function ProjectDocument({
       marginTop: "var(--space-6)"
     }
   }), /*#__PURE__*/React.createElement(ProvenanceNote, null, "Figures here are what's public. Where an exact lift is not public, this document says so."))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "reframe"
+    "data-chapter": "task"
   }, /*#__PURE__*/React.createElement(StorySection, {
     tone: "stage",
     index: "02",
-    chapterLabel: "Reframe",
+    chapterLabel: "Task",
     kicker: "What I changed",
     title: "The reframe that made the work possible."
   }, /*#__PURE__*/React.createElement(PullQuote, {
     attribution: project.quoteBy
   }, project.quote))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "decisions"
+    "data-chapter": "action"
   }, /*#__PURE__*/React.createElement(StorySection, {
     tone: "dark",
     index: "03",
-    chapterLabel: "Decisions",
+    chapterLabel: "Action",
     kicker: "How it works",
     title: "The decisions worth repeating.",
     intro: "Each row below is a decision I would make again on a comparable product."
@@ -224,11 +477,11 @@ function ProjectDocument({
     title: "Boundaries",
     body: "Engineering implementation, research execution, and product prioritisation belonged to partners named above."
   })))), /*#__PURE__*/React.createElement("div", {
-    "data-chapter": "proof"
+    "data-chapter": "result"
   }, /*#__PURE__*/React.createElement(StorySection, {
     tone: "bright",
     index: "04",
-    chapterLabel: "Proof",
+    chapterLabel: "Result",
     kicker: hasArtifacts ? "Evidence" : "What I can and cannot show",
     title: hasArtifacts ? "What the work produced." : "The results are real. The screens are not mine to publish.",
     intro: hasArtifacts ? "Artifacts carry their own provenance labels." : undefined
@@ -271,6 +524,7 @@ function ProjectDocument({
     }
   }, nextProject.title)), /*#__PURE__*/React.createElement(StageAction, {
     accent: "signal",
+    href: nextHref,
     onClick: onNext
   }, nextProject.statement)));
 }
@@ -286,159 +540,196 @@ const {
   StageCopy,
   Outcome,
   RegistrationMark,
-  VersoHero,
   CaseMeta,
   StageAction,
-  Eyebrow
+  CaseEnding,
+  ProvenanceNote
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
-
-/* Rebuilt 2026-07-26 into the Horizon scroll grammar (see screen-horizon.jsx's own file comment
-   for the four rules this follows: one ground below the cover, no second cover, three text
-   sizes, artifacts float light) with one addition Horizon does not need: Verso now has three
-   satellite pages — Agent, Engine, Index — reached through three doors inside the story rather
-   than through a demo. Per reference/verso-subpages-plan.md: "the main story never demos; the
-   sub-pages never narrate." So everything that used to be a rendered instrument here (the
-   research grid, the fingerprint bars, the score ring, the rewrite diff, the index rows, the
-   rule split, the source map, the toolchain) moved to screen-verso-subpages.jsx, in full, with
-   room to be the subject instead of an aside. What is left below is four beats: the problem,
-   the system thesis, three doors to the implementation, and the strongest ownership and adoption
-   evidence.
-
-   The cover and the satellite pages use the same public-safe draft, revision, and measurement
-   fixture. The cover omits an aggregate score because this example does not define an honest
-   scalar; it shows only the supported dimension readings and the re-measurement verdict. */
-
-const REWRITE = {
-  before: "Oops! Something went wrong with your world. Don't worry, we're fixing it! Please try again in a few minutes and everything should be back to normal.",
-  after: "We couldn't load your world. Check your connection and try again, or come back in a few minutes.",
-  deltas: [{
-    name: "Words",
-    from: 27,
-    to: 19
-  }, {
-    name: "Formality",
-    from: 25,
-    to: 68
-  }, {
-    name: "Directness",
-    from: 45,
-    to: 88
-  }, {
-    name: "Brevity",
-    from: 40,
-    to: 82
-  }]
-};
-const MEASURED_DIMS = [{
-  name: "Formality",
-  value: 82
+const VERSO_REQUESTS = ["Write an error message for this failed payment", "Review this account-lockout notification", "Which term is approved in this product?", "Turn this flow into a content specification", "How should this message change across products?", "What process applies to this naming request?"];
+const DECISION_LOOP = [{
+  title: "Context",
+  body: "Identify the product, channel, component, user job, and decision owner."
 }, {
-  name: "Vocabulary",
-  value: 65
+  title: "Evidence",
+  body: "Run applicable rules, load adopted guidance, and compare shipped language."
 }, {
-  name: "Directness",
-  value: 90
+  title: "Judgment",
+  body: "Explain what the findings mean in this situation, including uncertainty and tradeoffs."
 }, {
-  name: "Conciseness",
-  value: 71
+  title: "Revision",
+  body: "Recommend new language, a next step, or the formal process required to continue."
+}, {
+  title: "Recheck",
+  body: "Run the current recommendation through the applicable tools again."
 }];
-
-/* The cover instrument's checks window. Generic phrasing — no internal tool names — narrating
-   the same measure-and-rewrite pass the Agent page shows in full below. */
-const HERO_THINKING = ["Reading the draft against the context's measurement profile", "Comparing eleven dimensions to the target band", "Two dimensions out of band", "Drafting a rewrite with the deltas attached"];
-
-/* The closing beat's self-check. Verso measured ELEVEN dimensions (the sacred count; the
-   twelve-dimension trace belongs to the later open-source engine and must not appear here) —
-   `trace.json` on the (unmerged, at the time this shipped) `governance` branch, the same
-   voice_runtime engine this case describes, run on a different example than the Delivery
-   section's illustrative reading below. That file is not part of this change (plays/ is out of
-   scope here) — if it lands under a different path or the numbers move, update this string to
-   match rather than leave it stale, or close verbally instead ("Re-measured: in band."). Never
-   invent a number here.*/
-const HERO_SELF_LINT = {
-  line: "Re-measuring the revision",
-  verdict: "Re-measured: all eleven dimensions in band."
-};
-const header = {
-  margin: 0,
-  textAlign: "left",
-  fontFamily: "var(--font-sans)",
-  fontSize: "var(--display-m-size)",
-  fontWeight: "var(--display-m-weight)",
-  lineHeight: "var(--display-m-leading)",
-  letterSpacing: "var(--display-m-tracking)"
-};
-const proseCol = {
-  marginTop: 22,
-  display: "flex",
-  flexDirection: "column",
-  gap: "1.15em",
-  fontFamily: "var(--font-sans)",
-  fontSize: "var(--prose-size)",
-  lineHeight: "var(--prose-leading)",
-  letterSpacing: "var(--prose-tracking)"
-};
-const SECTION_PAD_FIRST = "clamp(40px,6vh,64px) var(--gutter) 0";
-const SECTION_PAD = "0 var(--gutter) clamp(56px,8vh,96px)";
-const HAIRLINE = "1px solid color-mix(in srgb, var(--story-ink) 25%, transparent)";
-function Beat({
-  id,
-  first,
-  title,
-  children
-}) {
-  return /*#__PURE__*/React.createElement("section", {
-    "data-tone": "dark",
-    style: {
-      background: "var(--story-bg)",
-      color: "var(--story-ink)",
-      padding: first ? SECTION_PAD_FIRST : SECTION_PAD
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    id: id,
-    style: {
-      maxWidth: 640,
-      margin: "0 auto",
-      scrollMarginTop: 56,
-      ...(first ? null : {
-        borderTop: HAIRLINE,
-        paddingTop: "clamp(40px,6vh,64px)"
-      })
-    }
-  }, title && /*#__PURE__*/React.createElement("h2", {
-    style: header
-  }, title), /*#__PURE__*/React.createElement("div", {
-    style: proseCol
-  }, children)));
+const EVIDENCE_LAYERS = [{
+  label: "Standards check",
+  kind: "Deterministic finding",
+  body: "Mechanically testable channel, component, terminology, and accessibility constraints."
+}, {
+  label: "Fingerprint",
+  kind: "Statistical evidence",
+  body: "Eleven observable language dimensions compared with a product-specific baseline."
+}, {
+  label: "My take",
+  kind: "Editorial judgment",
+  body: "Meaning, context, uncertainty, and tradeoffs the checks could not resolve."
+}, {
+  label: "Policy and approval",
+  kind: "Human authority",
+  body: "Authorized owners and formal processes stayed outside the agent's authority."
+}];
+const RANGE_EXAMPLES = [{
+  request: "Write a community-discovery notification",
+  response: "Ranked a recommended option, a more expressive option, and a safer option. It explained the voice tradeoffs and dismissed an irrelevant linter flag."
+}, {
+  request: "Audit these twelve wearable notifications",
+  response: "Planned terminology validation, channel checks, voice comparison, and revisions for strings that needed another pass."
+}, {
+  request: "I need a new product name",
+  response: "Separated feature naming from branded product naming, surfaced the formal approval path, and offered help inside the content designer's scope."
+}];
+const BUILD_WORK = ["Collected scattered guidance and turned it into a routable taxonomy.", "Encoded mechanically testable rules and component constraints.", "Built the Python measurement service from published language research.", "Created product-specific voice profiles from shipped strings.", "Wired review capabilities into separate tools the agent could call as needed.", "Designed the conversation, evidence labels, self-check, and approval boundaries."];
+const VERSO_PHASE_DELAYS = [650, 850, 850, 950, 800, 950, 950];
+const VERSO_LAST_PHASE = 7;
+function prefersReducedMotion() {
+  return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 }
-
-/* A quiet door: one sentence, the site's drawn-underline link, never a card. Placed at the end
-   of the paragraph it belongs to, so the destination is already obvious from what was just
-   said. */
-function Door({
-  onOpen,
+function VersoProgress({
+  title,
+  steps,
+  active
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "verso-chat-progress"
+  }, /*#__PURE__*/React.createElement("p", null, title), /*#__PURE__*/React.createElement("ol", null, steps.map((step, index) => /*#__PURE__*/React.createElement("li", {
+    key: step,
+    "data-status": index < active ? "complete" : index === active ? "active" : "queued"
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }), step))));
+}
+function VersoAssistantTurn({
+  children,
+  kind
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "verso-chat-turn verso-chat-turn--assistant",
+    "data-kind": kind
+  }, children);
+}
+function VersoUserTurn({
   children
 }) {
   return /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 4
-    }
-  }, /*#__PURE__*/React.createElement(StageAction, {
-    accent: "signal",
-    onClick: onOpen
-  }, children));
+    className: "verso-chat-turn verso-chat-turn--user"
+  }, /*#__PURE__*/React.createElement("p", null, children));
+}
+function VersoChatHero() {
+  const reduced = React.useMemo(prefersReducedMotion, []);
+  const [phase, setPhase] = React.useState(reduced ? VERSO_LAST_PHASE : 0);
+  const bodyRef = React.useRef(null);
+  React.useEffect(() => {
+    if (reduced || phase >= VERSO_LAST_PHASE) return undefined;
+    const timer = window.setTimeout(() => setPhase(current => Math.min(current + 1, VERSO_LAST_PHASE)), VERSO_PHASE_DELAYS[phase] || 850);
+    return () => window.clearTimeout(timer);
+  }, [phase, reduced]);
+  React.useEffect(() => {
+    const body = bodyRef.current;
+    if (!body) return;
+    body.scrollTo({
+      top: body.scrollHeight,
+      behavior: reduced ? "auto" : "smooth"
+    });
+  }, [phase, reduced]);
+  const replay = () => {
+    if (!reduced) setPhase(0);
+  };
+  const visible = reduced ? VERSO_LAST_PHASE : phase;
+  const initialSteps = ["Identify the product context", "Run applicable standards", "Compare the product voice baseline", "Prepare a content-design review"];
+  const revisionSteps = ["Check the revised structure", "Review the terminology choice", "Recheck the recommendation"];
+  return /*#__PURE__*/React.createElement("figure", {
+    "data-ds": "verso-chat-hero"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "verso-chat-window"
+  }, /*#__PURE__*/React.createElement("header", {
+    className: "verso-chat-header"
+  }, /*#__PURE__*/React.createElement("span", null, "Verso"), /*#__PURE__*/React.createElement("span", null, "Notification review")), /*#__PURE__*/React.createElement("div", {
+    ref: bodyRef,
+    className: "verso-chat-body",
+    "aria-live": "polite"
+  }, /*#__PURE__*/React.createElement(VersoUserTurn, null, "Review this push notification for glasses: “Your photo has been successfully saved to your camera roll.”"), /*#__PURE__*/React.createElement(VersoAssistantTurn, {
+    kind: "progress"
+  }, visible === 0 ? /*#__PURE__*/React.createElement("p", {
+    className: "verso-chat-preparing"
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }), "Preparing review") : /*#__PURE__*/React.createElement(VersoProgress, {
+    title: "Reviewing the notification",
+    steps: initialSteps,
+    active: Math.min(visible, initialSteps.length)
+  })), visible >= 3 && /*#__PURE__*/React.createElement(VersoAssistantTurn, {
+    kind: "review"
+  }, /*#__PURE__*/React.createElement("h3", null, "Standards check"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "The notification structure is valid."), /*#__PURE__*/React.createElement("li", null, "“Successfully” adds no useful meaning."), /*#__PURE__*/React.createElement("li", null, "“Camera roll” may not travel across platforms.")), /*#__PURE__*/React.createElement("h3", null, "My take"), /*#__PURE__*/React.createElement("p", null, "The confirmation reads like a system log. Keep the result, remove the ceremony, and do not let a voice score settle the cross-platform terminology question.")), visible >= 4 && /*#__PURE__*/React.createElement(VersoUserTurn, null, "Review this revision: “Photo saved to your camera roll.”"), visible >= 5 && /*#__PURE__*/React.createElement(VersoAssistantTurn, {
+    kind: "progress"
+  }, /*#__PURE__*/React.createElement(VersoProgress, {
+    title: "Rechecking the revision",
+    steps: revisionSteps,
+    active: Math.min(visible - 4, revisionSteps.length)
+  })), visible >= 6 && /*#__PURE__*/React.createElement(VersoAssistantTurn, {
+    kind: "note"
+  }, /*#__PURE__*/React.createElement("strong", null, "The comparison is unstable here"), /*#__PURE__*/React.createElement("p", null, "A six-word sample makes several voice dimensions swing too far. Treat that as a short-string artifact, not evidence that the revision got worse.")), visible >= VERSO_LAST_PHASE && /*#__PURE__*/React.createElement(VersoAssistantTurn, {
+    kind: "recommendation"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "verso-chat-status"
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }, "✓"), " Recommended"), /*#__PURE__*/React.createElement("p", {
+    className: "verso-chat-recommendation"
+  }, "Photo saved"), /*#__PURE__*/React.createElement("p", null, "The metric informed the review. Product context shaped the recommendation."))), /*#__PURE__*/React.createElement("footer", {
+    className: "verso-chat-composer"
+  }, /*#__PURE__*/React.createElement("span", null, reduced ? "Static reconstruction" : visible >= VERSO_LAST_PHASE ? "Review complete" : "Verso is working"), !reduced && /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: replay,
+    "aria-label": "Replay the Verso review"
+  }, "Replay"))), /*#__PURE__*/React.createElement("figcaption", null, "Public reconstruction. The interaction pattern is true to Verso; the example and outputs are synthetic."));
+}
+function VersoSection({
+  id,
+  label,
+  title,
+  children,
+  first = false,
+  wide = false
+}) {
+  return /*#__PURE__*/React.createElement("section", {
+    id: id,
+    "data-ds": "verso-story-section",
+    "data-tone": "dark",
+    "data-first": first ? "true" : undefined
+  }, /*#__PURE__*/React.createElement("div", {
+    className: wide ? "verso-story-section__inner verso-story-section__inner--wide" : "verso-story-section__inner"
+  }, label && /*#__PURE__*/React.createElement("p", {
+    className: "verso-story-section__label"
+  }, label), title && /*#__PURE__*/React.createElement("h2", null, title), /*#__PURE__*/React.createElement("div", {
+    className: "verso-story-section__body"
+  }, children)));
 }
 function VersoDocument({
   project,
   onNext,
   nextProject,
+  nextHref,
   onNavigate,
-  scrollRef
+  routeHref,
+  contactHref,
+  resumeHref
 }) {
-  const open = id => () => onNavigate && onNavigate(id);
+  const open = id => event => onNavigate && onNavigate(id, event);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
+    "data-ds": "verso-stage",
     style: {
-      minHeight: "min(660px, calc(100svh - 84px))",
+      minHeight: "min(720px, calc(100svh - 64px))",
       display: "flex"
     }
   }, /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
@@ -449,20 +740,7 @@ function VersoDocument({
   }, /*#__PURE__*/React.createElement(Outcome, {
     label: project.outcomeLabel,
     items: project.results
-  })), /*#__PURE__*/React.createElement(VersoHero, {
-    draft: REWRITE.before,
-    thinkingLabel: "Checks",
-    thinking: HERO_THINKING,
-    reading: {
-      verdict: "Two dimensions outside the applicable range.",
-      dimensions: MEASURED_DIMS
-    },
-    rewrite: {
-      after: REWRITE.after,
-      deltas: REWRITE.deltas
-    },
-    selfLint: HERO_SELF_LINT
-  })), /*#__PURE__*/React.createElement(Beat, {
+  })), /*#__PURE__*/React.createElement(VersoChatHero, null)), /*#__PURE__*/React.createElement(VersoSection, {
     id: "overview",
     first: true
   }, /*#__PURE__*/React.createElement(CaseMeta, {
@@ -470,93 +748,111 @@ function VersoDocument({
     team: project.team,
     timeline: project.timeline,
     surface: project.surface
-  })), /*#__PURE__*/React.createElement(Beat, {
-    id: "condition",
-    title: "Content design was being asked to get on the loop, with no way to check what “on standard” meant."
+  })), /*#__PURE__*/React.createElement(VersoSection, {
+    id: "scope",
+    label: "What it did",
+    title: "Verso worked across the content-design workflow.",
+    wide: true
+  }, /*#__PURE__*/React.createElement("p", null, "Its entry point was conversational. The work behind each answer could be generative, analytical, procedural, or all three."), /*#__PURE__*/React.createElement("div", {
+    className: "verso-request-grid"
+  }, VERSO_REQUESTS.map(request => /*#__PURE__*/React.createElement("p", {
+    key: request
+  }, "“", request, "”")))), /*#__PURE__*/React.createElement(VersoSection, {
+    id: "problem",
+    label: "Why it existed",
+    title: "General-purpose AI did not have the product context a content designer needed.",
+    wide: true
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "verso-split"
   }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "AI was moving faster than the org around it. Every week another content designer had built their own agent, the kind you'd hear about secondhand: “I made one that does this.” Every one of those agents was a prompt file shaped like software, and a prompt file shaped like software fails like software eventually. It just fails quietly, with nothing built in to say so."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Central content design was asking the harder question underneath all of it. If we stop reviewing every draft an agent writes and trust it to write on its own, on the loop instead of in it, how do we know the writing is any good? Guidance said things like “be concise” and “sound genuine.” Both are true, and both are useless to a writer, because they describe what a reader feels, not what a writer does to produce that feeling.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "question",
-    title: "Every claim is routed to the strongest computation it can honestly support."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Voice and tone are not directly measurable properties of copy. They are reader interpretations produced by measurable patterns in language, context, and relationship. Verso measured eleven of those observable patterns and let an agent compare a draft to an adopted target for its context. That did not turn “warm” into a number. It made the evidence under the metaphor inspectable — and, once a target existed, difficult to ignore accidentally."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "A yes-or-no rule, like never say “click” or keep sentence case always, was solved by a regular expression decades ago. What was left, once all of that was pulled out, was smaller than anyone expected. It was almost all voice and tone. So I went looking for research on how language itself could be measured instead of just described: how formal a sentence reads, how direct it is, its rhythm, its density.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "built",
-    title: "What I built ended up being three things that only work together."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "The agent is Verso. It drafts, and then it checks its own draft before a person ever sees it, the same way a build fails before it ships instead of after."), /*#__PURE__*/React.createElement(Door, {
-    onOpen: open("verso/agent")
-  }, "How the agent worked"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "22px 0 0"
-    }
-  }, "Underneath it is the engine: eleven dimensions of language, each one sitting on published research, run as deterministic code rather than another model's opinion. It reads a draft against a target and hands back a reading: whether the draft sits in band, and if not, by how much."), /*#__PURE__*/React.createElement(Door, {
-    onOpen: open("verso/engine")
-  }, "How the reading worked"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "22px 0 0"
-    }
-  }, "And underneath that is the index. I consolidated everything guidance had scattered across wikis, chat threads, spreadsheets and posts, ran a taxonomy over the pile, and categorized every rule by whether a machine could check it. What survived the sort became records a tool could route: versioned, owned, scoped to a surface and marked as a blocker or an advisory."), /*#__PURE__*/React.createElement(Door, {
-    onOpen: open("verso/index")
-  }, "What the index held")), /*#__PURE__*/React.createElement(Beat, {
-    id: "proof",
-    title: "I built it alone. It spread before I asked anyone to use it."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "I built all of it myself, over about six months: the agent, the engine, the taxonomy underneath it and the index. It ran on Meta's internal infrastructure, and once central content design was ready to take it on formally, I handed it to them."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "By the time central content design took it over, it had reached nearly sixty content designers across the company, and the agent had logged more than 500 conversations testing and refining what it should say. With central, it went from live on one product area to running company-wide in about six months, on word of mouth, before the partnership was even formal."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "I was laid off in the middle of finishing that handoff. Central kept running it anyway. It's still in use.")), /*#__PURE__*/React.createElement("div", {
-    id: "next",
-    "data-ds": "case-next",
-    style: {
-      minHeight: 190,
-      scrollMarginTop: 56,
-      display: "flex",
-      justifyContent: "space-between",
-      gap: 24,
-      alignItems: "center",
-      padding: "0 var(--gutter)",
-      background: "var(--paper)",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "Next project"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "10px 0 0",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: "var(--display-s-weight)",
-      letterSpacing: "var(--display-s-tracking)"
-    }
-  }, nextProject.title)), /*#__PURE__*/React.createElement(StageAction, {
+    className: "verso-lead"
+  }, "At Meta, even a short string could depend on its channel, component, accessibility rules, approved terms, product voice, policy, and decision owner."), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, "Without that context, generated copy could violate a channel rule, use an unapproved term, miss the established voice, overstate what the product could do, or make a decision that belonged to another team."), /*#__PURE__*/React.createElement("p", null, "Verso assembled the context before it wrote or reviewed the copy.")))), /*#__PURE__*/React.createElement(VersoSection, {
+    id: "loop",
+    label: "How it behaved",
+    title: "Verso organized its work as a decision loop.",
+    wide: true
+  }, /*#__PURE__*/React.createElement("ol", {
+    className: "verso-loop"
+  }, DECISION_LOOP.map((step, index) => /*#__PURE__*/React.createElement("li", {
+    key: step.title
+  }, /*#__PURE__*/React.createElement("span", null, String(index + 1).padStart(2, "0")), /*#__PURE__*/React.createElement("h3", null, step.title), /*#__PURE__*/React.createElement("p", null, step.body)))), /*#__PURE__*/React.createElement("p", {
+    className: "verso-section-conclusion"
+  }, "The output was a decision a designer could inspect, challenge, revise, and continue working with.")), /*#__PURE__*/React.createElement(VersoSection, {
+    id: "evidence",
+    label: "How it judged",
+    title: "Different kinds of evidence stayed different.",
+    wide: true
+  }, /*#__PURE__*/React.createElement("p", null, "Verso did not turn every signal into a score or every source into policy. It labeled what each claim could support and where its authority stopped."), /*#__PURE__*/React.createElement("div", {
+    className: "verso-evidence-grid"
+  }, EVIDENCE_LAYERS.map(layer => /*#__PURE__*/React.createElement("article", {
+    key: layer.label
+  }, /*#__PURE__*/React.createElement("p", null, layer.label), /*#__PURE__*/React.createElement("h3", null, layer.kind), /*#__PURE__*/React.createElement("span", null, layer.body))))), /*#__PURE__*/React.createElement(VersoSection, {
+    id: "range",
+    label: "Range in practice",
+    title: "The same loop handled writing, batch reviews, and requests that needed a human process.",
+    wide: true
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "verso-range-list"
+  }, RANGE_EXAMPLES.map(example => /*#__PURE__*/React.createElement("article", {
+    key: example.request
+  }, /*#__PURE__*/React.createElement("h3", null, "“", example.request, "”"), /*#__PURE__*/React.createElement("p", null, example.response))))), /*#__PURE__*/React.createElement(VersoSection, {
+    id: "system",
+    label: "How it worked",
+    title: "Agent, Engine, and Content Index formed one product.",
+    wide: true
+  }, /*#__PURE__*/React.createElement("ol", {
+    "data-ds": "case-process",
+    className: "verso-system-list"
+  }, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("span", null, "01"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, "Agent"), /*#__PURE__*/React.createElement("p", null, "Understood the request, kept conversational context, selected the relevant tools, and explained the recommendation."), /*#__PURE__*/React.createElement(StageAction, {
     accent: "signal",
-    onClick: onNext
-  }, nextProject.statement)));
+    href: routeHref && routeHref("verso/agent"),
+    onClick: open("verso/agent")
+  }, "How the agent worked"))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("span", null, "02"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, "Engine"), /*#__PURE__*/React.createElement("p", null, "Ran deterministic checks, computed eleven observable language dimensions, and reported when a comparison became unstable."), /*#__PURE__*/React.createElement(StageAction, {
+    accent: "signal",
+    href: routeHref && routeHref("verso/engine"),
+    onClick: open("verso/engine")
+  }, "How the reading worked"))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("span", null, "03"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, "Content Index"), /*#__PURE__*/React.createElement("p", null, "Retrieved adopted guidance, terminology, ownership, and scope while keeping policy separate from patterns observed in shipped language."), /*#__PURE__*/React.createElement(StageAction, {
+    accent: "signal",
+    href: routeHref && routeHref("verso/index"),
+    onClick: open("verso/index")
+  }, "What the index held"))))), /*#__PURE__*/React.createElement(VersoSection, {
+    id: "build",
+    label: "What I built",
+    title: "I built Meta's first content-design agent to enforce standards deterministically.",
+    wide: true
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "verso-build-grid"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("strong", null, "1"), /*#__PURE__*/React.createElement("span", null, "creator"), /*#__PURE__*/React.createElement("p", null, "Content strategy, interaction design, applied linguistics, agent orchestration, and software development were one product problem.")), /*#__PURE__*/React.createElement("ul", null, BUILD_WORK.map(item => /*#__PURE__*/React.createElement("li", {
+    key: item
+  }, item))))), /*#__PURE__*/React.createElement(VersoSection, {
+    id: "impact",
+    label: "What happened",
+    title: "Designers passed Verso to one another before there was a formal rollout.",
+    wide: true
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "verso-impact-grid"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("strong", null, "Nearly 60"), /*#__PURE__*/React.createElement("span", null, "content designers")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("strong", null, "500+"), /*#__PURE__*/React.createElement("span", null, "agent conversations")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("strong", null, "5"), /*#__PURE__*/React.createElement("span", null, "product surfaces fingerprinted"))), /*#__PURE__*/React.createElement("p", {
+    className: "verso-section-conclusion"
+  }, "Central content design took ownership and kept the system running after the handoff."), /*#__PURE__*/React.createElement(ProvenanceNote, null, "Rounded, owner-reported internal usage at handoff. No internal product strings, systems, or guidance are shown.")), /*#__PURE__*/React.createElement(VersoSection, {
+    id: "close",
+    label: "What the work demonstrates now",
+    title: "I design AI systems that make language decisions inspectable.",
+    wide: true
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "verso-split"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "verso-lead"
+  }, "Building Verso required the content model, evidence boundaries, agent interaction, evaluation logic, and implementation to work as one product."), /*#__PURE__*/React.createElement("p", null, "I built the system and designed how content designers worked with its evidence. The goal was not to automate judgment. It was to make the judgment easier to inspect, improve, and own."))), /*#__PURE__*/React.createElement(CaseEnding, {
+    nextTitle: nextProject.title,
+    nextHref: nextHref,
+    onNext: onNext,
+    contactHref: contactHref,
+    resumeHref: resumeHref,
+    onResume: open("resume"),
+    evidenceLabel: "Agent",
+    evidenceHref: routeHref && routeHref("verso/agent"),
+    onEvidence: open("verso/agent")
+  }));
 }
 Object.assign(window, {
   VersoDocument
@@ -715,6 +1011,7 @@ function SubHeader({
   eyebrow,
   title,
   purpose,
+  backHref,
   onBack
 }) {
   return /*#__PURE__*/React.createElement("header", {
@@ -735,6 +1032,7 @@ function SubHeader({
     }
   }, /*#__PURE__*/React.createElement(StageAction, {
     accent: "stage",
+    href: backHref,
     reverse: true,
     onClick: onBack,
     style: {
@@ -801,6 +1099,8 @@ function Beat({
   }, children)));
 }
 function SubDoors({
+  backHref,
+  forwardHref,
   onBack,
   onForward,
   forwardLabel
@@ -820,6 +1120,7 @@ function SubDoors({
     }
   }, /*#__PURE__*/React.createElement(StageAction, {
     accent: "ink",
+    href: backHref,
     reverse: true,
     onClick: onBack,
     style: {
@@ -827,6 +1128,7 @@ function SubDoors({
     }
   }, "Back to the story"), /*#__PURE__*/React.createElement(StageAction, {
     accent: "signal",
+    href: forwardHref,
     onClick: onForward,
     style: {
       padding: "12px 0 14px"
@@ -841,14 +1143,16 @@ function SubDoors({
 function VersoAgentDocument({
   project,
   onNavigate,
+  routeHref,
   scrollRef
 }) {
-  const toStory = () => onNavigate && onNavigate("verso");
-  const toEngine = () => onNavigate && onNavigate("verso/engine");
+  const toStory = event => onNavigate && onNavigate("verso", event);
+  const toEngine = event => onNavigate && onNavigate("verso/engine", event);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SubHeader, {
     eyebrow: "Verso",
     title: "Agent",
     purpose: "What happened between a writing brief and the draft Verso returned: generate the text, measure that exact string, then check any revision.",
+    backHref: routeHref && routeHref("verso"),
     onBack: toStory
   }), /*#__PURE__*/React.createElement(Beat, {
     id: "draft",
@@ -901,6 +1205,8 @@ function VersoAgentDocument({
       margin: 0
     }
   }, "Some questions remained open after the checks ran. A person still had to decide whether the copy fit the situation, and a claimed effect on readers still required research with readers. When neither evidence nor an adopted decision settled the question, the honest result was unresolved.")), /*#__PURE__*/React.createElement(SubDoors, {
+    backHref: routeHref && routeHref("verso"),
+    forwardHref: routeHref && routeHref("verso/engine"),
     onBack: toStory,
     onForward: toEngine,
     forwardLabel: "See how Engine bounded each claim"
@@ -914,14 +1220,16 @@ function VersoAgentDocument({
 function VersoEngineDocument({
   project,
   onNavigate,
+  routeHref,
   scrollRef
 }) {
-  const toStory = () => onNavigate && onNavigate("verso");
-  const toIndex = () => onNavigate && onNavigate("verso/index");
+  const toStory = event => onNavigate && onNavigate("verso", event);
+  const toIndex = event => onNavigate && onNavigate("verso/index", event);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SubHeader, {
     eyebrow: "Verso",
     title: "Engine",
     purpose: "What the Engine could establish about an exact string, which method supported the finding, and where the claim had to stop.",
+    backHref: routeHref && routeHref("verso"),
     onBack: toStory
   }), /*#__PURE__*/React.createElement(Beat, {
     id: "object",
@@ -976,6 +1284,8 @@ function VersoEngineDocument({
       margin: 0
     }
   }, "The observed range is descriptive evidence. It becomes a target only after an authorized owner adopts it for a stated scope. The Index carries that decision.")), /*#__PURE__*/React.createElement(SubDoors, {
+    backHref: routeHref && routeHref("verso"),
+    forwardHref: routeHref && routeHref("verso/index"),
     onBack: toStory,
     onForward: toIndex,
     forwardLabel: "See where policy lived in Index"
@@ -989,14 +1299,16 @@ function VersoEngineDocument({
 function VersoIndexDocument({
   project,
   onNavigate,
+  routeHref,
   scrollRef
 }) {
-  const toStory = () => onNavigate && onNavigate("verso");
-  const toAgent = () => onNavigate && onNavigate("verso/agent");
+  const toStory = event => onNavigate && onNavigate("verso", event);
+  const toAgent = event => onNavigate && onNavigate("verso/agent", event);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SubHeader, {
     eyebrow: "Verso",
     title: "Index",
     purpose: "How scattered content guidance and shipped-language evidence became records an agent could use without inventing the policy.",
+    backHref: routeHref && routeHref("verso"),
     onBack: toStory
   }), /*#__PURE__*/React.createElement(Beat, {
     id: "definition",
@@ -1051,6 +1363,8 @@ function VersoIndexDocument({
       margin: 0
     }
   }, "I created context-specific profiles for five Meta surfaces and stored them with the consolidated guidance the agent needed. The private records stay private. What I can show here is the separation that made the system governable: evidence describes, people adopt policy, code applies the adopted decision, and the agent works inside those boundaries.")), /*#__PURE__*/React.createElement(SubDoors, {
+    backHref: routeHref && routeHref("verso"),
+    forwardHref: routeHref && routeHref("verso/agent"),
     onBack: toStory,
     onForward: toAgent,
     forwardLabel: "Follow the loop again in Agent"
@@ -1069,34 +1383,17 @@ const {
   Stage,
   StageCopy,
   Outcome,
-  StageAction,
   RegistrationMark,
   ArtifactFigure,
   CaptureFigure,
-  Eyebrow,
-  CaseMeta
+  CaseMeta,
+  CaseEnding
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
 
-/* Converted to the Horizon grammar (screen-horizon.jsx, "THE model"): one ink ground straight
-   through the scroll, story-sized beats with reading-size headers, article-set evidence floating
-   as light panels, one pine punctuation moment, a reflective close. Cut entirely: ChapterNav and
-   its jump()/glide scroll machinery (dead now that there is no chapter nav to jump to), FactsPanel
-   (replaced by CaseMeta), GateRun, Ledger, Pipeline, PullQuote, and ProvenanceNote — all either
-   render a mono micro-label or a fixed size the "Three text sizes" law (CLAUDE.md, 2026-07-26)
-   doesn't leave room for inside a case scroll. The three measured results move from a labelled
-   Ledger into a single prose sentence instead, which is truer to how the résumé bullet states them
-   anyway.
-
-   Six beats: the before (the fourteen-plus-lesson syllabus that stood between a new person and
-   anyone else), the reframe (a curriculum was never going to be the right shape — education had to
-   become a property of the product), the decisions (teaching on the control that needs it,
-   reinforcing on a state change), the results (the three real lifts, in prose), adoption (the Meta
-   Quest onboarding team picked up the strategy afterward), and a reflective close that folds in the
-   ownership boundary. Two artifacts survive, one per beat: a legacy vr-before-training.webp screen
-   standing in for the syllabus in "the before," and the shipped controller-nudge.mp4 capture in
-   "decisions" — both already in assets/work. The one pine interlude reuses Horizon's own
-   quote-plate markup verbatim for the line that already carried the whole strategy: "Stop teaching
-   everything once. Teach one action, in the moment it matters." */
+/* Revised 2026-08-27 around an explicit STAR reading spine. The case now has four beats only:
+   Situation, Task, Action, Result. Paragraphs support that structure instead of carrying it alone;
+   the Action beat exposes the actual decision sequence as ruled steps. Existing claims, evidence,
+   ownership boundaries, and the two source-safe artifacts are preserved. */
 
 const SECTION_PAD_FIRST = "clamp(40px,6vh,64px) var(--gutter) 0";
 const SECTION_PAD = "0 var(--gutter) clamp(56px,8vh,96px)";
@@ -1120,41 +1417,55 @@ const proseCol = {
   lineHeight: "var(--prose-leading)",
   letterSpacing: "var(--prose-tracking)"
 };
-function Beat({
-  id,
-  first,
-  title,
-  children
+const phaseLabel = {
+  margin: "0 0 10px",
+  color: "var(--signal)",
+  fontFamily: "var(--font-sans)",
+  fontSize: "var(--prose-size)",
+  fontWeight: 700,
+  lineHeight: 1.2
+};
+const Beat = window.StarBeat;
+const StarGuide = window.StarGuide;
+const useStarMotion = window.useStarMotion;
+function ProcessList({
+  steps
 }) {
-  return /*#__PURE__*/React.createElement("section", {
-    "data-tone": "dark",
+  return /*#__PURE__*/React.createElement("ol", {
+    "data-ds": "case-process",
     style: {
-      background: "var(--story-bg)",
-      color: "var(--story-ink)",
-      padding: first ? SECTION_PAD_FIRST : SECTION_PAD
+      listStyle: "none",
+      margin: 0,
+      padding: 0,
+      borderTop: HAIRLINE
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    id: id,
+  }, steps.map((step, index) => /*#__PURE__*/React.createElement("li", {
+    key: step.title,
     style: {
-      maxWidth: 640,
-      margin: "0 auto",
-      scrollMarginTop: 56,
-      ...(first ? null : {
-        borderTop: HAIRLINE,
-        paddingTop: "clamp(40px,6vh,64px)"
-      })
+      display: "grid",
+      gridTemplateColumns: "32px minmax(0,1fr)",
+      gap: 14,
+      padding: "15px 0",
+      borderBottom: HAIRLINE
     }
-  }, title && /*#__PURE__*/React.createElement("h2", {
-    style: header
-  }, title), /*#__PURE__*/React.createElement("div", {
-    style: proseCol
-  }, children)));
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      color: "var(--signal)",
+      fontWeight: 700
+    }
+  }, index + 1), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, /*#__PURE__*/React.createElement("strong", null, step.title, "."), " ", step.body))));
 }
 function VrHeroDiorama() {
   return /*#__PURE__*/React.createElement("figure", {
-    "data-ds": "vr-diorama"
+    "data-ds": "vr-diorama",
+    "data-layout-overlap": "intentional-annotation"
   }, /*#__PURE__*/React.createElement("img", {
-    src: "assets/work/vr-onboarding-obstacle-course.png",
+    src: "/assets/work/vr-onboarding-obstacle-course.png",
     width: "1672",
     height: "941",
     alt: "Clay diorama of a required setup, recording consent, fourteen-plus lessons, and world selection opening into a social world full of people"
@@ -1178,8 +1489,13 @@ function VrDocument({
   project,
   onNext,
   nextProject,
+  nextHref,
+  onNavigate,
+  contactHref,
+  resumeHref,
   scrollRef
 }) {
+  useStarMotion(scrollRef);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
     style: {
       minHeight: 0,
@@ -1201,14 +1517,7 @@ function VrDocument({
   }, /*#__PURE__*/React.createElement(Outcome, {
     label: project.outcomeLabel,
     items: project.results
-  })), /*#__PURE__*/React.createElement("img", {
-    "data-ds": "case-cover-character",
-    "data-character": "vr",
-    src: project.character,
-    width: "1029",
-    height: "1528",
-    alt: project.characterAlt
-  }), /*#__PURE__*/React.createElement(VrHeroDiorama, null)), /*#__PURE__*/React.createElement(Beat, {
+  })), /*#__PURE__*/React.createElement(VrHeroDiorama, null)), /*#__PURE__*/React.createElement(Beat, {
     id: "overview",
     first: true
   }, /*#__PURE__*/React.createElement(CaseMeta, {
@@ -1216,33 +1525,33 @@ function VrDocument({
     team: project.team,
     timeline: project.timeline,
     surface: project.surface
+  }), /*#__PURE__*/React.createElement(StarGuide, {
+    scrollerRef: scrollRef
   })), /*#__PURE__*/React.createElement(Beat, {
-    id: "before",
-    title: "People came to be with people. The onboarding made them earn it first."
+    id: "situation",
+    phase: "Situation",
+    title: "The lesson was blocking the experience."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "Horizon Worlds is a social product: the reason someone downloads it is other people. Before a new person reached any, they had to choose a world, consent to recording, complete a syllabus of fourteen-plus lessons, and wait out ninety seconds of loading. Seventy-two percent of people never made it through to the other side. Those are the numbers the team was working from when the project started. They describe the experience being replaced, not a result."), /*#__PURE__*/React.createElement(ArtifactFigure, {
+  }, "People came to meet other people. First they had to choose a world, consent to recording, complete more than fourteen lessons, and wait through about 90 seconds of loading. The first run took roughly 15 minutes, and roughly 70% of people dropped out."), /*#__PURE__*/React.createElement(ArtifactFigure, {
     contain: true,
     style: {
       marginTop: 8
     },
-    src: "assets/work/vr-before-training.webp",
+    src: "/assets/work/vr-before-training.webp",
     alt: "A legacy Meta Horizon Worlds onboarding tutorial panel, one stop on the original lesson syllabus",
     caption: "The onboarding tutorial panel a new person had to get through before reaching anyone: one stop on the fourteen-plus-lesson syllabus this case replaces. Shown as product context, not the exact original experiment screen."
   })), /*#__PURE__*/React.createElement(Beat, {
-    id: "reframe",
-    title: "The syllabus was the problem. Not what was in it."
+    id: "task",
+    phase: "Task",
+    title: "Teach without delaying the reason people came."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "Every proposal on the table made the curriculum better: shorter, clearer, better sequenced. None of them questioned whether a curriculum was the right shape. You cannot teach somebody to be social before they have met anyone, and a person holding a controller for the first time is only looking around, not ready to learn yet."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Which meant the education could not be a place in the flow. It had to be a property of the product: attached to the input that needs it, triggered by what somebody is actually doing, silent the rest of the time. The fastest onboarding is the one a person never notices they are in."), /*#__PURE__*/React.createElement("div", {
+  }, "My task was to define the education model and interaction language inside a broader product, design, research, data, and engineering effort. The experience and experiment belonged to the full team."), /*#__PURE__*/React.createElement("div", {
     "data-tone": "stage",
     style: {
       background: "var(--story-bg)",
@@ -1257,72 +1566,42 @@ function VrDocument({
       textAlign: "center"
     }
   }, "Stop teaching everything once. Teach one action, in the moment it matters."))), /*#__PURE__*/React.createElement(Beat, {
-    id: "decisions",
-    title: "The lesson lives on the control that performs it."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "When somebody tried to talk while muted, the answer arrived on the thing already in their hand rather than in a panel that took the world away to explain the world. Repetition was earned by something happening, never by a timer: when somebody's state changed, that was the one moment the explanation was worth their attention, so the second touch on a skill triggered off that change rather than a schedule."), /*#__PURE__*/React.createElement(CaptureFigure, {
+    id: "action",
+    phase: "Action",
+    title: "Replace the syllabus with behavior-triggered education."
+  }, /*#__PURE__*/React.createElement(ProcessList, {
+    steps: [{
+      title: "Reject the syllabus as the model",
+      body: "A front-loaded lesson could not answer a need that had not happened yet. I shifted the model from teaching every control in advance to teaching one action when it became useful."
+    }, {
+      title: "Let behavior earn the explanation",
+      body: "When someone tried to talk while muted, a controller nudge showed the input they needed. The behavior triggered the education, not a timer, and the guidance did not block the world."
+    }, {
+      title: "Make the pattern reusable",
+      body: "The pattern stayed consistent: behavior exposes a need, the explanation attaches to the relevant input, and the person can act immediately. It worked across entry, play, and transitions without replaying a curriculum."
+    }]
+  }), /*#__PURE__*/React.createElement(CaptureFigure, {
     style: {
       marginTop: 8
     },
-    src: "assets/work/vr/controller-nudge.mp4",
+    src: "/assets/work/vr/controller-nudge.mp4",
     caption: "In-headset capture of the shipped nudge. I wrote the string; the interaction was built with the product designer and engineering."
-  }), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "I led the content design and education strategy. Product, interaction and visual design, engineering, research, data, and the partner teams each owned parts of the experience and the experiment. The overhaul belonged to all of us; the just-in-time education model and interaction language were my contribution.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "results",
-    title: "It moved the three numbers that mattered."
+  })), /*#__PURE__*/React.createElement(Beat, {
+    id: "result",
+    phase: "Result",
+    title: "Completion, use, and retention all moved."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "Measured against the curriculum it replaced: onboarding completion rose 29%, weekly active use rose 20%, and new-user retention rose 7%. All three moved in the direction the just-in-time model predicted: a first run people could actually finish and want to come back to.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "adoption",
-    title: "The Meta Quest onboarding team picked up the strategy afterward."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "The just-in-time model didn't stay scoped to this one first run. It was adopted by the team that owns onboarding across Meta Quest more broadly. That's the kind of proof a strategy actually worked: the next team building a first run reached for the same principle instead of a syllabus.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "close",
-    title: "None of it taught someone to have fun. It got out of the way long enough for them to find it."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Explanations that only show up when something in someone's hand changes are easy to miss. That was the goal, on purpose. A person who finishes onboarding without remembering being taught anything is the version of this that worked.")), /*#__PURE__*/React.createElement("div", {
-    id: "next",
-    "data-ds": "case-next",
-    style: {
-      minHeight: 190,
-      scrollMarginTop: 56,
-      display: "flex",
-      justifyContent: "space-between",
-      gap: 24,
-      alignItems: "center",
-      padding: "0 var(--gutter)",
-      background: "var(--paper)",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "Next project"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "10px 0 0",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: "var(--display-s-weight)",
-      letterSpacing: "var(--display-s-tracking)"
-    }
-  }, nextProject.title)), /*#__PURE__*/React.createElement(StageAction, {
-    accent: "signal",
-    onClick: onNext
-  }, nextProject.statement)));
+  }, "Onboarding completion improved by nearly 30%. Weekly active use improved by about 20%. New-user retention improved by roughly 7%. These were project outcomes, not copy-only attribution. My contribution was the shift to just-in-time education and the interaction language that made the model usable.")), /*#__PURE__*/React.createElement(CaseEnding, {
+    nextTitle: nextProject.title,
+    nextHref: nextHref,
+    onNext: onNext,
+    contactHref: contactHref,
+    resumeHref: resumeHref,
+    onResume: event => onNavigate && onNavigate("resume", event)
+  }));
 }
 Object.assign(window, {
   VrDocument
@@ -1335,36 +1614,16 @@ const {
   Stage,
   StageCopy,
   Outcome,
-  StageAction,
   RegistrationMark,
   ArtifactFigure,
-  Eyebrow,
-  CaseMeta
+  CaseMeta,
+  CaseEnding
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
 
-/* Converted to the Horizon grammar (screen-horizon.jsx, "THE model"): one ink ground straight
-   through the scroll, story-sized beats with reading-size headers, article-set evidence floating
-   as light panels, one pine punctuation moment, a reflective close that loops back to the cover's
-   claim without repeating it verbatim. Cut entirely: ChapterNav and its jump()/glide scroll
-   machinery, FactsPanel (replaced by CaseMeta), CardGrid/GridCard, DataTable, Pipeline, Ledger,
-   PullQuote, and ProvenanceNote — all either render a mono micro-label or a fixed size the "Three
-   text sizes" law (CLAUDE.md, 2026-07-26) doesn't leave room for inside a case scroll. The distance
-   model (far / mid / close, what shows at each) is told in prose rather than as a DataTable for the
-   same reason; it was the one place a table felt tempting, and prose does the job without a fourth
-   register. The one pine interlude reuses Horizon's own quote-plate markup verbatim (a data-tone
-   "stage" card sized to the beat header) for the line Caleb named as the fight he's proudest of.
-
-   Six beats: the operating condition (people stepped through before they had the information to
-   choose), the reframe (counting decisions instead of entries), the decisions (proximity as the
-   information architecture, the metadata framework, the pushback), the keynote (Meta Connect 2024 —
-   per the refined name rule, naming Zuckerberg is now allowed since the name carries the claim),
-   the boundary (the physical/spatial layer belonged to a different discipline, role-credited), and
-   a reflective close. The public Meta Connect footage now leads as the cover proof; the shipped
-   card stays with the proximity decision it demonstrates. Several open questions from
-   reference/intake-portals-2026-07-25.md (the reframe's
-   originating moment, an earlier rejected fix, who argued against the distance model and what
-   changed their mind, a sayable engagement number, the precise name of the boundary discipline)
-   are marked inline as INTAKE GAP comments rather than guessed at. */
+/* Revised 2026-08-27 around an explicit STAR reading spine. The case now has four beats only:
+   Situation, Task, Action, Result. The proximity model is exposed as a numbered decision sequence
+   instead of being buried in prose. Existing public proof, contribution boundaries, unresolved
+   intake gaps, and the shipped artifact remain intact. */
 
 const SECTION_PAD_FIRST = "clamp(40px,6vh,64px) var(--gutter) 0";
 const SECTION_PAD = "0 var(--gutter) clamp(56px,8vh,96px)";
@@ -1388,35 +1647,48 @@ const proseCol = {
   lineHeight: "var(--prose-leading)",
   letterSpacing: "var(--prose-tracking)"
 };
-function Beat({
-  id,
-  first,
-  title,
-  children
+const phaseLabel = {
+  margin: "0 0 10px",
+  color: "var(--signal)",
+  fontFamily: "var(--font-sans)",
+  fontSize: "var(--prose-size)",
+  fontWeight: 700,
+  lineHeight: 1.2
+};
+const Beat = window.StarBeat;
+const StarGuide = window.StarGuide;
+const useStarMotion = window.useStarMotion;
+function ProcessList({
+  steps
 }) {
-  return /*#__PURE__*/React.createElement("section", {
-    "data-tone": "dark",
+  return /*#__PURE__*/React.createElement("ol", {
+    "data-ds": "case-process",
     style: {
-      background: "var(--story-bg)",
-      color: "var(--story-ink)",
-      padding: first ? SECTION_PAD_FIRST : SECTION_PAD
+      listStyle: "none",
+      margin: 0,
+      padding: 0,
+      borderTop: HAIRLINE
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    id: id,
+  }, steps.map((step, index) => /*#__PURE__*/React.createElement("li", {
+    key: step.title,
     style: {
-      maxWidth: 640,
-      margin: "0 auto",
-      scrollMarginTop: 56,
-      ...(first ? null : {
-        borderTop: HAIRLINE,
-        paddingTop: "clamp(40px,6vh,64px)"
-      })
+      display: "grid",
+      gridTemplateColumns: "32px minmax(0,1fr)",
+      gap: 14,
+      padding: "15px 0",
+      borderBottom: HAIRLINE
     }
-  }, title && /*#__PURE__*/React.createElement("h2", {
-    style: header
-  }, title), /*#__PURE__*/React.createElement("div", {
-    style: proseCol
-  }, children)));
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      color: "var(--signal)",
+      fontWeight: 700
+    }
+  }, index + 1), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, /*#__PURE__*/React.createElement("strong", null, step.title, "."), " ", step.body))));
 }
 function PortalsHeroMedia({
   project
@@ -1430,6 +1702,7 @@ function PortalsHeroMedia({
     if (video.paused) video.play().catch(() => setPlaying(false));else video.pause();
   };
   return /*#__PURE__*/React.createElement("figure", {
+    "data-ds": "portals-hero-media",
     style: {
       position: "relative",
       zIndex: 2,
@@ -1497,8 +1770,13 @@ function PortalsDocument({
   project,
   onNext,
   nextProject,
+  nextHref,
+  onNavigate,
+  contactHref,
+  resumeHref,
   scrollRef
 }) {
+  useStarMotion(scrollRef);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
     style: {
       minHeight: 0,
@@ -1522,14 +1800,7 @@ function PortalsDocument({
     items: project.results
   }) : /*#__PURE__*/React.createElement(Outcome, {
     label: project.outcomeLabel
-  }, project.outcomeProse)), /*#__PURE__*/React.createElement("img", {
-    "data-ds": "case-cover-character",
-    "data-character": "portals",
-    src: project.character,
-    width: "1024",
-    height: "1536",
-    alt: project.characterAlt
-  }), /*#__PURE__*/React.createElement(PortalsHeroMedia, {
+  }, project.outcomeProse)), /*#__PURE__*/React.createElement(PortalsHeroMedia, {
     project: project
   })), /*#__PURE__*/React.createElement(Beat, {
     id: "overview",
@@ -1539,40 +1810,43 @@ function PortalsDocument({
     team: project.team,
     timeline: project.timeline,
     surface: project.surface
+  }), /*#__PURE__*/React.createElement(StarGuide, {
+    scrollerRef: scrollRef
   })), /*#__PURE__*/React.createElement(Beat, {
-    id: "condition",
-    title: "People stepped through a portal before they had enough information to choose."
+    id: "situation",
+    phase: "Situation",
+    title: "The decision happened after the commitment."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "In Horizon, a portal is how you cross from one world into another: a floating oval that works like a doorway. Step through, and you're somewhere else. What waited on the other side stayed a mystery until you were already standing in it. The name was clipped to a few characters, with no genre and no way to tell who else was around."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "The obvious fix assumes a 2D content pattern in a space that isn't 2D: bolt on a description field or a screenshot carousel. There's no scroll and no fixed reading distance in a room. A paragraph that reads fine up close is noise from across it, and people approach on foot or by pointing, not by tapping a menu.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "reframe",
-    title: "The team was counting entries. I proposed counting decisions."
+  }, "A portal showed a glowing threshold and a truncated title, but almost nothing about the destination, who was there, or what would happen inside. The old sequence was enter, arrive, then evaluate. Even an immediate exit counted as a successful entry.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "task",
+    phase: "Task",
+    title: "Design the information model for a physical threshold."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "Portal entries were the tracked success metric, which rewarded exactly the pattern causing the problem: an uninformed arrival counted as a win even when the person looked around and left immediately. I proposed measuring state of intent instead: whether someone could reach a confident yes or a confident no before they ever stepped through."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Under the old frame, a confident pass read exactly like a failure: either way, the person never went in. Under the new one, a pass is proof the system is doing its job. Nobody wasted a trip, and nobody had to gamble on a world they knew nothing about.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "decisions",
-    title: "Proximity became the information architecture."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "On a phone, depth is free: tuck anything behind a tap or a drawer, and the reader decides when to go looking for it. A body standing in a room doesn't have that option. There's no menu to defer to, so the only variable that decides what someone sees is how close they've chosen to walk. From six meters or more, a portal showed a title and nothing else: enough to register that something was there, not enough to weigh it. Pointing at it from mid-range added the one available action, because aiming at something is already a small commitment of attention. Only once someone closed the distance did the full picture arrive. That's the moment the decision actually gets made, so it's the only one that earns the complete picture."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "UXR testing decided what filled each distance. Three signals moved someone toward a confident decision: who the world is, who's already in it, and what you can do about it. None of them are stored as one fixed sentence. Each is structured data, so a translated label can run to a different length without touching the object it describes. The metadata framework that came out of this became the reference other travel surfaces across the company drew from as they built the same kind of decision into their own designs."), /*#__PURE__*/React.createElement(ArtifactFigure, {
+  }, "A different discipline owned the portal's physical scale and pointing behavior. I owned what appeared, when it appeared, and what each distance needed to help someone reach a confident yes or no. I led that content work with product, engineering, research, and design.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "action",
+    phase: "Action",
+    title: "Turn proximity into a decision system."
+  }, /*#__PURE__*/React.createElement(ProcessList, {
+    steps: [{
+      title: "Reject raw entries as success",
+      body: "I reframed success as state of intent: could someone make a confident choice before crossing? The new sequence became see, evaluate, then go or pass. A confident pass meant the system had worked."
+    }, {
+      title: "Reject both maximum information and total mystery",
+      body: "At a distance, the portal showed identity. Pointing earned the available action. Approaching revealed the complete decision context. Each distance answered the next question without filling the room with text."
+    }, {
+      title: "Let evidence choose the signals",
+      body: "Research tested genre and social context separately. Genre gave people a fast intent match, while a recognizable friend was more useful than an anonymous count. A fixed taxonomy and structured fields kept the model usable across locales."
+    }, {
+      title: "Keep a lower-commitment path",
+      body: "I defended View Details when partners saw it as friction. It gave someone who was interested but uncertain a way to resolve the last question without forcing a leap or a retreat."
+    }]
+  }), /*#__PURE__*/React.createElement(ArtifactFigure, {
     contain: true,
     style: {
       marginTop: 8
@@ -1584,78 +1858,22 @@ function PortalsDocument({
     style: {
       margin: 0
     }
-  }, "Not everyone agreed. The two objections I heard most: that surfacing all of this would decrease portal entries, and that portals should stay mysterious. Fewer blind entries and better ones aren't the same number. A pass that saves someone's time is a win under the new frame, not a loss on the entry count. And the mystery was never what pulled people in; it was the reason they left the moment they arrived somewhere they hadn't chosen. The piece I fought hardest to keep was “View Details,” the second action for the person one beat away from committing who wanted a last look first."), /*#__PURE__*/React.createElement("div", {
-    "data-tone": "stage",
-    style: {
-      background: "var(--story-bg)",
-      color: "var(--story-ink)",
-      margin: "clamp(8px,1vw,14px) 0",
-      padding: "clamp(30px,4vw,40px) clamp(22px,3vw,32px)",
-      textAlign: "center"
-    }
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      ...header,
-      textAlign: "center"
-    }
-  }, "It isn't friction. It's the only thing standing between a guess and an actual yes."))), /*#__PURE__*/React.createElement(Beat, {
-    id: "keynote",
-    title: "It went on stage at Meta Connect 2024."
+  }, "I built the decision model and presentation, ran separate tests on genre and social context with research, and presented the work to leadership. The state-of-intent frame secured alignment because it distinguished informed decisions from raw throughput.")), /*#__PURE__*/React.createElement(Beat, {
+    id: "result",
+    phase: "Result",
+    title: "The model shipped, then traveled."
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0
     }
-  }, "The portal this case describes was unveiled by Mark Zuckerberg at the Meta Connect 2024 keynote, live in front of the audience watching the future of Horizon get introduced. It shipped, portal engagement and retention both moved in the direction the reframe predicted, and the work earned VP alignment on that basis.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "boundary",
-    title: "The physical layer belonged to a different discipline."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "The distance model, the metadata framework, and the case for keeping every piece of it against real pushback were content design's to own. A different discipline handled the physical layer this sits on top of: sizing a portal against how tall an average person actually is, and tuning how forgiving the pointing had to feel so aiming at it didn't fight your hand. What I decided was which piece of information each distance had earned the right to show."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "The framework outlived the keynote. The team that owns new-user onboarding picked up the portal-education work afterward, prototyping what teaching someone to read a portal well could look like before they ever step through one.")), /*#__PURE__*/React.createElement(Beat, {
-    id: "close",
-    title: "Raw entry counts never told the difference between a curious visitor and an informed one."
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Most content design questions start from what got tapped. This one started from where a body was standing, and that single swap rewrote the hierarchy: how much appeared on screen at once, and exactly when each piece was allowed to show."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "Designing navigation for a space with no page and no scroll. Proximity turned out to be the only interface that actually fit the room, because nothing had been built before it to borrow from.")), /*#__PURE__*/React.createElement("div", {
-    id: "next",
-    "data-ds": "case-next",
-    style: {
-      minHeight: 190,
-      scrollMarginTop: 56,
-      display: "flex",
-      justifyContent: "space-between",
-      gap: 24,
-      alignItems: "center",
-      padding: "0 var(--gutter)",
-      background: "var(--paper)",
-      borderTop: "1px solid var(--ink)"
-    }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Eyebrow, {
-    size: "micro",
-    tone: "signal"
-  }, "Next project"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: "10px 0 0",
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-s-size)",
-      fontWeight: "var(--display-s-weight)",
-      letterSpacing: "var(--display-s-tracking)"
-    }
-  }, nextProject.title)), /*#__PURE__*/React.createElement(StageAction, {
-    accent: "signal",
-    onClick: onNext
-  }, nextProject.statement)));
+  }, "The model shipped in Meta Horizon and Mark Zuckerberg introduced the portal experience at Meta Connect 2024. Engagement and retention improved, although the figures are not public. The metadata framework set a precedent for other travel surfaces, and the onboarding team used the portal education model in later new-user prototypes.")), /*#__PURE__*/React.createElement(CaseEnding, {
+    nextTitle: nextProject.title,
+    nextHref: nextHref,
+    onNext: onNext,
+    contactHref: contactHref,
+    resumeHref: resumeHref,
+    onResume: event => onNavigate && onNavigate("resume", event)
+  }));
 }
 Object.assign(window, {
   PortalsDocument
@@ -1667,14 +1885,9 @@ Object.assign(window, {
 const {
   Stage,
   StageCopy,
-  StorySection,
   StageAction,
-  PullQuote,
   RegistrationMark,
-  Eyebrow,
-  ProvenanceNote,
-  ArtifactFigure,
-  CaptureFigure
+  ProvenanceNote
 } = window.CalebStacyPortfolioDesignSystem_4a3883;
 
 /* The About cover's transforming line introduces range through actions, then rests on the
@@ -1774,6 +1987,7 @@ function DesignRotator() {
   }
   return /*#__PURE__*/React.createElement("span", {
     "data-ds": "design-rotator",
+    "data-layout-overflow": "intentional-rotator",
     ref: hostRef,
     role: "text",
     "aria-label": ABOUT_REST,
@@ -1796,64 +2010,53 @@ function DesignRotator() {
     }
   })));
 }
-function AboutWaveScene({
-  reducedMotion,
-  credibilityMode = "marquee"
+function AboutHeroScene({
+  reducedMotion
 }) {
   const marks = [{
     brand: "meta-horizon",
-    src: "assets/brands/meta-horizon.svg"
+    src: "/assets/brands/meta-horizon.svg"
   }, {
     brand: "digbi",
-    src: "assets/brands/digbi-health.svg"
+    src: "/assets/brands/digbi-health.svg"
   }, {
     brand: "8x8",
-    src: "assets/brands/8x8.svg"
+    src: "/assets/brands/8x8.svg"
   }];
-  const effectiveMode = reducedMotion ? "static" : credibilityMode;
-  const mediaStyle = {
-    position: "absolute",
-    zIndex: 1,
-    inset: 0,
-    width: "100%",
-    height: "100%",
-    objectFit: "contain",
-    objectPosition: "center"
-  };
   return /*#__PURE__*/React.createElement("div", {
-    "data-ds": "scene-character",
-    "data-credibility-mode": effectiveMode,
+    "data-ds": "about-hero-scene",
     role: "group",
-    "aria-label": "Clay Caleb waves hello once. The scene names teams where he has worked: Meta Horizon, Digbi Health, and 8x8.",
-    tabIndex: effectiveMode === "marquee" ? 0 : undefined,
-    style: {
-      position: "absolute",
-      zIndex: 5,
-      top: 0,
-      right: 0,
-      bottom: 0,
-      width: "51%",
-      overflow: "hidden",
-      background: "#000",
-      pointerEvents: effectiveMode === "marquee" ? "auto" : "none",
-      animation: "character-enter var(--dur-character) var(--delay-character) var(--ease-authored) both"
-    }
-  }, reducedMotion ? /*#__PURE__*/React.createElement("img", {
-    src: "assets/work/caleb-about-wave-poster.webp",
+    "aria-label": "An animated clay figure of Caleb is framed by the portfolio's registration mark. Meta Horizon, Digbi Health, and 8x8 identify teams where he has worked."
+  }, /*#__PURE__*/React.createElement("div", {
+    "data-ds": "about-hero-mark",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("span", {
+    "data-mark-axis": "horizontal"
+  }), /*#__PURE__*/React.createElement("span", {
+    "data-mark-axis": "vertical"
+  }), /*#__PURE__*/React.createElement("span", {
+    "data-mark-ring": "outer"
+  }), /*#__PURE__*/React.createElement("span", {
+    "data-mark-ring": "inner"
+  }), /*#__PURE__*/React.createElement("span", {
+    "data-mark-dot": "center"
+  })), reducedMotion ? /*#__PURE__*/React.createElement("img", {
+    "data-ds": "about-hero-media",
+    src: "/assets/work/caleb-hero-loop-poster.webp",
     alt: "",
-    "aria-hidden": "true",
-    style: mediaStyle
+    "aria-hidden": "true"
   }) : /*#__PURE__*/React.createElement("video", {
-    src: "assets/work/caleb-about-wave-once.mp4",
-    poster: "assets/work/caleb-about-wave-poster.webp",
+    "data-ds": "about-hero-media",
+    src: "/assets/work/caleb-hero-loop.mp4",
+    poster: "/assets/work/caleb-hero-loop-poster.webp",
     autoPlay: true,
     muted: true,
     playsInline: true,
-    preload: "auto",
+    loop: true,
+    preload: "metadata",
     "aria-hidden": "true",
-    tabIndex: -1,
-    style: mediaStyle
-  }), effectiveMode === "static" ? /*#__PURE__*/React.createElement("div", {
+    tabIndex: -1
+  }), /*#__PURE__*/React.createElement("div", {
     "data-ds": "about-credibility",
     "data-mode": "static",
     "aria-hidden": "true"
@@ -1863,54 +2066,39 @@ function AboutWaveScene({
     "data-brand": mark.brand,
     src: mark.src,
     alt: ""
-  }))) : /*#__PURE__*/React.createElement("div", {
-    "data-ds": "about-credibility",
-    "data-mode": "marquee",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("div", {
-    "data-ds": "about-credibility-track"
-  }, [0, 1].map(copy => /*#__PURE__*/React.createElement("div", {
-    key: copy,
-    "data-ds": "about-credibility-set"
-  }, marks.map(mark => /*#__PURE__*/React.createElement("img", {
-    key: mark.brand,
-    "data-ds": "about-credibility-mark",
-    "data-brand": mark.brand,
-    src: mark.src,
-    alt: ""
-  })))))));
+  }))));
 }
 function AboutDocument({
   data,
-  onWork
+  onWork,
+  workHref,
+  onNavigate,
+  routeHref
 }) {
-  /* The original five-second clay take plays once and then holds its closing frame.
-     Reduced-motion readers get the original poster instead. */
   const reducedMotion = React.useMemo(() => !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches), []);
-  const credibilityMode = React.useMemo(() => {
-    const requested = new URLSearchParams(window.location.search).get("credits");
-    return requested === "static" ? "static" : "marquee";
-  }, []);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
+    "data-ds": "about-stage",
+    "data-layout-overlap": "intentional-hero",
     style: {
       minHeight: "min(660px, calc(100svh - 84px))",
       display: "flex"
     }
-  }, /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
+  }, /*#__PURE__*/React.createElement(StageCopy, {
     eyebrow: "About",
     title: "Hi, I'm Caleb.",
     accent: /*#__PURE__*/React.createElement(DesignRotator, null),
-    deck: "I'm a senior content designer. My work spans product strategy and interaction language. I design onboarding, run experiments, and build systems that make good decisions easier to repeat.",
-    detail: "I've led that work on cross-functional teams spanning product, design, research, data and engineering. Before product, I spent seven years teaching writing and earned an MFA in poetry. I still care about the sentence. Sometimes the work also needs a workshop, an experiment or code."
-  }, /*#__PURE__*/React.createElement(StageAction, {
+    deck: "Senior content designer. I lead complex product work from first question through launch."
+  }, /*#__PURE__*/React.createElement("p", {
+    "data-ds": "about-proof-line"
+  }, "Work I helped shape has shipped in Meta Horizon and appeared in the Meta Connect keynote."), /*#__PURE__*/React.createElement(StageAction, {
     accent: "action",
+    href: workHref,
     style: {
       marginTop: 23
     },
     onClick: onWork
-  }, "See selected work")), /*#__PURE__*/React.createElement(AboutWaveScene, {
-    reducedMotion: reducedMotion,
-    credibilityMode: credibilityMode
+  }, "See selected work")), /*#__PURE__*/React.createElement(AboutHeroScene, {
+    reducedMotion: reducedMotion
   })), /*#__PURE__*/React.createElement("section", {
     "data-tone": "dark",
     style: {
@@ -1933,7 +2121,7 @@ function AboutDocument({
       lineHeight: "var(--display-m-leading)",
       letterSpacing: "var(--display-m-tracking)"
     }
-  }, "I start with the question."), /*#__PURE__*/React.createElement("div", {
+  }, "I start with the decision."), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 22,
       display: "flex",
@@ -1948,7 +2136,11 @@ function AboutDocument({
     style: {
       margin: 0
     }
-  }, "I ask questions because the discipline is changing, not because I have solved it. I want to know what someone is trying to do and what the product needs to decide. Then I ask what evidence would change that decision. The answer might be early product strategy or a line of interaction language. It might be just-in-time education or an experiment run with research and data partners. I've led all of that work, and I have concrete things to teach about it.")))), /*#__PURE__*/React.createElement("section", {
+  }, "Before anyone asks for copy, I want to know what a person is trying to do, what the product needs to decide, and what evidence would change that decision. I stay with the work from early strategy through flows, interaction language, experiments, and launch. That is how a sentence becomes part of the product instead of polish added at the end."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "At Meta, that range included mobile strategy, a new VR onboarding model, Horizon Portals, and Verso. Portals shipped and appeared in the Meta Connect 2024 keynote. The onboarding model improved completion, weekly use, and retention.")))), /*#__PURE__*/React.createElement("section", {
     "data-tone": "dark",
     style: {
       background: "var(--story-bg)",
@@ -1984,7 +2176,7 @@ function AboutDocument({
     style: {
       margin: 0
     }
-  }, "Systems are one way I do that, not the whole job. I route each claim to the strongest computation it can honestly support. That might be a count or a deterministic check. It might be an experiment, or no computation at all. When a rule can be checked, I can write it into code. When the judgment belongs with people, I leave it there. The point is not to turn every content problem into infrastructure. It is to keep a good decision from being re-litigated.")))), /*#__PURE__*/React.createElement("section", {
+  }, "Some decisions belong in language. Others belong in research, a metric, a deterministic check, or a named owner. I separate those forms of evidence, make the tradeoff visible, then capture the parts a team should not have to debate again. Sometimes that becomes a standard or tool. Sometimes it is simply a clearer product model.")))), /*#__PURE__*/React.createElement("section", {
     "data-tone": "dark",
     style: {
       background: "var(--story-bg)",
@@ -2008,7 +2200,7 @@ function AboutDocument({
       lineHeight: "var(--display-m-leading)",
       letterSpacing: "var(--display-m-tracking)"
     }
-  }, "Teaching and poetry came first."), /*#__PURE__*/React.createElement("div", {
+  }, "The craft came first."), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 22,
       fontFamily: "var(--font-sans)",
@@ -2020,10 +2212,139 @@ function AboutDocument({
     style: {
       margin: 0
     }
-  }, "Before product work, I taught composition and poetry workshops, then trained Army officers to turn complex, high-stakes information into clear, direct language. Seven years of watching what makes writing land is where the rest of this comes from. Teaching made me care about craft. I still teach what I learn and keep asking what the work could become next.")))));
+  }, "Before product work, I spent five years teaching composition and poetry at WVU and VCU, then trained Army officers to turn complex, high-stakes information into clear, direct language. That time taught me how to make difficult ideas land without flattening them. I still teach what I learn and keep asking what the work could become next.")))), /*#__PURE__*/React.createElement("section", {
+    "data-tone": "paper",
+    style: {
+      background: "var(--paper)",
+      color: "var(--ink)",
+      padding: "clamp(42px,6vw,72px) var(--gutter) clamp(54px,7vw,88px)"
+    }
+  }, /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Selected work",
+    "data-ds": "about-proof-router",
+    style: {
+      maxWidth: 920,
+      margin: "0 auto"
+    }
+  }, data.projects.map(project => /*#__PURE__*/React.createElement("a", {
+    key: project.id,
+    className: "ds-case-ending-link",
+    href: routeHref && routeHref(project.id),
+    onClick: event => onNavigate && onNavigate(project.id, event),
+    style: {
+      position: "relative",
+      display: "grid",
+      gridTemplateColumns: "minmax(150px,0.42fr) minmax(0,1fr)",
+      gap: "clamp(16px,4vw,52px)",
+      alignItems: "baseline",
+      padding: "clamp(20px,3vw,30px) 0",
+      borderTop: "1px solid var(--soft-line)",
+      color: "var(--ink)",
+      fontFamily: "var(--font-sans)",
+      textDecoration: "none"
+    }
+  }, /*#__PURE__*/React.createElement("strong", {
+    style: {
+      fontSize: "var(--display-s-size)",
+      fontWeight: "var(--display-s-weight)",
+      lineHeight: "var(--display-s-leading)",
+      letterSpacing: "var(--display-s-tracking)"
+    }
+  }, project.title), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--body-size)",
+      lineHeight: 1.5,
+      letterSpacing: "-0.025em",
+      textWrap: "pretty"
+    }
+  }, project.statement))))));
+}
+const WORK_EXAMPLE_GROUPS = [{
+  label: "Safety and trust",
+  title: "Protect the person before moving the flow forward.",
+  intro: "The writing has to make the action clear without hiding the boundary that protects people.",
+  examples: [{
+    title: "Separate the action from the policy boundary",
+    copy: "Start a poll to remove j0nes33s?",
+    body: "The dialog states what will happen, names the behavior at issue, and keeps protected-class reporting outside an ordinary removal vote.",
+    src: "/assets/work/examples/poll-removal.png",
+    alt: "A poll-removal confirmation that explains the action and states that polling someone out for protected characteristics violates the code of conduct",
+    shape: "wide"
+  }, {
+    title: "Say what happens and why",
+    copy: "Your audio is recorded for captions and safety features.",
+    body: "The notice names the collection in plain language, gives the two purposes, and keeps a direct path to more detail.",
+    src: "/assets/work/examples/recording-notice.png",
+    alt: "A recording notice that says audio is recorded for captions and safety features, with a Learn more action",
+    shape: "wide"
+  }]
+}, {
+  label: "Onboarding and education",
+  title: "Teach the model at the moment someone needs it.",
+  intro: "Good education changes the next action. It does not ask people to memorize the product before they can use it.",
+  examples: [{
+    title: "Route people before setup begins",
+    copy: "Are you setting up a headset?",
+    body: "Two choices split headset setup from mobile entry before either path starts. Device cues do part of the explanatory work.",
+    src: "/assets/work/examples/headset-setup.png",
+    alt: "A mobile setup screen asking whether the person is setting up a headset, with Yes and No paths",
+    shape: "tall"
+  }, {
+    title: "Turn a mechanic into a memorable instruction",
+    copy: "High five. Hold it. Besties!",
+    body: "The headline supplies the sequence. The supporting copy explains the hold and the reciprocal follow without turning the moment into a tutorial.",
+    src: "/assets/work/examples/high-five.png",
+    alt: "A social education dialog showing two avatars high-fiving and explaining that holding the gesture creates a mutual follow",
+    shape: "square"
+  }]
+}, {
+  label: "Progress and connection",
+  title: "Keep momentum without flattening the personality.",
+  intro: "Progress, social state, and the next move all need to be legible. The voice can still make the moment feel human.",
+  examples: [{
+    title: "Make progress and payoff visible",
+    copy: "Welcome reward",
+    body: "The screen connects the reward to a three-day behavior, shows progress, and names the next quest in the same view.",
+    src: "/assets/work/examples/welcome-reward.png",
+    alt: "A mobile welcome-reward screen with a three-day progress meter and a Keep questing section",
+    shape: "tall"
+  }, {
+    title: "Explain the social contract before the action",
+    copy: "Create a party",
+    body: "The setup tells people that new connections appear here before asking them to try a world together.",
+    src: "/assets/work/examples/create-party.png",
+    alt: "A mobile Create a party screen explaining where new connections appear and offering a Try a world action",
+    shape: "tall"
+  }, {
+    title: "Make presence feel social",
+    copy: "m3gan86 is here! Let the good times roll.",
+    body: "A lightweight arrival state confirms who joined while preserving the energy of the gathering.",
+    src: "/assets/work/examples/arrival-toast.png",
+    alt: "An arrival toast saying m3gan86 is here and Let the good times roll",
+    shape: "wide"
+  }]
+}];
+function WorkExampleCard({
+  example
+}) {
+  return /*#__PURE__*/React.createElement("article", {
+    className: "work-example-card"
+  }, /*#__PURE__*/React.createElement("figure", {
+    className: "work-example-card__figure",
+    "data-media-shape": example.shape
+  }, /*#__PURE__*/React.createElement("img", {
+    src: example.src,
+    alt: example.alt,
+    decoding: "async"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "work-example-card__copy"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "work-example-card__principle"
+  }, example.title), /*#__PURE__*/React.createElement("h3", null, example.copy), /*#__PURE__*/React.createElement("p", null, example.body)));
 }
 function MicrocopyDocument({
-  onNavigate
+  onNavigate,
+  routeHref
 }) {
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Stage, {
     variant: "section",
@@ -2032,10 +2353,11 @@ function MicrocopyDocument({
       display: "flex"
     }
   }, /*#__PURE__*/React.createElement(RegistrationMark, null), /*#__PURE__*/React.createElement(StageCopy, {
-    eyebrow: "Supporting work",
-    title: "Microcopy.",
-    deck: "A grab bag of microcopy."
+    eyebrow: "Shipped interface writing",
+    title: "Work examples",
+    deck: "Seven interfaces, each written for the decision the moment had to support."
   })), /*#__PURE__*/React.createElement("section", {
+    "data-ds": "work-examples",
     "data-tone": "dark",
     style: {
       background: "var(--story-bg)",
@@ -2047,57 +2369,35 @@ function MicrocopyDocument({
       maxWidth: 920,
       margin: "0 auto"
     }
-  }, /*#__PURE__*/React.createElement("article", null, /*#__PURE__*/React.createElement("h2", {
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "work-examples-intro"
+  }, "Short strings do different jobs. These examples stay attached to their interfaces so the writing can be judged by what it helps a person understand, decide, or do next."), WORK_EXAMPLE_GROUPS.map(group => /*#__PURE__*/React.createElement("section", {
+    key: group.label,
+    className: "work-examples-group"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "work-examples-group__label"
+  }, group.label), /*#__PURE__*/React.createElement("h2", null, group.title), /*#__PURE__*/React.createElement("p", {
+    className: "work-examples-group__intro"
+  }, group.intro), /*#__PURE__*/React.createElement("div", {
+    className: "work-examples-grid"
+  }, group.examples.map(example => /*#__PURE__*/React.createElement(WorkExampleCard, {
+    key: example.copy,
+    example: example
+  }))))), /*#__PURE__*/React.createElement(ProvenanceNote, {
     style: {
-      margin: 0,
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-m-size)",
-      fontWeight: "var(--display-m-weight)",
-      lineHeight: "var(--display-m-leading)",
-      letterSpacing: "var(--display-m-tracking)"
+      marginTop: "clamp(44px,6vh,64px)"
     }
-  }, "Your mic is on."), /*#__PURE__*/React.createElement(CaptureFigure, {
-    style: {
-      marginTop: 24
-    },
-    src: "assets/work/vr/controller-nudge.mp4",
-    poster: "assets/work/vr-controller-nudge-poster.webp",
-    caption: "In-headset capture of the shipped nudge. I wrote the string; the interaction was built with the product designer and engineering."
-  }), /*#__PURE__*/React.createElement(StageAction, {
+  }, "Product captures are shown as portfolio evidence. Product design, research, and engineering were collaborative; this page focuses on the content decisions I owned or led."), /*#__PURE__*/React.createElement("nav", {
+    className: "work-examples-links",
+    "aria-label": "Related case studies"
+  }, /*#__PURE__*/React.createElement(StageAction, {
     accent: "signal",
-    style: {
-      marginTop: 18
-    },
-    onClick: () => onNavigate && onNavigate("vr-education")
-  }, "Read VR NUX")), /*#__PURE__*/React.createElement("article", {
-    style: {
-      marginTop: "clamp(56px,8vh,88px)",
-      paddingTop: "clamp(44px,6vh,64px)",
-      borderTop: "1px solid color-mix(in srgb, var(--story-ink) 25%, transparent)"
-    }
-  }, /*#__PURE__*/React.createElement("h2", {
-    style: {
-      margin: 0,
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--display-m-size)",
-      fontWeight: "var(--display-m-weight)",
-      lineHeight: "var(--display-m-leading)",
-      letterSpacing: "var(--display-m-tracking)"
-    }
-  }, "Go. View details."), /*#__PURE__*/React.createElement(ArtifactFigure, {
-    contain: true,
-    style: {
-      marginTop: 24
-    },
-    src: "assets/work/card-portals.jpg",
-    alt: "A portal card showing a world, who is inside, and the actions Go and View details",
-    caption: "A portal at approach distance: identity, who is already inside, and the available actions."
-  }), /*#__PURE__*/React.createElement(StageAction, {
+    href: routeHref && routeHref("vr-education"),
+    onClick: event => onNavigate && onNavigate("vr-education", event)
+  }, "Read First-time VR"), /*#__PURE__*/React.createElement(StageAction, {
     accent: "signal",
-    style: {
-      marginTop: 18
-    },
-    onClick: () => onNavigate && onNavigate("portals")
+    href: routeHref && routeHref("portals"),
+    onClick: event => onNavigate && onNavigate("portals", event)
   }, "Read Horizon Portals")))));
 }
 function ResumeWebEntry({
@@ -2387,29 +2687,25 @@ const Curtain = StageCurtain || (() => null);
 const IdentityBar = MobileIdentityBar || (() => null);
 const Menu = MobileMenu || (() => null);
 const MOBILE_MENU_ID = "mobile-menu";
+const ROUTES = window.PORTFOLIO_ROUTES;
+const ROOT_METADATA = {
+  title: "Caleb Stacy — Senior content designer",
+  description: "Senior content designer shaping product strategy, interaction language, onboarding, experiments, and language systems.",
+  socialDescription: "Product strategy, interaction language, onboarding, experiments, and language systems."
+};
 const COVER_MS = 380;
 const REVEAL_MS = 560;
 
 /* Sub-routes nest one level under a parent project's own hash destination — currently only
    Verso has any: three satellite documents (Agent, Engine, Index) its main story doors into.
-   Each is addressable as its own hash (#verso/agent, ...), so it reloads and survives back/
+   Each has its own canonical route (plus its old hash alias), so it reloads and survives back/
    forward on its own, while the rail and the curtain's direction logic both treat it as sitting
    at its parent's position in `order` rather than growing a fourth navigation level of their
    own — see `baseId` below. */
-const SUB_ROUTES = {
-  "verso/agent": {
-    base: "verso",
-    label: "Agent"
-  },
-  "verso/engine": {
-    base: "verso",
-    label: "Engine"
-  },
-  "verso/index": {
-    base: "verso",
-    label: "Index"
-  }
-};
+const SUB_ROUTES = Object.fromEntries(ROUTES.routes.filter(route => route.parentId).map(route => [route.id, {
+  base: route.parentId,
+  label: route.navLabel
+}]));
 
 /* The id a sub-route's rail highlight and ordering both resolve to; a plain destination is its
    own base. */
@@ -2421,22 +2717,60 @@ function isAddressable(id, order) {
   return order.indexOf(id) !== -1 || Object.prototype.hasOwnProperty.call(SUB_ROUTES, id);
 }
 
-/* Every destination is addressable as a hash (#verso, #verso/agent, #about, #resume, ...).
+/* Every public destination has a stable path; the old hashes remain accepted aliases.
    `order` must already be built when this runs, so it takes the list rather than reading
    component state. */
-function destinationFromHash(order) {
-  const id = (window.location.hash || "").replace(/^#/, "");
-  return isAddressable(id, order) ? id : order[0];
+function destinationFromLocation(order) {
+  const route = ROUTES.fromLocation(window.location.pathname, window.location.hash);
+  return route && isAddressable(route.id, order) ? route.id : order[0];
+}
+function shouldHandleInApp(event) {
+  if (!event || event.defaultPrevented || event.button !== 0) return false;
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return false;
+  const anchor = event.currentTarget;
+  if (!anchor) return true;
+  const target = anchor.getAttribute && anchor.getAttribute("target");
+  return (!target || target === "_self") && !(anchor.hasAttribute && anchor.hasAttribute("download"));
+}
+function setMetaContent(selector, content) {
+  const node = document.querySelector(selector);
+  if (node) node.setAttribute("content", content);
+}
+function applyRouteMetadata(id) {
+  const route = ROUTES.byId[id];
+  if (!route) return;
+  const canonical = ROUTES.canonicalFor(id);
+  document.title = route.title;
+  setMetaContent('meta[name="description"]', route.description);
+  setMetaContent('meta[property="og:url"]', canonical);
+  setMetaContent('meta[property="og:title"]', route.title);
+  setMetaContent('meta[property="og:description"]', route.description);
+  setMetaContent('meta[name="twitter:title"]', route.title);
+  setMetaContent('meta[name="twitter:description"]', route.description);
+  const canonicalLink = document.querySelector('link[rel="canonical"]');
+  if (canonicalLink) canonicalLink.setAttribute("href", canonical);
+}
+function applyRootMetadata() {
+  document.title = ROOT_METADATA.title;
+  setMetaContent('meta[name="description"]', ROOT_METADATA.description);
+  setMetaContent('meta[property="og:url"]', ROUTES.siteUrl + "/");
+  setMetaContent('meta[property="og:title"]', ROOT_METADATA.title);
+  setMetaContent('meta[property="og:description"]', ROOT_METADATA.socialDescription);
+  setMetaContent('meta[name="twitter:title"]', ROOT_METADATA.title);
+  setMetaContent('meta[name="twitter:description"]', ROOT_METADATA.socialDescription);
+  const canonicalLink = document.querySelector('link[rel="canonical"]');
+  if (canonicalLink) canonicalLink.setAttribute("href", ROUTES.siteUrl + "/");
 }
 function PortfolioApp() {
   const data = window.PORTFOLIO;
 
   /* Documents are ordered so the curtain can travel the way the reader is moving:
-     About, the three projects, the supporting microcopy shelf, then Résumé. Memoized so the
+     About, the three projects, the supporting work shelf, then Résumé. Memoized so the
      popstate effect below doesn't
      resubscribe on every render. */
-  const order = React.useMemo(() => ["about", ...data.projects.map(p => p.id), "microcopy", "resume"], [data]);
-  const [active, setActive] = React.useState(() => destinationFromHash(order));
+  const order = React.useMemo(() => ["about", ...ROUTES.selectedProjectIds, "microcopy", "resume"], []);
+  const [active, setActive] = React.useState(() => destinationFromLocation(order));
+  const [addressKey, setAddressKey] = React.useState(() => window.location.pathname + window.location.search + window.location.hash);
   const [curtain, setCurtain] = React.useState({
     state: "idle",
     direction: "forward",
@@ -2452,7 +2786,7 @@ function PortfolioApp() {
     if (sub) return sub.label + " — Verso";
     const project = data.projects.find(p => p.id === id);
     if (project) return project.title;
-    if (id === "microcopy") return "Microcopy";
+    if (id === "microcopy") return "Work examples";
     return id === "resume" ? "Résumé" : "About";
   };
   React.useEffect(() => {
@@ -2468,6 +2802,13 @@ function PortfolioApp() {
   React.useEffect(() => {
     setMenuOpen(false);
   }, [active]);
+
+  /* Root remains the general portfolio canonical. Stable documents and in-app destinations get
+     their own route metadata; legacy hashes are normalized to those same public paths below. */
+  React.useEffect(() => {
+    const route = ROUTES.fromLocation(window.location.pathname, window.location.hash);
+    if (route && route.id === active) applyRouteMetadata(active);else applyRootMetadata();
+  }, [active, addressKey]);
 
   /* "Switching projects remounts at the top and moves focus to the new heading" (DESIGN_SPEC).
      Every document's opening scene renders exactly one <h1> (StageCopy), marked
@@ -2485,13 +2826,17 @@ function PortfolioApp() {
   }, [active]);
   React.useEffect(() => () => timers.current.forEach(clearTimeout), []);
 
-  /* Normalize the address bar to whatever destination actually opened (the deep link, or the
-     "about" default when there wasn't one) and seed history.state so popstate below can read
-     the destination straight back rather than re-parsing the hash. Runs once, on mount. */
+  /* Seed history.state and turn a valid legacy hash into its canonical stable route. Root remains
+     root; a reader arriving there has not asked for the independently shareable About document. */
   React.useEffect(() => {
-    if (window.history) window.history.replaceState({
+    if (!window.history) return;
+    const route = ROUTES.byId[active];
+    const legacy = (window.location.hash || "").replace(/^#/, "");
+    const nextUrl = route && legacy === route.legacyHash ? route.path : window.location.pathname + window.location.search + window.location.hash;
+    window.history.replaceState({
       id: active
-    }, "", "#" + active);
+    }, "", nextUrl);
+    setAddressKey(nextUrl);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -2501,7 +2846,7 @@ function PortfolioApp() {
   React.useEffect(() => {
     const onPopState = event => {
       let id = event.state && event.state.id;
-      if (!id || !isAddressable(id, order)) id = destinationFromHash(order);
+      if (!id || !isAddressable(id, order)) id = destinationFromLocation(order);
       timers.current.forEach(clearTimeout);
       setCurtain({
         state: "idle",
@@ -2509,15 +2854,25 @@ function PortfolioApp() {
         label: ""
       });
       setActive(id);
+      setAddressKey(window.location.pathname + window.location.search + window.location.hash);
     };
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
   }, [order]);
-  const go = id => {
-    if (id === active) return;
+  const go = (id, event) => {
+    if (event) {
+      if (!shouldHandleInApp(event)) return;
+      event.preventDefault();
+    }
+    if (!isAddressable(id, order)) return;
+    const href = ROUTES.hrefFor(id);
+    const currentAddress = window.location.pathname + window.location.hash;
+    if (id === active && currentAddress === href) return;
     if (window.history) window.history.pushState({
       id
-    }, "", "#" + id);
+    }, "", href);
+    setAddressKey(href);
+    if (id === active) return;
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setActive(id);
       return;
@@ -2547,29 +2902,41 @@ function PortfolioApp() {
   const subRoute = SUB_ROUTES[active];
   const railActive = baseId(active);
   const project = data.projects.find(p => p.id === railActive);
-  const nextProject = project ? data.projects[(data.projects.findIndex(p => p.id === railActive) + 1) % data.projects.length] : null;
+  const nextProjectId = project ? ROUTES.nextProjectId(railActive) : null;
+  const nextProject = nextProjectId ? data.projects.find(candidate => candidate.id === nextProjectId) : null;
   const railProjects = data.projects.map(p => ({
     id: p.id,
+    href: ROUTES.hrefFor(p.id),
     number: p.number,
     title: p.title,
     statement: p.statement,
-    subPages: p.subPages
+    subPages: (p.subPages || []).map(sub => ({
+      ...sub,
+      href: ROUTES.hrefFor(sub.id)
+    }))
   }));
   const utilities = [{
     id: "about",
+    href: ROUTES.hrefFor("about"),
     label: "About"
   }, {
     id: "microcopy",
-    label: "Microcopy"
+    href: ROUTES.hrefFor("microcopy"),
+    label: "Work examples"
   }, {
     id: "resume",
+    href: ROUTES.hrefFor("resume"),
     label: "Résumé"
   }];
-  return /*#__PURE__*/React.createElement(PaperFrame, null, /*#__PURE__*/React.createElement(IndexRail, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("a", {
+    className: "ds-skip-link",
+    href: "#portfolio-main"
+  }, "Skip to content"), /*#__PURE__*/React.createElement(PaperFrame, null, /*#__PURE__*/React.createElement(IndexRail, {
     name: data.identity.name,
     title: data.identity.title,
     differentiator: data.identity.differentiator,
     thesis: data.identity.thesis,
+    identityHref: ROUTES.hrefFor("about"),
     projects: railProjects,
     active: railActive,
     activeSub: active,
@@ -2597,7 +2964,9 @@ function PortfolioApp() {
     contactLabel: "Contact",
     menuId: MOBILE_MENU_ID,
     returnFocusRef: menuToggleRef
-  }), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement("main", {
+    id: "portfolio-main",
+    tabIndex: -1,
     "data-ds": "reader",
     style: {
       position: "relative",
@@ -2618,9 +2987,13 @@ function PortfolioApp() {
     key: active
   }, active === "about" && /*#__PURE__*/React.createElement(AboutDocument, {
     data: data,
-    onWork: () => go(data.projects[0].id)
+    workHref: ROUTES.hrefFor(data.projects[0].id),
+    onWork: event => go(data.projects[0].id, event),
+    onNavigate: go,
+    routeHref: ROUTES.hrefFor
   }), active === "microcopy" && typeof MicrocopyDocument === "function" && /*#__PURE__*/React.createElement(MicrocopyDocument, {
-    onNavigate: go
+    onNavigate: go,
+    routeHref: ROUTES.hrefFor
   }), active === "resume" && /*#__PURE__*/React.createElement(ResumeDocument, {
     data: data
   }), project && (
@@ -2631,48 +3004,66 @@ function PortfolioApp() {
     key: active,
     project: project,
     onNavigate: go,
+    routeHref: ROUTES.hrefFor,
     scrollRef: scrollRef
   }) : project.id === "verso" && subRoute && active === "verso/engine" && typeof VersoEngineDocument === "function" ? /*#__PURE__*/React.createElement(VersoEngineDocument, {
     key: active,
     project: project,
     onNavigate: go,
+    routeHref: ROUTES.hrefFor,
     scrollRef: scrollRef
   }) : project.id === "verso" && subRoute && active === "verso/index" && typeof VersoIndexDocument === "function" ? /*#__PURE__*/React.createElement(VersoIndexDocument, {
     key: active,
     project: project,
     onNavigate: go,
+    routeHref: ROUTES.hrefFor,
     scrollRef: scrollRef
   }) : project.id === "verso" && typeof VersoDocument === "function" ? /*#__PURE__*/React.createElement(VersoDocument, {
     key: project.id,
     project: project,
     nextProject: nextProject,
-    onNext: () => go(nextProject.id),
+    nextHref: ROUTES.hrefFor(nextProject.id),
+    onNext: event => go(nextProject.id, event),
     onNavigate: go,
+    routeHref: ROUTES.hrefFor,
+    contactHref: "mailto:" + data.contact,
+    resumeHref: ROUTES.hrefFor("resume"),
     scrollRef: scrollRef
   }) : project.id === "vr-education" && typeof VrDocument === "function" ? /*#__PURE__*/React.createElement(VrDocument, {
     key: project.id,
     project: project,
     nextProject: nextProject,
-    onNext: () => go(nextProject.id),
+    nextHref: ROUTES.hrefFor(nextProject.id),
+    onNext: event => go(nextProject.id, event),
+    onNavigate: go,
+    routeHref: ROUTES.hrefFor,
+    contactHref: "mailto:" + data.contact,
+    resumeHref: ROUTES.hrefFor("resume"),
     scrollRef: scrollRef
   }) : project.id === "portals" && typeof PortalsDocument === "function" ? /*#__PURE__*/React.createElement(PortalsDocument, {
     key: project.id,
     project: project,
     nextProject: nextProject,
-    onNext: () => go(nextProject.id),
+    nextHref: ROUTES.hrefFor(nextProject.id),
+    onNext: event => go(nextProject.id, event),
+    onNavigate: go,
+    routeHref: ROUTES.hrefFor,
+    contactHref: "mailto:" + data.contact,
+    resumeHref: ROUTES.hrefFor("resume"),
     scrollRef: scrollRef
   }) : /*#__PURE__*/React.createElement(ProjectDocument, {
     key: project.id,
     project: project,
     chapters: data.chapters,
     nextProject: nextProject,
-    onNext: () => go(nextProject.id),
+    nextHref: ROUTES.hrefFor(nextProject.id),
+    onNext: event => go(nextProject.id, event),
     scrollRef: scrollRef
   })))), /*#__PURE__*/React.createElement(Curtain, {
     state: curtain.state,
     direction: curtain.direction,
     label: curtain.label
-  })));
+  }))));
 }
 Object.assign(window, {
   PortfolioApp

@@ -2,10 +2,10 @@
   "claims": {
     "adopted_rule_conformance": "The linter may report conformance only to rules explicitly adopted in this demo profile.",
     "descriptive_familiarity": "Review-only signals report resemblance to this public evidence snapshot.",
-    "effectiveness_not_assessed": "The corpus does not establish whether a candidate will be clear, appealing, or effective."
+    "effectiveness_not_assessed": "The corpus does not establish whether a title will be clear, appealing, or effective."
   },
   "compiled_from": "naming_policy.json",
-  "compiled_policy_hash": "a2dbe7cbf41b058212fb09c9b86673559c6afb1054abf9d76919ed5b8f1799f2",
+  "compiled_policy_hash": "ef8ec5df7fc9d2d564d0d14176b3c1d5a483ffd5961a85c284beabc185b37b53",
   "compiler": {
     "id": "build_naming_policy.py",
     "schema_version": 1,
@@ -269,7 +269,7 @@
   "disclaimer": "This is a proposed adoption profile for a portfolio demonstration. It is not Netflix policy and does not claim that corpus familiarity establishes naming effectiveness.",
   "evidence_snapshot_date": "2026-07-26",
   "language_signature_evidence": {
-    "method": "Exact-title lookup of authored reads in moves.json; unsigned candidates receive no inferred semantic judgment.",
+    "method": "Exact-title lookup of authored reads in moves.json; unsigned titles receive no inferred semantic judgment.",
     "semantic_signed_reads": [
       {
         "basis": "the laugh stands in for the sitcom that produces it",
@@ -351,7 +351,7 @@
     {
       "adoption_record": {
         "date": "2026-07-26",
-        "decision": "Adopt as review; propose the observed connective without mutating candidate text.",
+        "decision": "Adopt as review; propose the observed connective without mutating the draft text.",
         "id": "demo-adoption-2026-07-26-ampersand"
       },
       "adoption_status": "adopted_for_demo",
@@ -539,7 +539,7 @@
         }
       },
       "id": "direct-address",
-      "message": "This candidate uses direct address observed in the public corpus.",
+      "message": "This title uses direct address observed in the public corpus.",
       "predicate_id": "direct_address",
       "rule_type": "review_signal",
       "runtime_treatment": "evidence_only",
@@ -583,7 +583,7 @@
         }
       },
       "id": "length-signal",
-      "message": "Candidate length is compared with the observed distribution, not scored.",
+      "message": "Draft length is compared with the observed distribution, not scored.",
       "predicate_id": "length_signal",
       "rule_type": "review_signal",
       "runtime_treatment": "evidence_only",
@@ -628,7 +628,7 @@
         }
       },
       "id": "mood-signal",
-      "message": "This candidate contains a mood or tone word observed in the public corpus.",
+      "message": "This title contains a mood or tone word observed in the public corpus.",
       "predicate_id": "mood_signal",
       "rule_type": "review_signal",
       "runtime_treatment": "evidence_only",
@@ -646,7 +646,7 @@
     {
       "adoption_record": {
         "date": "2026-07-26",
-        "decision": "Adopt only when a category-led candidate chooses a film/series content term; never infer a missing term.",
+        "decision": "Adopt only when a category-led option chooses a film/series content term; never infer a missing term.",
         "id": "demo-adoption-2026-07-26-movie-show-terminology"
       },
       "adoption_status": "adopted_for_demo",
@@ -721,7 +721,7 @@
         }
       },
       "id": "time-promise",
-      "message": "This candidate uses a time promise observed in the public corpus.",
+      "message": "This title uses a time promise observed in the public corpus.",
       "predicate_id": "time_promise",
       "rule_type": "review_signal",
       "runtime_treatment": "evidence_only",
@@ -865,7 +865,7 @@
         }
       },
       "id": "unfamiliar-modifier",
-      "message": "This candidate contains a modifier outside the small public-evidence vocabulary used by this demo.",
+      "message": "This draft contains a modifier outside the small public-evidence vocabulary used by this demo.",
       "predicate_id": "unfamiliar_modifier",
       "rule_type": "review_signal",
       "runtime_treatment": "evidence_only",
@@ -909,7 +909,7 @@
         }
       },
       "id": "wordplay-signal",
-      "message": "This candidate contains corpus-signed or mechanically detectable wordplay; that observation is not an effectiveness claim.",
+      "message": "This title contains corpus-signed or mechanically detectable wordplay; that observation is not an effectiveness claim.",
       "predicate_id": "wordplay_signal",
       "rule_type": "review_signal",
       "runtime_treatment": "evidence_only",
@@ -975,5 +975,5 @@
       "sha256": "8c0d5327dd3389b14e9c5891d7b54c31ee3ded81bca28e16082499bbed5c4557"
     }
   ],
-  "version": "1.0.1"
+  "version": "1.0.2"
 }
