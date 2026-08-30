@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"CalebStacyPortfolioDesignSystem_4a3883","components":[{"name":"ScrollCue","sourcePath":"components/actions/ScrollCue.jsx"},{"name":"StageAction","sourcePath":"components/actions/StageAction.jsx"},{"name":"CaseMeta","sourcePath":"components/case/CaseMeta.jsx"},{"name":"CaseNav","sourcePath":"components/case/CaseNav.jsx"},{"name":"CaseQuote","sourcePath":"components/case/CaseQuote.jsx"},{"name":"CaseSection","sourcePath":"components/case/CaseSection.jsx"},{"name":"MetricStrip","sourcePath":"components/case/MetricStrip.jsx"},{"name":"StoryBeat","sourcePath":"components/case/StoryBeat.jsx"},{"name":"VersoHero","sourcePath":"components/case/VersoHero.jsx"},{"name":"DocFigure","sourcePath":"components/document/DocFigure.jsx"},{"name":"Endnotes","sourcePath":"components/document/Endnotes.jsx"},{"name":"NoteRef","sourcePath":"components/document/Endnotes.jsx"},{"name":"References","sourcePath":"components/document/Endnotes.jsx"},{"name":"Finding","sourcePath":"components/document/Finding.jsx"},{"name":"PaperTable","sourcePath":"components/document/PaperTable.jsx"},{"name":"Report","sourcePath":"components/document/Report.jsx"},{"name":"ReportSection","sourcePath":"components/document/ReportSection.jsx"},{"name":"ArtifactFigure","sourcePath":"components/evidence/ArtifactFigure.jsx"},{"name":"BeforeAfter","sourcePath":"components/evidence/BeforeAfter.jsx"},{"name":"CaptureFigure","sourcePath":"components/evidence/CaptureFigure.jsx"},{"name":"CardGrid","sourcePath":"components/evidence/CardGrid.jsx"},{"name":"DataTable","sourcePath":"components/evidence/DataTable.jsx"},{"name":"DisciplineVenn","sourcePath":"components/evidence/DisciplineVenn.jsx"},{"name":"EvidenceTrace","sourcePath":"components/evidence/EvidenceTrace.jsx"},{"name":"FactsPanel","sourcePath":"components/evidence/FactsPanel.jsx"},{"name":"FingerprintBars","sourcePath":"components/evidence/FingerprintBars.jsx"},{"name":"GateRun","sourcePath":"components/evidence/GateRun.jsx"},{"name":"GridCard","sourcePath":"components/evidence/GridCard.jsx"},{"name":"IndexRows","sourcePath":"components/evidence/IndexRows.jsx"},{"name":"Ledger","sourcePath":"components/evidence/Ledger.jsx"},{"name":"Outcome","sourcePath":"components/evidence/Outcome.jsx"},{"name":"Pipeline","sourcePath":"components/evidence/Pipeline.jsx"},{"name":"PullQuote","sourcePath":"components/evidence/PullQuote.jsx"},{"name":"ResearchGrid","sourcePath":"components/evidence/ResearchGrid.jsx"},{"name":"ResumeEntry","sourcePath":"components/evidence/ResumeEntry.jsx"},{"name":"RuleSplit","sourcePath":"components/evidence/RuleSplit.jsx"},{"name":"SourceMap","sourcePath":"components/evidence/SourceMap.jsx"},{"name":"TenGrid","sourcePath":"components/evidence/TenGrid.jsx"},{"name":"Toolchain","sourcePath":"components/evidence/Toolchain.jsx"},{"name":"VoiceProfile","sourcePath":"components/evidence/VoiceProfile.jsx"},{"name":"VoiceScoreRing","sourcePath":"components/evidence/VoiceScoreRing.jsx"},{"name":"Eyebrow","sourcePath":"components/foundation/Eyebrow.jsx"},{"name":"LineArrow","sourcePath":"components/foundation/LineArrow.jsx"},{"name":"ProvenanceNote","sourcePath":"components/foundation/ProvenanceNote.jsx"},{"name":"RegistrationMark","sourcePath":"components/foundation/RegistrationMark.jsx"},{"name":"Tag","sourcePath":"components/foundation/Tag.jsx"},{"name":"Panel","sourcePath":"components/layout/Panel.jsx"},{"name":"PanelRow","sourcePath":"components/layout/Panel.jsx"},{"name":"PaperFrame","sourcePath":"components/layout/PaperFrame.jsx"},{"name":"Stage","sourcePath":"components/layout/Stage.jsx"},{"name":"StageCopy","sourcePath":"components/layout/StageCopy.jsx"},{"name":"StageCurtain","sourcePath":"components/layout/StageCurtain.jsx"},{"name":"StorySection","sourcePath":"components/layout/StorySection.jsx"},{"name":"ChapterNav","sourcePath":"components/navigation/ChapterNav.jsx"},{"name":"IndexRail","sourcePath":"components/navigation/IndexRail.jsx"},{"name":"MobileIdentityBar","sourcePath":"components/navigation/MobileIdentityBar.jsx"},{"name":"MobileMenu","sourcePath":"components/navigation/MobileMenu.jsx"},{"name":"ProjectSpineItem","sourcePath":"components/navigation/ProjectSpineItem.jsx"},{"name":"UtilityNav","sourcePath":"components/navigation/UtilityNav.jsx"}],"sourceHashes":{"components/actions/ScrollCue.jsx":"8bb658147fda","components/actions/StageAction.jsx":"5a98543af3b5","components/evidence/ArtifactFigure.jsx":"127fb9077aa2","components/evidence/CardGrid.jsx":"803ac13ab7bd","components/evidence/DataTable.jsx":"e463933290ef","components/evidence/FactsPanel.jsx":"d1281305f605","components/evidence/GridCard.jsx":"fc995a72a9ed","components/evidence/Ledger.jsx":"30ffa1dd140d","components/evidence/Outcome.jsx":"87e9bb425f06","components/evidence/Pipeline.jsx":"0a78361dc86f","components/evidence/PullQuote.jsx":"b00277528fb2","components/evidence/ResumeEntry.jsx":"022a5e5c0dec","components/evidence/SourceMap.jsx":"223f6d8e812b","components/evidence/TenGrid.jsx":"189c24069a2b","components/foundation/Eyebrow.jsx":"339d08d17838","components/foundation/LineArrow.jsx":"d1caad2e912f","components/foundation/ProvenanceNote.jsx":"b8816411ea6e","components/foundation/RegistrationMark.jsx":"75a36243789a","components/foundation/Tag.jsx":"5778ff0b56c7","components/layout/PaperFrame.jsx":"0d2965baa9ba","components/layout/Stage.jsx":"1e5269281805","components/layout/StageCopy.jsx":"007e4ad0a85a","components/layout/StageCurtain.jsx":"2fe263912177","components/layout/StorySection.jsx":"e97b2c28af96","components/navigation/ChapterNav.jsx":"c1cb8c701f50","components/navigation/IndexRail.jsx":"82250570440b","components/navigation/ProjectSpineItem.jsx":"072cc8885ec3","components/navigation/UtilityNav.jsx":"d680f52dcd23","components/evidence/RuleSplit.jsx":"df64f7a3e979","components/evidence/ResearchGrid.jsx":"7ac09d17bc27","components/evidence/FingerprintBars.jsx":"662c407f2939","components/evidence/EvidenceTrace.jsx":"1c52a31cba97","components/evidence/IndexRows.jsx":"d1cf16db6e0d","components/evidence/DisciplineVenn.jsx":"e1565f7822a0","components/evidence/VoiceScoreRing.jsx":"f1d9d92fe57c","components/evidence/BeforeAfter.jsx":"acae0740ee64","components/evidence/VoiceProfile.jsx":"3760a08b0d90","components/layout/Panel.jsx":"5013c544891a","components/evidence/GateRun.jsx":"fc67aaf9e806","components/evidence/CaptureFigure.jsx":"d015bc84a966","components/document/Report.jsx":"d526bb6cda51","components/document/ReportSection.jsx":"1131f245e776","components/document/DocFigure.jsx":"ad268702d487","components/document/Endnotes.jsx":"70804d8c8006","components/evidence/Toolchain.jsx":"5e1d68775f89","components/document/Finding.jsx":"72c749fc75c2","components/document/PaperTable.jsx":"f6bb51014d4e","components/case/CaseSection.jsx":"09e3d510dfaa","components/case/StoryBeat.jsx":"3b7ad214cf82","components/case/CaseQuote.jsx":"851b5a124fe4","components/case/MetricStrip.jsx":"5f86becb4df6","components/case/CaseNav.jsx":"e12f0f5468cf","components/navigation/MobileIdentityBar.jsx":"e8e721c45205","components/navigation/MobileMenu.jsx":"923357937138","components/case/CaseMeta.jsx":"af757cdf13ec","components/case/VersoHero.jsx":"344f09715365"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":4,"namespace":"CalebStacyPortfolioDesignSystem_4a3883","components":[{"name":"ScrollCue","sourcePath":"components/actions/ScrollCue.jsx"},{"name":"StageAction","sourcePath":"components/actions/StageAction.jsx"},{"name":"CaseEnding","sourcePath":"components/case/CaseEnding.jsx"},{"name":"CaseMeta","sourcePath":"components/case/CaseMeta.jsx"},{"name":"CaseNav","sourcePath":"components/case/CaseNav.jsx"},{"name":"CaseQuote","sourcePath":"components/case/CaseQuote.jsx"},{"name":"CaseSection","sourcePath":"components/case/CaseSection.jsx"},{"name":"MetricStrip","sourcePath":"components/case/MetricStrip.jsx"},{"name":"StoryBeat","sourcePath":"components/case/StoryBeat.jsx"},{"name":"VersoHero","sourcePath":"components/case/VersoHero.jsx"},{"name":"DocFigure","sourcePath":"components/document/DocFigure.jsx"},{"name":"Endnotes","sourcePath":"components/document/Endnotes.jsx"},{"name":"NoteRef","sourcePath":"components/document/Endnotes.jsx"},{"name":"References","sourcePath":"components/document/Endnotes.jsx"},{"name":"Finding","sourcePath":"components/document/Finding.jsx"},{"name":"PaperTable","sourcePath":"components/document/PaperTable.jsx"},{"name":"Report","sourcePath":"components/document/Report.jsx"},{"name":"ReportSection","sourcePath":"components/document/ReportSection.jsx"},{"name":"ArtifactFigure","sourcePath":"components/evidence/ArtifactFigure.jsx"},{"name":"BeforeAfter","sourcePath":"components/evidence/BeforeAfter.jsx"},{"name":"CaptureFigure","sourcePath":"components/evidence/CaptureFigure.jsx"},{"name":"CardGrid","sourcePath":"components/evidence/CardGrid.jsx"},{"name":"DataTable","sourcePath":"components/evidence/DataTable.jsx"},{"name":"DisciplineVenn","sourcePath":"components/evidence/DisciplineVenn.jsx"},{"name":"EvidenceTrace","sourcePath":"components/evidence/EvidenceTrace.jsx"},{"name":"FactsPanel","sourcePath":"components/evidence/FactsPanel.jsx"},{"name":"FingerprintBars","sourcePath":"components/evidence/FingerprintBars.jsx"},{"name":"GateRun","sourcePath":"components/evidence/GateRun.jsx"},{"name":"GridCard","sourcePath":"components/evidence/GridCard.jsx"},{"name":"IndexRows","sourcePath":"components/evidence/IndexRows.jsx"},{"name":"Ledger","sourcePath":"components/evidence/Ledger.jsx"},{"name":"Outcome","sourcePath":"components/evidence/Outcome.jsx"},{"name":"Pipeline","sourcePath":"components/evidence/Pipeline.jsx"},{"name":"PullQuote","sourcePath":"components/evidence/PullQuote.jsx"},{"name":"ResearchGrid","sourcePath":"components/evidence/ResearchGrid.jsx"},{"name":"ResumeEntry","sourcePath":"components/evidence/ResumeEntry.jsx"},{"name":"RuleSplit","sourcePath":"components/evidence/RuleSplit.jsx"},{"name":"SourceMap","sourcePath":"components/evidence/SourceMap.jsx"},{"name":"TenGrid","sourcePath":"components/evidence/TenGrid.jsx"},{"name":"Toolchain","sourcePath":"components/evidence/Toolchain.jsx"},{"name":"VoiceProfile","sourcePath":"components/evidence/VoiceProfile.jsx"},{"name":"VoiceScoreRing","sourcePath":"components/evidence/VoiceScoreRing.jsx"},{"name":"Eyebrow","sourcePath":"components/foundation/Eyebrow.jsx"},{"name":"LineArrow","sourcePath":"components/foundation/LineArrow.jsx"},{"name":"ProvenanceNote","sourcePath":"components/foundation/ProvenanceNote.jsx"},{"name":"RegistrationMark","sourcePath":"components/foundation/RegistrationMark.jsx"},{"name":"Tag","sourcePath":"components/foundation/Tag.jsx"},{"name":"Panel","sourcePath":"components/layout/Panel.jsx"},{"name":"PanelRow","sourcePath":"components/layout/Panel.jsx"},{"name":"PaperFrame","sourcePath":"components/layout/PaperFrame.jsx"},{"name":"Stage","sourcePath":"components/layout/Stage.jsx"},{"name":"StageCopy","sourcePath":"components/layout/StageCopy.jsx"},{"name":"StageCurtain","sourcePath":"components/layout/StageCurtain.jsx"},{"name":"StorySection","sourcePath":"components/layout/StorySection.jsx"},{"name":"ChapterNav","sourcePath":"components/navigation/ChapterNav.jsx"},{"name":"IndexRail","sourcePath":"components/navigation/IndexRail.jsx"},{"name":"MobileIdentityBar","sourcePath":"components/navigation/MobileIdentityBar.jsx"},{"name":"MobileMenu","sourcePath":"components/navigation/MobileMenu.jsx"},{"name":"ProjectSpineItem","sourcePath":"components/navigation/ProjectSpineItem.jsx"},{"name":"UtilityNav","sourcePath":"components/navigation/UtilityNav.jsx"}],"sourceHashes":{"components/actions/ScrollCue.jsx":"8bb658147fda","components/actions/StageAction.jsx":"9625df90b92f","components/evidence/ArtifactFigure.jsx":"127fb9077aa2","components/evidence/CardGrid.jsx":"803ac13ab7bd","components/evidence/DataTable.jsx":"e463933290ef","components/evidence/FactsPanel.jsx":"d1281305f605","components/evidence/GridCard.jsx":"fc995a72a9ed","components/evidence/Ledger.jsx":"30ffa1dd140d","components/evidence/Outcome.jsx":"87e9bb425f06","components/evidence/Pipeline.jsx":"0a78361dc86f","components/evidence/PullQuote.jsx":"b00277528fb2","components/evidence/ResumeEntry.jsx":"022a5e5c0dec","components/evidence/SourceMap.jsx":"223f6d8e812b","components/evidence/TenGrid.jsx":"189c24069a2b","components/foundation/Eyebrow.jsx":"339d08d17838","components/foundation/LineArrow.jsx":"d1caad2e912f","components/foundation/ProvenanceNote.jsx":"b8816411ea6e","components/foundation/RegistrationMark.jsx":"75a36243789a","components/foundation/Tag.jsx":"5778ff0b56c7","components/layout/PaperFrame.jsx":"0d2965baa9ba","components/layout/Stage.jsx":"1e5269281805","components/layout/StageCopy.jsx":"007e4ad0a85a","components/layout/StageCurtain.jsx":"2fe263912177","components/layout/StorySection.jsx":"e97b2c28af96","components/navigation/ChapterNav.jsx":"c1cb8c701f50","components/navigation/IndexRail.jsx":"fcbf9f04b37d","components/navigation/ProjectSpineItem.jsx":"404b40c48135","components/navigation/UtilityNav.jsx":"fbe5f3f7b7e5","components/evidence/RuleSplit.jsx":"df64f7a3e979","components/evidence/ResearchGrid.jsx":"7ac09d17bc27","components/evidence/FingerprintBars.jsx":"662c407f2939","components/evidence/EvidenceTrace.jsx":"1c52a31cba97","components/evidence/IndexRows.jsx":"d1cf16db6e0d","components/evidence/DisciplineVenn.jsx":"e1565f7822a0","components/evidence/VoiceScoreRing.jsx":"f1d9d92fe57c","components/evidence/BeforeAfter.jsx":"acae0740ee64","components/evidence/VoiceProfile.jsx":"3760a08b0d90","components/layout/Panel.jsx":"5013c544891a","components/evidence/GateRun.jsx":"fc67aaf9e806","components/evidence/CaptureFigure.jsx":"d015bc84a966","components/document/Report.jsx":"d526bb6cda51","components/document/ReportSection.jsx":"1131f245e776","components/document/DocFigure.jsx":"ad268702d487","components/document/Endnotes.jsx":"70804d8c8006","components/evidence/Toolchain.jsx":"5e1d68775f89","components/document/Finding.jsx":"72c749fc75c2","components/document/PaperTable.jsx":"f6bb51014d4e","components/case/CaseSection.jsx":"09e3d510dfaa","components/case/StoryBeat.jsx":"3b7ad214cf82","components/case/CaseQuote.jsx":"851b5a124fe4","components/case/MetricStrip.jsx":"5f86becb4df6","components/case/CaseNav.jsx":"e12f0f5468cf","components/navigation/MobileIdentityBar.jsx":"e8e721c45205","components/navigation/MobileMenu.jsx":"52ee787c1a6e","components/case/CaseMeta.jsx":"ca5a44e41563","components/case/VersoHero.jsx":"344f09715365","components/case/CaseEnding.jsx":"73c8a9ac1928"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -846,61 +846,6 @@ function LineArrow({
 }
 Object.assign(__ds_scope, { LineArrow });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/foundation/LineArrow.jsx", error: String((e && e.message) || e) }); }
-
-// components/actions/StageAction.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-const ACCENTS = {
-  action: "var(--signal-stage)",
-  signal: "var(--signal)",
-  ink: "var(--ink)",
-  stage: "var(--stage-ink)"
-};
-
-/** The system's only button: a text label on a 1px underline with a drawn arrow. */
-function StageAction({
-  accent = "action",
-  href,
-  onClick,
-  reverse = false,
-  children,
-  style,
-  ...rest
-}) {
-  const color = ACCENTS[accent];
-  const shared = {
-    width: "fit-content",
-    display: "inline-flex",
-    alignItems: "center",
-    gap: 17,
-    padding: "0 0 7px",
-    border: 0,
-    borderBottom: "1px solid " + color,
-    background: "transparent",
-    color,
-    fontFamily: "var(--font-sans)",
-    fontSize: 13,
-    fontWeight: 700,
-    letterSpacing: "-0.02em",
-    whiteSpace: "nowrap",
-    cursor: "pointer",
-    ...style
-  };
-  const content = reverse ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(__ds_scope.LineArrow, {
-    reverse: true
-  }), children) : /*#__PURE__*/React.createElement(React.Fragment, null, children, /*#__PURE__*/React.createElement(__ds_scope.LineArrow, null));
-  if (href) return /*#__PURE__*/React.createElement("a", _extends({
-    href: href,
-    style: shared
-  }, rest), content);
-  return /*#__PURE__*/React.createElement("button", _extends({
-    type: "button",
-    onClick: onClick,
-    style: shared
-  }, rest), content);
-}
-Object.assign(__ds_scope, { StageAction });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/actions/StageAction.jsx", error: String((e && e.message) || e) }); }
 
 // components/foundation/ProvenanceNote.jsx
 try { (() => {
@@ -6848,62 +6793,6 @@ function ScrollCue({
 Object.assign(__ds_scope, { ScrollCue });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/actions/ScrollCue.jsx", error: String((e && e.message) || e) }); }
 
-// components/actions/StageAction.jsx
-try { (() => {
-const ACCENTS = {
-  action: "var(--signal-stage)",
-  signal: "var(--signal)",
-  ink: "var(--ink)",
-  stage: "var(--stage-ink)"
-};
-
-/** The system's only button: a text label on a 1px underline with a drawn arrow. */
-function StageAction({
-  accent = "action",
-  href,
-  onClick,
-  reverse = false,
-  children,
-  style,
-  ...rest
-}) {
-  const color = ACCENTS[accent];
-  const shared = {
-    width: "fit-content",
-    display: "inline-flex",
-    alignItems: "center",
-    gap: 17,
-    padding: "0 0 7px",
-    border: 0,
-    borderBottom: "1px solid " + color,
-    background: "transparent",
-    color,
-    fontFamily: "var(--font-sans)",
-    fontSize: 13,
-    fontWeight: 700,
-    letterSpacing: "-0.02em",
-    whiteSpace: "nowrap",
-    cursor: "pointer",
-    ...style
-  };
-  const content = reverse ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(__ds_scope.LineArrow, {
-    reverse: true
-  }), children) : /*#__PURE__*/React.createElement(React.Fragment, null, children, /*#__PURE__*/React.createElement(__ds_scope.LineArrow, null));
-  if (href) return /*#__PURE__*/React.createElement("a", {
-    href: href,
-    style: shared,
-    ...rest
-  }, content);
-  return /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: onClick,
-    style: shared,
-    ...rest
-  }, content);
-}
-Object.assign(__ds_scope, { StageAction });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/actions/StageAction.jsx", error: String((e && e.message) || e) }); }
-
 // components/document/DocFigure.jsx
 try { (() => {
 /** A numbered figure or table. Two things a report needs that an exhibition does not: a number a
@@ -10373,62 +10262,6 @@ function ScrollCue({
 }
 Object.assign(__ds_scope, { ScrollCue });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/actions/ScrollCue.jsx", error: String((e && e.message) || e) }); }
-
-// components/actions/StageAction.jsx
-try { (() => {
-const ACCENTS = {
-  action: "var(--signal-stage)",
-  signal: "var(--signal)",
-  ink: "var(--ink)",
-  stage: "var(--stage-ink)"
-};
-
-/** The system's only button: a text label on a 1px underline with a drawn arrow. */
-function StageAction({
-  accent = "action",
-  href,
-  onClick,
-  reverse = false,
-  children,
-  style,
-  ...rest
-}) {
-  const color = ACCENTS[accent];
-  const shared = {
-    width: "fit-content",
-    display: "inline-flex",
-    alignItems: "center",
-    gap: 17,
-    padding: "0 0 7px",
-    border: 0,
-    borderBottom: "1px solid " + color,
-    background: "transparent",
-    color,
-    fontFamily: "var(--font-sans)",
-    fontSize: 13,
-    fontWeight: 700,
-    letterSpacing: "-0.02em",
-    whiteSpace: "nowrap",
-    cursor: "pointer",
-    ...style
-  };
-  const content = reverse ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(__ds_scope.LineArrow, {
-    reverse: true
-  }), children) : /*#__PURE__*/React.createElement(React.Fragment, null, children, /*#__PURE__*/React.createElement(__ds_scope.LineArrow, null));
-  if (href) return /*#__PURE__*/React.createElement("a", {
-    href: href,
-    style: shared,
-    ...rest
-  }, content);
-  return /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: onClick,
-    style: shared,
-    ...rest
-  }, content);
-}
-Object.assign(__ds_scope, { StageAction });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/actions/StageAction.jsx", error: String((e && e.message) || e) }); }
 
 // components/document/DocFigure.jsx
 try { (() => {
@@ -14913,74 +14746,6 @@ Object.assign(__ds_scope, { StageCurtain });
 
 
 
-// components/case/CaseMeta.jsx
-try { (() => {
-const HAIRLINE = "1px solid color-mix(in srgb, var(--story-ink) 16%, transparent)";
-const CELL = {
-  color: "var(--story-muted)",
-  fontFamily: "var(--font-sans)",
-  fontSize: 11,
-  lineHeight: 1.45
-};
-
-/** The case's metadata: Role, Team, Timeline, Surface, sitting directly below the cover as the
- *  scroll's first element. Caption-size text (CLAUDE.md's "Three text sizes" law makes this the
- *  one legitimate home for the third size inside a case scroll) — sentence case, muted ink on
- *  the dark ground, a hairline between rows and nothing else. No box, no mono, no colored label:
- *  quiet data, not chrome. Every value is sourced straight from kit-data; a project with nothing
- *  real to say for a field (Word Math has no team — it's solo research) renders fewer rows, never
- *  an invented one. Distinct from `FactsPanel`, which this replaces inside a case scroll:
- *  `FactsPanel` is a raised bright-paper masthead with a 9px mono label and a headline-size value;
- *  this is unframed, caption-size throughout, and built for the dark ground every case now shares. */
-function CaseMeta({
-  role,
-  team,
-  timeline,
-  surface,
-  style,
-  ...rest
-}) {
-  const rows = [{
-    label: "Role",
-    value: role
-  }, {
-    label: "Team",
-    value: team
-  }, {
-    label: "Timeline",
-    value: timeline
-  }, {
-    label: "Surface",
-    value: surface
-  }].filter(row => row.value);
-  if (!rows.length) return null;
-  return /*#__PURE__*/React.createElement("div", {
-    "data-ds": "case-meta",
-    style: {
-      ...style
-    },
-    ...rest
-  }, rows.map((row, i) => /*#__PURE__*/React.createElement("div", {
-    key: row.label,
-    style: {
-      display: "grid",
-      gridTemplateColumns: "var(--label-gutter) minmax(0,1fr)",
-      gap: 12,
-      padding: "9px 0",
-      borderTop: i === 0 ? "none" : HAIRLINE
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: CELL
-  }, row.label), /*#__PURE__*/React.createElement("span", {
-    style: {
-      ...CELL,
-      color: "var(--story-ink)"
-    }
-  }, row.value))));
-}
-Object.assign(__ds_scope, { CaseMeta });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/case/CaseMeta.jsx", error: String((e && e.message) || e) }); }
-
 // components/actions/ScrollCue.jsx
 try { (() => {
 /** Circled arrow plus a short promise, telling the reader the document continues. */
@@ -15018,130 +14783,6 @@ function ScrollCue({
 }
 Object.assign(__ds_scope, { ScrollCue });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/actions/ScrollCue.jsx", error: String((e && e.message) || e) }); }
-
-// components/actions/StageAction.jsx
-try { (() => {
-const ACCENTS = {
-  action: "var(--signal-stage)",
-  signal: "var(--signal)",
-  ink: "var(--ink)",
-  stage: "var(--stage-ink)"
-};
-
-/** The system's only button: a text label on a 1px underline with a drawn arrow. */
-function StageAction({
-  accent = "action",
-  href,
-  onClick,
-  reverse = false,
-  children,
-  style,
-  ...rest
-}) {
-  const color = ACCENTS[accent];
-  const shared = {
-    width: "fit-content",
-    display: "inline-flex",
-    alignItems: "center",
-    gap: 17,
-    padding: "0 0 7px",
-    border: 0,
-    borderBottom: "1px solid " + color,
-    background: "transparent",
-    color,
-    fontFamily: "var(--font-sans)",
-    fontSize: 13,
-    fontWeight: 700,
-    letterSpacing: "-0.02em",
-    whiteSpace: "nowrap",
-    cursor: "pointer",
-    ...style
-  };
-  const content = reverse ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(__ds_scope.LineArrow, {
-    reverse: true
-  }), children) : /*#__PURE__*/React.createElement(React.Fragment, null, children, /*#__PURE__*/React.createElement(__ds_scope.LineArrow, null));
-  if (href) return /*#__PURE__*/React.createElement("a", {
-    href: href,
-    style: shared,
-    ...rest
-  }, content);
-  return /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: onClick,
-    style: shared,
-    ...rest
-  }, content);
-}
-Object.assign(__ds_scope, { StageAction });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/actions/StageAction.jsx", error: String((e && e.message) || e) }); }
-
-// components/case/CaseMeta.jsx
-try { (() => {
-const HAIRLINE = "1px solid color-mix(in srgb, var(--story-ink) 16%, transparent)";
-const CELL = {
-  color: "var(--story-muted)",
-  fontFamily: "var(--font-sans)",
-  fontSize: 11,
-  lineHeight: 1.45
-};
-
-/** The case's metadata: Role, Team, Timeline, Surface, sitting directly below the cover as the
- *  scroll's first element. Caption-size text (CLAUDE.md's "Three text sizes" law makes this the
- *  one legitimate home for the third size inside a case scroll) — sentence case, muted ink on
- *  the dark ground, a hairline between rows and nothing else. No box, no mono, no colored label:
- *  quiet data, not chrome. Every value is sourced straight from kit-data; a project with nothing
- *  real to say for a field (Word Math has no team — it's solo research) renders fewer rows, never
- *  an invented one. Distinct from `FactsPanel`, which this replaces inside a case scroll:
- *  `FactsPanel` is a raised bright-paper masthead with a 9px mono label and a headline-size value;
- *  this is unframed, caption-size throughout, and built for the dark ground every case now shares. */
-function CaseMeta({
-  role,
-  team,
-  timeline,
-  surface,
-  style,
-  ...rest
-}) {
-  const rows = [{
-    label: "Role",
-    value: role
-  }, {
-    label: "Team",
-    value: team
-  }, {
-    label: "Timeline",
-    value: timeline
-  }, {
-    label: "Surface",
-    value: surface
-  }].filter(row => row.value);
-  if (!rows.length) return null;
-  return /*#__PURE__*/React.createElement("div", {
-    "data-ds": "case-meta",
-    style: {
-      ...style
-    },
-    ...rest
-  }, rows.map((row, i) => /*#__PURE__*/React.createElement("div", {
-    key: row.label,
-    style: {
-      display: "grid",
-      gridTemplateColumns: "var(--label-gutter) minmax(0,1fr)",
-      gap: 12,
-      padding: "9px 0",
-      borderTop: i === 0 ? "none" : HAIRLINE
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: CELL
-  }, row.label), /*#__PURE__*/React.createElement("span", {
-    style: {
-      ...CELL,
-      color: "var(--story-ink)"
-    }
-  }, row.value))));
-}
-Object.assign(__ds_scope, { CaseMeta });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/case/CaseMeta.jsx", error: String((e && e.message) || e) }); }
 
 // components/case/CaseNav.jsx
 try { (() => {
@@ -19100,130 +18741,6 @@ function ScrollCue({
 }
 Object.assign(__ds_scope, { ScrollCue });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/actions/ScrollCue.jsx", error: String((e && e.message) || e) }); }
-
-// components/actions/StageAction.jsx
-try { (() => {
-const ACCENTS = {
-  action: "var(--signal-stage)",
-  signal: "var(--signal)",
-  ink: "var(--ink)",
-  stage: "var(--stage-ink)"
-};
-
-/** The system's only button: a text label on a 1px underline with a drawn arrow. */
-function StageAction({
-  accent = "action",
-  href,
-  onClick,
-  reverse = false,
-  children,
-  style,
-  ...rest
-}) {
-  const color = ACCENTS[accent];
-  const shared = {
-    width: "fit-content",
-    display: "inline-flex",
-    alignItems: "center",
-    gap: 17,
-    padding: "0 0 7px",
-    border: 0,
-    borderBottom: "1px solid " + color,
-    background: "transparent",
-    color,
-    fontFamily: "var(--font-sans)",
-    fontSize: 13,
-    fontWeight: 700,
-    letterSpacing: "-0.02em",
-    whiteSpace: "nowrap",
-    cursor: "pointer",
-    ...style
-  };
-  const content = reverse ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(__ds_scope.LineArrow, {
-    reverse: true
-  }), children) : /*#__PURE__*/React.createElement(React.Fragment, null, children, /*#__PURE__*/React.createElement(__ds_scope.LineArrow, null));
-  if (href) return /*#__PURE__*/React.createElement("a", {
-    href: href,
-    style: shared,
-    ...rest
-  }, content);
-  return /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: onClick,
-    style: shared,
-    ...rest
-  }, content);
-}
-Object.assign(__ds_scope, { StageAction });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/actions/StageAction.jsx", error: String((e && e.message) || e) }); }
-
-// components/case/CaseMeta.jsx
-try { (() => {
-const HAIRLINE = "1px solid color-mix(in srgb, var(--story-ink) 16%, transparent)";
-const CELL = {
-  color: "var(--story-muted)",
-  fontFamily: "var(--font-sans)",
-  fontSize: 11,
-  lineHeight: 1.45
-};
-
-/** The case's metadata: Role, Team, Timeline, Surface, sitting directly below the cover as the
- *  scroll's first element. Caption-size text (CLAUDE.md's "Three text sizes" law makes this the
- *  one legitimate home for the third size inside a case scroll) — sentence case, muted ink on
- *  the dark ground, a hairline between rows and nothing else. No box, no mono, no colored label:
- *  quiet data, not chrome. Every value is sourced straight from kit-data; a project with nothing
- *  real to say for a field (Word Math has no team — it's solo research) renders fewer rows, never
- *  an invented one. Distinct from `FactsPanel`, which this replaces inside a case scroll:
- *  `FactsPanel` is a raised bright-paper masthead with a 9px mono label and a headline-size value;
- *  this is unframed, caption-size throughout, and built for the dark ground every case now shares. */
-function CaseMeta({
-  role,
-  team,
-  timeline,
-  surface,
-  style,
-  ...rest
-}) {
-  const rows = [{
-    label: "Role",
-    value: role
-  }, {
-    label: "Team",
-    value: team
-  }, {
-    label: "Timeline",
-    value: timeline
-  }, {
-    label: "Surface",
-    value: surface
-  }].filter(row => row.value);
-  if (!rows.length) return null;
-  return /*#__PURE__*/React.createElement("div", {
-    "data-ds": "case-meta",
-    style: {
-      ...style
-    },
-    ...rest
-  }, rows.map((row, i) => /*#__PURE__*/React.createElement("div", {
-    key: row.label,
-    style: {
-      display: "grid",
-      gridTemplateColumns: "var(--label-gutter) minmax(0,1fr)",
-      gap: 12,
-      padding: "9px 0",
-      borderTop: i === 0 ? "none" : HAIRLINE
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: CELL
-  }, row.label), /*#__PURE__*/React.createElement("span", {
-    style: {
-      ...CELL,
-      color: "var(--story-ink)"
-    }
-  }, row.value))));
-}
-Object.assign(__ds_scope, { CaseMeta });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/case/CaseMeta.jsx", error: String((e && e.message) || e) }); }
 
 // components/case/CaseNav.jsx
 try { (() => {
@@ -23704,384 +23221,6 @@ Object.assign(__ds_scope, { Ledger });
 
 
 
-// components/navigation/IndexRail.jsx
-try { (() => {
-/** The fixed left rail: one continuous editorial contents field for identity, work, and utilities. */
-function IndexRail({
-  name = "Caleb Stacy",
-  title = "Senior content designer",
-  differentiator = "Product systems · content engineering",
-  thesis,
-  projects = [],
-  active,
-  activeSub,
-  onSelect,
-  utilities = [],
-  location,
-  contactLabel = "Contact",
-  contactHref,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("aside", {
-    "aria-label": "Identity and portfolio navigation",
-    "data-ds": "rail",
-    style: {
-      position: "relative",
-      zIndex: 20,
-      minWidth: 0,
-      minHeight: 0,
-      display: "flex",
-      flexDirection: "column",
-      borderRight: "1px solid var(--ink)",
-      background: "var(--paper)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "ds-rail-identity",
-    onClick: () => onSelect && onSelect(utilities[0] ? utilities[0].id : "about"),
-    style: {
-      width: "100%",
-      display: "block",
-      padding: "clamp(28px,4.4vh,42px) var(--rail-pad-x) 14px",
-      border: 0,
-      background: "transparent",
-      color: "var(--ink)",
-      textAlign: "left",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "ds-rail-name",
-    style: {
-      display: "inline",
-      fontFamily: "var(--font-sans)",
-      fontSize: "clamp(28px,2.25vw,34px)",
-      fontWeight: "var(--wordmark-weight)",
-      lineHeight: 0.94,
-      letterSpacing: "var(--wordmark-tracking)"
-    }
-  }, name), /*#__PURE__*/React.createElement("small", {
-    style: {
-      display: "block",
-      marginTop: 10,
-      fontFamily: "var(--font-mono)",
-      fontSize: 9,
-      fontWeight: 620,
-      lineHeight: 1.45,
-      letterSpacing: "-0.02em"
-    }
-  }, title, /*#__PURE__*/React.createElement("i", {
-    style: {
-      display: "block",
-      color: "var(--muted-ink)",
-      fontStyle: "normal"
-    }
-  }, differentiator))), thesis && /*#__PURE__*/React.createElement("p", {
-    style: {
-      maxWidth: "32ch",
-      margin: 0,
-      padding: "0 var(--rail-pad-x) clamp(25px,3.5vh,32px)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 13,
-      lineHeight: 1.48,
-      letterSpacing: "-0.025em"
-    }
-  }, thesis), /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Selected work",
-    "data-ds": "rail-projects",
-    style: {
-      display: "flex",
-      flex: "0 0 auto",
-      flexDirection: "column"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      display: "flex",
-      justifyContent: "space-between",
-      gap: 12,
-      padding: "0 var(--rail-pad-x) 7px",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      fontWeight: 650,
-      lineHeight: 1.3,
-      letterSpacing: "-0.01em",
-      fontVariantNumeric: "tabular-nums"
-    }
-  }, /*#__PURE__*/React.createElement("span", null, "Selected work"), /*#__PURE__*/React.createElement("span", null, String(projects.length).padStart(2, "0"))), projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
-    key: p.id,
-    number: p.number,
-    title: p.title,
-    statement: p.statement,
-    active: active === p.id,
-    onSelect: () => onSelect && onSelect(p.id),
-    subItems: p.subPages,
-    activeSub: activeSub,
-    onSelectSub: sid => onSelect && onSelect(sid)
-  }))), /*#__PURE__*/React.createElement("div", {
-    "data-ds": "rail-utility-cluster",
-    style: {
-      marginTop: "auto",
-      padding: "18px var(--rail-pad-x) 20px",
-      borderTop: "1px solid var(--soft-line)"
-    }
-  }, utilities.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "block",
-      marginBottom: 3,
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      fontWeight: 650,
-      lineHeight: 1.3
-    }
-  }, "Profile"), /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
-    items: utilities,
-    active: active,
-    onSelect: onSelect
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "var(--space-4)",
-      alignItems: "end",
-      marginTop: utilities.length > 0 ? 17 : 0,
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 7.5,
-      lineHeight: 1.4
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      maxWidth: "22ch"
-    }
-  }, location), contactHref && /*#__PURE__*/React.createElement("a", {
-    className: "ds-rail-contact",
-    href: contactHref,
-    style: {
-      flex: "0 0 auto",
-      paddingBottom: 2,
-      color: "var(--ink)",
-      fontSize: 9.5,
-      fontWeight: 700,
-      textDecoration: "none"
-    }
-  }, contactLabel))));
-}
-Object.assign(__ds_scope, { IndexRail });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/IndexRail.jsx", error: String((e && e.message) || e) }); }
-
-// components/navigation/ProjectSpineItem.jsx
-try { (() => {
-/** One entry in the portfolio's editorial contents. The active project is located by one drawn
- *  rule at the rail edge; type and ground stay still. A project with sub-pages reveals them in
- *  the same continuous field while active. */
-function ProjectSpineItem({
-  number,
-  title,
-  statement,
-  active = false,
-  onSelect,
-  subItems,
-  activeSub,
-  onSelectSub,
-  context = "rail",
-  style,
-  ...rest
-}) {
-  const hasSubs = Array.isArray(subItems) && subItems.length > 0;
-  const showSubs = active && hasSubs;
-  const inMenu = context === "menu";
-  const removedFromTabOrder = rest.tabIndex === -1;
-  const columns = inMenu ? "38px minmax(0,1fr)" : "28px minmax(0,1fr)";
-  const horizontalPadding = inMenu ? "22px" : "var(--rail-pad-x)";
-  return /*#__PURE__*/React.createElement("div", {
-    className: "ds-spine-item",
-    "aria-current": active ? "page" : undefined,
-    "data-context": context,
-    style: {
-      position: "relative",
-      display: "flex",
-      flex: "0 0 auto",
-      flexDirection: "column",
-      width: "100%",
-      overflow: "visible",
-      color: "var(--ink)",
-      ...style
-    }
-  }, /*#__PURE__*/React.createElement("i", {
-    "aria-hidden": "true",
-    className: "ds-spine-active-marker",
-    "data-active": active ? "true" : "false",
-    "data-ds": "active-marker",
-    style: {
-      top: inMenu ? 23 : 17,
-      width: inMenu ? 18 : 20
-    }
-  }), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "ds-spine-trigger",
-    onClick: onSelect,
-    style: {
-      display: "grid",
-      gridTemplateColumns: columns,
-      gap: inMenu ? 12 : 9,
-      width: "100%",
-      padding: inMenu ? "12px " + horizontalPadding + " 10px" : "8px " + horizontalPadding,
-      border: 0,
-      background: "transparent",
-      color: "inherit",
-      textAlign: "left",
-      cursor: "pointer"
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      paddingTop: inMenu ? 5 : 4,
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: inMenu ? 10 : 9,
-      fontWeight: 680,
-      lineHeight: 1,
-      letterSpacing: "-0.03em",
-      fontVariantNumeric: "tabular-nums"
-    }
-  }, number), /*#__PURE__*/React.createElement("span", {
-    style: {
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("strong", {
-    className: "ds-spine-title-label",
-    style: {
-      display: "inline",
-      fontFamily: "var(--font-sans)",
-      fontSize: inMenu ? 18 : 16,
-      fontWeight: active ? 700 : 610,
-      lineHeight: 1.15,
-      letterSpacing: "-0.045em",
-      transition: "font-weight var(--dur-base) var(--ease-authored)"
-    }
-  }, title), /*#__PURE__*/React.createElement("small", {
-    "aria-hidden": !active,
-    style: {
-      display: "block",
-      maxWidth: inMenu ? 274 : 230,
-      overflow: "hidden",
-      color: "var(--muted-ink)",
-      visibility: active ? "visible" : "hidden",
-      fontFamily: "var(--font-sans)",
-      fontSize: inMenu ? 12 : 11,
-      fontWeight: 470,
-      lineHeight: 1.4,
-      letterSpacing: "-0.02em",
-      maxHeight: active ? 84 : 0,
-      marginTop: active ? 7 : 0,
-      clipPath: active ? "inset(0 0 0 0)" : "inset(0 0 100% 0)",
-      transition: "max-height var(--dur-slow) var(--ease-authored), margin var(--dur-slow) var(--ease-authored), clip-path var(--dur-slow) var(--ease-authored), visibility 0s " + (active ? "0s" : "var(--dur-slow)")
-    }
-  }, statement))), hasSubs && /*#__PURE__*/React.createElement("div", {
-    role: "group",
-    "aria-label": title + " pages",
-    "aria-hidden": !showSubs,
-    style: {
-      overflow: "hidden",
-      maxHeight: showSubs ? 144 : 0,
-      paddingBottom: showSubs ? inMenu ? 10 : 7 : 0,
-      visibility: showSubs ? "visible" : "hidden",
-      clipPath: showSubs ? "inset(0 0 0 0)" : "inset(0 0 100% 0)",
-      transition: "max-height var(--dur-slow) var(--ease-authored), padding var(--dur-slow) var(--ease-authored), clip-path var(--dur-slow) var(--ease-authored), visibility 0s " + (showSubs ? "0s" : "var(--dur-slow)")
-    }
-  }, subItems.map(s => /*#__PURE__*/React.createElement("button", {
-    key: s.id,
-    type: "button",
-    className: "ds-spine-sub",
-    "aria-current": activeSub === s.id ? "page" : undefined,
-    onClick: () => onSelectSub && onSelectSub(s.id),
-    tabIndex: showSubs && !removedFromTabOrder ? undefined : -1,
-    style: {
-      display: "grid",
-      gridTemplateColumns: columns,
-      gap: inMenu ? 12 : 9,
-      width: "100%",
-      padding: (inMenu ? "4px " : "3px ") + horizontalPadding,
-      border: 0,
-      background: "transparent",
-      color: "var(--muted-ink)",
-      textAlign: "left",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("span", {
-    className: "ds-spine-sub-label",
-    style: {
-      justifySelf: "start",
-      fontFamily: "var(--font-sans)",
-      fontSize: inMenu ? 14 : 12.5,
-      fontWeight: 560,
-      lineHeight: 1.4,
-      letterSpacing: "-0.025em"
-    }
-  }, s.label)))));
-}
-Object.assign(__ds_scope, { ProjectSpineItem });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ProjectSpineItem.jsx", error: String((e && e.message) || e) }); }
-
-// components/navigation/UtilityNav.jsx
-try { (() => {
-/** A wrapping text-link cluster for secondary destinations. State is a drawn rule, never a box. */
-function UtilityNav({
-  items = [],
-  active,
-  onSelect,
-  itemTabIndex,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Utilities",
-    "data-ds": "utility-nav",
-    style: {
-      display: "flex",
-      flexWrap: "wrap",
-      gap: "2px 18px",
-      alignItems: "baseline",
-      ...style
-    },
-    ...rest
-  }, items.map(item => {
-    const on = item.id === active;
-    return /*#__PURE__*/React.createElement("button", {
-      key: item.id,
-      type: "button",
-      className: "ds-utility-link",
-      onClick: () => onSelect && onSelect(item.id),
-      "aria-current": on ? "page" : undefined,
-      tabIndex: itemTabIndex,
-      style: {
-        position: "relative",
-        flex: "0 0 auto",
-        padding: "6px 0 5px",
-        border: 0,
-        background: "transparent",
-        color: "var(--ink)",
-        fontFamily: "var(--font-sans)",
-        fontSize: 12.5,
-        fontWeight: on ? 700 : 560,
-        lineHeight: 1.2,
-        letterSpacing: "-0.025em",
-        cursor: "pointer",
-        transition: "font-weight var(--dur-base) var(--ease-authored)"
-      }
-    }, item.label);
-  }));
-}
-Object.assign(__ds_scope, { UtilityNav });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/UtilityNav.jsx", error: String((e && e.message) || e) }); }
-
 // components/navigation/MobileIdentityBar.jsx
 try { (() => {
 /** The persistent phone identity and index control. It is one composed bar and one tap target:
@@ -24185,554 +23324,6 @@ function MobileIdentityBar({
 }
 Object.assign(__ds_scope, { MobileIdentityBar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileIdentityBar.jsx", error: String((e && e.message) || e) }); }
-
-// components/navigation/MobileMenu.jsx
-try { (() => {
-/** The phone's full-surface editorial index. It composes the rail's real destinations in one
- *  continuous paper field, with the active project located by the same drawn rule as desktop. */
-function MobileMenu({
-  isOpen = false,
-  onClose,
-  projects = [],
-  utilities = [],
-  activeId,
-  activeSubId,
-  onSelect,
-  location,
-  contactLabel = "Contact",
-  contactHref,
-  menuId,
-  returnFocusRef,
-  style,
-  ...rest
-}) {
-  const panelRef = React.useRef(null);
-  const wasOpen = React.useRef(false);
-  React.useEffect(() => {
-    let focusTimer;
-    if (isOpen) {
-      /* Run after the opening gesture completes. Focusing in the same click turn lets the
-         trigger reclaim focus in some browsers, leaving the modal visually open but the
-         keyboard outside it. */
-      focusTimer = window.setTimeout(() => {
-        const first = panelRef.current && (panelRef.current.querySelector("[data-menu-initial-focus]") || panelRef.current.querySelector("a, button"));
-        if (first) first.focus();
-      }, 60);
-    } else if (wasOpen.current && returnFocusRef && returnFocusRef.current) {
-      returnFocusRef.current.focus();
-    }
-    wasOpen.current = isOpen;
-    return () => {
-      if (focusTimer) window.clearTimeout(focusTimer);
-    };
-  }, [isOpen, returnFocusRef]);
-  React.useEffect(() => {
-    if (!isOpen) return undefined;
-    const onKeyDown = event => {
-      if (event.key === "Escape") {
-        onClose && onClose();
-        return;
-      }
-      if (event.key !== "Tab" || !panelRef.current) return;
-      const focusable = panelRef.current.querySelectorAll("a, button");
-      if (!focusable.length) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isOpen, onClose]);
-  const select = id => {
-    onSelect && onSelect(id);
-    onClose && onClose();
-  };
-  const tab = isOpen ? undefined : -1;
-  return /*#__PURE__*/React.createElement("div", {
-    ref: panelRef,
-    id: menuId,
-    role: "dialog",
-    "aria-modal": "true",
-    "aria-label": "Site navigation",
-    "data-ds": "mobile-menu",
-    className: "ds-mobile-menu",
-    style: {
-      position: "fixed",
-      zIndex: 290,
-      left: 0,
-      right: 0,
-      top: "calc(env(safe-area-inset-top, 0px) + var(--mobile-bar-height))",
-      bottom: 0,
-      display: "flex",
-      flexDirection: "column",
-      overflowY: "auto",
-      background: "var(--paper)",
-      color: "var(--ink)",
-      clipPath: isOpen ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)",
-      visibility: isOpen ? "visible" : "hidden",
-      transition: isOpen ? "clip-path var(--dur-fast) var(--ease-authored)" : "clip-path var(--dur-fast) var(--ease-authored), visibility 0s var(--dur-fast)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Work",
-    style: {
-      display: "flex",
-      flex: "0 0 auto",
-      flexDirection: "column",
-      paddingTop: "clamp(22px,6vw,30px)"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      display: "flex",
-      justifyContent: "space-between",
-      gap: 12,
-      padding: "0 22px 8px",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8.5,
-      fontWeight: 650,
-      lineHeight: 1.3,
-      fontVariantNumeric: "tabular-nums"
-    }
-  }, /*#__PURE__*/React.createElement("span", null, "Selected work"), /*#__PURE__*/React.createElement("span", null, String(projects.length).padStart(2, "0"))), projects.map((p, index) => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
-    key: p.id,
-    number: p.number,
-    title: p.title,
-    statement: p.statement,
-    active: p.id === activeId,
-    onSelect: () => select(p.id),
-    subItems: p.subPages,
-    activeSub: activeSubId,
-    onSelectSub: sid => select(sid),
-    tabIndex: tab,
-    context: "menu",
-    "data-menu-initial-focus": index === 0 ? "true" : undefined
-  }))), /*#__PURE__*/React.createElement("div", {
-    "data-ds": "mobile-utility-cluster",
-    style: {
-      flex: "0 0 auto",
-      marginTop: "auto",
-      padding: "18px 22px calc(20px + env(safe-area-inset-bottom, 0px))",
-      borderTop: "1px solid var(--soft-line)"
-    }
-  }, utilities.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "block",
-      marginBottom: 3,
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8.5,
-      fontWeight: 650,
-      lineHeight: 1.3
-    }
-  }, "Profile"), /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
-    items: utilities,
-    active: activeId,
-    onSelect: select,
-    itemTabIndex: tab,
-    style: {
-      flex: "0 0 auto",
-      gap: "2px 24px"
-    }
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "var(--space-5)",
-      alignItems: "end",
-      marginTop: utilities.length > 0 ? 22 : 0,
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      lineHeight: 1.4
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      maxWidth: "23ch"
-    }
-  }, location), contactHref && /*#__PURE__*/React.createElement("a", {
-    className: "ds-rail-contact",
-    href: contactHref,
-    tabIndex: tab,
-    style: {
-      flex: "0 0 auto",
-      paddingBottom: 2,
-      color: "var(--ink)",
-      fontSize: 10,
-      fontWeight: 700,
-      textDecoration: "none"
-    }
-  }, contactLabel))));
-}
-Object.assign(__ds_scope, { MobileMenu });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileMenu.jsx", error: String((e && e.message) || e) }); }
-
-// components\navigation\IndexRail.jsx
-try { (() => {
-/** The fixed left rail: one continuous editorial contents field for identity, work, and utilities. */
-function IndexRail({
-  name = "Caleb Stacy",
-  title = "Senior content designer",
-  differentiator = "Product systems · content engineering",
-  thesis,
-  projects = [],
-  active,
-  activeSub,
-  onSelect,
-  utilities = [],
-  location,
-  contactLabel = "Contact",
-  contactHref,
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("aside", {
-    "aria-label": "Identity and portfolio navigation",
-    "data-ds": "rail",
-    style: {
-      position: "relative",
-      zIndex: 20,
-      minWidth: 0,
-      minHeight: 0,
-      display: "flex",
-      flexDirection: "column",
-      borderRight: "1px solid var(--ink)",
-      background: "var(--paper)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "ds-rail-identity",
-    onClick: () => onSelect && onSelect(utilities[0] ? utilities[0].id : "about"),
-    style: {
-      width: "100%",
-      display: "block",
-      padding: "clamp(28px,4.4vh,42px) var(--rail-pad-x) 14px",
-      border: 0,
-      background: "transparent",
-      color: "var(--ink)",
-      textAlign: "left",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "ds-rail-name",
-    style: {
-      display: "inline",
-      fontFamily: "var(--font-sans)",
-      fontSize: "clamp(28px,2.25vw,34px)",
-      fontWeight: "var(--wordmark-weight)",
-      lineHeight: 0.94,
-      letterSpacing: "var(--wordmark-tracking)"
-    }
-  }, name), /*#__PURE__*/React.createElement("small", {
-    style: {
-      display: "block",
-      marginTop: 10,
-      fontFamily: "var(--font-mono)",
-      fontSize: 9,
-      fontWeight: 620,
-      lineHeight: 1.45,
-      letterSpacing: "-0.02em"
-    }
-  }, title, /*#__PURE__*/React.createElement("i", {
-    style: {
-      display: "block",
-      color: "var(--muted-ink)",
-      fontStyle: "normal"
-    }
-  }, differentiator))), thesis && /*#__PURE__*/React.createElement("p", {
-    style: {
-      maxWidth: "32ch",
-      margin: 0,
-      padding: "0 var(--rail-pad-x) clamp(25px,3.5vh,32px)",
-      fontFamily: "var(--font-sans)",
-      fontSize: 13,
-      lineHeight: 1.48,
-      letterSpacing: "-0.025em"
-    }
-  }, thesis), /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Selected work",
-    "data-ds": "rail-projects",
-    style: {
-      display: "flex",
-      flex: "0 0 auto",
-      flexDirection: "column"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      display: "flex",
-      justifyContent: "space-between",
-      gap: 12,
-      padding: "0 var(--rail-pad-x) 7px",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      fontWeight: 650,
-      lineHeight: 1.3,
-      letterSpacing: "-0.01em",
-      fontVariantNumeric: "tabular-nums"
-    }
-  }, /*#__PURE__*/React.createElement("span", null, "Selected work"), /*#__PURE__*/React.createElement("span", null, String(projects.length).padStart(2, "0"))), projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
-    key: p.id,
-    number: p.number,
-    title: p.title,
-    statement: p.statement,
-    active: active === p.id,
-    onSelect: () => onSelect && onSelect(p.id),
-    subItems: p.subPages,
-    activeSub: activeSub,
-    onSelectSub: sid => onSelect && onSelect(sid)
-  }))), /*#__PURE__*/React.createElement("div", {
-    "data-ds": "rail-utility-cluster",
-    style: {
-      marginTop: "auto",
-      padding: "18px var(--rail-pad-x) 20px",
-      borderTop: "1px solid var(--soft-line)"
-    }
-  }, utilities.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "block",
-      marginBottom: 3,
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      fontWeight: 650,
-      lineHeight: 1.3
-    }
-  }, "More"), /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
-    items: utilities,
-    active: active,
-    onSelect: onSelect
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "var(--space-4)",
-      alignItems: "end",
-      marginTop: utilities.length > 0 ? 17 : 0,
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 7.5,
-      lineHeight: 1.4
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      maxWidth: "22ch"
-    }
-  }, location), contactHref && /*#__PURE__*/React.createElement("a", {
-    className: "ds-rail-contact",
-    href: contactHref,
-    style: {
-      flex: "0 0 auto",
-      paddingBottom: 2,
-      color: "var(--ink)",
-      fontSize: 9.5,
-      fontWeight: 700,
-      textDecoration: "none"
-    }
-  }, contactLabel))));
-}
-Object.assign(__ds_scope, { IndexRail });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components\\navigation\\IndexRail.jsx", error: String((e && e.message) || e) }); }
-
-// components\navigation\MobileMenu.jsx
-try { (() => {
-/** The phone's full-surface editorial index. It composes the rail's real destinations in one
- *  continuous paper field, with the active project located by the same drawn rule as desktop. */
-function MobileMenu({
-  isOpen = false,
-  onClose,
-  projects = [],
-  utilities = [],
-  activeId,
-  activeSubId,
-  onSelect,
-  location,
-  contactLabel = "Contact",
-  contactHref,
-  menuId,
-  returnFocusRef,
-  style,
-  ...rest
-}) {
-  const panelRef = React.useRef(null);
-  const wasOpen = React.useRef(false);
-  React.useEffect(() => {
-    let focusTimer;
-    if (isOpen) {
-      /* Run after the opening gesture completes. Focusing in the same click turn lets the
-         trigger reclaim focus in some browsers, leaving the modal visually open but the
-         keyboard outside it. */
-      focusTimer = window.setTimeout(() => {
-        const first = panelRef.current && (panelRef.current.querySelector("[data-menu-initial-focus]") || panelRef.current.querySelector("a, button"));
-        if (first) first.focus();
-      }, 60);
-    } else if (wasOpen.current && returnFocusRef && returnFocusRef.current) {
-      returnFocusRef.current.focus();
-    }
-    wasOpen.current = isOpen;
-    return () => {
-      if (focusTimer) window.clearTimeout(focusTimer);
-    };
-  }, [isOpen, returnFocusRef]);
-  React.useEffect(() => {
-    if (!isOpen) return undefined;
-    const onKeyDown = event => {
-      if (event.key === "Escape") {
-        onClose && onClose();
-        return;
-      }
-      if (event.key !== "Tab" || !panelRef.current) return;
-      const focusable = panelRef.current.querySelectorAll("a, button");
-      if (!focusable.length) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isOpen, onClose]);
-  const select = id => {
-    onSelect && onSelect(id);
-    onClose && onClose();
-  };
-  const tab = isOpen ? undefined : -1;
-  return /*#__PURE__*/React.createElement("div", {
-    ref: panelRef,
-    id: menuId,
-    role: "dialog",
-    "aria-modal": "true",
-    "aria-label": "Site navigation",
-    "data-ds": "mobile-menu",
-    className: "ds-mobile-menu",
-    style: {
-      position: "fixed",
-      zIndex: 290,
-      left: 0,
-      right: 0,
-      top: "calc(env(safe-area-inset-top, 0px) + var(--mobile-bar-height))",
-      bottom: 0,
-      display: "flex",
-      flexDirection: "column",
-      overflowY: "auto",
-      background: "var(--paper)",
-      color: "var(--ink)",
-      clipPath: isOpen ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)",
-      visibility: isOpen ? "visible" : "hidden",
-      transition: isOpen ? "clip-path var(--dur-fast) var(--ease-authored)" : "clip-path var(--dur-fast) var(--ease-authored), visibility 0s var(--dur-fast)",
-      ...style
-    },
-    ...rest
-  }, /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Work",
-    style: {
-      display: "flex",
-      flex: "0 0 auto",
-      flexDirection: "column",
-      paddingTop: "clamp(22px,6vw,30px)"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      display: "flex",
-      justifyContent: "space-between",
-      gap: 12,
-      padding: "0 22px 8px",
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8.5,
-      fontWeight: 650,
-      lineHeight: 1.3,
-      fontVariantNumeric: "tabular-nums"
-    }
-  }, /*#__PURE__*/React.createElement("span", null, "Selected work"), /*#__PURE__*/React.createElement("span", null, String(projects.length).padStart(2, "0"))), projects.map((p, index) => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
-    key: p.id,
-    number: p.number,
-    title: p.title,
-    statement: p.statement,
-    active: p.id === activeId,
-    onSelect: () => select(p.id),
-    subItems: p.subPages,
-    activeSub: activeSubId,
-    onSelectSub: sid => select(sid),
-    tabIndex: tab,
-    context: "menu",
-    "data-menu-initial-focus": index === 0 ? "true" : undefined
-  }))), /*#__PURE__*/React.createElement("div", {
-    "data-ds": "mobile-utility-cluster",
-    style: {
-      flex: "0 0 auto",
-      marginTop: "auto",
-      padding: "18px 22px calc(20px + env(safe-area-inset-bottom, 0px))",
-      borderTop: "1px solid var(--soft-line)"
-    }
-  }, utilities.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: "block",
-      marginBottom: 3,
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8.5,
-      fontWeight: 650,
-      lineHeight: 1.3
-    }
-  }, "More"), /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
-    items: utilities,
-    active: activeId,
-    onSelect: select,
-    itemTabIndex: tab,
-    style: {
-      flex: "0 0 auto",
-      gap: "2px 24px"
-    }
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "var(--space-5)",
-      alignItems: "end",
-      marginTop: utilities.length > 0 ? 22 : 0,
-      color: "var(--muted-ink)",
-      fontFamily: "var(--font-mono)",
-      fontSize: 8,
-      lineHeight: 1.4
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      maxWidth: "23ch"
-    }
-  }, location), contactHref && /*#__PURE__*/React.createElement("a", {
-    className: "ds-rail-contact",
-    href: contactHref,
-    tabIndex: tab,
-    style: {
-      flex: "0 0 auto",
-      paddingBottom: 2,
-      color: "var(--ink)",
-      fontSize: 10,
-      fontWeight: 700,
-      textDecoration: "none"
-    }
-  }, contactLabel))));
-}
-Object.assign(__ds_scope, { MobileMenu });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components\\navigation\\MobileMenu.jsx", error: String((e && e.message) || e) }); }
 
 // components\case\VersoHero.jsx
 try { (() => {
@@ -25813,6 +24404,839 @@ function Ring({
 Object.assign(__ds_scope, { VersoHero });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components\\case\\VersoHero.jsx", error: String((e && e.message) || e) }); }
 
+// components/actions/StageAction.jsx
+try { (() => {
+const ACCENTS = {
+  action: "var(--signal-stage)",
+  signal: "var(--signal)",
+  ink: "var(--ink)",
+  stage: "var(--stage-ink)"
+};
+
+/** The system's only button: a text label on a 1px underline with a drawn arrow. */
+function StageAction({
+  accent = "action",
+  href,
+  onClick,
+  reverse = false,
+  children,
+  style,
+  ...rest
+}) {
+  const color = ACCENTS[accent];
+  const shared = {
+    width: "fit-content",
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 17,
+    padding: "0 0 7px",
+    border: 0,
+    borderBottom: "1px solid " + color,
+    background: "transparent",
+    color,
+    fontFamily: "var(--font-sans)",
+    fontSize: 13,
+    fontWeight: 700,
+    letterSpacing: "-0.02em",
+    whiteSpace: "nowrap",
+    cursor: "pointer",
+    ...style
+  };
+  const content = reverse ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(__ds_scope.LineArrow, {
+    reverse: true
+  }), children) : /*#__PURE__*/React.createElement(React.Fragment, null, children, /*#__PURE__*/React.createElement(__ds_scope.LineArrow, null));
+  if (href) return /*#__PURE__*/React.createElement("a", {
+    href: href,
+    onClick: onClick,
+    style: shared,
+    ...rest
+  }, content);
+  return /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: onClick,
+    style: shared,
+    ...rest
+  }, content);
+}
+Object.assign(__ds_scope, { StageAction });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/actions/StageAction.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/ProjectSpineItem.jsx
+try { (() => {
+/** One entry in the portfolio's editorial contents. The active project is located by one drawn
+ *  rule at the rail edge; type and ground stay still. A project with sub-pages reveals them in
+ *  the same continuous field while active. */
+function ProjectSpineItem({
+  number,
+  title,
+  statement,
+  href,
+  active = false,
+  onSelect,
+  subItems,
+  activeSub,
+  onSelectSub,
+  context = "rail",
+  style,
+  ...rest
+}) {
+  const hasSubs = Array.isArray(subItems) && subItems.length > 0;
+  const showSubs = active && hasSubs;
+  const inMenu = context === "menu";
+  const removedFromTabOrder = rest.tabIndex === -1;
+  const columns = inMenu ? "38px minmax(0,1fr)" : "28px minmax(0,1fr)";
+  const horizontalPadding = inMenu ? "22px" : "var(--rail-pad-x)";
+  return /*#__PURE__*/React.createElement("div", {
+    className: "ds-spine-item",
+    "aria-current": active ? "page" : undefined,
+    "data-context": context,
+    style: {
+      position: "relative",
+      display: "flex",
+      flex: "0 0 auto",
+      flexDirection: "column",
+      width: "100%",
+      overflow: "visible",
+      color: "var(--ink)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("i", {
+    "aria-hidden": "true",
+    className: "ds-spine-active-marker",
+    "data-active": active ? "true" : "false",
+    "data-ds": "active-marker",
+    style: {
+      top: inMenu ? 23 : 17,
+      width: inMenu ? 18 : 20
+    }
+  }), /*#__PURE__*/React.createElement("a", {
+    href: href,
+    className: "ds-spine-trigger",
+    onClick: onSelect,
+    "aria-current": active ? "page" : undefined,
+    style: {
+      display: "grid",
+      gridTemplateColumns: columns,
+      gap: inMenu ? 12 : 9,
+      width: "100%",
+      padding: inMenu ? "12px " + horizontalPadding + " 10px" : "8px " + horizontalPadding,
+      border: 0,
+      background: "transparent",
+      color: "inherit",
+      textAlign: "left",
+      textDecoration: "none",
+      cursor: "pointer"
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      paddingTop: inMenu ? 5 : 4,
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: inMenu ? 10 : 9,
+      fontWeight: 680,
+      lineHeight: 1,
+      letterSpacing: "-0.03em",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, number), /*#__PURE__*/React.createElement("span", {
+    style: {
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("strong", {
+    className: "ds-spine-title-label",
+    style: {
+      display: "inline",
+      fontFamily: "var(--font-sans)",
+      fontSize: inMenu ? 18 : 16,
+      fontWeight: active ? 700 : 610,
+      lineHeight: 1.15,
+      letterSpacing: "-0.045em",
+      transition: "font-weight var(--dur-base) var(--ease-authored)"
+    }
+  }, title), /*#__PURE__*/React.createElement("small", {
+    "aria-hidden": !active,
+    style: {
+      display: "block",
+      maxWidth: inMenu ? 274 : 230,
+      overflow: "hidden",
+      color: "var(--muted-ink)",
+      visibility: active ? "visible" : "hidden",
+      fontFamily: "var(--font-sans)",
+      fontSize: inMenu ? 12 : 11,
+      fontWeight: 470,
+      lineHeight: 1.4,
+      letterSpacing: "-0.02em",
+      maxHeight: active ? 84 : 0,
+      marginTop: active ? 7 : 0,
+      clipPath: active ? "inset(0 0 0 0)" : "inset(0 0 100% 0)",
+      transition: "max-height var(--dur-slow) var(--ease-authored), margin var(--dur-slow) var(--ease-authored), clip-path var(--dur-slow) var(--ease-authored), visibility 0s " + (active ? "0s" : "var(--dur-slow)")
+    }
+  }, statement))), hasSubs && /*#__PURE__*/React.createElement("div", {
+    role: "group",
+    "aria-label": title + " pages",
+    "aria-hidden": !showSubs,
+    style: {
+      overflow: "hidden",
+      maxHeight: showSubs ? 144 : 0,
+      paddingBottom: showSubs ? inMenu ? 10 : 7 : 0,
+      visibility: showSubs ? "visible" : "hidden",
+      clipPath: showSubs ? "inset(0 0 0 0)" : "inset(0 0 100% 0)",
+      transition: "max-height var(--dur-slow) var(--ease-authored), padding var(--dur-slow) var(--ease-authored), clip-path var(--dur-slow) var(--ease-authored), visibility 0s " + (showSubs ? "0s" : "var(--dur-slow)")
+    }
+  }, subItems.map(s => /*#__PURE__*/React.createElement("a", {
+    key: s.id,
+    href: s.href,
+    className: "ds-spine-sub",
+    "aria-current": activeSub === s.id ? "page" : undefined,
+    onClick: event => onSelectSub && onSelectSub(s.id, event),
+    tabIndex: showSubs && !removedFromTabOrder ? undefined : -1,
+    style: {
+      display: "grid",
+      gridTemplateColumns: columns,
+      gap: inMenu ? 12 : 9,
+      width: "100%",
+      padding: (inMenu ? "4px " : "3px ") + horizontalPadding,
+      border: 0,
+      background: "transparent",
+      color: "var(--muted-ink)",
+      textAlign: "left",
+      textDecoration: "none",
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "ds-spine-sub-label",
+    style: {
+      justifySelf: "start",
+      fontFamily: "var(--font-sans)",
+      fontSize: inMenu ? 14 : 12.5,
+      fontWeight: 560,
+      lineHeight: 1.4,
+      letterSpacing: "-0.025em"
+    }
+  }, s.label)))));
+}
+Object.assign(__ds_scope, { ProjectSpineItem });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ProjectSpineItem.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/UtilityNav.jsx
+try { (() => {
+/** A wrapping text-link cluster for secondary destinations. State is a drawn rule, never a box. */
+function UtilityNav({
+  items = [],
+  active,
+  onSelect,
+  itemTabIndex,
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Utilities",
+    "data-ds": "utility-nav",
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: "2px 18px",
+      alignItems: "baseline",
+      ...style
+    },
+    ...rest
+  }, items.map(item => {
+    const on = item.id === active;
+    return /*#__PURE__*/React.createElement("a", {
+      key: item.id,
+      href: item.href,
+      className: "ds-utility-link",
+      onClick: event => onSelect && onSelect(item.id, event),
+      "aria-current": on ? "page" : undefined,
+      tabIndex: itemTabIndex,
+      style: {
+        position: "relative",
+        flex: "0 0 auto",
+        padding: "6px 0 5px",
+        border: 0,
+        background: "transparent",
+        color: "var(--ink)",
+        fontFamily: "var(--font-sans)",
+        fontSize: 12.5,
+        fontWeight: on ? 700 : 560,
+        lineHeight: 1.2,
+        letterSpacing: "-0.025em",
+        textDecoration: "none",
+        cursor: "pointer",
+        transition: "font-weight var(--dur-base) var(--ease-authored)"
+      }
+    }, item.label);
+  }));
+}
+Object.assign(__ds_scope, { UtilityNav });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/UtilityNav.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/IndexRail.jsx
+try { (() => {
+/** The fixed left rail: one continuous editorial contents field for identity, work, and utilities. */
+function IndexRail({
+  name = "Caleb Stacy",
+  title = "Senior content designer",
+  differentiator = "Product systems · content engineering",
+  thesis,
+  identityHref = "/about/",
+  projects = [],
+  active,
+  activeSub,
+  onSelect,
+  utilities = [],
+  location,
+  contactLabel = "Contact",
+  contactHref,
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("aside", {
+    "aria-label": "Identity and portfolio navigation",
+    "data-ds": "rail",
+    style: {
+      position: "relative",
+      zIndex: 20,
+      minWidth: 0,
+      minHeight: 0,
+      display: "flex",
+      flexDirection: "column",
+      borderRight: "1px solid var(--ink)",
+      background: "var(--paper)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("a", {
+    href: identityHref,
+    className: "ds-rail-identity",
+    onClick: event => onSelect && onSelect(utilities[0] ? utilities[0].id : "about", event),
+    style: {
+      width: "100%",
+      display: "block",
+      padding: "clamp(28px,4.4vh,42px) var(--rail-pad-x) 14px",
+      border: 0,
+      background: "transparent",
+      color: "var(--ink)",
+      textAlign: "left",
+      textDecoration: "none",
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ds-rail-name",
+    style: {
+      display: "inline",
+      fontFamily: "var(--font-sans)",
+      fontSize: "clamp(28px,2.25vw,34px)",
+      fontWeight: "var(--wordmark-weight)",
+      lineHeight: 0.94,
+      letterSpacing: "var(--wordmark-tracking)"
+    }
+  }, name), /*#__PURE__*/React.createElement("small", {
+    style: {
+      display: "block",
+      marginTop: 10,
+      fontFamily: "var(--font-mono)",
+      fontSize: 9,
+      fontWeight: 620,
+      lineHeight: 1.45,
+      letterSpacing: "-0.02em"
+    }
+  }, title, /*#__PURE__*/React.createElement("i", {
+    style: {
+      display: "block",
+      color: "var(--muted-ink)",
+      fontStyle: "normal"
+    }
+  }, differentiator))), thesis && /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: "32ch",
+      margin: 0,
+      padding: "0 var(--rail-pad-x) clamp(25px,3.5vh,32px)",
+      fontFamily: "var(--font-sans)",
+      fontSize: 13,
+      lineHeight: 1.48,
+      letterSpacing: "-0.025em"
+    }
+  }, thesis), /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Selected work",
+    "data-ds": "rail-projects",
+    style: {
+      display: "flex",
+      flex: "0 0 auto",
+      flexDirection: "column"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: 12,
+      padding: "0 var(--rail-pad-x) 7px",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      fontWeight: 650,
+      lineHeight: 1.3,
+      letterSpacing: "-0.01em",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, /*#__PURE__*/React.createElement("span", null, "Selected work"), /*#__PURE__*/React.createElement("span", null, String(projects.length).padStart(2, "0"))), projects.map(p => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
+    key: p.id,
+    number: p.number,
+    title: p.title,
+    href: p.href,
+    statement: p.statement,
+    active: active === p.id,
+    onSelect: event => onSelect && onSelect(p.id, event),
+    subItems: p.subPages,
+    activeSub: activeSub,
+    onSelectSub: (sid, event) => onSelect && onSelect(sid, event)
+  }))), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "rail-utility-cluster",
+    style: {
+      marginTop: "auto",
+      padding: "18px var(--rail-pad-x) 20px",
+      borderTop: "1px solid var(--soft-line)"
+    }
+  }, utilities.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      marginBottom: 3,
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      fontWeight: 650,
+      lineHeight: 1.3
+    }
+  }, "More"), /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
+    items: utilities,
+    active: active,
+    onSelect: onSelect
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: "var(--space-4)",
+      alignItems: "end",
+      marginTop: utilities.length > 0 ? 17 : 0,
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 7.5,
+      lineHeight: 1.4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      maxWidth: "22ch"
+    }
+  }, location), contactHref && /*#__PURE__*/React.createElement("a", {
+    className: "ds-rail-contact",
+    href: contactHref,
+    style: {
+      flex: "0 0 auto",
+      paddingBottom: 2,
+      color: "var(--ink)",
+      fontSize: 9.5,
+      fontWeight: 700,
+      textDecoration: "none"
+    }
+  }, contactLabel))));
+}
+Object.assign(__ds_scope, { IndexRail });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/IndexRail.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/MobileMenu.jsx
+try { (() => {
+/** The phone's full-surface editorial index. It composes the rail's real destinations in one
+ *  continuous paper field, with the active project located by the same drawn rule as desktop. */
+function MobileMenu({
+  isOpen = false,
+  onClose,
+  projects = [],
+  utilities = [],
+  activeId,
+  activeSubId,
+  onSelect,
+  location,
+  contactLabel = "Contact",
+  contactHref,
+  menuId,
+  returnFocusRef,
+  style,
+  ...rest
+}) {
+  const panelRef = React.useRef(null);
+  const wasOpen = React.useRef(false);
+  const selectedDestination = React.useRef(false);
+  React.useEffect(() => {
+    let focusTimer;
+    if (isOpen) {
+      selectedDestination.current = false;
+      /* Run after the opening gesture completes. Focusing in the same click turn lets the
+         trigger reclaim focus in some browsers, leaving the modal visually open but the
+         keyboard outside it. */
+      focusTimer = window.setTimeout(() => {
+        const first = panelRef.current && (panelRef.current.querySelector("[data-menu-initial-focus]") || panelRef.current.querySelector("a, button"));
+        if (first) first.focus();
+      }, 60);
+    } else if (wasOpen.current && !selectedDestination.current && returnFocusRef && returnFocusRef.current) {
+      returnFocusRef.current.focus();
+    }
+    wasOpen.current = isOpen;
+    return () => {
+      if (focusTimer) window.clearTimeout(focusTimer);
+    };
+  }, [isOpen, returnFocusRef]);
+  React.useEffect(() => {
+    if (!isOpen) return undefined;
+    const onKeyDown = event => {
+      if (event.key === "Escape") {
+        onClose && onClose();
+        return;
+      }
+      if (event.key !== "Tab" || !panelRef.current) return;
+      const focusable = panelRef.current.querySelectorAll("a, button");
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen, onClose]);
+  const select = (id, event) => {
+    onSelect && onSelect(id, event);
+    if (!event || event.defaultPrevented) {
+      selectedDestination.current = true;
+      onClose && onClose();
+    }
+  };
+  const tab = isOpen ? undefined : -1;
+  return /*#__PURE__*/React.createElement("div", {
+    ref: panelRef,
+    id: menuId,
+    role: "dialog",
+    "aria-modal": "true",
+    "aria-label": "Site navigation",
+    "data-ds": "mobile-menu",
+    className: "ds-mobile-menu",
+    style: {
+      position: "fixed",
+      zIndex: 290,
+      left: 0,
+      right: 0,
+      top: "calc(env(safe-area-inset-top, 0px) + var(--mobile-bar-height))",
+      bottom: 0,
+      display: "flex",
+      flexDirection: "column",
+      overflowY: "auto",
+      background: "var(--paper)",
+      color: "var(--ink)",
+      clipPath: isOpen ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)",
+      visibility: isOpen ? "visible" : "hidden",
+      transition: isOpen ? "clip-path var(--dur-fast) var(--ease-authored)" : "clip-path var(--dur-fast) var(--ease-authored), visibility 0s var(--dur-fast)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Work",
+    style: {
+      display: "flex",
+      flex: "0 0 auto",
+      flexDirection: "column",
+      paddingTop: "clamp(22px,6vw,30px)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: 12,
+      padding: "0 22px 8px",
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8.5,
+      fontWeight: 650,
+      lineHeight: 1.3,
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, /*#__PURE__*/React.createElement("span", null, "Selected work"), /*#__PURE__*/React.createElement("span", null, String(projects.length).padStart(2, "0"))), projects.map((p, index) => /*#__PURE__*/React.createElement(__ds_scope.ProjectSpineItem, {
+    key: p.id,
+    number: p.number,
+    title: p.title,
+    href: p.href,
+    statement: p.statement,
+    active: p.id === activeId,
+    onSelect: event => select(p.id, event),
+    subItems: p.subPages,
+    activeSub: activeSubId,
+    onSelectSub: (sid, event) => select(sid, event),
+    tabIndex: tab,
+    context: "menu",
+    "data-menu-initial-focus": index === 0 ? "true" : undefined
+  }))), /*#__PURE__*/React.createElement("div", {
+    "data-ds": "mobile-utility-cluster",
+    style: {
+      flex: "0 0 auto",
+      marginTop: "auto",
+      padding: "18px 22px calc(20px + env(safe-area-inset-bottom, 0px))",
+      borderTop: "1px solid var(--soft-line)"
+    }
+  }, utilities.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      marginBottom: 3,
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8.5,
+      fontWeight: 650,
+      lineHeight: 1.3
+    }
+  }, "More"), /*#__PURE__*/React.createElement(__ds_scope.UtilityNav, {
+    items: utilities,
+    active: activeId,
+    onSelect: select,
+    itemTabIndex: tab,
+    style: {
+      flex: "0 0 auto",
+      gap: "2px 24px"
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: "var(--space-5)",
+      alignItems: "end",
+      marginTop: utilities.length > 0 ? 22 : 0,
+      color: "var(--muted-ink)",
+      fontFamily: "var(--font-mono)",
+      fontSize: 8,
+      lineHeight: 1.4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      maxWidth: "23ch"
+    }
+  }, location), contactHref && /*#__PURE__*/React.createElement("a", {
+    className: "ds-rail-contact",
+    href: contactHref,
+    tabIndex: tab,
+    style: {
+      flex: "0 0 auto",
+      paddingBottom: 2,
+      color: "var(--ink)",
+      fontSize: 10,
+      fontWeight: 700,
+      textDecoration: "none"
+    }
+  }, contactLabel))));
+}
+Object.assign(__ds_scope, { MobileMenu });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/MobileMenu.jsx", error: String((e && e.message) || e) }); }
+
+// components/case/CaseEnding.jsx
+try { (() => {
+const actionLink = {
+  position: "relative",
+  display: "inline-block",
+  padding: "5px 0 7px",
+  color: "var(--ink)",
+  fontFamily: "var(--font-sans)",
+  fontSize: "var(--body-size)",
+  fontWeight: 650,
+  lineHeight: 1.25,
+  letterSpacing: "-0.025em",
+  textDecoration: "none"
+};
+
+/** A case's closing decision point: contact, resume, optional evidence, and the next case. */
+function CaseEnding({
+  nextTitle,
+  nextHref,
+  onNext,
+  contactHref,
+  resumeHref,
+  onResume,
+  evidenceLabel,
+  evidenceHref,
+  onEvidence,
+  style,
+  ...rest
+}) {
+  const actions = [{
+    id: "contact",
+    label: "Contact",
+    href: contactHref
+  }, {
+    id: "resume",
+    label: "Résumé",
+    href: resumeHref,
+    onClick: onResume
+  }];
+  if (evidenceLabel && evidenceHref) {
+    actions.push({
+      id: "evidence",
+      label: evidenceLabel,
+      href: evidenceHref,
+      onClick: onEvidence
+    });
+  }
+  return /*#__PURE__*/React.createElement("section", {
+    id: "next",
+    "data-ds": "case-ending",
+    "aria-labelledby": "case-ending-title",
+    style: {
+      scrollMarginTop: 56,
+      padding: "clamp(34px,5vw,64px) var(--gutter) clamp(40px,6vw,72px)",
+      background: "var(--paper)",
+      color: "var(--ink)",
+      ...style
+    },
+    ...rest
+  }, /*#__PURE__*/React.createElement("div", {
+    "data-ds": "case-ending-inner",
+    style: {
+      display: "grid",
+      gridTemplateColumns: "minmax(0,1fr) auto",
+      gap: "clamp(30px,5vw,72px)",
+      alignItems: "end"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    id: "case-ending-title",
+    style: {
+      margin: 0,
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--display-s-size)",
+      fontWeight: "var(--display-s-weight)",
+      lineHeight: "var(--display-s-leading)",
+      letterSpacing: "var(--display-s-tracking)"
+    }
+  }, "Next project"), /*#__PURE__*/React.createElement("a", {
+    className: "ds-case-ending-link ds-case-ending-next",
+    href: nextHref,
+    onClick: onNext,
+    style: {
+      position: "relative",
+      display: "inline-block",
+      maxWidth: "100%",
+      marginTop: 12,
+      paddingBottom: 6,
+      color: "var(--ink)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--display-m-size)",
+      fontWeight: "var(--display-m-weight)",
+      lineHeight: "var(--display-m-leading)",
+      letterSpacing: "var(--display-m-tracking)",
+      textDecoration: "none",
+      textWrap: "balance"
+    }
+  }, nextTitle)), /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Case actions",
+    "data-ds": "case-ending-actions",
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "flex-end",
+      gap: "4px clamp(18px,2.5vw,30px)",
+      alignItems: "baseline"
+    }
+  }, actions.map(action => /*#__PURE__*/React.createElement("a", {
+    key: action.id,
+    className: "ds-case-ending-link",
+    href: action.href,
+    onClick: action.onClick,
+    style: actionLink
+  }, action.label)))));
+}
+Object.assign(__ds_scope, { CaseEnding });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/case/CaseEnding.jsx", error: String((e && e.message) || e) }); }
+
+// components/case/CaseMeta.jsx
+try { (() => {
+const HAIRLINE = "1px solid color-mix(in srgb, var(--story-ink) 16%, transparent)";
+const LABEL = {
+  margin: 0,
+  color: "var(--story-muted)",
+  fontFamily: "var(--font-sans)",
+  fontSize: "var(--body-size)",
+  fontWeight: 500,
+  lineHeight: "var(--body-leading)",
+  letterSpacing: "var(--body-tracking)"
+};
+const VALUE = {
+  margin: 0,
+  color: "var(--story-ink)",
+  fontFamily: "var(--font-sans)",
+  fontSize: "var(--prose-size)",
+  fontWeight: 500,
+  lineHeight: 1.35,
+  letterSpacing: "var(--prose-tracking)"
+};
+
+/** A readable project snapshot: Role, Team, Timeline, Surface, sitting directly below the cover as
+ *  the scroll's first element. Labels stay quiet through color; values carry prose-scale emphasis.
+ *  The definition list is framed only by rules, never a card or a raised facts panel. Every value
+ *  comes straight from kit-data; a project with nothing real to report renders fewer rows rather
+ *  than a placeholder or an invented one. */
+function CaseMeta({
+  role,
+  team,
+  timeline,
+  surface,
+  style,
+  ...rest
+}) {
+  const rows = [{
+    label: "Role",
+    value: role
+  }, {
+    label: "Team",
+    value: team
+  }, {
+    label: "Timeline",
+    value: timeline
+  }, {
+    label: "Surface",
+    value: surface
+  }].filter(row => row.value);
+  if (!rows.length) return null;
+  return /*#__PURE__*/React.createElement("dl", {
+    "data-ds": "case-meta",
+    "aria-label": "Project snapshot",
+    style: {
+      margin: 0,
+      borderTop: HAIRLINE,
+      borderBottom: HAIRLINE,
+      ...style
+    },
+    ...rest
+  }, rows.map((row, i) => /*#__PURE__*/React.createElement("div", {
+    key: row.label,
+    className: "ds-case-meta-row",
+    style: {
+      borderTop: i === 0 ? "none" : HAIRLINE
+    }
+  }, /*#__PURE__*/React.createElement("dt", {
+    style: LABEL
+  }, row.label), /*#__PURE__*/React.createElement("dd", {
+    style: VALUE
+  }, row.value))));
+}
+Object.assign(__ds_scope, { CaseMeta });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/case/CaseMeta.jsx", error: String((e && e.message) || e) }); }
+
 __ds_ns.ScrollCue = __ds_scope.ScrollCue;
 
 __ds_ns.StageAction = __ds_scope.StageAction;
@@ -25930,5 +25354,7 @@ __ds_ns.MobileMenu = __ds_scope.MobileMenu;
 __ds_ns.CaseMeta = __ds_scope.CaseMeta;
 
 __ds_ns.VersoHero = __ds_scope.VersoHero;
+
+__ds_ns.CaseEnding = __ds_scope.CaseEnding;
 
 })();

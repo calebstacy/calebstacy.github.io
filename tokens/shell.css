@@ -129,11 +129,12 @@
 }
 
 /* The custom VR and Portals covers keep their public proof full-width, then restore the earlier
-   clay character as a small desktop counterweight in the otherwise empty upper-right field. */
+   clay character as a small wide-desktop counterweight in the otherwise empty upper-right field.
+   Below 1360px the copy needs that field; the character yields rather than sitting over words. */
 [data-ds="case-cover-character"] {
   display: none;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1360px) {
   [data-ds="case-cover-character"] {
     position: absolute;
     z-index: 6;

@@ -102,6 +102,22 @@
 .ds-utility-link:focus-visible::after,
 .ds-utility-link[aria-current="page"]::after { right: 0; }
 
+/* Case endings use real anchors at the hiring decision point. Their single underline grows
+   left-to-right on hover or keyboard focus; the mark is drawn, never faded. */
+.ds-case-ending-link { position: relative; }
+.ds-case-ending-link::after {
+  position: absolute;
+  right: 100%;
+  bottom: 1px;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: var(--signal);
+  transition: right var(--dur-base) var(--ease-authored);
+}
+.ds-case-ending-link:hover::after,
+.ds-case-ending-link:focus-visible::after { right: 0; }
+
 .ds-mobile-toggle-label {
   padding-bottom: 2px;
   background-image: linear-gradient(var(--signal), var(--signal));
@@ -164,4 +180,29 @@
 [data-doc-heading]:focus-visible {
   outline: 3px solid var(--signal);
   outline-offset: 6px;
+}
+
+/* The first keyboard stop bypasses the persistent navigation and lands on the reader landmark.
+   It stays above the frame only while focused; the movement is positional, never an opacity fade. */
+.ds-skip-link {
+  position: fixed;
+  z-index: 400;
+  top: 10px;
+  left: 10px;
+  padding: 9px 12px;
+  transform: translateY(calc(-100% - 18px));
+  border: 2px solid var(--ink);
+  background: var(--paper-bright);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform var(--dur-fast) var(--ease-authored);
+}
+.ds-skip-link:focus {
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ds-skip-link { transition: none; }
 }
