@@ -88,14 +88,6 @@
     .verso-cover-points li::marker { color: var(--jade); }
     .verso-summary-band { position: relative; padding: 28px 48px; background: rgba(10,30,22,0.55); border-bottom: 1px solid rgba(255,255,255,0.08); }
     .verso-summary-inner { max-width: 1184px; margin: 0 auto; }
-    .verso-cover-results { display: flex; align-items: center; gap: 36px; padding-bottom: 28px; margin-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .verso-results-label { flex: 0 0 180px; }
-    .verso-results-label h2 { margin: 0; font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.65); }
-    .verso-results-label p { margin: 8px 0 0; font-size: 12px; line-height: 1.5; color: rgba(255,255,255,0.65); }
-    .verso-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; width: 100%; margin: 0; padding: 0; list-style: none; }
-    .verso-results li { min-width: 0; }
-    .verso-results strong { display: block; margin-bottom: 6px; font-family: var(--font-display); font-size: 1.65rem; font-weight: 300; line-height: 1.15; color: var(--jade); }
-    .verso-results span { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.72); }
     .verso-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 32px; margin: 0; }
     .verso-facts > div { min-width: 0; }
     .verso-facts dt { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.55); }
@@ -285,11 +277,6 @@
       .verso-cover-card { padding: 22px 24px; }
       .verso-cover-context, .verso-cover-close { font-size: 14px; }
       .verso-summary-band { padding: 24px 20px; }
-      .verso-cover-results { display: block; }
-      .verso-results-label { margin-bottom: 20px; }
-      .verso-results { grid-template-columns: 1fr; gap: 18px; }
-      .verso-results strong { font-size: 1.45rem; }
-      .verso-results span { font-size: 13px; }
       .verso-facts { grid-template-columns: 1fr; }
       .za-nav { top: 16px; left: 16px; }
       .za-ask { padding: 28px 16px; }
@@ -541,17 +528,6 @@
 
   <section class="verso-summary-band" aria-label="Overview">
     <div class="verso-summary-inner">
-      <div class="verso-cover-results">
-        <div class="verso-results-label">
-          <h2>Results</h2>
-          <p>From one product area to company-wide in about six months</p>
-        </div>
-        <ul class="verso-results">
-          <li><strong>Word of mouth</strong><span>adopted by content designers across Meta</span></li>
-          <li><strong>Five surfaces</strong><span>fingerprinted from their real shipped strings</span></li>
-          <li><strong>Still running</strong><span>handed to central content design</span></li>
-        </ul>
-      </div>
       <dl class="verso-facts">
         <div><dt>Role</dt><dd>Creator and builder of the entire system</dd></div>
         <div><dt>Team</dt><dd>Feedback from content designers · partnered with central content design to adopt it</dd></div>
