@@ -30,69 +30,17 @@
   }
 })();
 
-// Shared résumé dialog. The original href remains a useful no-JS fallback.
+// The home CTA keeps its native anchor fallback and adds continuity when motion is welcome.
 (() => {
-  if (!('HTMLDialogElement' in window)) return;
+  const trigger = document.querySelector('[data-scroll-to-work]');
+  const work = document.getElementById('work');
+  if (!trigger || !work) return;
 
-  document.body.insertAdjacentHTML('beforeend', `
-    <dialog class="site-overlay site-overlay--resume" id="resume-overlay" aria-labelledby="resume-overlay-title">
-      <div class="site-overlay__panel">
-        <header class="site-overlay__header">
-          <div>
-            <p class="site-overlay__eyebrow">Résumé</p>
-            <h2 class="site-overlay__title" id="resume-overlay-title">Caleb Stacy</h2>
-          </div>
-          <button class="site-overlay__close" type="button" data-close-overlay aria-label="Close résumé dialog">×</button>
-        </header>
-        <iframe class="site-overlay__resume-frame" title="Caleb Stacy résumé" src="resume-print.html?embedded=1" loading="lazy"></iframe>
-        <footer class="site-overlay__footer">
-          <span class="site-overlay__footer-note">Senior content designer · Richmond, Virginia</span>
-          <div class="site-overlay__footer-actions">
-            <a class="site-overlay__action" href="resume.html">Open full page</a>
-            <a class="site-overlay__action site-overlay__action--primary" href="Caleb-Stacy-Resume.pdf" download>Download PDF</a>
-          </div>
-        </footer>
-      </div>
-    </dialog>
-  `);
-
-  const resume = document.getElementById('resume-overlay');
-  const openers = new WeakMap();
-
-  function openOverlay(dialog, opener) {
-    if (!dialog || dialog.open) return;
-    openers.set(dialog, opener || document.activeElement);
-    document.documentElement.classList.add('site-overlay-open');
-    dialog.showModal();
-    const close = dialog.querySelector('[data-close-overlay]');
-    if (close) close.focus({ preventScroll: true });
-  }
-
-  function closeOverlay(dialog) {
-    if (dialog && dialog.open) dialog.close();
-  }
-
-  for (const dialog of [resume]) {
-    dialog.addEventListener('click', event => {
-      if (event.target === dialog) closeOverlay(dialog);
-    });
-    dialog.querySelector('[data-close-overlay]').addEventListener('click', () => closeOverlay(dialog));
-    dialog.addEventListener('close', () => {
-      document.documentElement.classList.remove('site-overlay-open');
-      const opener = openers.get(dialog);
-      if (opener && typeof opener.focus === 'function') opener.focus({ preventScroll: true });
-    });
-  }
-
-  document.addEventListener('click', event => {
-    const anchor = event.target.closest('a[href]');
-    if (!anchor || event.defaultPrevented || event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    const url = new URL(anchor.href, window.location.href);
-    if (url.pathname.endsWith('/resume.html')) {
-      event.preventDefault();
-      openOverlay(resume, anchor);
-    }
+  trigger.addEventListener('click', event => {
+    if (event.defaultPrevented || event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    event.preventDefault();
+    work.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (window.location.hash !== '#work') window.history.pushState(null, '', '#work');
   });
-
-  if (window.location.hash === '#resume') openOverlay(resume, null);
 })();
