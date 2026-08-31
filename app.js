@@ -2532,7 +2532,7 @@ function ResumeDocument({
       textAlign: "right"
     }
   }, /*#__PURE__*/React.createElement("a", {
-    href: "mailto:" + data.contact,
+    href: data.contact,
     style: {
       color: "var(--ink)"
     }
@@ -2943,7 +2943,7 @@ function PortfolioApp() {
     onSelect: go,
     utilities: utilities,
     location: data.identity.location,
-    contactHref: "mailto:calebstacy@gmail.com"
+    contactHref: "https://www.linkedin.com/in/caleb-stacyrva/"
   }), /*#__PURE__*/React.createElement(IdentityBar, {
     name: data.identity.name,
     title: data.identity.title,
@@ -2960,7 +2960,7 @@ function PortfolioApp() {
     activeSubId: active,
     onSelect: go,
     location: data.identity.location,
-    contactHref: "mailto:calebstacy@gmail.com",
+    contactHref: "https://www.linkedin.com/in/caleb-stacyrva/",
     contactLabel: "Contact",
     menuId: MOBILE_MENU_ID,
     returnFocusRef: menuToggleRef
@@ -3026,7 +3026,7 @@ function PortfolioApp() {
     onNext: event => go(nextProject.id, event),
     onNavigate: go,
     routeHref: ROUTES.hrefFor,
-    contactHref: "mailto:" + data.contact,
+    contactHref: data.contact,
     resumeHref: ROUTES.hrefFor("resume"),
     scrollRef: scrollRef
   }) : project.id === "vr-education" && typeof VrDocument === "function" ? /*#__PURE__*/React.createElement(VrDocument, {
@@ -3037,7 +3037,7 @@ function PortfolioApp() {
     onNext: event => go(nextProject.id, event),
     onNavigate: go,
     routeHref: ROUTES.hrefFor,
-    contactHref: "mailto:" + data.contact,
+    contactHref: data.contact,
     resumeHref: ROUTES.hrefFor("resume"),
     scrollRef: scrollRef
   }) : project.id === "portals" && typeof PortalsDocument === "function" ? /*#__PURE__*/React.createElement(PortalsDocument, {
@@ -3048,7 +3048,7 @@ function PortfolioApp() {
     onNext: event => go(nextProject.id, event),
     onNavigate: go,
     routeHref: ROUTES.hrefFor,
-    contactHref: "mailto:" + data.contact,
+    contactHref: data.contact,
     resumeHref: ROUTES.hrefFor("resume"),
     scrollRef: scrollRef
   }) : /*#__PURE__*/React.createElement(ProjectDocument, {

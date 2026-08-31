@@ -1,1 +1,670 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=/#verso"><link rel="canonical" href="https://calebstacy.com/#verso"><title>Moved</title></head><body><p><a href="/#verso">This case study has moved.</a></p></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verso | Caleb Stacy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&amp;family=Space+Mono:wght@400;700&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+  <style>
+    :root {
+      --font-display: "Raleway", system-ui, sans-serif;
+      --font-sans: "DM Sans", system-ui, sans-serif;
+      --font-mono: "Space Mono", monospace;
+      --z-sans: "Geist", "DM Sans", system-ui, sans-serif;
+      --z-mono: "Geist Mono", "Space Mono", monospace;
+      --ink: rgba(255,255,255,0.86);
+      --ink-dim: rgba(255,255,255,0.55);
+      --ink-faint: rgba(255,255,255,0.5);
+      --cream: #ddd8c4;
+      --jade: #6EE7A8;
+      --jade-deep: #50C89B;
+      --amber: #E8A84C;
+      --fail: #ff8078;
+      --warn: #e8c35c;
+      --term-bg: #060907;
+      --term-border: rgba(110,231,168,0.16);
+      --z-bg: #1a1a1a;
+      --z-fg: #fafafa;
+      --z-muted: #a3a3ac;
+      --z-border: rgba(255,255,255,0.08);
+      --z-accent: rgba(255,255,255,0.1);
+      --z-pass: #ddd8c4;
+      --z-warn: #e8c35c;
+      --z-fail: #ff8078;
+    }
+    *, ::before, ::after { box-sizing: border-box; }
+    body { margin: 0; background: #0D0F0C; color: var(--ink); font-family: var(--font-sans); }
+    img, svg, video { display: block; vertical-align: middle; }
+    a { color: #ddd8c4; text-decoration: none; }
+    a:hover { color: #ffffff; }
+
+    .section { padding: 96px 64px; }
+    .inner { max-width: 1040px; margin: 0 auto; }
+    .prose { max-width: 700px; }
+    .kicker {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.28em;
+      text-transform: uppercase; color: rgba(221,216,196,0.55); margin: 0 0 18px;
+    }
+    .h2 {
+      font-family: var(--font-display); font-weight: 200; font-size: 40px;
+      line-height: 1.12; color: var(--cream); margin: 0 0 22px; letter-spacing: 0.01em;
+    }
+    .body {
+      font-family: var(--font-sans); font-weight: 300; font-size: 16px;
+      line-height: 1.75; color: var(--ink-dim); margin: 0 0 16px;
+    }
+    .body strong { color: var(--ink); font-weight: 500; }
+    .rule { height: 1px; background: rgba(255,255,255,0.07); border: none; margin: 0; }
+    .glass {
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.09), 0 18px 50px rgba(0,0,0,0.3);
+    }
+    .card-h {
+      font-family: "Instrument Serif", Georgia, serif; font-style: italic;
+      font-size: 19px; letter-spacing: 0.01em; line-height: 1.25;
+      color: rgba(221,216,196,0.9); margin: 0 0 12px;
+    }
+    .quote-bar { border-left: 2px solid rgba(232,168,76,0.5); padding-left: 16px; }
+    .annot {
+      font-family: var(--font-sans); font-weight: 300; font-size: 12.5px; line-height: 1.6;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ── Case-study cover ── */
+    .verso-cover { position: relative; height: 648px; overflow: hidden; background: radial-gradient(circle at 76% 24%, rgba(39,120,94,0.28), transparent 36%), linear-gradient(145deg, #173127 0%, #0d0f0c 72%); }
+    .verso-cover::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to top, rgba(6,14,10,0.96) 0%, rgba(6,14,10,0.18) 58%, transparent 100%); }
+    .verso-cover-card { position: absolute; z-index: 2; bottom: 48px; left: 48px; width: min(760px, calc(100% - 96px)); padding: 28px 32px; border: 1px solid rgba(255,255,255,0.15); border-radius: 24px; background: rgba(10,44,38,0.52); box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 24px 70px rgba(0,0,0,0.28); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); }
+    .verso-cover-eyebrow { display: inline-flex; margin: 0 0 18px; padding: 5px 13px; border: 1px solid rgba(255,255,255,0.14); border-radius: 100px; background: rgba(255,255,255,0.07); font: 300 9px/1.6 var(--font-display); letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.8); }
+    .verso-cover-card h1 { margin: 0 0 14px; font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 200; line-height: 1.05; color: rgba(255,255,255,0.96); }
+    .verso-cover-claim { margin: 0 0 18px; font-family: var(--font-display); font-size: clamp(1.2rem, 2.4vw, 1.5rem); font-weight: 300; line-height: 1.45; color: rgba(255,255,255,0.9); }
+    .verso-cover-context, .verso-cover-close { margin: 0; max-width: 650px; font-family: var(--font-sans); font-size: 15px; font-weight: 300; line-height: 1.65; color: rgba(255,255,255,0.74); }
+    .verso-cover-points { margin: 12px 0; padding-left: 20px; max-width: 650px; }
+    .verso-cover-points li { margin: 0 0 8px; padding-left: 2px; font-family: var(--font-sans); font-size: 14px; font-weight: 300; line-height: 1.6; color: rgba(255,255,255,0.72); }
+    .verso-cover-points li:last-child { margin-bottom: 0; }
+    .verso-cover-points li::marker { color: var(--jade); }
+    .verso-summary-band { position: relative; padding: 28px 48px; background: rgba(10,30,22,0.55); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .verso-summary-inner { max-width: 1184px; margin: 0 auto; }
+    .verso-cover-results { display: flex; align-items: center; gap: 36px; padding-bottom: 28px; margin-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .verso-results-label { flex: 0 0 180px; }
+    .verso-results-label h2 { margin: 0; font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.65); }
+    .verso-results-label p { margin: 8px 0 0; font-size: 12px; line-height: 1.5; color: rgba(255,255,255,0.65); }
+    .verso-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; width: 100%; margin: 0; padding: 0; list-style: none; }
+    .verso-results li { min-width: 0; }
+    .verso-results strong { display: block; margin-bottom: 6px; font-family: var(--font-display); font-size: 1.65rem; font-weight: 300; line-height: 1.15; color: var(--jade); }
+    .verso-results span { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.72); }
+    .verso-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 32px; margin: 0; }
+    .verso-facts > div { min-width: 0; }
+    .verso-facts dt { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.55); }
+    .verso-facts dd { margin: 5px 0 0; font-size: 15px; font-weight: 300; line-height: 1.6; color: rgba(255,255,255,0.8); }
+    @keyframes za-type { from { width: 0; } to { width: 100%; } }
+    @keyframes za-caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+    @keyframes za-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes za-line { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes za-stateout { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0.985); visibility: hidden; } }
+    @keyframes za-statein { from { opacity: 0; transform: scale(1.015); } to { opacity: 1; transform: scale(1); } }
+    .za-nav { position: absolute; top: 28px; left: 36px; z-index: 5; }
+    .za-hero { width: 100%; max-width: 760px; min-height: 300px; position: relative; }
+    .za-ask { position: absolute; top: 0; left: 0; right: 0; display: none; flex-direction: column; align-items: center; justify-content: flex-start; padding: 36px 28px; gap: 18px; background: #080b09; border: 1px solid rgba(110,231,168,0.12); border-radius: 22px; box-shadow: 0 18px 48px rgba(0,0,0,0.24); }
+    .za-ask-title { font-family: var(--z-sans); font-weight: 500; font-size: 22px; line-height: 1.25; letter-spacing: -0.01em; color: #fafafa; margin: 0; text-align: center; }
+    .za-suggestions { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+    .za-suggestion { font-family: var(--z-sans); font-size: 11px; line-height: 1.4; color: #d4d4d8; border: 1px solid rgba(255,255,255,0.13); border-radius: 100px; padding: 5px 10px; }
+    .za-convo { position: relative; width: 100%; max-width: 640px; margin: 0 auto; font-family: 'Geist', var(--font-sans); display: flex; flex-direction: column; }
+    .za-thread { width: 100%; max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; padding: 0 4px 8px; }
+    /* Only the temporary thinking layer moves. The complete reply keeps its natural height. */
+    .za-prelude-frame { position: absolute; inset: 0; display: none; overflow: hidden; pointer-events: none; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 24px, #000); mask-image: linear-gradient(to bottom, transparent, #000 24px, #000); }
+    .za-prelude { display: flex; flex-direction: column; padding: 10px 4px 24px; pointer-events: auto; }
+    @keyframes za-prelude-out { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(calc(-100% - 24px)); visibility: hidden; } }
+    .za-hero.is-playing .za-prelude-frame { display: block; }
+    .za-hero.is-playing .za-prelude { animation: za-prelude-out 0.85s cubic-bezier(0.4, 0, 0.2, 1) 5.9s forwards; }
+    .za-block { margin-top: 14px; }
+    /* Readable without JavaScript. Only an active playback hides content. */
+    .za-hero.is-playing .za-ask { display: flex; animation: za-stateout 0.55s ease 2.7s forwards; }
+    .za-hero.is-playing .za-convo { opacity: 0; animation: za-statein 0.55s ease 3.0s forwards; }
+    .za-hero.is-playing .za-block { opacity: 0; animation: za-in 0.55s cubic-bezier(0.3, 0.9, 0.3, 1) both; }
+    .za-hero.is-playing .za-block.is-revealed { opacity: 1; transform: none; animation: none; }
+    .za-hero.is-playing .za-rline { opacity: 0; animation: za-line 0.4s ease forwards; }
+    .za-hero.is-paused *, .za-hero.is-paused *::before, .za-hero.is-paused *::after { animation-play-state: paused !important; }
+    .za-thinking-live, .za-thinking-done { align-items: center; gap: 8px; font-size: 12px; color: #b9b9c0; }
+    .za-thinking-live { display: none; }
+    .za-thinking-done { display: inline-flex; }
+    .za-hero.is-playing:not(.has-answer) .za-thinking-live { display: inline-flex; }
+    .za-hero.is-playing:not(.has-answer) .za-thinking-done { display: none; }
+    /* Dots signal active work, then settle with the corresponding answer. */
+    @keyframes z-dot-pulse { 0%, 60%, 100% { opacity: 0.35; } 30% { opacity: 1; } }
+    .z-dots { display: inline-flex; align-items: center; gap: 3px; flex-shrink: 0; }
+    .z-dots > span { width: 4px; height: 4px; border-radius: 50%; background: currentColor; opacity: 0.35; }
+    .z-dots > span:nth-child(2) { --dot-delay: 0.16s; }
+    .z-dots > span:nth-child(3) { --dot-delay: 0.32s; }
+    .za-hero.is-playing:not(.has-answer) .z-dots > span { animation: z-dot-pulse 1.05s ease-in-out var(--dot-delay, 0s) infinite; }
+    /* ── Zola window (light) ── */
+    .zwin {
+      background: rgba(16, 24, 19, 0.5); color: var(--z-fg);
+      backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(255,255,255,0.14); border-radius: 18px;
+      font-family: var(--z-sans); font-size: 14px; line-height: 1.65;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 28px 80px rgba(0,0,0,0.5);
+      overflow: hidden;
+    }
+    .z-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 13px 20px; border-bottom: 1px solid var(--z-border);
+    }
+    .z-title { display: flex; align-items: center; gap: 9px; font-weight: 500; font-size: 13.5px; }
+    .z-dot { width: 8px; height: 8px; border-radius: 50%; background: #ddd8c4; }
+    .z-title .sub { color: var(--z-muted); font-weight: 400; }
+    .z-body { padding: 26px 26px 30px; }
+    .z-thread { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; }
+    .z-user {
+      align-self: flex-end; max-width: 70%;
+      background: var(--z-accent); border-radius: 24px; padding: 10px 20px;
+      margin: 0 0 22px;
+    }
+    .z-asst { align-self: stretch; margin: 0 0 22px; }
+    .z-reason-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      color: var(--z-muted); font-size: 13px; margin-bottom: 8px;
+    }
+    .z-reason-btn .caret { font-size: 9px; transform: rotate(180deg); display: inline-block; }
+    .z-reason {
+      border-left: 1px solid rgba(255,255,255,0.16); padding-left: 16px;
+      color: var(--z-muted); font-size: 13px; line-height: 1.7; margin-bottom: 18px;
+    }
+    .z-tools { display: flex; flex-direction: column; gap: 8px; margin: 0 0 18px; }
+    .z-tool {
+      border: 1px solid var(--z-border); border-radius: 10px; padding: 9px 13px;
+      font-size: 13px;
+    }
+    .z-tool .t-row1 { display: flex; align-items: center; gap: 8px; }
+    .z-tool .wrench { color: var(--z-muted); font-size: 12px; }
+    .z-tool .tname { font-weight: 500; }
+    .z-tool .tstate { margin-left: auto; color: var(--z-pass); font-size: 12px; }
+    .z-tool .targ { color: var(--z-muted); font-size: 12.5px; margin-top: 3px; padding-left: 20px; }
+    .z-tool .targ .v { font-family: var(--z-mono); font-size: 11.5px; color: var(--z-fg); }
+    .z-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--z-border); border-radius: 10px; padding: 8px 13px;
+      font-size: 13px; color: var(--z-fg); margin-bottom: 18px;
+    }
+    .z-chip .count { background: var(--z-accent); border-radius: 100px; padding: 1px 8px; font-family: var(--z-mono); font-size: 11px; }
+    .z-h4 { font-weight: 600; font-size: 14px; margin: 0 0 8px; }
+    .z-list { margin: 0 0 4px; padding: 0; list-style: none; }
+    .z-list li { display: flex; gap: 9px; align-items: baseline; margin-bottom: 5px; }
+    .z-list .pip { font-size: 11px; flex: none; }
+    .pip.ok { color: var(--z-pass); } .pip.warn { color: var(--z-warn); } .pip.info { color: var(--z-muted); }
+    .z-p { margin: 0 0 12px; }
+    .z-mono { font-family: var(--z-mono); font-size: 12.5px; }
+    .z-table { border: 1px solid var(--z-border); border-radius: 10px; overflow: hidden; margin: 4px 0 6px; max-width: 620px; }
+    .z-tr { display: grid; grid-template-columns: 280px 1fr; }
+    .z-tr + .z-tr { border-top: 1px solid var(--z-border); }
+    .z-td { padding: 8px 14px; font-size: 13px; }
+    .z-tr .z-td:first-child { color: var(--z-muted); border-right: 1px solid var(--z-border); }
+    .z-tr.hd .z-td { font-weight: 600; color: var(--z-fg); }
+    .z-status { color: var(--z-muted); font-size: 12.5px; }
+    .z-status .spark { color: #ddd8c4; }
+
+    .za-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+    .verso-overview { max-width: 960px; margin: 0 auto; padding: 72px 48px 56px; }
+    .verso-overview-head { max-width: 760px; }
+    .verso-overview-head .h2 { max-width: 720px; margin-bottom: 16px; font-size: clamp(30px, 4.2vw, 44px); }
+    .verso-insight { max-width: 760px; margin: 30px 0 0; padding: 22px 24px; border-left: 2px solid var(--amber); background: rgba(232,168,76,0.045); }
+    .verso-insight .kicker { margin-bottom: 10px; }
+    .verso-insight p:last-child { margin: 0; font-family: var(--font-sans); font-size: 14px; line-height: 1.7; font-weight: 300; color: var(--ink-dim); }
+    .verso-compare { margin-top: 34px; border: 1px solid rgba(255,255,255,0.13); border-radius: 18px; overflow: hidden; background: rgba(255,255,255,0.025); }
+    .verso-compare table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    .verso-compare th, .verso-compare td { padding: 17px 18px; border-top: 1px solid rgba(255,255,255,0.09); text-align: left; vertical-align: top; font-family: var(--font-sans); font-size: 13.5px; line-height: 1.55; }
+    .verso-compare thead th { border-top: 0; font-family: var(--font-mono); font-size: 10px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
+    .verso-compare thead th:first-child, .verso-compare tbody th { width: 22%; }
+    .verso-compare tbody th { font-weight: 500; color: var(--cream); }
+    .verso-compare tbody td:nth-child(2) { color: var(--ink-faint); }
+    .verso-compare tbody td:nth-child(3) { color: var(--ink); }
+    .verso-capabilities { max-width: 960px; margin: 0 auto; padding: 16px 48px 56px; }
+    .verso-section-head { display: grid; grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr); gap: 42px; align-items: end; }
+    .verso-section-head .h2 { margin: 0; font-size: clamp(24px, 3vw, 32px); }
+    .verso-behavior-list { list-style: none; margin: 28px 0 0; padding: 0; border-top: 1px solid rgba(255,255,255,0.13); }
+    .verso-behavior-row { display: grid; grid-template-columns: 42px minmax(190px, 0.75fr) minmax(0, 1.25fr); gap: 20px; align-items: start; padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .verso-behavior-number { padding-top: 2px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; color: var(--amber); }
+    .verso-behavior-row h3, .verso-new-item h3 { margin: 0; font-family: var(--font-sans); font-size: 15px; line-height: 1.45; font-weight: 500; color: var(--ink); }
+    .verso-behavior-row p, .verso-new-item p { margin: 0; font-family: var(--font-sans); font-size: 13.5px; line-height: 1.7; font-weight: 300; color: var(--ink-dim); }
+    .verso-new { max-width: 960px; margin: 0 auto; padding: 8px 48px 56px; }
+    .verso-new-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
+    .verso-new-item { min-width: 0; padding: 22px 22px 24px; border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; background: rgba(255,255,255,0.025); }
+    .verso-new-item h3 { margin-bottom: 8px; color: var(--cream); }
+    .verso-bottom-line { margin-top: 18px; padding: 24px 26px; border-left: 2px solid var(--amber); background: rgba(232,168,76,0.045); }
+    .verso-bottom-line h3 { margin: 0 0 8px; font-family: var(--font-mono); font-size: 9px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); }
+    .verso-bottom-line p { max-width: 760px; margin: 0; font-family: var(--font-display); font-size: clamp(19px, 2.3vw, 24px); line-height: 1.45; font-weight: 300; color: var(--ink); }
+    .verso-proof { max-width: 960px; margin: 0 auto; padding: 8px 48px 72px; }
+    .verso-proof-card { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 48px; align-items: start; padding: 28px 30px; border: 1px solid rgba(221,216,196,0.18); border-radius: 18px; background: rgba(221,216,196,0.045); }
+    .verso-proof-card .h2 { margin: 0; font-size: clamp(24px, 3vw, 32px); }
+    .verso-next { display: block; max-width: 864px; height: 190px; margin: 0 auto 88px; border: 1px solid rgba(255,255,255,0.12); border-radius: 24px; overflow: hidden; position: relative; color: inherit; text-decoration: none; }
+    .verso-next img { width: 100%; height: 100%; object-fit: cover; object-position: center 48%; filter: brightness(0.55); display: block; transition: filter 180ms ease, transform 180ms ease; }
+    .verso-next::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,18,14,0.94), rgba(6,18,14,0.08) 70%); }
+    .verso-next-copy { position: absolute; z-index: 1; left: 26px; right: 26px; bottom: 24px; display: flex; justify-content: space-between; gap: 24px; align-items: end; }
+    .verso-next-label { display: block; margin-bottom: 6px; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-faint); }
+    .verso-next-title { display: block; font-family: var(--font-display); font-size: 22px; font-weight: 300; color: var(--ink); }
+    .verso-next-arrow { color: var(--cream); font-size: 18px; }
+    @media (hover: hover) {
+      .verso-next:hover img { filter: brightness(0.68); transform: scale(1.01); }
+    }
+
+    /* ── Thinking pill: expandable, CSS-free of JS (native details) ── */
+    .za-steps summary { list-style: none; cursor: pointer; border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; padding: 9px 16px; min-height: 44px; display: flex; align-items: center; gap: 8px; }
+    .za-steps summary::-webkit-details-marker { display: none; }
+    .za-steps .caret { margin-left: auto; color: #6a6a72; font-size: 11px; transition: transform 0.25s ease; }
+    .za-steps[open] .caret { transform: rotate(180deg); }
+    .za-chain { margin: 12px 0 2px 20px; padding-left: 20px; border-left: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 11px; }
+    .za-step { position: relative; font-size: 13px; line-height: 1.5; color: #b9b9c0; font-family: 'Geist', var(--font-sans); }
+    .za-step::before { content: ""; position: absolute; left: -24.5px; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: #2f2f33; border: 1px solid rgba(255,255,255,0.28); }
+    .za-step .st { color: #4FBF7E; margin-left: 8px; font-size: 12px; }
+
+    /* Light entrance (headline wave + composer border trail) removed 2026-08-30 per Caleb —
+       parked for later; the tuner artifact holds the mechanism and knobs. */
+    @keyframes za-tcin { to { opacity: 1; } }
+    /* typing: per-character reveal (the width-wipe sliced glyphs mid-step) */
+    .za-typeline { white-space: pre-wrap; min-width: 0; }
+    .za-hero.is-playing .za-tc { opacity: 0; animation: za-tcin 0.01s linear forwards; animation-delay: calc(0.6s + var(--i) * 0.045s); }
+    .za-cursor { width: 2px; height: 17px; background: #ececef; display: inline-block; opacity: 0; flex-shrink: 0; }
+    .za-hero.is-playing .za-cursor { animation: za-caret 0.6s step-end 1.85s 2; }
+
+    /* Reduced motion always resolves to the complete, readable conversation. */
+    @media (prefers-reduced-motion: reduce) {
+      .za-hero .za-ask { display: none !important; }
+      .za-hero .za-convo, .za-hero .za-block, .za-hero .za-rline { opacity: 1 !important; animation: none !important; transform: none !important; }
+      .za-hero .za-prelude-frame { display: none !important; }
+      .za-hero .za-thinking-live { display: none !important; }
+      .za-hero .za-thinking-done { display: inline-flex !important; }
+      .z-dots > span { animation: none !important; }
+    }
+    @media (max-width: 640px) {
+      .section { padding: 56px 20px; }
+      .verso-cover { height: auto; min-height: 0; padding: 96px 20px 24px; }
+      .verso-cover-card { position: relative; inset: auto; width: 100%; }
+      .verso-cover-card { padding: 22px 24px; }
+      .verso-cover-context, .verso-cover-close { font-size: 14px; }
+      .verso-summary-band { padding: 24px 20px; }
+      .verso-cover-results { display: block; }
+      .verso-results-label { margin-bottom: 20px; }
+      .verso-results { grid-template-columns: 1fr; gap: 18px; }
+      .verso-results strong { font-size: 1.45rem; }
+      .verso-results span { font-size: 13px; }
+      .verso-facts { grid-template-columns: 1fr; }
+      .za-nav { top: 16px; left: 16px; }
+      .za-ask { padding: 28px 16px; }
+      .za-ask-title { font-size: 20px; }
+      .verso-overview { padding: 54px 20px 42px; }
+      .verso-compare { border-radius: 14px; }
+      .verso-compare thead { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+      .verso-compare tbody, .verso-compare tr, .verso-compare th, .verso-compare td { display: block; width: auto; }
+      .verso-compare tr { display: grid; grid-template-columns: 1fr 1fr; }
+      .verso-compare tr + tr { border-top: 1px solid rgba(255,255,255,0.1); }
+      .verso-compare th, .verso-compare td { border-top: 0; padding: 13px 14px; font-size: 12.5px; }
+      .verso-compare tbody th { grid-column: 1 / -1; padding-bottom: 8px; background: rgba(255,255,255,0.035); }
+      .verso-compare td::before { content: attr(data-column); display: block; margin-bottom: 5px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+      .verso-capabilities, .verso-new { padding: 8px 20px 46px; }
+      .verso-section-head { grid-template-columns: 1fr; gap: 10px; }
+      .verso-behavior-list { margin-top: 22px; }
+      .verso-behavior-row { grid-template-columns: 28px minmax(0, 1fr); gap: 5px 12px; padding: 18px 0; }
+      .verso-behavior-number { grid-row: 1 / span 2; }
+      .verso-behavior-row h3, .verso-behavior-row p { grid-column: 2; }
+      .verso-new-grid { grid-template-columns: 1fr; gap: 10px; margin-top: 20px; }
+      .verso-new-item { padding: 19px 18px 20px; }
+      .verso-bottom-line { padding: 20px 18px; }
+      .verso-proof { padding: 0 20px 54px; }
+      .verso-proof-card { grid-template-columns: 1fr; gap: 18px; padding: 24px 22px; }
+      .verso-next { height: 176px; margin: 0 20px 64px; border-radius: 18px; }
+      .verso-next-copy { left: 20px; right: 20px; bottom: 20px; }
+    }
+
+    /* ── Terminal chrome (kept for the artifacts that were terminal output) ── */
+    .term {
+      background: var(--term-bg);
+      border: 1px solid var(--term-border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+    .term-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 22px; border-bottom: 1px solid rgba(110,231,168,0.1);
+      background: rgba(110,231,168,0.03);
+    }
+    .term-title {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--amber);
+    }
+    .term-body {
+      font-family: var(--font-mono); font-size: 13px; line-height: 1.8;
+      padding: 26px 30px 34px; color: rgba(235,245,238,0.82);
+    }
+    .t-hdr { color: #ffffff; font-weight: 700; }
+    .t-dim { color: rgba(235,245,238,0.55); }
+    .t-pass { color: var(--jade); }
+    .t-fail { color: var(--fail); }
+    .t-warn { color: var(--warn); }
+    .t-amber { color: var(--amber); }
+
+    /* ── Loop rail ── */
+    .rail { display: flex; align-items: center; gap: 14px; }
+    .rail-node {
+      flex: 1; text-align: center; padding: 20px 10px;
+      border: 1px solid rgba(255,255,255,0.13); border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink);
+    }
+    .rail-arrow { font-family: var(--font-mono); color: rgba(110,231,168,0.55); font-size: 14px; }
+
+    /* ── Fingerprint chart ── */
+    .fp-row { display: grid; grid-template-columns: 190px 1fr 62px; gap: 18px; align-items: center; padding: 9px 0; }
+    .fp-label { font-family: var(--font-mono); font-size: 12px; color: var(--ink-dim); }
+    .fp-track { position: relative; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.07); }
+    .fp-band { position: absolute; top: 0; height: 6px; border-radius: 3px; background: rgba(232,168,76,0.18); }
+    .fp-bar { position: absolute; top: 0; height: 6px; border-radius: 3px; background: var(--amber); }
+    .fp-val { font-family: var(--font-mono); font-size: 12px; color: var(--amber); text-align: right; }
+
+    .chip {
+      display: inline-block; font-family: var(--font-mono); font-size: 11.5px;
+      color: rgba(235,245,238,0.72); background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 100px;
+      padding: 10px 18px; line-height: 1.4;
+    }
+  
+    /* P1: dark-field micro labels were below practical contrast at tiny sizes. */
+    .site-built [style*="rgba(255,255,255,0.18)"],
+    .site-built [style*="rgba(255,255,255,0.2)"],
+    .site-built [style*="rgba(255,255,255,0.22)"],
+    .site-built [style*="rgba(255,255,255,0.25)"],
+    .site-built [style*="rgba(255,255,255,0.28)"],
+    .site-built [style*="rgba(255,255,255,0.3)"],
+    .site-built [style*="rgba(255,255,255,0.32)"] { color: rgba(255,255,255,0.5) !important; }
+
+    .site-built a:focus-visible,
+    .site-built button:focus-visible,
+    .site-built summary:focus-visible,
+    .site-built [tabindex]:focus-visible,
+    .site-built input:focus-visible,
+    .site-built textarea:focus-visible {
+      outline: 2px solid #ddd8c4;
+      outline-offset: 3px;
+    }
+
+    /* P1: missing reduced-motion coverage for marquees, glow traces, and generated motion. */
+    @media (prefers-reduced-motion: reduce) {
+      .site-built *, .site-built *::before, .site-built *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .site-built nav > div { padding-left: 20px !important; padding-right: 20px !important; gap: 18px !important; }
+      .site-built nav div[style*="gap: 36px"] { gap: 16px !important; flex-wrap: wrap !important; justify-content: flex-end !important; }
+
+      /* P1: fixed hero heights and absolute captions can overlap on narrow screens. */
+      .site-built section[style*="height: 844px"] { height: auto !important; min-height: 0 !important; }
+      .site-built section[style*="height: 844px"] > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        height: auto !important;
+      }
+      .site-built section[style*="height: 844px"] > div > div { padding: 72px 24px 36px !important; }
+      .site-built div[style*="height: 648px"] { min-height: 720px !important; }
+      .site-built div[style*="bottom: 48px"][style*="left: 48px"] {
+        left: 20px !important;
+        right: 20px !important;
+        bottom: 24px !important;
+        padding: 22px 24px !important;
+        max-width: none !important;
+      }
+
+      /* P1: fixed multi-column grids squeeze content on mobile. */
+      .site-built div[style*="grid-template-columns: repeat(3"],
+      .site-built div[style*="grid-template-columns: repeat(2"],
+      .site-built div[style*="grid-template-columns: 300px 1fr"],
+      .site-built div[style*="grid-template-columns: 340px 1fr"],
+      .site-built div[style*="grid-template-columns: 1.1fr 1fr"],
+      .site-built div[style*="grid-template-columns: 1fr 1fr"],
+      .site-built div[style*="grid-template-columns: 190px 1fr 52px"],
+      .site-built div[style*="grid-template-columns: 190px 1fr 62px"],
+      .site-built .fp-row,
+      .site-built .z-tr {
+        grid-template-columns: 1fr !important;
+      }
+
+      .site-built [style*="padding: 64px 48px"],
+      .site-built [style*="padding: 0 48px"],
+      .site-built [style*="padding: 96px 64px"],
+      .site-built .section { padding-left: 20px !important; padding-right: 20px !important; }
+
+      /* P1: fixed carousel cards can exceed the viewport. */
+      .site-built #mc-carousel { height: 360px !important; }
+      .site-built #mc-carousel .mc-card {
+        max-width: calc(100vw - 40px) !important;
+      }
+      .site-built #mc-carousel .mc-card img {
+        object-fit: contain;
+      }
+    }
+
+    /* Local responsive repair. Keep charts legible, not merely inside the page. */
+    .section [style*="grid-template-columns"] > div { min-width: 0; }
+    .closing-links { flex-wrap: wrap; }
+    .closing-links a { justify-content: center; min-height: 44px; }
+    .metric-reading { flex-wrap: wrap; }
+    .term-body { overflow-x: auto; overscroll-behavior-x: contain; }
+    .term-body > .t-hdr, .term-body > .t-dim { white-space: nowrap; }
+
+    @media (max-width: 960px) {
+      .site-built .fp-layout,
+      .site-built .evidence-comparison { grid-template-columns: minmax(0, 1fr) !important; gap: 24px !important; }
+    }
+    @media (max-width: 760px) {
+      .site-built .h2 { font-size: clamp(28px, 8vw, 34px) !important; line-height: 1.18; }
+      .site-built .glass { padding-left: 22px !important; padding-right: 22px !important; }
+      .zwin:not(.vt) .z-body { padding: 20px 18px 24px !important; }
+      .z-user { max-width: 90%; }
+      .z-tool .t-row1 { flex-wrap: wrap; }
+      .z-tool .targ { padding-left: 0; overflow-wrap: anywhere; }
+      .site-built .z-tr { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) !important; }
+      .z-td { padding: 9px 10px; overflow-wrap: anywhere; }
+      .site-built .fp-row,
+      .site-built .market-row { grid-template-columns: minmax(0, 1fr) auto !important; gap: 8px 12px !important; padding: 12px 0; }
+      .fp-label, .market-row > :first-child { grid-area: 1 / 1; }
+      .fp-val, .market-row > :last-child { grid-area: 1 / 2; }
+      .fp-track, .market-row > :nth-child(2) { grid-area: 2 / 1 / 3 / -1; }
+      .evidence-score { font-size: clamp(26px, 8vw, 40px) !important; }
+      .term-body { padding: 22px 18px; }
+      .closing-links a { flex: 1 1 200px; }
+    }
+
+  </style>
+  <style>
+    .door-card { display: block; text-decoration: none; color: inherit; transition: border-color 0.25s ease, transform 0.25s ease; }
+    .door-card:hover, .door-card:focus-visible { border-color: rgba(255,255,255,0.45); transform: translateY(-2px); }
+  </style>
+  <style>
+    .vcontrib { margin: 0 0 24px; padding-left: 22px; max-width: 72ch; }
+    .vcontrib li { margin-bottom: 16px; padding-left: 4px; font-family: var(--font-sans); font-weight: 300; font-size: 15.5px; line-height: 1.75; color: var(--ink-dim); }
+    .vcontrib li::marker { color: var(--cream); }
+    .vcontrib strong { font-weight: 500; color: var(--ink); }
+    .vcontrib-collab { max-width: 72ch; padding-top: 20px; margin: 0; border-top: 1px solid rgba(255,255,255,0.1); font-family: var(--font-sans); font-weight: 300; font-size: 13.5px; line-height: 1.7; color: var(--ink-faint); }
+  </style>
+  <link rel="stylesheet" href="assets/site-navigation.css?v=20260831-portfolio">
+  <link rel="stylesheet" href="assets/site-motion.css?v=20260831-motion">
+</head>
+<body class="site-built has-site-navigation">
+<!-- site-navigation:start -->
+<a class="site-navigation__skip" href="#site-content">Skip to content</a>
+<header class="site-navigation">
+  <div class="site-navigation__bar">
+    <a class="site-navigation__name" href="index.html">Caleb Stacy</a>
+    <nav class="site-navigation__links" aria-label="Portfolio">
+      <ul class="site-navigation__options">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="samples.html">Samples</a></li>
+        <li><a href="https://www.linkedin.com/in/caleb-stacyrva/">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<span class="site-navigation__content-start" id="site-content" tabindex="-1"></span>
+<!-- site-navigation:end -->
+<div style="width: 100%; max-width: 1440px; margin: 0 auto; background: #0D0F0C; position: relative; overflow: hidden;">
+
+  <div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.4; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.16'/%3E%3C/svg%3E&quot;); background-size: 300px 300px;"></div>
+  <div style="position: absolute; top: -200px; right: -260px; width: 1100px; height: 900px; pointer-events: none; background: radial-gradient(ellipse at center, rgba(30,120,95,0.17) 0%, transparent 62%);"></div>
+  <div style="position: absolute; top: 2900px; left: -320px; width: 1000px; height: 1100px; pointer-events: none; background: radial-gradient(ellipse at center, rgba(20,90,68,0.13) 0%, transparent 62%);"></div>
+  <div style="position: absolute; top: 5400px; right: -240px; width: 950px; height: 1000px; pointer-events: none; background: radial-gradient(ellipse at center, rgba(232,168,76,0.06) 0%, transparent 60%);"></div>
+  <div style="position: absolute; top: 7600px; left: -280px; width: 1000px; height: 1000px; pointer-events: none; background: radial-gradient(ellipse at center, rgba(30,120,95,0.12) 0%, transparent 62%);"></div>
+
+
+  <main>
+
+  <!-- ══ 1 · LOCATE + DEFINE ══ -->
+  <section class="verso-cover" aria-labelledby="verso-title">
+    <div class="verso-cover-card">
+      <p class="verso-cover-eyebrow">AI content governance · Meta · 2025–2026</p>
+      <h1 id="verso-title">Verso</h1>
+      <p class="verso-cover-claim">Good guidance is written for people. Agents need a checkable target.</p>
+      <p class="verso-cover-context">Meta’s content design org was moving from writing every string to governing what agents wrote.</p>
+      <ul class="verso-cover-points">
+        <li>Every week another content designer had built their own agent: a prompt file shaped like software, and a prompt file shaped like software fails like software. Quietly, with nothing built in to say so.</li>
+        <li>Review boards were the industry’s answer to agent output, at Meta as everywhere: people reading drafts and deciding whether they met the bar. It was the responsible move with the tools that existed. But a review board is a linter made of humans: slow, and no more consistent than the thing it’s checking.</li>
+      </ul>
+      <p class="verso-cover-close">I built Verso to give agents the target while keeping the kinds of authority separate.</p>
+    </div>
+  </section>
+
+  <section class="verso-summary-band" aria-label="Overview">
+    <div class="verso-summary-inner">
+      <div class="verso-cover-results">
+        <div class="verso-results-label">
+          <h2>Results</h2>
+          <p>From one product area to company-wide in about six months</p>
+        </div>
+        <ul class="verso-results">
+          <li><strong>Word of mouth</strong><span>adopted by content designers across Meta</span></li>
+          <li><strong>Five surfaces</strong><span>fingerprinted from their real shipped strings</span></li>
+          <li><strong>Still running</strong><span>handed to central content design</span></li>
+        </ul>
+      </div>
+      <dl class="verso-facts">
+        <div><dt>Role</dt><dd>Creator and builder of the entire system</dd></div>
+        <div><dt>Team</dt><dd>Feedback from content designers · partnered with central content design to adopt it</dd></div>
+        <div><dt>Timeline</dt><dd>2025–2026</dd></div>
+        <div><dt>Surface</dt><dd>Meta’s internal content tooling, company-wide</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="verso-overview" aria-labelledby="verso-overview-title">
+    <div class="verso-overview-head">
+      <p class="kicker">What made Verso different</p>
+      <h2 class="h2" id="verso-overview-title">A content design agent that thinks like a coworker, not a linter.</h2>
+      <p class="body prose">Most AI writing helpers grade grammar. I built Verso to do content design: reason about user state, surface, product pattern, and evidence, then say what it would ship and why. Words are UI. Bad content is a bug.</p>
+    </div>
+
+    <div class="verso-insight">
+      <p class="kicker">Design insight</p>
+      <p>Voice was written in adjectives. I turned it into a target an agent could be held to. Guidance such as “concise” and “genuine” described what a reader feels, not what a writer or agent does.</p>
+    </div>
+
+    <div class="verso-compare">
+      <table>
+        <thead>
+          <tr><th scope="col">Dimension</th><th scope="col">Typical writing AI</th><th scope="col">Verso</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Unit of work</th><td data-column="Typical writing AI">Sentences &amp; grammar</td><td data-column="Verso">Treats product strings as design decisions.</td></tr>
+          <tr><th scope="row">Authority</th><td data-column="Typical writing AI">Generic style rules</td><td data-column="Verso">Grounds recommendations in governed product sources and shipped patterns.</td></tr>
+          <tr><th scope="row">Output</th><td data-column="Typical writing AI">A corrected paragraph</td><td data-column="Verso">Returns a recommendation, evidence, and tradeoff.</td></tr>
+          <tr><th scope="row">Consistency</th><td data-column="Typical writing AI">Per-document</td><td data-column="Verso">Reuses patterns across surfaces.</td></tr>
+          <tr><th scope="row">Voice model</th><td data-column="Typical writing AI">One tone slider</td><td data-column="Verso">Calibrates to a ten-dimension fingerprint built from product baselines.</td></tr>
+          <tr><th scope="row">Personality</th><td data-column="Typical writing AI">Neutral assistant</td><td data-column="Verso">Has enough personality to say, &ldquo;that&rsquo;s a paragraph trying to escape.&rdquo;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="verso-capabilities" aria-labelledby="verso-capabilities-title">
+    <div class="verso-section-head">
+      <p class="kicker">How it worked</p>
+      <h2 class="h2" id="verso-capabilities-title">I built Verso to bring judgment to the work, not another score to decode.</h2>
+    </div>
+    <ol class="verso-behavior-list">
+      <li class="verso-behavior-row">
+        <span class="verso-behavior-number" aria-hidden="true">01</span>
+        <h3>It’s a teammate, not a tool.</h3>
+        <p>I designed Verso to answer like a senior content designer pulled into a messy thread. It gave an opinion, the reason behind it, and a next move, not a score to decode.</p>
+      </li>
+      <li class="verso-behavior-row">
+        <span class="verso-behavior-number" aria-hidden="true">02</span>
+        <h3>Opinions backed by evidence, not vibes.</h3>
+        <p>I grounded every recommendation in governed guidance, product patterns, or shipped strings. When the evidence ran out, Verso said so instead of bluffing.</p>
+      </li>
+      <li class="verso-behavior-row">
+        <span class="verso-behavior-number" aria-hidden="true">03</span>
+        <h3>It runs real checks before it opens its mouth.</h3>
+        <p>I built the ten-dimension engine to test voice, directness, rhythm, density, and other language signals. Designers got the human translation, not raw JSON.</p>
+      </li>
+      <li class="verso-behavior-row">
+        <span class="verso-behavior-number" aria-hidden="true">04</span>
+        <h3>It knows the difference between jamming and reviewing.</h3>
+        <p>I made its posture match the task. For brainstorming, it explored. For an audit, it structured the work, cited its evidence, and showed its reasoning.</p>
+      </li>
+      <li class="verso-behavior-row">
+        <span class="verso-behavior-number" aria-hidden="true">05</span>
+        <h3>It gates the risky move, never the useful work.</h3>
+        <p>I let Verso draft, research, and analyze freely. I gated only consequential actions such as sending, publishing, or shipping, with the artifact already prepared for approval.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="verso-new" aria-labelledby="verso-new-title">
+    <div class="verso-section-head">
+      <p class="kicker">What was genuinely new</p>
+      <h2 class="h2" id="verso-new-title">I made product judgment reusable without pretending it was a rule.</h2>
+    </div>
+    <div class="verso-new-grid">
+      <article class="verso-new-item">
+        <h3>Fingerprint-calibrated voice</h3>
+        <p>I calibrated each voice fingerprint to a product’s measured baseline, so voice became a target instead of a feeling.</p>
+      </article>
+      <article class="verso-new-item">
+        <h3>Pattern-first instinct</h3>
+        <p>I made it look for a proven shipped pattern before inventing a new one. Consistency beat cleverness.</p>
+      </article>
+      <article class="verso-new-item">
+        <h3>Source-privacy awareness</h3>
+        <p>I designed it to distinguish private notes from team guidance and not quietly carry private content into a wider audience.</p>
+      </article>
+      <article class="verso-new-item">
+        <h3>Right-sized effort</h3>
+        <p>I sized the work to the request: a bounded review for one string, the full machinery for an audit, and no research project for a gut check.</p>
+      </article>
+    </div>
+    <div class="verso-bottom-line">
+      <h3>The bottom line</h3>
+      <p>I treated content as a design surface and built Verso to run the checks, remember patterns, cite sources, and still exercise the judgment to say what it would ship.</p>
+    </div>
+  </section>
+
+  </main>
+
+  <a class="verso-next" href="nux.html" aria-label="Next case study: Meta Horizon NUX">
+    <img src="assets/vr-scene.jpg" alt="" loading="lazy">
+    <span class="verso-next-copy">
+      <span><span class="verso-next-label">Next case study</span><span class="verso-next-title">Meta Horizon NUX</span></span>
+      <span class="verso-next-arrow" aria-hidden="true">→</span>
+    </span>
+  </a>
+
+</div>
+
+<script src="assets/site-motion.js?v=20260831-portfolio" defer></script>
+</body>
+</html>

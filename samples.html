@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Work Samples | Caleb Stacy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&amp;family=Space+Mono:wght@400&amp;display=swap">
+  <style>
+    :root {
+      --font-display: "Raleway", system-ui, sans-serif;
+      --font-sans: "DM Sans", system-ui, sans-serif;
+      --font-mono: "Space Mono", monospace;
+    }
+    *, ::before, ::after { box-sizing: border-box; }
+    body { margin: 0; background: #0D0F0C; color: #ffffff; }
+    img, svg, video { display: block; vertical-align: middle; }
+    a { color: #50C89B; }
+    a:hover { color: #6EDCAD; }
+    .samples-row-heading { max-width: 1280px; margin: 28px auto 0; padding: 0 48px; box-sizing: border-box; }
+    .samples-row-heading.is-first { margin-top: 0; }
+    .samples-row-title { margin: 0; font: 400 18px/1.4 var(--font-display); letter-spacing: .015em; color: rgba(255,255,255,.76); }
+  
+    /* P1: dark-field micro labels were below practical contrast at tiny sizes. */
+    .site-built [style*="rgba(255,255,255,0.18)"],
+    .site-built [style*="rgba(255,255,255,0.2)"],
+    .site-built [style*="rgba(255,255,255,0.22)"],
+    .site-built [style*="rgba(255,255,255,0.25)"],
+    .site-built [style*="rgba(255,255,255,0.28)"],
+    .site-built [style*="rgba(255,255,255,0.3)"],
+    .site-built [style*="rgba(255,255,255,0.32)"] { color: rgba(255,255,255,0.5) !important; }
+
+    .site-built a:focus-visible,
+    .site-built button:focus-visible,
+    .site-built input:focus-visible,
+    .site-built textarea:focus-visible {
+      outline: 2px solid #ddd8c4;
+      outline-offset: 3px;
+    }
+
+    /* P1: missing reduced-motion coverage for marquees, glow traces, and generated replay motion. */
+    @media (prefers-reduced-motion: reduce) {
+      .site-built *, .site-built *::before, .site-built *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .samples-row-heading { padding-left: 20px; padding-right: 20px; }
+      .site-built nav > div { padding-left: 20px !important; padding-right: 20px !important; gap: 18px !important; }
+      .site-built nav div[style*="gap: 36px"] { gap: 16px !important; flex-wrap: wrap !important; justify-content: flex-end !important; }
+
+      /* P1: fixed hero heights and absolute captions can overlap on narrow screens. */
+      .site-built section[style*="height: 844px"] { height: auto !important; min-height: 0 !important; }
+      .site-built section[style*="height: 844px"] > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        height: auto !important;
+      }
+      .site-built section[style*="height: 844px"] > div > div { padding: 72px 24px 36px !important; }
+      .site-built div[style*="height: 648px"] { min-height: 720px !important; }
+      .site-built div[style*="bottom: 48px"][style*="left: 48px"] {
+        left: 20px !important;
+        right: 20px !important;
+        bottom: 24px !important;
+        padding: 22px 24px !important;
+        max-width: none !important;
+      }
+
+      /* P1: fixed multi-column grids squeeze content on mobile. */
+      .site-built div[style*="grid-template-columns: repeat(3"],
+      .site-built div[style*="grid-template-columns: repeat(2"],
+      .site-built div[style*="grid-template-columns: 300px 1fr"],
+      .site-built div[style*="grid-template-columns: 340px 1fr"],
+      .site-built div[style*="grid-template-columns: 1.1fr 1fr"],
+      .site-built div[style*="grid-template-columns: 1fr 1fr"],
+      .site-built div[style*="grid-template-columns: 190px 1fr 52px"],
+      .site-built div[style*="grid-template-columns: 190px 1fr 62px"],
+      .site-built .fp-row,
+      .site-built .z-tr {
+        grid-template-columns: 1fr !important;
+      }
+
+      .site-built [style*="padding: 64px 48px"],
+      .site-built [style*="padding: 0 48px"],
+      .site-built [style*="padding: 96px 64px"],
+      .site-built .section { padding-left: 20px !important; padding-right: 20px !important; }
+
+      /* Keep every sample readable in narrow browser panels and on phones. */
+      .site-built .mc-row {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        height: 440px !important;
+        margin-top: 0 !important;
+        padding: 18px 20px;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        touch-action: auto !important;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scroll-padding: 20px;
+        scrollbar-width: none;
+      }
+      .site-built .mc-row::-webkit-scrollbar { display: none; }
+      .site-built .mc-row .mc-card {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        flex: 0 0 auto;
+        max-width: calc(100vw - 40px) !important;
+        transform: none !important;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+      }
+      .site-built .mc-row .mc-card img {
+        object-fit: contain;
+      }
+    }
+
+  </style>
+  <link rel="stylesheet" href="assets/site-navigation.css?v=20260831-portfolio">
+  <link rel="stylesheet" href="assets/site-motion.css?v=20260831-motion">
+</head>
+<body class="site-built has-site-navigation">
+<!-- site-navigation:start -->
+<a class="site-navigation__skip" href="#site-content">Skip to content</a>
+<header class="site-navigation">
+  <div class="site-navigation__bar">
+    <a class="site-navigation__name" href="index.html">Caleb Stacy</a>
+    <nav class="site-navigation__links" aria-label="Portfolio">
+      <ul class="site-navigation__options">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="samples.html" aria-current="page">Samples</a></li>
+        <li><a href="https://www.linkedin.com/in/caleb-stacyrva/">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<span class="site-navigation__content-start" id="site-content" tabindex="-1"></span>
+<!-- site-navigation:end -->
+<div style="min-height: 100%; background: #0D0F0C; color: #ffffff; font-family: var(--font-sans)">
+
+
+  <div style="max-width: 1280px; margin: 0 auto; padding: 64px 48px 0; box-sizing: border-box">
+    <p style="font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(255,255,255,0.28); margin: 0 0 16px">Microcopy · Grab bag</p>
+    <h1 style="font-family: var(--font-display); font-weight: 200; font-size: clamp(2rem, 4vw, 3.2rem); color: rgba(255,255,255,0.92); line-height: 1.05; margin: 0 0 12px">Work samples</h1>
+    <p style="font-family: var(--font-sans); font-weight: 300; font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.45); max-width: 560px; margin: 0 0 48px">Shipped Meta Horizon UI across social coordination, trust and safety, entertainment, and the mobile app.</p>
+  </div>
+
+  <!-- Dark carousel rows, one per section -->
+  <div class="samples-row-heading is-first">
+    <h2 class="samples-row-title">Trust &amp; safety</h2>
+  </div>
+  <div class="mc-row" style="position: relative; width: 100%; height: 509px; overflow: hidden; cursor: grab; touch-action: pan-y; user-select: none">
+    <div class="mc-card" data-w="392" data-h="405" style="position: absolute; left: 0; top: 24px; width: 392px; height: 405px; transform: translate(40px, 0px); will-change: transform">
+      <img src="assets/mc-2552.webp" alt="Blurry messages popover" draggable="false" style="width: 100%; height: 100%">
+    </div>
+    <div class="mc-card" data-w="675" data-h="146" style="position: absolute; left: 0; top: 154px; width: 675px; height: 146px; transform: translate(472px, 0px); will-change: transform">
+      <img src="assets/mc-audio-capture-toast.webp" alt="Mic capture notice: Your audio is recorded for captions and safety features" draggable="false" style="width: 100%; height: 100%">
+    </div>
+    <div class="mc-card" data-w="675" data-h="373" style="position: absolute; left: 0; top: 40px; width: 675px; height: 373px; transform: translate(1187px, 0px); will-change: transform">
+      <img src="assets/mc-removal-poll.webp" alt="Confirmation dialog for starting a poll to remove a player, with a Code of Conduct warning" draggable="false" style="width: 100%; height: 100%">
+    </div>
+    <div class="mc-card" data-w="360" data-h="405" style="position: absolute; left: 0; top: 24px; width: 360px; height: 405px; transform: translate(1902px, 0px); will-change: transform">
+      <img src="assets/mc-2538.webp" alt="Moderator invitation dialog" draggable="false" style="width: 100%; height: 100%">
+    </div>
+    <div class="mc-card" data-w="319" data-h="405" style="position: absolute; left: 0; top: 24px; width: 319px; height: 405px; transform: translate(2302px, 0px); will-change: transform">
+      <img src="assets/mc-2539.webp" alt="Use your power responsibly dialog" draggable="false" style="width: 100%; height: 100%">
+    </div>
+    <div class="mc-card" data-w="450" data-h="363" style="position: absolute; left: 0; top: 45px; width: 450px; height: 363px; transform: translate(2661px, 0px); will-change: transform">
+      <img src="assets/mc-2533.webp" alt="Join as moderator dialog" draggable="false" style="width: 100%; height: 100%">
+    </div>
+  </div>
+  <div class="samples-row-heading">
+    <h2 class="samples-row-title">Social coordination</h2>
+  </div>
+  <div class="mc-row" style="position: relative; width: 100%; height: 509px; overflow: hidden; cursor: grab; touch-action: pan-y; user-select: none">
+    <div class="mc-card" data-w="570" data-h="405" style="position: absolute; left: 0; top: 24px; width: 570px; height: 405px; transform: translate(40px, 0px); will-change: transform">
+      <img src="assets/mc-2502.webp" alt="sunnyRainbow has moved worlds dialog" draggable="false" style="width: 100%; height: 100%">
+    </div>
+    <div class="mc-card" data-w="675" data-h="235" style="position: absolute; left: 0; top: 109px; width: 675px; height: 235px; transform: translate(650px, 0px); will-change: transform">
+      <img src="assets/mc-2549.webp" alt="Invite decay dialog" draggable="false" style="width: 100%; height: 100%">
+    </div>
+    <div class="mc-card" data-w="675" data-h="122" style="position: absolute; left: 0; top: 166px; width: 675px; height: 122px; transform: translate(1365px, 0px); will-change: transform">
+      <img src="assets/mc-arrival-toast.webp" alt="Arrival toast: m3gan86 is here! Let the good times roll." draggable="false" style="width: 100%; height: 100%">
+    </div>
+    <div class="mc-card" data-w="710" data-h="405" style="position: absolute; left: 0; top: 24px; width: 710px; height: 405px; transform: translate(2080px, 0px); will-change: transform">
+      <img src="assets/mc-join-another-session-clean.png" alt="Join another session dialog" draggable="false" style="width: 100%; height: 100%; object-fit: contain">
+    </div>
+    <div class="mc-card" data-w="710" data-h="405" style="position: absolute; left: 0; top: 24px; width: 710px; height: 405px; transform: translate(2830px, 0px); will-change: transform">
+      <img src="assets/mc-spy-school-full-clean.png" alt="Spy School session full dialog" draggable="false" style="width: 100%; height: 100%; object-fit: contain">
+    </div>
+    <div class="mc-card" data-w="675" data-h="397" style="position: absolute; left: 0; top: 28px; width: 675px; height: 397px; transform: translate(3475px, 0px); will-change: transform">
+      <img src="assets/mc-2546.webp" alt="Versions don't match dialog" draggable="false" style="width: 100%; height: 100%">
+    </div>
+    <div class="mc-card" data-w="514" data-h="405" style="position: absolute; left: 0; top: 24px; width: 514px; height: 405px; transform: translate(4190px, 0px); will-change: transform">
+      <img src="assets/mc-2550.webp" alt="Wanna follow each other dialog" draggable="false" style="width: 100%; height: 100%">
+    </div>
+    <div class="mc-card" data-w="470" data-h="405" style="position: absolute; left: 0; top: 24px; width: 470px; height: 405px; transform: translate(4744px, 0px); will-change: transform">
+      <img src="assets/mc-high-five-follow.webp" alt="High five. Hold it. Besties! dialog explaining the high-five follow gesture" draggable="false" style="width: 100%; height: 100%">
+    </div>
+    <div class="mc-card" data-w="617" data-h="405" style="position: absolute; left: 0; top: 24px; width: 617px; height: 405px; transform: translate(5254px, 0px); will-change: transform">
+      <img src="assets/mc-joinable-status.webp" alt="Quest People status selector: Joinable, Online, Appear Offline" draggable="false" style="width: 100%; height: 100%">
+    </div>
+    <div class="mc-card" data-w="408" data-h="405" style="position: absolute; left: 0; top: 24px; width: 408px; height: 405px; transform: translate(5911px, 0px); will-change: transform">
+      <img src="assets/mc-active-status-changes.webp" alt="Active status change dialogs" draggable="false" style="width: 100%; height: 100%">
+    </div>
+    <div class="mc-card" data-w="720" data-h="405" aria-label="YouTube CoWatch, Connect 2024. End-to-end product content by Caleb Stacy." style="position: absolute; left: 0; top: 24px; width: 720px; height: 405px; overflow: hidden; border-radius: 16px; transform: translate(6359px, 0px); will-change: transform">
+      <img src="assets/youtube-cowatch-connect-2024.png" alt="YouTube VR interface with a Watch together dialog offering to open YouTube in Horizon Home" draggable="false" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%">
+      <div aria-hidden="true" style="position: absolute; inset: auto 0 0; padding: 44px 22px 18px; background: linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,0)); pointer-events: none">
+        <p style="margin: 0 0 4px; font: 400 9px/1.5 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: #8de0be">Connect 2024</p>
+        <p style="margin: 0; font: 400 18px/1.35 var(--font-display); color: #fff">YouTube CoWatch</p>
+        <p style="margin: 3px 0 0; font: 300 12px/1.5 var(--font-sans); color: rgba(255,255,255,.7)">End-to-end product content</p>
+      </div>
+    </div>
+  </div>
+  <div class="samples-row-heading">
+    <h2 class="samples-row-title">Meta Horizon mobile</h2>
+  </div>
+  <div class="mc-row" style="position: relative; width: 100%; height: 509px; overflow: hidden; cursor: grab; touch-action: pan-y; user-select: none">
+    <div class="mc-card" data-w="196" data-h="405" style="position: absolute; left: 0; top: 24px; width: 196px; height: 405px; transform: translate(40px, 0px); will-change: transform">
+      <img src="assets/mc-mobile-setup-choice.webp" alt="Are you setting up a headset? choice screen from Meta Horizon mobile onboarding" draggable="false" style="width: 100%; height: 100%; border-radius: 14px">
+    </div>
+    <div class="mc-card" data-w="198" data-h="405" style="position: absolute; left: 0; top: 24px; width: 198px; height: 405px; transform: translate(276px, 0px); will-change: transform">
+      <img src="assets/mc-mobile-welcome-reward.webp" alt="Welcome reward quest screen with progress bar and next quest card" draggable="false" style="width: 100%; height: 100%; border-radius: 14px">
+    </div>
+    <div class="mc-card" data-w="639" data-h="405" style="position: absolute; left: 0; top: 24px; width: 639px; height: 405px; transform: translate(514px, 0px); will-change: transform">
+      <img src="assets/mc-2540.webp" alt="Limited-time mobile rewards dialog" draggable="false" style="width: 100%; height: 100%">
+    </div>
+    <div class="mc-card" data-w="717" data-h="405" style="position: absolute; left: 0; top: 24px; width: 717px; height: 405px; transform: translate(1193px, 0px); will-change: transform">
+      <img src="assets/horizon-app-montage.jpg" alt="Three Meta Horizon mobile screens showing a profile, a discovery feed, and headset management" draggable="false" style="width: 100%; height: 100%; border-radius: 14px">
+    </div>
+  </div>
+
+</div>
+
+<script>
+(() => {
+  function initCarousel(viewport, direction) {
+    const els = Array.from(viewport.querySelectorAll('.mc-card'));
+    if (!els.length) return;
+    const GAP = 40;
+    const ARC_DIP = 56;
+    const MAX_TILT = 4.5;
+    const DRIFT = 48;
+    const FRICTION = 0.94;
+    const naturalWidths = els.map((el) => Number.parseFloat(el.getAttribute('data-w')) || el.offsetWidth || 320);
+    const naturalHeights = els.map((el) => Number.parseFloat(el.getAttribute('data-h')) || el.offsetHeight || 300);
+    const naturalTops = els.map((el) => el.style.top);
+    let widths = [];
+    const centers = [];
+    let loopLen = 0;
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let offset = 0;
+    let velocity = 0;
+    let dragging = false;
+    let lastX = 0;
+    let lastT = 0;
+    let prevFrame = performance.now();
+    let raf = 0;
+    let measuredWidth = 0;
+
+    function measure() {
+      const availableWidth = viewport.clientWidth;
+      if (availableWidth === measuredWidth) { paint(); return; }
+      const narrow = availableWidth <= 760;
+      const hadLayout = loopLen > 0;
+      let nearest = 0;
+      let distance = Infinity;
+      centers.forEach((center, i) => {
+        const delta = ((center - offset + loopLen / 2) % loopLen + loopLen) % loopLen - loopLen / 2;
+        if (Math.abs(delta) < distance) { distance = Math.abs(delta); nearest = i; }
+      });
+      // Position cards using their rendered phone dimensions, preserving each image's ratio.
+      widths = naturalWidths.map((width, i) => {
+        const ratio = naturalHeights[i] / width;
+        let fitted = narrow ? Math.min(width, Math.max(1, availableWidth - 48)) : width;
+        if (narrow && ratio * fitted > 400) fitted = 400 / ratio;
+        const height = ratio * fitted;
+        els[i].style.width = fitted + 'px';
+        els[i].style.height = height + 'px';
+        els[i].style.top = narrow ? (428 - height) / 2 + 'px' : naturalTops[i];
+        return fitted;
+      });
+      centers.length = 0;
+      let cursor = 40;
+      widths.forEach(width => {
+        centers.push(cursor + width / 2);
+        cursor += width + GAP;
+      });
+      loopLen = cursor - 40;
+      measuredWidth = availableWidth;
+      if (narrow || hadLayout) offset = centers[nearest];
+      velocity = 0;
+      paint();
+    }
+
+    function paint() {
+      const vw = viewport.clientWidth || Math.min(window.innerWidth, 1440);
+      const half = vw / 2;
+      els.forEach((el, i) => {
+        let x = ((centers[i] - offset) % loopLen + loopLen) % loopLen;
+        if (x > loopLen / 2) x -= loopLen;
+        const xNorm = x / half;
+        const y = ARC_DIP * xNorm * xNorm;
+        const rot = MAX_TILT * xNorm;
+        const left = half + x - widths[i] / 2;
+        el.style.transform = 'translate(' + left + 'px, ' + y + 'px) rotate(' + rot + 'deg)';
+        el.style.visibility = Math.abs(x) > half + widths[i] ? 'hidden' : 'visible';
+      });
+    }
+
+    function frame(now) {
+      const dt = Math.min((now - prevFrame) / 1000, 0.05);
+      prevFrame = now;
+      if (!dragging && !document.hidden) {
+        offset += velocity * dt;
+        velocity *= Math.pow(FRICTION, dt * 60);
+        if (Math.abs(velocity) < 2) velocity = 0;
+        // Drift never pauses on hover (Caleb, 2026-08-31: stacked rows made accidental
+        // stops constant). A drag is the only way to hold a row still.
+        if (!reduced && velocity === 0) offset += direction * DRIFT * dt;
+      }
+      paint();
+      raf = requestAnimationFrame(frame);
+    }
+
+    const handlers = [
+      ['pointerdown', (e) => {
+        dragging = true;
+        velocity = 0;
+        lastX = e.clientX;
+        lastT = performance.now();
+        try { viewport.setPointerCapture(e.pointerId); } catch (err) {}
+      }],
+      ['pointermove', (e) => {
+        if (!dragging) return;
+        const now = performance.now();
+        const dx = e.clientX - lastX;
+        offset -= dx;
+        const dt = (now - lastT) / 1000;
+        if (dt > 0) velocity = -dx / dt;
+        lastX = e.clientX;
+        lastT = now;
+        if (reduced) paint();
+      }],
+      ['pointerup', (e) => {
+        dragging = false;
+        if (reduced) velocity = 0;
+        try { viewport.releasePointerCapture(e.pointerId); } catch (err) {}
+      }],
+      ['pointercancel', () => { dragging = false; }],
+    ];
+    handlers.forEach(([type, fn]) => viewport.addEventListener(type, fn));
+    measure();
+    if (!reduced) raf = requestAnimationFrame(frame);
+    window.addEventListener('resize', measure);
+    window.addEventListener('pagehide', () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = 0;
+      dragging = false;
+      velocity = 0;
+    });
+    window.addEventListener('pageshow', event => {
+      if (!event.persisted) return;
+      measure();
+      prevFrame = performance.now();
+      if (!reduced && !raf) raf = requestAnimationFrame(frame);
+    });
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.matchMedia('(max-width: 760px)').matches) return;
+    document.querySelectorAll('.mc-row').forEach((row, i) => initCarousel(row, i % 2 ? -1 : 1));
+  });
+})();
+</script>
+<script src="assets/site-motion.js?v=20260831-portfolio" defer></script>
+</body>
+</html>

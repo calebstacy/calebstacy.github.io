@@ -86,7 +86,7 @@ window.PORTFOLIO = {
     { id: "situation", label: "Situation" }, { id: "task", label: "Task" },
     { id: "action", label: "Action" }, { id: "result", label: "Result" },
   ],
-  contact: "calebstacy@gmail.com",
+  contact: "https://www.linkedin.com/in/caleb-stacyrva/",
   resumeSummary: "Senior content designer with 11 years across product and education. I lead work upstream of interface copy, from product strategy and language models through research, experiments, and launch. I also build measurable voice standards, terminology schemas, and checks that help writers and AI agents make reliable decisions.",
   experience: [
     {

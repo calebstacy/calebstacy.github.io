@@ -1,161 +1,666 @@
-<!-- @dsCard group="Portfolio" viewport="1440x900" name="Portfolio site" subtitle="Editorial rail, pine opening scene, continuous case document" -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Caleb Stacy — Senior content designer</title>
-  <meta name="description" content="Senior content designer shaping product strategy, interaction language, onboarding, experiments, and language systems.">
-  <meta name="author" content="Caleb Stacy">
-  <meta name="theme-color" content="#0f3b34">
-  <link rel="canonical" href="https://calebstacy.com/">
-  <link rel="alternate" type="text/plain" href="/llms.txt" title="Plain-language portfolio summary">
-  <link rel="me" href="https://github.com/calebstacy">
-
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Caleb Stacy">
-  <meta property="og:url" content="https://calebstacy.com/">
-  <meta property="og:title" content="Caleb Stacy — Senior content designer">
-  <meta property="og:description" content="Product strategy, interaction language, onboarding, experiments, and language systems.">
-  <meta property="og:image" content="https://calebstacy.com/assets/portfolio-social-card.png?v=ec7d2d4860e6">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/png">
-  <!-- selected-work-og-alt:start -->
-<meta property="og:image:alt" content="Caleb Stacy, senior content designer, with selected work in First-time VR, Horizon Portals, and Verso.">
-<!-- selected-work-og-alt:end -->
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Caleb Stacy — Senior content designer">
-  <meta name="twitter:description" content="Product strategy, interaction language, onboarding, experiments, and language systems.">
-  <meta name="twitter:image" content="https://calebstacy.com/assets/portfolio-social-card.png?v=ec7d2d4860e6">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://calebstacy.com/#caleb",
-        "name": "Caleb Stacy",
-        "url": "https://calebstacy.com/",
-        "image": "https://calebstacy.com/assets/portfolio-social-card.png?v=ec7d2d4860e6",
-        "jobTitle": "Senior content designer",
-        "description": "Senior content designer with eleven years across product and education, specializing in product strategy, interaction language, onboarding, experimentation, content standards, and AI-assisted content systems.",
-        "email": "mailto:calebstacy@gmail.com",
-        "sameAs": ["https://github.com/calebstacy"],
-        "knowsAbout": [
-          "Product strategy",
-          "Interaction language",
-          "New-user onboarding",
-          "Content experimentation",
-          "Content standards",
-          "AI-assisted content design",
-          "Deterministic language evaluation",
-          "Terminology and taxonomy"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://calebstacy.com/#website",
-        "url": "https://calebstacy.com/",
-        "name": "Caleb Stacy — Senior content designer",
-        "author": {"@id": "https://calebstacy.com/#caleb"},
-        "description": "Selected work in product strategy, interaction language, onboarding, experimentation, and language systems."
-      }
-    ]
-  }
-  </script>
-  <!-- selected-work-jsonld:start -->
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Selected content design work",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@type": "CreativeWork",
-          "name": "First-time VR",
-          "url": "https://calebstacy.com/work/vr-nux/",
-          "description": "How I replaced a front-loaded Meta Horizon VR onboarding syllabus with behavior-triggered education, improving completion, weekly use, and retention."
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "item": {
-          "@type": "CreativeWork",
-          "name": "Horizon Portals",
-          "url": "https://calebstacy.com/work/horizon-portals/",
-          "description": "How I moved a Meta Horizon portal decision before the threshold with a proximity-based information architecture, introduced at Meta Connect 2024."
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@type": "CreativeWork",
-          "name": "Verso",
-          "url": "https://calebstacy.com/work/verso/",
-          "description": "How I built a content-design agent that found product context, separated evidence from judgment, and checked its own recommendations."
-        }
-      }
-    ]
-  }
-  </script>
-<!-- selected-work-jsonld:end -->
-
-  <link rel="icon" type="image/svg+xml" href="/assets/mark-favicon.svg?v=ec7d2d4860e6">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=ec7d2d4860e6">
-  <link rel="image_src" href="/assets/portfolio-social-card.png?v=ec7d2d4860e6">
-  <link rel="stylesheet" href="styles.css?v=ec7d2d4860e6">
+  <title>Caleb Stacy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&amp;family=Space+Mono:wght@400;700&amp;family=Geist:wght@400;500&amp;display=swap">
   <style>
-    html,body{margin:0;height:100%;background:var(--desk);color:var(--ink);font-family:var(--font-mono)}
-    ::selection{background:var(--signal);color:var(--paper-bright)}
-    a{color:var(--signal)}a:hover{color:var(--ink)}
-    button:focus-visible,a:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
-    img{display:block;max-width:100%}button{border:0;font:inherit;-webkit-tap-highlight-color:transparent}
+    :root {
+      --font-display: "Raleway", system-ui, sans-serif;
+      --font-sans: "DM Sans", system-ui, sans-serif;
+      --font-mono: "Space Mono", monospace;
+    }
+    *, ::before, ::after { box-sizing: border-box; }
+    html, body { overflow-x: clip; }
+    body { margin: 0; background: #0D0F0C; color: #ffffff; }
+    img, svg, video { display: block; vertical-align: middle; }
+    a { color: #50C89B; }
+    a:hover { color: #6EDCAD; }
+    .site-built nav a { min-height: 44px; display: inline-flex; align-items: center; white-space: nowrap; }
+    @keyframes marquee-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @property --r70-trace {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+    @keyframes r70-spin {
+      to { --r70-trace: 360deg; }
+    }
+    .r70-trace-wrap {
+      background: conic-gradient(
+        from var(--r70-trace),
+        transparent 0deg,
+        rgba(80, 200, 155, 0.7) 35deg,
+        rgba(160, 255, 210, 1) 50deg,
+        rgba(80, 200, 155, 0.7) 65deg,
+        transparent 100deg
+      );
+      animation: r70-spin 2.5s linear infinite;
+      padding: 2px;
+      border-radius: 42px;
+    }
+    .btn {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      padding: 11px 26px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+      outline: none;
+    }
+    .btn-primary { background: #ddd8c4; color: #0F3B34; }
+    .btn-ghost {
+      background: transparent;
+      color: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,0.28);
+    }
+
+    @property --bgx-angle {
+      syntax: '<angle>';
+      inherits: false;
+      initial-value: 270deg;
+    }
+    @keyframes bgx-spin {
+      from { --bgx-angle: 0deg; }
+      to { --bgx-angle: 360deg; }
+    }
+    .bgx { position: relative; border-radius: 40px; }
+    .bgx-border, .bgx-glow { opacity: 0; transition: opacity 0.25s ease-out; pointer-events: none; animation: bgx-spin 4s linear infinite; }
+    .bgx-border {
+      position: absolute; inset: 0; z-index: 2; border-radius: inherit;
+      border: 1px solid transparent;
+      background:
+        radial-gradient(at 80% 55%, #50C89B 0px, transparent 50%) border-box,
+        radial-gradient(at 69% 34%, #6EDCAD 0px, transparent 50%) border-box,
+        radial-gradient(at 8% 6%, #38bdf8 0px, transparent 50%) border-box,
+        radial-gradient(at 41% 38%, #50C89B 0px, transparent 50%) border-box,
+        radial-gradient(at 86% 85%, #6EDCAD 0px, transparent 50%) border-box,
+        radial-gradient(at 82% 18%, #38bdf8 0px, transparent 50%) border-box,
+        radial-gradient(at 51% 4%, #6EDCAD 0px, transparent 50%) border-box,
+        linear-gradient(#50C89B 0 100%) border-box;
+      -webkit-mask-image:
+        conic-gradient(from var(--bgx-angle) at center, black 25%, transparent 40%, transparent 60%, black 75%),
+        linear-gradient(#000 0 0);
+      -webkit-mask-clip: border-box, padding-box;
+      -webkit-mask-composite: source-out;
+      mask-image:
+        conic-gradient(from var(--bgx-angle) at center, black 25%, transparent 40%, transparent 60%, black 75%),
+        linear-gradient(#000 0 0);
+      mask-clip: border-box, padding-box;
+      mask-composite: subtract;
+    }
+    .bgx-glow {
+      position: absolute; inset: -40px; z-index: 2; border-radius: 60px;
+      -webkit-mask-image: conic-gradient(from var(--bgx-angle) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%);
+      mask-image: conic-gradient(from var(--bgx-angle) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%);
+      mix-blend-mode: plus-lighter;
+    }
+    .bgx-glow > span {
+      position: absolute; inset: 40px; border-radius: 40px;
+      box-shadow:
+        inset 0px 0px 0px 1px hsl(160deg 70% 70% / 100%),
+        inset 0px 0px 1px 0px hsl(160deg 70% 70% / 60%),
+        inset 0px 0px 3px 0px hsl(160deg 70% 70% / 50%),
+        inset 0px 0px 6px 0px hsl(160deg 70% 70% / 40%),
+        inset 0px 0px 15px 0px hsl(160deg 70% 70% / 30%),
+        inset 0px 0px 25px 2px hsl(160deg 70% 70% / 20%),
+        inset 0px 0px 50px 2px hsl(160deg 70% 70% / 10%),
+        0px 0px 1px 0px hsl(160deg 70% 70% / 60%),
+        0px 0px 3px 0px hsl(160deg 70% 70% / 50%),
+        0px 0px 6px 0px hsl(160deg 70% 70% / 40%),
+        0px 0px 15px 0px hsl(160deg 70% 70% / 30%),
+        0px 0px 25px 2px hsl(160deg 70% 70% / 20%),
+        0px 0px 50px 2px hsl(160deg 70% 70% / 10%);
+    }
+    .bgx:hover .bgx-border { opacity: 0.85; }
+    .bgx:hover .bgx-glow { opacity: 0.85; }
+    .bgx:focus-within .bgx-border, .bgx:focus-within .bgx-glow { opacity: 0.85; }
+    /* The whole card is the tap target: the case-study link stretches over the
+       card face (drag clicks are already suppressed past 6px in the carousel JS). */
+    /* The tap target is the card's lower text panel only: a full-card anchor
+       fights the carousel drag (native link-drag). The image area stays drag-only. */
+    .cs-body { position: relative; cursor: pointer; }
+    .cs-link::after { content: ""; position: absolute; inset: 0; z-index: 2; }
+    .cs-link, .cs-card img { -webkit-user-drag: none; user-drag: none; }
+    .cs-card .bgx { transition: transform 0.3s ease; }
+    .cs-card .bgx:has(.cs-body:hover), .cs-card .bgx:focus-within { transform: translateY(-8px); }
+    .cs-link span { transition: transform 0.25s ease; }
+    .cs-body:hover .cs-link span, .bgx:focus-within .cs-link span { transform: translateX(4px); }
+    /* Ultrawide: the hero composition stays inside the nav's 1280px band, so the
+       character sits beside the bio instead of riding the viewport's right edge. */
+    .site-built section[style*="height: 844px"] > div[style*="grid-template-columns"] {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .home-work-grid { max-width: 1040px; margin-inline: auto; }
+    .home-work-grid > .bgx { min-width: 0; }
+    .home-work-grid a { min-height: 44px; }
+    /* The Verso media box matches the photo cards (16/9), and the faceplate
+       fills it edge to edge, so all three cards land at the same height. */
+    .verso-card-thumbnail {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      min-width: 0;
+      aspect-ratio: 16/9;
+      padding: 0;
+      background: #0D0F0C;
+      overflow: hidden;
+    }
+    .verso-card-thumbnail .verso-brand {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      max-width: none;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .verso-card-thumbnail .verso-brand .plate-body {
+      flex: 1;
+      display: grid;
+      align-content: center;
+    }
+    /* The case-study pill overlays the head band, so it takes the title's slot. */
+    .verso-card-thumbnail .verso-brand .plate-head .term-title { visibility: hidden; }
+  
+    /* P1: dark-field micro labels were below practical contrast at tiny sizes. */
+    .site-built [style*="rgba(255,255,255,0.18)"],
+    .site-built [style*="rgba(255,255,255,0.2)"],
+    .site-built [style*="rgba(255,255,255,0.22)"],
+    .site-built [style*="rgba(255,255,255,0.25)"],
+    .site-built [style*="rgba(255,255,255,0.28)"],
+    .site-built [style*="rgba(255,255,255,0.3)"],
+    .site-built [style*="rgba(255,255,255,0.32)"] { color: rgba(255,255,255,0.5) !important; }
+
+    .site-built a:focus-visible,
+    .site-built button:focus-visible,
+    .site-built input:focus-visible,
+    .site-built textarea:focus-visible {
+      outline: 2px solid #ddd8c4;
+      outline-offset: 3px;
+    }
+
+    /* P1: missing reduced-motion coverage for marquees, glow traces, and generated replay motion. */
+    @media (prefers-reduced-motion: reduce) {
+      .site-built *, .site-built *::before, .site-built *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      /* Contain only the decoration, leaving card content and focus outlines unclipped. */
+      .site-built .bgx-glow { inset: 0; border-radius: inherit; overflow: hidden; }
+      .site-built .bgx-glow > span { inset: 0; border-radius: inherit; }
+
+      .site-built nav > div { padding-left: 20px !important; padding-right: 20px !important; gap: 12px !important; }
+      .site-built nav div[style*="gap: 36px"] { gap: 16px !important; flex-wrap: wrap !important; justify-content: flex-end !important; }
+
+      /* P1: fixed hero heights and absolute captions can overlap on narrow screens. */
+      .site-built section[style*="height: 844px"] { height: auto !important; min-height: 0 !important; }
+      .site-built section[style*="height: 844px"] > div[style*="grid-template-columns"] {
+        grid-template-columns: minmax(0, 1fr) !important;
+        min-width: 0;
+        height: auto !important;
+      }
+      .site-built section[style*="height: 844px"] > div > div { padding: 72px 24px 36px !important; min-width: 0; }
+      .site-built .hero-actions { flex-wrap: wrap; }
+      .site-built div[style*="height: 648px"] { min-height: 720px !important; }
+      .site-built div[style*="bottom: 48px"][style*="left: 48px"] {
+        left: 20px !important;
+        right: 20px !important;
+        bottom: 24px !important;
+        padding: 22px 24px !important;
+        max-width: none !important;
+      }
+
+      /* P1: fixed multi-column grids squeeze content on mobile. */
+      .site-built div[style*="grid-template-columns: repeat(3"],
+      .site-built div[style*="grid-template-columns: repeat(2"],
+      .site-built div[style*="grid-template-columns: 300px 1fr"],
+      .site-built div[style*="grid-template-columns: 340px 1fr"],
+      .site-built div[style*="grid-template-columns: 1.1fr 1fr"],
+      .site-built div[style*="grid-template-columns: 1fr 1fr"],
+      .site-built div[style*="grid-template-columns: 190px 1fr 52px"],
+      .site-built div[style*="grid-template-columns: 190px 1fr 62px"],
+      .site-built .fp-row,
+      .site-built .z-tr {
+        grid-template-columns: 1fr !important;
+      }
+
+      .site-built [style*="padding: 64px 48px"],
+      .site-built [style*="padding: 0 48px"],
+      .site-built [style*="padding: 96px 64px"],
+      .site-built .section { padding-left: 20px !important; padding-right: 20px !important; }
+
+      /* P1: fixed carousel cards can exceed the viewport. */
+      .site-built #mc-carousel { height: 360px !important; }
+      .site-built #mc-carousel .mc-card {
+        max-width: calc(100vw - 40px) !important;
+      }
+      .site-built #mc-carousel .mc-card img {
+        object-fit: contain;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .site-built div.home-work-grid { grid-template-columns: minmax(0, 1fr) !important; min-width: 0; }
+      .site-built .home-work-grid > .bgx { min-width: 0; }
+    }
+    /* Tablet range: without this, the copy column keeps its 580px and the character
+       gets the leftover sliver, shrinking into the bottom corner. Share the width. */
+    @media (min-width: 761px) and (max-width: 1120px) {
+      .site-built section[style*="height: 844px"] { height: 720px !important; }
+      .site-built section[style*="height: 844px"] > div[style*="grid-template-columns"] {
+        grid-template-columns: minmax(0, 11fr) minmax(0, 9fr) !important;
+      }
+      .site-built section[style*="height: 844px"] .hero-copy { padding: 80px 40px !important; }
+      .site-built section[style*="height: 844px"] .hero-char { width: 94% !important; }
+    }
+    @media (max-width: 640px) {
+      /* Compact hero header: copy left (~60%), small waving character right (~40%). */
+      .site-built section[style*="height: 844px"] > div[style*="grid-template-columns"] {
+        grid-template-columns: minmax(176px, 3fr) minmax(104px, 2fr) !important;
+        align-items: center;
+      }
+      .site-built section[style*="height: 844px"] .hero-copy {
+        padding: 56px 12px 28px 20px !important;
+        max-width: none !important;
+      }
+      .site-built section[style*="height: 844px"] .hero-copy h1 {
+        font-size: 2.1rem !important;
+        margin-bottom: 18px !important;
+      }
+      .site-built .hero-portrait { width: 60px !important; height: 60px !important; margin-bottom: 18px !important; }
+      .site-built section[style*="height: 844px"] .hero-copy p[style*="margin: 0 0 28px"] { margin-bottom: 16px !important; }
+      .site-built section[style*="height: 844px"] .hero-copy p[style*="max-width: 380px"] { margin-bottom: 28px !important; }
+      .site-built section[style*="height: 844px"] .hero-copy p[style*="margin: 64px 0 0"] { margin-top: 32px !important; }
+      .site-built section[style*="height: 844px"] .hero-figure {
+        padding: 56px 12px 28px 0 !important;
+        align-items: center !important;
+        min-width: 0;
+      }
+      .site-built section[style*="height: 844px"] .hero-char {
+        width: 100% !important;
+        max-height: 320px !important;
+        object-position: center !important;
+      }
+    }
+    @media (max-width: 360px) {
+      .site-built nav { height: auto !important; }
+      .site-built nav > div { height: auto !important; flex-wrap: wrap; gap: 0 !important; padding-top: 4px; padding-bottom: 4px; }
+      .site-built nav > div > div { width: 100%; flex-wrap: nowrap !important; justify-content: space-between !important; gap: 12px !important; }
+    }
   </style>
-  <script src="vendor/react.production.min.js?v=ec7d2d4860e6"></script>
-<script src="vendor/react-dom.production.min.js?v=ec7d2d4860e6"></script>
-
-
-  <script src="_ds_bundle.js?v=ec7d2d4860e6"></script>
-  <script src="/vendor/gsap.min.js?v=ec7d2d4860e6"></script>
-  <script src="/vendor/ScrollTrigger.min.js?v=ec7d2d4860e6"></script>
-  <script src="./route-manifest.js?v=ec7d2d4860e6"></script>
-  <script src="./kit-data.js?v=ec7d2d4860e6"></script>
+  <link rel="stylesheet" href="assets/verso-brand.css">
+  <script src="assets/verso-brand.js" defer></script>
+  <link rel="stylesheet" href="assets/site-navigation.css?v=20260831-portfolio">
+  <link rel="stylesheet" href="assets/site-motion.css?v=20260831-motion">
 </head>
-<body>
-  <div id="root">
-    <noscript>
-      <main>
-        <h1>Caleb Stacy — Senior content designer</h1>
-        <p>I shape complex products from early strategy through interaction language, onboarding, experimentation, and launch. I also build standards and tools that make good decisions easier to repeat.</p>
-        <h2>Selected work</h2>
-        <!-- selected-work-noscript:start -->
-<ul>
-          <li><a href="/work/vr-nux/"><strong>01 &middot; First-time VR:</strong></a> How I replaced a front-loaded Meta Horizon VR onboarding syllabus with behavior-triggered education, improving completion, weekly use, and retention.</li>
-          <li><a href="/work/horizon-portals/"><strong>02 &middot; Horizon Portals:</strong></a> How I moved a Meta Horizon portal decision before the threshold with a proximity-based information architecture, introduced at Meta Connect 2024.</li>
-          <li><a href="/work/verso/"><strong>03 &middot; Verso:</strong></a> How I built a content-design agent that found product context, separated evidence from judgment, and checked its own recommendations.</li>
-        </ul>
-<!-- selected-work-noscript:end -->
-        <p><a href="Caleb-Stacy-Resume.pdf">Download Caleb Stacy’s résumé</a> or email <a href="mailto:calebstacy@gmail.com">calebstacy@gmail.com</a>.</p>
-      </main>
-    </noscript>
+<body class="site-built has-site-navigation">
+<!-- site-navigation:start -->
+<a class="site-navigation__skip" href="#site-content">Skip to content</a>
+<header class="site-navigation">
+  <div class="site-navigation__bar">
+    <a class="site-navigation__name" href="index.html" aria-current="page">Caleb Stacy</a>
+    <nav class="site-navigation__links" aria-label="Portfolio">
+      <ul class="site-navigation__options">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="samples.html">Samples</a></li>
+        <li><a href="https://www.linkedin.com/in/caleb-stacyrva/">Contact</a></li>
+      </ul>
+    </nav>
   </div>
-  <script src="app.js?v=ec7d2d4860e6"></script>
+</header>
+<span class="site-navigation__content-start" id="site-content" tabindex="-1"></span>
+<!-- site-navigation:end -->
+<div style="min-height: 100%; background: #0D0F0C; color: #ffffff; font-family: var(--font-sans)">
 
 
+  <section style="height: 844px; position: relative; overflow: hidden">
+    <div style="position: absolute; bottom: -10%; right: -5%; width: 65%; height: 80%; background: radial-gradient(ellipse at bottom right, rgba(20, 90, 68, 0.38) 0%, transparent 60%); pointer-events: none"></div>
+    <div style="position: absolute; top: -5%; left: -5%; width: 40%; height: 50%; background: radial-gradient(ellipse at top left, rgba(15, 59, 52, 0.18) 0%, transparent 65%); pointer-events: none"></div>
 
+    <div style="display: grid; grid-template-columns: minmax(0, 580px) minmax(0, 1fr); width: 100%; height: 100%; position: relative; z-index: 1">
 
+      <div class="hero-copy" style="display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 1; max-width: 580px; padding: 100px 48px; box-sizing: border-box">
+        <img class="hero-portrait" src="assets/caleb-portrait.webp" alt="Caleb Stacy" width="1086" height="1448" style="width: 84px; height: 84px; border-radius: 50%; object-fit: cover; object-position: 50% 22%; border: 1px solid rgba(255,255,255,0.18); margin: 0 0 26px">
+        <p style="font-family: var(--font-sans); font-weight: 300; font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(255,255,255,0.32); margin: 0 0 28px">Senior content designer</p>
+        <h1 style="font-family: var(--font-display); font-weight: 200; font-size: clamp(3.2rem, 5.5vw, 5rem); letter-spacing: -0.01em; color: rgba(255,255,255,0.94); line-height: 1.04; margin: 0 0 28px">Hi, I'm Caleb.</h1>
+        <p style="font-family: var(--font-sans); font-weight: 300; font-size: 13px; line-height: 1.75; color: #ffffff; max-width: 380px; margin: 0 0 48px">I'm a senior content designer with a knack for language systems and agentic workflows. I build measurable voice standards, terminology schemas, and checks that hold both writers and AI agents to a target instead of an adjective.</p>
+        <div class="hero-actions" style="display: flex; gap: 10px; align-items: center">
+          <a class="btn btn-primary" href="index.html#work" style="text-decoration: none">See my work</a>
+          <a class="btn btn-ghost" href="resume.html" style="text-decoration: none">R&eacute;sum&eacute;</a>
+          <div style="width: 1px; height: 20px; background: rgba(255,255,255,0.14); margin: 0 4px"></div>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/caleb-stacyrva/" style="width: 37px; height: 37px; padding: 0; justify-content: center; opacity: 0.7" aria-label="LinkedIn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/calebstacy" style="width: 37px; height: 37px; padding: 0; justify-content: center; opacity: 0.7" aria-label="GitHub">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+          </a>
+        </div>
+        <p style="font-family: var(--font-mono); font-size: 9px; color: rgba(255,255,255,0.18); letter-spacing: 0.12em; text-transform: uppercase; margin: 64px 0 0">Richmond, Virginia · Local + remote</p>
+      </div>
 
+      <div class="hero-figure" style="position: relative; overflow: hidden; display: flex; align-items: flex-end; justify-content: center">
+        <picture style="display: contents">
+          <source srcset="assets/hero-still.webp" media="(prefers-reduced-motion: reduce)">
+          <img class="hero-char" src="assets/hero-wave.webp" alt="Felt character of Caleb waving" style="width: 82%; max-height: 600px; object-fit: contain; object-position: center bottom; position: relative; z-index: 1">
+        </picture>
+        <div style="position: absolute; inset: 0; background: linear-gradient(to right, #0D0F0C 0%, transparent 18%); pointer-events: none; z-index: 2"></div>
+      </div>
 
+    </div>
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 18%; background: linear-gradient(to top, #0D0F0C 0%, transparent 100%); pointer-events: none; z-index: 2"></div>
+  </section>
 
+  <div style="position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(10, 30, 22, 0.35); height: 72px">
+    <div style="position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(to right, #0D0F0C 0%, transparent 12%, transparent 88%, #0D0F0C 100%)"></div>
+    <div style="display: flex; align-items: center; gap: 72px; height: 100%; width: max-content; animation: marquee-scroll 32s linear infinite; will-change: transform">
+      <img src="assets/8x8.svg" alt="8x8" style="width: 56px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+      <img src="assets/digbi-health.svg" alt="Digbi Health" style="width: 88px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+      <img src="assets/meta-horizon.svg" alt="Meta Horizon" style="width: 100px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+      <img src="assets/meta-quest.svg" alt="Meta Quest" style="width: 88px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+      <img src="assets/8x8.svg" alt="8x8" style="width: 56px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+      <img src="assets/digbi-health.svg" alt="Digbi Health" style="width: 88px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+      <img src="assets/meta-horizon.svg" alt="Meta Horizon" style="width: 100px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+      <img src="assets/meta-quest.svg" alt="Meta Quest" style="width: 88px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+      <img src="assets/8x8.svg" alt="8x8" style="width: 56px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+      <img src="assets/digbi-health.svg" alt="Digbi Health" style="width: 88px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+      <img src="assets/meta-horizon.svg" alt="Meta Horizon" style="width: 100px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+      <img src="assets/meta-quest.svg" alt="Meta Quest" style="width: 88px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+      <img src="assets/8x8.svg" alt="8x8" style="width: 56px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+      <img src="assets/digbi-health.svg" alt="Digbi Health" style="width: 88px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+      <img src="assets/meta-horizon.svg" alt="Meta Horizon" style="width: 100px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+      <img src="assets/meta-quest.svg" alt="Meta Quest" style="width: 88px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; flex-shrink: 0">
+    </div>
+  </div>
 
+  <section id="work" style="position: relative; padding: 0 48px 120px">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <div style="display: flex; align-items: center; gap: 16px; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 36px; margin-bottom: 48px">
+        <span style="font-family: var(--font-mono); font-size: 9px; color: rgba(255,255,255,0.22); letter-spacing: 0.12em">02</span>
+        <h2 style="font-family: var(--font-display); font-weight: 200; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.32); margin: 0">Selected work</h2>
+      </div>
 
+      <div id="cs-carousel" style="position: relative; width: 100vw; margin-left: calc(50% - 50vw); height: 600px; overflow: hidden; cursor: grab; touch-action: pan-y; user-select: none">
+<div class="cs-card" data-w="560" style="position: absolute; left: 0; top: 24px; width: 560px; will-change: transform">
+        <div class="bgx">
+        <div class="bgx-border"></div>
+        <div class="bgx-glow"><span></span></div>
+        <div style="border-radius: 40px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.13); box-shadow: 0 4px 32px rgba(0,0,0,0.3); cursor: grab; background: #0D0F0C">
+          <img src="assets/vr-scene.jpg" alt="" aria-hidden="true" style="position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 55%; object-fit: cover; object-position: center 88%; filter: brightness(1.25); pointer-events: none; z-index: 0">
+          <div style="position: relative; z-index: 1">
+            <div style="position: relative; aspect-ratio: 16/9; overflow: hidden">
+              <img src="assets/vr-scene.jpg" alt="Meta Horizon NUX" style="width: 100%; height: 100%; object-fit: cover; object-position: center 88%; filter: brightness(1.25)">
+              <div style="position: absolute; inset: 0; background: rgba(6, 28, 22, 0.18); pointer-events: none"></div>            </div>
+            <div class="cs-body" style="backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); background: rgba(8, 30, 22, 0.65); border-top: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.1); padding: 24px 28px 28px">
+              <h3 style="font-family: var(--font-display); font-weight: 300; font-size: 1.55rem; letter-spacing: 0.01em; color: rgba(255,255,255,0.92); line-height: 1.15; margin: 0 0 10px">Meta Horizon NUX</h3>
+              <p data-claim="first-time-vr" style="font-family: var(--font-sans); font-weight: 300; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.68); margin: 0 0 22px">Find the fun first. Teach in the moment.</p>
+              <a class="cs-link" draggable="false" href="nux.html" style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #50C89B; display: inline-flex; align-items: center; gap: 6px; text-decoration: none">View case study <span>→</span></a>
+            </div>
+          </div>
+        </div>
+        </div>
+</div>
+<div class="cs-card" data-w="560" style="position: absolute; left: 0; top: 24px; width: 560px; will-change: transform">
+        <div class="bgx">
+        <div class="bgx-border"></div>
+        <div class="bgx-glow"><span></span></div>
+        <div style="border-radius: 40px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.13); box-shadow: 0 4px 32px rgba(0,0,0,0.3); cursor: grab; background: #0D0F0C">
+          <img src="assets/portals-hero.jpg" alt="" aria-hidden="true" style="position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 55%; object-fit: cover; object-position: center 42%; filter: brightness(0.85); pointer-events: none; z-index: 0">
+          <div style="position: relative; z-index: 1">
+            <div style="position: relative; aspect-ratio: 16/9; overflow: hidden">
+              <img src="assets/portals-hero.jpg" alt="Horizon Portals" style="width: 100%; height: 100%; object-fit: cover; object-position: center 42%; filter: brightness(0.85)">
+              <div style="position: absolute; inset: 0; background: rgba(6, 28, 22, 0.18); pointer-events: none"></div>            </div>
+            <div class="cs-body" style="backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); background: rgba(8, 30, 22, 0.65); border-top: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.1); padding: 24px 28px 28px">
+              <h3 style="font-family: var(--font-display); font-weight: 300; font-size: 1.55rem; letter-spacing: 0.01em; color: rgba(255,255,255,0.92); line-height: 1.15; margin: 0 0 10px">Portals</h3>
+              <p data-claim="portals" style="font-family: var(--font-sans); font-weight: 300; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.68); margin: 0 0 22px">Designing navigation when the interface is the space.</p>
+              <a class="cs-link" draggable="false" href="portals.html" style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #50C89B; display: inline-flex; align-items: center; gap: 6px; text-decoration: none">View case study <span>→</span></a>
+            </div>
+          </div>
+        </div>
+        </div>
+</div>
+<div class="cs-card" data-w="560" style="position: absolute; left: 0; top: 24px; width: 560px; will-change: transform">
+        <div class="bgx">
+        <div class="bgx-border"></div>
+        <div class="bgx-glow"><span></span></div>
+        <div style="border-radius: 40px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.13); box-shadow: 0 4px 32px rgba(0,0,0,0.3); cursor: grab; background: #0D0F0C">
+          <div style="position: relative; z-index: 1">
+            <div class="verso-card-thumbnail">
+              <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 72% 28%, rgba(30,120,95,0.34) 0%, transparent 62%); pointer-events: none"></div>
+              <div class="verso-brand verso-brand--card" data-verso-brand aria-hidden="true">
+                <div class="plate-head">
+                  <span class="term-title">Verso Instruments</span>
+                  <span class="plate-model">MODEL CI-2024</span>
+                </div>
+                <div class="plate-body">
+                  <div class="wordmark">VERSO</div>
+                  <div class="wordsub">Content Intelligence</div>
+                </div>
+                <div class="plate-foot">
+                  <span><span class="lamp"></span>AGENT</span>
+                  <span><span class="lamp"></span>ENGINE</span>
+                  <span><span class="lamp"></span>INDEX</span>
+                </div>
+                <div class="scan"></div>
+              </div>            </div>
+            <div class="cs-body" style="background: rgba(8, 30, 22, 0.65); border-top: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.1); padding: 24px 28px 28px">
+              <h3 style="font-family: var(--font-display); font-weight: 300; font-size: 1.55rem; letter-spacing: 0.01em; color: rgba(255,255,255,0.92); line-height: 1.15; margin: 0 0 10px">Verso</h3>
+              <p data-claim="verso" style="font-family: var(--font-sans); font-weight: 300; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.68); margin: 0 0 22px">Voice was written in adjectives. I turned it into a target an agent could be held to.</p>
+              <a class="cs-link" draggable="false" href="verso.html" style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #50C89B; display: inline-flex; align-items: center; gap: 6px; text-decoration: none">View case study <span>→</span></a>
+            </div>
+          </div>
+        </div>
+        </div>
+</div>
+<div class="cs-card" data-w="560" style="position: absolute; left: 0; top: 24px; width: 560px; will-change: transform">
+        <div class="bgx">
+        <div class="bgx-border"></div>
+        <div class="bgx-glow"><span></span></div>
+        <div style="border-radius: 40px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.13); box-shadow: 0 4px 32px rgba(0,0,0,0.3); cursor: grab; background: #0D0F0C">
+          <img src="assets/vr-scene.jpg" alt="" aria-hidden="true" style="position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 55%; object-fit: cover; object-position: center 88%; filter: brightness(1.25); pointer-events: none; z-index: 0">
+          <div style="position: relative; z-index: 1">
+            <div style="position: relative; aspect-ratio: 16/9; overflow: hidden">
+              <img src="assets/vr-scene.jpg" alt="Meta Horizon NUX" style="width: 100%; height: 100%; object-fit: cover; object-position: center 88%; filter: brightness(1.25)">
+              <div style="position: absolute; inset: 0; background: rgba(6, 28, 22, 0.18); pointer-events: none"></div>            </div>
+            <div class="cs-body" style="backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); background: rgba(8, 30, 22, 0.65); border-top: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.1); padding: 24px 28px 28px">
+              <h3 style="font-family: var(--font-display); font-weight: 300; font-size: 1.55rem; letter-spacing: 0.01em; color: rgba(255,255,255,0.92); line-height: 1.15; margin: 0 0 10px">Meta Horizon NUX</h3>
+              <p data-claim="first-time-vr" style="font-family: var(--font-sans); font-weight: 300; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.68); margin: 0 0 22px">Find the fun first. Teach in the moment.</p>
+              <a class="cs-link" draggable="false" href="nux.html" style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #50C89B; display: inline-flex; align-items: center; gap: 6px; text-decoration: none">View case study <span>→</span></a>
+            </div>
+          </div>
+        </div>
+        </div>
+</div>
+<div class="cs-card" data-w="560" style="position: absolute; left: 0; top: 24px; width: 560px; will-change: transform">
+        <div class="bgx">
+        <div class="bgx-border"></div>
+        <div class="bgx-glow"><span></span></div>
+        <div style="border-radius: 40px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.13); box-shadow: 0 4px 32px rgba(0,0,0,0.3); cursor: grab; background: #0D0F0C">
+          <img src="assets/portals-hero.jpg" alt="" aria-hidden="true" style="position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 55%; object-fit: cover; object-position: center 42%; filter: brightness(0.85); pointer-events: none; z-index: 0">
+          <div style="position: relative; z-index: 1">
+            <div style="position: relative; aspect-ratio: 16/9; overflow: hidden">
+              <img src="assets/portals-hero.jpg" alt="Horizon Portals" style="width: 100%; height: 100%; object-fit: cover; object-position: center 42%; filter: brightness(0.85)">
+              <div style="position: absolute; inset: 0; background: rgba(6, 28, 22, 0.18); pointer-events: none"></div>            </div>
+            <div class="cs-body" style="backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); background: rgba(8, 30, 22, 0.65); border-top: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.1); padding: 24px 28px 28px">
+              <h3 style="font-family: var(--font-display); font-weight: 300; font-size: 1.55rem; letter-spacing: 0.01em; color: rgba(255,255,255,0.92); line-height: 1.15; margin: 0 0 10px">Portals</h3>
+              <p data-claim="portals" style="font-family: var(--font-sans); font-weight: 300; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.68); margin: 0 0 22px">Designing navigation when the interface is the space.</p>
+              <a class="cs-link" draggable="false" href="portals.html" style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #50C89B; display: inline-flex; align-items: center; gap: 6px; text-decoration: none">View case study <span>→</span></a>
+            </div>
+          </div>
+        </div>
+        </div>
+</div>
+<div class="cs-card" data-w="560" style="position: absolute; left: 0; top: 24px; width: 560px; will-change: transform">
+        <div class="bgx">
+        <div class="bgx-border"></div>
+        <div class="bgx-glow"><span></span></div>
+        <div style="border-radius: 40px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.13); box-shadow: 0 4px 32px rgba(0,0,0,0.3); cursor: grab; background: #0D0F0C">
+          <div style="position: relative; z-index: 1">
+            <div class="verso-card-thumbnail">
+              <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 72% 28%, rgba(30,120,95,0.34) 0%, transparent 62%); pointer-events: none"></div>
+              <div class="verso-brand verso-brand--card" data-verso-brand aria-hidden="true">
+                <div class="plate-head">
+                  <span class="term-title">Verso Instruments</span>
+                  <span class="plate-model">MODEL CI-2024</span>
+                </div>
+                <div class="plate-body">
+                  <div class="wordmark">VERSO</div>
+                  <div class="wordsub">Content Intelligence</div>
+                </div>
+                <div class="plate-foot">
+                  <span><span class="lamp"></span>AGENT</span>
+                  <span><span class="lamp"></span>ENGINE</span>
+                  <span><span class="lamp"></span>INDEX</span>
+                </div>
+                <div class="scan"></div>
+              </div>            </div>
+            <div class="cs-body" style="background: rgba(8, 30, 22, 0.65); border-top: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.1); padding: 24px 28px 28px">
+              <h3 style="font-family: var(--font-display); font-weight: 300; font-size: 1.55rem; letter-spacing: 0.01em; color: rgba(255,255,255,0.92); line-height: 1.15; margin: 0 0 10px">Verso</h3>
+              <p data-claim="verso" style="font-family: var(--font-sans); font-weight: 300; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.68); margin: 0 0 22px">Voice was written in adjectives. I turned it into a target an agent could be held to.</p>
+              <a class="cs-link" draggable="false" href="verso.html" style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #50C89B; display: inline-flex; align-items: center; gap: 6px; text-decoration: none">View case study <span>→</span></a>
+            </div>
+          </div>
+        </div>
+        </div>
+</div>
+</div>
+
+      <div style="margin-top: 36px">
+        <a href="samples.html" style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #50C89B; display: inline-flex; align-items: center; gap: 6px; text-decoration: none">Browse all work samples <span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" style="background: rgba(255,255,255,0.04); border-top: 1px solid rgba(255,255,255,0.07); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center">
+    <span style="font-family: var(--font-mono); font-size: 9px; color: rgba(255,255,255,0.2); letter-spacing: 0.12em; text-transform: uppercase">Richmond, Virginia · Local + remote</span>
+    <a href="https://www.linkedin.com/in/caleb-stacyrva/" style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">Contact on LinkedIn</a>
+  </footer>
+
+</div>
+
+<script>
+(() => {
+  const viewport = document.getElementById('cs-carousel');
+  if (!viewport) return;
+  const els = Array.from(viewport.querySelectorAll('.cs-card'));
+  const GAP = 48, ARC_DIP = 42, MAX_TILT = 3.2, DRIFT = 32, FRICTION = 0.94;
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let widths = [], centers = [], loopLen = 0;
+  let offset = 0, velocity = 0, dragging = false, hovered = false;
+  let lastX = 0, lastT = 0, prevFrame = performance.now(), measuredWidth = 0, dragDist = 0;
+
+  function measure() {
+    const availableWidth = viewport.clientWidth;
+    if (availableWidth === measuredWidth) { paint(); return; }
+    const narrow = availableWidth <= 760;
+    widths = els.map((el) => {
+      const w = narrow ? Math.min(560, Math.max(1, availableWidth - 64)) : 560;
+      el.style.width = w + 'px';
+      return w;
+    });
+    centers = [];
+    let cursor = 40;
+    widths.forEach(w => { centers.push(cursor + w / 2); cursor += w + GAP; });
+    loopLen = cursor - 40;
+    measuredWidth = availableWidth;
+    paint();
+  }
+
+  function paint() {
+    const vw = viewport.clientWidth || Math.min(window.innerWidth, 1440);
+    const half = vw / 2;
+    els.forEach((el, i) => {
+      let x = ((centers[i] - offset) % loopLen + loopLen) % loopLen;
+      if (x > loopLen / 2) x -= loopLen;
+      const xNorm = x / half;
+      const y = ARC_DIP * xNorm * xNorm;
+      const rot = MAX_TILT * xNorm;
+      const left = half + x - widths[i] / 2;
+      el.style.transform = 'translate(' + left + 'px, ' + y + 'px) rotate(' + rot + 'deg)';
+      el.style.visibility = Math.abs(x) > half + widths[i] ? 'hidden' : 'visible';
+    });
+  }
+
+  function frame(now) {
+    const dt = Math.min((now - prevFrame) / 1000, 0.05);
+    prevFrame = now;
+    if (!dragging && !document.hidden) {
+      offset += velocity * dt;
+      velocity *= Math.pow(FRICTION, dt * 60);
+      if (Math.abs(velocity) < 2) velocity = 0;
+      if (!reduced && !hovered && velocity === 0) offset += DRIFT * dt;
+    }
+    paint();
+    requestAnimationFrame(frame);
+  }
+
+  let pointerId = null, captured = false;
+  viewport.addEventListener('pointerdown', (e) => {
+    dragging = true; velocity = 0; dragDist = 0;
+    lastX = e.clientX; lastT = performance.now();
+    pointerId = e.pointerId; captured = false;
+    // Capturing here would retarget the eventual click to the viewport and kill
+    // the card links; capture only once real dragging starts (see pointermove).
+  });
+  viewport.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    const now = performance.now();
+    const dx = e.clientX - lastX;
+    dragDist += Math.abs(dx);
+    if (!captured && dragDist > 6) {
+      try { viewport.setPointerCapture(pointerId); } catch (err) {}
+      captured = true;
+    }
+    offset -= dx;
+    if (now - lastT > 0) velocity = -dx / ((now - lastT) / 1000);
+    lastX = e.clientX; lastT = now;
+    paint();
+  });
+  const release = () => { dragging = false; };
+  viewport.addEventListener('pointerup', release);
+  viewport.addEventListener('pointercancel', release);
+  viewport.addEventListener('click', (e) => { if (dragDist > 6) { e.preventDefault(); e.stopPropagation(); } }, true);
+  viewport.addEventListener('pointerenter', () => { hovered = true; });
+  viewport.addEventListener('pointerleave', () => { hovered = false; });
+  window.addEventListener('resize', measure);
+  measure();
+  requestAnimationFrame(frame);
+})();
+</script>
+<script>
+(() => {
+  const oldRoutes = {
+    '#vr-education': '/nux.html',
+    '#portals': '/portals.html',
+    '#verso': '/verso.html',
+    '#verso/agent': '/verso-agent.html',
+    '#verso/engine': '/verso-engine.html',
+    '#verso/index': '/verso-engine.html#index-room',
+    '#microcopy': '/samples.html',
+    '#work-examples': '/samples.html',
+    '#horizon': '/samples.html'
+  };
+  const target = oldRoutes[window.location.hash];
+  if (target) window.location.replace(target);
+})();
+</script>
+<script src="assets/site-motion.js?v=20260831-portfolio" defer></script>
 </body>
 </html>

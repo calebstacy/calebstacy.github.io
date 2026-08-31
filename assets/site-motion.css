@@ -1,0 +1,25 @@
+/* Site motion pass, 2026-08-31.
+   1. Cross-document view transitions: fast fade with a small rise on the incoming page.
+      The shared nav holds still. Progressive: browsers without the API just navigate.
+   2. Scroll reveals: armed only when site-motion.js runs (no-JS pages stay fully visible). */
+
+@view-transition { navigation: auto; }
+
+::view-transition-old(root) { animation: site-vt-out 0.18s ease both; }
+::view-transition-new(root) { animation: site-vt-in 0.3s ease both; }
+@keyframes site-vt-out { to { opacity: 0; } }
+@keyframes site-vt-in { from { opacity: 0; transform: translateY(10px); } }
+
+.site-navigation { view-transition-name: site-nav; }
+
+html.motion-armed .mv-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+html.motion-armed .mv-reveal.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  html.motion-armed .mv-reveal { opacity: 1; transform: none; transition: none; }
+}

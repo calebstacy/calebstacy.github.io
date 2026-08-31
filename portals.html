@@ -1,1 +1,395 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=/#portals"><link rel="canonical" href="https://calebstacy.com/#portals"><title>Moved</title></head><body><p><a href="/#portals">This case study has moved.</a></p></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horizon Portals | Caleb Stacy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&amp;family=Space+Mono:wght@400&amp;display=swap">
+  <style>
+    :root {
+      --font-display: "Raleway", system-ui, sans-serif;
+      --font-sans: "DM Sans", system-ui, sans-serif;
+      --font-mono: "Space Mono", monospace;
+    }
+    *, ::before, ::after { box-sizing: border-box; }
+    body { margin: 0; background: #0D0F0C; color: #ffffff; }
+    img, svg, video { display: block; vertical-align: middle; }
+    a { color: #50C89B; }
+    a:hover { color: #6EDCAD; }
+    .site-built nav a { min-height: 44px; display: inline-flex; align-items: center; white-space: nowrap; }
+  
+    /* P1: dark-field micro labels were below practical contrast at tiny sizes. */
+    .site-built [style*="rgba(255,255,255,0.18)"],
+    .site-built [style*="rgba(255,255,255,0.2)"],
+    .site-built [style*="rgba(255,255,255,0.22)"],
+    .site-built [style*="rgba(255,255,255,0.25)"],
+    .site-built [style*="rgba(255,255,255,0.28)"],
+    .site-built [style*="rgba(255,255,255,0.3)"],
+    .site-built [style*="rgba(255,255,255,0.32)"] { color: rgba(255,255,255,0.5) !important; }
+
+    .site-built a:focus-visible,
+    .site-built button:focus-visible,
+    .site-built input:focus-visible,
+    .site-built textarea:focus-visible {
+      outline: 2px solid #ddd8c4;
+      outline-offset: 3px;
+    }
+
+    /* P1: missing reduced-motion coverage for marquees, glow traces, and generated replay motion. */
+    @media (prefers-reduced-motion: reduce) {
+      .site-built *, .site-built *::before, .site-built *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .site-built nav > div { padding-left: 20px !important; padding-right: 20px !important; gap: 12px !important; }
+      .site-built nav div[style*="gap: 36px"] { gap: 16px !important; flex-wrap: wrap !important; justify-content: flex-end !important; }
+
+      /* P1: fixed hero heights and absolute captions can overlap on narrow screens. */
+      .site-built section[style*="height: 844px"] { height: auto !important; min-height: 0 !important; }
+      .site-built section[style*="height: 844px"] > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        height: auto !important;
+      }
+      .site-built section[style*="height: 844px"] > div > div { padding: 72px 24px 36px !important; }
+      .site-built div[style*="height: 648px"] { min-height: 720px !important; }
+      .site-built div[style*="bottom: 48px"][style*="left: 48px"] {
+        left: 20px !important;
+        right: 20px !important;
+        bottom: 24px !important;
+        padding: 22px 24px !important;
+        max-width: none !important;
+      }
+
+      /* P1: fixed multi-column grids squeeze content on mobile. */
+      .site-built div[style*="grid-template-columns: repeat(3"],
+      .site-built div[style*="grid-template-columns: repeat(2"],
+      .site-built div[style*="grid-template-columns: 300px 1fr"],
+      .site-built div[style*="grid-template-columns: 340px 1fr"],
+      .site-built div[style*="grid-template-columns: 1.1fr 1fr"],
+      .site-built div[style*="grid-template-columns: 1fr 1fr"],
+      .site-built div[style*="grid-template-columns: 190px 1fr 52px"],
+      .site-built div[style*="grid-template-columns: 190px 1fr 62px"],
+      .site-built .fp-row,
+      .site-built .z-tr {
+        grid-template-columns: 1fr !important;
+      }
+
+      .site-built [style*="padding: 64px 48px"],
+      .site-built [style*="padding: 0 48px"],
+      .site-built [style*="padding: 96px 64px"],
+      .site-built .section { padding-left: 20px !important; padding-right: 20px !important; }
+
+      /* P1: fixed carousel cards can exceed the viewport. */
+      .site-built #mc-carousel { height: 360px !important; }
+      .site-built #mc-carousel .mc-card {
+        max-width: calc(100vw - 40px) !important;
+      }
+      .site-built #mc-carousel .mc-card img {
+        object-fit: contain;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .site-built .portal-example {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 24px !important;
+        padding: 0 !important;
+        min-width: 0;
+      }
+      .site-built .portal-example > * { min-width: 0; }
+      .site-built .portal-diagram { width: min(300px, 100%) !important; height: auto !important; aspect-ratio: 3 / 4; }
+      .site-built .portal-evidence { padding: 24px 16px !important; min-width: 0; }
+      .site-built .portal-evidence-row { grid-template-columns: minmax(0, 1fr) !important; gap: 6px !important; min-width: 0; }
+      .site-built .portal-evidence-row > * { min-width: 0; }
+    }
+
+    /* Portals keeps its dark glass, with media and copy in normal reading order. */
+    .portal-cover { padding: 32px 48px; background: #101b16; }
+    .portal-cover-inner { max-width: 1120px; margin: 0 auto; }
+    .portal-cover-copy { padding: 28px 32px; border: 1px solid rgba(255,255,255,.15); border-radius: 24px; background: rgba(10,44,38,.42); box-shadow: inset 0 1px 0 rgba(255,255,255,.1); }
+    .portal-eyebrow { margin: 0 0 16px; font: 10px/1.6 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: #9fbaae; }
+    .portal-cover h1 { margin: 0 0 12px; font: 400 clamp(1.8rem, 3vw, 2.4rem)/1.15 var(--font-display); }
+    .portal-claim { margin: 0 0 14px; font: 400 19px/1.5 var(--font-sans); color: #e7eee9; }
+    .portal-deck, .portal-cover-result p { max-width: 72ch; margin: 0; font: 300 16px/1.75 var(--font-sans); color: #bdccc3; }
+    .portal-cover-result { padding: 24px 0 0; }
+    .portal-cover-result .portal-eyebrow { margin-bottom: 8px; color: #78d7b1; }
+    .portal-facts > div { max-width: 100%; }
+    .portal-facts > div > span:last-child { min-width: 0; overflow-wrap: break-word; }
+    /* Align the fact chips with the cover card's left edge (cover-inner is 1120px centered
+       inside 48px padding, so its start is (100% - 1120px) / 2 once the viewport clears 1216px). */
+    .portal-facts { padding-left: max(48px, calc(50% - 560px)) !important; padding-right: max(48px, calc(50% - 560px)) !important; }
+    .portal-keynote { margin: 24px 0 0; }
+    .portal-keynote video { width: 100%; height: auto; aspect-ratio: 16 / 9; background: #06130f; border: 1px solid rgba(255,255,255,.15); border-radius: 18px; }
+    .portal-keynote figcaption { margin-top: 12px; max-width: 80ch; font: 300 12px/1.65 var(--font-sans); color: #a3b5a9; }
+    .site-built video:focus-visible, .site-built .portal-matrix-scroll:focus-visible { outline: 2px solid #ddd8c4; outline-offset: 4px; }
+    .portal-story { max-width: 960px; margin: 0 auto; padding: 64px 48px 100px; }
+    .portal-section + .portal-section { margin-top: 64px; }
+    .portal-story h2 { max-width: 38ch; margin: 0 0 22px; font: 400 clamp(1.25rem, 2.2vw, 1.6rem)/1.4 var(--font-display); color: #e8eee9; }
+    .portal-story h3 { margin: 0 0 18px; font: 400 18px/1.5 var(--font-display); color: #e8eee9; }
+    .portal-section > p { max-width: 72ch; margin: 0 0 22px; font: 300 16px/1.8 var(--font-sans); color: #bdc8c0; }
+    .portal-section > p:last-child { margin-bottom: 0; }
+    .portal-contributions { max-width: 72ch; margin: 0 0 24px; padding-left: 22px; }
+    .portal-contributions li { margin-bottom: 16px; padding-left: 4px; font: 300 16px/1.8 var(--font-sans); color: #bdc8c0; }
+    .portal-contributions li:last-child { margin-bottom: 0; }
+    .portal-contributions li::marker { color: #78d7b1; }
+    .portal-contributions strong { font-weight: 500; color: #e8eee9; }
+    .portal-section > .portal-collaboration { max-width: 72ch; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.13); font-size: 14px; line-height: 1.7; color: #9fb0a5; }
+    .portal-story-figure { margin: 30px 0 0; }
+    .portal-story-figure img { width: 100%; height: auto; border: 1px solid rgba(255,255,255,.14); border-radius: 18px; background: #11151d; }
+    .portal-story-figure figcaption { margin-top: 12px; max-width: 76ch; font: 300 12px/1.65 var(--font-sans); color: #aebfb3; }
+    .portal-decision-shift { margin: 32px 0 0; padding: 24px; border: 1px solid rgba(255,255,255,.13); border-radius: 20px; background: rgba(255,255,255,.04); }
+    .portal-decision-path + .portal-decision-path { margin-top: 22px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.1); }
+    .portal-decision-path p { margin: 0 0 12px; font: 300 12px/1.5 var(--font-sans); color: #aebfb3; }
+    .portal-decision-path ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin: 0; padding: 0; list-style: none; }
+    .portal-decision-path li { position: relative; min-width: 0; padding: 10px 4px; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; font: 400 14px/1.5 var(--font-sans); text-align: center; color: #dce5de; }
+    .portal-decision-path li:not(:last-child)::after { content: "→"; position: absolute; right: -18px; top: 10px; color: #8ba497; }
+    .portal-decision-path.is-informed li { background: rgba(80,200,155,.08); border-color: rgba(80,200,155,.3); }
+    .portal-decision-shift figcaption { margin-top: 20px; font: 300 13px/1.65 var(--font-sans); color: #aebfb3; }
+    .portal-distance { margin: 28px 0 32px; padding: 24px 28px; border: 1px solid rgba(255,255,255,.13); border-radius: 24px; background: rgba(255,255,255,.05); }
+    .portal-distance > div { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 24px; padding: 16px 0; }
+    .portal-distance > div + div { border-top: 1px solid rgba(255,255,255,.1); }
+    .portal-distance dt { font: 400 14px/1.65 var(--font-sans); color: #78d7b1; }
+    .portal-distance dd { margin: 0; font: 300 15px/1.7 var(--font-sans); color: #c3cec6; }
+    .portal-metadata-model { margin: 30px 0 0; padding: 24px; border: 1px solid rgba(255,255,255,.13); border-radius: 20px; background: rgba(255,255,255,.035); }
+    .portal-metadata-kicker { margin: 0 0 8px; font: 400 9px/1.6 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: #78d7b1; }
+    .portal-metadata-model h3 { margin: 0 0 20px; font: 400 18px/1.5 var(--font-display); color: #e8eee9; }
+    .portal-metadata-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .portal-metadata-card { min-width: 0; padding: 18px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: rgba(7,18,14,.42); }
+    .portal-metadata-card > span { display: grid; place-items: center; width: 30px; height: 30px; margin-bottom: 14px; border-radius: 50%; font: 500 13px/1 var(--font-mono); color: #07120e; background: #78d7b1; }
+    .portal-metadata-card:nth-child(2) > span { background: #7fb1f4; }
+    .portal-metadata-card:nth-child(3) > span { background: #b79af5; }
+    .portal-metadata-card h4 { margin: 0 0 6px; font: 500 14px/1.5 var(--font-sans); color: #e4ece6; }
+    .portal-metadata-card p { margin: 0 0 10px; font: 300 12px/1.55 var(--font-sans); color: #9fb0a5; }
+    .portal-metadata-card ul { margin: 0; padding-left: 18px; }
+    .portal-metadata-card li { margin: 5px 0; font: 300 12.5px/1.5 var(--font-sans); color: #c6d0c9; }
+    .portal-metadata-choices { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.1); }
+    .portal-metadata-choices strong { margin-right: 4px; font: 500 12px/1.5 var(--font-sans); color: #dfe8e1; }
+    .portal-metadata-choices span { padding: 5px 10px; border: 1px solid rgba(120,215,177,.28); border-radius: 100px; font: 300 11px/1.5 var(--font-sans); color: #bcd8ca; }
+    .portal-example { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 32px; align-items: center; margin: 28px 0 0; }
+    .portal-diagram { position: relative; width: 100%; max-width: 300px; aspect-ratio: 3 / 4; overflow: hidden; border: 1px solid rgba(255,255,255,.16); border-radius: 10px; justify-self: center; }
+    .portal-diagram img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 21% 50%; }
+    .portal-example figcaption { grid-column: 1 / -1; margin: 0; font: 300 12px/1.65 var(--font-sans); color: #aebfb3; }
+    .portal-matrix-scroll { position: relative; max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; }
+    .portal-matrix { width: 100%; min-width: 440px; border-collapse: collapse; table-layout: fixed; }
+    .portal-matrix th, .portal-matrix td { padding: 12px 10px; border-top: 1px solid rgba(255,255,255,.08); vertical-align: middle; }
+    .portal-matrix thead th { border-top: 0; background: rgba(255,255,255,.04); font: 400 10px/1.6 var(--font-mono); color: #b6c4bb; }
+    .portal-matrix th:first-child { width: 46%; text-align: left; padding-left: 16px; }
+    .portal-matrix tbody th { font: 300 13px/1.6 var(--font-sans); color: #d0dad3; }
+    .portal-matrix td { text-align: center; color: #78d7b1; }
+    .portal-matrix-status { display: inline-block; margin: 4px 0 0 4px; padding: 1px 6px; border: 1px solid rgba(80,200,155,.35); border-radius: 100px; color: #78d7b1; font: 400 8px/1.6 var(--font-mono); text-transform: uppercase; }
+    .portal-matrix-status.is-new { color: #e8bc7d; border-color: rgba(232,168,76,.4); }
+    .portal-choices { padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); }
+    .portal-pullquote { margin: 32px 0 0; padding: 24px 28px; border-left: 2px solid #50c89b; background: rgba(10,44,38,.24); }
+    .portal-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 28px 0 0; }
+    .portal-stats > div { padding: 18px 16px; border: 1px solid rgba(255,255,255,.13); border-radius: 16px; background: rgba(255,255,255,.04); }
+    .portal-stats strong { display: block; margin-bottom: 6px; font: 400 26px/1.2 var(--font-display); color: #78d7b1; }
+    .portal-stats span { font: 300 12.5px/1.6 var(--font-sans); color: #aebfb3; }
+    .portal-pullquote p { margin: 0; max-width: 54ch; font: 400 18px/1.7 var(--font-display); color: #dce8df; }
+    .portal-scope-note { padding: 18px 22px; border: 1px solid rgba(80,200,155,.25); border-radius: 16px; background: rgba(80,200,155,.06); font-size: 14px !important; }
+    .portal-next { display: block; margin-top: 72px; border-radius: 24px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,.12); text-decoration: none; }
+    .portal-next img { width: 100%; height: 220px; object-fit: cover; filter: brightness(.6); }
+    .portal-next-copy { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; background: linear-gradient(to top, rgba(6,18,14,.92), transparent 75%); }
+    .portal-next-copy span:first-child { margin-bottom: 8px; color: #b1c1b7; font: 400 10px/1.6 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+    .portal-next-copy span:last-child { color: #e8eee9; font: 400 22px/1.4 var(--font-display); }
+    .portal-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+    @media (max-width: 760px) {
+      .portal-cover { padding: 20px; }
+      .portal-cover-copy { padding: 24px 20px; }
+      .portal-claim { font-size: 17px; }
+      .portal-keynote { margin-top: 20px; }
+      .portal-keynote video { border-radius: 12px; }
+      .portal-facts { padding: 18px 20px !important; }
+      .portal-story { padding: 48px 20px 72px; }
+      .portal-section + .portal-section { margin-top: 48px; }
+      .portal-decision-shift { padding: 20px 14px; }
+      .portal-decision-path ol { gap: 16px; }
+      .portal-decision-path li { font-size: 12px; }
+      .portal-decision-path li:not(:last-child)::after { right: -14px; }
+      .portal-distance { padding: 16px 20px; }
+      .portal-distance > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+      .portal-metadata-model { padding: 20px 14px; }
+      .portal-metadata-grid { grid-template-columns: minmax(0, 1fr); }
+      .portal-framework { padding: 24px 16px !important; min-width: 0; }
+      .portal-framework > div { min-width: 0; }
+      .portal-pullquote { padding: 20px; }
+      .portal-story-figure img { border-radius: 12px; }
+    }
+    @media (max-width: 360px) {
+      .site-built nav { height: auto !important; }
+      .site-built nav > div { height: auto !important; flex-wrap: wrap; gap: 0 !important; padding-top: 4px; padding-bottom: 4px; }
+      .site-built nav > div > div { width: 100%; flex-wrap: nowrap !important; justify-content: space-between !important; gap: 12px !important; }
+    }
+  </style>
+  <link rel="stylesheet" href="assets/site-navigation.css?v=20260831-portfolio">
+  <link rel="stylesheet" href="assets/site-motion.css?v=20260831-motion">
+</head>
+<body class="site-built has-site-navigation">
+<!-- site-navigation:start -->
+<a class="site-navigation__skip" href="#site-content">Skip to content</a>
+<header class="site-navigation">
+  <div class="site-navigation__bar">
+    <a class="site-navigation__name" href="index.html">Caleb Stacy</a>
+    <nav class="site-navigation__links" aria-label="Portfolio">
+      <ul class="site-navigation__options">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="samples.html">Samples</a></li>
+        <li><a href="https://www.linkedin.com/in/caleb-stacyrva/">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<span class="site-navigation__content-start" id="site-content" tabindex="-1"></span>
+<!-- site-navigation:end -->
+<div style="min-height: 100%; background: #0D0F0C; color: #ffffff; font-family: var(--font-sans)">
+
+
+  <header class="portal-cover">
+    <div class="portal-cover-inner">
+      <div class="portal-cover-copy">
+        <p class="portal-eyebrow">Spatial interaction · 2024</p>
+        <h1>Portals</h1>
+        <p class="portal-claim">Designing navigation when the interface is the space.</p>
+        <p class="portal-deck">Stepping through a portal was a blind gamble: a clipped name, no genre, no way to tell who was already inside. I redesigned the portal so it revealed more as someone approached: identity at a distance, actions when someone showed interest, and the full decision context only up close.</p>
+      </div>
+      <figure class="portal-keynote">
+        <video controls playsinline preload="none" width="1920" height="1080" poster="assets/portals-connect-poster.jpg" aria-label="Portals at Meta Connect 2024" aria-describedby="portal-keynote-caption">
+          <source src="assets/portals-connect-hero.mp4" type="video/mp4">
+          <a href="assets/portals-connect-hero.mp4">Open the silent keynote excerpt (MP4).</a>
+        </video>
+        <figcaption id="portal-keynote-caption">Meta Connect 2024 keynote: the Horizon Central portal, then Mark Zuckerberg introducing the experience on stage. The excerpt is silent.</figcaption>
+      </figure>
+      <div class="portal-cover-result">
+        <p class="portal-eyebrow">What changed</p>
+        <p>The portal lifted engagement across Horizon, improved day-one retention, earned alignment up through the VP level, shipped, and was introduced by Mark Zuckerberg at Meta Connect 2024.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="portal-facts" style="background: rgba(10, 30, 22, 0.55); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 48px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+    <div style="display: flex; align-items: center; gap: 9px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 7px 16px 7px 12px; margin-right: 8px">
+      <img src="assets/meta-horizon.svg" alt="Meta" style="height: 16px; width: auto; filter: brightness(0) invert(1); opacity: 0.75">
+      <span style="font-family: var(--font-sans); font-weight: 300; font-size: 12px; color: rgba(255,255,255,0.65)">Meta</span>
+    </div>
+    <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.1); margin-right: 8px"></div>
+    <div style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 100px; padding: 6px 14px">
+      <span style="font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.28)">Role</span>
+      <span style="font-family: var(--font-sans); font-weight: 300; font-size: 12px; color: rgba(255,255,255,0.65)">Content design lead</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 100px; padding: 6px 14px">
+      <span style="font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.28)">Timeline</span>
+      <span style="font-family: var(--font-sans); font-weight: 300; font-size: 12px; color: rgba(255,255,255,0.65)">2024</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 100px; padding: 6px 14px">
+      <span style="font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5)">Team</span>
+      <span style="font-family: var(--font-sans); font-weight: 300; font-size: 12px; color: rgba(255,255,255,0.65)">Product, Engineering, UXR, and Design</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 100px; padding: 6px 14px">
+      <span style="font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5)">Surface</span>
+      <span style="font-family: var(--font-sans); font-weight: 300; font-size: 12px; color: rgba(255,255,255,0.65)">Spatial navigation in Meta Horizon</span>
+    </div>
+  </div>
+
+  <main class="portal-story">
+    <section class="portal-section" aria-labelledby="portal-contributions">
+      <h2 id="portal-contributions">What I did</h2>
+      <ul class="portal-contributions">
+        <li><strong>Reframed the success metric:</strong> I proposed measuring state of intent, a confident yes or a confident no before stepping through, instead of raw portal entries.</li>
+        <li><strong>Wrote the earliest shared artifacts:</strong> the jobs to be done, the stages of travel, and the design principles the travel v-team made decisions from, carried to their final versions in the leads review deck.</li>
+        <li>Set which piece of information each distance had earned the right to show.</li>
+      </ul>
+      <p>Content design owned the argument: the distance model and the metadata strategy, defended piece by piece against real pushback. Our team's product designer and art director worked out the physical design: where each element sat, and the portal's proportions relative to human height and door frames.</p>
+    </section>
+
+    <section class="portal-section" aria-labelledby="portal-intent">
+      <h2 id="portal-intent">Problem: the tracked metric rewarded blind arrivals</h2>
+      <p>In Horizon, a portal is a floating oval that works like a doorway between worlds. Portal entries were the tracked success metric, and they rewarded exactly the pattern causing the problem: an uninformed arrival counted as a win even when the person looked around and left immediately.</p>
+      <figure class="portal-story-figure">
+        <img src="assets/portal-before-empty-reconstruction.png" alt="An early portal with no decision information and only the truncated world name Super Ru above it" width="1674" height="941" loading="lazy">
+        <figcaption>The far-distance state: a clipped name with no decision support.</figcaption>
+      </figure>
+    </section>
+
+    <section class="portal-section" aria-labelledby="portal-proximity">
+      <h2 id="portal-proximity">Solution: a portal reveals more as you approach</h2>
+      <p>A body standing in a room has no menu to defer to, so the only variable deciding what someone sees is how close they've chosen to walk:</p>
+      <dl class="portal-distance">
+        <div><dt>Six meters or more</dt><dd>A title and nothing else: enough to register that something is there, not enough to weigh it.</dd></div>
+        <div><dt>Pointing at mid-range</dt><dd>The one available action appears, because aiming at something is already a small commitment of attention.</dd></div>
+        <div><dt>Up close</dt><dd>The full picture arrives. That's where the decision actually gets made, so it's the only distance that earns it.</dd></div>
+      </dl>
+      <p>UXR testing decided what filled each distance. I standardized those answers into one model:</p>
+      <section class="portal-metadata-model" aria-labelledby="portal-metadata-title">
+        <p class="portal-metadata-kicker">One framework, every portal</p>
+        <h3 id="portal-metadata-title">The metadata changes with context. The questions stay stable.</h3>
+        <div class="portal-metadata-grid">
+          <article class="portal-metadata-card">
+            <span aria-hidden="true">E</span>
+            <h4>Essential metadata</h4>
+            <p>Present in every context</p>
+            <ul><li>What is this destination called?</li><li>What could I do there?</li></ul>
+          </article>
+          <article class="portal-metadata-card">
+            <span aria-hidden="true">R</span>
+            <h4>Rich, dynamic context</h4>
+            <p>Changes with the current context</p>
+            <ul><li>Do I have friends there?</li><li>How populated is it now?</li></ul>
+          </article>
+          <article class="portal-metadata-card">
+            <span aria-hidden="true">M</span>
+            <h4>Immersive preview</h4>
+            <p>Lets the destination speak for itself</p>
+            <ul><li>What is this place like?</li><li>Does it match my vibe?</li></ul>
+          </article>
+        </div>
+        <div class="portal-metadata-choices"><strong>Essential choices</strong><span>View details</span><span>Go</span><span>Hide</span></div>
+      </section>
+      <figure class="portal-story-figure">
+        <img src="assets/portal-anatomy-reconstruction.png" alt="A portal anatomy diagram labeling destination, live context, presence, and the Go and View details actions" width="1674" height="941" loading="lazy">
+        <figcaption>Anatomy of the information model. Destination, live context, presence, and actions appear only when proximity earns them.</figcaption>
+      </figure>
+    </section>
+
+    <section class="portal-section" aria-labelledby="portal-challenge">
+      <h2 id="portal-challenge">Challenge: adoption was negotiation as much as design</h2>
+      <ul class="portal-contributions">
+        <li><strong>Localization on a clock:</strong> world creation had just expanded its metadata from one field to three, and stacked that deep the layout pushed what would physically fit. I worked with localization experts so the portal held together in our longest languages before the design settled.</li>
+        <li><strong>One matrix for every portal:</strong> the home portal, the doorway into someone's created world, the portal a friend spawns beside you. A matrix decided which fields each context earned, and it set the precedent for what metadata belongs on every travel surface. I worked the structure through with the platform and OS teams whose surfaces would inherit it, and carried it before design leadership.</li>
+      </ul>
+      <p>Not everyone agreed. The two objections I heard most: surfacing all of this would decrease portal entries, and portals should stay mysterious. The mystery camp had the early momentum. A design leader's review comments about how people actually decide where to travel became my argument inside the travel team, and the entry objection dissolved under the state-of-intent frame: a confident pass that saves someone's time is a win, not a loss on the entry count.</p>
+      <p>The piece I fought hardest to keep was "View Details," the second action for the person one beat from committing who wanted a last look first. Against the objection that it added friction, my argument: it's the only thing standing between a guess and an actual yes.</p>
+    </section>
+    <!-- Framework panel + Prioritize/Simplify matrix retired 2026-08-31 (collapse); canon keeps the record. -->
+    <section class="portal-section" aria-labelledby="portal-outcome">
+      <h2 id="portal-outcome">Proof: the portal went on stage at Meta Connect 2024</h2>
+      <p>Mark Zuckerberg introduced the portal at the Meta Connect 2024 keynote as "a new kind of primitive" he expected to become "kind of like the equivalent of a hyperlink in the Metaverse." By then it was already established internally as Horizon's canonical entry point for embodied travel.</p>
+      <p>The experiment that followed tested the portal against a control with no portal at all:</p>
+      <div class="portal-stats">
+        <div><strong>+7&#8211;8%</strong><span>Horizon monthly and weekly actives rose roughly 7 to 8 percent</span></div>
+        <div><strong>+6%</strong><span>daily actives about 6 percent</span></div>
+        <div><strong>+4%</strong><span>time spent about 4 percent</span></div>
+        <div><strong>+3 pts</strong><span>day-one retention improved about 3 points; the longer horizons held flat</span></div>
+        <div><strong>76%</strong><span>new users finishing first-run setup went from 55 percent to 76 percent once "Go" existed on the portal</span></div>
+      </div>
+      <p class="portal-scope-note">The test surface included the Go button. It measured the portal surface with its essential-choice CTA, not the metadata model in isolation.</p>
+      <p>Afterward, I shared the portal strategy with the onboarding team for its prototypes teaching people how to use portals. The product designer and I advised on proposed additions including an AI label, and published internal and go-to-market terminology guidance.</p>
+    </section>
+
+    <section class="portal-section">
+      <p>Every content design question I had worked on before started from what got tapped. This one started from where a body was standing, and that swap rewrote the hierarchy: how much appeared on screen at once, and exactly when each piece was allowed to show.</p>
+    </section>
+
+    <a class="portal-next" href="nux.html">
+      <img src="assets/vr-scene.jpg" alt="" loading="lazy">
+      <span class="portal-next-copy"><span>Next case study</span><span>Meta Horizon NUX</span></span>
+    </a>
+  </main>
+</div>
+
+<script src="assets/site-motion.js?v=20260831-portfolio" defer></script>
+</body>
+</html>

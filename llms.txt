@@ -1,62 +1,37 @@
 # Caleb Stacy
 
-Caleb Stacy is a senior content designer with eleven years across product and education. His work
-spans product strategy, interaction language, onboarding, experimentation, content standards,
-terminology, taxonomy, and AI-assisted content systems.
+Caleb Stacy is a senior content designer working across product strategy, interaction language,
+onboarding, experimentation, content governance, terminology, and AI-assisted content systems.
 
 Canonical portfolio: https://calebstacy.com/
-About: https://calebstacy.com/about/
-Canonical resume: https://calebstacy.com/resume.html
-Downloadable PDF: https://calebstacy.com/Caleb-Stacy-Resume.pdf
-Contact: calebstacy@gmail.com
-GitHub: https://github.com/calebstacy
+Resume: https://calebstacy.com/resume.html
+Work samples: https://calebstacy.com/samples.html
+Contact: https://www.linkedin.com/in/caleb-stacyrva/
 
-<!-- selected-work-llms:start -->
 ## Selected work
 
-### 01 — First-time VR
+### Meta Horizon NUX
 
-How I replaced a front-loaded Meta Horizon VR onboarding syllabus with behavior-triggered education, improving completion, weekly use, and retention.
+Caleb replaced a front-loaded VR tutorial syllabus with education attached to the moment and
+control that needed it. The case study includes his author-recorded outcomes, measured against
+the onboarding it replaced: a 13 percent lift in first-world visits and a 7 percent retention lift.
 
-Problem or value: People came to meet other people, but the first-run experience made them complete more than fourteen lessons before they reached the social experience. The first run took roughly 15 minutes, and roughly 70% of people dropped out.
+https://calebstacy.com/nux.html
 
-Contribution: I led the education strategy and interaction language inside a broader product, design, research, data, and engineering effort. My contribution was the shift from a front-loaded syllabus to behavior-triggered education at the moment of need.
+### Portals
 
-Evidence: Onboarding completion improved by nearly 30%, weekly active use improved by about 20%, and new-user retention improved by roughly 7%. These were project outcomes, not copy-only attribution.
+Caleb defined the information and choice model for embodied travel in Meta Horizon. The portal
+reveals identity, context, presence, and actions as someone approaches. It shipped and appeared
+at Meta Connect 2024. The case study scopes its experiment results to the whole portal surface,
+including the Go action, not to metadata alone.
 
-Portfolio route: https://calebstacy.com/work/vr-nux/
+https://calebstacy.com/portals.html
 
-### 02 — Horizon Portals
+### Verso
 
-How I moved a Meta Horizon portal decision before the threshold with a proximity-based information architecture, introduced at Meta Connect 2024.
+Caleb created Verso, a content design agent that treats product strings as design decisions. It
+checks drafts against a product's measured voice and governed sources, finds existing patterns,
+and returns a recommendation with evidence and tradeoffs. The overview explains its agent,
+measurement engine, and governed index together on one page.
 
-Problem or value: A portal gave people almost no information until after they crossed into another world. I turned physical approach into an information architecture so someone could reach a confident yes or no before stepping through.
-
-Contribution: A different discipline owned the portal's physical scale and pointing behavior. I owned what appeared, when it appeared, and what each distance needed to support an informed decision.
-
-Evidence: The model shipped in Meta Horizon, was introduced at Meta Connect 2024, and set a metadata precedent for other travel surfaces. Engagement and retention improved, although the figures are not public.
-
-Portfolio route: https://calebstacy.com/work/horizon-portals/
-
-### 03 — Verso
-
-How I built a content-design agent that found product context, separated evidence from judgment, and checked its own recommendations.
-
-Problem or value: A longer prompt was not governance. I separated what a model could draft, what deterministic checks could evaluate, and what people still had to decide.
-
-Contribution: I built the agent, an engine that computed eleven observable language dimensions, and an index that turned adopted guidance into scoped, versioned records.
-
-Evidence: Over six months, Verso fingerprinted five product surfaces, logged more than 500 conversations, and spread to nearly 60 content designers before central content design assumed ownership. These figures are owner-reported internal history.
-
-Portfolio route: https://calebstacy.com/work/verso/
-Agent: https://calebstacy.com/work/verso/agent/
-Engine: https://calebstacy.com/work/verso/engine/
-Index: https://calebstacy.com/work/verso/index/
-<!-- selected-work-llms:end -->
-
-## Positioning
-
-Caleb is an experienced senior content designer first. Systems are one method he uses: when a
-decision can be made repeatable, he turns it into guidance, an experiment, a deterministic check,
-or a tool. He keeps contextual judgment with people when the available evidence does not determine
-one answer.
+https://calebstacy.com/verso.html

@@ -1,0 +1,210 @@
+/* The same instrument faceplate identifies Verso on the study and its Home card. */
+.verso-brand {
+  position: relative;
+  container-type: inline-size;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--verso-brand-max-width, 520px);
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(110, 231, 168, 0.16);
+  border-radius: var(--verso-brand-radius, 24px);
+  padding: 0;
+  background: #060907;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45), 0 0 50px rgba(30, 120, 95, 0.12);
+}
+
+.verso-brand .plate-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  padding: var(--verso-brand-head-padding, 10px 14px);
+  border-bottom: 1px solid rgba(110, 231, 168, 0.12);
+  font-family: var(--font-mono, "Space Mono", monospace);
+  font-size: 9px;
+  font-size: clamp(8px, 2.4cqi, 10px);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.verso-brand .plate-head .term-title {
+  font: inherit;
+  letter-spacing: inherit;
+  color: #e8a84c;
+}
+
+.verso-brand .plate-head > span:last-child {
+  color: rgba(235, 245, 238, 0.62);
+}
+
+.verso-brand .plate-body {
+  padding: var(--verso-brand-body-padding, 14px 18px);
+}
+
+.verso-brand .wordmark {
+  position: relative;
+  display: block;
+  margin: 0;
+  font-family: var(--font-mono, "Space Mono", monospace);
+  font-size: var(--verso-brand-word-size, clamp(44px, 14vw, 96px));
+  font-size: var(--verso-brand-word-size, clamp(44px, 20cqi, 96px));
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: #6ee7a8;
+  text-shadow: 0.046em 0.046em 0 rgba(110, 231, 168, 0.28), 0.093em 0.093em 0 rgba(110, 231, 168, 0.12);
+}
+
+.verso-brand .wordsub {
+  margin: var(--verso-brand-sub-margin, 12px) 0 0;
+  font-family: var(--font-mono, "Space Mono", monospace);
+  font-size: 9px;
+  font-size: clamp(8px, 2.5cqi, 12px);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.3em;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(235, 245, 238, 0.7);
+}
+
+.verso-brand .plate-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  gap: 8px clamp(7px, 2.2cqi, 18px);
+  padding: var(--verso-brand-foot-padding, 10px 14px);
+  border-top: 1px solid rgba(110, 231, 168, 0.12);
+  font-family: var(--font-mono, "Space Mono", monospace);
+  font-size: 8px;
+  font-size: clamp(8px, 2.45cqi, 10px);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  color: rgba(235, 245, 238, 0.65);
+}
+
+.verso-brand .plate-foot > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.verso-brand .lamp {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border: 1px solid #6ee7a8;
+  border-radius: 50%;
+  background: #6ee7a8;
+  box-shadow: 0 0 8px rgba(110, 231, 168, 0.6);
+}
+
+.verso-brand .scan {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0, 0, 0, 0.14) 3px, rgba(0, 0, 0, 0.14) 4px);
+}
+
+/* A brief television warm-on: a horizontal signal opens into the actual wordmark. */
+.verso-brand .wordmark::after {
+  content: '';
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  top: calc(50% - 1px);
+  height: 2px;
+  background: #e6fff0;
+  box-shadow: 0 0 8px rgba(195, 255, 222, 0.7);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes verso-brand-mark {
+  0% { opacity: 0; clip-path: inset(49% 44% 49% 44%); filter: blur(3px) brightness(1.4); }
+  18% { opacity: 1; clip-path: inset(48% 0 48% 0); filter: blur(1px) brightness(1.25); }
+  58% { opacity: 1; clip-path: inset(-14% -3% -16% -3%); filter: blur(0.6px) brightness(1.06); }
+  100% { opacity: 1; clip-path: inset(-18% -4% -18% -4%); filter: none; }
+}
+
+@keyframes verso-brand-signal {
+  0% { opacity: 0; transform: scaleX(0.08); }
+  18% { opacity: 0.95; transform: scaleX(1); }
+  42%, 100% { opacity: 0; transform: scaleX(1); }
+}
+
+@keyframes verso-brand-subtitle {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes verso-brand-lamp {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+@keyframes verso-brand-power {
+  from { background: rgba(232, 168, 76, 0.03); border-color: #e8a84c; box-shadow: 0 0 0 rgba(110, 231, 168, 0); }
+  to { background: #6ee7a8; border-color: #6ee7a8; box-shadow: 0 0 8px rgba(110, 231, 168, 0.6); }
+}
+
+.verso-brand.is-booting .wordmark {
+  animation: verso-brand-mark 1.25s ease 0.15s both;
+}
+
+.verso-brand.is-booting .wordmark::after {
+  animation: verso-brand-signal 1.25s ease 0.15s both;
+}
+
+.verso-brand.is-booting .wordsub {
+  animation: verso-brand-subtitle 0.5s ease 1.1s both;
+}
+
+.verso-brand.is-booting .plate-foot > span {
+  animation: verso-brand-lamp 0.35s ease both;
+}
+
+.verso-brand.is-booting .plate-foot > span:nth-child(1) { animation-delay: 1.5s; }
+.verso-brand.is-booting .plate-foot > span:nth-child(2) { animation-delay: 1.95s; }
+.verso-brand.is-booting .plate-foot > span:nth-child(3) { animation-delay: 2.4s; }
+
+.verso-brand.is-booting .lamp {
+  animation: verso-brand-power 0.35s ease both;
+  animation-delay: inherit;
+}
+
+.verso-brand.is-paused .wordmark,
+.verso-brand.is-paused .wordmark::after,
+.verso-brand.is-paused .wordsub,
+.verso-brand.is-paused .plate-foot > span,
+.verso-brand.is-paused .lamp {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .verso-brand .wordmark,
+  .verso-brand .wordsub,
+  .verso-brand .plate-foot > span,
+  .verso-brand .lamp {
+    animation: none !important;
+    opacity: 1;
+    filter: none;
+    clip-path: none;
+  }
+
+  .verso-brand .wordmark::after {
+    animation: none !important;
+    opacity: 0;
+  }
+}

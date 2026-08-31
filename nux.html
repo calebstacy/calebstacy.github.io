@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meta Horizon NUX | Caleb Stacy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&amp;family=Space+Mono:wght@400&amp;display=swap">
+  <style>
+    :root {
+      --font-display: "Raleway", system-ui, sans-serif;
+      --font-sans: "DM Sans", system-ui, sans-serif;
+      --font-mono: "Space Mono", monospace;
+    }
+    *, ::before, ::after { box-sizing: border-box; }
+    body { margin: 0; background: #0D0F0C; color: #ffffff; }
+    img, svg, video { display: block; vertical-align: middle; }
+    a { color: #50C89B; }
+    a:hover { color: #6EDCAD; }
+    .site-built nav a { min-height: 44px; display: inline-flex; align-items: center; white-space: nowrap; }
+  
+    .nux-journey-figure { margin: 48px -48px; }
+    .nux-summary-band { padding: 28px 48px; background: rgba(10,30,22,0.55); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nux-summary-inner { max-width: 1184px; margin: 0 auto; }
+    .nux-cover-results { display: flex; align-items: center; gap: 36px; padding-bottom: 28px; margin-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nux-cover-results h2 { flex: 0 0 auto; margin: 0; font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.65); }
+    .nux-results-label { flex: 0 0 180px; }
+    .nux-results-label p { margin: 8px 0 0; font-size: 12px; line-height: 1.5; color: rgba(255,255,255,0.65); }
+    .nux-results { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; width: 100%; margin: 0; padding: 0; list-style: none; }
+    .nux-results li { min-width: 0; }
+    .nux-results strong { display: block; margin-bottom: 6px; font-family: var(--font-display); font-size: 2rem; font-weight: 300; line-height: 1.15; color: #50C89B; }
+    .nux-results span { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.72); }
+    .nux-facts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px 32px; margin: 0; }
+    .nux-facts > div { min-width: 0; }
+    .nux-facts dt { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.55); }
+    .nux-facts dd { margin: 5px 0 0; font-size: 15px; font-weight: 300; line-height: 1.6; color: rgba(255,255,255,0.8); }
+    .nux-beat + .nux-beat { margin-top: 56px; }
+    .nux-beat h2 { margin: 0 0 22px; font-family: var(--font-display); font-weight: 300; font-size: clamp(1.35rem,2.2vw,1.7rem); line-height: 1.4; color: rgba(255,255,255,0.94); scroll-margin-top: 80px; }
+    .nux-beat p { margin: 0 0 22px; font-size: 16px; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,0.72); }
+    .nux-principle { margin: 36px 0 0; padding: 28px 32px; border-left: 2px solid rgba(80,200,155,0.5); border-radius: 0 20px 20px 0; background: rgba(10,44,38,0.42); }
+    .nux-principle p { margin: 0; font-family: var(--font-display); font-size: clamp(1.15rem,2vw,1.4rem); font-weight: 300; line-height: 1.6; color: rgba(255,255,255,0.9); }
+    .nux-contributions { margin: 0 0 24px; padding-left: 22px; }
+    .nux-contributions li { margin-bottom: 18px; padding-left: 4px; font-size: 16px; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.78); }
+    .nux-contributions li:last-child { margin-bottom: 0; }
+    .nux-contributions li::marker { color: #50C89B; }
+    .nux-contributions strong { font-weight: 500; color: rgba(255,255,255,0.94); }
+    .nux-points { margin: 0 0 22px; padding-left: 22px; }
+    .nux-points li { margin-bottom: 12px; padding-left: 4px; font-size: 16px; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.78); }
+    .nux-points li:last-child { margin-bottom: 0; }
+    .nux-points li::marker { color: #50C89B; }
+    .nux-points strong { font-weight: 500; color: rgba(255,255,255,0.94); }
+    .nux-pair { margin: 28px 0 0; }
+    .nux-pair-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .nux-pair-label { margin: 0 0 10px; font: 400 10px/1.6 var(--font-mono, monospace); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+    .nux-pair figcaption { margin-top: 10px; font-size: 13px; line-height: 1.65; color: rgba(255,255,255,0.55); }
+    .nux-legal-stage { display: grid; place-items: center; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; padding: 20px; border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; background: radial-gradient(circle at 50% 35%, #2b3240, #111419 68%); }
+    .nux-legal-stage img { width: 100%; height: auto; max-height: 100%; object-fit: contain; }
+    .nux-legal-stage.is-before { padding: 0; }
+    .nux-legal-stage.is-before img { width: 100%; height: 100%; object-fit: cover; }
+    .nux-figure { margin: 28px 0 0; }
+    .nux-figure img, .nux-figure video { width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(255,255,255,0.12); }
+    .nux-figure figcaption { margin-top: 10px; font-size: 13px; line-height: 1.65; color: rgba(255,255,255,0.65); }
+    @media (max-width: 640px) { .nux-pair-grid { grid-template-columns: 1fr; gap: 28px; } }
+    .nux-beat .nux-collaboration { padding-top: 20px; margin: 0; border-top: 1px solid rgba(255,255,255,0.1); font-size: 14px; line-height: 1.7; }
+    .nux-beat.nux-outcome { padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
+
+    /* P1: dark-field micro labels were below practical contrast at tiny sizes. */
+    .site-built [style*="rgba(255,255,255,0.18)"],
+    .site-built [style*="rgba(255,255,255,0.2)"],
+    .site-built [style*="rgba(255,255,255,0.22)"],
+    .site-built [style*="rgba(255,255,255,0.25)"],
+    .site-built [style*="rgba(255,255,255,0.28)"],
+    .site-built [style*="rgba(255,255,255,0.3)"],
+    .site-built [style*="rgba(255,255,255,0.32)"] { color: rgba(255,255,255,0.5) !important; }
+
+    .site-built a:focus-visible,
+    .site-built button:focus-visible,
+    .site-built input:focus-visible,
+    .site-built textarea:focus-visible {
+      outline: 2px solid #ddd8c4;
+      outline-offset: 3px;
+    }
+
+    /* P1: missing reduced-motion coverage for marquees, glow traces, and generated replay motion. */
+    @media (prefers-reduced-motion: reduce) {
+      .site-built *, .site-built *::before, .site-built *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .site-built .nux-journey-figure { margin: 48px 0; }
+      .nux-summary-band { padding: 24px 20px; }
+      .nux-cover-results { display: block; }
+      .nux-results-label { margin-bottom: 20px; }
+      .nux-results { gap: 12px; }
+      .nux-results strong { font-size: 1.65rem; }
+      .nux-results span { font-size: 13px; }
+      .nux-facts { grid-template-columns: minmax(0,1fr); }
+      .nux-principle { padding: 24px; }
+
+      .site-built nav > div { padding-left: 20px !important; padding-right: 20px !important; gap: 12px !important; }
+      .site-built nav div[style*="gap: 36px"] { gap: 16px !important; flex-wrap: wrap !important; justify-content: flex-end !important; }
+
+      /* P1: fixed hero heights and absolute captions can overlap on narrow screens. */
+      .site-built section[style*="height: 844px"] { height: auto !important; min-height: 0 !important; }
+      .site-built section[style*="height: 844px"] > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        height: auto !important;
+      }
+      .site-built section[style*="height: 844px"] > div > div { padding: 72px 24px 36px !important; }
+      /* On phones the cover collapses to its content: the copy panel flows under
+         the nav with a short band of the scene above it, instead of pinning to the
+         bottom of a fixed 720px box (which left a half-viewport dead zone). */
+      .site-built div[style*="height: 648px"] { height: auto !important; min-height: 0 !important; }
+      .site-built div[style*="bottom: 48px"][style*="left: 48px"] {
+        position: relative !important;
+        inset: auto !important;
+        margin: 96px 20px 24px;
+        padding: 22px 24px !important;
+        max-width: none !important;
+      }
+
+      /* P1: fixed multi-column grids squeeze content on mobile. */
+      .site-built div[style*="grid-template-columns: repeat(3"],
+      .site-built div[style*="grid-template-columns: repeat(2"],
+      .site-built div[style*="grid-template-columns: 300px 1fr"],
+      .site-built div[style*="grid-template-columns: 340px 1fr"],
+      .site-built div[style*="grid-template-columns: 1.1fr 1fr"],
+      .site-built div[style*="grid-template-columns: 1fr 1fr"],
+      .site-built div[style*="grid-template-columns: 190px 1fr 52px"],
+      .site-built div[style*="grid-template-columns: 190px 1fr 62px"],
+      .site-built .fp-row,
+      .site-built .z-tr {
+        grid-template-columns: 1fr !important;
+      }
+
+      .site-built [style*="padding: 64px 48px"],
+      .site-built [style*="padding: 0 48px"],
+      .site-built [style*="padding: 96px 64px"],
+      .site-built .section { padding-left: 20px !important; padding-right: 20px !important; }
+
+      /* P1: fixed carousel cards can exceed the viewport. */
+      .site-built #mc-carousel { height: 360px !important; }
+      .site-built #mc-carousel .mc-card {
+        max-width: calc(100vw - 40px) !important;
+      }
+      .site-built #mc-carousel .mc-card img {
+        object-fit: contain;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .site-built nav { height: auto !important; }
+      .site-built nav > div { height: auto !important; flex-wrap: wrap; gap: 0 !important; padding-top: 4px; padding-bottom: 4px; }
+      .site-built nav > div > div { width: 100%; flex-wrap: nowrap !important; justify-content: space-between !important; gap: 12px !important; }
+    }
+  </style>
+  <link rel="stylesheet" href="assets/site-navigation.css?v=20260831-portfolio">
+  <link rel="stylesheet" href="assets/site-motion.css?v=20260831-motion">
+</head>
+<body class="site-built has-site-navigation">
+<!-- site-navigation:start -->
+<a class="site-navigation__skip" href="#site-content">Skip to content</a>
+<header class="site-navigation">
+  <div class="site-navigation__bar">
+    <a class="site-navigation__name" href="index.html">Caleb Stacy</a>
+    <nav class="site-navigation__links" aria-label="Portfolio">
+      <ul class="site-navigation__options">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="samples.html">Samples</a></li>
+        <li><a href="https://www.linkedin.com/in/caleb-stacyrva/">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<span class="site-navigation__content-start" id="site-content" tabindex="-1"></span>
+<!-- site-navigation:end -->
+<div style="min-height: 100%; background: #0D0F0C; color: #ffffff; font-family: var(--font-sans)">
+
+
+  <main>
+  <div style="position: relative; height: 648px; overflow: hidden">
+    <img src="assets/vr-scene.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; filter: brightness(1.15)">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,14,10,0.97) 0%, rgba(6,14,10,0.3) 55%, transparent 100%)"></div>
+    <div style="position: absolute; bottom: 48px; left: 48px; max-width: 760px; backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); background: rgba(10, 44, 38, 0.42); border: 1px solid rgba(255,255,255,0.15); border-radius: 24px; padding: 28px 32px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.1)">
+      <div style="display: inline-flex; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 100px; padding: 5px 13px; margin-bottom: 18px">
+        <span style="font-family: var(--font-display); font-weight: 300; font-size: 9px; letter-spacing: 0.2em; line-height: 1.6; text-transform: uppercase; color: rgba(255,255,255,0.8)">New-user education · 2025</span>
+      </div>
+      <h1 style="font-family: var(--font-display); font-weight: 200; font-size: clamp(2.4rem, 5vw, 4rem); color: rgba(255,255,255,0.96); line-height: 1.05; margin: 0 0 14px">Meta Horizon NUX</h1>
+      <p style="font-family: var(--font-display); font-weight: 300; font-size: clamp(1.2rem,2.4vw,1.5rem); color: rgba(255,255,255,0.9); line-height: 1.45; margin: 0 0 18px">Find the fun first. Teach in the moment.</p>
+      <p style="font-family: var(--font-sans); font-weight: 300; font-size: 17px; color: rgba(255,255,255,0.72); max-width: 600px; line-height: 1.6; margin: 0">New users came to socialize, but Horizon asked them to choose a world, consent, complete fourteen-plus lessons, and wait through loading before they met anyone. I worked with product design, product management, engineering, and partner teams to replace the curriculum with a just-in-time education strategy.</p>
+    </div>
+  </div>
+
+  <section class="nux-summary-band" aria-label="Overview">
+    <div class="nux-summary-inner">
+      <div class="nux-cover-results">
+        <div class="nux-results-label">
+          <h2>Results</h2>
+          <p>Measured against the onboarding it replaced</p>
+        </div>
+        <ul class="nux-results">
+          <li><strong>+13%</strong> <span>first-world visits</span></li>
+          <li><strong>+7%</strong> <span>retention</span></li>
+        </ul>
+      </div>
+      <dl class="nux-facts">
+        <div><dt>Role</dt><dd>Content designer · education strategy and interaction language</dd></div>
+        <div><dt>Team</dt><dd>Social Coordination V Team</dd></div>
+        <div><dt>Timeline</dt><dd>2025</dd></div>
+        <div><dt>Surface</dt><dd>Meta Horizon Worlds, first-run VR</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div style="max-width: 720px; margin: 0 auto; padding: 64px 48px 120px">
+
+    <section class="nux-beat" aria-labelledby="nux-contributions">
+      <h2 id="nux-contributions">What I did</h2>
+      <ul class="nux-contributions">
+        <li>Authored the just-in-time principles that became the foundation for how Horizon teaches users.</li>
+        <li>Wrote every string in the just-in-time flow, including the controller nudge.</li>
+        <li>Negotiated with Privacy Legal, Policy, and Product Counsel to consolidate six legal sequences into one tandem inform-and-remind design.</li>
+        <li>Reframed the leadership review around getting people to the fun faster; it secured leads' buy-in with minimal pushback.</li>
+      </ul>
+      <p class="nux-collaboration">Product design owned the final interaction and visual design; engineering and partner teams handled implementation and experiment analysis.</p>
+    </section>
+
+    <section class="nux-beat" aria-labelledby="nux-before">
+      <h2 id="nux-before">Problem: the curriculum was the wrong shape for a social product</h2>
+      <p>Every proposal on the table made the curriculum shorter or better sequenced. I argued the curriculum itself was the wrong shape. VR was already a new skill, and front-loading fourteen-plus lessons added information overload before anyone had context to use it. It also ignored the medium's advantage: education could live on the control and action that needed it, appear when someone tried, and stay silent otherwise.</p>
+      <figure class="nux-figure">
+        <img src="assets/vr-before-training-illustration.png" alt="A welcome panel asks new Horizon Worlds users to follow a blue line and visit tutorial stations before exploring." width="1456" height="1088" loading="lazy">
+        <figcaption>A standalone tutorial panel before anyone to meet: one stop on the fourteen-plus-lesson syllabus this case replaces.</figcaption>
+      </figure>
+    </section>
+
+    <section class="nux-beat" aria-labelledby="nux-in-the-moment">
+      <h2 id="nux-in-the-moment">Solution: the lesson lives on the control that performs it</h2>
+      <p>When someone tried to talk while muted, the answer appeared on the controller already in their hand, where the old flow opened a panel. A second touch on a skill triggered off a change in the person's state, never a timer.</p>
+      <figure class="nux-figure">
+        <video controls playsinline preload="none" poster="assets/vr-controller-nudge-poster.webp" aria-label="Controller nudge capture" aria-describedby="nux-nudge-caption">
+          <source src="assets/controller-nudge.mp4" type="video/mp4">
+          <a href="assets/controller-nudge.mp4">Watch the controller nudge capture</a>.
+        </video>
+        <figcaption id="nux-nudge-caption">In-headset capture of the shipped nudge. I wrote the string; the interaction was built with the product designer and engineering.</figcaption>
+      </figure>
+      <figure class="nux-pair">
+        <div class="nux-pair-grid">
+          <div>
+            <p class="nux-pair-label">Before</p>
+            <img src="assets/navigator-tooltip-before.png" alt="A floating 2D panel titled 'Looking for worlds?' describing a controller button, with two cropped photos of the controller." loading="lazy" style="width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line)">
+            <figcaption>A floating panel describing "this left button" and leaving the person to find it on the controller in their own hands.</figcaption>
+          </div>
+          <div>
+            <p class="nux-pair-label">After · shipped</p>
+            <img src="assets/navigator-tooltip.png" alt="The controller in the person's own hand, menu button ringed in cyan, with a tooltip anchored to the button by a drawn leader line." loading="lazy" style="width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line)">
+            <figcaption>The tooltip draws a leader line to the actual button. I wrote the string.</figcaption>
+          </div>
+        </div>
+      </figure>
+    </section>
+
+    <section class="nux-beat" aria-labelledby="nux-consent">
+      <h2 id="nux-consent">Challenge: six legal notices couldn't just be cut</h2>
+      <p>The front-loaded consent wall was one of six separate legal sequences across Horizon OS and Worlds, each its own block of text, and none of them could simply be cut. The resolution treated transparency as a property of the system rather than a screen: I negotiated a new location for the full inform modal in the mobile app, at a moment that met our transparency obligations and felt like the right time to read it, and the in-world notice became a one-line reminder, "Your audio is recorded for safety and other features," with a Learn more link. Inform on mobile, remind in-world. One tandem design met the legal bar and localization's character limits in every language, on both surfaces.</p>
+      <figure class="nux-pair">
+        <div class="nux-pair-grid">
+          <div>
+            <p class="nux-pair-label">Before</p>
+            <div class="nux-legal-stage is-before">
+              <img src="assets/vr-legal-modal-reconstruction.png" alt="A dense modal titled What to know before you explore, with separate sections about audio and video recording and data use" width="1456" height="1092" loading="lazy">
+            </div>
+            <figcaption>The upfront notice asked someone to read two dense disclosures before exploring.</figcaption>
+          </div>
+          <div>
+            <p class="nux-pair-label">After · shipped</p>
+            <div class="nux-legal-stage">
+              <img src="assets/mc-audio-capture-toast.webp" alt="A compact toast reads Your audio is recorded for captions and safety features, with a Learn more action" width="1000" height="216" loading="lazy">
+            </div>
+            <figcaption>One contextual line keeps the required notice present without becoming the experience.</figcaption>
+          </div>
+        </div>
+      </figure>
+    </section>
+
+    <section class="nux-beat nux-outcome" aria-labelledby="nux-adoption">
+      <h2 id="nux-adoption">Proof: Meta Quest onboarding adopted the just-in-time model</h2>
+      <p>The team that owns onboarding across Meta Quest picked up the model afterward. The design goal from the start: an onboarding people finish without remembering being taught.</p>
+      <p>Building this meant designing the strategy, the strings, the legal design, and the leadership framing as one system. That is the shape of content design work I do now.</p>
+    </section>
+
+    <div style="margin-top: 96px">
+      <div style="border-radius: 32px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.12); cursor: pointer">
+        <img src="assets/portals-hero.jpg" alt="Horizon Portals" style="width: 100%; height: 220px; object-fit: cover; filter: brightness(0.6); display: block">
+        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,18,14,0.92) 0%, transparent 55%)"></div>
+        <div style="position: absolute; bottom: 28px; left: 28px; right: 28px">
+          <p style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.38); margin: 0 0 8px">Next case study</p>
+          <p style="font-family: var(--font-display); font-weight: 200; font-size: 1.4rem; color: rgba(255,255,255,0.92); margin: 0"><a href="portals.html" style="color: inherit; text-decoration: none">Horizon Portals</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </main>
+</div>
+
+<script src="assets/site-motion.js?v=20260831-portfolio" defer></script>
+</body>
+</html>

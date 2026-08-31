@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent · Verso | Caleb Stacy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&amp;family=Space+Mono:wght@400;700&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+  <style>
+    :root {
+      --font-display: "Raleway", system-ui, sans-serif;
+      --font-sans: "DM Sans", system-ui, sans-serif;
+      --font-mono: "Space Mono", monospace;
+      --z-sans: "Geist", "DM Sans", system-ui, sans-serif;
+      --z-mono: "Geist Mono", "Space Mono", monospace;
+      --ink: rgba(255,255,255,0.86);
+      --ink-dim: rgba(255,255,255,0.55);
+      --ink-faint: rgba(255,255,255,0.5);
+      --cream: #ddd8c4;
+      --jade: #6EE7A8;
+      --jade-deep: #50C89B;
+      --amber: #E8A84C;
+      --fail: #ff8078;
+      --warn: #e8c35c;
+      --term-bg: #060907;
+      --term-border: rgba(110,231,168,0.16);
+      --z-bg: #1a1a1a;
+      --z-fg: #fafafa;
+      --z-muted: #a3a3ac;
+      --z-border: rgba(255,255,255,0.08);
+      --z-accent: rgba(255,255,255,0.1);
+      --z-pass: #ddd8c4;
+      --z-warn: #e8c35c;
+      --z-fail: #ff8078;
+    }
+    *, ::before, ::after { box-sizing: border-box; }
+    body { margin: 0; background: #0D0F0C; color: var(--ink); font-family: var(--font-sans); }
+    img, svg, video { display: block; vertical-align: middle; }
+    a { color: #ddd8c4; text-decoration: none; }
+    a:hover { color: #ffffff; }
+
+    .section { padding: 96px 64px; }
+    .inner { max-width: 1040px; margin: 0 auto; }
+    .prose { max-width: 700px; }
+    .kicker {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.28em;
+      text-transform: uppercase; color: rgba(221,216,196,0.55); margin: 0 0 18px;
+    }
+    .h2 {
+      font-family: var(--font-display); font-weight: 200; font-size: 40px;
+      line-height: 1.12; color: var(--cream); margin: 0 0 22px; letter-spacing: 0.01em;
+    }
+    .body {
+      font-family: var(--font-sans); font-weight: 300; font-size: 16px;
+      line-height: 1.75; color: var(--ink-dim); margin: 0 0 16px;
+    }
+    .body strong { color: var(--ink); font-weight: 500; }
+    .rule { height: 1px; background: rgba(255,255,255,0.07); border: none; margin: 0; }
+    .glass {
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.09), 0 18px 50px rgba(0,0,0,0.3);
+    }
+    .card-h {
+      font-family: "Instrument Serif", Georgia, serif; font-style: italic;
+      font-size: 19px; letter-spacing: 0.01em; line-height: 1.25;
+      color: rgba(221,216,196,0.9); margin: 0 0 12px;
+    }
+    .quote-bar { border-left: 2px solid rgba(232,168,76,0.5); padding-left: 16px; }
+    .annot {
+      font-family: var(--font-sans); font-weight: 300; font-size: 12.5px; line-height: 1.6;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ── Hero chat animation ── */
+    .za-intro-section { padding-top: 88px; }
+    @keyframes za-type { from { width: 0; } to { width: 100%; } }
+    @keyframes za-caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+    @keyframes za-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes za-line { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes za-stateout { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0.985); visibility: hidden; } }
+    @keyframes za-statein { from { opacity: 0; transform: scale(1.015); } to { opacity: 1; transform: scale(1); } }
+    .za-nav { position: absolute; top: 28px; left: 36px; z-index: 5; }
+    .za-hero { width: 100%; max-width: 760px; min-height: 300px; position: relative; }
+    .za-ask { position: absolute; top: 0; left: 0; right: 0; display: none; flex-direction: column; align-items: center; justify-content: flex-start; padding: 36px 28px; gap: 18px; background: #080b09; border: 1px solid rgba(110,231,168,0.12); border-radius: 22px; box-shadow: 0 18px 48px rgba(0,0,0,0.24); }
+    .za-ask-title { font-family: var(--z-sans); font-weight: 500; font-size: 22px; line-height: 1.25; letter-spacing: -0.01em; color: #fafafa; margin: 0; text-align: center; }
+    .za-suggestions { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+    .za-suggestion { font-family: var(--z-sans); font-size: 11px; line-height: 1.4; color: #d4d4d8; border: 1px solid rgba(255,255,255,0.13); border-radius: 100px; padding: 5px 10px; }
+    .za-convo { position: relative; width: 100%; max-width: 640px; margin: 0 auto; font-family: 'Geist', var(--font-sans); display: flex; flex-direction: column; }
+    .za-thread { width: 100%; max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; padding: 0 4px 8px; }
+    /* Only the temporary thinking layer moves. The complete reply keeps its natural height. */
+    .za-prelude-frame { position: absolute; inset: 0; display: none; overflow: hidden; pointer-events: none; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 24px, #000); mask-image: linear-gradient(to bottom, transparent, #000 24px, #000); }
+    .za-prelude { display: flex; flex-direction: column; padding: 10px 4px 24px; pointer-events: auto; }
+    @keyframes za-prelude-out { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(calc(-100% - 24px)); visibility: hidden; } }
+    .za-hero.is-playing .za-prelude-frame { display: block; }
+    .za-hero.is-playing .za-prelude { animation: za-prelude-out 0.85s cubic-bezier(0.4, 0, 0.2, 1) 5.9s forwards; }
+    .za-next { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--cream); font-size: 13px; text-underline-offset: 5px; }
+    .za-next-arrow { width: 18px; height: 18px; color: var(--jade); }
+    @keyframes za-scroll-cue { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+    .za-hero.is-ready .za-next-arrow { animation: za-scroll-cue 1.8s ease-in-out 3; }
+    #verso-system { scroll-margin-top: 80px; }
+    .za-block { margin-top: 14px; }
+    /* Readable without JavaScript. Only an active playback hides content. */
+    .za-hero.is-playing .za-ask { display: flex; animation: za-stateout 0.55s ease 2.7s forwards; }
+    .za-hero.is-playing .za-convo { opacity: 0; animation: za-statein 0.55s ease 3.0s forwards; }
+    .za-hero.is-playing .za-block { opacity: 0; animation: za-in 0.55s cubic-bezier(0.3, 0.9, 0.3, 1) both; }
+    .za-hero.is-playing .za-block.is-revealed { opacity: 1; transform: none; animation: none; }
+    .za-hero.is-playing .za-rline { opacity: 0; animation: za-line 0.4s ease forwards; }
+    .za-hero.is-paused *, .za-hero.is-paused *::before, .za-hero.is-paused *::after { animation-play-state: paused !important; }
+    .za-thinking-live, .za-thinking-done { align-items: center; gap: 8px; font-size: 12px; color: #b9b9c0; }
+    .za-thinking-live { display: none; }
+    .za-thinking-done { display: inline-flex; }
+    .za-hero.is-playing:not(.has-answer) .za-thinking-live { display: inline-flex; }
+    .za-hero.is-playing:not(.has-answer) .za-thinking-done { display: none; }
+    /* Dots signal active work, then settle with the corresponding answer. */
+    @keyframes z-dot-pulse { 0%, 60%, 100% { opacity: 0.35; } 30% { opacity: 1; } }
+    .z-dots { display: inline-flex; align-items: center; gap: 3px; flex-shrink: 0; }
+    .z-dots > span { width: 4px; height: 4px; border-radius: 50%; background: currentColor; opacity: 0.35; }
+    .z-dots > span:nth-child(2) { --dot-delay: 0.16s; }
+    .z-dots > span:nth-child(3) { --dot-delay: 0.32s; }
+    .vt .z-reason-btn .z-dots { visibility: hidden; }
+    .vt.armed.ph2:not(.ph3) .g2 .z-dots,
+    .vt.armed.ph8:not(.ph9) .g8 .z-dots { visibility: visible; }
+    .za-hero.is-playing:not(.has-answer) .z-dots > span,
+    .vt.armed.ph2:not(.ph3) .g2 .z-dots > span,
+    .vt.armed.ph8:not(.ph9) .g8 .z-dots > span { animation: z-dot-pulse 1.05s ease-in-out var(--dot-delay, 0s) infinite; }
+    .vt:not(.is-clock-running) .z-dots > span { animation-play-state: paused !important; }
+    /* ── Zola window (light) ── */
+    .zwin {
+      background: rgba(16, 24, 19, 0.5); color: var(--z-fg);
+      backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(255,255,255,0.14); border-radius: 18px;
+      font-family: var(--z-sans); font-size: 14px; line-height: 1.65;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 28px 80px rgba(0,0,0,0.5);
+      overflow: hidden;
+    }
+    .z-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 13px 20px; border-bottom: 1px solid var(--z-border);
+    }
+    .z-title { display: flex; align-items: center; gap: 9px; font-weight: 500; font-size: 13.5px; }
+    .z-dot { width: 8px; height: 8px; border-radius: 50%; background: #ddd8c4; }
+    .z-title .sub { color: var(--z-muted); font-weight: 400; }
+    .z-body { padding: 26px 26px 30px; }
+    .z-thread { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; }
+    .z-user {
+      align-self: flex-end; max-width: 70%;
+      background: var(--z-accent); border-radius: 24px; padding: 10px 20px;
+      margin: 0 0 22px;
+    }
+    .z-asst { align-self: stretch; margin: 0 0 22px; }
+    .z-reason-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      color: var(--z-muted); font-size: 13px; margin-bottom: 8px;
+    }
+    .z-reason-btn .caret { font-size: 9px; transform: rotate(180deg); display: inline-block; }
+    .z-reason {
+      border-left: 1px solid rgba(255,255,255,0.16); padding-left: 16px;
+      color: var(--z-muted); font-size: 13px; line-height: 1.7; margin-bottom: 18px;
+    }
+    .z-tools { display: flex; flex-direction: column; gap: 8px; margin: 0 0 18px; }
+    .z-tool {
+      border: 1px solid var(--z-border); border-radius: 10px; padding: 9px 13px;
+      font-size: 13px;
+    }
+    .z-tool .t-row1 { display: flex; align-items: center; gap: 8px; }
+    .z-tool .wrench { color: var(--z-muted); font-size: 12px; }
+    .z-tool .tname { font-weight: 500; }
+    .z-tool .tstate { margin-left: auto; color: var(--z-pass); font-size: 12px; }
+    .z-tool .targ { color: var(--z-muted); font-size: 12.5px; margin-top: 3px; padding-left: 20px; }
+    .z-tool .targ .v { font-family: var(--z-mono); font-size: 11.5px; color: var(--z-fg); }
+    .z-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--z-border); border-radius: 10px; padding: 8px 13px;
+      font-size: 13px; color: var(--z-fg); margin-bottom: 18px;
+    }
+    .z-chip .count { background: var(--z-accent); border-radius: 100px; padding: 1px 8px; font-family: var(--z-mono); font-size: 11px; }
+    .z-h4 { font-weight: 600; font-size: 14px; margin: 0 0 8px; }
+    .z-list { margin: 0 0 4px; padding: 0; list-style: none; }
+    .z-list li { display: flex; gap: 9px; align-items: baseline; margin-bottom: 5px; }
+    .z-list .pip { font-size: 11px; flex: none; }
+    .pip.ok { color: var(--z-pass); } .pip.warn { color: var(--z-warn); } .pip.info { color: var(--z-muted); }
+    .z-p { margin: 0 0 12px; }
+    .z-mono { font-family: var(--z-mono); font-size: 12.5px; }
+    .z-table { border: 1px solid var(--z-border); border-radius: 10px; overflow: hidden; margin: 4px 0 6px; max-width: 620px; }
+    .z-tr { display: grid; grid-template-columns: 280px 1fr; }
+    .z-tr + .z-tr { border-top: 1px solid var(--z-border); }
+    .z-td { padding: 8px 14px; font-size: 13px; }
+    .z-tr .z-td:first-child { color: var(--z-muted); border-right: 1px solid var(--z-border); }
+    .z-tr.hd .z-td { font-weight: 600; color: var(--z-fg); }
+    .z-status { color: var(--z-muted); font-size: 12.5px; }
+    .z-status .spark { color: #ddd8c4; }
+
+    /* ── Replay phasing (JS arms the hiding; without scripts everything stays visible) ── */
+    .vt .g { transition: opacity 0.7s ease, transform 0.7s ease; }
+    .vt .g .li { transition: opacity 0.6s ease, transform 0.6s ease; }
+    .vt.armed .g { opacity: 0; visibility: hidden; transform: translateY(7px); }
+    .vt.armed .g .li { opacity: 0; transform: translateY(5px); }
+    .vt.cut .g, .vt.cut .g .li { transition: none !important; }
+    .vt.ph1 .g1, .vt.ph2 .g2, .vt.ph3 .g3, .vt.ph4 .g4, .vt.ph5 .g5,
+    .vt.ph6 .g6, .vt.ph7 .g7, .vt.ph8 .g8, .vt.ph9 .g9, .vt.ph10 .g10,
+    .vt.ph11 .g11, .vt.ph12 .g12, .vt.ph13 .g13 { opacity: 1; visibility: visible; transform: none; }
+    .vt.ph1 .g1 .li, .vt.ph2 .g2 .li, .vt.ph3 .g3 .li, .vt.ph4 .g4 .li,
+    .vt.ph5 .g5 .li, .vt.ph6 .g6 .li, .vt.ph7 .g7 .li, .vt.ph8 .g8 .li,
+    .vt.ph9 .g9 .li, .vt.ph10 .g10 .li, .vt.ph11 .g11 .li, .vt.ph12 .g12 .li,
+    .vt.ph13 .g13 .li { opacity: 1; transform: none; }
+    .li.d1 { transition-delay: 0.6s; } .li.d2 { transition-delay: 1.25s; }
+    .li.d3 { transition-delay: 1.9s; } .li.d4 { transition-delay: 2.6s; }
+    .li.d5 { transition-delay: 3.3s; } .li.d6 { transition-delay: 4s; }
+    @media (prefers-reduced-motion: reduce) {
+      .vt .g, .vt .g .li { opacity: 1 !important; visibility: visible !important; transform: none !important; transition: none !important; }
+    }
+    .replay-btn {
+      font-family: var(--z-sans); font-size: 12px; color: var(--z-muted);
+      background: transparent; border: 1px solid var(--z-border);
+      border-radius: 100px; padding: 7px 16px; cursor: pointer; min-height: 44px;
+    }
+    .replay-btn:hover { color: var(--z-fg); border-color: rgba(255,255,255,0.28); }
+    .replay-btn[hidden] { display: none; }
+    .replay-control-slot { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+    .za-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+    /* ── Thinking pill: expandable, CSS-free of JS (native details) ── */
+    .za-steps summary { list-style: none; cursor: pointer; border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; padding: 9px 16px; min-height: 44px; display: flex; align-items: center; gap: 8px; }
+    .za-steps summary::-webkit-details-marker { display: none; }
+    .za-steps .caret { margin-left: auto; color: #6a6a72; font-size: 11px; transition: transform 0.25s ease; }
+    .za-steps[open] .caret { transform: rotate(180deg); }
+    .za-chain { margin: 12px 0 2px 20px; padding-left: 20px; border-left: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 11px; }
+    .za-step { position: relative; font-size: 13px; line-height: 1.5; color: #b9b9c0; font-family: 'Geist', var(--font-sans); }
+    .za-step::before { content: ""; position: absolute; left: -24.5px; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: #2f2f33; border: 1px solid rgba(255,255,255,0.28); }
+    .za-step .st { color: #4FBF7E; margin-left: 8px; font-size: 12px; }
+
+    /* Light entrance (headline wave + composer border trail) removed 2026-08-30 per Caleb —
+       parked for later; the tuner artifact holds the mechanism and knobs. */
+    @keyframes za-tcin { to { opacity: 1; } }
+    /* typing: per-character reveal (the width-wipe sliced glyphs mid-step) */
+    .za-typeline { white-space: pre-wrap; min-width: 0; }
+    .za-hero.is-playing .za-tc { opacity: 0; animation: za-tcin 0.01s linear forwards; animation-delay: calc(0.6s + var(--i) * 0.045s); }
+    .za-cursor { width: 2px; height: 17px; background: #ececef; display: inline-block; opacity: 0; flex-shrink: 0; }
+    .za-hero.is-playing .za-cursor { animation: za-caret 0.6s step-end 1.85s 2; }
+
+    /* Reduced motion always resolves to the complete, readable conversation. */
+    @media (prefers-reduced-motion: reduce) {
+      .za-hero .za-ask { display: none !important; }
+      .za-hero .za-convo, .za-hero .za-block, .za-hero .za-rline { opacity: 1 !important; animation: none !important; transform: none !important; }
+      .za-hero .za-prelude-frame { display: none !important; }
+      .za-hero .za-next-arrow { animation: none !important; transform: none !important; }
+      .za-hero .za-thinking-live { display: none !important; }
+      .za-hero .za-thinking-done { display: inline-flex !important; }
+      .z-dots > span { animation: none !important; }
+      .vt .z-reason-btn .z-dots { visibility: hidden !important; }
+      .replay-control-slot { display: none; }
+    }
+    @media (max-width: 640px) {
+      .section { padding: 56px 20px; }
+      .section.za-intro-section { padding-top: 28px; }
+      .za-nav { top: 16px; left: 16px; }
+      .za-ask { padding: 28px 16px; }
+      .za-ask-title { font-size: 20px; }
+    }
+
+    /* ── Terminal chrome (kept for the artifacts that were terminal output) ── */
+    .term {
+      background: var(--term-bg);
+      border: 1px solid var(--term-border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+    .term-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 22px; border-bottom: 1px solid rgba(110,231,168,0.1);
+      background: rgba(110,231,168,0.03);
+    }
+    .term-title {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--amber);
+    }
+    .term-body {
+      font-family: var(--font-mono); font-size: 13px; line-height: 1.8;
+      padding: 26px 30px 34px; color: rgba(235,245,238,0.82);
+    }
+    .t-hdr { color: #ffffff; font-weight: 700; }
+    .t-dim { color: rgba(235,245,238,0.55); }
+    .t-pass { color: var(--jade); }
+    .t-fail { color: var(--fail); }
+    .t-warn { color: var(--warn); }
+    .t-amber { color: var(--amber); }
+
+    /* ── Loop rail ── */
+    .rail { display: flex; align-items: center; gap: 14px; }
+    .rail-node {
+      flex: 1; text-align: center; padding: 20px 10px;
+      border: 1px solid rgba(255,255,255,0.13); border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink);
+    }
+    .rail-arrow { font-family: var(--font-mono); color: rgba(110,231,168,0.55); font-size: 14px; }
+
+    /* ── Fingerprint chart ── */
+    .fp-row { display: grid; grid-template-columns: 190px 1fr 62px; gap: 18px; align-items: center; padding: 9px 0; }
+    .fp-label { font-family: var(--font-mono); font-size: 12px; color: var(--ink-dim); }
+    .fp-track { position: relative; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.07); }
+    .fp-band { position: absolute; top: 0; height: 6px; border-radius: 3px; background: rgba(232,168,76,0.18); }
+    .fp-bar { position: absolute; top: 0; height: 6px; border-radius: 3px; background: var(--amber); }
+    .fp-val { font-family: var(--font-mono); font-size: 12px; color: var(--amber); text-align: right; }
+
+    .chip {
+      display: inline-block; font-family: var(--font-mono); font-size: 11.5px;
+      color: rgba(235,245,238,0.72); background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 100px;
+      padding: 10px 18px; line-height: 1.4;
+    }
+  
+    /* P1: dark-field micro labels were below practical contrast at tiny sizes. */
+    .site-built [style*="rgba(255,255,255,0.18)"],
+    .site-built [style*="rgba(255,255,255,0.2)"],
+    .site-built [style*="rgba(255,255,255,0.22)"],
+    .site-built [style*="rgba(255,255,255,0.25)"],
+    .site-built [style*="rgba(255,255,255,0.28)"],
+    .site-built [style*="rgba(255,255,255,0.3)"],
+    .site-built [style*="rgba(255,255,255,0.32)"] { color: rgba(255,255,255,0.5) !important; }
+
+    .site-built a:focus-visible,
+    .site-built button:focus-visible,
+    .site-built summary:focus-visible,
+    .site-built [tabindex]:focus-visible,
+    .site-built input:focus-visible,
+    .site-built textarea:focus-visible {
+      outline: 2px solid #ddd8c4;
+      outline-offset: 3px;
+    }
+
+    /* P1: missing reduced-motion coverage for marquees, glow traces, and generated replay motion. */
+    @media (prefers-reduced-motion: reduce) {
+      .site-built *, .site-built *::before, .site-built *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .site-built nav > div { padding-left: 20px !important; padding-right: 20px !important; gap: 18px !important; }
+      .site-built nav div[style*="gap: 36px"] { gap: 16px !important; flex-wrap: wrap !important; justify-content: flex-end !important; }
+
+      /* P1: fixed hero heights and absolute captions can overlap on narrow screens. */
+      .site-built section[style*="height: 844px"] { height: auto !important; min-height: 0 !important; }
+      .site-built section[style*="height: 844px"] > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        height: auto !important;
+      }
+      .site-built section[style*="height: 844px"] > div > div { padding: 72px 24px 36px !important; }
+      .site-built div[style*="height: 648px"] { min-height: 720px !important; }
+      .site-built div[style*="bottom: 48px"][style*="left: 48px"] {
+        left: 20px !important;
+        right: 20px !important;
+        bottom: 24px !important;
+        padding: 22px 24px !important;
+        max-width: none !important;
+      }
+
+      /* P1: fixed multi-column grids squeeze content on mobile. */
+      .site-built div[style*="grid-template-columns: repeat(3"],
+      .site-built div[style*="grid-template-columns: repeat(2"],
+      .site-built div[style*="grid-template-columns: 300px 1fr"],
+      .site-built div[style*="grid-template-columns: 340px 1fr"],
+      .site-built div[style*="grid-template-columns: 1.1fr 1fr"],
+      .site-built div[style*="grid-template-columns: 1fr 1fr"],
+      .site-built div[style*="grid-template-columns: 190px 1fr 52px"],
+      .site-built div[style*="grid-template-columns: 190px 1fr 62px"],
+      .site-built .fp-row,
+      .site-built .z-tr {
+        grid-template-columns: 1fr !important;
+      }
+
+      .site-built [style*="padding: 64px 48px"],
+      .site-built [style*="padding: 0 48px"],
+      .site-built [style*="padding: 96px 64px"],
+      .site-built .section { padding-left: 20px !important; padding-right: 20px !important; }
+
+      /* P1: fixed carousel cards can exceed the viewport. */
+      .site-built #mc-carousel { height: 360px !important; }
+      .site-built #mc-carousel .mc-card {
+        max-width: calc(100vw - 40px) !important;
+      }
+      .site-built #mc-carousel .mc-card img {
+        object-fit: contain;
+      }
+    }
+
+    /* Local responsive repair. Keep charts legible, not merely inside the page. */
+    .section [style*="grid-template-columns"] > div { min-width: 0; }
+    .section-index { flex-wrap: wrap; }
+    .section-index > span { white-space: nowrap; }
+    .closing-links { flex-wrap: wrap; }
+    .closing-links a { justify-content: center; min-height: 44px; }
+    .metric-reading { flex-wrap: wrap; }
+    .term-body { overflow-x: auto; overscroll-behavior-x: contain; }
+    .term-body > .t-hdr, .term-body > .t-dim { white-space: nowrap; }
+
+    @media (max-width: 960px) {
+      .site-built .fp-layout,
+      .site-built .evidence-comparison { grid-template-columns: minmax(0, 1fr) !important; gap: 24px !important; }
+    }
+    @media (max-width: 760px) {
+      .site-built .h2 { font-size: clamp(28px, 8vw, 34px) !important; line-height: 1.18; }
+      .site-built .glass { padding-left: 22px !important; padding-right: 22px !important; }
+      .site-built .section-index { gap: 12px 16px !important; }
+      .zwin:not(.vt) .z-body { padding: 20px 18px 24px !important; }
+      .z-user { max-width: 90%; }
+      .z-tool .t-row1 { flex-wrap: wrap; }
+      .z-tool .targ { padding-left: 0; overflow-wrap: anywhere; }
+      .site-built .z-tr { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) !important; }
+      .z-td { padding: 9px 10px; overflow-wrap: anywhere; }
+      .site-built .fp-row,
+      .site-built .market-row { grid-template-columns: minmax(0, 1fr) auto !important; gap: 8px 12px !important; padding: 12px 0; }
+      .fp-label, .market-row > :first-child { grid-area: 1 / 1; }
+      .fp-val, .market-row > :last-child { grid-area: 1 / 2; }
+      .fp-track, .market-row > :nth-child(2) { grid-area: 2 / 1 / 3 / -1; }
+      .evidence-score { font-size: clamp(26px, 8vw, 40px) !important; }
+      .term-body { padding: 22px 18px; }
+      .closing-links a { flex: 1 1 200px; }
+    }
+
+  </style>
+  <style>
+    .door-card { display: block; text-decoration: none; color: inherit; transition: border-color 0.25s ease, transform 0.25s ease; }
+    .door-card:hover, .door-card:focus-visible { border-color: rgba(255,255,255,0.45); transform: translateY(-2px); }
+  </style>
+
+  <style>
+    .room-doors { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
+    .room-doors a { font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.72); border: 1px solid rgba(255,255,255,0.28); border-radius: 100px; padding: 13px 26px; text-decoration: none; display: inline-flex; align-items: center; }
+    .room-doors a.primary { background: #ddd8c4; color: #0F3B34; border-color: transparent; }
+    .room-back { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: var(--ink-faint); text-decoration: none; }
+    .room-back:hover { color: var(--cream); }
+    .room-outcome { max-width: 72ch; margin: 18px 0 0; padding: 16px 20px; border-left: 2px solid var(--jade); font-family: var(--font-sans); font-weight: 300; font-size: 15px; line-height: 1.7; color: var(--ink); background: rgba(255,255,255,0.03); }
+    .room-outcome .k { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--jade); display: block; margin-bottom: 6px; }
+    .contributions { margin: 0 0 24px; padding-left: 22px; max-width: 72ch; }
+    .contributions li { margin-bottom: 16px; padding-left: 4px; font-family: var(--font-sans); font-weight: 300; font-size: 15px; line-height: 1.75; color: var(--ink-dim); }
+    .contributions li::marker { color: var(--cream); }
+    .contributions strong { font-weight: 500; color: var(--ink); }
+    .collab-line { max-width: 72ch; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13.5px; line-height: 1.7; color: var(--ink-faint); font-family: var(--font-sans); font-weight: 300; }
+    .behavior-row { display: grid; grid-template-columns: 250px 1fr; gap: 18px; padding: 14px 0; border-top: 1px solid rgba(255,255,255,0.08); }
+    .behavior-row:last-of-type { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .behavior-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream); margin: 0; }
+    .behavior-quote { font-family: var(--z-mono); font-size: 12.5px; line-height: 1.6; color: var(--ink-dim); margin: 0; }
+    .step-list { margin: 26px 0 0; padding: 0; list-style: none; }
+    .step-list li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding: 13px 0; border-top: 1px solid rgba(255,255,255,0.08); }
+    .step-num { font-family: var(--font-mono); font-size: 12px; color: var(--amber); }
+    .step-body { font-family: var(--font-sans); font-weight: 300; font-size: 14.5px; line-height: 1.7; color: var(--ink-dim); }
+    .step-body strong { color: var(--ink); font-weight: 500; }
+    .lib-row { display: grid; grid-template-columns: 180px 1fr 100px; gap: 16px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.08); align-items: baseline; }
+    .lib-row:last-of-type { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .lib-name { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink); margin: 0; }
+    .lib-desc { font-family: var(--font-sans); font-weight: 300; font-size: 13.5px; line-height: 1.65; color: var(--ink-dim); margin: 0; }
+    .lib-lic { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); margin: 0; text-align: right; }
+    .rec-card { border: 1px solid rgba(255,255,255,0.13); border-radius: 14px; padding: 20px 22px; }
+    .rec-id { font-family: var(--font-mono); font-size: 12px; color: var(--jade); margin: 0 0 8px; word-break: break-all; }
+    .rec-meta { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--ink-faint); margin: 10px 0 0; }
+    .vgrid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .depth { border: 1px solid rgba(255,255,255,0.12); border-radius: 18px; margin: 8px 0 0; }
+    .depth > summary { cursor: pointer; list-style: none; padding: 20px 26px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); display: flex; align-items: center; gap: 12px; }
+    .depth > summary::-webkit-details-marker { display: none; }
+    .depth > summary::before { content: "+"; color: var(--cream); font-size: 16px; line-height: 1; }
+    .depth[open] > summary::before { content: "\2212"; }
+    .depth > summary:hover, .depth > summary:focus-visible { color: var(--cream); }
+    .depth-body { padding: 0 26px 30px; }
+    .depth-sec + .depth-sec { margin-top: 44px; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 36px; }
+    .depth-sec > .kicker { margin-bottom: 8px; }
+    .depth-sec h3.h2 { font-size: 21px; margin-bottom: 14px; }
+    .depth .section { padding: 32px 0 8px !important; }
+    .depth .section .inner { padding-left: 0; padding-right: 0; }
+    @media (max-width: 760px) {
+      .vgrid2 { grid-template-columns: 1fr; gap: 24px; }
+      .behavior-row, .lib-row, .step-list li { grid-template-columns: 1fr; gap: 6px; }
+      .lib-lic { text-align: left; }
+      .depth > summary { padding: 16px 18px; }
+      .depth-body { padding: 0 18px 24px; }
+    }
+  </style>
+  <link rel="stylesheet" href="assets/site-navigation.css?v=20260831-portfolio">
+  <link rel="stylesheet" href="assets/site-motion.css?v=20260831-motion">
+</head>
+<body class="site-built has-site-navigation">
+<!-- site-navigation:start -->
+<a class="site-navigation__skip" href="#site-content">Skip to content</a>
+<header class="site-navigation">
+  <div class="site-navigation__bar">
+    <a class="site-navigation__name" href="index.html">Caleb Stacy</a>
+    <nav class="site-navigation__links" aria-label="Portfolio">
+      <ul class="site-navigation__options">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="samples.html">Samples</a></li>
+        <li><a href="https://www.linkedin.com/in/caleb-stacyrva/">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<span class="site-navigation__content-start" id="site-content" tabindex="-1"></span>
+<!-- site-navigation:end -->
+<div style="width: 100%; max-width: 1440px; margin: 0 auto; background: #0D0F0C; position: relative; overflow: hidden;">
+
+  <div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.4; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.16'/%3E%3C/svg%3E&quot;); background-size: 300px 300px;"></div>
+  <div style="position: absolute; top: -200px; right: -260px; width: 1100px; height: 900px; pointer-events: none; background: radial-gradient(ellipse at center, rgba(30,120,95,0.17) 0%, transparent 62%);"></div>
+  <div style="position: absolute; top: 2900px; left: -320px; width: 1000px; height: 1100px; pointer-events: none; background: radial-gradient(ellipse at center, rgba(20,90,68,0.13) 0%, transparent 62%);"></div>
+  <div style="position: absolute; top: 5400px; right: -240px; width: 950px; height: 1000px; pointer-events: none; background: radial-gradient(ellipse at center, rgba(232,168,76,0.06) 0%, transparent 60%);"></div>
+  <div style="position: absolute; top: 7600px; left: -280px; width: 1000px; height: 1000px; pointer-events: none; background: radial-gradient(ellipse at center, rgba(30,120,95,0.12) 0%, transparent 62%);"></div>
+
+
+  <div class="section" style="padding-top: 56px; padding-bottom: 56px; position: relative;">
+    <div class="inner">
+      <p style="margin: 0 0 26px;"><a class="room-back" href="verso.html">&larr; Back to the Verso study</a></p>
+      <p class="kicker">Verso / Agent · Room 1 of 2</p>
+      <h1 class="h2" style="font-size: clamp(34px, 5vw, 48px); margin-bottom: 16px; view-transition-name: door-agent;">The Agent</h1>
+      <p class="body prose" style="font-size: 16.5px;">The part of Verso designers actually met: what it was thinking, and why you could trust what it decided.</p>
+      <div class="room-outcome"><span class="k">What happened</span>Designers, content designers, and engineers across Meta brought it their strings, entirely by word of mouth. Every answer showed its reasoning, cited its sources, and passed the agent's own checks before anyone saw it.</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="section" style="position: relative;">
+    <div class="inner">
+      <p class="kicker">What I did</p>
+      <h2 class="h2">How I built the Agent</h2>
+      <ul class="contributions">
+        <li><strong>A layered prompt, not a mega-prompt.</strong> I kept the company-wide foundation in context on every turn: voice foundation, universal tones, accessibility, inclusive language, terminology, and legal guardrails, with product voice loading on detection and content-type patterns only when relevant.</li>
+        <li><strong>A bench with a priority order.</strong> I gave each product specialist three knowledge layers: its own context files first, the design-system index as the first runtime search, and broader knowledge search as the fallback.</li>
+        <li><strong>The response as a designed object.</strong> Visible progress, layered evidence, judgment labeled as judgment, alternatives with their tradeoffs priced, and a self-check loop before anything reached a person.</li>
+      </ul>
+      <p class="collab-line">The Engine did the measuring and the Index held the record. Their room carries those builds.</p>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="section" style="position: relative;">
+    <div class="inner">
+      <p class="kicker">Showing the work</p>
+      <h2 class="h2">Verso showed its work before its answer</h2>
+      <p class="body prose">Every review opened with a short reasoning window, open by default: which surface the draft was for, which dimensions it was about to check, then the score, and a rewrite with the reasoning left in. A rewrite with no reasoning attached gets exactly one reasonable response from a content designer: ignore it. The full replay lives on <a href="verso.html#verso-review-section" style="color: var(--cream);">the main study</a>.</p>
+      <div class="glass" style="padding: 30px 34px; margin-top: 30px; max-width: 760px;">
+        <p class="card-h" style="color: var(--ink-faint);">Before</p>
+        <p style="font-family: var(--z-mono); font-size: 13px; line-height: 1.7; color: var(--ink-dim); margin: 0 0 20px;">Oops! Something went wrong with your world. Don't worry, we're fixing it! Please try again in a few minutes and everything should be back to normal.</p>
+        <p class="card-h">After</p>
+        <p style="font-family: var(--z-mono); font-size: 13px; line-height: 1.7; color: var(--ink); margin: 0 0 18px;">We couldn't load your world. Check your connection and try again, or come back in a few minutes.</p>
+        <p style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); margin: 0 0 18px;">Words 27 &rarr; 19 &middot; Formality 25 &rarr; 68 &middot; Directness 45 &rarr; 88 &middot; Brevity 40 &rarr; 82</p>
+        <div style="display: flex; gap: 10px;">
+          <span class="chip" style="color: var(--cream); border-color: rgba(221,216,196,0.4);" aria-disabled="true">Accept the rewrite</span>
+          <span class="chip" aria-disabled="true">Keep mine</span>
+        </div>
+      </div>
+      <p class="annot" style="margin-top: 12px;">With the numbers attached, the rewrite is a claim that can be checked; accept or overrule, the choice went on the record.</p>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="section" style="position: relative;">
+    <div class="inner">
+      <p class="kicker">Judgment vs. linter</p>
+      <h2 class="h2">The automated check caught one. The agent saw three.</h2>
+      <p class="body prose">Asked to audit &ldquo;Click here to utilize the metaverse experience,&rdquo; Verso ran the terminology check first, then opened its answer: &ldquo;Oh, this string has a few issues. The automated check caught one, but I'm seeing more.&rdquo;</p>
+      <div style="display: grid; gap: 14px; margin-top: 26px; max-width: 760px;">
+        <div class="glass" style="padding: 20px 24px; border-radius: 16px;"><p class="card-h" style="margin-bottom: 6px;">&ldquo;Click here&rdquo;</p><p class="body" style="margin: 0; font-size: 14px;">Not accessible for keyboard users, screen readers, or tap interfaces. Input-neutral language, or better, rewrite the whole link.</p></div>
+        <div class="glass" style="padding: 20px 24px; border-radius: 16px;"><p class="card-h" style="margin-bottom: 6px;">&ldquo;utilize&rdquo;</p><p class="body" style="margin: 0; font-size: 14px;">Corporate bloat; &ldquo;use&rdquo; works fine. This is the one the rule engine also caught.</p></div>
+        <div class="glass" style="padding: 20px 24px; border-radius: 16px;"><p class="card-h" style="margin-bottom: 6px;">&ldquo;metaverse&rdquo;</p><p class="body" style="margin: 0; font-size: 14px;">Generally not a product term; it should be more specific. Which experience, in which product?</p></div>
+      </div>
+      <p class="body prose" style="margin-top: 22px;">One string, three findings, one of which a rule engine could catch. The other two are the 3 percent from <a href="verso.html" style="color: var(--cream);">the landscape</a>.</p>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ══ 8 · BOUNDARY ══ -->
+  <div class="section" style="position: relative;">
+    <div class="inner">
+      <p class="kicker">The boundary</p>
+      <h2 class="h2">Verso refused work that belonged to a formal process</h2>
+      <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: start;">
+        <div class="zwin">
+          <div class="z-head">
+            <span class="z-title"><span class="z-dot"></span>Verso <span class="sub">· content-design agent</span></span>
+          </div>
+          <div class="z-body">
+            <div class="z-thread">
+              <div class="z-user">I need to come up with a new name for a wearables product</div>
+              <div class="z-asst" style="margin-bottom: 0;">
+                <p class="z-p">Naming is one of those things I can't actually do for you. A branded product name is a formal process with real owners: trademark screening, legal clearance, international linguistic checks, the whole thing. It's not something you want to shortcut.</p>
+                <p class="z-p">What I can help with is the content-design side once you have a name: making sure it works in UI strings, fits character limits on device, reads well in notifications.</p>
+                <p class="z-p" style="margin-bottom: 0;">Which level are we talking about? I can be a lot more useful once I know what we're naming.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="body">Asked for a product name, Verso did not return ten plausible names and imply the job was done. It separated the two jobs hiding in the request:</p>
+          <div style="display: grid; gap: 14px; margin: 22px 0;">
+            <div class="glass" style="padding: 20px 24px; border-radius: 16px;">
+              <p style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream); margin: 0 0 8px;">Feature name</p>
+              <p class="body" style="margin: 0; font-size: 14px;">Owned by the product designer and PM. Check approved terminology, align across devices, get sign-off.</p>
+            </div>
+            <div class="glass" style="padding: 20px 24px; border-radius: 16px;">
+              <p style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); margin: 0 0 8px;">Product name</p>
+              <p class="body" style="margin: 0; font-size: 14px;">A formal process with real owners: legal and trademark review, international validation, an approval path no agent can manufacture.</p>
+            </div>
+          </div>
+          <p class="body">Knowing when not to generate was part of the product. Authority stayed with the people who actually held it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="section" style="padding-top: 0; position: relative;">
+    <div class="inner">
+      <details class="depth">
+        <summary>More from the sessions &middot; the self-check, the bench, and the deep cuts</summary>
+        <div class="depth-body">
+        <div class="depth-sec">
+          <p class="kicker">The self-check</p>
+          <h3 class="h2">It checked itself before anything reached a person</h3>
+          <p class="body prose">The same measurement that scored a designer's draft ran on Verso's own writing, in a loop, until the reading landed inside the band:</p>
+          <ol class="step-list">
+            <li><span class="step-num">01</span><span class="step-body"><strong>Scope loaded.</strong> Which surface, which string type, and which context the draft is for.</span></li>
+            <li><span class="step-num">02</span><span class="step-body"><strong>Index queried.</strong> The product's own record, plus the company-wide standards.</span></li>
+            <li><span class="step-num">03</span><span class="step-body"><strong>Draft fingerprinted.</strong> Ten dimensions measured against the surface's band; rule violations counted separately.</span></li>
+            <li><span class="step-num">04</span><span class="step-body"><strong>Rewritten and re-checked.</strong> As many times as it took to land inside the band.</span></li>
+            <li><span class="step-num">05</span><span class="step-body"><strong>Returned with citations.</strong> Every standard applied is named, dated, and traceable to its record.</span></li>
+          </ol>
+        </div>
+        <div class="depth-sec">
+          <p class="kicker">The range</p>
+          <h3 class="h2">One review was never the whole job</h3>
+          <p class="body prose">Before answering, Verso gathered product context and read the asker's role: an engineer got the string and proof it matched the codebase; a PM got why the pattern exists. The rest of the job, in the agent's own words at the time:</p>
+          <div style="margin-top: 22px;">
+            <div class="behavior-row"><p class="behavior-label">Pattern check</p><p class="behavior-quote">&ldquo;I checked Dim Sum &mdash; we already have an approved string for this: &lsquo;Join&rsquo;&rdquo;</p></div>
+            <div class="behavior-row"><p class="behavior-label">Standards, always on</p><p class="behavior-quote">&ldquo;Heads up &mdash; &lsquo;Log In&rsquo; should be &lsquo;Log in&rsquo; (sentence case)&rdquo;</p></div>
+            <div class="behavior-row"><p class="behavior-label">Rationale, with pushback</p><p class="behavior-quote">&ldquo;Honestly, I'd go with &lsquo;Join&rsquo; here &mdash; &lsquo;Enter&rsquo; feels too formal for Horizon&rdquo;</p></div>
+            <div class="behavior-row"><p class="behavior-label">Clear expectations</p><p class="behavior-quote">&ldquo;I'm not finding anything documented on this &mdash; might be uncharted territory&rdquo;</p></div>
+            <div class="behavior-row"><p class="behavior-label">Next steps</p><p class="behavior-quote">&ldquo;Check the error states?&rdquo; &middot; &ldquo;Turn this into a content spec?&rdquo; &middot; &ldquo;What about the empty states?&rdquo;</p></div>
+          </div>
+        </div>
+        <div class="depth-sec">
+          <p class="kicker">The bench</p>
+          <h3 class="h2">One agent in front, a bench of specialists behind it</h3>
+          <p class="body prose">Its core prompt carried the company-wide standards on every turn; product voice loaded on detection; content-type patterns only when relevant. Product questions went to sub-agents for Threads, Instagram, Facebook, WhatsApp, Messenger, Horizon, Wearables, and Enterprise, each with three knowledge layers in priority order. A complex ask could run fifteen-plus steps, several specialists in parallel, and pull from more than forty internal sources. The toolbelt ran from the design-system index and terminology checks through codebase search, past experiments, Figma, and drafting diffs to ship string changes without leaving the conversation.</p>
+          <p class="body prose">Some specialists were named characters. Asked to &ldquo;jam on&rdquo; a pets-game notification, the visible reasoning picked its own bench: horizon_expert for the surface, jules_wordsmith &ldquo;for actually writing the strings,&rdquo; maren_ear &ldquo;for voice/tone review.&rdquo; Collaboration was a behavior it could run on itself.</p>
+        </div>
+        <div class="depth-sec">
+          <p class="kicker">Precedent first</p>
+          <h3 class="h2">Before drafting, it asked what had already shipped</h3>
+          <p class="body prose">Handed &ldquo;Allow Meta to automatically log food from photos,&rdquo; the agent came back with shipped precedent and a diagnosis: the string mashed the consent pattern and the toggle pattern together, and &ldquo;the word &lsquo;automatically&rsquo; is doing a lot of heavy lifting.&rdquo; Then, instead of guessing: which surface is this going on?</p>
+        </div>
+        <div class="depth-sec">
+          <p class="kicker">Receipts</p>
+          <h3 class="h2">It could pull the receipts from earlier voice work</h3>
+          <p class="body prose">Asked about Horizon notifications, Verso surfaced the measured results of voice work I had done with a partner content designer, as a sourced table: playful voice, +12% weekly actives at day 14; continued voice-focused notifications, +4.735% at day 28; an &ldquo;Up for a hangout?&rdquo; toast, 16.5% click-through. As recorded in the archived table it cited.</p>
+        </div>
+  <!-- ══ 6 · STRESS ══ -->
+  <div class="section" style="position: relative;">
+    <div class="inner">
+      <p class="kicker">How it judged</p>
+      <h2 class="h2">Verso discounted its own metric when the evidence was weak</h2>
+      <p class="body prose">Measurements were treated as evidence with known limits. Low and unavailable were different findings, and a noisy number never became the verdict.</p>
+      <div class="glass evidence-comparison" style="padding: 36px 42px; margin-top: 34px; display: grid; grid-template-columns: 340px 1fr; gap: 44px; align-items: center;">
+        <div>
+          <p class="card-h">The revision scored lower. Verso sided with the revision.</p>
+          <p class="evidence-score" style="font-family: var(--font-mono); font-size: 40px; color: var(--amber); margin: 0;">54.5% <span style="color: var(--ink-faint); font-size: 26px;">→</span> 45.5%</p>
+        </div>
+        <div>
+          <div class="quote-bar">
+            <p style="font-family: var(--font-mono); font-size: 12.5px; line-height: 1.75; color: var(--ink-dim); margin: 0;">"Scored 'Weak,' but this is largely a short-string artifact. At 6 words, dimension scores swing to extremes. The baseline was built from longer strings with more signal. Take the number with a grain of salt here."</p>
+          </div>
+          <p class="body" style="font-size: 14px; margin: 16px 0 0;">The copy was plainly better. Verso said so, explained why its own number disagreed, and moved on to the question that mattered.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+        <div class="depth-sec">
+          <p class="kicker">Its own chrome</p>
+          <h3 class="h2">Its own buttons got the same scrutiny</h3>
+          <p class="body prose">The agent audited its own quick-start buttons by putting on a user. Reviewing its &ldquo;Write strings&rdquo; button as a 45-year-old PM with eleven minutes to spare: &ldquo;&hellip;Strings? Like, code strings? Or guitar strings? &hellip; Would I tap this? Hesitate.&rdquo; The tool that held product copy to a standard did not exempt its own chrome.</p>
+        </div>
+
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="section" style="padding-bottom: 120px; position: relative;">
+    <div class="inner">
+      <div class="room-doors">
+        <a class="primary" href="verso-engine.html">Next room: The Engine &amp; the Index &rarr;</a>
+        <a href="verso.html">Back to the Verso study</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="assets/site-motion.js?v=20260831-portfolio" defer></script>
+</body>
+</html>
