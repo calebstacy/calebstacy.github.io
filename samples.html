@@ -131,7 +131,7 @@
         top: auto !important;
         flex: 0 0 auto;
         max-width: calc(100vw - 40px) !important;
-        transform: none !important;
+        transform-origin: 50% 50%;
         scroll-snap-align: center;
         scroll-snap-stop: always;
       }
@@ -259,6 +259,43 @@
 
 <script>
 (() => {
+  function initScrollArc(viewport) {
+    const els = Array.from(viewport.querySelectorAll('.mc-card'));
+    if (!els.length) return;
+    const ARC_DIP = 56;
+    const MAX_TILT = 4.5;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let raf = 0;
+
+    function paint() {
+      raf = 0;
+      if (reducedMotion.matches) {
+        els.forEach((el) => { el.style.transform = 'none'; });
+        return;
+      }
+
+      const half = viewport.clientWidth / 2;
+      const viewportCenter = viewport.scrollLeft + half;
+      els.forEach((el) => {
+        const cardCenter = el.offsetLeft + el.offsetWidth / 2;
+        const xNorm = Math.max(-1.35, Math.min(1.35, (cardCenter - viewportCenter) / half));
+        const y = ARC_DIP * xNorm * xNorm;
+        const rot = MAX_TILT * xNorm;
+        el.style.transform = 'translate3d(0, ' + y + 'px, 0) rotate(' + rot + 'deg)';
+      });
+    }
+
+    function schedulePaint() {
+      if (!raf) raf = requestAnimationFrame(paint);
+    }
+
+    viewport.addEventListener('scroll', schedulePaint, { passive: true });
+    window.addEventListener('resize', schedulePaint);
+    window.addEventListener('pageshow', schedulePaint);
+    reducedMotion.addEventListener('change', schedulePaint);
+    schedulePaint();
+  }
+
   function initCarousel(viewport, direction) {
     const els = Array.from(viewport.querySelectorAll('.mc-card'));
     if (!els.length) return;
@@ -392,8 +429,11 @@
     });
   }
   document.addEventListener('DOMContentLoaded', () => {
-    if (window.matchMedia('(max-width: 760px)').matches) return;
-    document.querySelectorAll('.mc-row').forEach((row, i) => initCarousel(row, i % 2 ? -1 : 1));
+    const phoneLayout = window.matchMedia('(max-width: 760px)').matches;
+    document.querySelectorAll('.mc-row').forEach((row, i) => {
+      if (phoneLayout) initScrollArc(row);
+      else initCarousel(row, i % 2 ? -1 : 1);
+    });
   });
 })();
 </script>
