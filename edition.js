@@ -1,8 +1,5 @@
-const contents = document.querySelector('.contents');
-const directory = document.querySelector('.site-directory');
 const narrow = matchMedia('(max-width:850px)');
 function arrange() {
-  if (contents) contents.open = !narrow.matches;
   const article = document.querySelector('.article-content');
   const box = article.querySelector('.factbox');
   if (box) {
@@ -12,7 +9,9 @@ function arrange() {
   }
 }
 arrange(); narrow.addEventListener('change', arrange);
-const links = contents ? [...contents.querySelectorAll('a')] : [];
+
+// The section list beside the article marks the section being read.
+const links = [...document.querySelectorAll('.sections a')];
 const sections = links.map(a => document.getElementById(a.hash.slice(1)));
 let queued = false;
 function markSection() {
@@ -23,7 +22,21 @@ function markSection() {
 }
 addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(markSection); } }, {passive:true});
 markSection();
-links.forEach(link => link.addEventListener('click', () => { if (narrow.matches) contents.open = false; }));
+
+// The Menu on narrow screens. It closes on a choice, on Escape, on a tap outside, and when the window grows wide.
+const menuButton = document.querySelector('.menu-button');
+const menuPanel = document.getElementById('site-menu');
+if (menuButton && menuPanel) {
+  const setMenu = (open, refocus) => {
+    menuPanel.hidden = !open; menuButton.setAttribute('aria-expanded', String(open));
+    if (!open && refocus) menuButton.focus();
+  };
+  menuButton.addEventListener('click', () => setMenu(menuPanel.hidden));
+  menuPanel.addEventListener('click', event => { if (event.target.closest('a')) setMenu(false); });
+  document.addEventListener('click', event => { if (!menuPanel.hidden && !menuPanel.contains(event.target) && !menuButton.contains(event.target)) setMenu(false); });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && !menuPanel.hidden) setMenu(false, true); });
+  narrow.addEventListener('change', () => setMenu(false));
+}
 
 const viewer = document.querySelector('.image-viewer');
 if (viewer) {
@@ -43,17 +56,6 @@ if (viewer) {
   viewer.addEventListener('click', event => { if (backdropDown && outside(event)) viewer.close(); backdropDown = false; });
   viewer.addEventListener('close', () => trigger?.focus());
 }
-
-// The site menu is navigation, separate from the article's table of contents.
-document.addEventListener('click', event => {
-  if (directory?.open && !directory.contains(event.target)) directory.open = false;
-});
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && directory?.open) {
-    directory.open = false;
-    directory.querySelector('summary').focus();
-  }
-});
 
 // A lead video loops silently. It can be paused from its caption or by clicking it,
 // and it waits for a press when the device asks for reduced motion.

@@ -1,0 +1,58 @@
+/* Animated figure for "How a request moved" on the Verso page. Uses the wiki's theme variables only.
+   Figure and numbered list sit side by side on a wide page and stack on a phone. */
+.flow-wrap{display:grid;grid-template-columns:minmax(0,390px) minmax(0,1fr);gap:8px 30px;align-items:start;margin:6px 0 22px;clear:both}
+.flow-wrap .method{margin:4px 0 0}
+.flow-figure{margin:0;padding:12px 12px 10px;background:var(--panel);border:1px solid var(--line)}
+.flow-figure svg{display:block;width:100%;height:auto;overflow:visible;font-family:inherit}
+.flow-figure text{fill:var(--text);font-size:14.5px;font-weight:600;text-anchor:middle}
+.flow-figure text.sub{fill:var(--muted);font-size:13.5px;font-weight:400}
+.flow-figure text.zone{fill:var(--muted);font-size:13.5px;font-weight:500}
+.flow-figure .legend{fill:var(--panel)}
+.flow-figure .arrow{fill:var(--muted);opacity:.45;transition:opacity .4s}
+.flow-figure .arrow.on{opacity:1}
+.flow-figure text.way{fill:var(--muted);font-size:13.5px;font-weight:500;opacity:.45;transition:opacity .4s}
+.flow-figure .unseen{fill:var(--bg);stroke:var(--line);stroke-dasharray:4 4}
+.flow-figure .node rect{fill:var(--panel);stroke:var(--line);stroke-width:1;transition:stroke .35s,fill .35s}
+.flow-figure .node.aside rect{stroke-dasharray:3 3}
+.flow-figure .node{opacity:.55;transition:opacity .35s}
+.flow-figure .node.on{opacity:1}
+.flow-figure .node.now rect{stroke:var(--link);fill:var(--active)}
+.flow-figure .link{fill:none;stroke:var(--line);stroke-width:1.5;opacity:.6;transition:stroke .35s,opacity .35s}
+.flow-figure .link.aside{stroke-dasharray:4 4}
+.flow-figure .link.on{opacity:1;stroke:var(--muted)}
+.flow-figure .link.now{stroke:var(--link);stroke-width:2}
+.flow-figure .way.on{opacity:1}
+.flow-figure .badge{opacity:0;transition:opacity .35s}
+.flow-figure .badge.on{opacity:1}
+.flow-figure .badge circle{fill:var(--panel);stroke:var(--muted)}
+.flow-figure .badge.now circle{stroke:var(--link);fill:var(--active)}
+.flow-figure .badge text{font-size:13.5px;font-weight:600}
+/* A step number fades while the marker sits on it. */
+.flow-figure .badge.under{opacity:0}
+.flow-figure .chip{opacity:0;transition:opacity .28s;pointer-events:none}
+.flow-figure .chip.show{opacity:1}
+.flow-figure .chip rect{fill:var(--link);stroke:var(--link);stroke-width:1.5}
+.flow-figure .chip text{fill:var(--bg);font-size:13.5px;font-weight:600}
+/* Hollow marker while the work is out of sight, solid when a person can see it. */
+.flow-figure .chip.hidden-work rect{fill:var(--bg)}
+.flow-figure .chip.hidden-work text{fill:var(--link)}
+@keyframes flow-pulse{50%{stroke-width:3.5}}
+.flow-figure .link.talk{animation:flow-pulse .7s ease-in-out 2}
+.flow-figure .node.think rect{animation:flow-pulse .7s ease-in-out 2}
+.flow-caption{margin:10px 2px 2px;padding-top:10px;border-top:1px solid var(--line);font-size:13px;line-height:1.55;color:var(--muted)}
+.flow-caption strong{color:var(--text);font-weight:600}
+.flow-count{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.flow-controls{display:flex;gap:8px;margin:12px 2px 0}
+.flow-controls button{font:inherit;font-size:12px;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:3px;padding:6px 12px;cursor:pointer}
+.flow-controls button:hover{border-color:var(--muted)}
+.flow-controls button:disabled{opacity:.4;cursor:default}
+.flow-controls button:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.flow-controls .flow-replay{margin-left:auto}
+.flow-wrap .method li{transition:color .3s;border-left:2px solid transparent;padding-left:8px}
+.flow-wrap.stepping .method li{color:var(--muted)}
+.flow-wrap.stepping .method li.flow-now{color:var(--text);border-left-color:var(--link)}
+@media(max-width:1000px){.flow-wrap{grid-template-columns:1fr}.flow-figure{max-width:400px;margin:0 auto;width:100%}}
+/* On a phone the picture gets nearly the full column, so no label drops below 11px. */
+@media(max-width:500px){.flow-figure{padding:10px 6px 10px}}
+@media(prefers-reduced-motion:reduce){.flow-figure *{transition:none!important;animation:none!important}}
+@media print{.flow-figure{background:#fff;--bg:#fff;--panel:#fff;--text:#111;--muted:#333;--link:#24517e;--active:#e8eef5;--line:#67727d}.flow-controls{display:none}.flow-figure .arrow{opacity:1}.flow-figure .node,.flow-figure .badge,.flow-figure .link,.flow-figure .way{opacity:1}}

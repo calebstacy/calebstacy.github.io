@@ -170,3 +170,9 @@ h2 + .ledger>div:first-child{border-top:0}
 }
 @media(max-width:560px){.wiki-figure.story{padding:13px 13px 10px}.ledger>div{grid-template-columns:minmax(0,1fr);gap:2px}.brief>div{grid-template-columns:minmax(0,1fr)}}
 @media print{.wiki-figure.story{--fail:#a1261c;--pass:#1d6b33}}
+
+/* A ledger without the grid: each name on its own line, then its sentences, then the example. Space separates the items. */
+.ledger.stacked{max-width:720px;margin:4px 0 22px}
+.ledger.stacked>div{display:block;border:0;padding:0;margin-top:18px}
+.ledger.stacked dt{font-size:15px;font-weight:600;line-height:1.5;margin-bottom:3px}
+.ledger.stacked dd{margin:0}
