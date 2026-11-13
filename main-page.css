@@ -1,14 +1,30 @@
-/* Masthead, layout and home-card portrait rules shared by every article. */
-.masthead{max-width:1240px;padding:20px 32px;min-height:81px}.masthead-start{display:flex;align-items:center;gap:24px}.brand strong{font-size:21px}.brand small{font-size:11px;letter-spacing:0}.resume-route{font-size:13px}.site-directory{position:relative;margin:0;font-size:13px}.site-directory summary{display:flex;align-items:center;gap:9px;list-style:none;padding:9px 0;border:0;color:var(--text);cursor:pointer}.site-directory summary::-webkit-details-marker{display:none}.site-directory summary>span:first-child{font-size:18px;line-height:1}.site-directory nav{position:absolute;z-index:10;top:calc(100% + 10px);left:0;width:250px;max-height:70dvh;overflow:auto;background:var(--panel);border:1px solid var(--line);padding:14px 20px;box-shadow:0 6px 18px #0003}.site-directory ul{columns:1;margin:0;padding:0}.site-directory a{padding:7px 0}.site-directory .group{border-top:1px solid var(--line);padding-top:8px}.site-directory li.group{margin-top:8px}.site-directory a[aria-current]{font-weight:500;color:var(--link)}
-.layout{max-width:1240px;grid-template-columns:160px minmax(0,1fr);gap:40px;padding:30px 32px 60px}.article-heading{padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:24px}.article-heading h1{font-size:30px;font-weight:500}.sidebar .contents{font-size:12px}.colophon{display:flex;justify-content:space-between;gap:16px;align-items:baseline}.colophon p{margin:0}.colophon>a{white-space:nowrap}
+/* The bar, the layout, the section list, the cards and the footer, shared by every page. Loaded last. */
+/* --mast is the height of the bar. Headings and the section list use it to stay clear of the bar. */
+:root{--mast:48px}html{scroll-padding-top:calc(var(--mast) + 16px)}
+.topbar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:1240px;margin:auto;height:var(--mast);padding:0 32px;display:flex;align-items:center;gap:30px;font-size:13px}
+.bar a{color:var(--muted);white-space:nowrap}.bar a:hover{color:var(--text);text-decoration:none}
+.bar .bar-home{font-size:14px;font-weight:600;color:var(--text)}
+.bar-links{display:flex;gap:26px;flex:1;min-width:0}.bar-links a{line-height:var(--mast)}.bar-links a[aria-current]{color:var(--text);box-shadow:inset 0 -2px var(--link)}.bar-links .bar-resume{margin-left:auto}
+/* Narrow screens: the name, and a Menu button that opens the list of pages with this page's sections under it. */
+.menu-button{display:none;align-items:center;gap:8px;margin-left:auto;font:inherit;font-size:13px;color:var(--text);background:none;border:1px solid var(--line);border-radius:3px;padding:6px 11px;cursor:pointer}.menu-button span{font-size:15px;line-height:1}.menu-button[aria-expanded="true"]{background:var(--active)}
+.menu-panel{position:absolute;left:0;right:0;top:100%;max-height:calc(100dvh - var(--mast));overflow:auto;overscroll-behavior:contain;background:var(--panel);border-bottom:1px solid var(--line);box-shadow:0 10px 18px #0004;padding:6px 24px 16px}
+.menu-panel ul{list-style:none;margin:0;padding:0}.menu-panel li{margin:0}.menu-panel a{display:block;padding:10px 0;font-size:15px;color:var(--text)}.menu-panel a[aria-current]{color:var(--link)}
+.menu-panel .sub>a{padding-left:16px;font-size:14px;color:var(--muted)}.menu-panel .sub>a[aria-current]{color:var(--link)}.menu-panel .apart{margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.menu-panel .menu-sections{padding:0 0 6px 16px;border-left:1px solid var(--line);margin:0 0 6px 2px}.menu-panel .sub .menu-sections{margin-left:18px}.menu-panel .menu-sections a{padding:7px 0;font-size:13px;color:var(--muted)}
+.layout{max-width:1240px;grid-template-columns:160px minmax(0,1fr);gap:40px;padding:30px 32px 60px}.article-heading{padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:24px}.article-heading h1{font-size:30px;font-weight:500}.colophon{display:flex;justify-content:space-between;gap:16px;align-items:baseline}.colophon p{margin:0}.colophon>a{white-space:nowrap}
+/* The sections of this page, fixed beside the article on wide screens. No heading above it. */
+.sections{font-size:12px;line-height:1.45}.sections ul{list-style:none;margin:0;padding:0}.sections li{margin:0}.sections a{display:block;padding:6px 0 6px 10px;border-left:2px solid transparent;color:var(--muted)}.sections a[aria-current]{border-left-color:var(--link);color:var(--text);background:linear-gradient(90deg,var(--active),transparent)}.sections .level-3 a{padding-left:23px}
+/* On the four Verso pages, one small line moves between them. */
+.verso-pages{font-size:12px;color:var(--muted);margin-bottom:14px}.verso-pages a{color:var(--muted)}.verso-pages [aria-current]{color:var(--text);font-weight:500}
+/* Cards open with their small line. The home card opens with a still portrait, as wide as the card up to 320px, with its caption. */
+.factbox .kind{margin-top:0}.factbox>dl:first-child>div:first-child{border-top:0;padding-top:0}.factbox>dl>div:last-child{padding-bottom:0}.portrait-figure{margin:0 0 16px}.portrait-figure figcaption{text-align:center;color:var(--muted);margin-top:9px}.factbox .portrait{display:block;width:100%;max-width:320px;height:auto;aspect-ratio:1;border-radius:2px;margin:0}
+/* main takes focus from the skip link without drawing a ring around the page. */
+main:focus{outline:none}
+@media(min-width:851px){.sidebar{top:calc(var(--mast) + 30px);max-height:calc(100vh - var(--mast) - 48px)}.menu-panel{display:none}}
 @media(max-width:1000px){.layout{gap:24px;grid-template-columns:135px minmax(0,1fr)}}
-@media(max-width:850px){.layout{display:block;max-width:740px;padding:20px 24px 44px}.masthead{padding:16px 24px;min-height:73px}.sidebar .contents{margin-bottom:16px}.site-directory ul{columns:1}.site-directory summary{padding:9px 0}.article-heading h1{font-size:28px}.colophon{font-size:11px}}
-@media(max-width:500px){.masthead{padding:14px 18px;gap:12px}.masthead-start{gap:18px}.brand strong{font-size:19px}.brand small{font-size:10px}.menu-label{display:none}.site-directory nav{left:0;width:250px;max-width:calc(100vw - 36px)}.resume-route{font-size:12px}.colophon{display:block;line-height:1.6}.colophon p{margin-bottom:8px}}
-@media print{.site-directory,.resume-route{display:none}}
-/* The masthead stays at the top of the window. --mast is its height, used to keep headings and the contents list clear of it. */
-:root{--mast:75px}html{scroll-padding-top:calc(var(--mast) + 16px)}.masthead-bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}.masthead-bar .masthead{border-bottom:0;padding-top:10px;padding-bottom:10px;min-height:0}.site-directory nav{max-height:calc(100dvh - var(--mast) - 24px)}
-@media(min-width:851px){.sidebar{top:calc(var(--mast) + 18px);max-height:calc(100vh - var(--mast) - 36px)}}
-@media(max-width:500px){:root{--mast:72px}}
-@media print{.masthead-bar{position:static;border:0}}
-/* The home card opens with a still portrait, as wide as the card up to 320px. main takes focus from the skip link without drawing a ring around the page. */
-.factbox .portrait{display:block;width:100%;max-width:320px;height:auto;aspect-ratio:1;border-radius:2px;margin:6px 0 14px}main:focus{outline:none}
+@media(max-width:850px){.bar{padding:0 24px}.bar-links{display:none}.menu-button{display:inline-flex}.sidebar{display:none}.layout{display:block;max-width:740px;padding:20px 24px 44px}.article-heading h1{font-size:28px}.colophon{font-size:11px}.portrait-figure figcaption{text-align:left}}
+/* Tablet widths: the home card puts the portrait beside the rows, so the picture has no empty space next to it. */
+@media(min-width:600px) and (max-width:850px){.factbox:has(.portrait-figure){display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;align-items:start}.factbox:has(.portrait-figure) .portrait-figure{margin:0}.factbox:has(.portrait-figure) dl>div:first-child{border-top:0;padding-top:0}}
+@media(max-width:500px){.bar{padding:0 20px}.menu-panel{padding:6px 20px 16px}.colophon{display:block;line-height:1.6}.colophon p{margin-bottom:8px}}
+@media print{.topbar,.verso-pages{display:none}}
