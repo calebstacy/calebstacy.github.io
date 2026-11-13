@@ -5,9 +5,9 @@ function arrange() {
   if (contents) contents.open = !narrow.matches;
   const article = document.querySelector('.article-content');
   const box = article.querySelector('.factbox');
-  const lead = article.querySelector(':scope > p');
-  if (box && lead) {
-    if (narrow.matches) lead.after(box);
+  if (box) {
+    // Narrow screens: the card follows the whole lead (everything before the first section), so it never splits the intro.
+    if (narrow.matches) { const first = article.querySelector(':scope > section.article-section'); if (first) first.before(box); else article.append(box); }
     else article.prepend(box);
   }
 }
@@ -53,27 +53,6 @@ document.addEventListener('keydown', event => {
     directory.open = false;
     directory.querySelector('summary').focus();
   }
-});
-
-// One wave when the page opens, drawn from a sprite sheet so it plays the same on every device
-// and always ends on the resting pose. Click to replay.
-const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-document.querySelectorAll('.greeting').forEach(button => {
-  const sprite = button.querySelector('.greeting-sprite');
-  if (!sprite) return;
-  function play() {
-    if (reducedMotion.matches || !button.classList.contains('ready')) return;
-    sprite.classList.remove('wave');
-    void sprite.offsetWidth; // restart the animation
-    sprite.classList.add('wave');
-  }
-  function preference() { button.disabled = reducedMotion.matches; }
-  const sheet = new Image();
-  sheet.onload = () => { button.classList.add('ready'); play(); };
-  sheet.src = button.dataset.wave;
-  button.addEventListener('click', play);
-  reducedMotion.addEventListener('change', preference);
-  preference();
 });
 
 // A lead video loops silently. It can be paused from its caption or by clicking it,
