@@ -1,333 +1,118 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="How Caleb Stacy replaced a fourteen-plus-lesson VR first run with just-in-time education inside Meta Horizon.">
-  <link rel="canonical" href="https://calebstacy.com/nux.html">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-  <meta name="theme-color" content="#0D0F0C">
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Caleb Stacy">
-  <meta property="og:title" content="Meta Horizon NUX | Caleb Stacy">
-  <meta property="og:description" content="Find the fun first. Teach in the moment.">
-  <meta property="og:url" content="https://calebstacy.com/nux.html">
-  <meta property="og:image" content="https://calebstacy.com/assets/social-preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Caleb Stacy, senior content designer">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Meta Horizon NUX | Caleb Stacy">
-  <meta name="twitter:description" content="Find the fun first. Teach in the moment.">
-  <meta name="twitter:image" content="https://calebstacy.com/assets/social-preview.png">
-  <meta name="twitter:image:alt" content="Caleb Stacy, senior content designer">
-  <title>Meta Horizon NUX | Caleb Stacy</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&amp;family=Space+Mono:wght@400&amp;display=swap">
-  <style>
-    :root {
-      --font-display: "Raleway", system-ui, sans-serif;
-      --font-sans: "DM Sans", system-ui, sans-serif;
-      --font-mono: "Space Mono", monospace;
-    }
-    *, ::before, ::after { box-sizing: border-box; }
-    body { margin: 0; background: #0D0F0C; color: #ffffff; }
-    img, svg, video { display: block; vertical-align: middle; }
-    a { color: #50C89B; }
-    a:hover { color: #6EDCAD; }
-    .site-built nav a { min-height: 44px; display: inline-flex; align-items: center; white-space: nowrap; }
-  
-    .nux-journey-figure { margin: 48px -48px; }
-    .nux-summary-band { padding: 28px 48px; background: rgba(10,30,22,0.55); border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .nux-summary-inner { max-width: 1184px; margin: 0 auto; }
-    .nux-cover-results { display: flex; align-items: center; gap: 36px; padding-bottom: 28px; margin-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .nux-cover-results h2 { flex: 0 0 auto; margin: 0; font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.65); }
-    .nux-results-label { flex: 0 0 180px; }
-    .nux-results-label p { margin: 8px 0 0; font-size: 12px; line-height: 1.5; color: rgba(255,255,255,0.65); }
-    .nux-results { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; width: 100%; margin: 0; padding: 0; list-style: none; }
-    .nux-results li { min-width: 0; }
-    .nux-results strong { display: block; margin-bottom: 6px; font-family: var(--font-display); font-size: 2rem; font-weight: 300; line-height: 1.15; color: #50C89B; }
-    .nux-results span { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.72); }
-    .nux-facts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px 32px; margin: 0; }
-    .nux-facts > div { min-width: 0; }
-    .nux-facts dt { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.55); }
-    .nux-facts dd { margin: 5px 0 0; font-size: 15px; font-weight: 300; line-height: 1.6; color: rgba(255,255,255,0.8); }
-    .nux-beat + .nux-beat { margin-top: 56px; }
-    .nux-beat h2 { margin: 0 0 22px; font-family: var(--font-display); font-weight: 300; font-size: clamp(1.35rem,2.2vw,1.7rem); line-height: 1.4; color: rgba(255,255,255,0.94); scroll-margin-top: 80px; }
-    .nux-beat p { margin: 0 0 22px; font-size: 16px; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,0.72); }
-    .nux-principle { margin: 36px 0 0; padding: 28px 32px; border-left: 2px solid rgba(80,200,155,0.5); border-radius: 0 20px 20px 0; background: rgba(10,44,38,0.42); }
-    .nux-principle p { margin: 0; font-family: var(--font-display); font-size: clamp(1.15rem,2vw,1.4rem); font-weight: 300; line-height: 1.6; color: rgba(255,255,255,0.9); }
-    .nux-contributions { margin: 0 0 24px; padding-left: 22px; }
-    .nux-contributions li { margin-bottom: 18px; padding-left: 4px; font-size: 16px; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.78); }
-    .nux-contributions li:last-child { margin-bottom: 0; }
-    .nux-contributions li::marker { color: #50C89B; }
-    .nux-contributions strong { font-weight: 500; color: rgba(255,255,255,0.94); }
-    .nux-points { margin: 0 0 22px; padding-left: 22px; }
-    .nux-points li { margin-bottom: 12px; padding-left: 4px; font-size: 16px; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.78); }
-    .nux-points li:last-child { margin-bottom: 0; }
-    .nux-points li::marker { color: #50C89B; }
-    .nux-points strong { font-weight: 500; color: rgba(255,255,255,0.94); }
-    .nux-pair { margin: 28px 0 0; }
-    .nux-pair-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
-    .nux-pair-label { margin: 0 0 10px; font: 400 10px/1.6 var(--font-mono, monospace); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
-    .nux-pair figcaption { margin-top: 10px; font-size: 13px; line-height: 1.65; color: rgba(255,255,255,0.55); }
-    .nux-legal-stage { display: grid; place-items: center; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; padding: 20px; border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; background: radial-gradient(circle at 50% 35%, #2b3240, #111419 68%); }
-    .nux-legal-stage img { width: 100%; height: auto; max-height: 100%; object-fit: contain; }
-    .nux-legal-stage.is-before { padding: 0; }
-    .nux-legal-stage.is-before img { width: 100%; height: 100%; object-fit: cover; }
-    .nux-figure { margin: 28px 0 0; }
-    .nux-figure img, .nux-figure video { width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(255,255,255,0.12); }
-    .nux-figure figcaption { margin-top: 10px; font-size: 13px; line-height: 1.65; color: rgba(255,255,255,0.65); }
-    @media (max-width: 640px) { .nux-pair-grid { grid-template-columns: 1fr; gap: 28px; } }
-    .nux-beat .nux-collaboration { padding-top: 20px; margin: 0; border-top: 1px solid rgba(255,255,255,0.1); font-size: 14px; line-height: 1.7; }
-    .nux-beat.nux-outcome { padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
-
-    /* P1: dark-field micro labels were below practical contrast at tiny sizes. */
-    .site-built [style*="rgba(255,255,255,0.18)"],
-    .site-built [style*="rgba(255,255,255,0.2)"],
-    .site-built [style*="rgba(255,255,255,0.22)"],
-    .site-built [style*="rgba(255,255,255,0.25)"],
-    .site-built [style*="rgba(255,255,255,0.28)"],
-    .site-built [style*="rgba(255,255,255,0.3)"],
-    .site-built [style*="rgba(255,255,255,0.32)"] { color: rgba(255,255,255,0.5) !important; }
-
-    .site-built a:focus-visible,
-    .site-built button:focus-visible,
-    .site-built input:focus-visible,
-    .site-built textarea:focus-visible {
-      outline: 2px solid #ddd8c4;
-      outline-offset: 3px;
-    }
-
-    /* P1: missing reduced-motion coverage for marquees, glow traces, and generated replay motion. */
-    @media (prefers-reduced-motion: reduce) {
-      .site-built *, .site-built *::before, .site-built *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: 0.001ms !important;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .site-built .nux-journey-figure { margin: 48px 0; }
-      .nux-summary-band { padding: 24px 20px; }
-      .nux-cover-results { display: block; }
-      .nux-results-label { margin-bottom: 20px; }
-      .nux-results { gap: 12px; }
-      .nux-results strong { font-size: 1.65rem; }
-      .nux-results span { font-size: 13px; }
-      .nux-facts { grid-template-columns: minmax(0,1fr); }
-      .nux-principle { padding: 24px; }
-
-      .site-built nav > div { padding-left: 20px !important; padding-right: 20px !important; gap: 12px !important; }
-      .site-built nav div[style*="gap: 36px"] { gap: 16px !important; flex-wrap: wrap !important; justify-content: flex-end !important; }
-
-      /* P1: fixed hero heights and absolute captions can overlap on narrow screens. */
-      .site-built section[style*="height: 844px"] { height: auto !important; min-height: 0 !important; }
-      .site-built section[style*="height: 844px"] > div[style*="grid-template-columns"] {
-        grid-template-columns: 1fr !important;
-        height: auto !important;
-      }
-      .site-built section[style*="height: 844px"] > div > div { padding: 72px 24px 36px !important; }
-      /* On phones the cover collapses to its content: the copy panel flows under
-         the nav with a short band of the scene above it, instead of pinning to the
-         bottom of a fixed 720px box (which left a half-viewport dead zone). */
-      .site-built div[style*="height: 648px"] { height: auto !important; min-height: 0 !important; }
-      .site-built div[style*="bottom: 48px"][style*="left: 48px"] {
-        position: relative !important;
-        inset: auto !important;
-        margin: 96px 20px 24px;
-        padding: 22px 24px !important;
-        max-width: none !important;
-      }
-
-      /* P1: fixed multi-column grids squeeze content on mobile. */
-      .site-built div[style*="grid-template-columns: repeat(3"],
-      .site-built div[style*="grid-template-columns: repeat(2"],
-      .site-built div[style*="grid-template-columns: 300px 1fr"],
-      .site-built div[style*="grid-template-columns: 340px 1fr"],
-      .site-built div[style*="grid-template-columns: 1.1fr 1fr"],
-      .site-built div[style*="grid-template-columns: 1fr 1fr"],
-      .site-built div[style*="grid-template-columns: 190px 1fr 52px"],
-      .site-built div[style*="grid-template-columns: 190px 1fr 62px"],
-      .site-built .fp-row,
-      .site-built .z-tr {
-        grid-template-columns: 1fr !important;
-      }
-
-      .site-built [style*="padding: 64px 48px"],
-      .site-built [style*="padding: 0 48px"],
-      .site-built [style*="padding: 96px 64px"],
-      .site-built .section { padding-left: 20px !important; padding-right: 20px !important; }
-
-      /* P1: fixed carousel cards can exceed the viewport. */
-      .site-built #mc-carousel { height: 360px !important; }
-      .site-built #mc-carousel .mc-card {
-        max-width: calc(100vw - 40px) !important;
-      }
-      .site-built #mc-carousel .mc-card img {
-        object-fit: contain;
-      }
-    }
-
-    @media (max-width: 360px) {
-      .site-built nav { height: auto !important; }
-      .site-built nav > div { height: auto !important; flex-wrap: wrap; gap: 0 !important; padding-top: 4px; padding-bottom: 4px; }
-      .site-built nav > div > div { width: 100%; flex-wrap: nowrap !important; justify-content: space-between !important; gap: 12px !important; }
-    }
-  </style>
-  <link rel="stylesheet" href="assets/site-navigation.css?v=20260831-portfolio">
-  <link rel="stylesheet" href="assets/site-motion.css?v=20260831-motion">
-</head>
-<body class="site-built has-site-navigation">
-<!-- site-navigation:start -->
-<a class="site-navigation__skip" href="#site-content">Skip to content</a>
-<header class="site-navigation">
-  <div class="site-navigation__bar">
-    <a class="site-navigation__name" href="index.html">Caleb Stacy</a>
-    <nav class="site-navigation__links" aria-label="Portfolio">
-      <ul class="site-navigation__options">
-        <li><a href="index.html#work">Work</a></li>
-        <li><a href="samples.html">Samples</a></li>
-        <li><a href="https://www.linkedin.com/in/caleb-stacyrva/">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<span class="site-navigation__content-start" id="site-content" tabindex="-1"></span>
-<!-- site-navigation:end -->
-<div style="min-height: 100%; background: #0D0F0C; color: #ffffff; font-family: var(--font-sans)">
-
-
-  <main>
-  <div style="position: relative; height: 648px; overflow: hidden">
-    <img src="assets/vr-scene-1920.webp" srcset="assets/vr-scene-1920.webp 1920w, assets/vr-scene-4k.webp 4608w" sizes="100vw" width="4608" height="2047" fetchpriority="high" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; filter: brightness(1.15)">
-    <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,14,10,0.97) 0%, rgba(6,14,10,0.3) 55%, transparent 100%)"></div>
-    <div style="position: absolute; bottom: 48px; left: 48px; max-width: 760px; backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); background: rgba(10, 44, 38, 0.42); border: 1px solid rgba(255,255,255,0.15); border-radius: 24px; padding: 28px 32px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.1)">
-      <div style="display: inline-flex; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 100px; padding: 5px 13px; margin-bottom: 18px">
-        <span style="font-family: var(--font-display); font-weight: 300; font-size: 9px; letter-spacing: 0.2em; line-height: 1.6; text-transform: uppercase; color: rgba(255,255,255,0.8)">New-user education · 2025</span>
-      </div>
-      <h1 style="font-family: var(--font-display); font-weight: 200; font-size: clamp(2.4rem, 5vw, 4rem); color: rgba(255,255,255,0.96); line-height: 1.05; margin: 0 0 14px">Meta Horizon NUX</h1>
-      <p style="font-family: var(--font-display); font-weight: 300; font-size: clamp(1.2rem,2.4vw,1.5rem); color: rgba(255,255,255,0.9); line-height: 1.45; margin: 0 0 18px">Find the fun first. Teach in the moment.</p>
-      <p style="font-family: var(--font-sans); font-weight: 300; font-size: 17px; color: rgba(255,255,255,0.72); max-width: 600px; line-height: 1.6; margin: 0">New users came to socialize, but Horizon asked them to choose a world, consent, complete fourteen-plus lessons, and wait through loading before they met anyone. I worked with product design, product management, engineering, and partner teams to replace the curriculum with a just-in-time education strategy.</p>
-    </div>
-  </div>
-
-  <section class="nux-summary-band" aria-label="Overview">
-    <div class="nux-summary-inner">
-      <div class="nux-cover-results">
-        <div class="nux-results-label">
-          <h2>Results</h2>
-          <p>Measured against the onboarding it replaced</p>
-        </div>
-        <ul class="nux-results">
-          <li><strong>+13%</strong> <span>first-world visits</span></li>
-          <li><strong>+7%</strong> <span>retention</span></li>
-        </ul>
-      </div>
-      <dl class="nux-facts">
-        <div><dt>Role</dt><dd>Content designer · education strategy and interaction language</dd></div>
-        <div><dt>Team</dt><dd>Social Coordination V Team</dd></div>
-        <div><dt>Timeline</dt><dd>2025</dd></div>
-        <div><dt>Surface</dt><dd>Meta Horizon Worlds, first-run VR</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <div style="max-width: 720px; margin: 0 auto; padding: 64px 48px 120px">
-
-    <section class="nux-beat" aria-labelledby="nux-contributions">
-      <h2 id="nux-contributions">What I did</h2>
-      <ul class="nux-contributions">
-        <li>Authored the just-in-time principles that became the foundation for how Horizon teaches users.</li>
-        <li>Wrote every string in the just-in-time flow, including the controller nudge.</li>
-        <li>Negotiated with Privacy Legal, Policy, and Product Counsel to consolidate six legal sequences into one tandem inform-and-remind design.</li>
-        <li>Reframed the leadership review around getting people to the fun faster; it secured leads' buy-in with minimal pushback.</li>
-      </ul>
-      <p class="nux-collaboration">Product design owned the final interaction and visual design; engineering and partner teams handled implementation and experiment analysis.</p>
-    </section>
-
-    <section class="nux-beat" aria-labelledby="nux-before">
-      <h2 id="nux-before">Problem: the curriculum was the wrong shape for a social product</h2>
-      <p>Every proposal on the table made the curriculum shorter or better sequenced. I argued the curriculum itself was the wrong shape. VR was already a new skill, and front-loading fourteen-plus lessons added information overload before anyone had context to use it. It also ignored the medium's advantage: education could live on the control and action that needed it, appear when someone tried, and stay silent otherwise.</p>
-      <figure class="nux-figure">
-        <img src="assets/vr-before-training-illustration.png" alt="A welcome panel asks new Horizon Worlds users to follow a blue line and visit tutorial stations before exploring." width="1456" height="1088" loading="lazy">
-        <figcaption>A standalone tutorial panel before anyone to meet: one stop on the fourteen-plus-lesson syllabus this case replaces.</figcaption>
-      </figure>
-    </section>
-
-    <section class="nux-beat" aria-labelledby="nux-in-the-moment">
-      <h2 id="nux-in-the-moment">Solution: the lesson lives on the control that performs it</h2>
-      <p>When someone tried to talk while muted, the answer appeared on the controller already in their hand, where the old flow opened a panel. A second touch on a skill triggered off a change in the person's state, never a timer.</p>
-      <figure class="nux-figure">
-        <video controls playsinline preload="none" poster="assets/vr-controller-nudge-poster.webp" aria-label="Controller nudge capture" aria-describedby="nux-nudge-caption">
-          <source src="assets/controller-nudge.mp4" type="video/mp4">
-          <a href="assets/controller-nudge.mp4">Watch the controller nudge capture</a>.
-        </video>
-        <figcaption id="nux-nudge-caption">In-headset capture of the shipped nudge. I wrote the string; the interaction was built with the product designer and engineering.</figcaption>
-      </figure>
-      <figure class="nux-pair">
-        <div class="nux-pair-grid">
-          <div>
-            <p class="nux-pair-label">Before</p>
-            <img src="assets/navigator-tooltip-before.png" alt="A floating 2D panel titled 'Looking for worlds?' describing a controller button, with two cropped photos of the controller." loading="lazy" style="width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line)">
-            <figcaption>A floating panel describing "this left button" and leaving the person to find it on the controller in their own hands.</figcaption>
-          </div>
-          <div>
-            <p class="nux-pair-label">After · shipped</p>
-            <img src="assets/navigator-tooltip.png" alt="The controller in the person's own hand, menu button ringed in cyan, with a tooltip anchored to the button by a drawn leader line." loading="lazy" style="width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line)">
-            <figcaption>The tooltip draws a leader line to the actual button. I wrote the string.</figcaption>
-          </div>
-        </div>
-      </figure>
-    </section>
-
-    <section class="nux-beat" aria-labelledby="nux-consent">
-      <h2 id="nux-consent">Challenge: six legal notices couldn't just be cut</h2>
-      <p>The front-loaded consent wall was one of six separate legal sequences across Horizon OS and Worlds, each its own block of text, and none of them could simply be cut. The resolution treated transparency as a property of the system rather than a screen: I negotiated a new location for the full inform modal in the mobile app, at a moment that met our transparency obligations and felt like the right time to read it, and the in-world notice became a one-line reminder, "Your audio is recorded for safety and other features," with a Learn more link. Inform on mobile, remind in-world. One tandem design met the legal bar and localization's character limits in every language, on both surfaces.</p>
-      <figure class="nux-pair">
-        <div class="nux-pair-grid">
-          <div>
-            <p class="nux-pair-label">Before</p>
-            <div class="nux-legal-stage is-before">
-              <img src="assets/vr-legal-modal-reconstruction.png" alt="A dense modal titled What to know before you explore, with separate sections about audio and video recording and data use" width="1456" height="1092" loading="lazy">
-            </div>
-            <figcaption>The upfront notice asked someone to read two dense disclosures before exploring.</figcaption>
-          </div>
-          <div>
-            <p class="nux-pair-label">After · shipped</p>
-            <div class="nux-legal-stage">
-              <img src="assets/mc-audio-capture-toast.webp" alt="A compact toast reads Your audio is recorded for captions and safety features, with a Learn more action" width="1000" height="216" loading="lazy">
-            </div>
-            <figcaption>One contextual line keeps the required notice present without becoming the experience.</figcaption>
-          </div>
-        </div>
-      </figure>
-    </section>
-
-    <section class="nux-beat nux-outcome" aria-labelledby="nux-adoption">
-      <h2 id="nux-adoption">Proof: Meta Quest onboarding adopted the just-in-time model</h2>
-      <p>The team that owns onboarding across Meta Quest picked up the model afterward. The design goal from the start: an onboarding people finish without remembering being taught.</p>
-      <p>Building this meant designing the strategy, the strings, the legal design, and the leadership framing as one system. That is the shape of content design work I do now.</p>
-    </section>
-
-    <div style="margin-top: 96px">
-      <div style="border-radius: 32px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.12); cursor: pointer">
-        <img src="assets/portals-hero.jpg" alt="Horizon Portals" style="width: 100%; height: 220px; object-fit: cover; filter: brightness(0.6); display: block">
-        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,18,14,0.92) 0%, transparent 55%)"></div>
-        <div style="position: absolute; bottom: 28px; left: 28px; right: 28px">
-          <p style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.38); margin: 0 0 8px">Next case study</p>
-          <p style="font-family: var(--font-display); font-weight: 200; font-size: 1.4rem; color: rgba(255,255,255,0.92); margin: 0"><a href="portals.html" style="color: inherit; text-decoration: none">Horizon Portals</a></p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-  </main>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="canonical" href="https://calebstacy.com/nux.html"><link rel="icon" href="favicon.ico" sizes="any"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><meta name="description" content="Just-in-time education for first-time VR users"><title>Meta Horizon NUX · Caleb Stacy</title><link rel="stylesheet" href="base.css"><link rel="stylesheet" href="edition.css"><link rel="stylesheet" href="wiki-windows.css"><link rel="stylesheet" href="main-page.css"><script src="edition.js" defer></script><script src="wiki-windows.js" defer></script></head>
+<body class="article-page"><a class="skip" href="#article">Skip to content</a><div class="masthead-bar"><header class="masthead"><div class="masthead-start"><details class="site-directory"><summary aria-label="Explore the site"><span aria-hidden="true">☰</span><span class="menu-label">Explore</span></summary><nav aria-label="All articles"><ul><li class=""><a href="index.html">Caleb Stacy</a></li><li class="nav-heading">Work at Meta</li><li class=""><a href="verso.html">Verso</a></li><li class="sub"><a href="verso-agent.html">Agent</a></li><li class="sub"><a href="verso-index.html">Index</a></li><li class="sub"><a href="verso-engine.html">Engine</a></li><li class=""><a href="nux.html" aria-current="page">Meta Horizon NUX</a></li><li class=""><a href="portals.html">Portals</a></li><li class=""><a href="samples.html">Work samples</a></li><li class="nav-heading">Research</li><li><a href="https://github.com/calebstacy/word-math">Word Math ↗</a></li><li><a href="https://github.com/calebstacy/slop-no-more">Slop No More ↗</a></li><li class="group"><a href="resume.html">Résumé</a></li></ul></nav></details><a class="brand" href="index.html"><strong>Caleb Stacy</strong><small>Portfolio</small></a></div><a class="resume-route" href="resume.html">Résumé</a></header></div>
+<div class="layout" id="top"><aside class="sidebar"><details class="contents" open><summary>Contents</summary><nav aria-label="Article contents"><ul><li><a href="#top">Overview</a></li><li class="level-2"><a href="#first-run-education">First-run education</a></li><li class="level-2"><a href="#contextual-instruction">Contextual instruction</a></li><li class="level-2"><a href="#developing-the-strategy">Developing the strategy</a></li><li class="level-2"><a href="#recording-disclosure">Recording disclosure</a></li><li class="level-2"><a href="#results-and-adoption">Results and adoption</a></li><li class="level-2"><a href="#related-work">Related work</a></li></ul></nav></details></aside><main class="page" id="article" tabindex="-1"><div class="breadcrumbs"><a href="index.html">Caleb Stacy</a> / <a href="index.html#meta">Meta</a> / Meta Horizon NUX</div><header class="article-heading"><h1>Meta Horizon NUX</h1><p class="subtitle">Just-in-time education for first-time VR users</p></header><article class="article-content" aria-label="Meta Horizon NUX"><aside class="factbox" aria-label="Meta Horizon NUX key facts"><h2>Meta Horizon NUX</h2><p class="kind">First-run experience</p><dl><div><dt>Organization</dt><dd>Meta</dd></div><div><dt>Period</dt><dd>2025</dd></div><div><dt>My role</dt><dd>Content design</dd></div><div><dt>Approach</dt><dd>Just-in-time education</dd></div><div><dt>Context</dt><dd>VR onboarding</dd></div><div><dt>Related</dt><dd><a href="portals.html">Portals</a><br><a href="samples.html">Work samples</a></dd></div></dl></aside><p>Meta Horizon NUX was the 2025 redesign of first-run education in Horizon Worlds. I helped replace a welcome world full of instructions with a just-in-time education strategy: let people enter a world, then teach a control or action when they had a reason to use it. The redesigned onboarding increased first-world visits by about 13% and weekly active use at day 30 by about 7% compared with the experience it replaced.</p>
+<p>My work covered the education principles, interaction language, and the content architecture of legal notices. I worked with product design, engineering, research, legal, policy, and localization. Product design owned the final interaction and visual design; the results reflect the team&#x27;s work across the experience.</p>
+<section class="article-section">
+<h2 id="first-run-education">First-run education</h2>
+<p>People arrived in Horizon after setting up a Quest headset. Before they could meet anyone or play, they still had world selection, consent, loading, and more than fourteen lessons to get through. Those lessons covered useful things, including controls and safety, but people were learning them before they needed them. New features kept adding more information to the welcome.</p>
+<figure class="wiki-figure wide-figure route-fig"><div class="route-pair"><div><p class="route-label">Why someone came</p><ol class="route"><li class="stop"><span class="node">Headset<small>Set up</small></span></li><li class="stop goal"><span class="node">First world<small>People and play</small></span></li></ol></div><div><p class="route-label">What came first</p><ol class="route"><li class="stop"><span class="node">Headset<small>Set up</small></span></li><li class="stop"><span class="node">Choose a world</span></li><li class="stop"><span class="node">Consent</span></li><li class="stop lessons"><span class="node"><span class="tiles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="more"></i></span>14+ lessons<small>Controls and safety</small></span></li><li class="stop"><span class="node">Loading</span></li><li class="stop goal"><span class="node">First world<small>People and play</small></span></li></ol></div></div><figcaption>Someone came to meet people and play. The welcome put a world choice, consent, more than fourteen lessons, and loading first.</figcaption></figure>
+<p>The team&#x27;s proposals had focused on shortening or rearranging that curriculum. I wanted to change when the teaching happened. Someone looking for another world had a reason to learn the navigator. Someone trying to speak with their mic off had a reason to learn the mic control. Those moments gave an instruction a job it didn&#x27;t have at the entrance.</p>
+<p>The education strategy had to help people reach their first world, teach through the interaction itself, and give teams reusable components for later lessons. A controller tooltip was one application of that strategy.</p>
+</section>
+<section class="article-section">
+<h2 id="contextual-instruction">Contextual instruction</h2>
+<p>VR let us attach the explanation to the thing a person needed to use. Instead of asking someone to read a floating panel, remember a button&#x27;s name, and find it on their controller, the instruction could point directly to that button.</p>
+<link rel="stylesheet" href="assets/nux-controller.css"><script src="assets/nux-controller.js" defer></script>
+<div class="nux-module"><div class="fig">
+<figure class="ui check play ns" data-play="2400,4200,1600,2600,2400">
+<div class="play-stage ns-stage">
+<div class="ns-way ns-before check-bit" data-at="0">
+<p class="ns-head"><span class="ns-tag">Before</span><span class="ns-name">A picture of the button sat in the sentence.</span></p>
+<div class="ns-col">
+<div class="board ns-board">
+<p class="board-title">Looking for worlds?</p>
+<p class="board-text">Use <span class="check-mark" data-at="1"><svg aria-label="the menu button (shown as a picture)" class="menu-glyph" role="img" viewBox="-10 -10 20 20"><circle class="mg-ring" r="9"></circle><circle class="mg-disc" r="6.5"></circle><path class="mg-lines" d="M-3.5 -2.3h7M-3.5 0h7M-3.5 2.3h7"></path></svg></span> on your controller to open the navigator and explore different worlds. Give it a try!</p>
 </div>
-
-<script src="assets/site-motion.js?v=20260831-portfolio" defer></script>
-</body>
-</html>
+<svg aria-label="Below the panel, the controller in the person's hand, with nothing tying the panel to it. Dashed rings land on one control after another, the menu button last." class="drawn ns-draw" role="img" viewBox="0 118 280 208">
+<defs><pattern height="7" id="ns-dots-a" patternUnits="userSpaceOnUse" width="8"><circle class="d-dot" cx="2" cy="2" r="1"></circle></pattern></defs>
+<g transform="translate(182 205) rotate(-30) scale(0.62)">
+<rect class="d-face" height="42" rx="9" transform="translate(64.5 112) rotate(15.25)" width="18" x="-9" y="-21"></rect>
+<path class="d-face" d="M-68 28C-83 85 -48 186 -23 197Q14 216 40 187L79 44Z"></path>
+<ellipse class="d-face" cy="-20" rx="101" ry="111"></ellipse>
+<ellipse class="d-tone" cy="-20" fill="url(#ns-dots-a)" rx="93" ry="103"></ellipse>
+<circle class="d-key" cx="-41" cy="-65" r="27"></circle>
+<circle class="d-key" cx="46" cy="-76" r="19"></circle><text class="c-letter" text-anchor="middle" transform="rotate(30 46 -76)" x="46" y="-68">Y</text>
+<circle class="d-key" cx="59" cy="-18" r="19"></circle><text class="c-letter" text-anchor="middle" transform="rotate(30 59 -18)" x="59" y="-10">X</text>
+<circle class="d-key" cx="-36" cy="4" r="22"></circle>
+<path class="d-line" d="M-46 -3h20M-46 4h20M-46 11h20"></path>
+</g>
+<circle class="ns-seek check-bit" cx="183.1" cy="149.9" data-at="1" r="15.8" style="--d:0ms"></circle>
+<circle class="ns-seek check-bit" cx="208.1" cy="177" data-at="1" r="15.8" style="--d:650ms"></circle>
+<circle class="ns-seek check-bit" cx="139.8" cy="182.8" data-at="1" r="20.7" style="--d:1300ms"></circle>
+<circle class="ns-seek ns-found check-bit" cx="163.9" cy="218.3" data-at="1" r="17.6" style="--d:1950ms"></circle>
+</svg>
+</div>
+</div>
+<div class="ns-way ns-after check-bit" data-at="2">
+<p class="ns-head"><span class="ns-tag">After</span><span class="ns-name">The card sat on the controller and drew a line to the button.</span></p>
+<div class="ns-col">
+<svg aria-label="The same controller. A card attached to it draws a thin line down to the menu button, which glows with outward rings, then is pressed." class="drawn ns-draw" role="img" viewBox="0 0 280 326">
+<defs><pattern height="7" id="ns-dots-b" patternUnits="userSpaceOnUse" width="8"><circle class="d-dot" cx="2" cy="2" r="1"></circle></pattern><radialGradient id="ns-button-light"><stop offset="0" stop-color="#38BDF8" stop-opacity=".7"></stop><stop offset=".5" stop-color="#38BDF8" stop-opacity=".3"></stop><stop offset="1" stop-color="#38BDF8" stop-opacity="0"></stop></radialgradient></defs>
+<g transform="translate(182 205) rotate(-30) scale(0.62)">
+<rect class="d-face" height="42" rx="9" transform="translate(64.5 112) rotate(15.25)" width="18" x="-9" y="-21"></rect>
+<path class="d-face" d="M-68 28C-83 85 -48 186 -23 197Q14 216 40 187L79 44Z"></path>
+<ellipse class="d-face" cy="-20" rx="101" ry="111"></ellipse>
+<ellipse class="d-tone" cy="-20" fill="url(#ns-dots-b)" rx="93" ry="103"></ellipse>
+<circle class="d-key" cx="-41" cy="-65" r="27"></circle>
+<circle class="d-key" cx="46" cy="-76" r="19"></circle><text class="c-letter" text-anchor="middle" transform="rotate(30 46 -76)" x="46" y="-68">Y</text>
+<circle class="d-key" cx="59" cy="-18" r="19"></circle><text class="c-letter" text-anchor="middle" transform="rotate(30 59 -18)" x="59" y="-10">X</text>
+<circle class="d-key" cx="-36" cy="4" r="22"></circle>
+<path class="d-line" d="M-46 -3h20M-46 4h20M-46 11h20"></path>
+</g>
+<g aria-hidden="true" class="check-bit" data-at="2"><circle class="ns-button-bloom" cx="163.9" cy="218.3" fill="url(#ns-button-light)" r="31"></circle><circle class="ns-button-radiance" cx="163.9" cy="218.3" r="14"></circle><circle class="ns-button-radiance ns-button-radiance--second" cx="163.9" cy="218.3" r="14"></circle></g><circle class="d-accent check-bit" cx="163.9" cy="218.3" data-at="2" r="18.3"></circle>
+<g class="check-bit" data-at="3">
+<path class="d-accent" d="M163.9 105V198"></path>
+<rect class="c-card" height="105" rx="9" width="252"></rect>
+<clipPath id="ns-thumb"><rect height="97" rx="6" width="97" x="4" y="4"></rect></clippath>
+<g clip-path="url(#ns-thumb)"><rect class="c-thumb" height="97" width="97" x="4" y="4"></rect><g transform="translate(52.5 50) scale(0.3)">
+<rect class="d-face" height="42" rx="9" transform="translate(64.5 112) rotate(15.25)" width="18" x="-9" y="-21"></rect>
+<path class="d-face" d="M-68 28C-83 85 -48 186 -23 197Q14 216 40 187L79 44Z"></path>
+<ellipse class="d-face" cy="-20" rx="101" ry="111"></ellipse>
+<ellipse class="d-tone" cy="-20" fill="url(#ns-dots-b)" rx="93" ry="103"></ellipse>
+<circle class="d-key" cx="-41" cy="-65" r="27"></circle>
+<circle class="d-key" cx="46" cy="-76" r="19"></circle>
+<circle class="d-key" cx="59" cy="-18" r="19"></circle>
+<circle class="d-key" cx="-36" cy="4" r="22"></circle>
+<circle class="d-accent" cx="-36" cy="4" r="30"></circle>
+</g></g>
+<text class="c-text" x="114" y="0"><tspan x="114" y="36">Use this button to</tspan><tspan x="114" y="56">open the navigator</tspan><tspan x="114" y="76">and find new worlds.</tspan></text>
+</g>
+<g class="check-bit" data-at="4">
+<g transform="translate(182 205) rotate(-30) scale(0.62)"><circle class="c-press" cx="-36" cy="4" r="22"></circle><path class="c-press-lines" d="M-46 -3h20M-46 4h20M-46 11h20"></path></g>
+<path class="c-check" d="M190.2 219.3l7 7 14 -16"></path>
+</g>
+</svg>
+</div>
+</div>
+</div>
+<button class="check-replay" hidden="" type="button">Replay</button>
+</figure>
+</div></div>
+<p>The controller education pattern combined a highlighted button, vibration, and an anchored popover. Completing the action dismissed the instruction. The popover also had a timeout and a cooldown before another one appeared. The important distinction was when the lesson became relevant: a person&#x27;s state and actions determined the need for teaching, while timers kept an individual instruction from lingering.</p>
+<p>The mic education example began “Trying to talk?” It connected an apparent intention to the mic&#x27;s current state and the control that could change it. Other applications covered opening world details, settings, safety actions, and the camera. The same strategy could support different tasks without making the welcome world carry every lesson at once.</p>
+</section>
+<section class="article-section">
+<h2 id="developing-the-strategy">Developing the strategy</h2>
+<p>In a FigJam workshop called Antiprinciples, I asked the team to invent the worst possible welcome, then reverse its ideas. We used the exercise to work through when to interrupt and when to leave someone alone. UX research helped me frame the leadership discussion around getting people into the social experience sooner.</p>
+<p>I developed and refined the principles with the team and worked with design and the foundations team to get the controller tooltip approved as a reusable component. That gave future education a consistent place and behavior, rather than requiring a new instructional panel for each feature.</p>
+</section>
+<section class="article-section">
+<h2 id="recording-disclosure">Recording disclosure</h2>
+<p>The legal-notice work extended across Horizon OS and Worlds. Six separate sequences had accumulated, with overlapping information and different implementations. I audited those experiences and worked with Privacy Legal, Policy, and Product Counsel on their content architecture.</p>
+<p>We separated the full disclosure from the reminder. The full explanation moved to an appropriate point in phone setup. In a world, people received a compact notice about audio recording with a Learn more route. The required information remained available, but it no longer all had to be read at the moment someone wanted to join other people.</p>
+<p>The in-world sentence needed to cover safety and future audio features while fitting a small surface. Legal, policy, and localization worked through it with us for about two months. When the German translation ran onto a third line, I brought our localization expert and legal together to find wording that fit without losing the required meaning.</p>
+</section>
+<section class="article-section">
+<h2 id="results-and-adoption">Results and adoption</h2>
+<p>The new onboarding increased first-world visits by about 13% and weekly active use at day 30 by about 7%. Those are results for the combined experience, including changes to education, interaction design, and the journey. They don&#x27;t isolate the effect of a particular sentence or tooltip.</p>
+<p>After the Horizon rollout, the Meta Quest onboarding team adopted the education strategy and its components. The work established a reusable way to teach through the situation someone was already in, with the control close enough to act on what they had just learned.</p>
+</section>
+<section class="article-section">
+<h2 id="related-work">Related work</h2>
+<p class="hatnote">Main article: <a href="portals.html">Portals</a></p>
+<p>The year before, I worked on Portals, a new way to travel between experiences in Meta Horizon. New users met the portal, and its experiment counted how many of them finished their first run. Before the portal was introduced at Meta Connect 2024, I shared the portal strategy for onboarding prototypes that would teach new users how to use it.</p>
+<p>Both projects turned on when information should appear. First-run education waited until someone needed a control. A portal showed more as someone approached it.</p>
+</section></article>
+<footer class="colophon"><p>Caleb Stacy’s portfolio, organized like an encyclopedia.</p><a href="#top">Back to top ↑</a></footer></main></div>
+<dialog class="image-viewer" aria-labelledby="image-title"><header><span id="image-title">Image</span><button type="button" aria-label="Close image">Close ×</button></header><img alt=""></dialog></body></html>

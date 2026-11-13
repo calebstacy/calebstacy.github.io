@@ -1,0 +1,172 @@
+/* Story components for the Verso articles: the Problem / Solution / Outcome brief, reference lists,
+   example conversations, check results, scorecards. They use the wiki's figure box and colour tokens. */
+:root{--fail:#f0a39b;--pass:#9ccfa8}
+
+/* Ledger: a label on the left and text on the right. */
+.ledger{margin:4px 0 22px}
+.ledger>div:first-child{border-top:1px solid var(--line)}
+h2 + .ledger>div:first-child{border-top:0}
+.ledger>div{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:11px 0;border-bottom:1px solid var(--line)}
+.ledger dt{font-size:13px;font-weight:600;line-height:1.55}
+.ledger dd{font-size:14px;line-height:1.6;color:var(--text)}
+.brief>div{grid-template-columns:84px minmax(0,1fr)}
+.brief dt{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.lead-brief{display:flow-root}
+.lead-brief + .article-section{clear:both}
+.ledger dd .eg{display:block;font-size:13px;line-height:1.55;color:var(--muted);margin-top:4px}
+.method{margin:0 0 20px;padding-left:22px}
+.method li{margin-bottom:10px;padding-left:4px}
+.method strong{font-weight:600}
+
+/* Figure box */
+.wiki-figure.story{clear:both;container-type:inline-size;max-width:780px;margin:10px 0 26px;padding:16px 18px 12px;font-size:14px;line-height:1.55;min-width:0}
+.story p{margin:0 0 8px}
+.story li{margin-bottom:0}
+.story .kicker{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 13px}
+.story figcaption{margin-top:14px}
+.story code{font:12.5px/1.5 ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;color:var(--text);overflow-wrap:anywhere}
+.story .string{background:var(--bg);border-radius:3px;padding:8px 12px;margin:0 0 12px;font-weight:500}
+.story .string.pick{box-shadow:inset 3px 0 0 var(--link)}
+.story .step-label{font-size:12px;color:var(--muted);margin:0 0 5px}
+.story .quote{margin:0 0 14px;padding-left:12px;border-left:2px solid var(--line)}
+.story .calls{display:flex;flex-wrap:wrap;gap:6px 8px;margin:0 0 14px}
+.story .calls code{background:var(--bg);border-radius:3px;padding:3px 8px}
+.story .ledger{margin:0 0 14px}
+.story .ledger dd b{font-weight:600}
+
+/* A reply, with each part labelled by what it does */
+.story .ledger.parts{margin:0 0 18px}
+.story .ledger.parts>div{grid-template-columns:168px minmax(0,1fr);padding:9px 0}
+.story .ledger.parts dt{font-size:12px;font-weight:500;color:var(--muted);padding-top:2px}
+.story .ledger.parts dd{font-size:14px}
+.story .slot{color:var(--muted)}
+.story .ledger.parts:last-of-type{margin-bottom:6px}
+.story .side-head + .ledger.parts>div:first-child{border-top:0;padding-top:0}
+.story .ledger.parts>div:last-child{border-bottom:0;padding-bottom:4px}
+.story .ledger.parts + .step-label{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+
+/* Two columns that stack when the figure is narrow */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 28px}
+.duo>.side{min-width:0}
+.side-head{font-size:12px;font-weight:600;border-bottom:1px solid var(--line);padding-bottom:7px;margin:0 0 10px!important}
+.side-sub{font-size:12px;color:var(--muted)}
+.side-foot{font-size:12px;color:var(--muted);margin:10px 0 0!important}
+
+/* Findings: what a check or a measurement returned */
+.findings{list-style:none;margin:0 0 12px;padding:0!important;border-top:1px solid var(--line)}
+.findings li{display:grid;grid-template-columns:16px minmax(0,1fr);gap:8px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.5}
+.findings li:last-child{border-bottom:0}
+.findings .mark{font-weight:600;color:var(--muted)}
+.findings .fail .mark{color:var(--fail)}
+.findings .pass .mark{color:var(--pass)}
+.findings b{font-weight:600}
+.side-head + .findings{border-top:0}
+.side-head + .findings li:first-child{padding-top:0}
+
+/* Conversation: only the person's message sits in a bubble */
+.chat .turn{min-width:0;margin:0 0 16px}
+.chat .who{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 5px}
+.chat .me{margin-left:auto;max-width:86%;width:fit-content}
+.chat .me .who{text-align:right}
+.chat .bubble{background:var(--active);border:1px solid var(--line);border-radius:12px 12px 3px 12px;padding:10px 14px}
+.chat .bubble p:last-child,.chat .verso>p:last-child{margin-bottom:0}
+.chat .bubble .string{margin-bottom:9px}
+.chat strong{font-weight:600}
+.atts{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 9px!important}
+.att{display:inline-flex;align-items:center;gap:6px;font-size:12px;line-height:1.3;padding:4px 9px;border:1px solid var(--line);border-radius:3px;background:var(--bg)}
+.att svg{width:10px;height:13px;flex:none;stroke:var(--muted);fill:none;stroke-width:1}
+.att small{color:var(--muted);font-size:11px}
+.acts{list-style:none;margin:0 0 8px;padding:0!important;font-size:12px;color:var(--muted)}
+.acts li{padding-left:17px;position:relative}
+.acts li::before{content:"✓";position:absolute;left:0}
+.unseen{margin:0 0 18px;padding:2px 0 2px 16px;border-left:2px dashed var(--muted)}
+.unseen-label{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 12px!important}
+.approve{border-left:2px solid var(--link);padding:1px 0 1px 12px;font-size:13px;margin:12px 0 0!important}
+.approve b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:2px}
+.cites{list-style:none;margin:0;padding:0!important}
+.cites li{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:18px;align-items:start;padding:11px 0;border-top:1px solid var(--line)}
+.cites li p{margin:0}
+.cites .src{font-size:12px;line-height:1.45;color:var(--muted);border-left:2px solid var(--line);padding-left:10px}
+.cites .src b{display:block;color:var(--text);font-weight:600}
+
+/* Scorecard rows: a shaded band for the product's usual range, markers for drafts */
+.score{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:13px 30px;margin:4px 0 6px}
+.score .row{min-width:0}
+.score .dim{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:12px;line-height:1.4;margin:0 0 5px}
+.score .dim b{font-weight:600}
+.score .dim span{color:var(--muted);text-align:right}
+.track{position:relative;display:block;height:14px}
+.track::before{content:"";position:absolute;left:0;right:0;top:6px;border-top:1px solid var(--line)}
+.track .band{position:absolute;top:2px;height:10px;border-radius:2px;background:color-mix(in srgb,var(--muted) 34%,transparent)}
+.track .pt{position:absolute;top:2px;width:10px;height:10px;margin-left:-5px;border-radius:50%;box-sizing:border-box}
+.track .pt.a{border:2px solid var(--text);background:var(--panel)}
+.track .pt.b{background:var(--link)}
+.track.two{height:26px}
+.track.two::before{top:12px}
+.track.two .band{top:1px;height:9px}
+.track.two .band.n{top:15px;background:none;border:1px solid var(--text)}
+.track.two .tick{position:absolute;top:0;height:11px;border-left:2px solid var(--text)}
+.track.two .tick.n{top:14px}
+.score-key{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:12px;line-height:1.5;color:var(--muted);margin:12px 0 0!important}
+.score-key span{display:inline-flex;align-items:center;gap:7px}
+.score-key i{display:inline-block;flex:none}
+.score-key .k-band{width:22px;height:9px;border-radius:2px;background:color-mix(in srgb,var(--muted) 34%,transparent)}
+.score-key .k-band.n{background:none;border:1px solid var(--text);box-sizing:border-box}
+.score-key .k-a{width:10px;height:10px;border-radius:50%;border:2px solid var(--text);box-sizing:border-box}
+.score-key .k-b{width:10px;height:10px;border-radius:50%;background:var(--link)}
+.score-key .k-tick{height:11px;border-left:2px solid var(--text)}
+.options{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 28px;margin:0 0 14px}
+.options .string{margin-bottom:8px}
+.options .side-foot{margin:0 0 4px!important}
+
+/* Cold and warm lanes */
+.lane-name{font-size:12px;font-weight:600;margin:0 0 6px!important}
+.lane{list-style:none;display:flex;gap:4px;margin:0 0 14px;padding:0!important}
+.lane li{flex:1 1 0;min-width:0;border:1px solid var(--line);border-radius:2px;padding:7px 9px;font-size:12px;line-height:1.35}
+.lane li.wait{flex:2.2 1 0;border-style:dashed;color:var(--muted);background:repeating-linear-gradient(135deg,transparent 0 6px,color-mix(in srgb,var(--muted) 12%,transparent) 6px 12px)}
+.lane li small{display:block;font-size:11px}
+.lane li:last-child{background:var(--active);border-color:var(--link)}
+.lane.warm{width:calc((100% + 4px) * 4 / 6.2 - 4px)}
+
+/* Rule in words beside the same rule as a check */
+.pairs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 28px}
+.pairs>p{margin:0;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.pairs .head{font-size:12px;font-weight:600;padding-top:0}
+.pairs .check small{display:block;color:var(--muted);font-size:12px;margin-top:1px}
+.pairs .stay{color:var(--muted)}
+.pairs>p:nth-last-child(-n+2){border-bottom:0}
+
+/* A page of guidance, sorted */
+.sorted{list-style:none;margin:0;padding:0!important}
+.sorted li{display:grid;grid-template-columns:minmax(0,1fr) 108px 208px;gap:16px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.sorted .kind{font-size:12px;color:var(--muted)}
+.sorted .went{font-size:12px;color:var(--muted)}
+.sorted .went.code,.sorted .went.meas{color:var(--text);font-weight:600}
+.sorted li.head{font-size:12px;font-weight:600;padding-top:0}
+.sorted li:last-child{border-bottom:0}
+
+/* A proposed change */
+.diff{margin:0 0 12px;font-size:13.5px;display:grid;gap:3px}
+.diff p{margin:0;padding:7px 10px 7px 30px;position:relative;border-radius:2px}
+.diff p::before{position:absolute;left:11px;font-weight:600}
+.diff .del{background:color-mix(in srgb,var(--fail) 11%,transparent)}
+.diff .add{background:color-mix(in srgb,var(--pass) 11%,transparent)}
+.diff .del::before{content:"−";color:var(--fail)}
+.diff .add::before{content:"+";color:var(--pass)}
+.decide{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;font-size:12.5px;margin:0 0 2px!important}
+.decide span:first-child{margin-right:8px}
+.btn{display:inline-block;border:1px solid var(--line);border-radius:3px;padding:3px 11px;font-size:12px}
+.btn.primary{border-color:var(--link);background:var(--active)}
+
+@container (max-width:560px){
+  .duo,.options,.score,.pairs{grid-template-columns:minmax(0,1fr)}
+  .duo{gap:20px 0}.options{gap:14px 0}
+  .cites li{grid-template-columns:minmax(0,1fr);gap:7px}
+  .lane{flex-direction:column}.lane.warm{width:auto}.lane li.wait{padding:14px 9px}
+  .pairs .head{display:none}.pairs .words{border-bottom:0;padding-bottom:1px;font-weight:500}.pairs .check{padding-top:2px}
+  .sorted li{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1px 12px}.sorted li>span:first-child{grid-column:1/-1}.sorted li.head{display:none}.sorted .went{text-align:right}
+  .chat .me{max-width:94%}
+  .story .ledger.parts>div{grid-template-columns:minmax(0,1fr);gap:1px}
+}
+@media(max-width:560px){.wiki-figure.story{padding:13px 13px 10px}.ledger>div{grid-template-columns:minmax(0,1fr);gap:2px}.brief>div{grid-template-columns:minmax(0,1fr)}}
+@media print{.wiki-figure.story{--fail:#a1261c;--pass:#1d6b33}}
